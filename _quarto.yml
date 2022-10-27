@@ -1,20 +1,58 @@
 project:
   type: website
   output-dir: docs
-
-website:
-  title: "jwarz.github.io"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+  render:
+  - index.qmd
+  - about.qmd
+  - pres_2022.qmd
+  - presentations/2022/first/first.qmd
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme: lux
     toc: true
+    df-print: kable
+    smooth-scroll: true
+    link-external-newwindow: true
+    linkcolor: '#BC0031'
 
-
-
+website:
+  title: "Joschka Schwarz"
+  site-url: https://jwarz.github.io
+  repo-url: https://github.com/jwarz/jwarz.github.io
+  repo-actions: [edit, issue]
+  #  google-analytics: "UA-107432294-1"
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "Presentations"
+        contents:
+          - index.qmd
+          - pres_2022.qmd
+      - section: "Resumes"
+        contents:
+          - classic.qmd
+          - layout-knitr.qmd
+          - layout-jupyter.qmd
+  page-navigation: true
+  search: false
+  navbar:
+    background: '#00C1D4'
+    pinned: true
+    left:
+      - text: "Home"
+        file: index.qmd
+      - about.qmd
+      - text: Pages
+        menu:
+          - presentations/2022/first/first.qmd
+          - sidebar:PRES
+          
+    right:
+      - icon: github
+        href: https://github.com/jwarz/
+        aria-label: Quarto GitHub
+        
+# 
+# freeze: false
