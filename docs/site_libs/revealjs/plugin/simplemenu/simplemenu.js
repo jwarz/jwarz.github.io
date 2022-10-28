@@ -3,6 +3,8 @@
  * @author: Martijn De Jongh (Martino), martijn.de.jongh@gmail.com
  * https://github.com/Martinomagnifico
  *
+ * @co-author: Joschka Schwarz
+ * 
  * Simplemenu.js for Reveal.js 
  * Version 1.1.2
  * 
@@ -13,6 +15,17 @@
  *  - Hakim El Hattab, Reveal.js 
  ******************************************************************/
 
+/* jwarz: Add Menubar to the DOM */
+var slides = document.querySelector( '.reveal .slides' );
+var menubar = document.createElement( 'div' );
+menubar.classList.add( 'menubar' );
+menubar.innerHTML = '<ul class="menu"></ul>';
+slides.parentNode.insertBefore(menubar, slides);
+
+var element = document.querySelector('#title-slide');
+element.setAttribute("data-state", "hide-menubar");
+
+/*  martinomagnifico: simplemenu */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :

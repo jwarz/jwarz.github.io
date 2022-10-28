@@ -1,0 +1,125 @@
+.slides {
+  
+  inset: 55% auto auto 50% !important;
+
+}
+
+/*-- scss:defaults --*/
+
+// Fonts
+@font-face {
+  font-family: 'PublicaSans-Light';
+  src: url('PublicaSans-Light.otf') format("opentype");
+}
+@font-face {
+  font-family: 'PublicaSans-Thin';
+  src: url('PublicaSans-Thin.otf') format("opentype");
+}
+@font-face {
+  font-family: 'PublicaSans-Regular';
+  src: url('_extensions/startupengineer/src/assets/fonts/PublicaSans-Regular.otf') format("opentype");
+}
+
+$font-family-sans-serif: 'PublicaSans-Light', sans-serif !default;
+
+// colors
+$body-bg: #272935 !default;
+$body-color: #98A6AD !default;
+$link-color: #2dc6d6 !default;
+$selection-bg: $link-color !default;
+$selection-color: #fff !default;
+$input-panel-bg: rgba(233, 236, 239, 0.2) !default;
+
+// headings
+$presentation-heading-font: 'PublicaSans-Regular', sans-serif !default;
+$presentation-heading-color: #2dc6d6 !important;
+
+section.has-dark-background h1 {
+
+  color: $presentation-heading-color;
+}
+
+
+$code-color: #2dc6d6;
+$code-block-bg: #444758;
+$code-block-border-color: #000000;
+
+/*-- scss:rules --*/
+/*
+TITLE SLIDE
+*/
+#title-slide {
+ text-align: left;
+ background-image: url("/presentations/img/logo.svg");
+ background-position: right bottom; /*Positioning*/
+ background-size: 10em auto;
+ background-repeat: no-repeat; /*Prevent showing multiple background images*/
+}
+
+#title-slide .institute, #title-slide .author, #title-slide .date {
+  font-style: italic;
+  font-size: 0.6em;
+}
+#title-slide .author {
+  color: $link-color;
+}
+#title-slide p.author::before {
+  content: "";
+  display: block;
+  border: none;
+  background-color: $body-color;
+  color: $body-color;
+  height: 3px;
+  margin-bottom: 1em;
+}
+.subtitle {
+  font-size: 1em;
+}
+
+.reveal .slide-number {
+  color: $link-color;
+  font-family: $font-family-sans-serif;
+}
+
+.reveal .footer {
+  color: #98A6AD;
+  font-size: 0.35em !important;
+  /*text-align: right !important;*/
+}
+
+.reveal .slides section .fragment.semi-fade-out {
+	opacity: 1;
+	visibility: inherit;
+
+	&.visible {
+		opacity: 0.25;
+		visibility: inherit;
+	}
+}
+
+.slide-number, .reveal.has-logo .slide-number {
+  bottom: unset !important;
+  left: 10px !important;
+  top: 10px !important;
+  color: $body-color !important;
+}
+
+.sectionhead {
+  font-size: 1em;
+  text-align: center;
+  color: $presentation-heading-color;
+  font-family: $font-family-sans-serif;
+  background-color: $body-bg;
+  padding-left: 20px;
+  width: 8rem;
+  border-left: 3px solid;
+}
+
+.blackbox {
+  color: #000000;
+  background-color: transparent;
+  margin: 1px;
+  padding: 5px 2px 5px 2px;
+  height: 205px;
+  border: 2px solid;
+}
