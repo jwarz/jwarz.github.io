@@ -1,4 +1,3 @@
-
 /*****************************************************************
  * @author: Martijn De Jongh (Martino), martijn.de.jongh@gmail.com
  * https://github.com/Martinomagnifico
@@ -22,8 +21,9 @@ menubar.classList.add( 'menubar' );
 menubar.innerHTML = '<ul class="menu"></ul>';
 slides.parentNode.insertBefore(menubar, slides);
 
-var element = document.querySelector('#title-slide');
-element.setAttribute("data-state", "hide-menubar");
+/* jwarz: Hide Menubar at title slide */
+var title_slide = document.querySelector('#title-slide');
+title_slide.setAttribute("data-state", "hide-menubar");
 
 /*  martinomagnifico: simplemenu */
 
