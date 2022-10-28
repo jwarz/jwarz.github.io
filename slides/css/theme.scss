@@ -76,11 +76,6 @@ TITLE SLIDE
   font-size: 1em;
 }
 
-.reveal .slide-number {
-  color: $link-color;
-  font-family: $font-family-sans-serif;
-}
-
 .reveal .footer {
   color: #98A6AD;
   font-size: 0.35em !important;
@@ -98,10 +93,67 @@ TITLE SLIDE
 }
 
 .slide-number, .reveal.has-logo .slide-number {
+  margin-top: -1px;
+  z-index: 2;
+  padding: 0.3em;
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex !important;
+  align-items: end;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+  justify-content: flex-end;
+  width: 100%;
+  font-size: 2.7vmin;
+  line-height: 1;
   bottom: unset !important;
-  left: 10px !important;
-  top: 10px !important;
   color: $body-color !important;
+}
+
+.reveal .slide-number {
+  color: $link-color;
+  font-family: $font-family-sans-serif;
+  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -o-transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985), -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -webkit-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+
+
+.reveal .footer {
+  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -o-transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985), -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -webkit-transform: translateY(200%);
+  -ms-transform: translateY(200%);
+  transform: translateY(200%);
+}
+
+.reveal .slide-number a {
+  padding: 0.4em 1em;
+  line-height: 1;
+  font-size: 2.7vmin;
+}
+
+body:not(.hide-menubar) .reveal.ready:not(.hide-menubar) .slide-number {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+}
+
+body:not(.hide-menubar) .reveal.ready:not(.hide-menubar) .footer {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
 }
 
 .sectionhead {
