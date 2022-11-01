@@ -4,20 +4,31 @@ project:
   render:
   - index.qmd
   - about.qmd
-  - pres_2022.qmd
+  - resumes.qmd
+  - slides_2021.qmd
+  - slides_2022.qmd
   - slides/2022/first/first.qmd
+  - resumes/classic/index.qmd
+  - resumes/spotify/index.qmd
 
 format:
   html:
-    theme: lux
+    theme:
+      light: [litera, css/styles.scss]
+      dark: [darkly, css/styles-dark.scss]
+    highlight-style: a11y-dark
+    mainfont: "Atkinson Hyperlegible"
+    code-copy: true
+    code-overflow: wrap
     toc: true
     df-print: kable
     smooth-scroll: true
     link-external-newwindow: true
     linkcolor: '#BC0031'
-
+    
 website:
-  title: "Joschka Schwarz"
+  # favicon: 
+  title: "Joschka<br>Schwarz"
   site-url: https://jwarz.github.io
   repo-url: https://github.com/jwarz/jwarz.github.io
   repo-actions: [edit, issue]
@@ -28,31 +39,30 @@ website:
     contents:
       - section: "Presentations"
         contents:
-          - index.qmd
-          - pres_2022.qmd
-      - section: "Resumes"
-        contents:
-          - classic.qmd
-          - layout-knitr.qmd
-          - layout-jupyter.qmd
+          - slides_2022.qmd
+          - slides_2021.qmd
+      - text: "Resumes"
+        href: resumes.qmd
   page-navigation: true
   search: false
   navbar:
     background: '#00C1D4'
     pinned: true
-    left:
-      - text: "Home"
-        file: index.qmd
-      - about.qmd
-      - text: Pages
-        menu:
-          - slides/2022/first/first.qmd
-          - sidebar:PRES
-          
     right:
+      - text: About
+        href: about.qmd
       - icon: github
         href: https://github.com/jwarz/
         aria-label: Quarto GitHub
+      - icon: linkedin
+        href: https://linkedin.com/j-schwarz/
+        aria-label: Quarto LinkedIn
+  page-footer:
+    right: "This blog is built with ❤️ and [Quarto](https://quarto.org/)."
+    left: |
+      Proudly supported by
+      [![](https://www.rstudio.com/wp-content/uploads/2018/10/RStudio-Logo-flat.svg){fig-alt="RStudio" width=65px}](https://www.rstudio.com)
+
         
 # 
 # freeze: false
