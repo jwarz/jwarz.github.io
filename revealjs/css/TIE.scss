@@ -23,7 +23,7 @@
 $font-family-sans-serif: 'PublicaSans-Light', sans-serif !default;
 
 // colors
-$body-bg: #272935 !default;
+$body-bg: #fff !default;
 $body-color: #98A6AD !default;
 $link-color: #2dc6d6 !default;
 $selection-bg: $link-color !default;
@@ -41,6 +41,14 @@ section.has-dark-background h1 {
 $code-color: #2dc6d6;
 $code-block-bg: #444758;
 $code-block-border-color: #000000;
+
+h1 h1:not(#title-slide), h2
+{
+    border-bottom:1px solid #CCC;
+    width:100%;
+    float:left;
+    padding-bottom:3px;
+}
 
 /*-- scss:rules --*/
 /********************************
@@ -91,33 +99,6 @@ $code-block-border-color: #000000;
   color: $body-color !important;
 }
 
-/*.slide-number {
-  margin-top: -1px;
-  z-index: 2;
-  padding: 0.3em;
-  position: absolute;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex !important;
-  align-items: end;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-  justify-content: flex-end;
-  width: 100%;
-  font-size: 2.7vmin;
-  line-height: 1;
-  bottom: unset !important;
-  color: $body-color !important;
-}
-
-.slide-number a {
-  padding: 0.4em 1em;
-  line-height: 1;
-  font-size: 2.7vmin;
-}*/
-
 /***************************
 ********** Footer **********
 ***************************/
@@ -148,7 +129,8 @@ $code-block-border-color: #000000;
   transition: -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -o-transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
-  transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985), -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985), 
+  -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -webkit-transform: translateY(200%);
   -ms-transform: translateY(200%);
   transform: translateY(200%);
