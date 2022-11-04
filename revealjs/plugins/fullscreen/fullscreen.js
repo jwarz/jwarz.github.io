@@ -28,9 +28,10 @@ const addFullScreenButton = function(Reveal) {
 
   Reveal.addEventListener( 'ready', function( event ) {
 
-  //
+  // Create Button
   const span = document.createElement("span");
   span.title = "Toggle Fullscreen";
+  span.id = "fs-tooltip"
   const icon = document.createElement("i");
   icon.classList.add("fas");
   icon.classList.add("fa-expand");
@@ -41,6 +42,10 @@ const addFullScreenButton = function(Reveal) {
       screenfull.toggle(document.documentElement);
     }
   };
+
+  // Create Tooltip 
+  const tooltip = document.createElement("script");
+  tooltip.innerHTML = "tippy('#fs-tooltip', {content: 'Toggle Fullscreen', offset: [0, 20], delay: 100, duration: 1000, inertia: true, interactiveDebounce: 75, showOnCreate: true,  onShow(instance) {setTimeout(() => {instance.hide();}, 5000);}});"
 
   // set fullscreen button icon to match fullscreen state
   if (screenfull.enabled) {
@@ -56,10 +61,11 @@ const addFullScreenButton = function(Reveal) {
     });
   }
 
-  // Add Button to DOM
+  // Add Button and tooltip script to DOM
   var dom = {};
   dom.reveal = document.querySelector('.slide-chalkboard-buttons');
-  dom.reveal.appendChild(span)
+  dom.reveal.appendChild(span);
+  dom.reveal.appendChild(tooltip);
 
   })
 }
