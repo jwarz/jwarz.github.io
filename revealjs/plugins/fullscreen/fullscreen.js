@@ -42,7 +42,9 @@ const addFullScreenButton = function(Reveal) {
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
      
      // Imitate fullscreen by openeing it in a new window
-     window.open("window.location.href", "_blank");
+     var url = window.location.href
+     alert(url)
+     // window.open("window.location.href", "_blank");
 
     } else {
 
