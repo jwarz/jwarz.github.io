@@ -1,54 +1,48 @@
-/*.slides {
+.slides {
   
   inset: 55% auto auto 50% !important;
-
-}*/
+  transform: translate(-55%, -50%) scale(0.411);
+}
 
 /*-- scss:defaults --*/
+// Font
+@import url(https://fonts.googleapis.com/css?family=Poppins:400,700,400italic,700italic);
 
-// Fonts
-@font-face {
-  font-family: 'PublicaSans-Light';
-  src: url('PublicaSans-Light.otf') format("opentype");
-}
-@font-face {
-  font-family: 'PublicaSans-Thin';
-  src: url('PublicaSans-Thin.otf') format("opentype");
-}
-@font-face {
-  font-family: 'PublicaSans-Regular';
-  src: url('_extensions/startupengineer/src/assets/fonts/PublicaSans-Regular.otf') format("opentype");
-}
+$font-family-sans-serif: Poppins, sans-serif !default;
 
-$font-family-sans-serif: 'PublicaSans-Light', sans-serif !default;
+// general
+$body-color: #484848 !default;
+$link-color: #00C1D4 !default;
 
-// colors
+/*
 $body-bg: #fff !default;
-$body-color: #98A6AD !default;
-$link-color: #2dc6d6 !default;
 $selection-bg: $link-color !default;
 $selection-color: #fff !default;
 $input-panel-bg: rgba(233, 236, 239, 0.2) !default;
+*/
 
 // headings
-$presentation-heading-font: 'PublicaSans-Regular', sans-serif !default;
-$presentation-heading-color: #2dc6d6 !important;
-
-section.has-dark-background h1 {
-  color: $presentation-heading-color;
-}
-
-$code-color: #2dc6d6;
-$code-block-bg: #444758;
-$code-block-border-color: #000000;
+$presentation-heading-font: Poppins, sans-serif !default;
+$presentation-heading-color: #005e73 !important;
+$h1-font-size: 1.8em !default;
+$h2-font-size: 1.6em !default;
+$h3-font-size: 1.3em !default;
+$h4-font-size: 1.0em !default;
 
 h1 h1:not(#title-slide), h2
 {
-    border-bottom:1px solid #CCC;
+    border-bottom:1px solid $body-color;
     width:100%;
     float:left;
     padding-bottom:3px;
 }
+
+// code
+/*
+$code-color: #2dc6d6;
+$code-block-bg: #444758;
+$code-block-border-color: #000000;
+*/
 
 /*-- scss:rules --*/
 /********************************
