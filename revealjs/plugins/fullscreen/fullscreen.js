@@ -43,8 +43,7 @@ const addFullScreenButton = function(Reveal) {
      
      // Imitate fullscreen by openeing it in a new window
      var url = window.location.href
-     alert(url)
-     // window.open("window.location.href", "_blank");
+     window.open(url, "_blank");
 
     } else {
 
