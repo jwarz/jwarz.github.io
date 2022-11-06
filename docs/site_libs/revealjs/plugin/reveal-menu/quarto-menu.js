@@ -14,8 +14,7 @@ window.RevealMenuToolHandlers = {
       element.webkitRequestFullscreen ||
       element.webkitRequestFullScreen ||
       element.mozRequestFullScreen ||
-      element.msRequestFullscreen ||
-      element.webkitEnterFullscreen;
+      element.msRequestFullscreen;
     if (requestMethod) {
       requestMethod.apply(element);
     }

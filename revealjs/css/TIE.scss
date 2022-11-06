@@ -39,12 +39,9 @@ $code-block-border-color: #000000;
 /* -- scss:mixins --*/
 
 /*-- scss:rules --*/
-.slides {
-  
-  inset: 55% auto auto 50% !important;
-  transform: translate(-55%, -50%) scale(0.411);
-}
-
+/************************************
+********** Headings - Line **********
+************************************/
 h1 h1:not(#title-slide), h2
 {
     border-bottom:1px solid $body-color;
@@ -56,7 +53,6 @@ h1 h1:not(#title-slide), h2
 /********************************
 ********** Title Slide **********
 ********************************/
-
 #title-slide {
  text-align: left;
  background-image: url("/revealjs/img/logo/TIE/logo.svg");
@@ -123,9 +119,18 @@ h1 h1:not(#title-slide), h2
   }
 }
 
-/*****************************************
-**** Hide elements on specific slides ****
-*****************************************/
+/****************************************************
+********** simple menu plugin - top margin **********
+****************************************************/
+.slides {
+  
+  inset: 55% auto auto 50% !important;
+  transform: translate(-55%, -50%) scale(0.411);
+}
+
+/**************************************************************
+**** simple menu plugin - Hide elements on specific slides ****
+**************************************************************/
 /*HIDE (bottom)*/
 .reveal .slide-number,
 .reveal .footer {
@@ -154,9 +159,9 @@ body:not(.hide-menubar) .reveal.ready:not(.hide-menubar) .footer {
 ****************************************************/
 .tippy-box {
   font-family: $font-family-sans-serif;
-  background-color: transparent;
-  color: #2dc6d6;
-  border: 0.1rem solid #2dc6d6;
+  background-color: $body-bg;
+  color: $link-color;
+  border: 0.1rem solid $link-color;
   .tippy-arrow {
     transform-style: preserve-3d;
 
@@ -167,7 +172,7 @@ body:not(.hide-menubar) .reveal.ready:not(.hide-menubar) .footer {
       transform: translateZ(-1px);
       border-left: 8px solid transparent;
       border-right: 8px solid transparent;
-      border-top: 8px solid #2dc6d6;
+      border-top: 8px solid $link-color;
     }
   }
 }
