@@ -38,8 +38,17 @@ const addFullScreenButton = function(Reveal) {
   span.appendChild(icon);
   span.onclick = function (event) {
     event.preventDefault();
-    if (screenfull.enabled) {
-      screenfull.toggle(document.documentElement);
+
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+     
+     window.open("https://jwarz.github.io/revealjs/slides/2022/first/first.html", "_blank");
+
+    } else {
+
+      if (screenfull.enabled) {
+        screenfull.toggle(document.documentElement);
+      }
+
     }
   };
 
