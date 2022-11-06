@@ -1,8 +1,7 @@
-.slides {
-  
-  inset: 55% auto auto 50% !important;
-  transform: translate(-55%, -50%) scale(0.411);
-}
+/*-- scss:functions --*/
+/*@function colorToRGB ($color) {
+  @return "rgb(" + red($color) + ", " + green($color) + ", " + blue($color)+ ")";
+}*/
 
 /*-- scss:defaults --*/
 // Font
@@ -10,12 +9,12 @@
 
 $font-family-sans-serif: Poppins, sans-serif !default;
 
-// general
+// Base document colors
+$body-bg: #fff !default;
 $body-color: #484848 !default;
 $link-color: #00C1D4 !default;
 
 /*
-$body-bg: #fff !default;
 $selection-bg: $link-color !default;
 $selection-color: #fff !default;
 $input-panel-bg: rgba(233, 236, 239, 0.2) !default;
@@ -29,6 +28,23 @@ $h2-font-size: 1.6em !default;
 $h3-font-size: 1.3em !default;
 $h4-font-size: 1.0em !default;
 
+// Code blocks
+/*
+$code-color: #2dc6d6;
+$code-block-bg: #444758;
+$code-block-bg-alpha: -.8;
+$code-block-border-color: #000000;
+*/
+
+/* -- scss:mixins --*/
+
+/*-- scss:rules --*/
+.slides {
+  
+  inset: 55% auto auto 50% !important;
+  transform: translate(-55%, -50%) scale(0.411);
+}
+
 h1 h1:not(#title-slide), h2
 {
     border-bottom:1px solid $body-color;
@@ -37,14 +53,6 @@ h1 h1:not(#title-slide), h2
     padding-bottom:3px;
 }
 
-// code
-/*
-$code-color: #2dc6d6;
-$code-block-bg: #444758;
-$code-block-border-color: #000000;
-*/
-
-/*-- scss:rules --*/
 /********************************
 ********** Title Slide **********
 ********************************/
@@ -104,7 +112,7 @@ $code-block-border-color: #000000;
 /*************************
 ********** Logo **********
 *************************/
-@media (min-width:1025px){
+@media (min-width:1025px){ // dont show on mobile
   .menubar {
    text-align: left;
    background-image: url("/revealjs/img/logo/TIE/logo.svg");
