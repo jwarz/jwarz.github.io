@@ -41,7 +41,8 @@ const addFullScreenButton = function(Reveal) {
 
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
      
-     window.open("https://jwarz.github.io/revealjs/slides/2022/first/first.html", "_blank");
+     // Imitate fullscreen by openeing it in a new window
+     window.open("window.location.href", "_blank");
 
     } else {
 
