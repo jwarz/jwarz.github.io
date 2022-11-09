@@ -53,6 +53,32 @@ const addFullScreenButton = function(Reveal) {
 
     }
   };
+  
+  // Set Color
+  // 1. Get R, G, B Values as objects
+  function hexToRgb(hex) {
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+    } : null;
+  }
+  var lc_obj = hexToRgb(getComputedStyle(document.documentElement).getPropertyValue('--r-link-color'));
+  // 2. Create css value
+  var fullscreencolor = "rgb(" + lc_obj.r + "," + lc_obj.g + "," + lc_obj.b + ")"
+  
+  // Create stylesheet
+    var styles = `
+.reveal .slide-chalkboard-buttons .fa-expand::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="` + fullscreencolor + `" class="bi bi-fullscreen" viewBox="0 0 16 16"><path d="M1.5 1a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4A1.5 1.5 0 0 1 1.5 0h4a.5.5 0 0 1 0 1h-4zM10 .5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 16 1.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zM.5 10a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 0 14.5v-4a.5.5 0 0 1 .5-.5zm15 0a.5.5 0 0 1 .5.5v4a1.5 1.5 0 0 1-1.5 1.5h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5z"/></svg>');
+}
+.reveal .slide-chalkboard-buttons .fa-compress::before {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="` + fullscreencolor + `" class="bi bi-fullscreen-exit" viewBox="0 0 16 16"><path d="M5.5 0a.5.5 0 0 1 .5.5v4A1.5 1.5 0 0 1 4.5 6h-4a.5.5 0 0 1 0-1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 1 .5-.5zm5 0a.5.5 0 0 1 .5.5v4a.5.5 0 0 0 .5.5h4a.5.5 0 0 1 0 1h-4A1.5 1.5 0 0 1 10 4.5v-4a.5.5 0 0 1 .5-.5zM0 10.5a.5.5 0 0 1 .5-.5h4A1.5 1.5 0 0 1 6 11.5v4a.5.5 0 0 1-1 0v-4a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 1-.5-.5zm10 1a1.5 1.5 0 0 1 1.5-1.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 0-.5.5v4a.5.5 0 0 1-1 0v-4z"/></svg>');
+}
+`
+  var styleSheet = document.createElement("style")
+  styleSheet.innerText = styles
 
   // Create Tooltip 
   const tooltip = document.createElement("script");
@@ -72,8 +98,9 @@ const addFullScreenButton = function(Reveal) {
     });
   }
 
-  // Add Button and tooltip script to DOM
+  // Add Stylesheet, Button and tooltip script to DOM
   var dom = {};
+  document.head.appendChild(styleSheet)
   dom.reveal = document.querySelector('.slide-chalkboard-buttons');
   dom.reveal.appendChild(span);
   dom.reveal.appendChild(tooltip);
