@@ -3,9 +3,9 @@ project:
   #output-dir: docs
   render:
     - "*.qmd"
-    - "!content"
-    - "!slides/random-numbers.qmd"
-    - "!synthetic-data.qmd"
+    #- "!content"
+    #- "!slides/random-numbers.qmd"
+    #- "!synthetic-data.qmd"
     #- "revealjs/slides/2022/first/*"
 
 execute: 
@@ -69,12 +69,12 @@ website:
             - text: "6: R Internals"
               file: content/R/r-manuals/06-content.qmd
         - text: "---"
-        - section: "DataCamp"
+        - section: "Units"
           contents:
-            - text: "1: Evaluation and the causal revolution"
-              file: content/R/r-manuals/01-content.qmd
-            - text: "2: Regression and inference"
-              file: content/R/r-manuals/02-content.qmd
+            - text: "1: Introduction to R"
+              file: content/R/topics/01_basics/01_programming_beginner.qmd
+            - text: "2: Intermediate Data Visualization with ggplot2"
+              file: content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.qmd
             - text: "3: Theories of change and logic models"
               file: content/R/r-manuals/03-content.qmd
 
@@ -134,8 +134,12 @@ format:
       light: [litera, css/styles.scss]
     highlight-style: a11y-dark
     mainfont: "Atkinson Hyperlegible"
+    code-block-background: true
+    code-block-border-left: true
     code-copy: true
     code-overflow: wrap
+    code-line-numbers: true
+    code-link: true
     toc: true
     df-print: kable
     smooth-scroll: true
