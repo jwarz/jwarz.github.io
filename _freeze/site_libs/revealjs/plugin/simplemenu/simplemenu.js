@@ -26,7 +26,6 @@ var title_slide = document.querySelector('#title-slide');
 title_slide.setAttribute("data-state", "hide-menubar");
 
 /*  martinomagnifico: simplemenu */
-
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
@@ -90,7 +89,7 @@ title_slide.setAttribute("data-state", "hide-menubar");
           break;
         }
       }
-
+      
       return isStack;
     };
 
@@ -103,7 +102,10 @@ title_slide.setAttribute("data-state", "hide-menubar");
       var langattribute = deck.getConfig().internation ? deck.getConfig().internation.langattribute : false;
       sections.forEach(function (section) {
         if (!isStack(section) && section.parentNode.tagName == "SECTION") {
-          var parentAttributes = _toConsumableArray(section.parentNode.attributes);
+            if (!section.parentNode.dataset.name && section.dataset && section.dataset.stackName) {
+                section.parentNode.dataset.name = section.dataset.stackName
+            }
+            var parentAttributes = _toConsumableArray(section.parentNode.attributes);
 
           parentAttributes.reduce(function (attrs, attribute) {
             if (attribute.name == "data-name") {

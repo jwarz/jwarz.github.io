@@ -1,3 +1,8 @@
+/* Make space for the menu bar at the top */
+.reveal h2 {
+    margin-top: 1em;
+}
+
 .menubar {
   -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -112,11 +117,6 @@ body:not(.hide-menubar) .reveal.ready:not(.hide-menubar) .menubar {
   padding: 0.4em 1em;
   text-align: center;
   
-/* display: flex;           
-  flex-direction: column;    
-  justify-content: center;   
-  align-items: center;  */
-
 }
 .menubar > ul li + li {
   margin: 0;
@@ -127,35 +127,20 @@ body:not(.hide-menubar) .reveal.ready:not(.hide-menubar) .menubar {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Add bottom bar to active element */
 .menubar > ul li.active a:after {
   display: block;
   content: '';
-  width: calc(100% + 4em); /*140%;*/
+  width: calc(100% + 4em);
   height: 0.4em;
-  background: #009eac; /*var(--r-link-color);*/
+  background: var(--r-link-color);
   position: absolute;
   bottom: 0;
   left: -2em; /*-20%;*/
   right: 0;
   margin: auto;
-  bottom: calc(-0.4em - 0.3em - 0.65em);
+  bottom: calc(-0.69em - 0.3em - 0.4em); /*ling-height/2, li paading, menubar padding*/
 }
-
-/*.menubar > ul li.active:after {
-  display: block;
-  content: '';
-  width: 120%;
-  height: 0.4em;
-  background: var(--r-link-color);;
-  position: absolute;
-  bottom: 0;
-  left: -10%;
-  right: 0;
-  margin: auto;
-  bottom: calc(-0.4em - 0.3em - 0.45em);
-}
-*/
-
 
 .slides ~ .menubar, .menubar.bottom {
   top: auto;
