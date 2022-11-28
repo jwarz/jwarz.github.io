@@ -3,9 +3,12 @@ project:
   #output-dir: docs
   render:
     - "*.qmd"
+    - "!content"
+    - "!slides/random-numbers.qmd"
+    - "!synthetic-data.qmd"
     #- "revealjs/slides/2022/first/*"
 
-execute:
+execute: 
   freeze: auto  # Re-render only when source changes
 
 website:
