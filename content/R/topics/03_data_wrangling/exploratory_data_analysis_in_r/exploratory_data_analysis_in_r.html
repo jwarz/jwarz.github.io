@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Joschka Schwarz">
+
+<title>Joschka Schwarz - Exploratory Data Analysis in R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../../">
+<script src="../../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../../../index.html">
+    <span class="navbar-title">Joschka Schwarz</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data Science</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-science">    
+        <li>
+    <a class="dropdown-item" href="../../../../../content/R/index.html">
+ <span class="dropdown-text">R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../content/python/index.html">
+ <span class="dropdown-text">Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../content/sql/index.html">
+ <span class="dropdown-text">SQL</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../slides/index.html">
+ <span class="menu-text">Presentations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../resumes/index.html">
+ <span class="menu-text">Resumes</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../index.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jwarz/"><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz"><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#exploring-categorical-data" id="toc-exploring-categorical-data" class="nav-link active" data-scroll-target="#exploring-categorical-data">1. Exploring Categorical Data</a>
+  <ul class="collapse">
+  <li><a href="#exploring-categorical-data-1" id="toc-exploring-categorical-data-1" class="nav-link" data-scroll-target="#exploring-categorical-data-1">Exploring categorical data</a></li>
+  <li><a href="#intro-bar-charts" id="toc-intro-bar-charts" class="nav-link" data-scroll-target="#intro-bar-charts">Intro Bar charts</a></li>
+  <li><a href="#table-tabyl-contingency-tables" id="toc-table-tabyl-contingency-tables" class="nav-link" data-scroll-target="#table-tabyl-contingency-tables">table() / tabyl(): Contingency tables</a></li>
+  <li><a href="#droplevels-fct_drop-dropping-levels" id="toc-droplevels-fct_drop-dropping-levels" class="nav-link" data-scroll-target="#droplevels-fct_drop-dropping-levels">droplevels() / fct_drop(): Dropping levels</a></li>
+  <li><a href="#contingency-table-vs.-side-by-side-barcharts" id="toc-contingency-table-vs.-side-by-side-barcharts" class="nav-link" data-scroll-target="#contingency-table-vs.-side-by-side-barcharts">Contingency table vs.&nbsp;side-by-side barcharts</a></li>
+  <li><a href="#prop.table-tabyl-conditional-proportions" id="toc-prop.table-tabyl-conditional-proportions" class="nav-link" data-scroll-target="#prop.table-tabyl-conditional-proportions">prop.table() / tabyl(): Conditional proportions</a></li>
+  <li><a href="#barcharts-counts-vs.-proportions" id="toc-barcharts-counts-vs.-proportions" class="nav-link" data-scroll-target="#barcharts-counts-vs.-proportions">Barcharts: Counts vs.&nbsp;proportions</a></li>
+  <li><a href="#distribution-of-one-variable" id="toc-distribution-of-one-variable" class="nav-link" data-scroll-target="#distribution-of-one-variable">Distribution of one variable</a></li>
+  <li><a href="#fct_relevel-fct_infreq-order-barcharts" id="toc-fct_relevel-fct_infreq-order-barcharts" class="nav-link" data-scroll-target="#fct_relevel-fct_infreq-order-barcharts">fct_relevel() / fct_infreq(): Order Barcharts</a></li>
+  <li><a href="#facet_wrap-conditional-barchart" id="toc-facet_wrap-conditional-barchart" class="nav-link" data-scroll-target="#facet_wrap-conditional-barchart">facet_wrap(): Conditional barchart</a></li>
+  </ul></li>
+  <li><a href="#exploring-numerical-data" id="toc-exploring-numerical-data" class="nav-link" data-scroll-target="#exploring-numerical-data">2. Exploring Numerical Data</a>
+  <ul class="collapse">
+  <li><a href="#exploring-numerical-data-1" id="toc-exploring-numerical-data-1" class="nav-link" data-scroll-target="#exploring-numerical-data-1">Exploring numerical data</a></li>
+  <li><a href="#facet_wrap-faceted-histogram" id="toc-facet_wrap-faceted-histogram" class="nav-link" data-scroll-target="#facet_wrap-faceted-histogram">facet_wrap(): Faceted histogram</a></li>
+  <li><a href="#geom_boxplot-geom_density-boxplots-and-density-plots" id="toc-geom_boxplot-geom_density-boxplots-and-density-plots" class="nav-link" data-scroll-target="#geom_boxplot-geom_density-boxplots-and-density-plots">geom_boxplot() &amp; geom_density(): Boxplots and density plots</a></li>
+  <li><a href="#distribution-of-one-variable-1" id="toc-distribution-of-one-variable-1" class="nav-link" data-scroll-target="#distribution-of-one-variable-1">Distribution of one variable</a></li>
+  <li><a href="#geom_histogram-marginal-and-conditional-histograms" id="toc-geom_histogram-marginal-and-conditional-histograms" class="nav-link" data-scroll-target="#geom_histogram-marginal-and-conditional-histograms">geom_histogram(): Marginal and conditional histograms</a></li>
+  <li><a href="#geom_histogram-binwidths" id="toc-geom_histogram-binwidths" class="nav-link" data-scroll-target="#geom_histogram-binwidths">geom_histogram(): Binwidths</a></li>
+  <li><a href="#box-plots" id="toc-box-plots" class="nav-link" data-scroll-target="#box-plots">Box plots</a></li>
+  <li><a href="#geom_boxplot-box-plots-for-outliers" id="toc-geom_boxplot-box-plots-for-outliers" class="nav-link" data-scroll-target="#geom_boxplot-box-plots-for-outliers">geom_boxplot(): Box plots for outliers</a></li>
+  <li><a href="#geom_boxplot-vs.-geom_density-plot-selection" id="toc-geom_boxplot-vs.-geom_density-plot-selection" class="nav-link" data-scroll-target="#geom_boxplot-vs.-geom_density-plot-selection">geom_boxplot() vs.&nbsp;geom_density(): Plot selection</a></li>
+  <li><a href="#visualization-in-higher-dimensions" id="toc-visualization-in-higher-dimensions" class="nav-link" data-scroll-target="#visualization-in-higher-dimensions">Visualization in higher dimensions</a></li>
+  <li><a href="#facet_grid-3-variable-plot" id="toc-facet_grid-3-variable-plot" class="nav-link" data-scroll-target="#facet_grid-3-variable-plot">facet_grid(): 3 variable plot</a></li>
+  </ul></li>
+  <li><a href="#numerical-summaries" id="toc-numerical-summaries" class="nav-link" data-scroll-target="#numerical-summaries">3. Numerical Summaries</a>
+  <ul class="collapse">
+  <li><a href="#measures-of-center" id="toc-measures-of-center" class="nav-link" data-scroll-target="#measures-of-center">Measures of center</a></li>
+  <li><a href="#choice-of-center-measure" id="toc-choice-of-center-measure" class="nav-link" data-scroll-target="#choice-of-center-measure">Choice of center measure</a></li>
+  <li><a href="#summarize-calculate-center-measures" id="toc-summarize-calculate-center-measures" class="nav-link" data-scroll-target="#summarize-calculate-center-measures">summarize(): Calculate center measures</a></li>
+  <li><a href="#measures-of-variability" id="toc-measures-of-variability" class="nav-link" data-scroll-target="#measures-of-variability">Measures of variability</a></li>
+  <li><a href="#choice-of-spread-measure" id="toc-choice-of-spread-measure" class="nav-link" data-scroll-target="#choice-of-spread-measure">Choice of spread measure</a></li>
+  <li><a href="#sd-iqr-n-calculate-spread-measures" id="toc-sd-iqr-n-calculate-spread-measures" class="nav-link" data-scroll-target="#sd-iqr-n-calculate-spread-measures">sd(), IQR(), n(): Calculate spread measures</a></li>
+  <li><a href="#choose-measures-for-center-and-spread" id="toc-choose-measures-for-center-and-spread" class="nav-link" data-scroll-target="#choose-measures-for-center-and-spread">Choose measures for center and spread</a></li>
+  <li><a href="#distribution-shapes" id="toc-distribution-shapes" class="nav-link" data-scroll-target="#distribution-shapes">Distribution shapes</a></li>
+  <li><a href="#shape-and-transformations" id="toc-shape-and-transformations" class="nav-link" data-scroll-target="#shape-and-transformations">Shape and transformations</a></li>
+  <li><a href="#log-transformations" id="toc-log-transformations" class="nav-link" data-scroll-target="#log-transformations">log(): Transformations</a></li>
+  <li><a href="#outliers" id="toc-outliers" class="nav-link" data-scroll-target="#outliers">Outliers</a></li>
+  <li><a href="#identify-outliers" id="toc-identify-outliers" class="nav-link" data-scroll-target="#identify-outliers">Identify outliers</a></li>
+  </ul></li>
+  <li><a href="#case-study-spam-emails" id="toc-case-study-spam-emails" class="nav-link" data-scroll-target="#case-study-spam-emails">4. Case Study: Spam Emails</a>
+  <ul class="collapse">
+  <li><a href="#introducing-the-data" id="toc-introducing-the-data" class="nav-link" data-scroll-target="#introducing-the-data">Introducing the data</a></li>
+  <li><a href="#check-in-1" id="toc-check-in-1" class="nav-link" data-scroll-target="#check-in-1">Check-in 1</a></li>
+  <li><a href="#check-in-2" id="toc-check-in-2" class="nav-link" data-scroll-target="#check-in-2">Check-in 2</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Exploratory Data Analysis in R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Joschka Schwarz </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Short Description</strong></p>
+<p>Learn how to use graphical and numerical techniques for exploratory data analysis while generating insightful and beautiful graphics in R.</p>
+<p><strong>Long Description</strong></p>
+<p>When your dataset is represented as a table or a database, it’s difficult to observe much about it beyond its size and the types of variables it contains. In this course, you’ll learn how to use graphical and numerical techniques to begin uncovering the structure of your data. Which variables suggest interesting relationships? Which observations are unusual? By the end of the course, you’ll be able to answer these questions and more, while generating graphics that are both insightful and beautiful.</p>
+<section id="exploring-categorical-data" class="level1">
+<h1>1. Exploring Categorical Data</h1>
+<p>In this section, you will learn how to create graphical and numerical summaries of two categorical variables.</p>
+<section id="exploring-categorical-data-1" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-categorical-data-1">Exploring categorical data</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Exploring categorical data</strong></p>
+<p>Hi, I’m Andrew Bray. I’m an Assistant Professor of Statistics at Reed College and I’ll be your instructor for this course on Exploratory Data Analysis or EDA.In this course, you’ll be exploring data from a wide range of contexts. The first dataset comes from comic books.</p>
+<p><strong>2. Comics dataset</strong></p>
+<p>Two publishers, Marvel and DC, have created a host of superheroes that have made their way into popular culture. You’re probably familiar with Batman and Spiderman, but what about Mor the Mighty?The comics dataset has information on all comic characters that have been introduced by DC and Marvel. If we type the name of the dataset at the console, we get the first few rows and columns. Here we see that each row, or case, is a different character and each column, or variable, is a different observation made on that character. At the top it tell us the dimensions of this dataset: over 23,000 cases and 11 variables. Right under the variable names, it tells us that all three of these are factors, R’s preferred way to represent categorical variables. The first case is Peter Parker, alias: Spiderman. The second column shows that his personal identity is kept secret and the third column tell us that his alignment is good; that he’s a superhero, not a super villain. At the bottom we see that there are 8 additional variables that aren’t shown here, including eye color and hair color, almost all of which are also factors.We can learn the different levels of a particular factor by using the levels function.</p>
+<p><strong>3. Working with factors</strong></p>
+<p>It’s clear that the alignment variable can be “good” or “neutral”, but what other values are possible? If we run levels on the align column, we learn that there are in fact four possible alignments, including reformed criminal. I’m glad we checked that! If we do the same for identity, we learn that there are five possible identities.A common way to represent the number of cases that fall into each combination of levels of two categorical variables, like these, is with a contingency table. In R, this is done with the table command, which takes as arguments the variables that you’re interested in. The output tells us that the most common category, at a count of 4493, was bad characters with secret identities.While tables of counts can be useful, you can get the bigger picture by translating these counts into a graphic.</p>
+<p><strong>4. Insert title here…</strong></p>
+<p>The graphics that you’ll be making in this course utilize the ggplot2 package, which you got a glimpse of in the previous course. Every ggplot requires that you specify three elements: the dataset, the variables that you’re interested in, then layers to describe how those variables are plotted.The dataset is the first argument in the ggplot function. The variables are usually found inside the the aes function, which stands for aesthetics. We’re interested in the relationship between two categorical variables, which is represented well by a stacked bar chart.</p>
+<p><strong>5. Insert title here…</strong></p>
+<p>So we can specify that the want the id on the x axis, then the fill in each segment of the bar to be colored by alignment. Finally, we add the geometry layer to specify that this is a bar chart.</p>
+<p><strong>6. Bar chart</strong></p>
+<p>Let’s look carefully at how this is constructed: each colored bar segment actually corresponds to a count in our table, with the x axis and the fill color indicating the category that we’re looking at. Several things pop out, like the fact that there are very few characters whose identities are unknown, but there are many where we don’t have data; that’s what the NAs mean. The single largest bar segment corresponds to the most common category: characters with secret identities that are also bad. We can look across the identity types, though, and realize that bad is not always the largest category. This indicates that there is indeed an association between alignment and identity.</p>
+<p><strong>7. Let’s practice!</strong></p>
+<p>That should be enough to get started. Now it’s your turn to start exploring the data.</p>
+</section>
+<section id="intro-bar-charts" class="level2">
+<h2 class="anchored" data-anchor-id="intro-bar-charts">Intro Bar charts</h2>
+<p>Suppose you’ve asked 30 people, some young, some old, what their preferred flavor of pie is: apple or pumpkin. That data could be summarized in a side-by-side barchart. Here are three possibilities for how it might look.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load packages</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a>d1 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/d1.rds"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>d2 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/d2.rds"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>d3 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/d3.rds"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a>p1 <span class="ot">&lt;-</span> d1 <span class="sc">|&gt;</span> </span>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(age, <span class="at">fill =</span> flavor)) <span class="sc">+</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a>    <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>    <span class="fu">ggtitle</span>(<span class="st">"Plot 1"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a>p2 <span class="ot">&lt;-</span> d2 <span class="sc">|&gt;</span> </span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(age, <span class="at">fill =</span> flavor)) <span class="sc">+</span></span>
+<span id="cb1-15"><a href="#cb1-15"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>    <span class="fu">ggtitle</span>(<span class="st">"Plot 2"</span>)</span>
+<span id="cb1-17"><a href="#cb1-17"></a></span>
+<span id="cb1-18"><a href="#cb1-18"></a>p3 <span class="ot">&lt;-</span> d3 <span class="sc">|&gt;</span> </span>
+<span id="cb1-19"><a href="#cb1-19"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(age, <span class="at">fill =</span> flavor)) <span class="sc">+</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a>    <span class="fu">ggtitle</span>(<span class="st">"Plot 3"</span>)</span>
+<span id="cb1-22"><a href="#cb1-22"></a></span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-24"><a href="#cb1-24"></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<h2 id="question" class="anchored"><em>Question</em></h2>
+<p>Which one of the barcharts shows no relationship between <code>age</code> and <code>flavor</code>? In other words, which shows that pie preference is the same for both young and old?<br> <br> ✅ Plot 1<br> ⬜ Plot 2<br> ⬜ Plot 2<br></p>
+</blockquote>
+</section>
+<section id="table-tabyl-contingency-tables" class="level2">
+<h2 class="anchored" data-anchor-id="table-tabyl-contingency-tables">table() / tabyl(): Contingency tables</h2>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>comics</code></li>
+</ul>
+<p>In this section you’ll working with the <code>comics</code> dataset. This is a collection of characteristics on all of the superheroes created by Marvel and DC comics in the last 80 years.</p>
+<p>Let’s start by creating a contingency table, which is a useful way to represent the total counts of observations that fall into each combination of the levels of categorical variables.</p>
+<p><strong>Packages</strong></p>
+<ul>
+<li><code>readr</code></li>
+<li><code>forcats</code></li>
+<li><code>janitor</code></li>
+</ul>
+<p><strong>Steps</strong></p>
+<p>The dataset has been loaded into your workspace as <code>comics</code>.</p>
+<ol type="1">
+<li>Type the name of the dataset to look at the rows and columns of the dataset.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Load packages</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co"># Read all columns as factors</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>comics <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/comics.csv"</span>, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">.default =</span> <span class="st">"f"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-8"><a href="#cb2-8"></a>  </span>
+<span id="cb2-9"><a href="#cb2-9"></a>            <span class="co"># Convert "NA" levels to real missing values</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>            <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.factor), fct_recode, <span class="at">NULL =</span> <span class="st">"NA"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-11"><a href="#cb2-11"></a>  </span>
+<span id="cb2-12"><a href="#cb2-12"></a>            <span class="co"># Relevel columns</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>            <span class="fu">mutate</span>(<span class="at">align  =</span> align  <span class="sc">|&gt;</span> <span class="fu">fct_relevel</span>(<span class="at">levels =</span> <span class="st">"Bad"</span>, <span class="st">"Good"</span>, <span class="st">"Neutral"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-14"><a href="#cb2-14"></a>            <span class="fu">mutate</span>(<span class="at">gender =</span> gender <span class="sc">|&gt;</span> <span class="fu">fct_relevel</span>(<span class="at">levels =</span> <span class="st">"Female"</span>, <span class="st">"Male"</span>, <span class="st">"Other"</span>))</span>
+<span id="cb2-15"><a href="#cb2-15"></a></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="co"># Print the first rows of the data</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a>comics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>View the <code>levels()</code> that the <code>align</code> variable can take.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Check levels of align</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">levels</span>(comics<span class="sc">$</span>align)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>View the <code>levels()</code> that the <code>gender</code> variable can take.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Check the levels of gender</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">levels</span>(comics<span class="sc">$</span>gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Create a contingency table of the same two variables.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Create a 2-way contingency table</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(comics<span class="sc">$</span>align, comics<span class="sc">$</span>gender)</span>
+<span id="cb5-3"><a href="#cb5-3"></a>tab</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>NA are displayed per default with the <code>tabyl()</code> function from the <code>janitor</code> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>comics <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  janitor<span class="sc">::</span><span class="fu">tabyl</span>(align, gender)</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># Identical to</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="co"># table(comics$align, comics$gender, useNA = "always")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="droplevels-fct_drop-dropping-levels" class="level2">
+<h2 class="anchored" data-anchor-id="droplevels-fct_drop-dropping-levels">droplevels() / fct_drop(): Dropping levels</h2>
+<p>The contingency table from the last exercise revealed that there are some levels that have very low counts. To simplify the analysis, it often helps to drop such levels.</p>
+<p>In R, this requires two steps: first filtering out any rows with the levels that have very low counts, then removing these levels from the factor variable with <code>droplevels()</code>. This is because the <code>droplevels()</code> function would keep levels that have just 1 or 2 counts; it only drops levels that don’t exist in a dataset.</p>
+<p><strong>Steps</strong></p>
+<p>1.1 Use <code>filter()</code> to filter out all rows of <code>comics</code> with that level, then drop the unused level with <code>droplevels()</code>. Save the simplified dataset as <code>comics_filtered</code>. 1.2 Alternatively, this can be done with the <code>forcats</code> package and the <code>fct_drop()</code> function.</p>
+<p><strong>Solution:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># 1.1 Base r: Remove align level</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>comics_filtered <span class="ot">&lt;-</span> comics <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">filter</span>(align <span class="sc">!=</span> <span class="st">"Reformed Criminals"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">droplevels</span>()</span>
+<span id="cb7-5"><a href="#cb7-5"></a></span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co"># 1.2 forcats: Remove align level</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co"># comics_filtered &lt;- comics %&gt;%</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#   filter(align != "Reformed Criminals") |&gt; </span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#   mutate(across(where(is.factor), fct_drop))</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="co"># See the result</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a>comics_filtered</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="contingency-table-vs.-side-by-side-barcharts" class="level2">
+<h2 class="anchored" data-anchor-id="contingency-table-vs.-side-by-side-barcharts">Contingency table vs.&nbsp;side-by-side barcharts</h2>
+<p>While a contingency table represents the counts numerically, it’s often more useful to represent them graphically.</p>
+<p><strong>Steps</strong></p>
+<p>Here you’ll construct two side-by-side barcharts of the <code>comics</code> data. This shows that there can often be two or more options for presenting the same data. Passing the argument <code>position = "dodge"</code> to <code>geom_bar()</code> says that you want a side-by-side (i.e.&nbsp;not stacked) barchart.</p>
+<ol type="1">
+<li>Create a side-by-side barchart with <code>align</code> on the x-axis and <code>gender</code> as the <code>fill</code> aesthetic.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Create side-by-side barchart of gender by alignment</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">ggplot</span>(comics_filtered, <span class="fu">aes</span>(<span class="at">x =</span> align, <span class="at">fill =</span> gender)) <span class="sc">+</span> </span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Create another side-by-side barchart with <code>gender</code> on the x-axis and <code>align</code> as the <code>fill</code> aesthetic. Rotate the axis labels 90 degrees to help readability.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Create side-by-side barchart of alignment by gender</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">ggplot</span>(comics_filtered, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">fill =</span> align)) <span class="sc">+</span> </span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<h2 id="question-1" class="anchored"><em>Question</em></h2>
+<p>Which of the following interpretations of the bar charts to your right is <strong>not</strong> valid?<br> <br> ⬜ Among characters with “Neutral” alignment, males are the most common.<br> ⬜ In general, there is an association between gender and alignment.<br> ✅ Across all genders, “Bad” is the most common alignment.<br> ⬜ There are more male characters than female characters in this dataset.<br></p>
+</blockquote>
+<p><strong>1. Counts vs.&nbsp;proportions</strong></p>
+<p>You may have noticed in the last exercises that sometimes raw counts of cases can be useful, but often it’s the proportions that are more interesting. We can do our best to compute these proportions in our head or we could do it explicitly.</p>
+<p><strong>2. From counts to proportions</strong></p>
+<p>Let’s return to our table of counts of cases by identity and alignment. If we wanted to instead get a sense of the proportion of all cases that fell into each category, we can take the original table of counts, saved as tab underscore cnt, and provide it as input to the prop dot table function. We see here that the single largest category are characters that are bad and secret at about 29% of characters. Also note that because these are all proportions out of the whole dataset, the sum of all of these proportions is 1.</p>
+<p><strong>3. Conditional proportions</strong></p>
+<p>If we’re curious about systematic associations between variables, we should look to conditional proportions. An example of a conditional proportion is the proportion of public identity characters that are good. To build a table of these conditional proportions, add a 1 as the second argument, specifying that you’d like to condition on the rows. We see here that around 57% of all secret characters are bad. Because we’re conditioning on identity, it’s every row that now sums to one. To condition on the columns instead, change that argument to 2. Now it’s the columns that sum to one and we learn, for example, that the proportion of bad characters that are secret is around 63%. As the number of cells in these tables gets large, it becomes much easier to make sense of your data using graphics. The bar chart is still a good choice, but we’re going to need to add some options.</p>
+<p><strong>4. Insert title here…</strong></p>
+<p>Here is the code for the bar chart based on counts. We want to condition on whatever is on the x axis and stretch those bars to each add up to a total proportion of 1,</p>
+<p><strong>5. Insert title here…</strong></p>
+<p>so we add the position equals fill option to the geom bar function. Let’s add one additional layer:</p>
+<p><strong>6. Insert title here…</strong></p>
+<p>a change to our y axis to indicate we’re looking at proportions.</p>
+<p><strong>7. Conditional bar chart</strong></p>
+<p>When we run this code at the console, we get a plot that reflects our table of proportions after we had conditioned on id.</p>
+<p><strong>8. Conditional bar chart</strong></p>
+<p>While the proportion of secret characters that are bad is still large, it’s actually less than</p>
+<p><strong>9. Conditional bar chart</strong></p>
+<p>the proportion of bad characters in those that are listed as unknown. We get a very different picture if we condition instead on alignment.</p>
+<p><strong>10. Conditional bar chart</strong></p>
+<p>The only change needed in the code is to swap the positions of the names of the variables. This results in a plot where we’ve conditioned on alignment and we learn that within characters that are bad,</p>
+<p><strong>11. Conditional bar chart</strong></p>
+<p>the greatest proportion of those are indeed secret. This might seem paradoxical, but it’s just a result of having different numbers of cases in each single level.</p>
+</section>
+<section id="prop.table-tabyl-conditional-proportions" class="level2">
+<h2 class="anchored" data-anchor-id="prop.table-tabyl-conditional-proportions">prop.table() / tabyl(): Conditional proportions</h2>
+<p>The following code generates tables of joint and conditional proportions, respectively:</p>
+<p><em>base r</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(comics_filtered<span class="sc">$</span>align, comics_filtered<span class="sc">$</span>gender)</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">options</span>(<span class="at">scipen =</span> <span class="dv">999</span>, <span class="at">digits =</span> <span class="dv">3</span>) <span class="co"># Print fewer digits</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="fu">prop.table</span>(tab)     <span class="co"># Joint proportions</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="fu">prop.table</span>(tab, <span class="dv">2</span>)  <span class="co"># Conditional on columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>janitor</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Load packages</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb11-3"><a href="#cb11-3"></a></span>
+<span id="cb11-4"><a href="#cb11-4"></a>comics_filtered <span class="sc">|&gt;</span> </span>
+<span id="cb11-5"><a href="#cb11-5"></a>  <span class="fu">tabyl</span>(align, gender) <span class="sc">|&gt;</span> </span>
+<span id="cb11-6"><a href="#cb11-6"></a>  </span>
+<span id="cb11-7"><a href="#cb11-7"></a>  <span class="co"># Conditional on columns</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a>  <span class="fu">adorn_percentages</span>(<span class="st">"col"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb11-9"><a href="#cb11-9"></a>  <span class="co"># Format</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a>  <span class="fu">adorn_pct_formatting</span>(<span class="at">digits =</span> <span class="dv">0</span>) <span class="co">#|&gt; </span></span>
+<span id="cb11-11"><a href="#cb11-11"></a>  <span class="co"># Add back the underlying Ns</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a>  <span class="co"># adorn_ns()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<h2 id="question-2" class="anchored"><em>Question</em></h2>
+<p>Approximately what proportion of all female characters are good?<br> <br> ⬜ 44%<br> ⬜ 1.3%<br> ⬜ 13%<br> ✅ 51%<br></p>
+</blockquote>
+<p>Nice! To answer this question, you needed to look at how align was distributed within each gender. That is, you wanted to condition on the gender variable.</p>
+</section>
+<section id="barcharts-counts-vs.-proportions" class="level2">
+<h2 class="anchored" data-anchor-id="barcharts-counts-vs.-proportions">Barcharts: Counts vs.&nbsp;proportions</h2>
+<p>Bar charts can tell dramatically different stories depending on whether they represent counts or proportions and, if proportions, what the proportions are conditioned on. To demonstrate this difference, you’ll construct two barcharts in this section: one of counts and one of proportions.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Create a stacked barchart of <code>gender</code> <em>counts</em> with <code>align</code> on the x-axis.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Plot of gender by align</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>comics_filtered <span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a href="#cb12-3"></a>  </span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="co"># Reorder levels corresponding to count</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> align, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>    <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Create a stacked barchart of <code>gender</code> <em>proportions</em> with <code>align</code> on the x-axis by setting the <code>position</code> argument to <code>geom_bar()</code> equal to <code>"fill"</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Plot proportion of gender, conditional on align</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>comics_filtered <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3"></a>  </span>
+<span id="cb13-4"><a href="#cb13-4"></a>  <span class="co"># Reorder levels corresponding to count</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> align, <span class="at">fill =</span> gender)) <span class="sc">+</span> </span>
+<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">ylab</span>(<span class="st">"proportion"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Excellent work! By adding <code>position = "fill"</code> to <code>geom_bar()</code>, you are saying you want the bars to fill the entire height of the plotting window, thus displaying proportions and not raw counts.</p>
+</section>
+<section id="distribution-of-one-variable" class="level2">
+<h2 class="anchored" data-anchor-id="distribution-of-one-variable">Distribution of one variable</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Distribution of one variable</strong></p>
+<p>You might not have noticed, but already you’ve been creating plots that illustrate the relationship between two variables in your dataset. It’s a bit unusual to lead with this, but it gets you thinking early about the multivariate structure that is found in most real datasets. Now, let’s zoom in on working with just a single variable.</p>
+<p><strong>2. Marginal distribution</strong></p>
+<p>To compute a table of counts for a single variable like id, just provide vector into into the table function by the sole argument. One way to think of what we’ve done is to take the original two-way table and then, sum the cells across each level of align. Since we’ve summed over the margins of the other variables, this is sometimes known as a marginal distribution.</p>
+<p><strong>3. Simple barchart</strong></p>
+<p>The syntax to create the simple bar chart is straightforward as well, just remove the fill equals align argument.</p>
+<p><strong>4. Faceting</strong></p>
+<p>Another useful way to form the distribution of a single variable is to condition on a particular value of another variable. We might be interested, for example, in the distribution of id for all neutral characters. We could either filter the dataset and build a barchart using only cases where alignment was neutral, or we could use a technique called faceting. Faceting breaks the data into subsets based on the levels of a categorical variable and then constructs a plot for each.</p>
+<p><strong>5. Faceted barcharts</strong></p>
+<p>To implement this in ggplot2, we just need to add a faceting layer: the facet wrap function, then a tilde, which can be read as “broken down by” and then our variable “align”. The result is three simple bar charts side-by-side, the first one corresponding to the distribution of id within all cases that have a bad alignment, and so on, for good and neutral alignments.If this plot feels familiar, it should.</p>
+<p><strong>6. Faceting vs.&nbsp;stacking</strong></p>
+<p>In essence, it’s a rearrangement of the stacked bar charts that we considered at the beginning of the chapter.</p>
+<p><strong>7. Faceting vs.&nbsp;stacking</strong></p>
+<p>Each facet in the plot on the left corresponds to a single stacked bar in the plot on the right. They allow you to get a sense the distribution of a single variable,</p>
+<p><strong>8. Faceting vs.&nbsp;stacking</strong></p>
+<p>by looking at a single facet or a single stacked bar or</p>
+<p><strong>9. Faceting vs.&nbsp;stacking</strong></p>
+<p>the association between the variables, by looking across facets or across stacked bars.</p>
+<p><strong>10. Faceting vs.&nbsp;stacking</strong></p>
+<p>A discussion of plots for categorical data wouldn’t be complete without some mention of the pie chart.</p>
+<p><strong>11. Pie chart vs.&nbsp;bar chart</strong></p>
+<p>The pie chart is a common way to display categorical data where the size of the slice corresponds to the proportion of cases that are in that level. Here is a pie chart for the identity variable and it looks pleasing enough. The problem with pie charts, though, is that it can be difficult to assess the relative size of the slices. Here, is the green public slice or the grey NA slice bigger?</p>
+<p><strong>12. Pie chart vs.&nbsp;bar chart</strong></p>
+<p>If we represent this data using a barchart the answer is obvious:</p>
+<p><strong>13. Pie chart vs.&nbsp;bar chart</strong></p>
+<p>the proportion of public is greater. For that reason, it’s generally a good idea to stick to barcharts.</p>
+<p><strong>14. Let’s practice!</strong></p>
+<p>Ok, now it’s your turn to practice with simple barcharts and faceting.</p>
+</section>
+<section id="fct_relevel-fct_infreq-order-barcharts" class="level2">
+<h2 class="anchored" data-anchor-id="fct_relevel-fct_infreq-order-barcharts">fct_relevel() / fct_infreq(): Order Barcharts</h2>
+<section id="fct_relevel" class="level3">
+<h3 class="anchored" data-anchor-id="fct_relevel">fct_relevel()</h3>
+<p>If you are interested in the distribution of alignment of <em>all</em> superheroes, it makes sense to construct a barchart for just that single variable.</p>
+<p>You can improve the interpretability of the plot, though, by implementing some sensible ordering. Superheroes that are <code>"Neutral"</code> show an alignment between <code>"Good"</code> and <code>"Bad"</code>, so it makes sense to put that bar in the middle.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Reorder the levels of <code>align</code> using the <a href="https://www.rdocumentation.org/packages/base/topics/factor" target="_blank" rel="noopener noreferrer"><code>factor()</code></a> or <a href="https://forcats.tidyverse.org/reference/fct_relevel.html" target="_blank" rel="noopener noreferrer"><code>fct_relevel()</code></a> function so that printing them reads <code>"Bad"</code>, <code>"Neutral"</code>, then <code>"Good"</code>.</li>
+<li>Create a barchart of counts of the <code>align</code> variable.</li>
+</ol>
+<p><em>base r</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># 1. Change the order of the levels in align</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>comics_filtered<span class="sc">$</span>align <span class="ot">&lt;-</span> <span class="fu">factor</span>(comics_filtered<span class="sc">$</span>align, </span>
+<span id="cb14-3"><a href="#cb14-3"></a>                                <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Bad"</span>, <span class="st">"Neutral"</span>, <span class="st">"Good"</span>))</span>
+<span id="cb14-4"><a href="#cb14-4"></a></span>
+<span id="cb14-5"><a href="#cb14-5"></a><span class="co"># 2. Create plot of align</span></span>
+<span id="cb14-6"><a href="#cb14-6"></a><span class="fu">ggplot</span>(comics_filtered, <span class="fu">aes</span>(<span class="at">x =</span> align)) <span class="sc">+</span> </span>
+<span id="cb14-7"><a href="#cb14-7"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>forcats</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># 1. Change the order of the levels in align</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>comics_releveled <span class="ot">&lt;-</span> comics_filtered <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href="#cb15-3"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(<span class="at">align =</span> align <span class="sc">|&gt;</span> <span class="fu">fct_relevel</span>(<span class="at">levels =</span> <span class="st">"Bad"</span>, <span class="st">"Neutral"</span>, <span class="st">"Good"</span>))</span>
+<span id="cb15-4"><a href="#cb15-4"></a></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="co"># 2. Create plot of align</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>comics_releveled <span class="sc">|&gt;</span> </span>
+<span id="cb15-7"><a href="#cb15-7"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> align)) <span class="sc">+</span> </span>
+<span id="cb15-8"><a href="#cb15-8"></a>    <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fct_infreq" class="level3">
+<h3 class="anchored" data-anchor-id="fct_infreq">fct_infreq()</h3>
+<p>The piechart is a very common way to represent the distribution of a single categorical variable, but they can be more difficult to interpret than barcharts.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>pies <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/pies.rds"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2"></a>pies <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">count</span>(flavor) <span class="sc">|&gt;</span> </span>
+<span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="st">""</span>, <span class="at">y=</span>n, <span class="at">fill=</span>flavor)) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a>    <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">"identity"</span>, <span class="at">width=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a>    <span class="fu">coord_polar</span>(<span class="st">"y"</span>, <span class="at">start=</span><span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a>    <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This is a piechart of a dataset called <code>pies</code> that contains the favorite pie flavors of 98 people. Improve the representation of these data by constructing a <em>barchart</em> that is ordered in descending order of count.</p>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>pies</code></li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Use the code provided to reorder the levels of <code>flavor</code> so that they’re in descending order by count.</li>
+<li>Create a barchart of <code>flavor</code> and orient the labels vertically so that they’re easier to read. The default coloring may look drab by comparison, so change the <code>fill</code> of the bars to <code>"chartreuse"</code>.</li>
+</ol>
+<p><em>base r</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Put levels of flavor in descending order</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="co"># lev &lt;- c("apple", "key lime", "boston creme", "blueberry", "cherry", "pumpkin", "strawberry")</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="co"># pies$flavor &lt;- factor(pies$flavor, levels = lev)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>forcats</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Put levels of flavor in descending order</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>pies <span class="sc">|&gt;</span> </span>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">mutate</span>(<span class="at">flavor =</span> flavor <span class="sc">|&gt;</span> <span class="fu">fct_infreq</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb18-4"><a href="#cb18-4"></a></span>
+<span id="cb18-5"><a href="#cb18-5"></a><span class="co"># Create barchart of flavor</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> flavor)) <span class="sc">+</span> </span>
+<span id="cb18-7"><a href="#cb18-7"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">"chartreuse"</span>) <span class="sc">+</span> </span>
+<span id="cb18-8"><a href="#cb18-8"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="facet_wrap-conditional-barchart" class="level2">
+<h2 class="anchored" data-anchor-id="facet_wrap-conditional-barchart">facet_wrap(): Conditional barchart</h2>
+<p>Now, if you want to break down the distribution of alignment based on gender, you’re looking for conditional distributions.</p>
+<p>You could make these by creating multiple filtered datasets (one for each gender) or by faceting the plot of alignment based on gender.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Create a barchart of <code>align</code> faceted by <code>gender</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Plot of alignment broken down by gender</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>comics_releveled <span class="sc">|&gt;</span> </span>
+<span id="cb19-3"><a href="#cb19-3"></a></span>
+<span id="cb19-4"><a href="#cb19-4"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> align)) <span class="sc">+</span> </span>
+<span id="cb19-5"><a href="#cb19-5"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="exploring-numerical-data" class="level1">
+<h1>2. Exploring Numerical Data</h1>
+<p>In this section, you will learn how to graphically summarize numerical data.</p>
+<section id="exploring-numerical-data-1" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-numerical-data-1">Exploring numerical data</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Exploring numerical data</strong></p>
+<p>In this chapter, we’ll broaden our tool box of exploratory techniques to encompass numerical data. Numerical data are data that take the form of number, but where those numbers actually represent a value on the number line.The dataset that we’ll be working with is one that has information on the cars that were for sale in the US in a certain year.</p>
+<p><strong>2. Cars dataset</strong></p>
+<p>We can use the structure function, s-t-r, to learn more about each of the variables. We learn that we have 428 observations, or cases, and 19 variables. Unlike most displays of data, the structure function puts each of the variables as a row, with its name followed by its data type, followed by the first several values.The car names are character strings, which are like factors, except its common for every case to take a unique value. L-o-g-i, that’s for logical variables, another simple case of a categorical variable where there are only two levels. For example, each car will take either TRUE or FALSE depending on if it is a sports car. We can see that the last set of variables are all either i-n-t for integer or n-u-m for numerical. They’re actually both numerical variables, but the integers are discrete and the numerical is continuous. If you look at ncyl, that’s the number of cylinders, it’s listed as an integer, but there are only a few different values that it can take, so it actually behaves a bit like categorical variable.Let’s construct some plots to help us explore this data.</p>
+<p><strong>3. Dotplot</strong></p>
+<p>The most direct way to represent numerical data is with a dot plot, where each case is a dot that’s placed at it’s appropriate value on the x axis, then stacked as other cases take similar values. This is a form of graphic where there is zero information loss; you could actually rebuild the dataset perfectly if you were given this plot. As you can imagine, though, these plots start to get difficult to read as the number of cases gets very large.</p>
+<p><strong>4. Histogram</strong></p>
+<p>One of the most common plots to use is a histogram, which solves this problem by aggregating the dots into bins on the x axis, then mapping the height of the bar to the number of cases that fall into that bin. Because of the binning, it’s not possible to perfectly reconstruct the dataset: what we gain is a bigger picture of the shape of the distribution.If the stepwise nature of the histogram irks you, then you’ll like the density plot.</p>
+<p><strong>5. Density plot</strong></p>
+<p>The density plot represents the shape of the histogram using a smooth line. This provides an ever bigger picture representation of the shape of the distribution, so you’ll only want to use it when you have a large number of cases.If you’d prefer a more abstracted sense of this distribution, we could identify the center of the distribution,</p>
+<p><strong>6. Density plot</strong></p>
+<p>the values that mark off the middle half of the data,</p>
+<p><strong>7. Density plot</strong></p>
+<p>and the values that mark off the vast majority of the data.</p>
+<p><strong>8. Boxplot</strong></p>
+<p>These values can be used to construct a boxplot,</p>
+<p><strong>9. Boxplot</strong></p>
+<p>where the box represents the central bulk of the data,</p>
+<p><strong>10. Boxplot</strong></p>
+<p>the whiskers contain almost all the data,</p>
+<p><strong>11. Boxplot</strong></p>
+<p>and the extreme values are represented as points. You’ll see the syntax for this is a bit different: we’ll discuss why later on in the chapter.</p>
+<p><strong>12. Faceted histogram</strong></p>
+<p>Let’s use a histogram to look at the distribution of highway mileage faceted based on whether or not the car is a pickup truck by adding a facet wrap layer. It gives us a message, letting us know that it has picked a binwidth for us and a warning that there were 14 missing values. The plot that it provides is informative: it’s clear that are many more non-pickups than pickups.</p>
+<p><strong>13. Faceted histogram</strong></p>
+<p>It also shows that the typical pickup gets much lower mileage than the typical non-pickup.</p>
+<p><strong>14. Faceted histogram</strong></p>
+<p>We also see that non-pickups have more variability than do the pickups.</p>
+<p><strong>15. Let’s practice!</strong></p>
+<p>Keep an eye on these two components: a typical observation and the variability of a distribution as you practice exploring this numerical data.</p>
+</section>
+<section id="facet_wrap-faceted-histogram" class="level2">
+<h2 class="anchored" data-anchor-id="facet_wrap-faceted-histogram">facet_wrap(): Faceted histogram</h2>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>cars</code></li>
+</ul>
+<p>In this section, you’ll be working with the <code>cars</code> dataset, which records characteristics on all of the new models of cars for sale in the US in a certain year.</p>
+<p>You will investigate the distribution of mileage across a categorical variable, but before you get there, you’ll want to familiarize yourself with the dataset.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>View the size of the data and the variable types using <code>str()</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>cars <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/cars.csv"</span>, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">name =</span> <span class="fu">col_factor</span>()))</span>
+<span id="cb20-2"><a href="#cb20-2"></a></span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="co"># Learn data structure</span></span>
+<span id="cb20-4"><a href="#cb20-4"></a><span class="fu">str</span>(cars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Plot a histogram of <code>city_mpg</code> faceted by <code>suv</code>, a logical variable indicating whether the car is an SUV or not.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Create faceted histogram</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">ggplot</span>(cars, <span class="fu">aes</span>(<span class="at">x =</span> city_mpg)) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb21-4"><a href="#cb21-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> suv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In this step, you faceted by the <code>suv</code> variable, but it’s important to note that you can facet a plot by any categorical variable using <code>facet_wrap()</code>.</p>
+</section>
+<section id="geom_boxplot-geom_density-boxplots-and-density-plots" class="level2">
+<h2 class="anchored" data-anchor-id="geom_boxplot-geom_density-boxplots-and-density-plots">geom_boxplot() &amp; geom_density(): Boxplots and density plots</h2>
+<p>The mileage of a car tends to be associated with the size of its engine (as measured by the number of cylinders). To explore the relationship between these two variables, you could stick to using histograms, but in this exercise you’ll try your hand at two alternatives:</p>
+<ul>
+<li>box plot</li>
+<li>density plot.</li>
+</ul>
+<p><strong>Steps</strong></p>
+<p>A quick look at <code>unique(cars$ncyl)</code> shows that there are more possible levels of <code>ncyl</code> than you might think. Here, restrict your attention to the most common levels.</p>
+<ol type="1">
+<li>Filter <code>cars</code> to include only cars with 4, 6, or 8 cylinders and save the result as <code>common_cyl</code>. The <code>%in%</code> operator may prove useful here.</li>
+<li>Create side-by-side box plots of <code>city_mpg</code> separated out by <code>ncyl</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># 1. Filter cars with 4, 6, 8 cylinders</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>common_cyl <span class="ot">&lt;-</span> cars <span class="sc">|&gt;</span> </span>
+<span id="cb22-3"><a href="#cb22-3"></a>                <span class="fu">filter</span>(ncyl <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>))</span>
+<span id="cb22-4"><a href="#cb22-4"></a></span>
+<span id="cb22-5"><a href="#cb22-5"></a><span class="co"># 2. Create box plots of city mpg by ncyl</span></span>
+<span id="cb22-6"><a href="#cb22-6"></a>common_cyl <span class="sc">|&gt;</span> </span>
+<span id="cb22-7"><a href="#cb22-7"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(ncyl), <span class="at">y =</span> city_mpg)) <span class="sc">+</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Create overlaid density plots of <code>city_mpg</code> colored by <code>ncyl</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># 3. Create overlaid density plots for same data</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>common_cyl <span class="sc">|&gt;</span> </span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> city_mpg, <span class="at">fill =</span> <span class="fu">as.factor</span>(ncyl))) <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a>    <span class="fu">geom_density</span>(<span class="at">alpha =</span> .<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<h2 id="question-3" class="anchored"><em>Question</em></h2>
+<p>Which of the following interpretations of the plot <strong>is not</strong> valid?<br> <br> ⬜ The highest mileage cars have 4 cylinders.<br> ⬜ The typical 4 cylinder car gets better mileage than the typical 6 cylinder car, which gets better mileage than the typical 8 cylinder car.<br> ⬜ Most of the 4 cylinder cars get better mileage than even the most efficient 8 cylinder cars.<br> ✅ The variability in mileage of 8 cylinder cars is similar to the variability in mileage of 4 cylinder cars.<br></p>
+</blockquote>
+<p>The variability in mileage of 8 cylinder cars seem much smaller than that of 4 cylinder cars.</p>
+</section>
+<section id="distribution-of-one-variable-1" class="level2">
+<h2 class="anchored" data-anchor-id="distribution-of-one-variable-1">Distribution of one variable</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Distribution of one variable</strong></p>
+<p>If you’re interested in the distribution of just a single numerical variable, there are three ways you can get there. The first is to look at the marginal distribution, like,</p>
+<p><strong>2. Marginal vs.&nbsp;conditional</strong></p>
+<p>for example, the simple distribution of highway mileage. If we want to look at the distribution on a different subset of the data,</p>
+<p><strong>3. Marginal vs.&nbsp;conditional</strong></p>
+<p>say cars that are pickup trucks, we can add a facet wrap layer to see the distribution for both pickups and non-pickups.</p>
+<p><strong>4. Building a data pipeline</strong></p>
+<p>There’s another scenario, though, in which we’d want to look at the distribution of this variable on a more specific subset of the data, say the cars which have engines less than 2 (point) 0 liters in size. Since engine size is numerical, it won’t work to simply use facets. Instead, we have to filter. Filter is a function in the dplyr package used to keep only the rows that meet a particular condition. In this case, we want the rows where the engine size variable is less than 2 (point) 0. Notice that we’re using the pipe operator, which takes the output of whatever is before it, and pipes it as input into the next function. Then we save this filtered dataset into a new dataset called cars2. The second step is then to construct the plot using this new dataset.This construction is a bit inefficient though, since we save this intermediate dataset, cars2, which we’re not really interested in.</p>
+<p><strong>5. Building a data pipeline</strong></p>
+<p>We can solve this by linking this two components into a continuous data pipeline. We start with the raw data, which we pipe into the filter, the result of which gets piped into the ggplot function, which then adds a layer to complete the plot. This is a powerful and very general paradigm: you can start with a raw dataset, process that dataset using dplyr linked by pipes, then visualize it by adding up layers of a ggplot.</p>
+<p><strong>6. Filtered and faceted histogram</strong></p>
+<p>Let’s run that code in the console. The resulting plot makes some sense. These are cars with small engines that we’re looking at and small engines are usually more efficient, so we’re seeing higher mileages than when we looked at the whole dataset.One thing that’s important to know about histograms like this one is that your sense of the shape of the distribution can change depending on the bin width that is selected.</p>
+<p><strong>7. Wide bin width</strong></p>
+<p>ggplot2 does its best to select a sensible bin width, but you can override that option by specifying it yourself. If we use a binwidth of 5, the result is a histogram that’s much smoother.The same principle holds for density plots.</p>
+<p><strong>8. Density plot</strong></p>
+<p>Let’s pull up a density plot for the same data. It looks reasonably smooth, but if we wanted to make it smoother, we can increase what’s known as the bandwidth of plot.</p>
+<p><strong>9. Wide bandwidth</strong></p>
+<p>When we increase that to 5, we get a plot that smooths over the blip on the right side a bit more.But how do we decide what the “best” binwidth or bandwidth is for our plots? Usually the defaults are sensible, but it’s good practice to tinker with both smoother and less-smooth versions of the plots to focus on different scales of structure in the data.</p>
+<p><strong>10. Let’s practice!</strong></p>
+<p>Let’s try putting these techniques into practice.</p>
+</section>
+<section id="geom_histogram-marginal-and-conditional-histograms" class="level2">
+<h2 class="anchored" data-anchor-id="geom_histogram-marginal-and-conditional-histograms">geom_histogram(): Marginal and conditional histograms</h2>
+<p>Now, turn your attention to a new variable: <code>horsepwr</code>. The goal is to get a sense of the marginal distribution of this variable and then compare it to the distribution of horsepower conditional on the price of the car being less than $25,000.</p>
+<p>You’ll be making two plots using the “data pipeline” paradigm, where you start with the raw data and end with the plot.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Create a histogram of the distribution of <code>horsepwr</code> across all cars and add an appropriate title. Start by piping in the raw dataset.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Create hist of horsepwr</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>cars <span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horsepwr)) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a>  <span class="fu">ggtitle</span>(<span class="st">"hist horsepwr"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Create a second histogram of the distribution of horsepower, but only for those cars that have an <code>msrp</code> less than $25,000. Keep the limits of the x-axis so that they’re similar to that of the first plot, and add a descriptive title.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Create hist of horsepwr for affordable cars</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>cars <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href="#cb25-3"></a>  <span class="fu">filter</span>(msrp <span class="sc">&lt;</span> <span class="dv">25000</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horsepwr)) <span class="sc">+</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>  <span class="fu">xlim</span>(<span class="fu">c</span>(<span class="dv">90</span>, <span class="dv">550</span>)) <span class="sc">+</span></span>
+<span id="cb25-7"><a href="#cb25-7"></a>  <span class="fu">ggtitle</span>(<span class="st">"hist horsepwr &lt; 25000 msrp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<h2 id="question-4" class="anchored"><em>Question</em></h2>
+<p>Observe the two histograms. Which of the following <strong>is</strong> a valid interpretation.<br> <br> ⬜ Cars with around 300 horsepower are more common than cars with around 200 horsepower.<br> ✅ The highest horsepower car in the less expensive range has just under 250 horsepower.<br> ⬜ Most cars under $25,000 vary from roughly 100 horsepower to roughly 350 horsepower.<br></p>
+</blockquote>
+</section>
+<section id="geom_histogram-binwidths" class="level2">
+<h2 class="anchored" data-anchor-id="geom_histogram-binwidths">geom_histogram(): Binwidths</h2>
+<p>Before you take these plots for granted, it’s a good idea to see how things change when you alter the binwidth. The binwidth determines how smooth your distribution will appear: the smaller the binwidth, the more jagged your distribution becomes. It’s good practice to consider several binwidths in order to detect different types of structure in your data.</p>
+<p><strong>Steps</strong></p>
+<p>Create the following three plots, adding a title to each to indicate the binwidth used:</p>
+<ol type="1">
+<li>A histogram of horsepower (i.e.&nbsp;<code>horsepwr</code>) with a <code>binwidth</code> of 3.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Create hist of horsepwr with binwidth of 3</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>cars <span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horsepwr)) <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a>  <span class="fu">ggtitle</span>(<span class="st">"binwidth 3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>A second histogram of horsepower with a <code>binwidth</code> of 30.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Create hist of horsepwr with binwidth of 30</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>cars <span class="sc">%&gt;%</span></span>
+<span id="cb27-3"><a href="#cb27-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horsepwr)) <span class="sc">+</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">30</span>) <span class="sc">+</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a>  <span class="fu">ggtitle</span>(<span class="st">"binwidth 30"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>A third histogram of horsepower with a <code>binwidth</code> of 60.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Create hist of horsepwr with binwidth of 60</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>cars <span class="sc">%&gt;%</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(horsepwr)) <span class="sc">+</span></span>
+<span id="cb28-4"><a href="#cb28-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">60</span>) <span class="sc">+</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a>  <span class="fu">ggtitle</span>(<span class="st">"binwidth 60"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<h2 id="question-5" class="anchored"><em>Question</em></h2>
+<p>What feature is present in Plot A that’s not found in B or C?<br> <br> ⬜ The most common horsepower is around 200.br&gt; ✅ There is a tendency for cars to have horsepower right at 200 or 300 horsepower.br&gt; ⬜ There is a second mode around 300 horsepower.br&gt;</p>
+</blockquote>
+<p>Plot A is the only histogram that shows the count for cars with exactly 200 and 300 horsepower.</p>
+</section>
+<section id="box-plots" class="level2">
+<h2 class="anchored" data-anchor-id="box-plots">Box plots</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Box plots</strong></p>
+<p>By now you’ve had quite a bit of experience using box plots to visualize the distribution of numerical data, but let’s dig deeper to understand how exactly they are constructed by starting with a dot plot.</p>
+<p><strong>2. Insert title here…</strong></p>
+<p>The box plot is based around three summary statistics:</p>
+<p><strong>3. Insert title here…</strong></p>
+<p>the first quartile of the data,</p>
+<p><strong>4. Insert title here…</strong></p>
+<p>the second quartile,</p>
+<p><strong>5. Insert title here…</strong></p>
+<p>and the third quartile. You might be more familiar with the</p>
+<p><strong>6. Insert title here…</strong></p>
+<p>second quartile as the median, the value that’s in the middle of the dataset. It’s the second quartile because two quarters, or half, of the data is below it, and half is above it.</p>
+<p><strong>7. Insert title here…</strong></p>
+<p>The first quartile, then, has only one quarter of the data below it and</p>
+<p><strong>8. Insert title here…</strong></p>
+<p>the third quartile has three quarters of the data below it.</p>
+<p><strong>9. Insert title here…</strong></p>
+<p>These three numbers form the box in the box plot,</p>
+<p><strong>10. Insert title here…</strong></p>
+<p>with the median in the middle and the first and third quartiles as the edges. One thing you always know when looking at a box plot is that the middle half of the data is inside this box. There are various rules for where to draw the whiskers, the lines that extend out from the box.</p>
+<p><strong>11. Insert title here…</strong></p>
+<p>The one used by ggplot2 is to draw it out 1 (point) 5 times the length of the box, then draw it into the first observation that is encountered. The particular rule is less important than the interpretation, which is that the whiskers should encompass nearly all of the data.</p>
+<p><strong>12. Insert title here…</strong></p>
+<p>Any data that is not encompassed by either the box or the whiskers is represented by a point. This is one of the handy features of a box plot: it flags for you points that are far away from the bulk of the data, a form of automated outlier detection.</p>
+<p><strong>13. Insert title here…</strong></p>
+<p><strong>14. Side-by-side box plots</strong></p>
+<p>Let’s revisit the side-by-side box plots that you constructed in your exercise. This shows the distribution of city mileage broken down by cars that have 4 cylinders, 6 cylinders, and 8 cylinders. We can look to the heavy line in the boxes and learn that that median mileage is greatest for 4 cylinders and less for 6 cylinders. For 8 cylinder cars, something odd is going on: the median is very close to the third quartile.In terms of variability, the 4 cylinder cars again have the widest box and whiskers that extend the farthest. The middle half of the data in 6 cylinder cars spans a very small range of values, shown by the narrow box. Finally we see some outliers: one 6 cylinder car with low mileage and several 4 cylinder cars with high mileage.</p>
+<p><strong>15. Side-by-side box plots</strong></p>
+<p>If you’re wondering about that highest outlier in the 4 cylinder category, that is indeed a hybrid vehicle.</p>
+<p><strong>16. Side-by-side box plots</strong></p>
+<p>Notice that in terms of syntax, ggplot actually expects you to be plotting several box plots side-by-side. If you want to see just a single one, you can just set the x argument to 1.Box plots really shine in situations where you need to compare several distributions at once and also as a means to detect outliers. One of their weaknesses though is that they have no capacity to indicate when a distribution has more than one hump or “mode”.</p>
+<p><strong>17. Insert title here…</strong></p>
+<p>Consider the density plot here, there are two distinct modes.</p>
+<p><strong>18. Insert title here…</strong></p>
+<p>If we construct a box plot of the same distribution, it sweeps this important structure under the rug and will always only provide a single box.</p>
+<p><strong>19. Let’s practice!</strong></p>
+<p>Now that you know a bit more about how box plots are constructed, it’s time for you to construct some yourself.</p>
+</section>
+<section id="geom_boxplot-box-plots-for-outliers" class="level2">
+<h2 class="anchored" data-anchor-id="geom_boxplot-box-plots-for-outliers">geom_boxplot(): Box plots for outliers</h2>
+<p>In addition to indicating the center and spread of a distribution, a box plot provides a graphical means to detect outliers. You can apply this method to the <code>msrp</code> column (manufacturer’s suggested retail price) to detect if there are unusually expensive or cheap cars.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Construct a box plot of <code>msrp</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Construct box plot of msrp</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>cars <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> msrp)) <span class="sc">+</span></span>
+<span id="cb29-4"><a href="#cb29-4"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Exclude the largest 3-5 outliers by filtering the rows to retain cars less than $100,000. Save this reduced dataset as <code>cars_no_out</code>.</li>
+<li>Construct a similar box plot of <code>msrp</code> using this reduced dataset. Compare the two plots.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Exclude outliers from data</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a>cars_no_out <span class="ot">&lt;-</span> cars <span class="sc">%&gt;%</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a>                <span class="fu">filter</span>(msrp <span class="sc">&lt;</span> <span class="dv">100000</span>)</span>
+<span id="cb30-4"><a href="#cb30-4"></a></span>
+<span id="cb30-5"><a href="#cb30-5"></a><span class="co"># Construct box plot of msrp using the reduced dataset</span></span>
+<span id="cb30-6"><a href="#cb30-6"></a>cars_no_out <span class="sc">%&gt;%</span></span>
+<span id="cb30-7"><a href="#cb30-7"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> msrp)) <span class="sc">+</span></span>
+<span id="cb30-8"><a href="#cb30-8"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="geom_boxplot-vs.-geom_density-plot-selection" class="level2">
+<h2 class="anchored" data-anchor-id="geom_boxplot-vs.-geom_density-plot-selection">geom_boxplot() vs.&nbsp;geom_density(): Plot selection</h2>
+<p>Consider two other columns in the <code>cars</code> dataset: <code>city_mpg</code> and <code>width</code>. Which is the most appropriate plot for displaying the important features of their distributions? Remember, both density plots and box plots display the central tendency and spread of the data, but the box plot is more robust to outliers.</p>
+<p><strong>Steps</strong></p>
+<p>Use density plots or box plots to construct the following visualizations. For each variable, try both plots and submit the one that is better at capturing the important structure.</p>
+<ol type="1">
+<li>Display the distribution of <code>city_mpg</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Create plot of city_mpg</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a>cars <span class="sc">%&gt;%</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> city_mpg)) <span class="sc">+</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Display the distribution of <code>width</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Create plot of width</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>cars <span class="sc">%&gt;%</span> </span>
+<span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> width)) <span class="sc">+</span></span>
+<span id="cb32-4"><a href="#cb32-4"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Because the <code>city_mpg</code> variable has a much wider range with its outliers, it’s best to display its distribution as a box plot.</p>
+</section>
+<section id="visualization-in-higher-dimensions" class="level2">
+<h2 class="anchored" data-anchor-id="visualization-in-higher-dimensions">Visualization in higher dimensions</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Visualization in higher dimensions</strong></p>
+<p>In this course, we’ve been encouraging you to think about the question of “what is the association between this variable and that one” and “if you condition on one level of this variable, how does the distribution of another change”. The answers to these questions require multivariate thinking and it is an essential skill in reasoning about the structure of real data. But why stop at only two variables?</p>
+<p><strong>2. Plots for 3 variables</strong></p>
+<p>One simple extension that allows you to plot the association between three variables is the facet grid. Let’s build a plot that can tell us about msrp, the manufacturer’s suggested retail price. Since that variable is numerical, there are several plots we could use. Let’s go with a density plot. By adding a facet grid layer, we can break that distribution down by two categorical variables, separated by a tilde. Whichever variable you put before the tilde will go in the rows of the grid and the the one that goes after will form the columns. When we run this code, we get a grid of four density plots, one for every combination of levels of the two categorical variables. Unfortunately, this plot is difficult to interpret since it doesn’t remind us which variable is on the rows versus columns. We can solve this by adding an option to the facet grid layer:</p>
+<p><strong>3. Plots for 3 variables</strong></p>
+<p>labeller is equal to label both.OK, now we can learn something. If we look at rear wheel drive pickups, there appear to actually be two modes, but in general, they’re a bit cheaper than front wheel drive pickups. In non-pickups, however, its the rear-wheel drive ones that are generally pricier.</p>
+<p><strong>4. Plots for 3 variables</strong></p>
+<p>One thing we should check before moving on is the number of cases that go into each of these 4 plots. If we form a contingency table of rear wheel and pickup, we learn that there are relatively few rear wheel drive cars in this dataset. While this would be plainly obvious had we used histograms, density plots normalize each distribution so that they have the same area. The take home message is that our interpretation is still valid, but when we’re making comparisons across the rear wheel variable, there are fewer cases to compare.</p>
+<p><strong>5. Higher dimensional plots</strong></p>
+<p>This is just the tip of the iceberg of high dimensional data graphics. Anything you can discern visually, things like shape, size, color, pattern, movement, in addition to relative location, can be mapped to a variable and plotted alongside other variables.</p>
+<p><strong>6. Let’s practice!</strong></p>
+<p>Alright, now it’s your turn to practice.</p>
+</section>
+<section id="facet_grid-3-variable-plot" class="level2">
+<h2 class="anchored" data-anchor-id="facet_grid-3-variable-plot">facet_grid(): 3 variable plot</h2>
+<p>Faceting is a valuable technique for looking at several conditional distributions at the same time. If the faceted distributions are laid out in a grid, you can consider the association between a variable and two others, one on the rows of the grid and the other on the columns.</p>
+<p><strong>Steps</strong></p>
+<p>Use <code>common_cyl</code>, which you created to contain only cars with 4, 6, or 8 cylinders.</p>
+<ol type="1">
+<li>Using <code>common_cyl</code>, create a histogram of <code>hwy_mpg</code>.</li>
+<li>Grid-facet the plot rowwise by <code>ncyl</code> and columnwise by <code>suv</code>.</li>
+<li>Add a title to your plot to indicate what variables are being faceted on.</li>
+</ol>
+<p><strong>Solution:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Facet hists using hwy mileage and ncyl</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>common_cyl <span class="sc">%&gt;%</span></span>
+<span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hwy_mpg)) <span class="sc">+</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a>  <span class="fu">facet_grid</span>(ncyl <span class="sc">~</span> suv) <span class="sc">+</span></span>
+<span id="cb33-6"><a href="#cb33-6"></a>  <span class="fu">ggtitle</span>(<span class="st">"Mileage by suv and ncyl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<h2 id="question-6" class="anchored"><em>Question</em></h2>
+<p>Which of the following interpretations of the plot <strong>is</strong> valid?<br> <br> ✅ Across both SUVs and non-SUVs, mileage tends to decrease as the number of cylinders increases.<br> ⬜ There are more SUVs than non-SUVs across all cylinder types.<br> ⬜ There is more variability in 6-cylinder non-SUVs than in any other type of car.<br></p>
+</blockquote>
+</section>
+</section>
+<section id="numerical-summaries" class="level1">
+<h1>3. Numerical Summaries</h1>
+<p>Now that we’ve looked at exploring categorical and numerical data, you’ll learn some useful statistics for describing distributions of data.</p>
+<section id="measures-of-center" class="level2">
+<h2 class="anchored" data-anchor-id="measures-of-center">Measures of center</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Measures of center</strong></p>
+<p>What do we mean by a typical observation? For example, it sounds perfectly fine to state a statistic like: the typical life expectancy in the US is 77 (point) 6 years, but where does that number come from? Before we answer that question, let’s make this more concrete by introducing a dataset that we’ll be working with throughout the chapter.</p>
+<p><strong>2. County demographics</strong></p>
+<p>Researchers in public health have compiled data on the demographics of every county in the US. We see here that we have 4 variables: the state name, the county name, then the average life expectancy, and the median income. Let’s focus on the life expectancy in the first 11 counties in this dataset, all in the state of Alabama.</p>
+<p><strong>3. Center: mean</strong></p>
+<p>I’m going to simplify and extract those 11 numbers by rounding the values of expectancy, when looking at the first 11 cases. The result, x, is 11 integers, all in the mid 70s.OK, so let’s ask the question again: what is a typical value for this set of 11 numbers?</p>
+<p><strong>4. Center: mean</strong></p>
+<p>The most common answer is the mean, which is the sum of all of the observations divided by the number of observations. We learn that the mean life expectancy in these 11 counties is around 74 (point) 5 years. We can also use the built-in function mean.If we visualize “x” as a dot plot,</p>
+<p><strong>5. Center: mean</strong></p>
+<p>we can represent the mean as a vertical red line.Another measure of “typical” or “center” is the median.</p>
+<p><strong>6. Center: mean, median</strong></p>
+<p>The median is the middle value in the sorted dataset. So if we sort x, the middle value is 74. We can also use the built-in function median. Let’s draw that line in blue.</p>
+<p><strong>7. Center: mean, median</strong></p>
+<p>A third measure of center is the mode.</p>
+<p><strong>8. Center: mean, median, mode</strong></p>
+<p>The mode is simply the most common observation in the set. We can look at the dot plot and see that it is 74. We can also run the table function to see that the greatest count was 3 at 74. Let’s plot the mode right next to the median in gold.</p>
+<p><strong>9. Center: mean, median, mode</strong></p>
+<p>The mode is the highest point on a plot of the distribution, while the median divides the dataset into a lower half and an upper half. In this case, those values are the same, but that is often not the case. The mean can be thought of as the balance point of the data and it tends to be drawn towards the longer tail of a distribution. This highlights an important feature of the mean: its sensitivity to extreme values. For this reason, when working with skewed distributions, the median is often a more appropriate measure of center.Now that we have some sensible measures of center, we can answer questions like: is the typical county life expectancy on the West Coast similar to the typical life expectancy in the rest of the country?</p>
+<p><strong>10. Groupwise means</strong></p>
+<p>To answer this, we start by creating a new variable that will be TRUE if the state value is one of “California”, “Oregon”, or “Washington”, and FALSE otherwise, and save it back to the original dataset. To compute groupwise means, we pipe the dataset into the group by function indicating that we’d like to establish groups based on our new variable. Then we can summarize those groups, West Coast counties and non- West Coast counties, by taking the mean and median of their life expectancies. We learn that looking at both mean and median, the typical West Coast county has a slightly higher average life expectancy than counties not on the West Coast.</p>
+<p><strong>11. Without group_by()</strong></p>
+<p>Group by and summarize form a powerful pair of functions, so let’s look into how they work. Let’s look at a slice of 8 rows in the middle of the dataset and remove the group by line. This will summarize the expectancy variable by taking its mean across all 8 rows.</p>
+<p><strong>12. With group_by()</strong></p>
+<p>If we add a line to group by West Coast, it’s effectively breaking the dataset into two groups and calculating the mean of the expectancy variable for each one separately.group by and summarize open up lots of possibilities for analysis, so let’s get started.</p>
+<p><strong>13. Let’s practice!</strong></p>
+<p>In all of the exercises for this chapter, you’ll be working with similar data, but on a global scale, in the Gapminder data.</p>
+</section>
+<section id="choice-of-center-measure" class="level2">
+<h2 class="anchored" data-anchor-id="choice-of-center-measure">Choice of center measure</h2>
+<p>The choice of measure for center can have a dramatic impact on what we consider to be a typical observation, so it is important that you consider the shape of the distribution before deciding on the measure.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>distributions <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/distributions.rds"</span>)</span>
+<span id="cb34-2"><a href="#cb34-2"></a></span>
+<span id="cb34-3"><a href="#cb34-3"></a>distributions <span class="sc">|&gt;</span> </span>
+<span id="cb34-4"><a href="#cb34-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">fill =</span> distribution)) <span class="sc">+</span></span>
+<span id="cb34-5"><a href="#cb34-5"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> .<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<h2 id="question-7" class="anchored"><em>Question</em></h2>
+<p>Which set of measures of central tendency would be <em>worst</em> for describing the two distributions shown here?<br> <br> ⬜ A: mode, B: median<br> ✅ A: mean, B: mode<br> ⬜ A: median, B: mean<br> ⬜ A: median, B: median<br></p>
+</blockquote>
+</section>
+<section id="summarize-calculate-center-measures" class="level2">
+<h2 class="anchored" data-anchor-id="summarize-calculate-center-measures">summarize(): Calculate center measures</h2>
+<p><strong>Data</strong></p>
+<p>Throughout this section, you will use data from <code>gapminder</code>, which tracks demographic data in countries of the world over time. To learn more about it, you can bring up the help file with <code>?gapminder</code>.</p>
+<p>For this part, focus on how the life expectancy differs from continent to continent. This requires that you conduct your analysis not at the country level, but aggregated up to the continent level. This is made possible by the one-two punch of <code>group_by()</code> and <code>summarize()</code>, a very powerful syntax for carrying out the same analysis on different subsets of the full dataset.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Create a dataset called <code>gap2007</code> that contains only data from the year 2007.</li>
+<li>Using <code>gap2007</code>, calculate the mean and median life expectancy for each continent. Don’t worry about naming the new columns produced by <code>summarize()</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Create dataset of 2007 data</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>gap2007 <span class="ot">&lt;-</span> <span class="fu">filter</span>(gapminder<span class="sc">::</span>gapminder, year <span class="sc">==</span> <span class="dv">2007</span>)</span>
+<span id="cb35-3"><a href="#cb35-3"></a></span>
+<span id="cb35-4"><a href="#cb35-4"></a><span class="co"># Compute groupwise mean and median lifeExp</span></span>
+<span id="cb35-5"><a href="#cb35-5"></a>gap2007 <span class="sc">%&gt;%</span></span>
+<span id="cb35-6"><a href="#cb35-6"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb35-7"><a href="#cb35-7"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(lifeExp),</span>
+<span id="cb35-8"><a href="#cb35-8"></a>            <span class="fu">median</span>(lifeExp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Confirm the trends that you see in the medians by generating side-by-side box plots of life expectancy for each continent.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Generate box plots of lifeExp for each continent</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>gap2007 <span class="sc">%&gt;%</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> continent, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="measures-of-variability" class="level2">
+<h2 class="anchored" data-anchor-id="measures-of-variability">Measures of variability</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Measures of variability</strong></p>
+<p>How do you summarize the variability that you see in a set of numbers?</p>
+<p><strong>2. Insert title here…</strong></p>
+<p>Let’s consider the life expectancies in those first 11 counties in the US county-level dataset, which we saved to the object x. Most methods have us thinking about variability along the lines of how much the data is spread out from the center.</p>
+<p><strong>3. Insert title here…</strong></p>
+<p>Let’s choose to define the center by the mean and then, quantify the distance from the mean by taking the difference between each observation and that mean. That results in 11 differences, some positive, some negative. We’d like to reduce all of these differences to a single measure of variability, so let’s add them up. This is R’s scientific notation, saying the sum is -1 (point) 42 times 10 to the -14. That number is essentially zero. Clearly something has gone wrong because we can tell that there is variability in this dataset, but our measure hasn’t detected it. The problem is that the positives and negatives have canceled each other out. This is easy to fix: you can square each difference to get rid of the negatives. This new measure is better, but it has an undesirable property: it will just keep getting bigger the more data that you add. You can fix this by dividing this number by the number of observations, 11. OK, now this looks like a useful measure: you find the center of the data, then find the squared distance between the observations and that mean averaged across whole dataset. If you change the n to an n-1, you are left with what’s called the sample variance, one of the most useful measures of the spread of a distribution. In R, this statistic is wrapped up into the function v-a-r for variance.</p>
+<p><strong>4. Insert title here…</strong></p>
+<p>Another useful measure is the square root of this number, which is called the sample standard deviation or just sd in R. The convenient thing about the sample standard deviation is that, once computed, it is in the same units as the original data. In this case we can say that the standard deviation of these 11 counties’ life expectancies is 1 (point) 69 years. By comparison, the variance of this sample is 2 (point) 87 years squared, which is a unit that we have no real intuition about.There are two more measures of spread that are good to know about. The interquartile range, or IQR, is the distance between the two numbers that cut-off the middle 50% of your data. This should sound familiar from the discussion of box plots: the height of the box is exactly the IQR. We can either get the first and third quartiles from the summary function and take their difference or we can use the built-in IQR function.The final measure is simply the range of the data: the distance between the maximum and the minimum. max and min are indeed functions in R, but you can also use the nested diffrangex.For any dataset, you can compute all four of these statistics, but which ones are the most meaningful? The most commonly used in practice is the standard deviation, so that’s often a good place to start. But what happens if the dataset has some extreme observations?</p>
+<p><strong>5. Insert title here…</strong></p>
+<p>Let’s say that Baldwin County, Alabama, the county with a life expectancy around 78, instead had a life expectancy of 97. If you recompute the variance and the standard deviation, you see that they’ve both gone through the roof. These measures are sensitive to extreme values in the same way that the mean is as a measure of center. If you recompute the range, it will certainly increase because it is completely determined by the extreme values. For this reason, the range is not often used.If you recompute the IQR, however, you see that it hasn’t budged. Because that observation is still the highest, the quartiles didn’t move. This reveals a good reason for using the IQR: in situations where your dataset is heavily skewed or has extreme observations.</p>
+<p><strong>6. Let’s practice!</strong></p>
+<p>You’ll put your understanding of variability to use in the next exercises.</p>
+</section>
+<section id="choice-of-spread-measure" class="level2">
+<h2 class="anchored" data-anchor-id="choice-of-spread-measure">Choice of spread measure</h2>
+<p>The choice of measure for spread can dramatically impact how variable we consider our data to be, so it is important that you consider the shape of the distribution before deciding on the measure.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>distributions <span class="sc">|&gt;</span> </span>
+<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">fill =</span> distribution)) <span class="sc">+</span></span>
+<span id="cb37-3"><a href="#cb37-3"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> .<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<h2 id="question-8" class="anchored"><em>Question</em></h2>
+<p>Which set of measures of spread would be <em>worst</em> for describing the two distributions shown here?<br> <br> ⬜ A: IQR, B: IQR<br> ⬜ A: SD, B: IQR<br> ✅ A: Variance, B: Range<br></p>
+</blockquote>
+</section>
+<section id="sd-iqr-n-calculate-spread-measures" class="level2">
+<h2 class="anchored" data-anchor-id="sd-iqr-n-calculate-spread-measures">sd(), IQR(), n(): Calculate spread measures</h2>
+<p>Let’s extend the powerful <code>group_by()</code> and <code>summarize()</code> syntax to measures of spread. If you’re unsure whether you’re working with symmetric or skewed distributions, it’s a good idea to consider a robust measure like IQR in addition to the usual measures of variance or standard deviation.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>For each continent in <code>gap2007</code>, summarize life expectancies using the <code>sd()</code>, the <code>IQR()</code>, and the count of countries, <code>n()</code>. No need to name the new columns produced here. The <code>n()</code> function within your <code>summarize()</code> call does not take any arguments.</li>
+</ol>
+<p><strong>Solution:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Compute groupwise measures of spread</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a>gap2007 <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb38-4"><a href="#cb38-4"></a>  <span class="fu">summarize</span>(<span class="fu">sd</span>(lifeExp),</span>
+<span id="cb38-5"><a href="#cb38-5"></a>            <span class="fu">IQR</span>(lifeExp),</span>
+<span id="cb38-6"><a href="#cb38-6"></a>            <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Graphically compare the spread of these distributions by constructing overlaid density plots of life expectancy broken down by continent.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Generate overlaid density plots</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a>gap2007 <span class="sc">%&gt;%</span></span>
+<span id="cb39-3"><a href="#cb39-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> lifeExp, <span class="at">fill =</span> continent)) <span class="sc">+</span></span>
+<span id="cb39-4"><a href="#cb39-4"></a>  <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="choose-measures-for-center-and-spread" class="level2">
+<h2 class="anchored" data-anchor-id="choose-measures-for-center-and-spread">Choose measures for center and spread</h2>
+<p>Consider the density plots shown here. What are the most appropriate measures to describe their centers and spreads? In this exercise, you’ll select the measures and then calculate them.</p>
+<p><strong>Steps</strong></p>
+<p>Using the shapes of the density plots, calculate the most appropriate measures of center and spread for the following:</p>
+<ol type="1">
+<li>The distribution of life expectancy in the countries of the Americas. Note you’ll need to apply a filter here.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># Compute stats for lifeExp in Americas</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>gap2007 <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="#cb40-3"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Americas"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb40-4"><a href="#cb40-4"></a>  <span class="fu">summarize</span>(<span class="fu">mean</span>(lifeExp),</span>
+<span id="cb40-5"><a href="#cb40-5"></a>            <span class="fu">sd</span>(lifeExp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>The distribution of country <em>populations</em> across the entire <code>gap2007</code> dataset.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Compute stats for population</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a>gap2007 <span class="sc">%&gt;%</span></span>
+<span id="cb41-3"><a href="#cb41-3"></a>  <span class="fu">summarize</span>(<span class="fu">median</span>(pop),</span>
+<span id="cb41-4"><a href="#cb41-4"></a>            <span class="fu">IQR</span>(pop))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="distribution-shapes" class="level2">
+<h2 class="anchored" data-anchor-id="distribution-shapes">Distribution shapes</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>distributions2 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/distributions2.rds"</span>)</span>
+<span id="cb42-2"><a href="#cb42-2"></a></span>
+<span id="cb42-3"><a href="#cb42-3"></a>distributions2 <span class="sc">|&gt;</span> </span>
+<span id="cb42-4"><a href="#cb42-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb42-5"><a href="#cb42-5"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb42-6"><a href="#cb42-6"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>plot, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb42-7"><a href="#cb42-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb42-8"><a href="#cb42-8"></a>  <span class="fu">theme</span>(<span class="at">axis.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb42-9"><a href="#cb42-9"></a>        <span class="at">axis.text  =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb42-10"><a href="#cb42-10"></a>        <span class="at">axis.ticks =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="shape-and-transformations" class="level2">
+<h2 class="anchored" data-anchor-id="shape-and-transformations">Shape and transformations</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Shape and transformations</strong></p>
+<p>There are generally four characteristics of distributions that are of interest. The first two we’ve covered already: the center and the spread or variability of the distribution. The third is the shape of the distribution, which can be described in terms of the modality and the skew.</p>
+<p><strong>2. Modality</strong></p>
+<p>The modality of a distribution is the number of prominent humps that show up in the distribution. If there is a single mode, as in a bell-curve, it’s called unimodal. If there are two prominent modes, it’s called bimodal. If it has three modes or more, the convention is to refer to it as multimodal. There is one last case: when there is no distinct mode. Because the distribution is flat across all values, it is referred to as uniform.The other aspect to the shape of the distribution concerns its skew.</p>
+<p><strong>3. Skew</strong></p>
+<p>If a distribution has a long tail that stretches out to the right, it’s referred to as “right-skewed”.</p>
+<p><strong>4. Skew</strong></p>
+<p>If that long tail stretches out to the left, its referred to as “left-skewed”.If you have trouble remembering which is which, just remember that the skew is where the long tail is.</p>
+<p><strong>5. Skew</strong></p>
+<p>If neither tail is longer than the other, the distribution is called “symmetric”.</p>
+<p><strong>6. Shape of income</strong></p>
+<p>Let’s compare the distributions of median personal income at the county level on the West Coast and in the rest of the country to see what shape these distributions take. There are several plot types that we could use here. Let’s use an overlaid density plot by putting income along the x axis, filling the two curves with color according to whether or not they’re on the West Coast, then adding a density later and specifying an alpha level of (point) 3. This allows the colors to be somewhat transparent so that we can see where they overlap.The plot that results shows two curves, the blue representing the West Coast distribution and the pink representing counties not on the West Coast. Each distribution has a single prominent mode, so we can say that each distribution is unimodal. You might argue that the little bump around 100,000 dollars is a second mode, but we’re generally looking for larger-scale structure than that.It’s difficult to compare these distributions because they are both heavily right-skewed, that is, there are a few counties in each group that have very high incomes. One way to remedy this is to construct a plot of a transformed version of this variable.</p>
+<p><strong>7. Shape of income</strong></p>
+<p>Since income has a heavy right skew, either the square-root or log-transform will do a good job of drawing in the right tail and spreading out the lower values so that we can see what’s going on. We can perform the transformation by wrapping income in the log function, which will take the natural log. The result is a picture that’s a bit easier to interpret: the typical income in West Coast counties is indeed greater than that in the rest of the country and the second very small mode of high income counties in the West Coast is not present in the other distribution.</p>
+<p><strong>8. Let’s practice!</strong></p>
+<p>Let’s turn to some exercises to explore the shape of the Gapminder data.</p>
+<blockquote class="blockquote">
+<h2 id="question-9" class="anchored"><em>Question</em></h2>
+<p>To build some familiarity with distributions of different shapes, consider the four that are plotted here. Which of the following options does the best job of describing their shape in terms of modality and skew/symmetry?<br> <br> ⬜ A: bimodal symmetric; B: unimodal symmetric; C: unimodal left-skewed, D: bimodal right-skewed.<br> ✅ A: unimodal left-skewed; B: unimodal symmetric; C: unimodal right-skewed, D: bimodal symmetric.<br> ⬜ A: unimodal right-skewed; B: unimodal left-skewed; C: unimodal left-skewed; D: bimodal symmetric.<br> ⬜ A: unimodal left-skewed; B: bimodal symmetric; C: unimodal right-skewed, D: unimodal symmetric.<br></p>
+</blockquote>
+</section>
+<section id="log-transformations" class="level2">
+<h2 class="anchored" data-anchor-id="log-transformations">log(): Transformations</h2>
+<p>Highly skewed distributions can make it very difficult to learn anything from a visualization. Transformations can be helpful in revealing the more subtle structure.</p>
+<p>Here you’ll focus on the population variable, which exhibits strong right skew, and transform it with the natural logarithm function (<code>log()</code> in R).</p>
+<p><strong>Steps</strong></p>
+<p>Using the <code>gap2007</code> data:</p>
+<ol type="1">
+<li>Create a density plot of the population variable.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Create density plot of old variable</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a>gap2007 <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> pop)) <span class="sc">+</span></span>
+<span id="cb43-4"><a href="#cb43-4"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Mutate a new column called <code>log_pop</code> that is the natural log of the population and save it back into <code>gap2007</code>.</li>
+<li>Create a density plot of your transformed variable.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Transform the skewed pop variable</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a>gap2007 <span class="ot">&lt;-</span> gap2007 <span class="sc">%&gt;%</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a>  <span class="fu">mutate</span>(<span class="at">log_pop =</span> <span class="fu">log</span>(pop))</span>
+<span id="cb44-4"><a href="#cb44-4"></a></span>
+<span id="cb44-5"><a href="#cb44-5"></a><span class="co"># Create density plot of new variable</span></span>
+<span id="cb44-6"><a href="#cb44-6"></a>gap2007 <span class="sc">%&gt;%</span></span>
+<span id="cb44-7"><a href="#cb44-7"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> log_pop)) <span class="sc">+</span></span>
+<span id="cb44-8"><a href="#cb44-8"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="outliers" class="level2">
+<h2 class="anchored" data-anchor-id="outliers">Outliers</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Outliers</strong></p>
+<p>We’ve discussed three different aspects of a distribution that are important to note</p>
+<p><strong>2. Characteristics of a distribution</strong></p>
+<p>when conducting an exploratory data analysis: center, variability, and shape. A fourth and final thing to look for are outliers. These are observations that have extreme values far from the bulk of the distribution. They’re often very interesting cases, but they’re also good to know about before proceeding with more formal analysis.</p>
+<p><strong>3. Insert title here…</strong></p>
+<p>We saw some extreme values when we plotted the distribution of income for counties on the West Coast. What are we to make of this blip of counties? One thing we can do is try this as a box plot. Here I’ve added an additional layer that flips the coordinates so that they boxes are stretched out horizontally to make the comparison with the density plot easier. What we see is interesting: the box plot flags many counties as outliers, both along the West Coast but in the rest of the country as well. So why was the blip more apparent on the West Coast? It has to do with sample size. There are far fewer counties in the West Coast group, so these few outliers had an outsized effect on the density plot. In the case of the non West Coast group, there are many many more counties that were able to wash out the effect of these outliers in the density plot.</p>
+<p><strong>4. Indicating outliers</strong></p>
+<p>It is often useful to consider outliers separately from the rest of the data, so lets create a new column to store whether or not a given case is an outlier. This requires that we mutate a new column called is outlier that is TRUE if the income is greater than some threshold and FALSE otherwise. In this case, we’ve picked a threshold for outliers as counties with incomes greater than $75,000.We can actually inspect the outliers by filtering the dataset to only include outliers, then arrange them in decreasing order of income. Because we didn’t save this dplyr chain back to an object, it just prints the sorted outliers to the console. We learn that the top income county is actually Teton County, in Wyoming, and that three of the top ten counties are in Texas and two are in Nebraska.We can also try rebuilding the density plots without the outliers.</p>
+<p><strong>5. Plotting without outliers</strong></p>
+<p>To do this, we form a dplyr chain where the first step is to filter on those counties that are not outliers. Recall that is outlier is a vector of TRUEs and FALSEs. Those values can be reversed using an exclamation point, forming a variable that indicates the counties that are not outliers. We then pipe this into the same code we used for the overlaid density plots.The result is a plot that focuses much more on the body of the distribution. You can contrast that with the original plot, which was dominated by the strong right skew caused by the extreme values. Note that neither of these plots is right or wrong, but they tell different stories of the structure in this data, both of which are valuable.</p>
+<p><strong>6. Let’s practice!</strong></p>
+<p>OK, now it’s your turn to practice exploring outliers in the Gapminder data.</p>
+</section>
+<section id="identify-outliers" class="level2">
+<h2 class="anchored" data-anchor-id="identify-outliers">Identify outliers</h2>
+<p>Consider the distribution, shown here, of the life expectancies of the countries in Asia. The box plot identifies one clear outlier: a country with a notably low life expectancy. Do you have a guess as to which country this might be? Test your guess in the console using either <code>min()</code> or <code>filter()</code>, then proceed to building a plot with that country removed.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Apply a filter so that it only contains observations from Asia, then create a new variable called <code>is_outlier</code> that is <code>TRUE</code> for countries with life expectancy less than 50. Assign the result to <code>gap_asia</code>.</li>
+<li>Filter <code>gap_asia</code> to remove all outliers, then create another box plot of the remaining life expectancies.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># Filter for Asia, add column indicating outliers</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a>gap_asia <span class="ot">&lt;-</span> gap2007 <span class="sc">%&gt;%</span></span>
+<span id="cb45-3"><a href="#cb45-3"></a>  <span class="fu">filter</span>(continent <span class="sc">==</span> <span class="st">"Asia"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb45-4"><a href="#cb45-4"></a>  <span class="fu">mutate</span>(<span class="at">is_outlier =</span> lifeExp <span class="sc">&lt;</span> <span class="dv">50</span>)</span>
+<span id="cb45-5"><a href="#cb45-5"></a></span>
+<span id="cb45-6"><a href="#cb45-6"></a><span class="co"># Remove outliers, create box plot of lifeExp</span></span>
+<span id="cb45-7"><a href="#cb45-7"></a>gap_asia <span class="sc">%&gt;%</span></span>
+<span id="cb45-8"><a href="#cb45-8"></a>  <span class="fu">filter</span>(<span class="sc">!</span>is_outlier) <span class="sc">%&gt;%</span></span>
+<span id="cb45-9"><a href="#cb45-9"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">1</span>, <span class="at">y =</span> lifeExp)) <span class="sc">+</span></span>
+<span id="cb45-10"><a href="#cb45-10"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="case-study-spam-emails" class="level1">
+<h1>4. Case Study: Spam Emails</h1>
+<p>Apply what you’ve learned to explore and summarize a real world dataset in this case study of email spam.</p>
+<section id="introducing-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="introducing-the-data">Introducing the data</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Introducing the data</strong></p>
+<p>In this chapter, you’ll get a chance to put to use what you know about EDA in exploring a new dataset.</p>
+<p><strong>2. Email data set</strong></p>
+<p>The email dataset contains information on all of the emails received by a single email account in a single month. Each email is a case, so we see that this email account received 3,921 emails. Twenty-one different variables were recorded on each email, some of which are numerical, others are categorical. Of primary interest is the first column, a categorical variable indicating whether or not the email is spam. This was created by actually reading through each email individually and deciding if it looked like spam or not. The subsequent columns were easier to create. to multiple is TRUE if the email was addressed to more than one recipient and FALSE otherwise. image is the number of images attached in the email. It’s important that you have a full sense of what each of the variables mean, so you’ll want to start your exercises by reading about them in the help file.One of your guiding questions throughout this chapter is: what characteristics of an email are associated with it being spam? Numerical and graphical summaries are a great way of starting to answer that question. Let’s review the main graphical tools that we have for numerical data.</p>
+<p><strong>3. Histograms</strong></p>
+<p>Histograms take continuous data and aggregate it into bins, then draw a bar to a height that corresponds to the number of cases in that bin. They have a tuning parameter that you should play with, the binwidth, to explore the shape of the distribution at different scales.</p>
+<p><strong>4. Histograms</strong></p>
+<p>If you’re interested in building histograms broken down based on a categorical variable, they’re a good candidate for faceting, which can be done with the facet wrap layer.</p>
+<p><strong>5. Boxplots</strong></p>
+<p>Box plots excel at comparing multiple distributions and this is reflected in the ggplot syntax that requires you to put something on the x axis. If variable has two levels, you’ll get two side-by-side box plots. The box plot uses robust measures, the median and the IQR, to draw the box, and also flags potential outliers for you. A downside, however, is that it can hide more complicated shapes, such as a bimodal distribution.</p>
+<p><strong>6. Boxplots</strong></p>
+<p>To get a single box plot, just map x to the number 1.</p>
+<p><strong>7. Density plots</strong></p>
+<p>Density plots summarize the data by drawing a smooth line to represent its shape. Similar to histograms, you can change the smoothness of a density plot by changing the bandwidth parameter, which you can add to the geom density function. These can be faceted just like histograms, or they can be overlaid on one another,</p>
+<p><strong>8. Density plots</strong></p>
+<p>by mapping the color of the fill of the distribution to a second variable. If you want the colors to be somewhat transparent, specify an alpha parameter between 0 and 1.</p>
+<p><strong>9. Let’s practice!</strong></p>
+<p>With that brief introduction, let’s dive into this new dataset.</p>
+<section id="spam-and-num_char" class="level3">
+<h3 class="anchored">Spam and num_char</h3>
+<p>Is there an association between spam and the length of an email? You could imagine a story either way:</p>
+<ul>
+<li><em>Spam is more likely to be a short message tempting me to click on a link</em>, or</li>
+<li><em>My normal email is likely shorter since I exchange brief emails with my friends all the time</em>.</li>
+</ul>
+<p>Here, you’ll use the <code>email</code> dataset to settle that question. Begin by bringing up the help file and learning about all the variables with <code>?email</code>.</p>
+<p>As you explore the association between spam and the length of an email, use this opportunity to try out linking a <code>dplyr</code> chain with the layers in a <code>ggplot2</code> object.</p>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>email</code> (from the <code>openintro</code> package)</li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Compute appropriate measures of the center and spread of <code>num_char</code> for both spam and not-spam using <code>group_by()</code> and <code>summarize()</code>. No need to name the new columns created by <code>summarize()</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Load packages</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="fu">library</span>(openintro)</span>
+<span id="cb46-3"><a href="#cb46-3"></a></span>
+<span id="cb46-4"><a href="#cb46-4"></a><span class="co"># Compute summary statistics</span></span>
+<span id="cb46-5"><a href="#cb46-5"></a>email <span class="sc">%&gt;%</span></span>
+<span id="cb46-6"><a href="#cb46-6"></a>  <span class="fu">group_by</span>(spam) <span class="sc">%&gt;%</span></span>
+<span id="cb46-7"><a href="#cb46-7"></a>  <span class="fu">summarise</span>(<span class="fu">median</span>(num_char),</span>
+<span id="cb46-8"><a href="#cb46-8"></a>            <span class="fu">IQR</span>(num_char))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Construct side-by-side box plots to visualize the association between the same two variables. It will be useful to <code>mutate()</code> a new column containing a log-transformed version of <code>num_char</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Create plot</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>email <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a href="#cb47-3"></a>  <span class="fu">mutate</span>(<span class="at">log_num_char =</span> <span class="fu">log</span>(num_char)) <span class="sc">%&gt;%</span></span>
+<span id="cb47-4"><a href="#cb47-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> spam, <span class="at">y =</span> log_num_char)) <span class="sc">+</span></span>
+<span id="cb47-5"><a href="#cb47-5"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<h2 id="question-10" class="anchored" data-anchor-id="spam-and-num_char"><em>Question</em></h2>
+<p>Which of the following interpretations of the plot is valid?<br> <br> ⬜ The shortest email in this dataset was not spam.<br> ✅ The median length of not-spam emails is greater than that of spam emails.<br> ⬜ The IQR of email length of spam is greater than that of not-spam.<br></p>
+</blockquote>
+</section>
+<section id="spam-and" class="level3">
+<h3 class="anchored">Spam and !!!</h3>
+<p>Let’s look at a more obvious indicator of spam: exclamation marks. <code>exclaim_mess</code> contains the number of exclamation marks in each message. Using summary statistics and visualization, see if there is a relationship between this variable and whether or not a message is spam.</p>
+<p>Experiment with different types of plots until you find one that is the most informative. Recall that you’ve seen:</p>
+<ul>
+<li>Side-by-side box plots</li>
+<li>Faceted histograms</li>
+<li>Overlaid density plots</li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Calculate appropriate measures of the center and spread of <code>exclaim_mess</code> for both spam and not-spam using <code>group_by()</code> and <code>summarize()</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="co"># Compute center and spread for exclaim_mess by spam</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>email <span class="sc">%&gt;%</span></span>
+<span id="cb48-3"><a href="#cb48-3"></a>    <span class="fu">group_by</span>(spam) <span class="sc">%&gt;%</span></span>
+<span id="cb48-4"><a href="#cb48-4"></a>    <span class="fu">summarise</span>(<span class="fu">mean</span>(exclaim_mess),</span>
+<span id="cb48-5"><a href="#cb48-5"></a>              <span class="fu">sd</span>(exclaim_mess))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Construct an appropriate plot to visualize the association between the same two variables, adding in a log-transformation step if necessary.</li>
+<li>If you decide to use a log transformation, remember that <code>log(0)</code> is <code>-Inf</code> in R, which isn’t a very useful value! You can get around this by adding a small number (like <code>0.01</code>) to the quantity inside the <code>log()</code> function. This way, your value is never zero. This small shift to the right won’t affect your results.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># Create plot for spam and exclaim_mess</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>email <span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a>    <span class="fu">mutate</span>(<span class="at">log_exclaim_mess =</span> <span class="fu">log</span>(exclaim_mess <span class="sc">+</span> <span class="fl">0.01</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb49-4"><a href="#cb49-4"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> log_exclaim_mess, <span class="at">fill =</span> spam)) <span class="sc">+</span></span>
+<span id="cb49-5"><a href="#cb49-5"></a>    <span class="fu">geom_density</span>(<span class="at">alpha =</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>email <span class="sc">%&gt;%</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>  <span class="fu">mutate</span>(<span class="at">spam =</span> spam <span class="sc">|&gt;</span> <span class="fu">fct_recode</span>(<span class="st">`</span><span class="at">not-spam</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"0"</span>, <span class="at">spam =</span> <span class="st">"1"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb50-3"><a href="#cb50-3"></a>  <span class="fu">mutate</span>(<span class="at">log_exclaim_mess =</span> <span class="fu">log</span>(exclaim_mess <span class="sc">+</span> <span class="fl">0.01</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb50-4"><a href="#cb50-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> log_exclaim_mess)) <span class="sc">+</span></span>
+<span id="cb50-5"><a href="#cb50-5"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb50-6"><a href="#cb50-6"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>spam)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<h2 id="question-11" class="anchored" data-anchor-id="spam-and"><em>Question</em></h2>
+<p>Which interpretation of these faceted histograms <strong>is not</strong> correct?<br> <br> ⬜ The most common value of exclaim_mess in both classes of email is zero (a log(exclaim_mess) of -4.6 after adding .01).<br> ✅ There are more cases of spam in this dataset than not-spam.<br> ⬜ Even after a transformation, the distribution of exclaim_mess in both classes of email is right-skewed.<br> ⬜ The typical number of exclamations in the not-spam group appears to be slightly higher than in the spam group.<br></p>
+</blockquote>
+</section>
+</section>
+<section id="check-in-1" class="level2">
+<h2 class="anchored" data-anchor-id="check-in-1">Check-in 1</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Check-in 1</strong></p>
+<p>Let’s review what you learned in the last several exercises.</p>
+<p><strong>2. Review</strong></p>
+<p>The box plots show the association between whether or not an email is spam and the length of the email, as measured by the log number of characters. In this dataset, the typical spam message is considerably shorter than the non-spam message, but there is still a reasonable amount of overlap in the two distributions of length.</p>
+<p><strong>3. Review</strong></p>
+<p>When you looked at the distribution of spam and the number of exclamation marks used, you found that both distributions are heavily right skewed: there only a few instances of many exclamation marks being using and many many more of 0 or 1 being used. It also bucks the expectation that spam messages will be filled with emphatic exclamation marks to entice you to click on their links. If anything, here it’s actually not-spam that typically has more exclamation marks.The dominant feature of the exclaim mess variable, though, is the large proportion of cases that report zero or on this log scale, -4 (point) 6 exclamation marks. This is a common occurrence in data analysis that is often termed “zero-inflation”, and there are several common ways to think about those zeros.</p>
+<p><strong>4. Zero inflation strategies</strong></p>
+<p>One approach says that there are two mechanisms going on: one generating the zeros and the other generating the non-zeros, so we will analyze these two groups separately. A simpler approach is the one that thinks of the variable as actually only taking two values, zero or not-zero, and treating it like a categorical variable.If you want to take the latter approach, the first step will be to mutate this new variable. Here, our condition is simply that the exclaim mess variable is zero. Then we can pipe that new variable into a bar chart and facet it based on spam. In the resulting plot, yes, we’ve lost a lot of information. But it’s become very clear</p>
+<p><strong>5. Zero inflation strategies</strong></p>
+<p>that spam is more likely to contain no exclamation marks, while in spam, the opposite is true.Speaking of bar charts, let’s review their layout.</p>
+<p><strong>6. Zero inflation strategies</strong></p>
+<p>One way to view associations between multiple categorical variables is like this, with faceting.</p>
+<p><strong>7. Barchart options</strong></p>
+<p>Another way that we’ve seen is using a stacked bar chart. For that plot, you move the second variable from the facet layer to the fill argument inside the aesthetics function. The other consideration you have to make is if you’re more interested in counts or proportions. If the latter, you’ll want to normalize the plot,</p>
+<p><strong>8. Barchart options</strong></p>
+<p>which you can do by adding the position equals fill argument to the bar geom. The result is a series of conditional proportions, where you’re conditioning on whichever variable you’re in.</p>
+<p><strong>9. Let’s practice!</strong></p>
+<p>OK, let’s get back to exploring the email dataset.</p>
+<section id="collapsing-levels" class="level3">
+<h3 class="anchored">Collapsing levels</h3>
+<p>If it was difficult to work with the heavy skew of <code>exclaim_mess</code>, the number of images attached to each email (<code>image</code>) poses even more of a challenge. Run the following code at the console to get a sense of its distribution:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">table</span>(email<span class="sc">$</span>image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Recall that this tabulates the number of cases in each category (so there were 3811 emails with 0 images, for example). Given the very low counts at the higher number of images, let’s collapse <code>image</code> into a categorical variable that indicates whether or not the email had at least one image. In this exercise, you’ll create this new variable and explore its association with spam.</p>
+<p><strong>Steps</strong></p>
+<p>Starting with <code>email</code>, form a continuous chain that links together the following tasks:</p>
+<ol type="1">
+<li>Create a new variable called <code>has_image</code> that is <code>TRUE</code> where the number of images is greater than zero and <code>FALSE</code> otherwise.</li>
+<li>Create an appropriate plot with <code>email</code> to visualize the relationship between <code>has_image</code> and <code>spam</code>.</li>
+</ol>
+<p><strong>Solution:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Create plot of proportion of spam by image</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>email <span class="sc">%&gt;%</span></span>
+<span id="cb52-3"><a href="#cb52-3"></a>  <span class="fu">mutate</span>(<span class="at">spam =</span> spam <span class="sc">|&gt;</span> <span class="fu">fct_recode</span>(<span class="st">`</span><span class="at">not-spam</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"0"</span>, <span class="at">spam =</span> <span class="st">"1"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb52-4"><a href="#cb52-4"></a>  <span class="fu">mutate</span>(<span class="at">has_image =</span> image <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb52-5"><a href="#cb52-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> has_image, <span class="at">fill =</span> spam)) <span class="sc">+</span></span>
+<span id="cb52-6"><a href="#cb52-6"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<h2 id="question-12" class="anchored" data-anchor-id="collapsing-levels"><em>Question</em></h2>
+<p>Which of the following interpretations of the plot <strong>is</strong> valid?<br> <br> ⬜ There are more emails with images than without images.<br> ⬜ Emails with images have a higher proportion that are spam than do emails without images.<br> ✅ An email without an image is more likely to be not-spam than spam.<br></p>
+</blockquote>
+</section>
+<section id="data-integrity" class="level3">
+<h3 class="anchored" data-anchor-id="data-integrity">Data Integrity</h3>
+<p>In the process of exploring a dataset, you’ll sometimes come across something that will lead you to question how the data were compiled. For example, the variable <code>num_char</code> contains the number of characters in the email, in thousands, so it could take decimal values, but it certainly shouldn’t take negative values.</p>
+<p>You can formulate a test to ensure this variable is behaving as we expect:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>email<span class="sc">$</span>num_char <span class="sc">&lt;</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you run this code at the console, you’ll get a long vector of logical values indicating for each case in the dataset whether that condition is <code>TRUE</code>. Here, the first 1000 values all appear to be <code>FALSE</code>. To verify that <em>all</em> of the cases indeed have non-negative values for <code>num_char</code>, we can take the <em>sum</em> of this vector:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">sum</span>(email<span class="sc">$</span>num_char <span class="sc">&lt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This is a handy shortcut. When you do arithmetic on logical values, R treats <code>TRUE</code> as <code>1</code> and <code>FALSE</code> as <code>0</code>. Since the sum over the whole vector is zero, you learn that every case in the dataset took a value of <code>FALSE</code> in the test. That is, the <code>num_char</code> column is behaving as we expect and taking only non-negative values.</p>
+<p><strong>Steps</strong></p>
+<p>Consider the variables <code>image</code> and <code>attach</code>. You can read about them with <code>?email</code>, but the help file is ambiguous: do attached images count as attached files in this dataset?</p>
+<p>Design a simple test to determine if images count as attached files. This involves creating a logical condition to compare the values of the two variables, then using <code>sum()</code> to assess every case in the dataset. Recall that the logical operators are <code>&lt;</code> for <em>less than</em>, <code>&lt;=</code> for <em>less than or equal to</em>, <code>&gt;</code> for <em>greater than</em>, <code>&gt;=</code> for <em>greater than or equal to</em>, and <code>==</code> for <em>equal to</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># Test if images count as attachments</span></span>
+<span id="cb55-2"><a href="#cb55-2"></a><span class="fu">sum</span>(email<span class="sc">$</span>attach <span class="sc">&lt;</span> email<span class="sc">$</span>image)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="answering-questions-with-chains" class="level3">
+<h3 class="anchored" data-anchor-id="answering-questions-with-chains">Answering questions with chains</h3>
+<p>When you have a specific question about a dataset, you can find your way to an answer by carefully constructing the appropriate chain of R code. For example, consider the following question: “Within non-spam emails, is the typical length of emails shorter for those that were sent to multiple people?”</p>
+<p>This can be answered with the following chain:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>email <span class="sc">%&gt;%</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>   <span class="fu">mutate</span>(<span class="at">spam =</span> spam <span class="sc">|&gt;</span> <span class="fu">fct_recode</span>(<span class="st">`</span><span class="at">not-spam</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"0"</span>, <span class="at">spam =</span> <span class="st">"1"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb56-3"><a href="#cb56-3"></a>   <span class="fu">filter</span>(spam <span class="sc">==</span> <span class="st">"not-spam"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb56-4"><a href="#cb56-4"></a>   <span class="fu">group_by</span>(to_multiple) <span class="sc">%&gt;%</span></span>
+<span id="cb56-5"><a href="#cb56-5"></a>   <span class="fu">summarize</span>(<span class="fu">median</span>(num_char))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The code makes it clear that you are using <code>num_char</code> to measure the length of an email and <code>median()</code> as the measure of what is typical. If you run this code, you’ll learn that the answer to the question is “yes”: the typical length of non-spam sent to multiple people is a bit lower than those sent to only one person.</p>
+<p>This chain concluded with summary statistics, but others might end in a plot; it all depends on the question that you’re trying to answer.</p>
+<p><strong>Steps</strong></p>
+<p>Build a chain to answer each of the following questions, both about the variable <code>dollar</code>.</p>
+<ol type="1">
+<li>For emails containing the word “dollar”, does the typical spam email contain a greater number of occurrences of the word than the typical non-spam email? Create a summary statistic that answers this question.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># Question 1</span></span>
+<span id="cb57-2"><a href="#cb57-2"></a>email <span class="sc">%&gt;%</span></span>
+<span id="cb57-3"><a href="#cb57-3"></a>  <span class="fu">mutate</span>(<span class="at">spam =</span> spam <span class="sc">|&gt;</span> <span class="fu">fct_recode</span>(<span class="st">`</span><span class="at">not-spam</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"0"</span>, <span class="at">spam =</span> <span class="st">"1"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb57-4"><a href="#cb57-4"></a>  <span class="fu">filter</span>(dollar <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb57-5"><a href="#cb57-5"></a>  <span class="fu">group_by</span>(spam) <span class="sc">%&gt;%</span></span>
+<span id="cb57-6"><a href="#cb57-6"></a>  <span class="fu">summarize</span>(<span class="fu">median</span>(dollar))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>If you encounter an email with greater than 10 occurrences of the word <code>dollar</code>, is it more likely to be spam or not-spam? Create a barchart that answers this question.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># Question 2</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a>email <span class="sc">%&gt;%</span></span>
+<span id="cb58-3"><a href="#cb58-3"></a>  <span class="fu">mutate</span>(<span class="at">spam =</span> spam <span class="sc">|&gt;</span> <span class="fu">fct_recode</span>(<span class="st">`</span><span class="at">not-spam</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"0"</span>, <span class="at">spam =</span> <span class="st">"1"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb58-4"><a href="#cb58-4"></a>  <span class="fu">filter</span>(dollar <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb58-5"><a href="#cb58-5"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> spam)) <span class="sc">+</span></span>
+<span id="cb58-6"><a href="#cb58-6"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="check-in-2" class="level2">
+<h2 class="anchored" data-anchor-id="check-in-2">Check-in 2</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Check-in 2</strong></p>
+<p>Let’s revisit the exercise where you explored the association between</p>
+<p><strong>2. Spam and images</strong></p>
+<p>whether an email has an image and whether or not its spam. The plot you created was this bar chart of proportions. I want to emphasize an important, but subtle distinction when discussing proportions like this. This plot shows the proportions of spam or not-spam within the subsets of emails that either have an image or do not. Said another way, they are conditioned on the has image variable. We get a slightly different story if we exchange the variables so that we condition on spam. Among emails that are spam, almost none of them have an image, while the proportion within non-spam is larger, but still less than 5%. If you’re building a spam filter, a situation where you don’t actually get to see the value of spam, it’d make more sense to think about conditioning on the has image variable.</p>
+<p><strong>3. Spam and images</strong></p>
+<p>In this case, we can tell that this variable would be an awful spam filter by itself.</p>
+<p><strong>4. Ordering bars</strong></p>
+<p>When we’re working with bar charts, you can often make them more readily interpretable if you give them a sensible ordering. Recall how in the last video, we collapsed all emails with at least one exclamation mark into a single level of a new two-level categorical variable.</p>
+<p><strong>5. Ordering bars</strong></p>
+<p>That led to this bar chart, which was informative, but you might caused you to do a double-take when you first saw it. The plot on the left gets us used to seeing the bar for the zeroes on the left, while in the plot on the right, that bar is on the right side.</p>
+<p><strong>6. Ordering bars</strong></p>
+<p>Let’s go through how we would flip the ordering of those bars so that they agree with the plot on the left.</p>
+<p><strong>7. Ordering bars</strong></p>
+<p>The first step is to save the mutated categorical variable back into the dataset. The ordering of the bars isn’t determined within the code for the plot, but in the way that R represents that variable. If we call levels on the new variable, it returns NULL. This is because this variable is actually a logical variable, not a factor. To set the ordering of the levels, let’s convert it to a factor with the factor function, provide We can then save this variable back into the dataset.</p>
+<p><strong>8. Ordering bars</strong></p>
+<p>Now, when we go to make the plot with the same code,</p>
+<p><strong>9. Ordering bars..</strong></p>
+<p>it exchanges the order of the bars for us.Here, we decided to order the bars so that it cohered with the structure of another plot. In other circumstances, you might use other criteria to choose the order including a natural ordering of the levels, arranging the bars in increasing or decreasing order of the height of the bars or alphabetical order, which is the default. In making this decision, you’re thinking about emphasizing a particular interpretation of the plot and transitioning from purely exploratory graphics to expository graphics, where you seek to communicate a particular idea. This is a natural development as you continue along the process of your data analysis.</p>
+<p><strong>10. Let’s practice!</strong></p>
+<p>OK, let’s return back to the case study.</p>
+<section id="whats-in-a-number" class="level3">
+<h3 class="anchored">What’s in a number?</h3>
+<p>Turn your attention to the variable called <code>number</code>. Read more about it by pulling up the help file with <code>?email</code>.</p>
+<p>To explore the association between this variable and <code>spam</code>, select and construct an informative plot. For illustrating relationships between categorical variables, you’ve seen</p>
+<ul>
+<li>Faceted barcharts</li>
+<li>Side-by-side barcharts</li>
+<li>Stacked and normalized barcharts.</li>
+</ul>
+<p>Let’s practice constructing a faceted barchart.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Reorder the levels of <code>number</code> so that they preserve the natural ordering of <code>"none"</code>, then <code>"small"</code>, then <code>"big"</code>, saving to a <code>number_reordered</code> column.</li>
+<li>Construct a faceted barchart of the association between <code>number</code> and <code>spam</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># Reorder levels</span></span>
+<span id="cb59-2"><a href="#cb59-2"></a><span class="co"># base r</span></span>
+<span id="cb59-3"><a href="#cb59-3"></a><span class="co"># email$number_reordered &lt;- factor(email$number, levels = c("none", "small", "big"))</span></span>
+<span id="cb59-4"><a href="#cb59-4"></a></span>
+<span id="cb59-5"><a href="#cb59-5"></a><span class="co"># forcats</span></span>
+<span id="cb59-6"><a href="#cb59-6"></a>email <span class="sc">|&gt;</span> </span>
+<span id="cb59-7"><a href="#cb59-7"></a>  <span class="fu">mutate</span>(<span class="at">spam =</span> spam <span class="sc">|&gt;</span> <span class="fu">fct_recode</span>(<span class="st">`</span><span class="at">not-spam</span><span class="st">`</span> <span class="ot">=</span> <span class="st">"0"</span>, <span class="at">spam =</span> <span class="st">"1"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb59-8"><a href="#cb59-8"></a>  <span class="fu">mutate</span>(<span class="at">number_reordered =</span> number <span class="sc">|&gt;</span> <span class="fu">fct_relevel</span>(<span class="at">levels =</span> <span class="st">"none"</span>, <span class="st">"small"</span>, <span class="st">"big"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb59-9"><a href="#cb59-9"></a></span>
+<span id="cb59-10"><a href="#cb59-10"></a>  <span class="co"># Construct plot of number_reordered</span></span>
+<span id="cb59-11"><a href="#cb59-11"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> number_reordered, <span class="at">fill =</span> spam)) <span class="sc">+</span></span>
+<span id="cb59-12"><a href="#cb59-12"></a>    <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb59-13"><a href="#cb59-13"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>spam)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<blockquote class="blockquote">
+<h2 id="question-13" class="anchored" data-anchor-id="whats-in-a-number"><em>Question</em></h2>
+<p>Which of the following interpretations of the plot <strong>is not</strong> valid?<br> <br> ⬜ Given that an email contains a small number, it is more likely to be not-spam.<br> ✅ Given that an email contains no number, it is more likely to be spam.<br> ⬜ Given that an email contains a big number, it is more likely to be not-spam.<br> ⬜ Within both spam and not-spam, the most common number is a small one.<br></p>
+</blockquote>
+</section>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Conclusion</strong></p>
+<p>In this course on Exploratory Data Analysis, our goal was to get you comfortable wading into a new dataset and provide a sense of the considerations and techniques needed to find the most important structure in your data.</p>
+<p><strong>2. Pie chart vs.&nbsp;bar chart</strong></p>
+<p>We started with categorical data, often the domain of the pie chart, and hopefully convinced you that bar charts are a useful tool in finding associations between variables and comparing levels to one another.</p>
+<p><strong>3. Faceting vs.&nbsp;stacking</strong></p>
+<p>We saw how the story can change, depending on if we’re visualizing counts or proportions.</p>
+<p><strong>4. Histogram</strong></p>
+<p>From there, we moved on to numerical data and a collection of graphical techniques that are important: the histogram,</p>
+<p><strong>5. Density plot</strong></p>
+<p>the density plot, and the</p>
+<p><strong>6. Side-by-side box plots</strong></p>
+<p>box plot. Each has its strengths and weaknesses.</p>
+<p><strong>7. Center: mean, median, mode</strong></p>
+<p>In the third chapter, we discussed the common numerical measures of a distribution: measures of center, variability,</p>
+<p><strong>8. Shape of income</strong></p>
+<p>shape, plus the presence of outliers. Our life was made much easier by using the combination</p>
+<p><strong>9. With group_by()</strong></p>
+<p>of group by and summarize to compute statistics on different subsets of our data.</p>
+<p><strong>10. Spam and exclamation points</strong></p>
+<p>In the final chapter, we explored an email dataset to learn about the aspects of an email that are</p>
+<p><strong>11. Spam and images</strong></p>
+<p>associated with it being spam.</p>
+<p><strong>12. Let’s practice!</strong></p>
+<p>It’s been my pleasure to be your instructor and I hope you’ll continue on with the next course in this intro stats series.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'alternate';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Content 2022 by <a href="https://www.startupengineer.io/authors/schwarz/">Joschka Schwarz</a> <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
+  </div>
+</footer>
+
+
+
+<script src="../../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

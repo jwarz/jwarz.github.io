@@ -1,0 +1,1758 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Joschka Schwarz">
+
+<title>Joschka Schwarz - Joining Data with data.table in R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../../">
+<script src="../../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../../../index.html">
+    <span class="navbar-title">Joschka Schwarz</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data Science</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-science">    
+        <li>
+    <a class="dropdown-item" href="../../../../../content/R/index.html">
+ <span class="dropdown-text">R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../content/python/index.html">
+ <span class="dropdown-text">Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../content/sql/index.html">
+ <span class="dropdown-text">SQL</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../slides/index.html">
+ <span class="menu-text">Presentations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../resumes/index.html">
+ <span class="menu-text">Resumes</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../index.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jwarz/"><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz"><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#joining-multiple-data.tables" id="toc-joining-multiple-data.tables" class="nav-link active" data-scroll-target="#joining-multiple-data.tables">1. Joining Multiple data.tables</a>
+  <ul class="collapse">
+  <li><a href="#welcome-to-the-course" id="toc-welcome-to-the-course" class="nav-link" data-scroll-target="#welcome-to-the-course">Welcome to the course</a></li>
+  <li><a href="#exploring-data.tables" id="toc-exploring-data.tables" class="nav-link" data-scroll-target="#exploring-data.tables">Exploring data.tables</a></li>
+  <li><a href="#identifying-join-keys" id="toc-identifying-join-keys" class="nav-link" data-scroll-target="#identifying-join-keys">Identifying join keys</a></li>
+  <li><a href="#multiple-data.tables-multiple-keys" id="toc-multiple-data.tables-multiple-keys" class="nav-link" data-scroll-target="#multiple-data.tables-multiple-keys">Multiple data.tables, multiple keys</a></li>
+  <li><a href="#the-merge-function" id="toc-the-merge-function" class="nav-link" data-scroll-target="#the-merge-function">The merge function</a></li>
+  <li><a href="#inner-join" id="toc-inner-join" class="nav-link" data-scroll-target="#inner-join">Inner join</a></li>
+  <li><a href="#full-join" id="toc-full-join" class="nav-link" data-scroll-target="#full-join">Full join</a></li>
+  <li><a href="#left-and-right-joins" id="toc-left-and-right-joins" class="nav-link" data-scroll-target="#left-and-right-joins">Left and right joins</a></li>
+  <li><a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join">Left join</a></li>
+  <li><a href="#right-join" id="toc-right-join" class="nav-link" data-scroll-target="#right-join">Right join</a></li>
+  <li><a href="#mastering-simple-joins" id="toc-mastering-simple-joins" class="nav-link" data-scroll-target="#mastering-simple-joins">Mastering simple joins</a></li>
+  </ul></li>
+  <li><a href="#joins-using-data.table-syntax" id="toc-joins-using-data.table-syntax" class="nav-link" data-scroll-target="#joins-using-data.table-syntax">2. Joins Using data.table Syntax</a>
+  <ul class="collapse">
+  <li><a href="#joins-using-data.table-syntax-1" id="toc-joins-using-data.table-syntax-1" class="nav-link" data-scroll-target="#joins-using-data.table-syntax-1">Joins using data.table syntax</a></li>
+  <li><a href="#right-join-with-the-data.table-syntax" id="toc-right-join-with-the-data.table-syntax" class="nav-link" data-scroll-target="#right-join-with-the-data.table-syntax">Right join with the data.table syntax</a></li>
+  <li><a href="#inner-join-with-the-data.table-syntax" id="toc-inner-join-with-the-data.table-syntax" class="nav-link" data-scroll-target="#inner-join-with-the-data.table-syntax">Inner join with the data.table syntax</a></li>
+  <li><a href="#anti-joins" id="toc-anti-joins" class="nav-link" data-scroll-target="#anti-joins">Anti-joins</a></li>
+  <li><a href="#setting-and-viewing-data.table-keys" id="toc-setting-and-viewing-data.table-keys" class="nav-link" data-scroll-target="#setting-and-viewing-data.table-keys">Setting and viewing data.table keys</a></li>
+  <li><a href="#setting-keys" id="toc-setting-keys" class="nav-link" data-scroll-target="#setting-keys">Setting keys</a></li>
+  <li><a href="#getting-keys" id="toc-getting-keys" class="nav-link" data-scroll-target="#getting-keys">Getting keys</a></li>
+  <li><a href="#incorporating-joins-into-your-data.table-workflow" id="toc-incorporating-joins-into-your-data.table-workflow" class="nav-link" data-scroll-target="#incorporating-joins-into-your-data.table-workflow">Incorporating joins into your data.table workflow</a></li>
+  <li><a href="#exploring-the-australian-population" id="toc-exploring-the-australian-population" class="nav-link" data-scroll-target="#exploring-the-australian-population">Exploring the Australian population</a></li>
+  <li><a href="#finding-multiple-matches" id="toc-finding-multiple-matches" class="nav-link" data-scroll-target="#finding-multiple-matches">Finding multiple matches</a></li>
+  <li><a href="#exploring-world-life-expectancy" id="toc-exploring-world-life-expectancy" class="nav-link" data-scroll-target="#exploring-world-life-expectancy">Exploring world life expectancy</a></li>
+  </ul></li>
+  <li><a href="#diagnosing-and-fixing-common-join-problems" id="toc-diagnosing-and-fixing-common-join-problems" class="nav-link" data-scroll-target="#diagnosing-and-fixing-common-join-problems">3. Diagnosing and Fixing Common Join Problems</a>
+  <ul class="collapse">
+  <li><a href="#complex-keys" id="toc-complex-keys" class="nav-link" data-scroll-target="#complex-keys">Complex keys</a></li>
+  <li><a href="#keys-with-different-names" id="toc-keys-with-different-names" class="nav-link" data-scroll-target="#keys-with-different-names">Keys with different names</a></li>
+  <li><a href="#multi-column-keys" id="toc-multi-column-keys" class="nav-link" data-scroll-target="#multi-column-keys">Multi-column keys</a></li>
+  <li><a href="#multi-key-single-key" id="toc-multi-key-single-key" class="nav-link" data-scroll-target="#multi-key-single-key">Multi-key, single-key</a></li>
+  <li><a href="#tricky-columns" id="toc-tricky-columns" class="nav-link" data-scroll-target="#tricky-columns">Tricky columns</a></li>
+  <li><a href="#column-name-suffixes" id="toc-column-name-suffixes" class="nav-link" data-scroll-target="#column-name-suffixes">Column name suffixes</a></li>
+  <li><a href="#joining-a-data.frame" id="toc-joining-a-data.frame" class="nav-link" data-scroll-target="#joining-a-data.frame">Joining a data.frame</a></li>
+  <li><a href="#duplicate-matches" id="toc-duplicate-matches" class="nav-link" data-scroll-target="#duplicate-matches">Duplicate matches</a></li>
+  <li><a href="#joining-with-missing-values" id="toc-joining-with-missing-values" class="nav-link" data-scroll-target="#joining-with-missing-values">Joining with missing values</a></li>
+  <li><a href="#filtering-duplicates" id="toc-filtering-duplicates" class="nav-link" data-scroll-target="#filtering-duplicates">Filtering duplicates</a></li>
+  <li><a href="#joining-and-filtering-duplicates" id="toc-joining-and-filtering-duplicates" class="nav-link" data-scroll-target="#joining-and-filtering-duplicates">Joining and filtering duplicates</a></li>
+  </ul></li>
+  <li><a href="#concatenating-and-reshaping-data.tables" id="toc-concatenating-and-reshaping-data.tables" class="nav-link" data-scroll-target="#concatenating-and-reshaping-data.tables">4. Concatenating and Reshaping data.tables</a>
+  <ul class="collapse">
+  <li><a href="#concatenating-two-or-more-data.tables" id="toc-concatenating-two-or-more-data.tables" class="nav-link" data-scroll-target="#concatenating-two-or-more-data.tables">Concatenating two or more data.tables</a></li>
+  <li><a href="#concatenating-data.table-variables" id="toc-concatenating-data.table-variables" class="nav-link" data-scroll-target="#concatenating-data.table-variables">Concatenating data.table variables</a></li>
+  <li><a href="#concatenating-a-list-of-data.tables" id="toc-concatenating-a-list-of-data.tables" class="nav-link" data-scroll-target="#concatenating-a-list-of-data.tables">Concatenating a list of data.tables</a></li>
+  <li><a href="#set-operations" id="toc-set-operations" class="nav-link" data-scroll-target="#set-operations">Set operations</a></li>
+  <li><a href="#identifying-observations-shared-by-multiple-tables" id="toc-identifying-observations-shared-by-multiple-tables" class="nav-link" data-scroll-target="#identifying-observations-shared-by-multiple-tables">Identifying observations shared by multiple tables</a></li>
+  <li><a href="#removing-duplicates-while-combining-tables" id="toc-removing-duplicates-while-combining-tables" class="nav-link" data-scroll-target="#removing-duplicates-while-combining-tables">Removing duplicates while combining tables</a></li>
+  <li><a href="#identifying-observations-unique-to-a-table" id="toc-identifying-observations-unique-to-a-table" class="nav-link" data-scroll-target="#identifying-observations-unique-to-a-table">Identifying observations unique to a table</a></li>
+  <li><a href="#melting-data.tables" id="toc-melting-data.tables" class="nav-link" data-scroll-target="#melting-data.tables">Melting data.tables</a></li>
+  <li><a href="#melting-a-wide-table" id="toc-melting-a-wide-table" class="nav-link" data-scroll-target="#melting-a-wide-table">Melting a wide table</a></li>
+  <li><a href="#more-melts" id="toc-more-melts" class="nav-link" data-scroll-target="#more-melts">More melts</a></li>
+  <li><a href="#casting-data.tables" id="toc-casting-data.tables" class="nav-link" data-scroll-target="#casting-data.tables">Casting data.tables</a></li>
+  <li><a href="#casting-a-long-table" id="toc-casting-a-long-table" class="nav-link" data-scroll-target="#casting-a-long-table">Casting a long table</a></li>
+  <li><a href="#casting-multiple-columns" id="toc-casting-multiple-columns" class="nav-link" data-scroll-target="#casting-multiple-columns">Casting multiple columns</a></li>
+  <li><a href="#splitting-by-multiple-groups" id="toc-splitting-by-multiple-groups" class="nav-link" data-scroll-target="#splitting-by-multiple-groups">Splitting by multiple groups</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Joining Data with data.table in R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Joschka Schwarz </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Short Description</strong></p>
+<p>This course will show you how to combine and merge datasets with data.table.</p>
+<p><strong>Long Description</strong></p>
+<p>In the real world, data sets typically come split across many tables while most data analysis functions in R are designed to work with single tables of data. In this course, you’ll learn how to effectively combine data sets into single tables using data.table. You’ll learn how to add columns from one table to another table,to filter a table based on observations in another table, and how to identify records across multiple tables matching complex criteria. Along the way, you’ll learn how to troubleshoot failed join operations and best practices for working with complex data sets. After completing this course you’ll be well on your way to be a data.table master!</p>
+<section id="joining-multiple-data.tables" class="level1">
+<h1>1. Joining Multiple data.tables</h1>
+<p>This chapter will show you how to perform simple joins that will enable you to combine information spread across multiple tables.</p>
+<section id="welcome-to-the-course" class="level2">
+<h2 class="anchored" data-anchor-id="welcome-to-the-course">Welcome to the course</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Welcome to the course</strong></p>
+<p>Hi, my name is Scott Ritchie. I’ll be your instructor for this course on joining data in R with data table. Welcome, and I look forward to seeing you in the course.</p>
+<p><strong>2. Joining data.tables</strong></p>
+<p>A join describes the action of combining information from two different data tables into a single data table. This is a fundamental skill when working with multiple data sources. The majority of R’s functions for analyzing and visualizing data are designed to work on a single data frame or data table. But, you’ll often find data you want to analyze is spread across multiple datasets, that may come from different sources. For example, you might be working with two data tables in your customer database. One containing their demographic information, shown in blue, and another containing their shipping address, shown in orange. The question is: how do you build a single data table containing all the information about each customer? Joins are an efficient and reliable way of solving this type of problem.</p>
+<p><strong>3. Course overview</strong></p>
+<p>In chapter one of the course, you’ll learn how to use the merge function to perform four types of joins that you can find in any data-driven language. In chapter two you’ll learn how to incorporate joins directly into your data table workflows. In chapter three, you’ll learn how to diagnose and avoid common join errors. Finally, in chapter four you’ll learn how to concatenate data tables that have the same columns, and how to transform them between wide and long formats.</p>
+<p><strong>4. Table keys</strong></p>
+<p>The first skill you need to learn is to identify the join key columns. These are the columns you need in each data table to match the rows between them for a join. No matter what type of join you want to do, you will always need to know which columns to use as join keys. Returning to the customer database example, to match the rows between the two data tables you would need to use the values stored in the name column, as you can see from their highlighted matching values.</p>
+<p><strong>5. Inspecting <code>data.tables</code> in your R session</strong></p>
+<p>To identify join keys, you will need to learn about the contents of the data tables you are working with. There are a few different ways you can do this. The first way is using the tables() function. It will show you all data tables in your R session, along with their number of rows, their number and names of their columns, and how much space they occupy in terms of memory. It will also tell you any columns you have set as their keys, which you’ll learn in the next chapter.</p>
+<p><strong>6. Inspecting <code>data.tables</code> in your R session</strong></p>
+<p>Another way is using the str() function. This is a general purpose function that will show you the type of data stored in any R object, in this case, a data table along with the types and first few entries of each column.</p>
+<p><strong>7. Inspecting <code>data.tables</code> in your R session</strong></p>
+<p>Finally, typing in the variable name and hitting enter in the console will show you the values stored in a data table. If it has more than 100 rows, only the first and last five rows are displayed by default.</p>
+<p><strong>8. Let’s practice!</strong></p>
+<p>Now lets explore some of the data tables you will be using in this course.</p>
+</section>
+<section id="exploring-data.tables" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-data.tables">Exploring data.tables</h2>
+<p>In this exercise, you will explore two <code>data.table</code>s:</p>
+<ul>
+<li><code>netflix</code>: contains information about some of the <a href="https://www.netflix.com">Netflix</a> original series released in 2017</li>
+<li><code>imdb</code>: contains ratings for some TV shows and movies obtained from <a href="https://www.imdb.com">IMDB</a></li>
+</ul>
+<p><em>This course touches on a lot of concepts you may have forgotten, so if you ever need a quick refresher, download the <a href="https://datacamp-community-prod.s3.amazonaws.com/6fdf799f-76ba-45b1-b8d8-39c4d4211c31">data.table Cheat Sheet</a> and keep it handy!</em></p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Use the <code>tables()</code> function to show all the <code>data.tables</code>s in your R session (along with their number of rows, columns and other info).</li>
+<li>Use the <code>head()</code> function to print the first 6 rows of <code>netflix</code> and <code>imdb</code>.</li>
+<li>Print the <code>str()</code>ucture of <code>netflix</code> and <code>imdb</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load package</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Load data</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>netflix <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/netflix_2017.csv"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>imdb    <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/imdb_ratings.csv"</span>)</span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co"># What data.tables are in my R session?</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="fu">tables</span>()</span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co"># View the first six rows </span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="fu">head</span>(netflix)</span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="fu">head</span>(imdb)</span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="co"># Print the structure</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="fu">str</span>(netflix)</span>
+<span id="cb1-17"><a href="#cb1-17"></a><span class="fu">str</span>(imdb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice work! Let’s take a closer look at these <code>data.table</code>s!</p>
+</section>
+<section id="identifying-join-keys" class="level2">
+<h2 class="anchored" data-anchor-id="identifying-join-keys">Identifying join keys</h2>
+<p>The <code>netflix</code> and <code>imdb</code> <code>data.table</code>s from the previous exercise have been loaded into your workspace.</p>
+<blockquote class="blockquote">
+<h2 id="question" class="anchored"><em>Question</em></h2>
+<p>Which columns can be used to match the rows across these two <code>data.table</code>s?<br> <br> ⬜ The <code>"release_date"</code> column in <code>netflix</code> and the <code>"title"</code> column in <code>imdb</code>.<br> ⬜ The <code>"episodes"</code> column in <code>netflix</code> and the <code>"rating"</code> column in <code>imdb</code>.<br> ✅ The <code>"title"</code> column in both <code>netflix</code> and <code>imdb</code>.<br></p>
+</blockquote>
+<p>Well done! Remember that columns that link observations across <code>data.table</code>s are known as “join keys”.</p>
+</section>
+<section id="multiple-data.tables-multiple-keys" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-data.tables-multiple-keys">Multiple data.tables, multiple keys</h2>
+<p>Three new <code>data.table</code>s are available in your workspace: <code>area</code>, <code>capitals</code>, and <code>population</code>, containing basic statistics about the geography and demographics of Australia.</p>
+<blockquote class="blockquote">
+<h2 id="question-1" class="anchored"><em>Question</em></h2>
+<p>Which columns can be used to match rows across these three <code>data.table</code>s?<br> <br> ⬜ None, because no column is present in all three <code>data.table</code>s.<br> ⬜ The <code>"state"</code> column in <code>area</code> and <code>capitals</code>. But no key can uniquely identify rows in <code>population</code> and <code>capitals</code>.<br> ✅ The <code>"state"</code> column for joining <code>area</code> and <code>capitals</code>, and the <code>"city"</code> column for <code>capitals</code> and <code>population</code>.<br></p>
+</blockquote>
+<p>Excellent! A <code>data.table</code> may have different join key columns depending on the other <code>data.table</code> it is joined to.</p>
+</section>
+<section id="the-merge-function" class="level2">
+<h2 class="anchored" data-anchor-id="the-merge-function">The merge function</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. The merge function</strong></p>
+<p>Now that you can successfully identify join keys, it’s time to learn how to perform joins using the merge() function.</p>
+<p><strong>2. Joins</strong></p>
+<p>In this chapter, you will learn four different joins. The inner join, the full join, the left join, and the right join. Each of these joins give a different result, based on what observations are present in one data table but not in the other.All four are standard joins that originally come from database query languages, such as SQL. So the concepts and skills you will learn in this chapter are widely applicable, not just for the data table package in R. In this chapter, you will learn how to do these joins using the merge() function. This function comes from base R but is extended in the data table package to work efficiently with data tables.</p>
+<p><strong>3. Inner join</strong></p>
+<p>An inner join combines the columns of two data tables, keeping only the observations present in both data tables, that is, rows whose value in the join key column can be found in both data tables.Returning to our example customer database, an inner join of the demographics data table, shown in blue, to the shipping addresses data table, shown in orange, creates a new data table containing all the columns from both data tables, containing just the people with entries in both; those highlighted in pink, yellow, and green. An inner join is the default behavior of the merge() function. It takes two data tables as inputs, one to its x and one to its y arguments, along with the name of the key column in each data table to the by.x and by.y arguments respectively.</p>
+<p><strong>4. The by argument</strong></p>
+<p>When the key columns have the same name in both data tables, you can use the by argument instead to avoid typing the column name twice.</p>
+<p><strong>5. Full join</strong></p>
+<p>If you want to keep all observations that are present in either data table you can supply an additional argument to the merge() function; setting the all argument to be equal to TRUE. This is known as a full join or a full outer join. Observations which were present in only one data table will have missing values in the columns from the other data table, as shown in the white cells in the result.</p>
+<p><strong>6. Let’s practice!</strong></p>
+<p>In the next lesson, you will learn about left joins and right joins. But now, it’s time for you to practice inner joins and full joins.</p>
+</section>
+<section id="inner-join" class="level2">
+<h2 class="anchored" data-anchor-id="inner-join">Inner join</h2>
+<p>Two <code>data.table</code>s are available in your workspace:</p>
+<ul>
+<li><code>netflix</code>: contains a selection of original series released by <a href="https://www.netflix.com">Netflix</a> in 2017</li>
+<li><code>imdb</code>: contains average user ratings for a selection of TV shows and movies from <a href="https://www.imdb.com">IMDB</a>. Your goal is use the <a href="https://www.rdocumentation.org/packages/data.table/topics/merge"><code>merge()</code></a> function to perform an inner join to build a new <code>data.table</code> containing all series from <code>netflix</code> that have a rating in <code>imdb</code>.</li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Remind yourself of the contents of both <code>data.table</code>s by printing them.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Print the data.tables in your R session</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>netflix</span>
+<span id="cb2-3"><a href="#cb2-3"></a>imdb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Use the correct column to inner join <code>netflix</code> and <code>imdb</code> using the <code>merge()</code> function.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Inner join netflix and imdb</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">merge</span>(netflix, imdb, <span class="at">by =</span> <span class="st">"title"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Great job! Inner joins are useful when you want to build a complete set of information for observations that are present in both <code>data.table</code>s.</p>
+</section>
+<section id="full-join" class="level2">
+<h2 class="anchored" data-anchor-id="full-join">Full join</h2>
+<p>Using the same <code>data.table</code>s as the previous exercise, this time use <code>merge()</code> to perform a full join to build a new <code>data.table</code> containing all rows present in either <code>netflix</code> or <code>imdb</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Use the <code>merge()</code> function to full join the <code>netflix</code> and <code>imdb</code> <code>data.table</code>s.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Full join netflix and imdb</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">merge</span>(netflix, imdb, <span class="at">by =</span> <span class="st">"title"</span>, <span class="at">all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Try swapping the order of the <code>netflix</code> and <code>imdb</code> <code>data.table</code>s in the merge function to see what changes!</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Full join imdb and netflix</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">merge</span>(imdb, netflix, <span class="at">by =</span> <span class="st">"title"</span>, <span class="at">all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice work! The new <code>data.table</code> contains all TV shows and movies listed in either <code>netflix</code> or <code>imdb</code>.</p>
+</section>
+<section id="left-and-right-joins" class="level2">
+<h2 class="anchored" data-anchor-id="left-and-right-joins">Left and right joins</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Left and right joins</strong></p>
+<p>There are two more joins you can perform using the merge() function, left joins and the right joins.</p>
+<p><strong>2. Left joins</strong></p>
+<p>A left join keeps only the observations that are present in the data table on the left side of the join. In other words, a left join will add information from the data table on the right to the data table on the left. This is useful when you have two data tables from different sources, but you’re really only interested in the observations from one.The data table on the left side of the join is the data table given to the x argument of the merge() function. To perform a left join with the merge() function, you set the argument all.x to be equal to TRUE.</p>
+<p><strong>3. Right joins</strong></p>
+<p>Conversely, a right join keeps only the observations that are present in the data table on the right side of the join. The data table on the right side of the join is the data table given to the y argument of the merge() function. To perform a right join with the merge() function you set the argument all.y to be equal to TRUE.</p>
+<p><strong>4. Right joins - Left joins</strong></p>
+<p>The outcome is the same as swapping the order of the data tables in the merge() function and performing a left join. Most people find one or the other to fit more naturally when thinking about data and stick to that. Its only in rare cases when joining multiple data tables in a sequence of joins where you might need to use both left and right joins.</p>
+<p><strong>5. Default values</strong></p>
+<p>Any arguments you don’t specify in a function call in R take on their default values. For example, the arguments all, all.x, and all.y for the merge() function have a default value of FALSE. You can look up the default values for any function’s arguments by using the help() function.</p>
+<p><strong>6. Exercise instructions</strong></p>
+<p>In the code exercises throughout the rest of the course, you will be instructed to join one data table to another using the wording you see on the slide. Regardless of the type of join, the data table that you see after the word “to” should always be placed on the left side of the join in your code.So if we ask you to join the shipping data.table to the demographics data table, the demographics data table should always be on the left side of the join: the first argument to the merge function.</p>
+<p><strong>7. Let’s practice!</strong></p>
+<p>Go ahead and code some left and right joins.</p>
+</section>
+<section id="left-join" class="level2">
+<h2 class="anchored" data-anchor-id="left-join">Left join</h2>
+<p>In this exercise, you will practice left joins! In a left join, rows from only the left (or the first) <code>data.table</code> will be retained.</p>
+<p>Both <code>netflix</code> and <code>imdb</code> are available in your workspace.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Use the <code>merge()</code> function to left join <code>imdb</code> <em>to</em> <code>netflix</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Left join imdb to netflix</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">merge</span>(netflix, imdb, <span class="at">by =</span> <span class="st">"title"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Fantastic! Did you notice that missing information for observations that are not present in the right table of the join contain <code>NA</code>s for the right <code>data.table</code>’s columns?</p>
+</section>
+<section id="right-join" class="level2">
+<h2 class="anchored" data-anchor-id="right-join">Right join</h2>
+<p>In this exercise, you will right join <code>imdb</code> <em>to</em> <code>netflix</code>. The resulting <code>data.table</code> should contain all entries from <code>imdb</code> with the release date and the number of episodes added for titles that are also listed in the <code>netflix</code> <code>data.table</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Use the <code>merge()</code> function to right join <code>imdb</code> <em>to</em> <code>netflix</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Right join imdb to netflix</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">merge</span>(netflix, imdb, <span class="at">by =</span> <span class="st">"title"</span>, <span class="at">all.y =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Compare the right join you performed in the previous step to the left join of <code>netflix</code> <em>to</em> <code>imdb</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Compare to a left join of netflix to imdb</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">merge</span>(imdb, netflix, <span class="at">by =</span> <span class="st">"title"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nicely done! Right joins and left joins are essentially the same, with the order of input <code>data.table</code>s swapped in the join.</p>
+</section>
+<section id="mastering-simple-joins" class="level2">
+<h2 class="anchored" data-anchor-id="mastering-simple-joins">Mastering simple joins</h2>
+<p>Three new <code>data.tables</code> have been loaded into your R session containing information about the geography and population of Australia: <code>area</code>, <code>capitals</code>, and <code>population</code>. Your goal is to perform a sequence of joins to build a single <code>data.table</code> containing information about the geographical area of each Australian state and the population of its capital city, storing the final result in a new variable: <code>australia_stats</code>. There are three <code>data.tables</code> so you will need to perform two joins. First, you will join <code>capitals</code> and <code>population</code>, and then you will join the resulting <code>data.table</code> to the <code>area</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Identify the key column so you can join <code>capitals</code> and <code>population</code>. Assign the column name as a string to <code>capitals_population_key</code>.</li>
+<li>Using this key, left join <code>population</code> to <code>capitals</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Load data</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>capitals   <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/australia_population/australia_capitals.csv"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a>population <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/australia_population/australia_cities_top20.csv"</span>, <span class="at">drop =</span> <span class="st">"percentage"</span>) </span>
+<span id="cb9-4"><a href="#cb9-4"></a>area       <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/australia_population/australia_area.csv"</span>,         <span class="at">drop =</span> <span class="st">"precentage"</span>)</span>
+<span id="cb9-5"><a href="#cb9-5"></a></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co"># Identify the key for joining capitals and population</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a>capitals_population_key <span class="ot">&lt;-</span> <span class="st">"city"</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co"># Left join population to capitals</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a>capital_pop <span class="ot">&lt;-</span> <span class="fu">merge</span>(capitals, population, <span class="at">by =</span> capitals_population_key, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb9-11"><a href="#cb9-11"></a>capital_pop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Identify the key column so you can join <code>capital_pop</code> and <code>area</code>. Assign the column name as a string to <code>capital_pop_area_key</code>.</li>
+<li>Using this key, inner join <code>area</code> to <code>capital_pop</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Identify the key for joining capital_pop and area</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>capital_pop_area_key <span class="ot">&lt;-</span> <span class="st">"state"</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co"># Inner join area to capital pop</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>australia_stats <span class="ot">&lt;-</span> <span class="fu">merge</span>(capital_pop, area, <span class="at">by =</span> capital_pop_area_key)</span>
+<span id="cb10-6"><a href="#cb10-6"></a></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co"># Print the final result</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a>australia_stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Well done! Mastering these joins enables you to combine information in many different ways to build the right <code>data.table</code> to ask your data science questions of interest.</p>
+</section>
+</section>
+<section id="joins-using-data.table-syntax" class="level1">
+<h1>2. Joins Using data.table Syntax</h1>
+<p>In this chapter you will perform joins using the data.table syntax, set and view data.table keys, and perform anti-joins.</p>
+<section id="joins-using-data.table-syntax-1" class="level2">
+<h2 class="anchored" data-anchor-id="joins-using-data.table-syntax-1">Joins using data.table syntax</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. data.table syntax</strong></p>
+<p>Congratulations on completing the first chapter and welcome back. In this lesson, you will perform joins using the data table syntax.</p>
+<p><strong>2. Recap of the data.table syntax</strong></p>
+<p>The general form of a data table is shown here. It can be read out loud as “Take DT, filter its rows in i, then compute on columns j grouped by values in columns by.</p>
+<p><strong>3. Joins</strong></p>
+<p>To perform a join using this syntax, you pass another data table to the i argument. This can be read out loud as “Join DT to i using the column in on as the join key”.You can think of it as just any other filter operation in i, except here you’re filtering the rows in DT based on those that have matches to rows in i.</p>
+<p><strong>4. Right joins</strong></p>
+<p>This naturally leads to the definition of a right join. Like any other subset operation in R, values that have no match return missing values. So here, rows from the data table you are subsetting on in the i argument are kept in the result, with missing values where there was no match in the main data table.</p>
+<p><strong>5. The on argument</strong></p>
+<p>Join key columns are supplied to the on argument. This follows similar rules to the j and by arguments in the data table syntax. If you use the list function or its alias you can enter the join key column name as if it was a variable.You can also use a character vector to specify the join key. This also allows you to store the join key in a variable that you pass to the on argument. Note that here we haven’t used the list function or its alias, so the data table syntax looks for the join underscore key variable, not for a column with the same name.</p>
+<p><strong>6. Left joins</strong></p>
+<p>To perform a left join you can swap the order of the data tables, so that the data table on the left side of the join is passed to the i argument. To left join the demographics data table shown in blue to the shipping data table shown in orange we swap the order of data tables from the previous slide and perform a right join on the demographics data table.</p>
+<p><strong>7. Inner joins</strong></p>
+<p>To perform an inner join you supply an additional argument, nomatch equals zero. This tells the data table syntax to ignore rows that cannot be matched between the two data tables, giving you an inner join.</p>
+<p><strong>8. Full joins</strong></p>
+<p>It is not possible to perform a full join with the data table syntax, so you will need to rely on the merge function you learned in chapter 1. Remember to set all equal to TRUE to perform a full join!</p>
+<p><strong>9. Anti-joins</strong></p>
+<p>Finally, another type of join you can perform using the data table syntax is an anti-join. This filters the main data table on the left so that it contains only rows that have no match in the data table on the right.Anti joins are performed by adding an exclamation mark, known as the “not” operator, before the data table you want to filter on in the i argument.</p>
+<p><strong>10. Let’s practice!</strong></p>
+<p>Later on in this chapter you will learn how to use the other functionality of the data table syntax while joining data tables. For now, its your turn to try out joins using the data table syntax.</p>
+</section>
+<section id="right-join-with-the-data.table-syntax" class="level2">
+<h2 class="anchored" data-anchor-id="right-join-with-the-data.table-syntax">Right join with the data.table syntax</h2>
+<p><code>capitals</code> and <code>population</code>, the two <code>data.table</code>s containing information about the geography and population of Australia are available in your workspace. Your goal is to add the state of each city to the <code>population</code> by performing a right join using the <code>data.table</code> syntax.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Right join <code>population</code> to <code>capitals</code> using the <code>data.table</code> syntax.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Right join population to capitals using data.table syntax</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>capitals[population, on <span class="ot">=</span> .(city)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>To compare the output, right join <code>population</code> to <code>capitals</code> using the <code>merge()</code> function.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Right join using merge</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">merge</span>(capitals, population, <span class="at">by =</span> <span class="st">"city"</span>, <span class="at">all.y =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice work! Did you notice the difference in row ordering in the result? This is because joins using the <code>data.table</code> syntax treat the <code>i</code> argument like a subset operation, so it returns rows in the order they appear in the <code>data.table</code> given to the <code>i</code> argument, while the <code>merge()</code> function sorts rows based on the values in the key column.</p>
+</section>
+<section id="inner-join-with-the-data.table-syntax" class="level2">
+<h2 class="anchored" data-anchor-id="inner-join-with-the-data.table-syntax">Inner join with the data.table syntax</h2>
+<p>In the last exercise, you right joined <code>population</code> to <code>capitals</code>. The result contained all rows from <code>population</code> and had some <code>NA</code>s. In this exercise, you will perform an inner join instead, retaining rows only from both the tables.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Inner join <code>population</code> to <code>capitals</code> using the <code>data.table</code> syntax.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Inner join with the data.table syntax</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>capitals[population, on <span class="ot">=</span> .(city), nomatch <span class="ot">=</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Great job! If you are performing many inner joins, you can change the default behaviour of <code>nomatch</code> by setting <code>options(datatable.nomatch = 0)</code> in your R session.</p>
+</section>
+<section id="anti-joins" class="level2">
+<h2 class="anchored" data-anchor-id="anti-joins">Anti-joins</h2>
+<p>Anti-joins are useful when you want to filter rows in one table not found in the other. Your goal is to filter the <code>population</code> so that it does not contain the state capitals, and filter the <code>area</code> so that it only contains administrative areas, not the major Australian states.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Filter <code>population</code> so the result doesn’t contain any rows from <code>capitals</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Anti-join capitals to population</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>population[<span class="sc">!</span>capitals, on <span class="ot">=</span> .(city)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Filter <code>area</code> so the result doesn’t contain any rows from <code>capitals</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Anti-join capitals to area</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>area[<span class="sc">!</span>capitals, on <span class="ot">=</span> .(state)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nicely done! Anti-joins are a useful way of identifying rows that have no match in another <code>data.table</code>.</p>
+</section>
+<section id="setting-and-viewing-data.table-keys" class="level2">
+<h2 class="anchored" data-anchor-id="setting-and-viewing-data.table-keys">Setting and viewing data.table keys</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Setting and viewing data.table keys</strong></p>
+<p>In this lesson, you will learn how to set and view the keys of a data table.</p>
+<p><strong>2. Setting <code>data.table</code> keys</strong></p>
+<p>In the previous lesson you learned how to perform joins using the data table syntax. In each case, you had to use the on argument to specify how to match rows between the two data tables. However, it is possible to tell R which columns are keys for each data table in advance of a join, removing the need for the on argument. This is useful if you find yourself performing several different joins with a single data table.Setting a key will also sort a data table by that column in memory, which makes joining and filtering operations on that columns much faster for large data tables.With that in mind, its useful to know you can set multiple key columns for a single data table. You’ll learn more about joins that require multiple keys in the next chapter.</p>
+<p><strong>3. The <code>setkey()</code> function</strong></p>
+<p>The setkey() function is used for this purpose.It takes a single data table as its first argument, then any number of key column names as its remaining arguments.These can be entered as if they were variables, or can be wrapped inside quotes, either will work.If you don’t provide any column names to the setkey() function, it will use all columns of the data table as its keys!</p>
+<p><strong>4. The <code>setkey()</code> function</strong></p>
+<p>When keys are set for two data tables, you can use the data table syntax without the on argument for performing joins.</p>
+<p><strong>5. Setting keys programmatically</strong></p>
+<p>You can also use the setkeyv() function to set the keys of a data table by passing in a character vector of the key column names. This is useful if you want to set the keys of a data table programmatically, where your key column names are stored in another variable.</p>
+<p><strong>6. Getting keys</strong></p>
+<p>You can check whether a data table has any key columns set by using the haskey() function, and get the key you’ve set by using the key() function.</p>
+<p><strong>7. Getting keys</strong></p>
+<p>If you haven’t set the key for a data table then the haskey() function will return FALSE and the key() function will return NULL.</p>
+<p><strong>8. Viewing all <code>data.tables</code> and their keys</strong></p>
+<p>The tables() function you learned about in the very first lesson will also show you the keys you have set for any data tables in your R session.</p>
+<p><strong>9. Let’s practice!</strong></p>
+<p>Now it’s your turn to play with keys.</p>
+</section>
+<section id="setting-keys" class="level2">
+<h2 class="anchored" data-anchor-id="setting-keys">Setting keys</h2>
+<p>The <code>netflix</code> and <code>imdb</code> <code>data.table</code>s are available in your workspace. Your goal is to set the keys for both <code>data.table</code>s so that you can perform a series of joins without needing to specify the join keys each time.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Set <code>title</code> as the key of both <code>netflix</code> and <code>imdb</code> using <code>setkey()</code>.</li>
+<li>Inner join <code>imdb</code> to <code>netflix</code> without specifying the <code>on</code> argument.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Set the keys</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">setkey</span>(netflix, <span class="st">"title"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="fu">setkey</span>(imdb, <span class="st">"title"</span>)</span>
+<span id="cb16-4"><a href="#cb16-4"></a></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="co"># Inner join</span></span>
+<span id="cb16-6"><a href="#cb16-6"></a>netflix[imdb, nomatch <span class="ot">=</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Good job! Using <code>setkey()</code> will also sort the rows of a <code>data.table</code> by the key columns. This makes joins and filter operations on the keys more efficient, and can be much faster for large <code>data.tables</code>.</p>
+</section>
+<section id="getting-keys" class="level2">
+<h2 class="anchored" data-anchor-id="getting-keys">Getting keys</h2>
+<p>You can also get and set the keys programmatically. In this exercise, only one of <code>netflix</code> and <code>imdb</code> has their key set. Your job is to find out which <code>data.table</code> has had their key set, then use that to set the key for the other <code>data.table</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Check whether <code>netflix</code> and <code>imdb</code> have had any key set.</li>
+<li>Assign the key of the <code>data.table</code> which has a key to <code>the_key</code>.</li>
+<li>Set the key of the other <code>data.table</code> using <code>the_key</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Check for keys</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">haskey</span>(netflix)</span>
+<span id="cb17-3"><a href="#cb17-3"></a><span class="fu">haskey</span>(imdb)</span>
+<span id="cb17-4"><a href="#cb17-4"></a></span>
+<span id="cb17-5"><a href="#cb17-5"></a><span class="co"># Find the key</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a>the_key <span class="ot">&lt;-</span> <span class="fu">key</span>(netflix)</span>
+<span id="cb17-7"><a href="#cb17-7"></a></span>
+<span id="cb17-8"><a href="#cb17-8"></a><span class="co"># Set the key for the other data.table</span></span>
+<span id="cb17-9"><a href="#cb17-9"></a><span class="fu">setkeyv</span>(imdb, the_key)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Fantastic! The <code>key()</code> function is a useful way of reducing typing errors that can happen when manually typing long keys or multiple keys over and over again. This can be used together with the <code>haskey()</code> and <code>setkeyv()</code> functions for programmatic key checking and setting.</p>
+</section>
+<section id="incorporating-joins-into-your-data.table-workflow" class="level2">
+<h2 class="anchored" data-anchor-id="incorporating-joins-into-your-data.table-workflow">Incorporating joins into your data.table workflow</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Incorporating joins into your data.table workflow</strong></p>
+<p>The real power of using the data table syntax for performing joins is that it allows you to incorporate joins into your other data table workflows. This enables you to perform rapid data analysis when your data is spread across multiple data tables.</p>
+<p><strong>2. Chaining data.table expressions</strong></p>
+<p>The most flexible way of incorporating joins into your data table workflows is by chaining data table expressions.In the first expression, you perform your join operation. Then the second data table expression allows you to work on the result with any of the other data table expression functionality you’ve learned in the previous course.The general form on the slide can be read as “Join DT1 to DT2 using the column in on as the join key. Then in the result, filter by rows in i, compute on columns j grouped by values in columns by.”</p>
+<p><strong>3. Join then compute</strong></p>
+<p>Here’s an example. We have two data tables, one filled with information about the business’s customers,</p>
+<p><strong>4. Join then compute</strong></p>
+<p>and a second with details of the purchase history.</p>
+<p><strong>5. Join then compute</strong></p>
+<p>To get the average spent per sale for return customers grouped by gender, we chain two data table expressions. In the first, we join customers to purchases, then in the second, we filter to customers with more than 1 sale, calculate the average spent per sale in j, grouped by the gender column in by.</p>
+<p><strong>6. Computation with joins</strong></p>
+<p>You can also use the j argument to compute on columns in the same data table expression as a join. This is a memory efficient way to perform calculations on the result of a join because the data table expression will create only the join result for the columns used in j in memory. This can save a lot of time and memory for large data tables!</p>
+<p><strong>7. Joining and column creation</strong></p>
+<p>Column creation can also be performed in the same data table expression as a join. The new column will be added to the main data table on the left side of the join. In the example on the slide, after joining purchases to customers, we are adding a new column, return_customers to the customers data table, which is computed based on the sales column from the purchases data table in the result of the join.</p>
+<p><strong>8. Grouping by matches</strong></p>
+<p>The by argument gains a special symbol, .EACHI, when used in a join expression. This lets you group computation in j by each row in the data table on the right side of the join.This can be read as “Join DT1 to DT2, then for each row in DT2 group calculations in j by the matching rows in DT1.”</p>
+<p><strong>9. Grouping by matches</strong></p>
+<p>In this example, we used by = .EACHI to count the number of shipping addresses associated with each person in the customers data table.</p>
+<p><strong>10. Grouping by columns with joins</strong></p>
+<p>The by argument also works slightly differently than normal when used in a join expression.It can only be provided columns from the main data table on the left side of the join, and you can only perform computation on columns from the main data table.</p>
+<p><strong>11. Grouping by columns with joins</strong></p>
+<p>For example, you could left join shipping to customers to calculate the average age, grouped by gender, of customers with shipping addresses, because both the age and gender columns are in the customers data table.</p>
+<p><strong>12. Let’s practice!</strong></p>
+<p>Now its time for you to join data tables while doing some computations!</p>
+</section>
+<section id="exploring-the-australian-population" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-the-australian-population">Exploring the Australian population</h2>
+<p>Your goal is to calculate the total percentage of people living in major cities of Australia (listed in <code>capitals</code>). For this exercise, <code>population</code> has a new column (<code>"percentage"</code>) containing the percentage of people living in each of its listed cities.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>First, inner join <code>capitals</code> to <code>population</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># read data</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>population <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/australia_population/australia_cities_top20.csv"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3"></a></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="co"># Inner join capitals to population</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>population[capitals, on <span class="ot">=</span> .(city), nomatch <span class="ot">=</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>In the same <code>data.table</code> expression, <a href="https://www.rdocumentation.org/packages/base/topics/sum"><code>sum()</code></a> the <code>"percentage"</code> column to calculate the total percentage of people living in major Australian cities.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Join and sum</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>population[capitals, on <span class="ot">=</span> .(city), nomatch <span class="ot">=</span> <span class="dv">0</span>,</span>
+<span id="cb19-3"><a href="#cb19-3"></a>           j <span class="ot">=</span> <span class="fu">sum</span>(percentage)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Well done! Using the <code>j</code> argument to compute information from the result of the join will allow you to quickly ask and answer questions about your data. Here in a single command you’ve learnt roughly 65% of Australians live in one of its major cities.</p>
+</section>
+<section id="finding-multiple-matches" class="level2">
+<h2 class="anchored" data-anchor-id="finding-multiple-matches">Finding multiple matches</h2>
+<p>Two new <code>data.table</code>s have been loaded in your workspace:</p>
+<ul>
+<li><code>life_exp</code>: contains the life expectancy of each country in 2010 sourced from the <a href="https://www.gapminder.org">Gapminder foundation</a></li>
+<li><code>continents</code>: contains a mapping between each country and the continent(s) they are part of built from information provided by <a href="https://www.countries-ofthe-world.com/">Countries-ofthe-World.com</a>. In this exercise, you will find the countries that are listed in more than one continent</li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Complete the code to build a <code>data.table</code> containing the <em>number of matches</em> in <code>continents</code> for each row in <code>life_exp</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Load data</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>life_exp   <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/life_expectancy/gapminder_life_expectancy_2010.csv"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3"></a>continents <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/life_expectancy/continents.csv"</span>) </span>
+<span id="cb20-4"><a href="#cb20-4"></a></span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="co"># How many continents is each country listed in?</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>continents[life_exp, on <span class="ot">=</span> .(country), .N, </span>
+<span id="cb20-7"><a href="#cb20-7"></a>           by <span class="ot">=</span> .EACHI]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Chain a second <code>data.table[]</code> expression to the first to filter the result of the previous step to contain just countries with more than one match between <code>life_exp</code> and <code>continents</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># What countries are listed in multiple continents?</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>continents[life_exp, on <span class="ot">=</span> .(country), .N, </span>
+<span id="cb21-3"><a href="#cb21-3"></a>           by <span class="ot">=</span> .EACHI][N <span class="sc">&gt;</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="exploring-world-life-expectancy" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-world-life-expectancy">Exploring world life expectancy</h2>
+<p>The two <code>data.table</code>s from the previous exercise have been loaded into your workspace:</p>
+<ul>
+<li><code>life_exp</code>: contains the life expectancy of each country in 2010 sourced from the <a href="https://www.gapminder.org">Gapminder foundation</a></li>
+<li><code>continents</code>: contains a mapping between each country and the continent(s) they are part of built from information provided by <a href="https://www.countries-ofthe-world.com/">Countries-ofthe-World.com</a>. Your goal this time is to calculate the average life expectancy across countries within each continent.</li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Inner join <code>life_exp</code> to <code>continents</code> and calculate the <a href="https://www.rdocumentation.org/packages/base/topics/mean"><code>mean()</code></a> <code>"years"</code> of life expectancy grouped by the <code>"continent"</code> column.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Change names</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">setnames</span>(life_exp, <span class="at">old =</span> <span class="st">"life_expectancy"</span>, <span class="at">new =</span> <span class="st">"years"</span>)</span>
+<span id="cb22-3"><a href="#cb22-3"></a></span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="co"># Calculate average life expectancy per continent:</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>avg_life_expectancy <span class="ot">&lt;-</span> continents[life_exp, on <span class="ot">=</span> .(country), </span>
+<span id="cb22-6"><a href="#cb22-6"></a>                                  nomatch <span class="ot">=</span> <span class="dv">0</span>][, j <span class="ot">=</span> <span class="fu">mean</span>(years), </span>
+<span id="cb22-7"><a href="#cb22-7"></a>                                               by <span class="ot">=</span> .(continent)]</span>
+<span id="cb22-8"><a href="#cb22-8"></a>avg_life_expectancy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Excellent work! Using <code>by = .EACHI</code> is a useful way of checking your join has the number of matches you expect, and finding rows that may cause problems in downstream analysis. Remember if you want to use <code>by=</code> to group computations in <code>j</code> by another column you will need to chain a second <code>data.table[]</code> expression.</p>
+</section>
+</section>
+<section id="diagnosing-and-fixing-common-join-problems" class="level1">
+<h1>3. Diagnosing and Fixing Common Join Problems</h1>
+<p>This chapter will discuss common problems and errors encountered when performing data.table joins and show you how to troubleshoot and avoid them.</p>
+<section id="complex-keys" class="level2">
+<h2 class="anchored" data-anchor-id="complex-keys">Complex keys</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Complex keys</strong></p>
+<p>Welcome back. In this lesson, you’ll learn how to diagnose misspecified joins, and how to use more complex join keys.</p>
+<p><strong>2. Misspecified joins</strong></p>
+<p>A misspecified join is one where you don’t use the correct join keys. This can lead to a variety of errors and malformed data tables.All of these are good indicators you need to go back and double-check your join keys.</p>
+<p><strong>3. Column type mismatch</strong></p>
+<p>If you see an error message with the word “bmerge” and “typeof” it means that the join key columns you’ve specified have different types, so they can’t be matched.You might be using the wrong columns,</p>
+<p><strong>4. Column type mismatch</strong></p>
+<p>Or the columns may have been loaded in as different types and need converting so that both have the same type.</p>
+<p><strong>5. Malformed full joins - no common key values</strong></p>
+<p>If the columns have the same type, then the output and difficulty of diagnosing the problem will depend on the type of join, and whether the columns coincidentally have any values in common. If the columns have no values in common then a full join will lead to the two data tables being stacked, and filled with missing values.</p>
+<p><strong>6. Malformed right and left joins - no common key values</strong></p>
+<p>A right or left join will just return the rows from one of the data tables, with columns from the other filled entirely with missing values.</p>
+<p><strong>7. Malformed inner joins - no common key values</strong></p>
+<p>And an inner join will have zero rows.</p>
+<p><strong>8. Malformed joins - coincidental common key values</strong></p>
+<p>If you use the wrong key, but the columns coincidentally share some common values, the problem can be much harder to pick up. So its important to check that the result of your join makes sense.</p>
+<p><strong>9. Avoiding misspecified joins</strong></p>
+<p>The best way to avoid misspecified joins is to take the time to learn about the information each column contains so that you can critically reason about how to match rows before attempting a join.There are several factors that can make identifying join keys more difficult than the examples you’ve encountered in previous lessons.</p>
+<p><strong>10. Keys with different column names</strong></p>
+<p>Sometimes the join keys might have different column names in each data table.In these cases, you use the by dot x and by dot y arguments in the merge() function,and in the data table join syntax you use an equals operator in the on argument, or in the character vector supplied to the on argument.</p>
+<p><strong>11. Multi-column keys</strong></p>
+<p>You may also need multiple columns to match rows between data tables. This can be because the information that uniquely identifies rows is split across multiple columns,</p>
+<p><strong>12. Multi-column keys</strong></p>
+<p>or because there are multiple entries for each entity.</p>
+<p><strong>13. Specifying multiple keys with merge()</strong></p>
+<p>In the merge() function, multiple key columns are supplied as a character vector to the by argument.If one or more of these keys has different column names in both data tables, you will need to supply a character vector to both the by dot x and by dot y arguments. Join key column names are matched in the order they appear in each character vector.</p>
+<p><strong>14. Specifying multiple keys with the data.table syntax</strong></p>
+<p>When using the data table syntax, multiple keys can be supplied separated by commas.Columns that have different names are specified using an equals sign.</p>
+<p><strong>15. Final Slide</strong></p>
+<p>Now, its your turn to practice with complex keys.</p>
+</section>
+<section id="keys-with-different-names" class="level2">
+<h2 class="anchored" data-anchor-id="keys-with-different-names">Keys with different names</h2>
+<p>You have been contracted by a local school to perform some analysis using their internal databases. Two of those datasets are available in your R session:</p>
+<ul>
+<li><code>students</code>: contains information about the students attending the school</li>
+<li><code>guardians</code>: contains information about the adult who is the primary point of contact for the school for each student. Your goal is to build a new <code>data.table</code> containing all the information about the guardian for each student.</li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Use the <code>merge()</code> function to full join <code>guardians</code> to <code>students</code> using the <code>"name"</code> column as the join key. Do the results look correct?</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Load data</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>students  <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/school_db/school_db_students.tsv"</span>)</span>
+<span id="cb23-3"><a href="#cb23-3"></a>guardians <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/school_db/school_db_guardians.tsv"</span>)</span>
+<span id="cb23-4"><a href="#cb23-4"></a></span>
+<span id="cb23-5"><a href="#cb23-5"></a><span class="co"># Full join</span></span>
+<span id="cb23-6"><a href="#cb23-6"></a><span class="fu">merge</span>(students, guardians, <span class="at">by =</span> <span class="st">"name"</span>, <span class="at">all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Now see what happens when you left join <code>guardians</code> to <code>students</code> with the <code>merge()</code> function using <code>"name"</code> as the join key.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Left join</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="fu">merge</span>(students, guardians, <span class="at">by =</span> <span class="st">"name"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Perform an inner join using the <code>data.table</code> syntax.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Inner join</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>students[guardians, on <span class="ot">=</span> .(name), nomatch <span class="ot">=</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Explore the <code>data.table</code>s in your console to find the column in each of <code>students</code> and <code>guardians</code> that matches rows between them, then modify the code to use these column names to perform an inner join.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># What are the correct join key columns?</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>students[guardians, on <span class="ot">=</span> .(<span class="at">guardian =</span> name), nomatch <span class="ot">=</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice work! Knowing what to expect when a join goes wrong will help you quickly catch and diagnose problems in the future. Remember, join keys can have different column names in each <code>data.table</code>.</p>
+</section>
+<section id="multi-column-keys" class="level2">
+<h2 class="anchored" data-anchor-id="multi-column-keys">Multi-column keys</h2>
+<p>Two new datasets are available in your R session:</p>
+<ul>
+<li><code>subjects</code>: contains the subject each student is taking each semester this year</li>
+<li><code>locations</code>: contains the room allocations for each subject Your goal is to build a new <code>data.table</code> with the locations of each subject for each student.</li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Right join <code>locations</code> to <code>subjects</code> using the <code>"subject"</code> and <code>"semester"</code> columns in both <code>data.tables</code> as two separate join key columns. You should get an error.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Load data</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>subjects  <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/school_db/school_db_subjects.tsv"</span>)</span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="fu">setnames</span>(subjects, <span class="at">old =</span> <span class="st">"class"</span>, <span class="at">new =</span> <span class="st">"subject"</span>)</span>
+<span id="cb27-4"><a href="#cb27-4"></a></span>
+<span id="cb27-5"><a href="#cb27-5"></a>locations <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/school_db/school_db_locations.tsv"</span>)</span>
+<span id="cb27-6"><a href="#cb27-6"></a><span class="fu">setnames</span>(locations, <span class="at">old =</span> <span class="st">"class"</span>, <span class="at">new =</span> <span class="st">"subject"</span>)</span>
+<span id="cb27-7"><a href="#cb27-7"></a>locations[, semester <span class="sc">:</span><span class="er">=</span> <span class="fu">as.character</span>(semester)]</span>
+<span id="cb27-8"><a href="#cb27-8"></a></span>
+<span id="cb27-9"><a href="#cb27-9"></a><span class="co"># Right join</span></span>
+<span id="cb27-10"><a href="#cb27-10"></a>subjects[locations, on <span class="ot">=</span> .(subject, semester)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Print the <code>str()</code>ucture of <code>subjects</code> and <code>locations</code>.</li>
+<li>Is the class of the <code>semester</code> column same in both? If yes, assign <code>TRUE</code> to <code>same_class</code>, else assign <code>FALSE</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Structure </span></span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="fu">str</span>(subjects)</span>
+<span id="cb28-3"><a href="#cb28-3"></a><span class="fu">str</span>(locations)</span>
+<span id="cb28-4"><a href="#cb28-4"></a></span>
+<span id="cb28-5"><a href="#cb28-5"></a><span class="co"># Does semester have the same class? </span></span>
+<span id="cb28-6"><a href="#cb28-6"></a>same_class <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Use the <code>as.integer()</code> function to change the class of the <code>"semester"</code> column in <code>locations</code>.</li>
+<li>Right join <code>locations</code> to <code>subjects</code> again, using the <code>data.table</code> syntax.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Fix the column class</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>locations[, semester <span class="sc">:</span><span class="er">=</span> <span class="fu">as.integer</span>(semester)]</span>
+<span id="cb29-3"><a href="#cb29-3"></a></span>
+<span id="cb29-4"><a href="#cb29-4"></a><span class="co"># Right join</span></span>
+<span id="cb29-5"><a href="#cb29-5"></a>subjects[locations, on <span class="ot">=</span> .(subject, semester)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Great job! Sometimes you will need to make the column types consistent to perform a successful join.</p>
+</section>
+<section id="multi-key-single-key" class="level2">
+<h2 class="anchored" data-anchor-id="multi-key-single-key">Multi-key, single-key</h2>
+<p>In addition to <code>locations</code>, you will work with the <code>teachers</code> dataset in this exercise. It contains information about the teacher for each subject. The teacher of each subject does not change between semesters. Your goal is to build a new <code>data.table</code> containing the room allocation for each subject, using the <code>teachers</code> and <code>locations</code> <code>data.table</code>s.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Identify the key column(s) for joining <code>teachers</code> and <code>locations</code> and assign it as a character vector in the form <code>c("teachers_join_key" = "locations_join_key")</code> to the <code>join_key</code> variable.</li>
+<li>Using the <code>data.table</code> syntax, right join <code>locations</code> to <code>teachers</code> using the <code>join_key</code> variable.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Load data</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a>teachers <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/school_db/school_db_teachers.tsv"</span>)</span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="fu">setnames</span>(teachers, <span class="at">old =</span> <span class="st">"subject"</span>, <span class="at">new =</span> <span class="st">"topic"</span>)</span>
+<span id="cb30-4"><a href="#cb30-4"></a></span>
+<span id="cb30-5"><a href="#cb30-5"></a><span class="co"># Identify and set the keys</span></span>
+<span id="cb30-6"><a href="#cb30-6"></a>join_key <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"topic"</span> <span class="ot">=</span> <span class="st">"subject"</span>)</span>
+<span id="cb30-7"><a href="#cb30-7"></a></span>
+<span id="cb30-8"><a href="#cb30-8"></a><span class="co"># Right join</span></span>
+<span id="cb30-9"><a href="#cb30-9"></a>teachers[locations, on <span class="ot">=</span> join_key]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Fantastic job! Even though the previous exercise required the <code>\\"subject\\"</code> and <code>\\"semester\\"</code> columns from <code>locations</code> as the join key, here only the <code>\\"subject\\"</code> column was required to match its rows to <code>teachers</code>. Remember the join keys depend on the two <code>data.tables</code> in the join!</p>
+</section>
+<section id="tricky-columns" class="level2">
+<h2 class="anchored" data-anchor-id="tricky-columns">Tricky columns</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Problem columns</strong></p>
+<p>In the last lesson you learned how to work with complex join keys, and how to diagnose and fix problems arising from misspecified joins. In this lesson you will learn how to diagnose common problems you may encounter with data table columns when joining.</p>
+<p><strong>2. Common column names</strong></p>
+<p>When joining two data tables you may sometimes find that they share column names which are not the join keys.An example is shown on the slide. Both data tables have “name”, “gender”, and “age” columns, and you can see that to join these two data tables, you would need to match the name and parent columns for the join keys.Common column names like this pose two challenges: they make it harder to correctly identify the join keys and they make it harder to interpret the result of the join.</p>
+<p><strong>3. Common column names</strong></p>
+<p>So what happens to these columns in a join?With the data table syntax, columns from the data table passed to the i argument will have “i dot” added to the start of their column names.</p>
+<p><strong>4. Common column names with merge()</strong></p>
+<p>When using the merge() function, these common column names will instead have “dot x” or “dot y” added to the end, denoting which of the input data tables they came from.</p>
+<p><strong>5. Adding context with your own suffixes</strong></p>
+<p>The suffixes argument to the merge() function allows you to use different suffixes than just “dot x” and “dot y”. This is a useful way of providing helpful context to the result of the join.</p>
+<p><strong>6. Renaming columns</strong></p>
+<p>Another solution is to rename these columns, either before or after the join. This can be done with the setnames() function.You can either give it a single character vector to give new names to all the columns in a data table, or two character vectors to rename a subset of columns.</p>
+<p><strong>7. Joining with <code>data.frames</code></strong></p>
+<p>Another problem you may run into is mixing of data tables and data frames in your R session. The merge() function also works for data frames, and can also be used to join a data frame with a data table.Sometimes, data frames store the unique identifying information about their rows in the rownames. You will need to extract these if you want to use them as the join keys or want to keep that information in the result of the join.The simplest way to do this is to convert it to a data table using the as dot data dot table function along with the keep dot rownames argument to convert this into a column with the column name of your choice.</p>
+<p><strong>8. Let’s practice!</strong></p>
+<p>It’s time to join data tables with tricky columns.</p>
+</section>
+<section id="column-name-suffixes" class="level2">
+<h2 class="anchored" data-anchor-id="column-name-suffixes">Column name suffixes</h2>
+<p>The three <code>data.table</code>s containing information about the geography and population of Australia have been loaded into your R session: <code>capitals</code>, <code>area</code>, and <code>population</code>. Both <code>area</code> and <code>population</code> now have a column named <code>"percentage"</code>. The <code>"percentage"</code> column in <code>area</code> contains the percentage of total land mass each state occupies. The <code>"percentage"</code> column in <code>population</code> contains the percentage of the total population living in each <code>city</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Use the <code>merge()</code> function to inner join <code>population</code> to <code>capitals</code> and save the result to <code>capital_pop</code>.</li>
+<li>Use the <code>merge()</code> function to left join <code>area</code> to <code>capital_pop</code> and view the result.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Inner join</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a>capital_pop <span class="ot">&lt;-</span> <span class="fu">merge</span>(capitals, population, <span class="at">by =</span> <span class="st">"city"</span>)</span>
+<span id="cb31-3"><a href="#cb31-3"></a></span>
+<span id="cb31-4"><a href="#cb31-4"></a><span class="co"># Left join</span></span>
+<span id="cb31-5"><a href="#cb31-5"></a><span class="fu">merge</span>(capital_pop, area, <span class="at">by =</span> <span class="st">"state"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>This time, left join <code>area</code> to <code>capital_pop</code> changing the suffixes of the two <code>"percentage"</code> columns to <code>".pop"</code> and <code>".area"</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Inner join from step 1</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>capital_pop <span class="ot">&lt;-</span> <span class="fu">merge</span>(capitals, population, <span class="at">by =</span> <span class="st">"city"</span>)</span>
+<span id="cb32-3"><a href="#cb32-3"></a></span>
+<span id="cb32-4"><a href="#cb32-4"></a><span class="co"># Left join with suffixes</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a><span class="fu">merge</span>(capital_pop, area, <span class="at">by =</span> <span class="st">"state"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>, <span class="at">suffixes =</span> <span class="fu">c</span>(<span class="st">".pop"</span>, <span class="st">".area"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Good job! Changing the suffixes is good practice because it makes it easier to know what each column represents when you come back to the joined <code>data.table</code> at a later time.</p>
+</section>
+<section id="joining-a-data.frame" class="level2">
+<h2 class="anchored" data-anchor-id="joining-a-data.frame">Joining a data.frame</h2>
+<p>The <code>netflix</code> and <code>imdb</code> datasets have been loaded into your R session. Your goal is to add IMBD ratings to all series in the <code>netflix</code> dataset, but this time <code>netflix</code> has been loaded in as a <code>data.frame</code> instead of a <code>data.table</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Convert <code>netflix</code> to a <code>data.table</code> using the <code>as.data.table()</code> function so that its rownames become a column named <code>"series"</code>.</li>
+<li>Right join the new <code>data.table</code> you’ve just created,<code>netflix_dt</code>, to <code>imdb</code> using the <code>data.table</code> join syntax.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># load data</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>netflix <span class="ot">&lt;-</span> netflix <span class="sc">|&gt;</span> tibble<span class="sc">::</span><span class="fu">column_to_rownames</span>(<span class="st">"title"</span>)</span>
+<span id="cb33-3"><a href="#cb33-3"></a></span>
+<span id="cb33-4"><a href="#cb33-4"></a><span class="co"># Convert netflix to a data.table</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a>netflix_dt <span class="ot">&lt;-</span> <span class="fu">as.data.table</span>(netflix, <span class="at">keep.rownames =</span> <span class="st">"series"</span>)</span>
+<span id="cb33-6"><a href="#cb33-6"></a></span>
+<span id="cb33-7"><a href="#cb33-7"></a><span class="co"># Right join</span></span>
+<span id="cb33-8"><a href="#cb33-8"></a>imdb[netflix_dt, on <span class="ot">=</span> .(<span class="at">title =</span> series)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice one! You can use the <code>merge()</code> function to join a <code>data.frame</code>, but if you want to use the row names you will need to convert it into a column first.</p>
+</section>
+<section id="duplicate-matches" class="level2">
+<h2 class="anchored" data-anchor-id="duplicate-matches">Duplicate matches</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Duplicate matches</strong></p>
+<p>The last set of join problems you will commonly encounter arise from duplicate matches in the join key values.</p>
+<p><strong>2. Join key duplicates</strong></p>
+<p>Sometimes you will want to join two data tables based on columns with duplicate entries. In the example shown on the slide, we are joining two data tables containing data we’ve measured on the microbial content of soil at two different farm sites. We’ve used multiple methods to try to quantify whether a bacterial genus is present, and if so, by how much? We then might want to join these two data tables to get a list of bacteria that could be found at both sites using any method, so we join the two data tables using the genus column as the join key.This leads to multiplicative matches. Each row in the site2_ecology data table will match two rows in the site1 ecology_data table, leading to 12 matches all up, six for each bacteria shown.</p>
+<p><strong>3. Error from multiplicative matches</strong></p>
+<p>If you try to run this code, you will get a long error as shown here warning you that the result will have more rows than both data tables combined.This error is shown to protect you from making unexpectedly large data tables by accident because multiplicative matches are a common problem in misspecified joins, which you learnt about in the first lesson of this chapter.</p>
+<p><strong>4. Allowing multiplicative matches</strong></p>
+<p>When you do a join like this intentionally, you can set allow dot cartesian equals TRUE to let the join proceed.This argument is found in both the data table syntax and the merge() function.</p>
+<p><strong>5. Allowing multiplicative matches</strong></p>
+<p>With data table syntax, you will get the following data table as a result</p>
+<p><strong>6. Missing values</strong></p>
+<p>If you have missing values in your join key column, then these can also lead to multiplicative matches, because they will match all other missing values in the join.</p>
+<p><strong>7. Filtering missing values</strong></p>
+<p>To remove these matches, which are likely meaningless, you can filter out rows with missing values in the join key columns using the is dot na function along with not operator.</p>
+<p><strong>8. Keeping only the first match</strong></p>
+<p>In some cases, you may want to join two data tables where each value in the join key column has multiple matches, but you only want to keep the first match. For example, we might have multiple collections at site 1, but when matching to the site2_ecology data table we only want to match the most recent collection.To do this you can set mult equals first to keep only the first matching row in the main data table on the left side of the join.</p>
+<p><strong>9. Keeping only the last match</strong></p>
+<p>Conversely, you can set mult equals last to keep only the last matching row.</p>
+<p><strong>10. Identifying and removing duplicates</strong></p>
+<p>You can also use the duplicated() and unique() functions to identify and remove duplicates.</p>
+<p><strong>11. The duplicated() function</strong></p>
+<p>The duplicated() function from the the data table package will tell you which rows are duplicates. It returns a vector of TRUE and FALSE values, where each entry corresponds to a row in the data table. A value of TRUE means that row has the same values as one of the previous rows in the data table.An additional argument, “by”, can be used to restrict those checks to only a subset of columns, for example looking for duplicates in just the join key column.</p>
+<p><strong>12. The unique() function</strong></p>
+<p>The unique() function takes the same arguments, but instead returns the data table without the rows that were determined to be duplicates.</p>
+<p><strong>13. Changing the search order</strong></p>
+<p>You can also change the direction the duplicated() and unique() functions search for and remove duplicates by specifying fromLast equals TRUE.</p>
+<p><strong>14. Let’s practice!</strong></p>
+<p>Now it’s your turn to practice handling duplicate matches.</p>
+</section>
+<section id="joining-with-missing-values" class="level2">
+<h2 class="anchored" data-anchor-id="joining-with-missing-values">Joining with missing values</h2>
+<p>Two new <code>data.tables</code> have been loaded into your R session: <code>heart</code> and <code>cardio</code>. Each one contains a set of <a href="https://en.wikipedia.org/wiki/DNA_microarray">microarray probes</a> you have found to be associated with heart disease in two separate studies*. Each probe measures the <a href="https://en.wikipedia.org/wiki/Gene_expression">expression levels</a> of a gene. Each gene can be measured by one or more probes, and some probes do not have any known gene annotation in the <a href="https://www.ncbi.nlm.nih.gov/refseq/">human genome reference sequence</a>. The two studies have used different microarray platforms that use different probes to measure each gene. Your goal is to find which genes had reproducible associations with heart disease in both studies.</p>
+<ul>
+<li>Note: associations are randomly generated, not representative of any true biological finding or real dataset.</li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Using the <code>merge()</code> function, inner join <code>cardio</code> to <code>heart</code> with the appropriate argument to override any errors that you encounter.</li>
+<li>Remove the probes from both <code>data.tables</code> with no gene annotation (i.e., remove rows with missing values in the <code>gene</code> column).</li>
+<li>Repeat the inner join with the new <code>data.tables</code> to get a <code>data.table</code> of reproducible associations between genes and heart disease.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Load data</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>heart  <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/heart_data/illumina_chd_genes.csv"</span>,  <span class="at">na.strings  =</span> <span class="st">""</span>)</span>
+<span id="cb34-3"><a href="#cb34-3"></a>cardio <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/heart_data/affymetrix_chd_genes.csv"</span>, <span class="at">na.strings =</span> <span class="st">""</span>) </span>
+<span id="cb34-4"><a href="#cb34-4"></a></span>
+<span id="cb34-5"><a href="#cb34-5"></a><span class="co"># Try an inner join</span></span>
+<span id="cb34-6"><a href="#cb34-6"></a><span class="fu">merge</span>(heart, cardio, <span class="at">by =</span> <span class="st">"gene"</span>, <span class="at">allow.cartesian =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb34-7"><a href="#cb34-7"></a></span>
+<span id="cb34-8"><a href="#cb34-8"></a><span class="co"># Filter missing values</span></span>
+<span id="cb34-9"><a href="#cb34-9"></a>heart_2  <span class="ot">&lt;-</span> heart[<span class="sc">!</span><span class="fu">is.na</span>(gene)]</span>
+<span id="cb34-10"><a href="#cb34-10"></a>cardio_2 <span class="ot">&lt;-</span> cardio[<span class="sc">!</span><span class="fu">is.na</span>(gene)]</span>
+<span id="cb34-11"><a href="#cb34-11"></a></span>
+<span id="cb34-12"><a href="#cb34-12"></a><span class="co"># Inner join the filtered data.tables</span></span>
+<span id="cb34-13"><a href="#cb34-13"></a><span class="fu">merge</span>(heart_2, cardio_2, <span class="at">by =</span> <span class="st">"gene"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice work! If the only columns that have the same name across two data.tables are the join keys, you can drop the <code>by</code> argument from <code>merge()</code> - it will find and use these columns as the join keys automatically!</p>
+</section>
+<section id="filtering-duplicates" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-duplicates">Filtering duplicates</h2>
+<p>The <code>heart_2</code> and <code>cardio_2</code> data tables you filtered for missing values are available in your workspace. Your goal is to select one representative probe per gene in each <code>data.table</code> so that each gene has only a single entry in the join result. You want to select the probe with the weakest association to get a conservative estimate of reproducibility. The <code>"change"</code> column contains the fold change in expression levels for each probe between the healthy subjects and those with heart disease*. The <code>"pvalue"</code> column contains the p-value for the association strength. Rows are ordered by decreasing order of association strength (by increasing P-value).</p>
+<ul>
+<li>Note: associations are randomly generated, not representative of any true biological finding or real dataset.</li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Use the <code>unique()</code> function to remove duplicate entries in the <code>"gene"</code> column in both <code>heart_2</code> and <code>cardio_2</code>. Keep only the <em>last</em> row for each gene.<br>
+</li>
+<li>Inner join <code>cardio_3</code> to <code>heart_3</code> using the <code>merge()</code> function. Append <code>".heart"</code> and <code>".cardio"</code> as suffixes to the <code>"change"</code> and <code>"pvalue"</code> columns.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Keep only the last probe for each gene</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>heart_3  <span class="ot">&lt;-</span> <span class="fu">unique</span>(heart_2,  <span class="at">by =</span> <span class="st">"gene"</span>, <span class="at">fromLast =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb35-3"><a href="#cb35-3"></a>cardio_3 <span class="ot">&lt;-</span> <span class="fu">unique</span>(cardio_2, <span class="at">by =</span> <span class="st">"gene"</span>, <span class="at">fromLast =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb35-4"><a href="#cb35-4"></a></span>
+<span id="cb35-5"><a href="#cb35-5"></a><span class="co"># Inner join</span></span>
+<span id="cb35-6"><a href="#cb35-6"></a>reproducible <span class="ot">&lt;-</span> <span class="fu">merge</span>(heart_3, cardio_3, <span class="at">by =</span> <span class="st">"gene"</span>, <span class="at">suffixes =</span> <span class="fu">c</span>(<span class="st">".heart"</span>, <span class="st">".cardio"</span>))</span>
+<span id="cb35-7"><a href="#cb35-7"></a>reproducible</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Great job! You could also have filtered duplicates using the <code>duplicated()</code> function: <code>heart &lt;- heart[!duplicated(heart, by=\\"gene\\", fromLast = TRUE)]</code>.</p>
+</section>
+<section id="joining-and-filtering-duplicates" class="level2">
+<h2 class="anchored" data-anchor-id="joining-and-filtering-duplicates">Joining and filtering duplicates</h2>
+<p>Another <code>data.table</code> has been loaded into your R session, <code>framingham</code>, containing a set of 35 genes and their associations with heart disease from an open access study <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3684247/">by Joehanes R. <em>et al.</em> published in 2013</a>. Your goal is to compare the results of this study to the results from each of your studies. The <code>cardio_2</code> and <code>heart_2</code> <code>data.table</code>s filtered for missing values, but still containing multiple probes for each gene, have been loaded into your R session. The <code>data.table</code> of reproducible associations you created in the last exercise, <code>reproducible</code>, has also been loaded into your R session.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Using the <code>data.table</code> syntax, right join <code>framingham</code> to <code>heart_2</code>, taking the first probe for each gene in <code>heart_2</code>.</li>
+<li>Anti-join <code>framingham</code> to <code>reproducible</code> to see whether you found any genes that have not previously been seen to have an association with heart disease.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Load data</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>framingham <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/heart_data/framingham_chd_genes.csv"</span>, <span class="at">na.strings =</span> <span class="st">""</span>)</span>
+<span id="cb36-3"><a href="#cb36-3"></a></span>
+<span id="cb36-4"><a href="#cb36-4"></a><span class="co"># Right join taking the first match</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a>heart_2[framingham, on <span class="ot">=</span> .(gene), mult <span class="ot">=</span> <span class="st">"first"</span>]</span>
+<span id="cb36-6"><a href="#cb36-6"></a></span>
+<span id="cb36-7"><a href="#cb36-7"></a><span class="co"># Anti-join</span></span>
+<span id="cb36-8"><a href="#cb36-8"></a>reproducible[<span class="sc">!</span>framingham, on <span class="ot">=</span> .(gene)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Excellent work! You could also select the last probe per gene by setting <code>mult = \\"last\\"</code>.</p>
+</section>
+</section>
+<section id="concatenating-and-reshaping-data.tables" class="level1">
+<h1>4. Concatenating and Reshaping data.tables</h1>
+<p>In the last chapter of this course you’ll learn how to concatenate observations from multiple tables together, how to identify observations present in one table but not another, and how to reshape tables between long and wide formats.</p>
+<section id="concatenating-two-or-more-data.tables" class="level2">
+<h2 class="anchored" data-anchor-id="concatenating-two-or-more-data.tables">Concatenating two or more data.tables</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Concatenating data.tables</strong></p>
+<p>Welcome back! In this lesson you will learn how to work with datasets whose rows are spread across multiple data tables by concatenating them into a single data table.</p>
+<p><strong>2. Same columns, different data.tables</strong></p>
+<p>Sometimes datasets you want to work with are split across multiple data tables, usually because they’ve been read in from multiple files. You may want to concatenate these rows into a single data table.</p>
+<p><strong>3. Concatenation functions</strong></p>
+<p>There are two functions you can use to concatenate data tables. The rbind() function, and the rbindlist() function.</p>
+<p><strong>4. The rbind() function</strong></p>
+<p>The rbind() function takes any number of data tables as inputs, and concatenates their rows into a single data table.</p>
+<p><strong>5. Adding an identifier column</strong></p>
+<p>Each of these variables can be given names using the equals operator, and an extra argument “idcol” will tell rbind() to use these names to create an extra column in the result that indicates each row’s data table of origin.</p>
+<p><strong>6. Adding an identifier column</strong></p>
+<p>If you use the idcol argument without naming the variables the data tables will be numbered instead.</p>
+<p><strong>7. Adding an identifier column</strong></p>
+<p>And if you don’t supply a column name to idcol and just set it to true, the column will be named “dot id”.</p>
+<p><strong>8. Handling missing columns</strong></p>
+<p>When the input data tables each have a different number of columns, you will need to set the fill argument to TRUE. This will fill the missing columns with NAs in the result.</p>
+<p><strong>9. Handling missing columns</strong></p>
+<p>If you don’t do this, the code will result in an error that looks like this, telling you that the column numbers are inconsistent.</p>
+<p><strong>10. The rbindlist() function</strong></p>
+<p>You can use the rbindlist() function if your data tables are stored as elements of a single list.An example of where you might find this useful is when you have several files you want to import into a single data table. Rather than reading each file into separate variables, you could load these into a list by lapply()-ing the fread() function over a vector of file names, and then use the rbindlist() function to concatenate their rows into a single data table.</p>
+<p><strong>11. Adding an identifier column</strong></p>
+<p>When using the rbindlist() function, the idcol argument uses the names of the list elements when creating the additional identifier column.</p>
+<p><strong>12. Handling different column orders</strong></p>
+<p>Finally, the use dot names argument in both rbind() and rbindlist() functions matches columns by their names when concatenating data tables.</p>
+<p><strong>13. <code>data.tables</code> with different column names</strong></p>
+<p>Setting use dot names to false allows you to concatenate data tables whose columns have different names.</p>
+<p><strong>14. Pitfalls of <code>use.names = FALSE</code></strong></p>
+<p>But, you need to be careful because it will mean columns are always concatenated in the order they are found.</p>
+<p><strong>15. Differing defaults</strong></p>
+<p>The use dot names argument has different defaults in the rbind() and rbindlist() functions.By default it is true in the rbind() function, but in the rbindlist() function its default is FALSE, and changes to TRUE if you set fill equal to TRUE.</p>
+<p><strong>16. Let’s practice!</strong></p>
+<p>Now it’s your turn to see how these functions work in practice.</p>
+</section>
+<section id="concatenating-data.table-variables" class="level2">
+<h2 class="anchored" data-anchor-id="concatenating-data.table-variables">Concatenating data.table variables</h2>
+<p>Three <code>data.table</code>s containing Ebola case numbers <a href="http://apps.who.int/gho/data/node.ebola-sitrep">reported in Guinea to the World Health Organisation</a> for three weeks at the height of the 2014 Ebola outbreak have been loaded into your R session: <code>ebola_W50</code>, <code>ebola_W51</code>, and <code>ebola_W52</code>. Your goal is to create a single <code>data.table</code> containing the case numbers in each region of Guinea across all three weeks.</p>
+<p><strong>Steps</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Load data</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>ebola_W50 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/ebola_cases/ebola_2014_W50.csv"</span>)</span>
+<span id="cb37-3"><a href="#cb37-3"></a>ebola_W51 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/ebola_cases/ebola_2014_W51.csv"</span>)</span>
+<span id="cb37-4"><a href="#cb37-4"></a>ebola_W52 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/ebola_cases/ebola_2014_W52.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li>Concatenate <code>ebola_W50</code> and <code>ebola_W51</code> (in that order) using the <a href="https://www.rdocumentation.org/packages/data.table/topics/rbindlist"><code>rbind()</code></a> function.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Concatenate case numbers from weeks 50 and 51</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="fu">rbind</span>(ebola_W50, ebola_W51)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Modify your call to <code>rbind()</code> to also concatenate <code>ebola_W52</code>. You should get an error.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Concatenate case numbers from all three weeks</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="fu">rbind</span>(ebola_W50, ebola_W51, ebola_W52)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Fix your call to <code>rbind()</code> so that the three <code>data.tables</code> are successfully concatenated.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># Modify the code</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a><span class="fu">rbind</span>(ebola_W50, ebola_W51, ebola_W52, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Good job! Datasets with regular updates may come in separate files. The <code>rbind()</code> function enables you to reliably and efficiently concatenate these into a single <code>data.table</code> once they have been loaded into your R session with <code>fread()</code>.</p>
+</section>
+<section id="concatenating-a-list-of-data.tables" class="level2">
+<h2 class="anchored" data-anchor-id="concatenating-a-list-of-data.tables">Concatenating a list of data.tables</h2>
+<p>A list of <code>data.table</code>s has been loaded into your R session: <code>gdp</code>. Its elements contain a <code>data.table</code> for each continent, each <code>data.table</code> containing the gross domestic product (gdp) in the year 2000 for the countries in each continent (data sourced from the <a href="https://www.gapminder.org">Gapminder foundation</a>). Your goal is to build a new <code>data.table</code> containing the observations from all <code>data.table</code>s in the <code>gdp</code> <code>list</code></p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Concatenate all <code>data.table</code>s in the <code>gdp</code> <code>list</code>, saving the result to <code>gdp_all_1</code>.</li>
+</ol>
+<p><em>Column 2 [‘country’] of item 3 appears in position 1 in item 2. Set use.names=TRUE to match by column name, or use.names=FALSE to ignore column names. use.names=‘check’ (default from v1.12.2) emits this message and proceeds as if use.names=FALSE for backwards compatibility. See news item 5 in v1.12.2 for options to control this message.</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Load packages</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb41-3"><a href="#cb41-3"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb41-4"><a href="#cb41-4"></a></span>
+<span id="cb41-5"><a href="#cb41-5"></a><span class="co"># Load data</span></span>
+<span id="cb41-6"><a href="#cb41-6"></a>gdp <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"data/gdp/"</span>, <span class="at">full.names =</span> T, <span class="at">pattern =</span> <span class="st">".*_2000.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb41-7"><a href="#cb41-7"></a>            .[<span class="sc">!</span>(. <span class="sc">|&gt;</span> <span class="fu">str_detect</span>(<span class="st">"middle_east"</span>))] <span class="sc">%&gt;%</span></span>
+<span id="cb41-8"><a href="#cb41-8"></a>            <span class="fu">map</span>(fread) <span class="sc">|&gt;</span> </span>
+<span id="cb41-9"><a href="#cb41-9"></a>            <span class="fu">set_names</span>(<span class="fu">c</span>(<span class="st">"africa"</span>,<span class="st">"asia"</span>,<span class="st">"europe"</span>,<span class="st">"north_america"</span>,<span class="st">"oceania"</span>,<span class="st">"south_america"</span>))</span>
+<span id="cb41-10"><a href="#cb41-10"></a></span>
+<span id="cb41-11"><a href="#cb41-11"></a><span class="co"># Concatenate its data.tables</span></span>
+<span id="cb41-12"><a href="#cb41-12"></a>gdp_all_1 <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(gdp, <span class="at">use.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Modify the code so that a new column, <code>"continent"</code> is created in the result stored in <code>gdp_all_2</code>, which contains the continent(s) each country is located in.</li>
+<li>Inspect the result in your console.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Concatenate its data.tables</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a>gdp_all_2 <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(gdp, <span class="at">idcol =</span> <span class="st">"continent"</span>, <span class="at">use.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>In your console run the code to check the result of your previous call to <code>rbindlist()</code>. Can you see any problems?</li>
+<li>Modify your call to <code>rbindlist()</code> to fix any problems you have found, saving the result in <code>gdp_all_3</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Run this code to inspect gdp_all_2</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a>gdp_all_2 <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(gdp, <span class="at">idcol =</span> <span class="st">"continent"</span>)</span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="fu">str</span>(gdp_all_2)</span>
+<span id="cb43-4"><a href="#cb43-4"></a>gdp_all_2[<span class="dv">95</span><span class="sc">:</span><span class="dv">105</span>]</span>
+<span id="cb43-5"><a href="#cb43-5"></a></span>
+<span id="cb43-6"><a href="#cb43-6"></a><span class="co"># Fix the problem</span></span>
+<span id="cb43-7"><a href="#cb43-7"></a>gdp_all_3 <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(gdp, <span class="at">idcol =</span> <span class="st">"continent"</span>, <span class="at">use.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb43-8"><a href="#cb43-8"></a>gdp_all_3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Fantastic! Remember to check the data tables created by <code>rbind()</code> or <code>rbindlist()</code> for correctness: these functions do not throw an error if the wrong columns are concatenated!</p>
+</section>
+<section id="set-operations" class="level2">
+<h2 class="anchored" data-anchor-id="set-operations">Set operations</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Set operations</strong></p>
+<p>In this lesson, you will learn how to use set operations to compare and combine the rows of two data tables that have the same columns.</p>
+<p><strong>2. Set operation functions</strong></p>
+<p>This group of three functions will enable you to identify rows that are duplicated across two data tables, those unique to either data table, and concatenate two data tables keeping only the unique rows in both.</p>
+<p><strong>3. Set operations: <code>fintersect()</code></strong></p>
+<p>The fintersect() function takes two data tables that have the same columns as its inputs and returns a new data table containing the set of rows that can be found in both data tables. You can see in the example running fintersect() on these two data tables will return just the highlighted rows.</p>
+<p><strong>4. <code>fintersect()</code> and duplicate rows</strong></p>
+<p>By default only one copy of each row is returned, even if there are multiple copies in each data table.</p>
+<p><strong>5. <code>fintersect()</code> and duplicate rows</strong></p>
+<p>You can set all equals TRUE to keep all pairs of matching duplicates. In the example, two copies of the yellow lion row can be found in both dt1 and dt2, so there are two copies in the result. The extra copy in dt1 is ignored, because it doesn’t have another copy it can match to in dt2.</p>
+<p><strong>6. Set operations: <code>fsetdiff()</code></strong></p>
+<p>The fsetdiff() function takes two data tables that have the same columns as its inputs, and returns a new data table containing the set of rows that are only found in the data table supplied as its first argument.In the example here, you can see fsetdiff() returns the rows from dt1 highlighted in blue. These are the rows that are unique to dt1.</p>
+<p><strong>7. <code>fsetdiff()</code> and duplicates</strong></p>
+<p>When there are duplicate rows, only one copy of each row is returned in the result by default.</p>
+<p><strong>8. <code>fsetdiff()</code> and duplicates</strong></p>
+<p>When you set all equals TRUE, any copies unique to the first data table are also returned.Here, not only do we keep both copies of the “antelope” row highlighted in purple, but one of the “lion” rows highlighted in yellow is also included in the result. This is because there are three copies of this row in dt1, and only two in dt2, so the extra copy in dt1 is returned because it does not have a matching pair in dt2.</p>
+<p><strong>9. Set operations: <code>funion()</code></strong></p>
+<p>The funion() function takes two data tables that have the same columns as its inputs and returns a new data table containing the set of all unique rows found in either data table.</p>
+<p><strong>10. <code>funion()</code> and duplicates</strong></p>
+<p>By default, duplicate rows are ignored. The result will only contain one copy of each unique row.</p>
+<p><strong>11. <code>funion()</code> and duplicates</strong></p>
+<p>Setting all equals TRUE will keep all copies of each row. The result is equivalent to using the rbind function to concatenate the two data tables.</p>
+<p><strong>12. Removing duplicates when combining many <code>data.tables</code></strong></p>
+<p>The funion() function is a useful way to concatenate two data tables while removing duplicate rows.When working with more than two data tables, you can concatenate them all using the rbind() or rbindlist() functions, and then use the duplicated() and unique() functions to identify or remove the duplicate rows.</p>
+<p><strong>13. Let’s practice!</strong></p>
+<p>Now, its your turn to practice set operations.</p>
+</section>
+<section id="identifying-observations-shared-by-multiple-tables" class="level2">
+<h2 class="anchored" data-anchor-id="identifying-observations-shared-by-multiple-tables">Identifying observations shared by multiple tables</h2>
+<p>The list of data tables, <code>gdp</code>, is available in your workspace. Your goal is to find the countries that are located in more than one continent, <em>i.e.</em>, rows that are present in more than one <code>data.table</code> in <code>gdp</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Use the <code>fintersect()</code> function to build a new <code>data.table</code> containing countries located in both Europe and Asia.</li>
+<li>Concatenate all <code>data.table</code>s in <code>gdp</code> and assign it to <code>gdp_all</code>.<br>
+</li>
+<li>Use the <code>duplicated()</code> function to filter <code>gdp_all</code> to rows that are duplicates to find all countries located in more than one continent.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Load proper data</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="co"># Load data</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a>gdp <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"data/gdp/"</span>, <span class="at">full.names =</span> T, <span class="at">pattern =</span> <span class="st">".*_2000.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a>            .[<span class="sc">!</span>(. <span class="sc">|&gt;</span> <span class="fu">str_detect</span>(<span class="st">"middle_east"</span>))] <span class="sc">%&gt;%</span></span>
+<span id="cb44-5"><a href="#cb44-5"></a>            <span class="fu">str_replace</span>(<span class="st">"gdp_europe_2000"</span>, <span class="st">"gdp_europe_2000_original"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb44-6"><a href="#cb44-6"></a>            purrr<span class="sc">::</span><span class="fu">map</span>(fread) <span class="sc">|&gt;</span> </span>
+<span id="cb44-7"><a href="#cb44-7"></a>            <span class="fu">set_names</span>(<span class="fu">c</span>(<span class="st">"africa"</span>,<span class="st">"asia"</span>,<span class="st">"europe"</span>,<span class="st">"north_america"</span>,<span class="st">"oceania"</span>,<span class="st">"south_america"</span>))</span>
+<span id="cb44-8"><a href="#cb44-8"></a></span>
+<span id="cb44-9"><a href="#cb44-9"></a><span class="co"># Obtain countries in both Asia and Europe</span></span>
+<span id="cb44-10"><a href="#cb44-10"></a><span class="fu">fintersect</span>(gdp<span class="sc">$</span>asia, gdp<span class="sc">$</span>europe)</span>
+<span id="cb44-11"><a href="#cb44-11"></a></span>
+<span id="cb44-12"><a href="#cb44-12"></a><span class="co"># Concatenate all data tables</span></span>
+<span id="cb44-13"><a href="#cb44-13"></a>gdp_all <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(gdp)</span>
+<span id="cb44-14"><a href="#cb44-14"></a></span>
+<span id="cb44-15"><a href="#cb44-15"></a><span class="co"># Find all countries that span multiple continents</span></span>
+<span id="cb44-16"><a href="#cb44-16"></a>gdp_all[<span class="fu">duplicated</span>(gdp_all)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nicely done! Did you know base R provides set operation functions that work on vectors? For example the <code>intersect()</code> function will find the common elements of two vectors.</p>
+</section>
+<section id="removing-duplicates-while-combining-tables" class="level2">
+<h2 class="anchored" data-anchor-id="removing-duplicates-while-combining-tables">Removing duplicates while combining tables</h2>
+<p>The same list of data tables as the last exercise, <code>gdp</code>, is available in your workspace. Your goal this time is to build a <code>data.table</code> in which each country appears only once, even if it is located in more than one continent.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Use the <code>funion()</code> function to build a new <code>data.table</code> containing all countries in either Europe or Asia, with each country appearing only once in the result.</li>
+<li>Concatenate all <code>data.table</code>s in <code>gdp</code> and assign it to <code>gdp_all</code>.<br>
+</li>
+<li>Use the <code>unique()</code> function to remove duplicate rows from<code>gdp_all</code> so that each country occurs only once in the result.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># Get all countries in either Asia or Europe</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="fu">funion</span>(gdp<span class="sc">$</span>asia, gdp<span class="sc">$</span>europe)</span>
+<span id="cb45-3"><a href="#cb45-3"></a></span>
+<span id="cb45-4"><a href="#cb45-4"></a><span class="co"># Concatenate all data tables</span></span>
+<span id="cb45-5"><a href="#cb45-5"></a>gdp_all <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(gdp)</span>
+<span id="cb45-6"><a href="#cb45-6"></a></span>
+<span id="cb45-7"><a href="#cb45-7"></a><span class="co"># Print all unique countries</span></span>
+<span id="cb45-8"><a href="#cb45-8"></a><span class="fu">unique</span>(gdp_all)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Great job! Functions in R can be chained together in the same statement, for example <code>gdp_all &lt;- unique(rbindlist(gdp))</code>.</p>
+</section>
+<section id="identifying-observations-unique-to-a-table" class="level2">
+<h2 class="anchored" data-anchor-id="identifying-observations-unique-to-a-table">Identifying observations unique to a table</h2>
+<p>An additional <code>data.table</code> has been loaded into your R session, <code>middle_east</code>, along with the <code>gdp</code> list of data tables from the previous exercise. The <code>middle_east</code> data table contains the set of countries in the <a href="https://en.wikipedia.org/wiki/Middle_East">Middle East</a>, a geopolitical region which spans parts of Europe, Africa, and Asia. All countries in the <code>middle_east</code> data table appear in one or more data tables in the <code>gdp</code> list. Your goal is to print data tables containing all countries in Africa, Europe, and Asia, that are not found in the <code>middle_east</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Print a new <code>data.table</code> containing rows from <code>gdp$africa</code> that are not present in <code>middle_east</code>.</li>
+<li>Print a new <code>data.table</code> containing rows from <code>gdp$asia</code> that are not present in <code>middle_east</code>.</li>
+<li>Print a new <code>data.table</code> containing rows from <code>gdp$europe</code> that are not present in <code>middle_east</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Load data</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>middle_east <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/gdp/gdp_middle_east_2000.csv"</span>)</span>
+<span id="cb46-3"><a href="#cb46-3"></a></span>
+<span id="cb46-4"><a href="#cb46-4"></a><span class="co"># Which countries are in Africa but not considered part of the middle east?</span></span>
+<span id="cb46-5"><a href="#cb46-5"></a><span class="fu">fsetdiff</span>(gdp<span class="sc">$</span>africa, middle_east)</span>
+<span id="cb46-6"><a href="#cb46-6"></a></span>
+<span id="cb46-7"><a href="#cb46-7"></a><span class="co"># Which countries are in Asia but not considered part of the middle east?</span></span>
+<span id="cb46-8"><a href="#cb46-8"></a><span class="fu">fsetdiff</span>(gdp<span class="sc">$</span>asia, middle_east)</span>
+<span id="cb46-9"><a href="#cb46-9"></a></span>
+<span id="cb46-10"><a href="#cb46-10"></a><span class="co"># Which countries are in Europe but not considered part of the middle east?</span></span>
+<span id="cb46-11"><a href="#cb46-11"></a><span class="fu">fsetdiff</span>(gdp<span class="sc">$</span>europe, middle_east)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice work! You can do this in one line of code: <code>lapply(gdp, fsetdiff, middle_east)</code>.</p>
+</section>
+<section id="melting-data.tables" class="level2">
+<h2 class="anchored" data-anchor-id="melting-data.tables">Melting data.tables</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Melting data.tables</strong></p>
+<p>In this lesson, you will learn how to melt data tables from wide to long formats.</p>
+<p><strong>2. Melting a wide data.table</strong></p>
+<p>A wide format data table is one where a single variable is spread across multiple columns corresponding to some grouping, such as in the example data table on the left.This type of layout is common when working with excel spreadsheets because it is a human friendly way of organising data with regular groupings. However, when working with datasets in R, you will often want to reshape this data into a long format, shown on the right. In the long format these values occupy a single column, with another column indicating group membership. This format allows you to take full advantage of the functionality in the data table syntax like grouping of calculations.</p>
+<p><strong>3. The <code>melt()</code> function</strong></p>
+<p>You can use the melt() function to reshape a wide data table to a long data table.There are a few different ways you can use this function.First, you can provide a vector of column names to the measure dot vars argument. The melt() function will take these columns and stack them on top of each other to create two new columns: “variable” and “value”. The “value” column will contain the values of these stacked columns while the “variable” column labels each row with the column name from the original wide data table.</p>
+<p><strong>4. The <code>melt()</code> function</strong></p>
+<p>You can give these new columns any name you like using the variable dot name and value dot name arguments.</p>
+<p><strong>5. The <code>melt()</code> function</strong></p>
+<p>You can also use the id dot vars argument instead of the measure dot vars argument to tell the melt() function which columns you want to keep aside as row identifiers in the new data table.The melt() function will then stack all other columns into the new “value” column.</p>
+<p><strong>6. The <code>melt()</code> function</strong></p>
+<p>You can use both the id dot vars and measure dot vars arguments at the same time. If you use both arguments, any columns you don’t provide to either argument will be dropped in the result.</p>
+<p><strong>7. Let’s practice!</strong></p>
+<p>Now it’s your turn to see how melt() works in practice.</p>
+</section>
+<section id="melting-a-wide-table" class="level2">
+<h2 class="anchored" data-anchor-id="melting-a-wide-table">Melting a wide table</h2>
+<p>A data table named <code>gdp_per_capita</code> containing the gross domestic product (GDP) per capita for countries in Oceania every five years from 1990 to 2010 sourced from the <a href="https://www.gapminder.org">Gapminder foundation</a> is available in your workspace. Your goal is to reshape this data table to the long format so that there is a single column containing all GDP per capita values for each country and year.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Print <code>gdp_per_capita</code> to learn about its contents.</li>
+<li>Use the <code>melt()</code> function to create a long format <code>data.table</code> stacking the values for each country’s column.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Load &amp; prepare data</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>gdp_per_capita <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/gdp/gdp_per_capita_oceania.csv"</span>, <span class="at">header =</span> T)</span>
+<span id="cb47-3"><a href="#cb47-3"></a>gdp_per_capita <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">transpose</span>(gdp_per_capita, <span class="at">keep.names =</span> <span class="st">"year"</span>, <span class="at">make.names =</span> <span class="st">"country"</span>)</span>
+<span id="cb47-4"><a href="#cb47-4"></a></span>
+<span id="cb47-5"><a href="#cb47-5"></a><span class="co"># Print gdp_per_capita</span></span>
+<span id="cb47-6"><a href="#cb47-6"></a>gdp_per_capita</span>
+<span id="cb47-7"><a href="#cb47-7"></a></span>
+<span id="cb47-8"><a href="#cb47-8"></a><span class="co"># Reshape gdp_per_capita to the long format</span></span>
+<span id="cb47-9"><a href="#cb47-9"></a><span class="fu">melt</span>(gdp_per_capita, <span class="at">id.vars =</span> <span class="st">"year"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Within your call to <code>melt()</code>, name the new <code>"variable"</code> column as <code>"country"</code> and the new <code>"value"</code> column as <code>"gdp_pc"</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="co"># Rename the new columns</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a><span class="fu">melt</span>(gdp_per_capita, <span class="at">id.vars =</span> <span class="st">"year"</span>, </span>
+<span id="cb48-3"><a href="#cb48-3"></a>     <span class="at">variable.name =</span> <span class="st">"country"</span>, <span class="at">value.name =</span> <span class="st">"gdp_pc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Excellent! By default the <code>\\"variable\\"</code> column in the result will be a <code>factor</code>. You can change this by setting <code>variable.factor = FALSE</code>.</p>
+</section>
+<section id="more-melts" class="level2">
+<h2 class="anchored" data-anchor-id="more-melts">More melts</h2>
+<p>A data table containing confirmed Ebola case numbers from Guinea in weeks 50 and 51 of the outbreak has been loaded into your R session. Your goal is to melt <code>ebola_wide</code> into a long format data table containing a single column for the case numbers variable.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Use the <code>measure.vars</code> argument to stack the columns <code>"Week_50"</code> and <code>"Week_51"</code>. The new column containing its values should be called <code>"cases"</code>, and the new column of variable labels should be called <code>"period"</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># Load package</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb49-3"><a href="#cb49-3"></a></span>
+<span id="cb49-4"><a href="#cb49-4"></a><span class="co"># Prepare data</span></span>
+<span id="cb49-5"><a href="#cb49-5"></a>ebola_wide <span class="ot">&lt;-</span> </span>
+<span id="cb49-6"><a href="#cb49-6"></a></span>
+<span id="cb49-7"><a href="#cb49-7"></a>ebola_W50 <span class="sc">|&gt;</span> </span>
+<span id="cb49-8"><a href="#cb49-8"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(period_code, Probable)) <span class="sc">|&gt;</span> </span>
+<span id="cb49-9"><a href="#cb49-9"></a>  <span class="fu">rename</span>(<span class="st">"Week_50"</span> <span class="ot">=</span> <span class="st">"Confirmed"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb49-10"><a href="#cb49-10"></a>  <span class="fu">mutate</span>(<span class="at">Week_51 =</span> <span class="cn">NA</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb49-11"><a href="#cb49-11"></a>  </span>
+<span id="cb49-12"><a href="#cb49-12"></a>  <span class="fu">bind_rows</span>(</span>
+<span id="cb49-13"><a href="#cb49-13"></a></span>
+<span id="cb49-14"><a href="#cb49-14"></a>ebola_W51 <span class="sc">|&gt;</span> </span>
+<span id="cb49-15"><a href="#cb49-15"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(period_code, Probable)) <span class="sc">|&gt;</span> </span>
+<span id="cb49-16"><a href="#cb49-16"></a>  <span class="fu">rename</span>(<span class="st">"Week_51"</span> <span class="ot">=</span> <span class="st">"Confirmed"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb49-17"><a href="#cb49-17"></a>  <span class="fu">mutate</span>(<span class="at">Week_50 =</span> <span class="cn">NA</span>)</span>
+<span id="cb49-18"><a href="#cb49-18"></a></span>
+<span id="cb49-19"><a href="#cb49-19"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb49-20"><a href="#cb49-20"></a>  <span class="fu">arrange</span>(Location)</span>
+<span id="cb49-21"><a href="#cb49-21"></a></span>
+<span id="cb49-22"><a href="#cb49-22"></a><span class="co"># Print ebola_wide</span></span>
+<span id="cb49-23"><a href="#cb49-23"></a>ebola_wide</span>
+<span id="cb49-24"><a href="#cb49-24"></a></span>
+<span id="cb49-25"><a href="#cb49-25"></a><span class="co"># Stack Week_50 and Week_51</span></span>
+<span id="cb49-26"><a href="#cb49-26"></a><span class="fu">melt</span>(ebola_wide, <span class="at">measure.vars =</span> <span class="fu">c</span>(<span class="st">"Week_50"</span>, <span class="st">"Week_51"</span>), </span>
+<span id="cb49-27"><a href="#cb49-27"></a>     <span class="at">variable.name =</span> <span class="st">"period"</span>, <span class="at">value.name =</span> <span class="st">"cases"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Modify the call to <code>melt()</code> to also ask to keep only the <code>"Location"</code> column as row identifiers, dropping the <code>"period_start"</code> and <code>"period_end"</code> columns from the result.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Modify the code</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a><span class="fu">melt</span>(ebola_wide, <span class="at">measure.vars =</span> <span class="fu">c</span>(<span class="st">"Week_50"</span>, <span class="st">"Week_51"</span>), </span>
+<span id="cb50-3"><a href="#cb50-3"></a>     <span class="at">variable.name =</span> <span class="st">"period"</span>, <span class="at">value.name =</span> <span class="st">"cases"</span>, </span>
+<span id="cb50-4"><a href="#cb50-4"></a>     <span class="at">id.vars =</span> <span class="st">"Location"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Great job! Using <code>id.vars</code> together with <code>measure.vars</code> keeps only those columns in the result.</p>
+</section>
+<section id="casting-data.tables" class="level2">
+<h2 class="anchored" data-anchor-id="casting-data.tables">Casting data.tables</h2>
+<p>Theory. Coming soon …</p>
+</section>
+<section id="casting-a-long-table" class="level2">
+<h2 class="anchored" data-anchor-id="casting-a-long-table">Casting a long table</h2>
+<p><code>gdp_oceania</code> contains the population and GDP for every country in Oceania for every five years from 1990 to 2010 and is available in your workspace. Your goal is to create wide format <code>data.table</code>s containing the population and total GDP for each country with each year having its own column.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Use <a href="https://www.rdocumentation.org/packages/data.table/topics/dcast.data.table"><code>dcast()</code></a> to build a wide <code>data.table</code> containing the population of each country, with each country as a row and each year as a column.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Load data</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a>gdp_oceania <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/gdp/gdp_and_pop_oceania.csv"</span>)</span>
+<span id="cb51-3"><a href="#cb51-3"></a></span>
+<span id="cb51-4"><a href="#cb51-4"></a><span class="co"># Split the population column by year</span></span>
+<span id="cb51-5"><a href="#cb51-5"></a><span class="fu">dcast</span>(gdp_oceania, <span class="at">formula =</span> country <span class="sc">~</span> year, <span class="at">value.var =</span> <span class="st">"population"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Create another wide format <code>data.table</code> containing the GDP of each country with each year as a row and each country as a column.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Split the gdp column by country</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a><span class="fu">dcast</span>(gdp_oceania, <span class="at">formula =</span> year <span class="sc">~</span> country, <span class="at">value.var =</span> <span class="st">"gdp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice work! One way to remember the dcast formula is that the column you give to the left hand side will always be the left most column of row identifiers in the result.</p>
+</section>
+<section id="casting-multiple-columns" class="level2">
+<h2 class="anchored" data-anchor-id="casting-multiple-columns">Casting multiple columns</h2>
+<p>The data table from the previous exercise, <code>gdp_oceania</code>, is available in your workspace. Your goal is to create a wide format data table, splitting both the <code>"gdp"</code> and <code>"population"</code> columns by the <code>"year"</code> column.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Convert <code>gdp_oceania</code> to wide format with each country as a row, and splitting both the <code>"gdp"</code> and <code>"population"</code> columns into columns for each <code>"year"</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># Modify data</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a>gdp_oceania[,continent <span class="sc">:</span><span class="er">=</span> <span class="st">"Oceania"</span>]</span>
+<span id="cb53-3"><a href="#cb53-3"></a></span>
+<span id="cb53-4"><a href="#cb53-4"></a><span class="co"># Split the gdp and population columns by year</span></span>
+<span id="cb53-5"><a href="#cb53-5"></a><span class="fu">dcast</span>(gdp_oceania, <span class="at">formula =</span> country <span class="sc">~</span> year, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">"gdp"</span>, <span class="st">"population"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Convert <code>wide</code> to a matrix using the <code>"country"</code> column as the matrix rownames.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># Reshape from wide to long format</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a>wide <span class="ot">&lt;-</span> <span class="fu">dcast</span>(gdp_oceania, <span class="at">formula =</span> country <span class="sc">~</span> year, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">"gdp"</span>, <span class="st">"population"</span>))</span>
+<span id="cb54-3"><a href="#cb54-3"></a></span>
+<span id="cb54-4"><a href="#cb54-4"></a><span class="co"># convert to a matrix</span></span>
+<span id="cb54-5"><a href="#cb54-5"></a><span class="fu">as.matrix</span>(wide, <span class="at">rownames =</span> <span class="st">"country"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Modify the call to <code>dcast()</code> so that the <code>"continent"</code> column is also kept aside as row identifiers.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># Modify your previous code</span></span>
+<span id="cb55-2"><a href="#cb55-2"></a><span class="fu">dcast</span>(gdp_oceania, <span class="at">formula =</span> country <span class="sc">+</span> continent <span class="sc">~</span> year, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">"gdp"</span>, <span class="st">"population"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nicely done! If you don’t want to keep any columns as row identifiers in the result, you can use the special symbol <code>.</code> in the formula.</p>
+</section>
+<section id="splitting-by-multiple-groups" class="level2">
+<h2 class="anchored" data-anchor-id="splitting-by-multiple-groups">Splitting by multiple groups</h2>
+<p><code>gdp_by_industry_oceania</code> contains the GDP generated by the agriculture and tourism industries in both 1995 and 2010. Your goal is to create a wide format <code>data.table</code> containing columns of GDP for each year and industry.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Print <code>gdp_by_industry_oceania</code>.</li>
+<li>Convert <code>gdp_by_industry_oceania</code> to a wide format with each country as a row, splitting the <code>"gdp"</code> column so that the result has columns containing the gdp for each industry and each year.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># Load data</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>gdp_by_industry_oceania <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/gdp/gdp_by_industry_oceania.tsv"</span>)</span>
+<span id="cb56-3"><a href="#cb56-3"></a></span>
+<span id="cb56-4"><a href="#cb56-4"></a><span class="co"># Split gdp by industry and year</span></span>
+<span id="cb56-5"><a href="#cb56-5"></a><span class="fu">dcast</span>(gdp_by_industry_oceania, country <span class="sc">~</span> industry <span class="sc">+</span> year, <span class="at">value.var =</span> <span class="st">"gdp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Awesome job! For advanced use cases take a look at the <code>fill</code> argument which controls how <code>dcast</code> handles group combinations that do not occur, and the <code>fun.aggregate</code> argument which controls how dcast handles cases where there are multiple values for different group combinations.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'alternate';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Content 2022 by <a href="https://www.startupengineer.io/authors/schwarz/">Joschka Schwarz</a> <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
+  </div>
+</footer>
+
+
+
+<script src="../../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

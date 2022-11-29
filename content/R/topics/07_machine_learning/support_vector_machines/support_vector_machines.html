@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Joschka Schwarz">
+
+<title>Joschka Schwarz - Support Vector Machines in R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../../">
+<script src="../../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../../../index.html">
+    <span class="navbar-title">Joschka Schwarz</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Data Science</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-science">    
+        <li>
+    <a class="dropdown-item" href="../../../../../content/R/index.html">
+ <span class="dropdown-text">R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../content/python/index.html">
+ <span class="dropdown-text">Python</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../../../../content/sql/index.html">
+ <span class="dropdown-text">SQL</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../slides/index.html">
+ <span class="menu-text">Presentations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../resumes/index.html">
+ <span class="menu-text">Resumes</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../../index.html">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/jwarz/"><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz"><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul class="collapse">
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">1. Introduction</a>
+  <ul class="collapse">
+  <li><a href="#sugar-content-of-soft-drinks" id="toc-sugar-content-of-soft-drinks" class="nav-link" data-scroll-target="#sugar-content-of-soft-drinks">Sugar content of soft drinks</a></li>
+  <li><a href="#visualizing-a-sugar-content-dataset" id="toc-visualizing-a-sugar-content-dataset" class="nav-link" data-scroll-target="#visualizing-a-sugar-content-dataset">Visualizing a sugar content dataset</a></li>
+  <li><a href="#identifying-decision-boundaries" id="toc-identifying-decision-boundaries" class="nav-link" data-scroll-target="#identifying-decision-boundaries">Identifying decision boundaries</a></li>
+  <li><a href="#find-the-maximal-margin-separator" id="toc-find-the-maximal-margin-separator" class="nav-link" data-scroll-target="#find-the-maximal-margin-separator">Find the maximal margin separator</a></li>
+  <li><a href="#visualize-the-maximal-margin-separator" id="toc-visualize-the-maximal-margin-separator" class="nav-link" data-scroll-target="#visualize-the-maximal-margin-separator">Visualize the maximal margin separator</a></li>
+  <li><a href="#generating-a-linearly-separable-dataset" id="toc-generating-a-linearly-separable-dataset" class="nav-link" data-scroll-target="#generating-a-linearly-separable-dataset">Generating a linearly separable dataset</a></li>
+  <li><a href="#generate-a-2d-uniformly-distributed-dataset." id="toc-generate-a-2d-uniformly-distributed-dataset." class="nav-link" data-scroll-target="#generate-a-2d-uniformly-distributed-dataset.">Generate a 2d uniformly distributed dataset.</a></li>
+  <li><a href="#create-a-decision-boundary" id="toc-create-a-decision-boundary" class="nav-link" data-scroll-target="#create-a-decision-boundary">Create a decision boundary</a></li>
+  <li><a href="#introduce-a-margin-in-the-dataset" id="toc-introduce-a-margin-in-the-dataset" class="nav-link" data-scroll-target="#introduce-a-margin-in-the-dataset">Introduce a margin in the dataset</a></li>
+  </ul></li>
+  <li><a href="#support-vector-classifiers---linear-kernels" id="toc-support-vector-classifiers---linear-kernels" class="nav-link" data-scroll-target="#support-vector-classifiers---linear-kernels">2. Support Vector Classifiers - Linear Kernels</a>
+  <ul class="collapse">
+  <li><a href="#linear-support-vector-machines" id="toc-linear-support-vector-machines" class="nav-link" data-scroll-target="#linear-support-vector-machines">Linear Support Vector Machines</a></li>
+  <li><a href="#creating-training-and-test-datasets" id="toc-creating-training-and-test-datasets" class="nav-link" data-scroll-target="#creating-training-and-test-datasets">Creating training and test datasets</a></li>
+  <li><a href="#building-a-linear-svm-classifier" id="toc-building-a-linear-svm-classifier" class="nav-link" data-scroll-target="#building-a-linear-svm-classifier">Building a linear SVM classifier</a></li>
+  <li><a href="#exploring-the-model-and-calculating-accuracy" id="toc-exploring-the-model-and-calculating-accuracy" class="nav-link" data-scroll-target="#exploring-the-model-and-calculating-accuracy">Exploring the model and calculating accuracy</a></li>
+  <li><a href="#visualizing-linear-svms" id="toc-visualizing-linear-svms" class="nav-link" data-scroll-target="#visualizing-linear-svms">Visualizing Linear SVMs</a></li>
+  <li><a href="#visualizing-support-vectors-using-ggplot" id="toc-visualizing-support-vectors-using-ggplot" class="nav-link" data-scroll-target="#visualizing-support-vectors-using-ggplot">Visualizing support vectors using ggplot</a></li>
+  <li><a href="#visualizing-decision-margin-bounds-using-ggplot2" id="toc-visualizing-decision-margin-bounds-using-ggplot2" class="nav-link" data-scroll-target="#visualizing-decision-margin-bounds-using-ggplot2">Visualizing decision &amp; margin bounds using <code>ggplot2</code></a></li>
+  <li><a href="#visualizing-decision-margin-bounds-using-plot" id="toc-visualizing-decision-margin-bounds-using-plot" class="nav-link" data-scroll-target="#visualizing-decision-margin-bounds-using-plot">Visualizing decision &amp; margin bounds using <code>plot()</code></a></li>
+  <li><a href="#tuning-linear-svms" id="toc-tuning-linear-svms" class="nav-link" data-scroll-target="#tuning-linear-svms">Tuning linear SVMs</a></li>
+  <li><a href="#tuning-a-linear-svm" id="toc-tuning-a-linear-svm" class="nav-link" data-scroll-target="#tuning-a-linear-svm">Tuning a linear SVM</a></li>
+  <li><a href="#visualizing-decision-boundaries-and-margins" id="toc-visualizing-decision-boundaries-and-margins" class="nav-link" data-scroll-target="#visualizing-decision-boundaries-and-margins">Visualizing decision boundaries and margins</a></li>
+  <li><a href="#when-are-soft-margin-classifiers-useful" id="toc-when-are-soft-margin-classifiers-useful" class="nav-link" data-scroll-target="#when-are-soft-margin-classifiers-useful">When are soft margin classifiers useful?</a></li>
+  <li><a href="#multiclass-problems" id="toc-multiclass-problems" class="nav-link" data-scroll-target="#multiclass-problems">Multiclass problems</a></li>
+  <li><a href="#a-multiclass-classification-problem" id="toc-a-multiclass-classification-problem" class="nav-link" data-scroll-target="#a-multiclass-classification-problem">A multiclass classification problem</a></li>
+  <li><a href="#iris-redux---a-more-robust-accuracy." id="toc-iris-redux---a-more-robust-accuracy." class="nav-link" data-scroll-target="#iris-redux---a-more-robust-accuracy.">Iris redux - a more robust accuracy.</a></li>
+  </ul></li>
+  <li><a href="#polynomial-kernels" id="toc-polynomial-kernels" class="nav-link" data-scroll-target="#polynomial-kernels">3. Polynomial Kernels</a>
+  <ul class="collapse">
+  <li><a href="#generating-a-radially-separable-dataset" id="toc-generating-a-radially-separable-dataset" class="nav-link" data-scroll-target="#generating-a-radially-separable-dataset">Generating a radially separable dataset</a></li>
+  <li><a href="#generating-a-2d-radially-separable-dataset" id="toc-generating-a-2d-radially-separable-dataset" class="nav-link" data-scroll-target="#generating-a-2d-radially-separable-dataset">Generating a 2d radially separable dataset</a></li>
+  <li><a href="#visualizing-the-dataset" id="toc-visualizing-the-dataset" class="nav-link" data-scroll-target="#visualizing-the-dataset">Visualizing the dataset</a></li>
+  <li><a href="#linear-svms-on-radially-separable-data" id="toc-linear-svms-on-radially-separable-data" class="nav-link" data-scroll-target="#linear-svms-on-radially-separable-data">Linear SVMs on radially separable data</a></li>
+  <li><a href="#linear-svm-for-a-radially-separable-dataset" id="toc-linear-svm-for-a-radially-separable-dataset" class="nav-link" data-scroll-target="#linear-svm-for-a-radially-separable-dataset">Linear SVM for a radially separable dataset</a></li>
+  <li><a href="#average-accuracy-for-linear-svm" id="toc-average-accuracy-for-linear-svm" class="nav-link" data-scroll-target="#average-accuracy-for-linear-svm">Average accuracy for linear SVM</a></li>
+  <li><a href="#the-kernel-trick" id="toc-the-kernel-trick" class="nav-link" data-scroll-target="#the-kernel-trick">The kernel trick</a></li>
+  <li><a href="#visualizing-transformed-radially-separable-data" id="toc-visualizing-transformed-radially-separable-data" class="nav-link" data-scroll-target="#visualizing-transformed-radially-separable-data">Visualizing transformed radially separable data</a></li>
+  <li><a href="#svm-with-polynomial-kernel" id="toc-svm-with-polynomial-kernel" class="nav-link" data-scroll-target="#svm-with-polynomial-kernel">SVM with polynomial kernel</a></li>
+  <li><a href="#tuning-svms" id="toc-tuning-svms" class="nav-link" data-scroll-target="#tuning-svms">Tuning SVMs</a></li>
+  <li><a href="#using-tune.svm" id="toc-using-tune.svm" class="nav-link" data-scroll-target="#using-tune.svm">Using <code>tune.svm()</code></a></li>
+  <li><a href="#building-and-visualizing-the-tuned-model" id="toc-building-and-visualizing-the-tuned-model" class="nav-link" data-scroll-target="#building-and-visualizing-the-tuned-model">Building and visualizing the tuned model</a></li>
+  </ul></li>
+  <li><a href="#radial-basis-function-kernels" id="toc-radial-basis-function-kernels" class="nav-link" data-scroll-target="#radial-basis-function-kernels">4. Radial Basis Function Kernels</a>
+  <ul class="collapse">
+  <li><a href="#generating-a-complex-dataset" id="toc-generating-a-complex-dataset" class="nav-link" data-scroll-target="#generating-a-complex-dataset">Generating a complex dataset</a></li>
+  <li><a href="#generating-a-complex-dataset---part-1" id="toc-generating-a-complex-dataset---part-1" class="nav-link" data-scroll-target="#generating-a-complex-dataset---part-1">Generating a complex dataset - part 1</a></li>
+  <li><a href="#generating-a-complex-dataset---part-2" id="toc-generating-a-complex-dataset---part-2" class="nav-link" data-scroll-target="#generating-a-complex-dataset---part-2">Generating a complex dataset - part 2</a></li>
+  <li><a href="#visualizing-the-dataset-1" id="toc-visualizing-the-dataset-1" class="nav-link" data-scroll-target="#visualizing-the-dataset-1">Visualizing the dataset</a></li>
+  <li><a href="#motivating-the-rbf-kernel" id="toc-motivating-the-rbf-kernel" class="nav-link" data-scroll-target="#motivating-the-rbf-kernel">Motivating the RBF kernel</a></li>
+  <li><a href="#linear-svm-for-complex-dataset" id="toc-linear-svm-for-complex-dataset" class="nav-link" data-scroll-target="#linear-svm-for-complex-dataset">Linear SVM for complex dataset</a></li>
+  <li><a href="#quadratic-svm-for-complex-dataset" id="toc-quadratic-svm-for-complex-dataset" class="nav-link" data-scroll-target="#quadratic-svm-for-complex-dataset">Quadratic SVM for complex dataset</a></li>
+  <li><a href="#the-rbf-kernel" id="toc-the-rbf-kernel" class="nav-link" data-scroll-target="#the-rbf-kernel">The RBF Kernel</a></li>
+  <li><a href="#polynomial-svm-on-a-complex-dataset" id="toc-polynomial-svm-on-a-complex-dataset" class="nav-link" data-scroll-target="#polynomial-svm-on-a-complex-dataset">Polynomial SVM on a complex dataset</a></li>
+  <li><a href="#rbf-svm-on-a-complex-dataset" id="toc-rbf-svm-on-a-complex-dataset" class="nav-link" data-scroll-target="#rbf-svm-on-a-complex-dataset">RBF SVM on a complex dataset</a></li>
+  <li><a href="#tuning-an-rbf-kernel-svm" id="toc-tuning-an-rbf-kernel-svm" class="nav-link" data-scroll-target="#tuning-an-rbf-kernel-svm">Tuning an RBF kernel SVM</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/07_machine_learning/support_vector_machines/support_vector_machines.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Support Vector Machines in R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Joschka Schwarz </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><strong>Short Description</strong></p>
+<p>This course will introduce the support vector machine (SVM) using an intuitive, visual approach.</p>
+<p><strong>Long Description</strong></p>
+<p>This course will introduce a powerful classifier, the support vector machine (SVM) using an intuitive, visual approach. Support Vector Machines in R will help students develop an understanding of the SVM model as a classifier and gain practical experience using R’s libsvm implementation from the e1071 package. Along the way, students will gain an intuitive understanding of important concepts, such as hard and soft margins, the kernel trick, different types of kernels, and how to tune SVM parameters. Get ready to classify data with this impressive model.</p>
+<section id="introduction" class="level1">
+<h1>1. Introduction</h1>
+<p>This chapter introduces some key concepts of support vector machines through a simple 1-dimensional example. Students are also walked through the creation of a linearly separable dataset that is used in the subsequent chapter.</p>
+<section id="sugar-content-of-soft-drinks" class="level2">
+<h2 class="anchored" data-anchor-id="sugar-content-of-soft-drinks">Sugar content of soft drinks</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Introduction</strong></p>
+<p>Hi, I’m Kailash Awati. In this course, I’m going to give you a visually oriented introduction to support vector machines. I’ll use the abbreviation SVM for support vector machines henceforth.</p>
+<p><strong>2. Preliminaries</strong></p>
+<p>The objective of the course is to develop an intuitive understanding of how SVMs work, the different options available in the SVM algorithm and the situations in which they work best. I’ll assume you have an intermediate knowledge of R and some experience with visualization using ggplot(). We’ll start with a simple one one-dimensional example and build our understanding through datasets of increasing complexity. To keep things simple, we’ll stick with binary classification problems: that is, problems that have two classes. OK, let’s get started.</p>
+<p><strong>3. Sugar content of soft drinks</strong></p>
+<p>A soft drink manufacturer has two versions of their flagship brand: a regular version, Choke, with sugar content 11g per 100ml and a reduced sugar offering, Choke-R, with sugar content 8g per 100ml. In practice, though, the sugar content varies quite a bit.Given 25 random samples of Choke and Choke-R, our task is to determine a decision rule to distinguish between the two. Let’s see if we can identify such a rule visually.</p>
+<p><strong>4. Sugar content of soft drinks - visualization code</strong></p>
+<p>The sugar content data has been loaded into the drink_samples dataframe, which contains sugar content measurements on a set of samples. We first specify the data frame and tell ggplot() to plot the sugar content on the x-axis. The y-coordinate is set to zero as there is only one variable. In the subsequent lines, we tell ggplot() to create a scatter plot and do some labeling.</p>
+<p><strong>5. Sugar content plot</strong></p>
+<p>The plot shows two distinct clusters separated by data points at 8-point-8g per 100ml and 10g per 100ml. These clusters correspond to the two brands. Now, any point lying between these two points would be an acceptable separating boundary between the classes. A separating boundary between classes is called a separator or decision boundary.</p>
+<p><strong>6. Decision boundaries</strong></p>
+<p>Let’s pick two points in the interval - say 9-point-1 and 9-point-7 g per 100ml - as candidate decision boundaries. The decision rules for these are shown on the slide. Let’s visualize these.</p>
+<p><strong>7. Decision boundaries - visualization code</strong></p>
+<p>We create a dataframe with the decision boundaries</p>
+<p><strong>8. Decision boundaries - visualization code</strong></p>
+<p>and add them to the plot using geom_point(), distinguishing them from the sample points by making them bigger and coloring them red.</p>
+<p><strong>9. Plot of decision boundaries</strong></p>
+<p>Here’s the plot. An important concept is that of the margin, which is the distance between the decision boundary and the closest data point. For example, for the decision boundary at 9-point-1 g per 100ml, the closest point is 8-point-8 g per 100ml, so the margin is 9-point-1 minus 8-point-8, which is 0-point-3. You can figure out the margin for the other decision boundary.</p>
+<p><strong>10. Maximum margin separator</strong></p>
+<p>Now, the best decision boundary is one that maximizes the margin. This is called the maximal margin boundary or separator. It should be clear that the maximal margin separator lies halfway between the two clusters. That is, at the midpoint of the line joining the sample data points at 8-point-8 and 10 g per 100 ml. Let’s add this to our plot. To do this, we create a data frame containing the separator and add it to the plot using geom_point. To distinguish the maximum margin separator from the sample points and previous decision boundaries, we’ll make it a bit bigger and color it blue.</p>
+<p><strong>11. Plot of maximal margin separator</strong></p>
+<p>The plot makes it clear that the blue point is the best decision boundary because it is furthest away from both clusters and therefore, most robust to noise. This simple example serves to illustrate a key feature of SVM algorithms, which is that they find decision boundaries that maximize the margin. Keep this in mind as we work through examples of increasing complexity in this course.</p>
+<p><strong>12. Time to practice!</strong></p>
+<p>That’s it for this lesson. Let’s try some examples.</p>
+</section>
+<section id="visualizing-a-sugar-content-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-a-sugar-content-dataset">Visualizing a sugar content dataset</h2>
+<p>In this exercise, you will create a 1-dimensional scatter plot of 25 soft drink sugar content measurements. The aim is to visualize distinct clusters in the dataset as a first step towards identifying candidate decision boundaries.</p>
+<p>The dataset with 25 sugar content measurements is stored in the <code>sugar_content</code> column of the data frame <code>df</code>, which has been preloaded for you.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Load the <code>ggplot2</code> package.</li>
+<li>List the variables in dataframe <code>df</code>.</li>
+<li>Complete the scatter plot code. Using the <code>df</code> dataset, plot the sugar content of samples along the x-axis (at y equal to zero).</li>
+<li>Write <code>ggplot()</code> code to display sugar content in <code>df</code> as a scatter plot. <em>Can you spot two distinct clusters corresponding to high and low sugar content samples?</em></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load ggplot2</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Load data</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/df.rds"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># Print variable names</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">colnames</span>(df)</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># Plot sugar content along the x-axis</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>plot_df <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> sugar_content, <span class="at">y =</span> <span class="dv">0</span>)) <span class="sc">+</span> </span>
+<span id="cb1-12"><a href="#cb1-12"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb1-13"><a href="#cb1-13"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> sugar_content), <span class="at">size =</span> <span class="fl">2.5</span>, <span class="at">vjust =</span> <span class="dv">2</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>)</span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a><span class="co"># Display plot</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a>plot_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice work! Notice the gap between 9 and 10. Sample with sugar content below 9 form a “low sugar” cluster, and samples above 10 form a “high sugar” cluster.</p>
+</section>
+<section id="identifying-decision-boundaries" class="level2">
+<h2 class="anchored" data-anchor-id="identifying-decision-boundaries">Identifying decision boundaries</h2>
+<blockquote class="blockquote">
+<h2 id="question" class="anchored"><em>Question</em></h2>
+<p>Based on the plot you created in the previous exercise (reproduced on the right), which of the following points is <strong>not</strong> a legitimate decision boundary?<br> <br> ⬜ 9g/100 ml<br> ⬜ 9.1g/100 ml<br> ⬜ 9.8 g/100 ml<br> ✅ 8.9g/100 ml<br></p>
+</blockquote>
+<p>That’s correct! 8.9 g/100ml is not a legitimate decision boundary as it is part of the lower sugar content cluster.</p>
+</section>
+<section id="find-the-maximal-margin-separator" class="level2">
+<h2 class="anchored" data-anchor-id="find-the-maximal-margin-separator">Find the maximal margin separator</h2>
+<p>Recall that the dataset we are working with consists of measurements of sugar content of 25 randomly chosen samples of two soft drinks, one regular and the other reduced sugar. In one of our earlier plots, we identified two distinct clusters (classes). A dataset in which the classes do not overlap is called <strong>separable</strong>, the classes being separated by a <strong>decision boundary</strong>. The <strong>maximal margin separator</strong> is the decision boundary that is furthest from both classes. It is located at the mean of the relevant extreme points from each class. In this case the relevant points are the highest valued point in the low sugar content class and the lowest valued point in the high sugar content class. This exercise asks you to find the maximal margin separator for the sugar content dataset.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Find the maximal margin separator and assign it to the variable <code>mm_separator</code>.</li>
+<li>Use the displayed plot to find the sugar content values of the relevant extremal data points in each class.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#The maximal margin separator is at the midpoint of the two extreme points in each cluster.</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>mm_separator <span class="ot">&lt;-</span> (<span class="fl">8.9</span><span class="sc">+</span><span class="dv">10</span>)<span class="sc">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Well done! We’ll visualize the separator in the next exercise.</p>
+</section>
+<section id="visualize-the-maximal-margin-separator" class="level2">
+<h2 class="anchored" data-anchor-id="visualize-the-maximal-margin-separator">Visualize the maximal margin separator</h2>
+<p>In this exercise you will add the maximal margin separator to the scatter plot you created in an earlier exercise. The plot has been reproduced on the right.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Create a data frame called <code>separator</code> containing the maximal margin separator. This is available in the variable <code>mm_separator</code>(enter <code>mm_separator</code> to see it)</li>
+<li>Use the data frame created to add the maximal margin separator to the sugar content scatterplot created in the earlier exercise and display the result.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#create data frame containing the maximum margin separator</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>separator <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sep =</span> mm_separator)</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#add separator to sugar content scatterplot</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>plot_sep <span class="ot">&lt;-</span> plot_df <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">data =</span> separator, <span class="fu">aes</span>(<span class="at">x =</span> mm_separator, <span class="at">y =</span> <span class="dv">0</span>), <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">4</span>)</span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#display plot</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>plot_sep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Well done! It should be clear from the plot that the blue point is the best possible separator. Why?</p>
+</section>
+<section id="generating-a-linearly-separable-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="generating-a-linearly-separable-dataset">Generating a linearly separable dataset</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Generating a linearly separable dataset</strong></p>
+<p>In the previous lesson, we used a simple one dimensional example to illustrate the notion of an optimal decision boundary, that is, one that maximizes the margin.</p>
+<p><strong>2. Overview of lesson</strong></p>
+<p>In this lesson we’ll create a two-predictor dataset that we will subsequently use to illustrate some of the key principles of support vector machines, including margin maximization. The dataset we will generate is essentially a generalization of the previous example in that it has two variables instead of one and the decision boundary is a line rather than a point.</p>
+<p><strong>3. Generating a two-dimensional dataset using runif()</strong></p>
+<p>We generate a dataset with 200 points consisting of two predictor variables, x1 and x2, that are uniformly distributed between 0 and 1. To do this we first set the number of data points n to 200 and the seed integer for random number generation. We then create two sets of random numbers lying between 0 and 1 using the runif() function, which generates uniform random numbers. The resulting values for x1 and x2 are stored in the dataframe df.</p>
+<p><strong>4. Creating two classes</strong></p>
+<p>Next we create two classes separated by a straight line x1 equals x2. This line passes through the origin and makes an angle of 45 degrees with the horizontal axis. We label points below the line as having class equals -1 and those above as having class equals +1. Here’s the code. Now let’s see what our two class dataset looks like.</p>
+<p><strong>5. Visualizing dataset using ggplot</strong></p>
+<p>Let’s visualize the dataset and the decision boundary using ggplot(). We’ll create a two dimensional scatter plot with x1 on the x-axis and x2 on the y-axis, distinguishing the two classes by color. Points below the decision boundary will be colored red and those above blue. The decision boundary itself is a straight line x1 equals x2, which passes through the origin and has a slope of 1, that is, it makes an angle 45 degrees with the x1 axis. Here’s the code.</p>
+<p><strong>6. Plot of linearly separable dataset</strong></p>
+<p>And here is the resulting plot. Notice that although the decision boundary separates the two classes cleanly, it has no margin. So let’s introduce a small margin in the dataset.</p>
+<p><strong>7. Introducing a margin</strong></p>
+<p>To create a margin we need to remove points that lie close to the decision boundary. One way to do this is to filter out points that have x1 and x2 values that differ by less than a specified value. Let’s set this value to 0-point-05 and do the filtering. The dataset should now have a margin. Let’s replot it using exactly the same ggplot code as before.</p>
+<p><strong>8. Plot of dataset with margin</strong></p>
+<p>Here is the resulting plot. Notice the empty space on either side of the decision boundary. This is the margin. We can make the margin clearer by delineating its boundaries.</p>
+<p><strong>9. Plotting the margin boundaries</strong></p>
+<p>The margin boundaries are parallel to the decision boundary and lie 0-point-05 units on either side of it. We’ll draw the margin boundaries as dashed lines to distinguish them from the decision boundary.</p>
+<p><strong>10. Dataset with margins displayed</strong></p>
+<p>Here is the plot. Notice that our decision boundary is the maximal margin separator because it lies halfway between the margin boundaries.</p>
+<p><strong>11. Time to practice!</strong></p>
+<p>That’s it for this chapter. In the exercises we’ll create a dataset similar to the one discussed in this lesson. We will use that dataset extensively in the exercises in the next chapter.</p>
+</section>
+<section id="generate-a-2d-uniformly-distributed-dataset." class="level2">
+<h2 class="anchored" data-anchor-id="generate-a-2d-uniformly-distributed-dataset.">Generate a 2d uniformly distributed dataset.</h2>
+<p>The aim of this lesson is to create a dataset that will be used to illustrate the basic principles of support vector machines. In this exercise we will do the first step, which is to create a 2 dimensional uniformly distributed dataset containing 600 datapoints.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Set the number of data points, <code>n</code>.</li>
+<li>Generate a dataframe <code>df</code> with two uniformly distributed variables, <code>x1</code> and <code>x2</code> lying in (0, 1).</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#set seed</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#set number of data points. </span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>n <span class="ot">&lt;-</span> <span class="dv">600</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#Generate data frame with two uniformly distributed predictors lying between 0 and 1.</span></span>
+<span id="cb4-8"><a href="#cb4-8"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fu">runif</span>(n), </span>
+<span id="cb4-9"><a href="#cb4-9"></a>                 <span class="at">x2 =</span> <span class="fu">runif</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Good work. Next we’ll divide the dataset into two classes that are separated by a linear decision boundary.</p>
+</section>
+<section id="create-a-decision-boundary" class="level2">
+<h2 class="anchored" data-anchor-id="create-a-decision-boundary">Create a decision boundary</h2>
+<p>The dataset you created in the previous exercise is available to you in the dataframe <code>df</code> (recall that it consists of two uniformly distributed variables x1 and x2, lying between 0 and 1). In this exercise you will add a class variable to that dataset. You will do this by creating a variable <code>y</code> whose value is -1 or +1 depending on whether the point <code>(x1, x2)</code> lies below or above the straight line that passes through the origin and has slope 1.4.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li><p>Create a new column <code>y</code> in the dataframe <code>df</code> with the following specs:</p>
+<ul>
+<li><code>y = -1</code> if x2 &lt; 1.4*x1</li>
+<li><code>y = 1</code> if x2 &gt; 1.4*x1</li>
+</ul></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#classify data points depending on location</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(df<span class="sc">$</span>x2<span class="fl">-1.4</span><span class="sc">*</span>df<span class="sc">$</span>x1 <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), </span>
+<span id="cb5-3"><a href="#cb5-3"></a>    <span class="at">levels =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice work. Next we’ll introduce a margin in the dataset and visualize it.</p>
+</section>
+<section id="introduce-a-margin-in-the-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="introduce-a-margin-in-the-dataset">Introduce a margin in the dataset</h2>
+<p>Your final task for Chapter 1 is to create a margin in the dataset that you generated in the previous exercise and then display the margin in a plot. The <code>ggplot2</code> library has been preloaded for you. Recall that the slope of the linear decision boundary you created in the previous exercise is 1.4.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Introduce a margin <code>delta</code> of 0.07 units in your dataset.</li>
+<li>Replot the dataset, displaying the margin boundaries as dashed lines and the decision boundary as a solid line.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#set margin</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>delta <span class="ot">&lt;-</span> <span class="fl">0.07</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># retain only those points that lie outside the margin</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>df1 <span class="ot">&lt;-</span> df[<span class="fu">abs</span>(<span class="fl">1.4</span><span class="sc">*</span>df<span class="sc">$</span>x1 <span class="sc">-</span> df<span class="sc">$</span>x2) <span class="sc">&gt;</span> delta, ]</span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#build plot</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>plot_margins <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df1, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb6-9"><a href="#cb6-9"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)) <span class="sc">+</span> </span>
+<span id="cb6-10"><a href="#cb6-10"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="fl">1.4</span>, <span class="at">intercept =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="fl">1.4</span>, <span class="at">intercept =</span> delta, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb6-12"><a href="#cb6-12"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="fl">1.4</span>, <span class="at">intercept =</span> <span class="sc">-</span>delta, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb6-13"><a href="#cb6-13"></a> </span>
+<span id="cb6-14"><a href="#cb6-14"></a><span class="co">#display plot</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a>plot_margins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice work! We will use this dataset to learn about linear support vector machines in the next chapter.</p>
+</section>
+</section>
+<section id="support-vector-classifiers---linear-kernels" class="level1">
+<h1>2. Support Vector Classifiers - Linear Kernels</h1>
+<p>Introduces students to the basic concepts of support vector machines by applying the svm algorithm to a dataset that is linearly separable. Key concepts are illustrated through ggplot visualisations that are built from the outputs of the algorithm and the role of the cost parameter is highlighted via a simple example. The chapter closes with a section on how the algorithm deals with multiclass problems.</p>
+<section id="linear-support-vector-machines" class="level2">
+<h2 class="anchored" data-anchor-id="linear-support-vector-machines">Linear Support Vector Machines</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Linear Support Vector Machines</strong></p>
+<p>In this chapter, we’ll introduce the simplest support vector classifier, one in which the decision boundary is a straight line. We’ll use the dataset we generated in the previous chapter, which has a linear decision boundary by construction.</p>
+<p><strong>2. Split into training and test sets</strong></p>
+<p>The dataset is in the dataframe df. The first task is to split it into training and test sets. We do this by assigning rows randomly to the training and test sets in a 80/20 proportion. This is what the code shown in the slide achieves: the first two lines set the seed and do the random 80/20 split, and the rest create separate dataframes for the training and test sets.</p>
+<p><strong>3. Decision boundaries and kernels</strong></p>
+<p>Note that in SVM classifiers, decision boundaries can be of different types: straight lines, polynomials, or even more complicated functions. The type of decision boundary is called a kernel and has to be specified upfront. We will say more about kernels as we work our way through the course. For now, just note that we’ll use linear kernels in this chapter as we know our decision boundary is a straight line.</p>
+<p><strong>4. SVM with linear kernel</strong></p>
+<p>In this course, we will use the svm() function from the e1071 library. The function has a number of parameters. We’ll set the following explicitly: 1) formula: which is a formula specifying the dependent and independent variables. 2) data: which is the dataframe containing the data, the trainset dataframe in our case. 3) type, which refers to the type of the algorithm. Since ours is a classification problem, we set this to C-classification. There is another type of classification algorithm called nu-classification, which we will not cover in this course. 4) kernel: we set this to linear as our dataset is linearly separable. 5) Cost and gamma: these are tuning parameters, which we’ll leave at their default values for now. 6) scale: this is a Boolean variable indicating whether data should be scaled or not. We set this to FALSE to enable plotting of the classifier against the original, unscaled data. In most real life situations you would set this to TRUE.</p>
+<p><strong>5. Building a linear SVM</strong></p>
+<p>OK, so we load the e1071 library and invoke the svm() function specifying the parameters mentioned earlier. The results are assigned to the variable svm_model, which we now examine.</p>
+<p><strong>6. Overview of model</strong></p>
+<p>Typing in the name of the variable containing the model gives an overview of the model including the classification, kernel type, and the values of the tuning parameters, cost and gamma, which, as you’ll recall, we left at their defaults. We now see that these default values are 1 and 0-point-5, respectively. We also see that the model has a fairly large number of support vectors, 55 in all. In the next lesson, we’ll talk about what support vectors are and why they are called support vectors. But before we do that, let’s explore the contents of our model a bit further.</p>
+<p><strong>7. Exploring the model</strong></p>
+<p>The first one, index, lists the indices of the support vectors in the training set. SV contains the support vector coordinates; rho, the negative y intercept of the decision boundary; and coefs contains the weighting coefficients of the support vectors. The magnitude of the coefficients indicate the importance of the support vector and the sign indicates which side of the boundary it’s on.</p>
+<p><strong>8. Model accuracy</strong></p>
+<p>Finally, we obtain class predictions for the training and test sets and use these to calculate accuracy. The accuracies are perfect, which is no surprise since the dataset is linearly separable. However, as we will see in the next lesson accuracy, by itself, is misleading.</p>
+<p><strong>9. Time to practice!</strong></p>
+<p>But before that, let’s do a few exercises.</p>
+</section>
+<section id="creating-training-and-test-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="creating-training-and-test-datasets">Creating training and test datasets</h2>
+<p>Splitting a dataset into training and test sets is an important step in building and testing a classification model. The training set is used to build the model and the test set to evaluate its predictive accuracy.</p>
+<p>In this exercise, you will split the dataset you created in the previous chapter into training and test sets. The dataset has been loaded in the dataframe <code>df</code> and a seed has already been set to ensure reproducibility.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Create a column called <code>train</code> in <code>df</code> and randomly assign 80% of the rows in <code>df</code> a value of 1 for this column (and the remaining rows a value of 0).</li>
+<li>Assign the rows with <code>train == 1</code> to the dataframe <code>trainset</code> and those with <code>train == 0</code> to the dataframe <code>testset</code>.</li>
+<li>Remove <code>train</code> column from training and test datasets by index.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">#split train and test data in an 80/20 proportion</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>df[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(df))<span class="sc">&lt;</span><span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#assign training rows to data frame trainset</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>trainset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">1</span>, ]</span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#assign test rows to data frame testset</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a>testset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">0</span>, ]</span>
+<span id="cb7-8"><a href="#cb7-8"></a></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#find index of "train" column</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a>trainColNum <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"train"</span>, <span class="fu">names</span>(df))</span>
+<span id="cb7-11"><a href="#cb7-11"></a></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co">#remove "train" column from train and test dataset</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a>trainset <span class="ot">&lt;-</span> trainset[, <span class="sc">-</span>trainColNum]</span>
+<span id="cb7-14"><a href="#cb7-14"></a>testset <span class="ot">&lt;-</span> testset[, <span class="sc">-</span>trainColNum]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice work! In the next exercise we will use these datasets to build our first SVM model.</p>
+</section>
+<section id="building-a-linear-svm-classifier" class="level2">
+<h2 class="anchored" data-anchor-id="building-a-linear-svm-classifier">Building a linear SVM classifier</h2>
+<p>In this exercise, you will use the <code>svm()</code> function from the <code>e1071</code> library to build a linear SVM classifier using training dataset you created in the previous exercise. The training dataset has been loaded for you in the dataframe <code>trainset</code></p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Load the <code>e1071</code> library.</li>
+<li>Build an SVM model using a linear kernel.</li>
+<li>Do not scale the variables (this is to allow comparison with the original dataset later).</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">library</span>(e1071)</span>
+<span id="cb8-2"><a href="#cb8-2"></a></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co">#build svm model, setting required parameters</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>svm_model<span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., </span>
+<span id="cb8-5"><a href="#cb8-5"></a>                <span class="at">data =</span> trainset, </span>
+<span id="cb8-6"><a href="#cb8-6"></a>                <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb8-7"><a href="#cb8-7"></a>                <span class="at">kernel =</span> <span class="st">"linear"</span>, </span>
+<span id="cb8-8"><a href="#cb8-8"></a>                <span class="at">scale =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice work! In the next exercise we will explore the contents of the model.</p>
+</section>
+<section id="exploring-the-model-and-calculating-accuracy" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-the-model-and-calculating-accuracy">Exploring the model and calculating accuracy</h2>
+<p>In this exercise you will explore the contents of the model and calculate its training and test accuracies. The training and test data are available in the data frames <code>trainset</code> and <code>testset</code> respectively, and the SVM model is stored in the variable <code>svm_model</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>List the components of your SVM model.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">#list components of model</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">names</span>(svm_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>List the contents of <code>SV</code>, <code>index</code>, and <code>rho</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">#list values of the SV, index and rho</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>svm_model<span class="sc">$</span>SV</span>
+<span id="cb10-3"><a href="#cb10-3"></a>svm_model<span class="sc">$</span>index</span>
+<span id="cb10-4"><a href="#cb10-4"></a>svm_model<span class="sc">$</span>rho</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Calculate the training accuracy of the model.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#compute training accuracy</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Calculate the test accuracy of the model.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">#compute test accuracy</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Excellent! You are now ready for the next lesson in which we’ll visually explore the model.</p>
+</section>
+<section id="visualizing-linear-svms" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-linear-svms">Visualizing Linear SVMs</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Visualizing linear SVMs</strong></p>
+<p>In this lesson, we’ll visualize the linear decision boundary we built in the previous lesson. This will help build an intuition for what the algorithm does and also clarify terminology. Specifically, we’ll learn the significance of the term “support” in support vector machines.</p>
+<p><strong>2. Visualizing support vectors</strong></p>
+<p>The first step is to plot the training data, distinguishing classes using colors. This is identical to what we did in the previous chapter for the entire dataset. After this is done, we extract the support vectors from the training data using the indices from the model and visually distinguish them from other points by overlaying them with semi-transparent blobs. The transparency is controlled by the ggplot() parameter alpha.</p>
+<p><strong>3. Visualizing support vectors</strong></p>
+<p>Here is the plot. Note that the support vectors are all close to the decision boundary. One could thus say that they “hold” or “support” the boundary, which is the origin of the term “support vector”. This point will become clearer when we add in the decision boundary and margins.</p>
+<p><strong>4. Slope and intercept of the decision boundary</strong></p>
+<p>The first step in plotting the boundary is to extract the slope and intercept from the model. This requires a bit of work as the model object does not store the slope and intercept explicitly. We first use coefs and SV elements of the svm model object to build the weight vector, w, which is the product of the coefs matrix with the matrix containing the SVs. Recall that matrix multiplication in R is represented by an asterisk between two percent symbols. The slope is given by the negative ratio of the first and second components of the weight vector, and the intercept by the ratio of the rho element of the svm object and the y-component of the weight vector. Whew! That done we can plot the decision boundary using the calculated slope and intercept.</p>
+<p><strong>5. Visualizing the decision and margin boundaries</strong></p>
+<p>We add the decision boundary to our earlier plot using the slope and intercept that we calculated and stored in the variables slope underscore1 and intercept underscore1. The decision boundary is easily plotted using the geom_abline() function in ggplot. The margin boundaries are parallel to the decision boundary with intercepts offset by an amount equal to the reciprocal y-component of the weight vector. Let’s take a look at the plot with the boundary and margins added in.</p>
+<p><strong>6. Visualizing the decision and margin boundaries</strong></p>
+<p>The plot has some interesting features. First, the boundary is “supported” - so to speak - by roughly the same number of support vectors on either side. Second, the margin is soft, that is, wide, and there are a number of points that violate the margin.</p>
+<p><strong>7. Soft margin classifiers</strong></p>
+<p>Soft margin classifiers are useful because they allow for a degree of uncertainty in the exact location and shape of the boundary, which is usually neither perfectly linear nor known in real life. In this example, however, we do know that the decision boundary is linear so we’re better off reducing the number of boundary violations. We’ll do this in the next lesson.</p>
+<p><strong>8. Visualizing the decision boundary using the svm plot() function</strong></p>
+<p>We can also visualize the boundary using the svm plot() function in e1071. As this is a two dimensional problem, we need specify only the parameters x and data, which are the model name and dataframe to be plotted, respectively.</p>
+<p><strong>9. Plot of decision boundary using the svm plot() function</strong></p>
+<p>Here’s the output of svm plot() function. Although not as clear as the ggplot() outputs, it is a good “rough and ready” visualization. Distinct classes are distinguished by color and support vectors are marked x. Note that the axes have been flipped, so be careful when comparing this to the earlier plots. This completes the lesson. In the next lesson we’ll learn how to tune linear SVMs.</p>
+<p><strong>10. Time to practice!</strong></p>
+<p>But first, let’s do some exercises.</p>
+</section>
+<section id="visualizing-support-vectors-using-ggplot" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-support-vectors-using-ggplot">Visualizing support vectors using ggplot</h2>
+<p>In this exercise you will plot the training dataset you used to build a linear SVM and mark out the support vectors. The training dataset has been preloaded for you in the dataframe <code>trainset</code> and the SVM model is stored in the variable <code>svm_model</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Plot the training dataset.</li>
+<li>Mark out the support vectors on the plot using their indices from the SVM model.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">#build scatter plot of training dataset</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> trainset, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> </span>
+<span id="cb13-3"><a href="#cb13-3"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb13-4"><a href="#cb13-4"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span>
+<span id="cb13-5"><a href="#cb13-5"></a> </span>
+<span id="cb13-6"><a href="#cb13-6"></a><span class="co">#add plot layer marking out the support vectors </span></span>
+<span id="cb13-7"><a href="#cb13-7"></a>layered_plot <span class="ot">&lt;-</span> </span>
+<span id="cb13-8"><a href="#cb13-8"></a>    scatter_plot <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">data =</span> trainset[svm_model<span class="sc">$</span>index, ], <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2), <span class="at">color =</span> <span class="st">"purple"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb13-9"><a href="#cb13-9"></a></span>
+<span id="cb13-10"><a href="#cb13-10"></a><span class="co">#display plot</span></span>
+<span id="cb13-11"><a href="#cb13-11"></a>layered_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Well done! Now let’s add the decision and margin boundaries to the plot.</p>
+</section>
+<section id="visualizing-decision-margin-bounds-using-ggplot2" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-decision-margin-bounds-using-ggplot2">Visualizing decision &amp; margin bounds using <code>ggplot2</code></h2>
+<p>In this exercise, you will add the decision and margin boundaries to the support vector scatter plot created in the previous exercise. The SVM model is available in the variable <code>svm_model</code> and the weight vector has been precalculated for you and is available in the variable <code>w</code>. The <code>ggplot2</code> library has also been preloaded.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Calculate the slope and intercept of the decision boundary.</li>
+<li>Add the decision boundary to the plot.</li>
+<li>Add the margin boundaries to the plot.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># calculate w</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a>w <span class="ot">&lt;-</span> <span class="fu">t</span>(svm_model<span class="sc">$</span>coefs) <span class="sc">%*%</span> svm_model<span class="sc">$</span>SV</span>
+<span id="cb14-3"><a href="#cb14-3"></a></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="co">#calculate slope and intercept of decision boundary from weight vector and svm model</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>slope_1 <span class="ot">&lt;-</span> <span class="sc">-</span>w[<span class="dv">1</span>]<span class="sc">/</span>w[<span class="dv">2</span>]</span>
+<span id="cb14-6"><a href="#cb14-6"></a>intercept_1 <span class="ot">&lt;-</span> svm_model<span class="sc">$</span>rho<span class="sc">/</span>w[<span class="dv">2</span>]</span>
+<span id="cb14-7"><a href="#cb14-7"></a></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="co">#build scatter plot of training dataset</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> trainset, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> </span>
+<span id="cb14-10"><a href="#cb14-10"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span>
+<span id="cb14-11"><a href="#cb14-11"></a><span class="co">#add decision boundary </span></span>
+<span id="cb14-12"><a href="#cb14-12"></a>plot_decision <span class="ot">&lt;-</span> scatter_plot <span class="sc">+</span> <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1) </span>
+<span id="cb14-13"><a href="#cb14-13"></a><span class="co">#add margin boundaries</span></span>
+<span id="cb14-14"><a href="#cb14-14"></a>plot_margins <span class="ot">&lt;-</span> plot_decision <span class="sc">+</span> </span>
+<span id="cb14-15"><a href="#cb14-15"></a> <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1 <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span>w[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>)<span class="sc">+</span></span>
+<span id="cb14-16"><a href="#cb14-16"></a> <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1 <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>w[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb14-17"><a href="#cb14-17"></a><span class="co">#display plot</span></span>
+<span id="cb14-18"><a href="#cb14-18"></a>plot_margins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Excellent! We’ll now visualize the decision regions and support vectors using the svm plot function.</p>
+</section>
+<section id="visualizing-decision-margin-bounds-using-plot" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-decision-margin-bounds-using-plot">Visualizing decision &amp; margin bounds using <code>plot()</code></h2>
+<p>In this exercise, you will rebuild the SVM model (as a refresher) and use the built in SVM <code>plot()</code> function to visualize the decision regions and support vectors. The training data is available in the dataframe <code>trainset</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Build a linear SVM model using the training data.</li>
+<li>Plot the decision regions and support vectors.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">#build svm model</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>svm_model<span class="ot">&lt;-</span> </span>
+<span id="cb15-3"><a href="#cb15-3"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb15-4"><a href="#cb15-4"></a>        <span class="at">kernel =</span> <span class="st">"linear"</span>, <span class="at">scale =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb15-5"><a href="#cb15-5"></a></span>
+<span id="cb15-6"><a href="#cb15-6"></a><span class="co">#plot decision boundaries and support vectors for the training data</span></span>
+<span id="cb15-7"><a href="#cb15-7"></a><span class="fu">plot</span>(<span class="at">x =</span> svm_model, <span class="at">data =</span> trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Excellent! We’re now ready for the next lesson in which we’ll learn how to tune linear SVMs.</p>
+</section>
+<section id="tuning-linear-svms" class="level2">
+<h2 class="anchored" data-anchor-id="tuning-linear-svms">Tuning linear SVMs</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Tuning linear SVMs</strong></p>
+<p>In the previous lesson we learned how to build a linear SVM. There we used the default value of 1 for the cost. This resulted in a soft margin classifier, that is, one in which the margin is wide. In this lesson, we will learn how to tune the margin for SVMs by tweaking the cost parameter. We will also learn about hard and soft margin SVMs, and where they are useful.</p>
+<p><strong>2. Linear SVM, default cost</strong></p>
+<p>As a reminder, here’s code to create the default cost linear SVM for our linearly separable dataset. Note the large number of support vectors: 55 in all. Let’s remind ourselves of what this solution looks like.</p>
+<p><strong>3. Visualizing boundaries &amp; margins (recap)</strong></p>
+<p>Here’s the plot that we created in the previous lesson. The main things to note are that: a) the margin is wide and b) a large number of points lie within the margin boundaries. Let’s now see what happens if we increase the cost to 100.</p>
+<p><strong>4. Linear SVM with cost = 100</strong></p>
+<p>On increasing the cost to 100, we see the number of support vectors is drastically reduced from 55 to 6. Let’s see what the decision boundary and margin look like.</p>
+<p><strong>5. Decision and margin boundaries (cost == 100)</strong></p>
+<p>Here’s the plot for the cost equals 100 case. The key points to note are that a) the margin is much narrower than for the cost equals 1 case and b) the number of margin violations is virtually zero.The narrow margin assures us that the slope and intercept of the decision boundary are close to their correct values of 1 and 0, respectively. You can check that this is so using the material presented in the previous lesson.</p>
+<p><strong>6. Implication</strong></p>
+<p>The implication is that it can be useful to reduce the margin boundary when the shape of the decision boundary is known to be linear. However, this is rarely the case in real life, so let’s now look at a non-linearly separable situation.</p>
+<p><strong>7. A nonlinearly separable dataset</strong></p>
+<p>The dataset shown here is not linearly separable as is evident from the misclassified red and blue points that are on the wrong side of the linear boundary. Let’s build two linear SVMs for this dataset: one with cost equals 100 and the other with the cost equals 1. Let’s look at the higher cost case first.</p>
+<p><strong>8. Nonlinear dataset, linear SVM (cost = 100)</strong></p>
+<p>We build a linear SVM in the usual way, using a training dataset composed of 80% of the data. Then we calculate the training and test accuracy of the model. The test accuracy is 85% for this particular train/test split. I repeated this for 50 random train/test splits and got an average test accuracy of 82-point-9%. OK, so let’s see what the solution looks like.</p>
+<p><strong>9. Cost = 100 solution, nonlinear dataset</strong></p>
+<p>On plotting the decision and margin boundaries, we see that the margin is wide despite the high cost. This suggests that the true decision boundary is not linear (and we know that it isn’t!). However, the misclassified points outside the margin boundaries hint that we may be able to get a better accuracy by widening the margin even further. Let’s do this by reducing the cost.</p>
+<p><strong>10. Nonlinear dataset, linear SVM (cost = 1)</strong></p>
+<p>We rebuild the model setting cost equals 1. The test accuracy increases by about 1-point-5%. On repeating this for 50 random train/test splits, I got an average test accuracy of 83-point-7% an improvement of about 0-point-8%. The improvement is, excuse the pun, marginal, but tangible.</p>
+<p><strong>11. Cost = 1 solution, nonlinear dataset</strong></p>
+<p>The plot shows that the margin has widened and the misclassified points that lay outside the margin for the cost equals 100 case are now almost all within the margin boundaries. This assures us that the true decision boundary, whatever its shape, will lie within the margin.</p>
+<p><strong>12. Time to practice!</strong></p>
+<p>That brings us to the end of the lesson. Let’s try some exercises.</p>
+</section>
+<section id="tuning-a-linear-svm" class="level2">
+<h2 class="anchored" data-anchor-id="tuning-a-linear-svm">Tuning a linear SVM</h2>
+<p>In this exercise you will study the influence of varying cost on the number of support vectors for linear SVMs. To do this, you will build two SVMs, one with cost = 1 and the other with cost = 100 and find the number of support vectors. A model training dataset is available in the dataframe <code>trainset</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Build a linear SVM with cost = 1 (default setting).</li>
+<li>Print the model to find the number of support vectors.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">#build svm model, cost = 1</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>svm_model_1 <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> .,</span>
+<span id="cb16-3"><a href="#cb16-3"></a>                   <span class="at">data =</span> trainset,</span>
+<span id="cb16-4"><a href="#cb16-4"></a>                   <span class="at">type =</span> <span class="st">"C-classification"</span>,</span>
+<span id="cb16-5"><a href="#cb16-5"></a>                   <span class="at">cost =</span> <span class="dv">1</span>,</span>
+<span id="cb16-6"><a href="#cb16-6"></a>                   <span class="at">kernel =</span> <span class="st">"linear"</span>,</span>
+<span id="cb16-7"><a href="#cb16-7"></a>                   <span class="at">scale =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb16-8"><a href="#cb16-8"></a></span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="co">#print model details</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a>svm_model_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Build the model again with cost = 100.</li>
+<li>Print the model.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co">#build svm model, cost = 100</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>svm_model_100 <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> .,</span>
+<span id="cb17-3"><a href="#cb17-3"></a>                   <span class="at">data =</span> trainset,</span>
+<span id="cb17-4"><a href="#cb17-4"></a>                   <span class="at">type =</span> <span class="st">"C-classification"</span>,</span>
+<span id="cb17-5"><a href="#cb17-5"></a>                   <span class="at">cost =</span> <span class="dv">100</span>,</span>
+<span id="cb17-6"><a href="#cb17-6"></a>                   <span class="at">kernel =</span> <span class="st">"linear"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7"></a>                   <span class="at">scale =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb17-8"><a href="#cb17-8"></a></span>
+<span id="cb17-9"><a href="#cb17-9"></a><span class="co">#print model details</span></span>
+<span id="cb17-10"><a href="#cb17-10"></a>svm_model_100</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Excellent! The number of support vectors decreases as cost increases because the margin becomes narrower.</p>
+</section>
+<section id="visualizing-decision-boundaries-and-margins" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-decision-boundaries-and-margins">Visualizing decision boundaries and margins</h2>
+<p>In the previous exercise you built two linear classifiers for a linearly separable dataset, one with <code>cost = 1</code> and the other <code>cost = 100</code>. In this exercise you will visualize the margins for the two classifiers on a single plot. The following objects are available for use:</p>
+<ul>
+<li>The training dataset: <code>trainset</code>.</li>
+<li>The <code>cost = 1</code> and <code>cost = 100</code> classifiers in <code>svm_model_1</code> and <code>svm_model_100</code>, respectively.</li>
+<li>The slope and intercept for the <code>cost = 1</code> classifier is stored in <code>slope_1</code> and <code>intercept_1</code>.</li>
+<li>The slope and intercept for the <code>cost = 100</code> classifier is stored in <code>slope_100</code> and <code>intercept_100</code>.</li>
+<li>Weight vectors for the two costs are stored in <code>w_1</code> and <code>w_100</code>, respectively</li>
+<li>A basic scatter plot of the training data is stored in <code>train_plot</code> The <code>ggplot2</code> library has been preloaded.</li>
+</ul>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Add the decision boundary and margins for the cost = 1 classifier to the training data plot.</li>
+<li>Display the resulting plot.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Create train plot and weights</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>train_plot <span class="ot">&lt;-</span> trainset <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb18-3"><a href="#cb18-3"></a></span>
+<span id="cb18-4"><a href="#cb18-4"></a>w_1         <span class="ot">&lt;-</span> <span class="fu">t</span>(svm_model_1<span class="sc">$</span>coefs) <span class="sc">%*%</span> svm_model_1<span class="sc">$</span>SV</span>
+<span id="cb18-5"><a href="#cb18-5"></a>slope_1     <span class="ot">&lt;-</span> <span class="sc">-</span>w_1[<span class="dv">1</span>]<span class="sc">/</span>w_1[<span class="dv">2</span>]</span>
+<span id="cb18-6"><a href="#cb18-6"></a>intercept_1 <span class="ot">&lt;-</span> svm_model_1<span class="sc">$</span>rho<span class="sc">/</span>w_1[<span class="dv">2</span>]</span>
+<span id="cb18-7"><a href="#cb18-7"></a></span>
+<span id="cb18-8"><a href="#cb18-8"></a><span class="co">#add decision boundary and margins for cost = 1 to training data scatter plot</span></span>
+<span id="cb18-9"><a href="#cb18-9"></a>train_plot_with_margins <span class="ot">&lt;-</span> train_plot <span class="sc">+</span> </span>
+<span id="cb18-10"><a href="#cb18-10"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1) <span class="sc">+</span></span>
+<span id="cb18-11"><a href="#cb18-11"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1<span class="dv">-1</span><span class="sc">/</span>w_1[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>)<span class="sc">+</span></span>
+<span id="cb18-12"><a href="#cb18-12"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>w_1[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb18-13"><a href="#cb18-13"></a></span>
+<span id="cb18-14"><a href="#cb18-14"></a><span class="co">#display plot</span></span>
+<span id="cb18-15"><a href="#cb18-15"></a>train_plot_with_margins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Add the decision boundary and margins for the cost = 100 classifier to the plot you created in the first step.</li>
+<li>Display the final plot showing decision boundaries and margins for both classifiers.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>train_plot_100 <span class="ot">&lt;-</span> train_plot_with_margins</span>
+<span id="cb19-2"><a href="#cb19-2"></a>w_100          <span class="ot">&lt;-</span> <span class="fu">t</span>(svm_model_100<span class="sc">$</span>coefs) <span class="sc">%*%</span> svm_model_100<span class="sc">$</span>SV</span>
+<span id="cb19-3"><a href="#cb19-3"></a>slope_100      <span class="ot">&lt;-</span> <span class="sc">-</span>w_100[<span class="dv">1</span>]<span class="sc">/</span>w_100[<span class="dv">2</span>]</span>
+<span id="cb19-4"><a href="#cb19-4"></a>intercept_100  <span class="ot">&lt;-</span> svm_model_100<span class="sc">$</span>rho<span class="sc">/</span>w_100[<span class="dv">2</span>]</span>
+<span id="cb19-5"><a href="#cb19-5"></a></span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="co">#add decision boundary and margins for cost = 100 to training data scatter plot</span></span>
+<span id="cb19-7"><a href="#cb19-7"></a>train_plot_with_margins <span class="ot">&lt;-</span> train_plot_100 <span class="sc">+</span> </span>
+<span id="cb19-8"><a href="#cb19-8"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_100, <span class="at">intercept =</span> intercept_100, <span class="at">color =</span> <span class="st">"goldenrod"</span>) <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_100, <span class="at">intercept =</span> intercept_100<span class="dv">-1</span><span class="sc">/</span>w_100[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"goldenrod"</span>)<span class="sc">+</span></span>
+<span id="cb19-10"><a href="#cb19-10"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_100, <span class="at">intercept =</span> intercept_100<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>w_100[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"goldenrod"</span>)</span>
+<span id="cb19-11"><a href="#cb19-11"></a></span>
+<span id="cb19-12"><a href="#cb19-12"></a><span class="co">#display plot </span></span>
+<span id="cb19-13"><a href="#cb19-13"></a>train_plot_with_margins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Well done! The plot clearly shows the effect of increasing the cost on linear classifiers.</p>
+</section>
+<section id="when-are-soft-margin-classifiers-useful" class="level2">
+<h2 class="anchored" data-anchor-id="when-are-soft-margin-classifiers-useful">When are soft margin classifiers useful?</h2>
+<p>In this lesson, we looked at an example in which a soft margin linear SVM (low cost, wide margin) had a better accuracy than its hard margin counterpart (high cost, narrow margin). Which of the phrases listed best completes the following statement:</p>
+<blockquote class="blockquote">
+<h2 id="question-1" class="anchored"><em>Question</em></h2>
+<p>Linear soft margin classifiers are most likely to be useful when:<br> <br> ⬜ Working with a linearly separable dataset.<br> ⬜ Dealing with a dataset that has a highly nonlinear decision boundary.<br> ✅ Working with a dataset that is almost linearly separable.<br></p>
+</blockquote>
+<p>“That’s right! A soft margin linear classifier would work well for a nearly linearly separable dataset.”</p>
+</section>
+<section id="multiclass-problems" class="level2">
+<h2 class="anchored" data-anchor-id="multiclass-problems">Multiclass problems</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Multiclass problems</strong></p>
+<p>In this lesson we’re going to take a detour and learn about how the SVM algorithm deals with classification problems with more than two classes. We’ll use the ubiquitous iris dataset first introduced by Sir Ronald Fisher in 1936. The dataset is almost linearly separable and thus gives us an opportunity to apply what we’ve learned so far to a real world dataset.</p>
+<p><strong>2. The iris dataset - an introduction</strong></p>
+<p>The dataset consists of 150 observations of five attributes of iris plants. Four attributes are numerical: petal width, petal length, sepal width, and sepal length. The fifth attribute, species, is categorical and can take on one of three values: setosa, virginica, and versicolor. The dataset is available for download at the UCI Machine Learning Repository.</p>
+<p><strong>3. Visualizing the iris dataset</strong></p>
+<p>Let’s get a feel for the data by plotting it as a function of petal length and petal width. We can do this easily using ggplot().</p>
+<p><strong>4. Plot of dataset</strong></p>
+<p>On this plane we see a clear linear boundary between setosa and the other two species, versicolor and virginica. The boundary between the latter two is almost linear. Since there are four predictors, one would have to plot the other combinations to get a better feel for the data. I’ll leave this as an exercise for you and move on with the assumption that the data is nearly linearly separable. If the assumption is grossly incorrect, a linear SVM will not work well.</p>
+<p><strong>5. How does the SVM algorithm deal with multiclass problems?</strong></p>
+<p>SVMs are essentially binary classifiers, so how can we apply them to datasets that have more than two classes such as the iris dataset? It turns out that there’s a simple and quite general voting strategy to do this. Here’s how it works. We first partition the dataset into subsets containing two classes each. In the case of the iris dataset we would get three subsets, one for each possible binary combination: setosa/versicolor, setosa/virginica and versicolor/virginica. The three classification problems are solved separately. After that each data point is assigned the majority prediction, with ties being broken by a random equiprobable selection. This method is called a one-against-one classification strategy and can be applied to a variety of binary classifiers, not just SVMs. The nice thing, as we will see next, is that the e1071 svm() algorithm does all the work for us automatically.</p>
+<p><strong>6. Building a multiclass linear SVM</strong></p>
+<p>Let’s build a linear SVM for the iris dataset. In case you want to reproduce the calculation, note that I’ve partitioned the dataset into training and test datasets using a 80/20 split in the usual way and I have set the seed integer set to 10. You’ll notice that there is absolutely no difference between the code for the multi and binary class cases. The algorithm generates the binary subsets, builds classification models and gets the majority prediction for each datapoint automatically, without any additional user input. As far as the accuracy is concerned, things look pretty good. We get a test accuracy of 96%, which indicates that the dataset is indeed almost linearly separable. Before closing, I should mention a point that I have glossed over so far in this course: to get a robust measure of model performance, one should average the accuracy over a range of distinct training and test sets. We’ll do this in the final exercise for this lesson.</p>
+<p><strong>7. Time to practice!</strong></p>
+<p>Well, that’s it for this chapter in which we developed an intuition for how linear SVMs work, how their margins can be tuned using the cost parameter and how the algorithm handles multiclass problems. In the next chapter we’ll explore more complex SVMs. But first, some exercises.</p>
+</section>
+<section id="a-multiclass-classification-problem" class="level2">
+<h2 class="anchored" data-anchor-id="a-multiclass-classification-problem">A multiclass classification problem</h2>
+<p>In this exercise, you will use the <code>svm()</code> function from the <code>e1071</code> library to build a linear multiclass SVM classifier for a dataset that is known to be <em>perfectly</em> linearly separable. Calculate the training and test accuracies, and plot the model using the training data. The training and test datasets are available in the dataframes <code>trainset</code> and <code>testset</code>. Use the default setting for the cost parameter.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Build a default cost linear SVM.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Load data</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset2.rds"</span>)</span>
+<span id="cb20-3"><a href="#cb20-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset2.rds"</span>)</span>
+<span id="cb20-4"><a href="#cb20-4"></a></span>
+<span id="cb20-5"><a href="#cb20-5"></a><span class="co"># build svm model</span></span>
+<span id="cb20-6"><a href="#cb20-6"></a>svm_model<span class="ot">&lt;-</span> </span>
+<span id="cb20-7"><a href="#cb20-7"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb20-8"><a href="#cb20-8"></a>        <span class="at">kernel =</span> <span class="st">"linear"</span>, <span class="at">scale =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Calculate training accuracy.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">#compute training accuracy</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Calculate test accuracy.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">#compute test accuracy</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb22-3"><a href="#cb22-3"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Plot classifier against training data.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co">#plot</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="fu">plot</span>(svm_model, trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Well done! The model performs very well even for default settings. The actual separators are lines that pass through the origin at angles of 30 and 60 degrees to the horizontal.</p>
+</section>
+<section id="iris-redux---a-more-robust-accuracy." class="level2">
+<h2 class="anchored" data-anchor-id="iris-redux---a-more-robust-accuracy.">Iris redux - a more robust accuracy.</h2>
+<p>In this exercise, you will build linear SVMs for 100 distinct training/test partitions of the iris dataset. You will then evaluate the performance of your model by calculating the mean accuracy and standard deviation. This procedure, which is quite general, will give you a far more robust measure of model performance than the ones obtained from a single partition.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li><p>For each trial:</p>
+<ul>
+<li>Partition the dataset into training and test sets in a random 80/20 split.</li>
+<li>Build a default cost linear SVM on the training dataset.</li>
+<li>Evaluate the accuracy of your model.</li>
+</ul></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
+<span id="cb24-2"><a href="#cb24-2"></a></span>
+<span id="cb24-3"><a href="#cb24-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){ </span>
+<span id="cb24-4"><a href="#cb24-4"></a>    <span class="co">#assign 80% of the data to the training set</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a>    iris[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(iris)) <span class="sc">&lt;</span> <span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb24-6"><a href="#cb24-6"></a>    trainColNum <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"train"</span>, <span class="fu">names</span>(iris))</span>
+<span id="cb24-7"><a href="#cb24-7"></a>    trainset <span class="ot">&lt;-</span> iris[iris<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">1</span>, <span class="sc">-</span>trainColNum]</span>
+<span id="cb24-8"><a href="#cb24-8"></a>    testset <span class="ot">&lt;-</span> iris[iris<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">0</span>, <span class="sc">-</span>trainColNum]</span>
+<span id="cb24-9"><a href="#cb24-9"></a>    <span class="co">#build model using training data</span></span>
+<span id="cb24-10"><a href="#cb24-10"></a>    svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(Species<span class="sc">~</span> ., <span class="at">data =</span> trainset, </span>
+<span id="cb24-11"><a href="#cb24-11"></a>                     <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"linear"</span>)</span>
+<span id="cb24-12"><a href="#cb24-12"></a>    <span class="co">#calculate accuracy on test data</span></span>
+<span id="cb24-13"><a href="#cb24-13"></a>    pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb24-14"><a href="#cb24-14"></a>    accuracy[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>Species)</span>
+<span id="cb24-15"><a href="#cb24-15"></a>}</span>
+<span id="cb24-16"><a href="#cb24-16"></a><span class="fu">mean</span>(accuracy)</span>
+<span id="cb24-17"><a href="#cb24-17"></a><span class="fu">sd</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Well done! The high accuracy and low standard deviation confirms that the dataset is almost linearly separable.</p>
+</section>
+</section>
+<section id="polynomial-kernels" class="level1">
+<h1>3. Polynomial Kernels</h1>
+<p>Provides an introduction to polynomial kernels via a dataset that is radially separable (i.e.&nbsp;has a circular decision boundary). After demonstrating the inadequacy of linear kernels for this dataset, students will see how a simple transformation renders the problem linearly separable thus motivating an intuitive discussion of the kernel trick. Students will then apply the polynomial kernel to the dataset and tune the resulting classifier.</p>
+<section id="generating-a-radially-separable-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="generating-a-radially-separable-dataset">Generating a radially separable dataset</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Generating a radially separable dataset</strong></p>
+<p>In the the previous chapters we created a linearly separable dataset and used it to illustrate the principles behind linear kernel SVMs. In this lesson we’ll create a radially separable dataset that we will subsequently use to work with a more complex kernel. Much of what we’ll do in this lesson parallels what we did in Chapter 1 where we created a linearly separable dataset.</p>
+<p><strong>2. Generating a 2d uniformly distributed set of points</strong></p>
+<p>We generate a dataset with 200 points, consisting of two predictor variables x1 and x2 uniformly distributed between -1 and 1. From what we did in Chapter 1, we know that this can be easily done using the runif() function. Note that we have to specify the min and max values as they are not the defaults.</p>
+<p><strong>3. Create a circular boundary</strong></p>
+<p>Next, we create a circular boundary with a radius of 0-point-7 units by creating a categorical variable, y, which takes on a value of +1 or -1 depending on whether it lies within or outside the boundary.</p>
+<p><strong>4. Plot the dataset</strong></p>
+<p>As usual, we will use ggplot() to visualize the data. We plot x1 and x2 against the coordinate axes and distinguish the class by color. The idiom should now be quite familiar to you. Let’s see what the data looks like.</p>
+<p><strong>5. Plot of radially separable dataset</strong></p>
+<p>OK, here’s the plot. As expected the points associated with the -1 class are near the center of the plot with the +1 class points towards the edges. Let’s add the boundary to the plot to make the separation between classes visually clearer.</p>
+<p><strong>6. Adding a circular boundary - Part 1</strong></p>
+<p>We need to create a circular boundary. Now ggplot() has no built-in function to generate circles, although the newer ggforce package does. Instead of using ggforce we’ll generate a circle ourselves by defining a function to do it. Here’s the code. The function returns a dataframe containing npoint points - the default is 100 - that lie on a circle of radius r, centred at x1 center and x2 center. We’ll use this function to generate the required boundary.</p>
+<p><strong>7. Adding a circular boundary - Part 2</strong></p>
+<p>To add the boundary to the plot, we first generate the boundary using the function we just created and then add it on to the plot using the geom path() function from ggplot. The last argument to geom path() tells ggplot() that the earlier coordinate settings for the x and y coordinates should be overridden. Alright, let’s see what the plot looks like.</p>
+<p><strong>8. Plot of radially dataset showing boundary</strong></p>
+<p>The plot explicitly shows the circular decision boundary. We’ll use this dataset to start exploring more complex kernels.</p>
+<p><strong>9. Time to practice!</strong></p>
+<p>But before that, let’s do a few exercises.</p>
+</section>
+<section id="generating-a-2d-radially-separable-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="generating-a-2d-radially-separable-dataset">Generating a 2d radially separable dataset</h2>
+<p>In this exercise you will create a 2d radially separable dataset containing 400 uniformly distributed data points.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Generate a data frame <code>df</code> with: points with variables <code>x1</code> and <code>x2</code>.<code>x1</code> and <code>x2</code> uniformly distributed in (-1, 1).</li>
+<li>400 points with variables <code>x1</code> and <code>x2</code>.</li>
+<li><code>x1</code> and <code>x2</code> uniformly distributed in (-1, 1).</li>
+<li>Introduce a circular boundary of radius 0.8, centred at the origin.</li>
+<li>Create <code>df$y</code>, which takes value -1 or 1 depending on whether a point lies within or outside the circle.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co">#set number of variables and seed</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>n <span class="ot">&lt;-</span> <span class="dv">400</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb25-4"><a href="#cb25-4"></a></span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="co">#Generate data frame with two uniformly distributed predictors, x1 and x2</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>), </span>
+<span id="cb25-7"><a href="#cb25-7"></a>                 <span class="at">x2 =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>))</span>
+<span id="cb25-8"><a href="#cb25-8"></a></span>
+<span id="cb25-9"><a href="#cb25-9"></a><span class="co">#We want a circular boundary. Set boundary radius </span></span>
+<span id="cb25-10"><a href="#cb25-10"></a>radius <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb25-11"><a href="#cb25-11"></a>radius_squared <span class="ot">&lt;-</span> radius<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb25-12"><a href="#cb25-12"></a></span>
+<span id="cb25-13"><a href="#cb25-13"></a><span class="co">#create dependent categorical variable, y, with value -1 or 1 depending on whether point lies</span></span>
+<span id="cb25-14"><a href="#cb25-14"></a><span class="co">#within or outside the circle.</span></span>
+<span id="cb25-15"><a href="#cb25-15"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(df<span class="sc">$</span>x1<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> df<span class="sc">$</span>x2<span class="sc">^</span><span class="dv">2</span> <span class="sc">&lt;</span> radius_squared, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Excellent! Now let’s visualize the dataset.</p>
+</section>
+<section id="visualizing-the-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-the-dataset">Visualizing the dataset</h2>
+<p>In this exercise you will use <code>ggplot()</code> to visualize the dataset you created in the previous exercise. The dataset is available in the dataframe <code>df</code>. Use <code>color</code> to distinguish between the two classes.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Create 2d scatter plot and color the two classes (y = -1 and y = 1) red and blue.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co">#build scatter plot, distinguish class by color</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> </span>
+<span id="cb26-3"><a href="#cb26-3"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span>
+<span id="cb26-5"><a href="#cb26-5"></a></span>
+<span id="cb26-6"><a href="#cb26-6"></a><span class="co">#display plot</span></span>
+<span id="cb26-7"><a href="#cb26-7"></a>scatter_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice work! We’ll use this dataset extensively in this chapter.</p>
+</section>
+<section id="linear-svms-on-radially-separable-data" class="level2">
+<h2 class="anchored" data-anchor-id="linear-svms-on-radially-separable-data">Linear SVMs on radially separable data</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Linear SVMs on radially separable data</strong></p>
+<p>In this lesson, we’ll attempt to use linear SVMs to classify the radially separable data we generated in the previous lesson. We know this will not work very well, but it is a good way to reinforce what we have learned so far and take our first steps towards learning how to handle complex decision boundaries.</p>
+<p><strong>2. Linear SVM, cost = 1</strong></p>
+<p>The model building process should now be familiar: we partition the data into training and test sets using the usual 80/20 split. I’m not showing this here as we have done it many times in previous lessons. However, in case you want to repeat the calculations, note that the random number seed used is 10. We then build a default cost linear SVM using the training dataset. Note the large number of support vectors (more than 60% of the dataset). This tells us the classifier is not very good, a point that’s confirmed by less than stellar accuracy. We also generate a plot using the svm plot() function, which I’ll show you in the next slide.</p>
+<p><strong>3. Plot: Linear SVM, default cost</strong></p>
+<p>So the plot highlights just how badly the linear classifier does; all points in the training set end up with a classification of 1. This may be an artifact of the particular train/test split, but let’s see if we can do better by reducing the margin. As you may recall, we can reduce the margin by increasing cost.</p>
+<p><strong>4. Linear SVM, cost = 100</strong></p>
+<p>OK, on increasing the cost to 100, one sees that the number of support vectors increases and there is virtually no change in the accuracy from the cost equals 1 case.</p>
+<p><strong>5. Plot: Linear SVM, cost = 100</strong></p>
+<p>The plot of the cost=100 classifier clearly shows that there is no change from the cost=1 case: the model assigns a classification of 1 to all trainset points. Now as I mentioned earlier, this particular result could well be due to the particular train/test split that we have used.</p>
+<p><strong>6. A better estimate of accuracy</strong></p>
+<p>So, to get a good estimate of accuracy, we should calculate the average accuracy over a large number of independent train/test splits and check the standard deviation of the result to get an idea of variability. We’ll do this next. Nevertheless, this particular example indicates that linear classifiers are unlikely to work well for this dataset.</p>
+<p><strong>7. Average accuracy for default cost SVM</strong></p>
+<p>OK, so here we calculate the accuracy for 100 different train test splits and calculate the average accuracy and standard deviation. We see that the accuracy is about 64% with a standard deviation of about 8%.</p>
+<p><strong>8. How well does a linear SVM perform?</strong></p>
+<p>This means that the linear classifier does just a little better than a coin toss. In the next chapter, we’ll use our knowledge of the boundary to do much better, which will then lead us to a powerful generalization that can be used to tackle complex, even disjoint, decision boundaries.</p>
+<p><strong>9. Time to practice!</strong></p>
+<p>But first, some exercises.</p>
+</section>
+<section id="linear-svm-for-a-radially-separable-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="linear-svm-for-a-radially-separable-dataset">Linear SVM for a radially separable dataset</h2>
+<p>In this exercise you will build two linear SVMs, one for cost = 1 (default) and the other for cost = 100, for the radially separable dataset you created in the first lesson of this chapter. You will also calculate the training and test accuracies for both costs. The <code>e1071</code> library has been loaded, and test and training datasets have been created for you and are available in the data frames <code>trainset</code> and <code>testset</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Build a linear SVM using the default cost.</li>
+<li>Calculate training and test accuracies.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Load data</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset3.rds"</span>)</span>
+<span id="cb27-3"><a href="#cb27-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset3.rds"</span>) </span>
+<span id="cb27-4"><a href="#cb27-4"></a></span>
+<span id="cb27-5"><a href="#cb27-5"></a><span class="co">#default cost mode;</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a>svm_model_1 <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">cost =</span> <span class="dv">1</span>, <span class="at">kernel =</span> <span class="st">"linear"</span>)</span>
+<span id="cb27-7"><a href="#cb27-7"></a></span>
+<span id="cb27-8"><a href="#cb27-8"></a><span class="co">#training accuracy</span></span>
+<span id="cb27-9"><a href="#cb27-9"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model_1, trainset)</span>
+<span id="cb27-10"><a href="#cb27-10"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span>
+<span id="cb27-11"><a href="#cb27-11"></a></span>
+<span id="cb27-12"><a href="#cb27-12"></a><span class="co">#test accuracy</span></span>
+<span id="cb27-13"><a href="#cb27-13"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model_1, testset)</span>
+<span id="cb27-14"><a href="#cb27-14"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Set cost = 100 and repeat.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co">#cost = 100 model</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>svm_model_2 <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">cost =</span> <span class="dv">100</span>, <span class="at">kernel =</span> <span class="st">"linear"</span>)</span>
+<span id="cb28-3"><a href="#cb28-3"></a></span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="co">#accuracy</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model_2, trainset)</span>
+<span id="cb28-6"><a href="#cb28-6"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span>
+<span id="cb28-7"><a href="#cb28-7"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model_2, testset)</span>
+<span id="cb28-8"><a href="#cb28-8"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Good work! Next, we’ll get a more reliable measure of accuracy for one of the models.</p>
+</section>
+<section id="average-accuracy-for-linear-svm" class="level2">
+<h2 class="anchored" data-anchor-id="average-accuracy-for-linear-svm">Average accuracy for linear SVM</h2>
+<p>In this exercise you will calculate the average accuracy for a default cost linear SVM using 100 different training/test partitions of the dataset you generated in the first lesson of this chapter. The <code>e1071</code> library has been preloaded and the dataset is available in the dataframe <code>df</code>. Use random 80/20 splits of the data in <code>df</code> when creating training and test datasets for each iteration.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Create a vector to hold accuracies for each step.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Print average accuracy and standard deviation</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Create training / test datasets, build default cost SVMs and calculate the test accuracy for each iteration.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb30-2"><a href="#cb30-2"></a></span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="co"># Calculate accuracies for 100 training/test partitions</span></span>
+<span id="cb30-4"><a href="#cb30-4"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
+<span id="cb30-5"><a href="#cb30-5"></a>    df[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(df)) <span class="sc">&lt;</span> <span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb30-6"><a href="#cb30-6"></a>    trainset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">1</span>, ]</span>
+<span id="cb30-7"><a href="#cb30-7"></a>    testset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">0</span>, ]</span>
+<span id="cb30-8"><a href="#cb30-8"></a>    trainColNum <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"train"</span>, <span class="fu">names</span>(trainset))</span>
+<span id="cb30-9"><a href="#cb30-9"></a>    trainset <span class="ot">&lt;-</span> trainset[, <span class="sc">-</span>trainColNum]</span>
+<span id="cb30-10"><a href="#cb30-10"></a>    testset <span class="ot">&lt;-</span> testset[, <span class="sc">-</span>trainColNum]</span>
+<span id="cb30-11"><a href="#cb30-11"></a>    svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"linear"</span>)</span>
+<span id="cb30-12"><a href="#cb30-12"></a>    pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb30-13"><a href="#cb30-13"></a>    accuracy[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span>
+<span id="cb30-14"><a href="#cb30-14"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Compute the average accuracy and standard deviation over all iterations.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Print average accuracy and its standard deviation</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="fu">mean</span>(accuracy)</span>
+<span id="cb31-3"><a href="#cb31-3"></a><span class="fu">sd</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice! Next we’ll see how to build a better SVM for radially separable data.</p>
+</section>
+<section id="the-kernel-trick" class="level2">
+<h2 class="anchored" data-anchor-id="the-kernel-trick">The kernel trick</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. The kernel trick</strong></p>
+<p>In this lesson we’ll take our first steps towards understanding how the concepts we learned for linear SVMs can be extended to classification problems with complex decision boundaries.</p>
+<p><strong>2. The basic idea</strong></p>
+<p>The basic idea is to devise a mathematical transformation that renders the problem linearly separable. We’ll see how to do this explicitly for a radially separable dataset, i.e., one that has a circular boundary. We’ll tackle more general boundaries in the next chapter.</p>
+<p><strong>3. The radially separable dataset</strong></p>
+<p>As a reminder, here’s a plot of the radially separable dataset we created earlier. The data is separated into two classes with the boundary being a circle of radius 0-point-7 units. How would you transform the variables x1 and x2 so as to make the boundary a straight line instead of a circle?</p>
+<p><strong>4. Transforming the problem</strong></p>
+<p>OK, you might reason as follows: we know that the equation of the boundary is x1 squared plus x2 squared equals 0-point-49. So, let’s map x1 squared to a new variable X1 and x2 squared to a new variable X2. In terms of the new variables the equation of the boundary becomes X1 plus X2 equal 0-point-49, which is a straight line. Let’s create a plot of the boundary using the transformed variables.</p>
+<p><strong>5. Plot in X1-X2 space - code</strong></p>
+<p>We’ll use ggplot() to plot the transformed dataset. Note that the equation of the line in the transformed space is X2 equals -X1 plus 0-point-49, so the slope of the line is -1 and the intercept is 0-point-49. We can now write the ggplot() code as follows. Let’s see what the plot looks like.</p>
+<p><strong>6. Plot in X1 - X2 space</strong></p>
+<p>As expected the decision boundary is a straight line in the transformed space. Our transformation has made the problem linearly separable. Put another way, if we choose to solve the problem in terms of the original variables, then we should use a quadratic (or second degree polynomial) instead of a straight line.</p>
+<p><strong>7. The Polynomial Kernel - Part 1</strong></p>
+<p>The polynomial kernel has the general form shown in the slide. The “degree” is the degree of the polynomial. gamma and coef0 are tuning parameters, and u and v are two data points. Now, since we already knew our problem was radially separable, we could guess that we needed a 2nd degree polynomial, but we did not know its exact form.</p>
+<p><strong>8. Kernel functions</strong></p>
+<p>It turns out, that because of the mathematical formulation of SVMs, one cannot choose just any transformation. The transformation function must have specific properties. Functions that satisfy these properties are called kernel functions. For those of you familiar with vector algebra, kernel functions are generalizations of dot products. If you’re not familiar with vector algebra, just remember that the basic idea is to find a kernel function that separates the data well.</p>
+<p><strong>9. Radially separable dataset - quadratic kernel</strong></p>
+<p>OK, so let’s have a quick look at how a quadratic kernel performs on this dataset. First we do the usual 80/20 train/test split and then use the svm() function, setting the degree of the polynomial to 2 and using default values for gamma, coef0, and cost. We get a test accuracy of over 93% compared to the 64% we got with a linear kernel in the previous lesson. This is encouraging, even though it’s only for a specific train/test partition. We then visualize the model using the built-in plot() function.</p>
+<p><strong>10. Plot of quadratic SVM</strong></p>
+<p>This looks much better than the linear SVM: it has a clean decision boundary, even with the default values for the parameters. We’ll see how to tune this up in the next lesson.</p>
+<p><strong>11. Time to practice!</strong></p>
+<p>Now it’s your turn.</p>
+</section>
+<section id="visualizing-transformed-radially-separable-data" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-transformed-radially-separable-data">Visualizing transformed radially separable data</h2>
+<p>In this exercise you will transform the radially separable dataset you created earlier in this chapter and visualize it in the <code>x1^2-x2^2</code> plane. As a reminder, the separation boundary for the data is the circle <code>x1^2 + x2^2 = 0.64</code>(radius = 0.8 units). The dataset has been loaded for you in the dataframe <code>df</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Transform data to x1<sup>2-x2</sup>2 plane.</li>
+<li>Visualize data in terms of transformed coordinates.</li>
+<li>Add a boundary that is linear in terms of transformed coordinates.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co">#transform data</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1sq =</span> df<span class="sc">$</span>x1<span class="sc">^</span><span class="dv">2</span>, <span class="at">x2sq =</span> df<span class="sc">$</span>x2<span class="sc">^</span><span class="dv">2</span>, <span class="at">y =</span> df<span class="sc">$</span>y)</span>
+<span id="cb32-3"><a href="#cb32-3"></a></span>
+<span id="cb32-4"><a href="#cb32-4"></a><span class="co">#plot data points in the transformed space</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a>plot_transformed <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df1, <span class="fu">aes</span>(<span class="at">x =</span> x1sq, <span class="at">y =</span> x2sq, <span class="at">color =</span> y)) <span class="sc">+</span> </span>
+<span id="cb32-6"><a href="#cb32-6"></a>    <span class="fu">geom_point</span>()<span class="sc">+</span> <span class="fu">guides</span>(<span class="at">color =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb32-7"><a href="#cb32-7"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span>
+<span id="cb32-8"><a href="#cb32-8"></a></span>
+<span id="cb32-9"><a href="#cb32-9"></a><span class="co">#add decision boundary and visualize</span></span>
+<span id="cb32-10"><a href="#cb32-10"></a>plot_decision <span class="ot">&lt;-</span> plot_transformed <span class="sc">+</span> <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">intercept =</span> <span class="fl">0.64</span>)</span>
+<span id="cb32-11"><a href="#cb32-11"></a>plot_decision</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Excellent! As expected, the data is linearly separable in the x1^2 - x2^2 plane.</p>
+</section>
+<section id="svm-with-polynomial-kernel" class="level2">
+<h2 class="anchored" data-anchor-id="svm-with-polynomial-kernel">SVM with polynomial kernel</h2>
+<p>In this exercise you will build a SVM with a quadratic kernel (polynomial of degree 2) for the radially separable dataset you created earlier in this chapter. You will then calculate the training and test accuracies and create a plot of the model using the built in <code>plot()</code> function. The training and test datasets are available in the dataframes <code>trainset</code> and <code>testset</code>, and the <code>e1071</code> library has been preloaded.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Build SVM model on the training data using a polynomial kernel of degree 2.</li>
+<li>Calculate training and test accuracy for the given training/test partition.</li>
+<li>Plot the model against the training data.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>svm_model<span class="ot">&lt;-</span> </span>
+<span id="cb33-2"><a href="#cb33-2"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb33-3"><a href="#cb33-3"></a>        <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>)</span>
+<span id="cb33-4"><a href="#cb33-4"></a></span>
+<span id="cb33-5"><a href="#cb33-5"></a><span class="co">#measure training and test accuracy</span></span>
+<span id="cb33-6"><a href="#cb33-6"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
+<span id="cb33-7"><a href="#cb33-7"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span>
+<span id="cb33-8"><a href="#cb33-8"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb33-9"><a href="#cb33-9"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span>
+<span id="cb33-10"><a href="#cb33-10"></a></span>
+<span id="cb33-11"><a href="#cb33-11"></a><span class="co">#plot</span></span>
+<span id="cb33-12"><a href="#cb33-12"></a><span class="fu">plot</span>(svm_model, trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Well done! The decision boundary using default parameters looks good.</p>
+</section>
+<section id="tuning-svms" class="level2">
+<h2 class="anchored" data-anchor-id="tuning-svms">Tuning SVMs</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Tuning SVMs</strong></p>
+<p>Up until now, when building SVMs, we have mostly used default values for cost and other parameters. Sure, we have varied the cost manually when building linear SVMs in Chapter 2, but we have not seen how to systematically choose the best value for the cost.</p>
+<p><strong>2. Objective of tuning</strong></p>
+<p>This issue becomes even more critical for complex kernels with multiple parameters as it becomes difficult to find the best combination of parameters manually. In this chapter we’ll see how to arrive at an optimal set of parameters for an SVM model using the tune-dot-svm() function.</p>
+<p><strong>3. Tuning in a nutshell</strong></p>
+<p>The basic idea is simple. The first step is to decide on a search range for each parameter. This is typically specified as a sequence of values. For example, for a polynomial kernel, we might specify that the cost varies from 0.1 to 1000 in multiples of 10 and gamma and coef0 might take on values of 0-point-1, 1, or 10. For each possible combination of parameters, tune-dot-svm() builds an SVM model and evaluates its accuracy. The parameter combination that results in the highest accuracy is returned as the optimal set of tuning parameters. Depending on the number of parameter combinations, this procedure can become quite computationally intensive.</p>
+<p><strong>4. Introducing tune.svm()</strong></p>
+<p>Let’s how this works in practice. We’ll use the radially separable dataset we created in the first lesson of this chapter. As you may recall, we built a polynomial kernel SVM for this model in the previous lesson and got a decent accuracy of a little less than 94%. Let’s see if we can do better by tuning the cost, gamma and coef0 parameters.The arguments of tune-dot-svm() are as follows: x is the training data excluding the class column and y is the class column. The type, kernel and degree are the same as before, and the values of cost, gamma and coef0 are specified as ranges as discussed in the previous slide. Depending on the ranges you specify, tune-dot-svm() can take a while to run. When it’s done, we can view the best values of the parameters as shown. That done, let’s see how good these parameters are.</p>
+<p><strong>5. Build and examine optimal model</strong></p>
+<p>Although tune-dot-svm() returns the optimal model, let’s build it explicitly using the parameter values tune-dot-svm() and calculate the training and test accuracies. We get a test accuracy of 97%, an approximately 3% improvement on the default parameter accuracy that we obtained in the previous lesson. This is not bad. One can repeat the calculation for different training/test partitions to check that the improvement is indeed robust. I won’t do that here, but if you don’t want to take my word for it, you can try it out using the dataset you built in the first exercise of this chapter. That done, let’s take a look at the plot of the optimal SVM against the training data. To do that we use the usual plot-dot-svm() function.</p>
+<p><strong>6. Plot of optimal quadratic SVM</strong></p>
+<p>This model looks really good. If you compare it carefully with the default parameter quadratic model that we obtained in the last lesson, you will see that a few of the points that were on the wrong side of the boundary have now shifted to the correct decision regions. And that’s an excellent note to close this chapter on. In the next chapter, we’ll look at even more complex decision boundaries and introduce a general purpose kernel that you may end up using quite often in your own work.</p>
+<p><strong>7. Time to practice!</strong></p>
+<p>But before that, let’s do a few exercises.</p>
+</section>
+<section id="using-tune.svm" class="level2">
+<h2 class="anchored" data-anchor-id="using-tune.svm">Using <code>tune.svm()</code></h2>
+<p>This exercise will give you hands-on practice with using the <code>tune.svm()</code> function. You will use it to obtain the optimal values for the <code>cost</code>, <code>gamma</code>, and <code>coef0</code> parameters for an SVM model based on the radially separable dataset you created earlier in this chapter. The training data is available in the dataframe <code>trainset</code>, the test data in <code>testset</code>, and the <code>e1071</code> library has been preloaded for you. Remember that the class variable <code>y</code> is stored in the third column of the <code>trainset</code> and <code>testset</code>.</p>
+<p>Also recall that in the video, Kailash used <code>cost=10^(1:3)</code> to get a range of the cost parameter from <code>10=10^1</code> to <code>1000=10^3</code> in multiples of 10.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Set parameter search ranges as follows:<code>cost</code> - from 0.1 (<code>10^(-1)</code>) to 100 (<code>10^2</code>) in multiples of 10.<code>gamma</code> and <code>coef0</code> - one of the following values: 0.1, 1 and 10.</li>
+<li><code>cost</code> - from 0.1 (<code>10^(-1)</code>) to 100 (<code>10^2</code>) in multiples of 10.</li>
+<li><code>gamma</code> and <code>coef0</code> - one of the following values: 0.1, 1 and 10.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Load data</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset4.rds"</span>)</span>
+<span id="cb34-3"><a href="#cb34-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset4.rds"</span>)</span>
+<span id="cb34-4"><a href="#cb34-4"></a></span>
+<span id="cb34-5"><a href="#cb34-5"></a><span class="co">#tune model</span></span>
+<span id="cb34-6"><a href="#cb34-6"></a>tune_out <span class="ot">&lt;-</span> </span>
+<span id="cb34-7"><a href="#cb34-7"></a>    <span class="fu">tune.svm</span>(<span class="at">x =</span> trainset[, <span class="sc">-</span><span class="dv">3</span>], <span class="at">y =</span> trainset<span class="sc">$</span>y, </span>
+<span id="cb34-8"><a href="#cb34-8"></a>             <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb34-9"><a href="#cb34-9"></a>             <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>, <span class="at">cost =</span> <span class="dv">10</span><span class="sc">^</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), </span>
+<span id="cb34-10"><a href="#cb34-10"></a>             <span class="at">gamma =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>), <span class="at">coef0 =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>))</span>
+<span id="cb34-11"><a href="#cb34-11"></a></span>
+<span id="cb34-12"><a href="#cb34-12"></a><span class="co">#list optimal values</span></span>
+<span id="cb34-13"><a href="#cb34-13"></a>tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>cost</span>
+<span id="cb34-14"><a href="#cb34-14"></a>tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>gamma</span>
+<span id="cb34-15"><a href="#cb34-15"></a>tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>coef0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Well done! You have obtained the optimal parameters for the specified parameter ranges.</p>
+</section>
+<section id="building-and-visualizing-the-tuned-model" class="level2">
+<h2 class="anchored" data-anchor-id="building-and-visualizing-the-tuned-model">Building and visualizing the tuned model</h2>
+<p>In the final exercise of this chapter, you will build a polynomial SVM using the optimal values of the parameters that you obtained from <code>tune.svm()</code> in the previous exercise. You will then calculate the training and test accuracies and visualize the model using <code>svm.plot()</code>. The <code>e1071</code> library has been preloaded and the test and training datasets are available in the dataframes <code>trainset</code> and <code>testset</code>. The output of <code>tune.svm()</code> is available in the variable <code>tune_out</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Build an SVM using a polynomial kernel of degree 2.</li>
+<li>Use the optimal parameters calculated using <code>tune.svm()</code>.</li>
+<li>Obtain training and test accuracies.</li>
+<li>Plot the decision boundary against the training data.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co">#Build tuned model</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(y<span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb35-3"><a href="#cb35-3"></a>                 <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>, </span>
+<span id="cb35-4"><a href="#cb35-4"></a>                 <span class="at">cost =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>cost, </span>
+<span id="cb35-5"><a href="#cb35-5"></a>                 <span class="at">gamma =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>gamma, </span>
+<span id="cb35-6"><a href="#cb35-6"></a>                 <span class="at">coef0 =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>coef0)</span>
+<span id="cb35-7"><a href="#cb35-7"></a></span>
+<span id="cb35-8"><a href="#cb35-8"></a><span class="co">#Calculate training and test accuracies   </span></span>
+<span id="cb35-9"><a href="#cb35-9"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
+<span id="cb35-10"><a href="#cb35-10"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span>
+<span id="cb35-11"><a href="#cb35-11"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb35-12"><a href="#cb35-12"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span>
+<span id="cb35-13"><a href="#cb35-13"></a></span>
+<span id="cb35-14"><a href="#cb35-14"></a><span class="co">#plot model</span></span>
+<span id="cb35-15"><a href="#cb35-15"></a><span class="fu">plot</span>(svm_model, trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Excellent! Tuning the parameters has given us a considerably better accuracy.</p>
+</section>
+</section>
+<section id="radial-basis-function-kernels" class="level1">
+<h1>4. Radial Basis Function Kernels</h1>
+<p>Builds on the previous three chapters by introducing the highly flexible Radial Basis Function (RBF) kernel. Students will create a “complex” dataset that shows up the limitations of polynomial kernels. Then, following an intuitive motivation for the RBF kernel, students see how it addresses the shortcomings of the other kernels discussed in this course.</p>
+<section id="generating-a-complex-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="generating-a-complex-dataset">Generating a complex dataset</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. RBF Kernels: Generating a complex dataset</strong></p>
+<p>In this chapter we’ll learn about the radial basis function kernel, a general purpose kernel that is found to be very useful in practice. I’ll abbreviate this to RBF henceforth.</p>
+<p><strong>2. A bit about RBF Kernels</strong></p>
+<p>The RBF kernel is highly flexible in that it can fit very complex decision boundaries. Indeed, I can confidently say that when you use SVMs in your own work going forward, it is almost certain that you will use the RBF kernel. We’ll start our journey by generating a two dimensional dataset with a complex decision boundary.</p>
+<p><strong>3. Generate a complex dataset</strong></p>
+<p>The first step is to generate the data points. We’ll generate 600 points and to make things interesting, we’ll use different distributions for the x1 and x2 attributes. As shown in the code, x1 is normally distributed with mean -0.5 and std deviation 1, while x2 is uniformly distributed between -1 and 1.</p>
+<p><strong>4. Generate boundary</strong></p>
+<p>The decision boundary consists of two circles that just touch each other at the origin. The first four lines of code set the radii and centers of the two circles. Since the radii are 0-point-7 units and the circles they just touch, their centers are 1-point-4 units apart. We will see this more clearly when we visualize the dataset later. The last long line of code sets the class of the point as -1 or 1 depending on whether the point lies within either of the two circles or outside both. With that done, now let’s visualize the dataset.</p>
+<p><strong>5. Visualizing the dataset</strong></p>
+<p>As usual, we use ggplot() in a way that should now be familiar, distinguishing the two classes using color. Let’s see what the plot looks like.</p>
+<p><strong>6. Complex dataset</strong></p>
+<p>OK, so here it is. Let’s add the decision boundary so as to make the separation clearer and to have something to compare to when we solve the classification problem using the RBF kernel.</p>
+<p><strong>7. Code to visualize the boundary</strong></p>
+<p>The code to generate the boundary is much the same as what we used when we generated the radially separable dataset in Chapter 3. The function generates npoint number of points lying on a circle of radius r, centered at x1Center, x2Center. The plotting code uses this function to generate and plot the boundary, which consists of two circles as described earlier.</p>
+<p><strong>8. Visualizing the boundary</strong></p>
+<p>OK, so here’s what the dataset and boundary look like. Note that the circles appear squished because of the different axis scales. In the next lesson, we will build linear and polynomial SVMs on this dataset. Apart from being a good review of what we’ve done so far, the poor performance of these will naturally lead us on to a discussion of the RBF kernel.</p>
+<p><strong>9. Time to practice!</strong></p>
+<p>But before we do that, let’s practice what we’ve learned in this lesson by generating a complex dataset that you will use in the exercises for this chapter.</p>
+</section>
+<section id="generating-a-complex-dataset---part-1" class="level2">
+<h2 class="anchored" data-anchor-id="generating-a-complex-dataset---part-1">Generating a complex dataset - part 1</h2>
+<p>In this exercise you will create a dataset that has two attributes <code>x1</code> and <code>x2</code>, with <code>x1</code> normally distributed (mean = -0.5, sd = 1) and <code>x2</code> uniformly distributed in (-1, 1).</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Generate a data frame <code>df</code> with 1000 points (x1, x2) distributed as follows:</li>
+<li><code>x1</code> - normally distributed with mean = -0.5 and std deviation 1.</li>
+<li><code>x2</code> uniformly distributed in (-1, 1).</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co">#number of data points</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a></span>
+<span id="cb36-4"><a href="#cb36-4"></a><span class="co">#set seed</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb36-6"><a href="#cb36-6"></a></span>
+<span id="cb36-7"><a href="#cb36-7"></a><span class="co">#create dataframe</span></span>
+<span id="cb36-8"><a href="#cb36-8"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">sd =</span> <span class="dv">1</span>), </span>
+<span id="cb36-9"><a href="#cb36-9"></a>                 <span class="at">x2 =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Excellent! Now let’s create a complex decision boundary.</p>
+</section>
+<section id="generating-a-complex-dataset---part-2" class="level2">
+<h2 class="anchored" data-anchor-id="generating-a-complex-dataset---part-2">Generating a complex dataset - part 2</h2>
+<p>In this exercise, you will create a decision boundary for the dataset you created in the previous exercise. The boundary consists of two circles of radius 0.8 units with centers at x1 = -0.8, x2 = 0) and (x1 = 0.8, x2 = 0) that just touch each other at the origin. Define a binary classification variable <code>y</code> such that points that lie within either of the circles have <code>y = -1</code> and those that lie outside both circle have <code>y = 1</code>.</p>
+<p>The dataset created in the previous exercise is available in the dataframe <code>df</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Set radii and centers of circles.</li>
+<li>Add a column to <code>df</code> containing the binary classification variable <code>y</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co">#set radius and centers </span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>radius <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb37-3"><a href="#cb37-3"></a>center_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.8</span>, <span class="dv">0</span>)</span>
+<span id="cb37-4"><a href="#cb37-4"></a>center_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="dv">0</span>)</span>
+<span id="cb37-5"><a href="#cb37-5"></a>radius_squared <span class="ot">&lt;-</span> radius<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb37-6"><a href="#cb37-6"></a></span>
+<span id="cb37-7"><a href="#cb37-7"></a><span class="co">#create binary classification variable </span></span>
+<span id="cb37-8"><a href="#cb37-8"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>((df<span class="sc">$</span>x1<span class="sc">-</span>center_1[<span class="dv">1</span>])<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (df<span class="sc">$</span>x2<span class="sc">-</span>center_1[<span class="dv">2</span>])<span class="sc">^</span><span class="dv">2</span> <span class="sc">&lt;</span> radius_squared<span class="sc">|</span></span>
+<span id="cb37-9"><a href="#cb37-9"></a>                      (df<span class="sc">$</span>x1<span class="sc">-</span>center_2[<span class="dv">1</span>])<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (df<span class="sc">$</span>x2<span class="sc">-</span>center_2[<span class="dv">2</span>])<span class="sc">^</span><span class="dv">2</span> <span class="sc">&lt;</span> radius_squared, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb37-10"><a href="#cb37-10"></a>                      <span class="at">levels =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Well done! Now let’s visualize the decision boundary.</p>
+</section>
+<section id="visualizing-the-dataset-1" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-the-dataset-1">Visualizing the dataset</h2>
+<p>In this exercise you will use <code>ggplot()</code> to visualise the complex dataset you created in the previous exercises. The dataset is available in the dataframe <code>df</code>. You are not required to visualize the decision boundary.</p>
+<p>Here you will use <code>coord_equal()</code> to give the x and y axes the same physical representation on the plot, making the circles appear as circles rather than ellipses.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Set the arguments of the <code>aesthetics</code> parameter.</li>
+<li>Set the appropriate <code>geom_</code> function for a scatter plot.</li>
+<li>Specify equal coordinates by adding <code>coord_equal()</code> without arguments.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Plot x2 vs. x1, colored by y</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2 , <span class="at">color =</span> y)) <span class="sc">+</span> </span>
+<span id="cb38-3"><a href="#cb38-3"></a>    <span class="co"># Add a point layer</span></span>
+<span id="cb38-4"><a href="#cb38-4"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb38-5"><a href="#cb38-5"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)) <span class="sc">+</span></span>
+<span id="cb38-6"><a href="#cb38-6"></a>    <span class="co"># Specify equal coordinates</span></span>
+<span id="cb38-7"><a href="#cb38-7"></a>    <span class="fu">coord_equal</span>()</span>
+<span id="cb38-8"><a href="#cb38-8"></a> </span>
+<span id="cb38-9"><a href="#cb38-9"></a>scatter_plot </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Excellent! In the next lesson we will see how linear and quadratic kernels perform against this dataset.</p>
+</section>
+<section id="motivating-the-rbf-kernel" class="level2">
+<h2 class="anchored" data-anchor-id="motivating-the-rbf-kernel">Motivating the RBF kernel</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Motivating the RBF kernel</strong></p>
+<p>In this lesson, we’ll start by using a polynomial SVM to classify the complex dataset we generated in the previous lesson. We will see that the polynomial kernel doesn’t work well , indicating that we need a more flexible kernel. We will consider what flexibility means in the context of a classification problem, which give us an intuitive motivation for the RBF kernel.</p>
+<p><strong>2. Quadratic kernel (default parameters)</strong></p>
+<p>The model building process should now be familiar: we partition the data into training and test sets using the usual 80/20 split and then build an SVM using a polynomial kernel of degree 2 with default values for parameters. Here is the code. The number of support vectors is a little over a third of the dataset and the accuracy is actually not too bad. However, before we jump to conclusions, let’s have a look at the plot.</p>
+<p><strong>3. Plot: quadratic kernel, default params</strong></p>
+<p>OK, so we see that this kernel does not do a very good job because it attempts to fit a circular boundary to what is actually a figure of 8. A quadratic or 2nd degree curve is simply not flexible enough to capture the complexity of this boundary. But perhaps we can do better by trying a higher order polynomial.</p>
+<p><strong>4. Try higher degree polynomial</strong></p>
+<p>Let’s try a higher degree polynomial. We can rule out odd degree polynomials because we know the decision boundary is symmetric about the x1 and x2 axes. On trying a polynomial kernel of degree 4 we see that the accuracy remains much the same as for the quadratic case. Let’s see what the plot of the predicted decision boundary looks like.</p>
+<p><strong>5. Plot: polynomial kernel, degree 4</strong></p>
+<p>The plot looks much the same as the quadratic case. If you try higher degree polynomials, you will see that the story does not change much: the kernels simply cannot capture the figure of 8 shape well enough. Increasing the degree of the polynomial does not help and neither does tuning (try it!). Clearly, another approach is required.</p>
+<p><strong>6. Another approach</strong></p>
+<p>OK, so instead of trying to choose a kernel that reproduces the boundary, lets try another approach. Let’s use the heuristic that points that lie close to each other tend to belong to the same class. You might recognize that this is exactly the intuition behind the k-nearest neighbors algorithm. What would such a kernel look like? If we single out a point in the dataset, say capital X1 with coordinates (a, b), the kernel should have a maximum at X1 and should decrease in value as one moves away from it. Further, in absence of any other information, the decrease in value should be isotropic, that is, the same in all directions. Furthermore, the decay rate, gamma, should be tunable. A simple function that has these properties is the exponential, or Gaussian, radial basis function e to the minus gamma times r, where r is the distance between X1 and any other point in the dataset X.</p>
+<p><strong>7. How does the RBF kernel vary with gamma (code)</strong></p>
+<p>How does gamma vary with r? Here’s some ggplot code to visualize the RBF kernel for r ranging from 0 to 10 for various values of gamma.</p>
+<p><strong>8. How does the RBF kernel vary with gamma (plot)</strong></p>
+<p>…and here’s the plot. Recall that r is the distance between the point at which the kernel is centered and any other point in the dataset and that the value of the kernel is a measure of the influence that the points have on each other. The plot clearly shows that for a given set of points (i.e., fixed r), the influence they have on each other decreases with increasing gamma.</p>
+<p><strong>9. Time to practice!</strong></p>
+<p>In the next lesson, we’ll use this kernel to build models, but first let’s do some exercises.</p>
+</section>
+<section id="linear-svm-for-complex-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="linear-svm-for-complex-dataset">Linear SVM for complex dataset</h2>
+<p>In this exercise you will build a default cost linear SVM for the complex dataset you created in the first lesson of this chapter. You will also calculate the training and test accuracies and plot the classification boundary against the test dataset. The <code>e1071</code> library has been loaded, and test and training datasets have been created for you and are available in the data frames <code>trainset</code> and <code>testset</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Build a linear SVM using the default value of cost.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Load data</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset5.rds"</span>)</span>
+<span id="cb39-3"><a href="#cb39-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset5.rds"</span>) </span>
+<span id="cb39-4"><a href="#cb39-4"></a></span>
+<span id="cb39-5"><a href="#cb39-5"></a><span class="co">#build model</span></span>
+<span id="cb39-6"><a href="#cb39-6"></a>svm_model<span class="ot">&lt;-</span> </span>
+<span id="cb39-7"><a href="#cb39-7"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb39-8"><a href="#cb39-8"></a>        <span class="at">kernel =</span> <span class="st">"linear"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Calculate training and test accuracies.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co">#accuracy</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
+<span id="cb40-3"><a href="#cb40-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span>
+<span id="cb40-4"><a href="#cb40-4"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb40-5"><a href="#cb40-5"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Plot decision boundary against the test data.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co">#plot model against testset</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">plot</span>(svm_model, testset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice work! As expected, the accuracy is poor and the plot clearly shows why a linear boundary will never work well.</p>
+</section>
+<section id="quadratic-svm-for-complex-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="quadratic-svm-for-complex-dataset">Quadratic SVM for complex dataset</h2>
+<p>In this exercise you will build a default quadratic (polynomial, degree = 2) linear SVM for the complex dataset you created in the first lesson of this chapter. You will also calculate the training and test accuracies plot the classification boundary against the training dataset. The <code>e1071</code> library has been loaded, and test and training datasets have been created for you and are available in the data frames <code>trainset</code> and <code>testset</code>.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Build a polynomial SVM of degree 2 using the default parameters.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co">#build model</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a>svm_model<span class="ot">&lt;-</span> </span>
+<span id="cb42-3"><a href="#cb42-3"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb42-4"><a href="#cb42-4"></a>        <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Calculate training and test accuracies.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co">#accuracy</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span>
+<span id="cb43-4"><a href="#cb43-4"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb43-5"><a href="#cb43-5"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Plot decision boundary against the training data.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co">#plot model</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">plot</span>(svm_model, trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Well done! The model accuracy is not too bad, but the plot shows that it is impossible to capture the figure of 8 shape of the actual boundary using a degree 2 polynomial.</p>
+</section>
+<section id="the-rbf-kernel" class="level2">
+<h2 class="anchored" data-anchor-id="the-rbf-kernel">The RBF Kernel</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. The RBF Kernel</strong></p>
+<p>Let’s start with a quick recap. Earlier in this chapter we created a dataset with a complex figure of 8 classification boundary and saw that SVMs with polynomial kernels do not do a very good job of classifying this dataset. This motivated the introduction of the exponential radial basis function (or RBF) kernel.</p>
+<p><strong>2. RBF Kernel in a nutshell</strong></p>
+<p>The RBF kernel is a decreasing function of the distance between two points. It thus serves to simulate the principle of k Nearest Neighbors, namely that the closer two points are to each other in terms of attributes, the more likely it is that they are similar.</p>
+<p><strong>3. Influence as a function of distance</strong></p>
+<p>The plot shown here illustrates this principle: as one moves away from a point located at the origin, the less its influence.</p>
+<p><strong>4. Building an SVM using the RBF kernel</strong></p>
+<p>OK, so let’s build an SVM using an RBF kernel with default settings for the complex dataset we built in the first lesson of this chapter. As before, I have partitioned the data into training and test sets using the usual 80/20 split. The partitioning process is not shown as it should now be quite familiar. We then calculate the training and test accuracies, which are both around 93%, considerably better than the, 86% we got with a quadratic kernel in the previous lesson. So let’s see what the decision boundary looks like.</p>
+<p><strong>5. Visualizing the decision boundary</strong></p>
+<p>The main thing to note in this figure is that, in contrast to polynomial kernel case, the predicted decision boundary has an hourglass shape that approximates the figure of 8 shape of the actual decision boundary. However, the plot also shows that there is room for improvement. Let’s see if we can do better.</p>
+<p><strong>6. Refining the decision boundary</strong></p>
+<p>We’ll refine the decision boundary by tuning gamma and the cost parameters. We’ll let gamma vary from 0-point-05 to 500 and cost from 0-point-01 to 100 in powers of 10 at each step. The tuning step can take a while because the algorithm builds a model for every combination of parameters and returns the parameter combination that minimizes the error. This combination is returned in the variable best-dot-parameters. In this case, the best model turns out to be the one with cost equals 1 and gamma equals 5.</p>
+<p><strong>7. The tuned model</strong></p>
+<p>OK, so we built the tuned model using the best values of cost and gamma. The test accuracy turns out to be 95%, which is just marginally better than the one for the default case, but let’s look at the plot.</p>
+<p><strong>8. Tuned decision boundary</strong></p>
+<p>OK, so the plot clearly shows that the tuned model does a much better job in capturing the actual figure of 8 boundary. This indicates that the tuned model is indeed considerably superior to the default one. In this case we could use this method of checking because we knew the actual decision boundary. In real life situations this will not be the case. What remains true in general is that the local nature of the RBF kernel enables it to capture nuances of a complex boundary, something that is simply not possible via a linear or polynomial kernel.</p>
+<p><strong>9. Time to practice!</strong></p>
+<p>That brings us to the end of our discussion of RBF kernels and, indeed, this course. To be sure, we have barely scratched the surface of support vector machines, but I do hope that this introduction to this powerful classification method has given you enough to get started and explore further. So that’s it from my side, but before you go, let’s do a couple of exercises to fix the ideas of RBF kernels and SVMs. And, finally, many thanks for working through the course, I hope you found it useful.</p>
+</section>
+<section id="polynomial-svm-on-a-complex-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="polynomial-svm-on-a-complex-dataset">Polynomial SVM on a complex dataset</h2>
+<p>Calculate the average accuracy for a <strong>degree 2 polynomial</strong> kernel SVM using 100 different training/test partitions of the complex dataset you generated in the first lesson of this chapter. Use default settings for the parameters. The <code>e1071</code> library has been preloaded and the dataset is available in the dataframe <code>df</code>. Use random 80/20 splits of the data in <code>df</code> when creating training and test datasets for each iteration.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Create a vector to hold accuracies for each step.</li>
+<li>Create training/test datasets, build default cost polynomial SVMs of degree 2, and calculate the test accuracy for each iteration.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="co">#create vector to store accuracies and set random number seed</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
+<span id="cb45-3"><a href="#cb45-3"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb45-4"><a href="#cb45-4"></a></span>
+<span id="cb45-5"><a href="#cb45-5"></a><span class="co">#calculate accuracies for 100 training/test partitions</span></span>
+<span id="cb45-6"><a href="#cb45-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
+<span id="cb45-7"><a href="#cb45-7"></a>    df[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(df))<span class="sc">&lt;</span><span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb45-8"><a href="#cb45-8"></a>    trainset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">1</span>, ]</span>
+<span id="cb45-9"><a href="#cb45-9"></a>    testset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">0</span>, ]</span>
+<span id="cb45-10"><a href="#cb45-10"></a>    trainColNum <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"train"</span>, <span class="fu">names</span>(trainset))</span>
+<span id="cb45-11"><a href="#cb45-11"></a>    trainset <span class="ot">&lt;-</span> trainset[, <span class="sc">-</span>trainColNum]</span>
+<span id="cb45-12"><a href="#cb45-12"></a>    testset <span class="ot">&lt;-</span> testset[, <span class="sc">-</span>trainColNum]</span>
+<span id="cb45-13"><a href="#cb45-13"></a>    svm_model<span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>)</span>
+<span id="cb45-14"><a href="#cb45-14"></a>    pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb45-15"><a href="#cb45-15"></a>    accuracy[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span>
+<span id="cb45-16"><a href="#cb45-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Compute the average accuracy and standard deviation over all iterations.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co">#print average accuracy and standard deviation</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="fu">mean</span>(accuracy)</span>
+<span id="cb46-3"><a href="#cb46-3"></a><span class="fu">sd</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nice work! Please note down the average accuracy and standard deviation. We’ll compare these to the default RBF kernel SVM next.</p>
+</section>
+<section id="rbf-svm-on-a-complex-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="rbf-svm-on-a-complex-dataset">RBF SVM on a complex dataset</h2>
+<p>Calculate the average accuracy for a <strong>RBF</strong> kernel SVM using 100 different training/test partitions of the complex dataset you generated in the first lesson of this chapter. Use default settings for the parameters. The <code>e1071</code> library has been preloaded and the dataset is available in the dataframe <code>df</code>. Use random 80/20 splits of the data in <code>df</code> when creating training and test datasets for each iteration.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Create a vector of length 100 to hold accuracies for each step.</li>
+<li>Create training/test datasets, build RBF SVMs with default settings for all parameters and calculate the test accuracy for each iteration.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co">#create vector to store accuracies and set random number seed</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
+<span id="cb47-3"><a href="#cb47-3"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb47-4"><a href="#cb47-4"></a></span>
+<span id="cb47-5"><a href="#cb47-5"></a><span class="co">#calculate accuracies for 100 training/test partitions</span></span>
+<span id="cb47-6"><a href="#cb47-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
+<span id="cb47-7"><a href="#cb47-7"></a>    df[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(df))<span class="sc">&lt;</span><span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb47-8"><a href="#cb47-8"></a>    trainset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">1</span>, ]</span>
+<span id="cb47-9"><a href="#cb47-9"></a>    testset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">0</span>, ]</span>
+<span id="cb47-10"><a href="#cb47-10"></a>    trainColNum <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"train"</span>, <span class="fu">names</span>(trainset))</span>
+<span id="cb47-11"><a href="#cb47-11"></a>    trainset <span class="ot">&lt;-</span> trainset[, <span class="sc">-</span>trainColNum]</span>
+<span id="cb47-12"><a href="#cb47-12"></a>    testset <span class="ot">&lt;-</span> testset[, <span class="sc">-</span>trainColNum]</span>
+<span id="cb47-13"><a href="#cb47-13"></a>    svm_model<span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"radial"</span>)</span>
+<span id="cb47-14"><a href="#cb47-14"></a>    pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb47-15"><a href="#cb47-15"></a>    accuracy[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span>
+<span id="cb47-16"><a href="#cb47-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Compute the average accuracy and standard deviation over all iterations.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="co">#print average accuracy and standard deviation</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a><span class="fu">mean</span>(accuracy)</span>
+<span id="cb48-3"><a href="#cb48-3"></a><span class="fu">sd</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Well done! Note that the average accuracy is almost 10% better than the one obtained in the previous exercise (polynomial kernel of degree 2)</p>
+</section>
+<section id="tuning-an-rbf-kernel-svm" class="level2">
+<h2 class="anchored" data-anchor-id="tuning-an-rbf-kernel-svm">Tuning an RBF kernel SVM</h2>
+<p>In this exercise you will build a tuned RBF kernel SVM for a the given training dataset (available in dataframe <code>trainset</code>) and calculate the accuracy on the test dataset (available in dataframe <code>testset</code>). You will then plot the tuned decision boundary against the test dataset.</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Use <code>tune.svm()</code> to build a tuned RBF kernel SVM.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co">#tune model</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>tune_out <span class="ot">&lt;-</span> <span class="fu">tune.svm</span>(<span class="at">x =</span> trainset[, <span class="sc">-</span><span class="dv">3</span>], <span class="at">y =</span> trainset<span class="sc">$</span>y, </span>
+<span id="cb49-3"><a href="#cb49-3"></a>                     <span class="at">gamma =</span> <span class="dv">5</span><span class="sc">*</span><span class="dv">10</span><span class="sc">^</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">2</span>), </span>
+<span id="cb49-4"><a href="#cb49-4"></a>                     <span class="at">cost =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>), </span>
+<span id="cb49-5"><a href="#cb49-5"></a>                     <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"radial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li>Rebuild SVM using optimal values of <code>cost</code> and <code>gamma</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co">#build tuned model</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(y<span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"radial"</span>, </span>
+<span id="cb50-3"><a href="#cb50-3"></a>                 <span class="at">cost =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>cost, </span>
+<span id="cb50-4"><a href="#cb50-4"></a>                 <span class="at">gamma =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>gamma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Calculate the accuracy of your model using the test dataset.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co">#calculate test accuracy</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb51-3"><a href="#cb51-3"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="4" type="1">
+<li>Plot the decision boundary against <code>testset</code>.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="co">#Plot decision boundary against test data</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a><span class="fu">plot</span>(svm_model, testset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'alternate';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">Content 2022 by <a href="https://www.startupengineer.io/authors/schwarz/">Joschka Schwarz</a> <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
+  </div>
+</footer>
+
+
+
+<script src="../../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
