@@ -202,7 +202,8 @@ You'll now start implementing a better database model. For this, you'll create t
 
 The syntax for creating simple tables is as follows:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 CREATE TABLE table_name (
  column_a data_type,
  column_b data_type,
@@ -278,7 +279,8 @@ However, adding columns to existing tables is easy, especially if they're still 
 
 To add columns you can use the following SQL query: 
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 ALTER TABLE table_name
 ADD COLUMN column_name data_type;
 ```
@@ -357,14 +359,16 @@ You'll use the following queries:
 
 * To rename columns:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 ALTER TABLE table_name
 RENAME COLUMN old_name TO new_name;
 ```
 
 * To delete columns:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 ALTER TABLE table_name
 DROP COLUMN column_name;
 ```
@@ -393,7 +397,8 @@ Great work! Now the tables are finally ready for data migration.
 
 Now it's finally time to migrate the data into the new tables. You'll use the following pattern: 
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 INSERT INTO ... 
 SELECT DISTINCT ... 
 FROM ...;
@@ -403,7 +408,8 @@ It can be broken up into two parts:
 
 *First part:*
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT DISTINCT column_name1, column_name2, ... 
 FROM table_a;
 ```
@@ -412,7 +418,8 @@ This selects all distinct values in table `table_a` – nothing new for you.
 
 *Second part:*
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 INSERT INTO table_b ...;
 ```
 
@@ -493,7 +500,8 @@ Obviously, the `university_professors` table is now no longer needed and can saf
 
 For table deletion, you can use the simple command: 
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 DROP TABLE table_name;
 ```
 
@@ -501,7 +509,8 @@ DROP TABLE table_name;
 
 1. Delete the `university_professors` table.
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 -- Delete the university_professors table
 DROP TABLE university_professors;
 ```
@@ -557,7 +566,8 @@ Exactly! SQL aggregate functions are not used to enforce constraints, but to do 
 
 For demonstration purposes, I created a fictional database table that only holds three records. The columns have the data types `date`, `integer`, and `text`, respectively.
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 CREATE TABLE transactions (
  transaction_date date, 
  amount integer,
