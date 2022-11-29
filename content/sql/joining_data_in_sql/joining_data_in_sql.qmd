@@ -2,9 +2,13 @@
 title: "Joining Data in SQL"
 author: "Joschka Schwarz"
 toc-depth: 2
+execute: 
+  eval: true
+  echo: true
 ---
   
-```{r setup, include=FALSE}
+```{r setup}
+#| include: false
 library(DBI)
 con <- dbConnect(RPostgres::Postgres(), 
                  host='localhost', 
@@ -76,7 +80,8 @@ You can see the different tables in this database by clicking on the correspondi
 
 Recall from the video the basic syntax for an `INNER JOIN`, here including all columns in **both** tables:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT *
 FROM left_table
 INNER JOIN right_table
@@ -127,7 +132,8 @@ Instead of writing the full table name, you can use table aliasing as a shortcut
 out the aliasing of `cities` and `countries` below.
 
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT c1.name AS city, c2.name AS country
 FROM cities AS c1
 INNER JOIN countries AS c2
@@ -165,7 +171,8 @@ Nicely done! Using this short aliases takes some getting used to, but it will sa
 
 The ability to combine multiple joins in a single query is a powerful feature of SQL, e.g:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT *
 FROM left_table
   INNER JOIN right_table
@@ -272,7 +279,8 @@ Now you'll test your understanding of INNER JOINs before we delve into an exerci
 > ✅ `INNER JOIN` requires a specification of the key field (or fields) in each table.<br>
 > ⬜ Join queries may not be followed by a semi-colon.<br>
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT c.name AS country, l.name AS language
 FROM countries AS c
   INNER JOIN languages AS l;
@@ -282,7 +290,8 @@ FROM countries AS c
 
 When joining tables with a common field name, e.g.
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT *
 FROM countries
   INNER JOIN economies
@@ -291,7 +300,8 @@ FROM countries
 
 You can use `USING` as a shortcut:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT *
 FROM countries
   INNER JOIN economies
@@ -458,7 +468,8 @@ Well done! Time for the last exercise of this chapter!
 
 The table you created with the added `geosize_group` field has been loaded for you here with the name `countries_plus`.  Observe the use of (and the placement of) the `INTO` command to create this `countries_plus` table:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT name, continent, code, surface_area,
     CASE WHEN surface_area > 2000000
             THEN 'large'
@@ -500,7 +511,7 @@ FROM populations
 WHERE year = 2015;
 ```
 
-3. Use `INTO` to save the result of the previous query as `pop_plus`. You can see an example of this\nin the `countries_plus` code in the assignment text. Make sure to include a `;` at the end of\nyour `WHERE` clause!
+3. Use `INTO` to save the result of the previous query as `pop_plus`. You can see an example of this in the `countries_plus` code in the assignment text. Make sure to include a `;` at the end of your `WHERE` clause!
 
 ```{sql}
 SELECT country_code, size,
@@ -1465,7 +1476,8 @@ Your first subquery is a fact! Let's dive a little deeper into the concept.
 
 Let's revisit the code from the previous exercise, which retrieves languages spoken in the Middle East. 
 
-```{sql, eval=F}
+```{sql}
+#| eval: false
 SELECT DISTINCT name
 FROM languages
 WHERE code IN
@@ -1477,7 +1489,8 @@ ORDER BY name;
 
 Sometimes problems solved with semi-joins can also be solved using an inner join.
 
-```{sql, eval=F}
+```{sql}
+#| eval: false
 SELECT languages.name AS language
 FROM languages
 INNER JOIN countries
@@ -1652,7 +1665,8 @@ WHERE year = 2015;
 
 2. Recall that you can use SQL to do calculations for you.  Suppose we wanted only records that were above\n`1.15 * 100` in terms of life expectancy for 2015:
 
-```{sql, eval=F}
+```{sql}
+#| eval: false
 SELECT *
   FROM populations
 WHERE life_expectancy > 1.15 * 100
@@ -1829,7 +1843,8 @@ You can also nest multiple subqueries to answer even more specific questions.
 In this exercise, for each of the six continents listed in 2015, you'll identify which country had the maximum inflation rate, and how high it was, using multiple subqueries. The table result of your final query
 should look something like the following, where anything between `<` `>` will be filled in with appropriate values:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 +------------+---------------+-------------------+
 | name       | continent     | inflation_rate    |
 |------------+---------------+-------------------|
@@ -2106,4 +2121,9 @@ SELECT name, country_code, city_proper_pop, metroarea_pop,
 ORDER BY city_perc DESC
 -- Limit amount
 LIMIT 10;
+```
+
+```{sql cleanup}
+#| include: false
+DROP table pop_plus;
 ```

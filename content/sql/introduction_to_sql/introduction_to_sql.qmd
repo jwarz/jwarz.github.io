@@ -2,9 +2,13 @@
 title: "Introduction to SQL"
 author: "Joschka Schwarz"
 toc-depth: 2
+execute: 
+  eval: true
+  echo: true
 ---
   
-```{r setup, include=FALSE}
+```{r setup}
+#| include: false
 library(DBI)
 con <- dbConnect(RPostgres::Postgres(), 
                  host='localhost', 
@@ -64,7 +68,8 @@ Notice the **query result** tab in the bottom right corner of your screen. This 
 
 Run this query in the editor and check out the resulting table in the query result tab!
 
-```{sql, eval=FALSE}
+```{sql}
+#| eval: false
 SELECT name FROM people;
 ```
 
@@ -85,13 +90,15 @@ If you submit the code to the right, you'll see that you get two types of errors
 
 *SQL* errors are shown below the editor. These are errors returned by the *SQL* engine. You should see:
 
-```{sql, eval=F}
-syntax error at or near "'DataCamp <3 SQL'" LINE 2: 'DataCamp <3 SQL' ^
+```{sql}
+#| eval: false
+syntax error at or near "'I <3 SQL'" LINE 2: 'I <3 SQL' ^
 ```
 
 *DataCamp* errors are shown in the **Instructions** box. These will let you know in plain English where you went wrong in your code! You should see:
 
-```{sql, eval=F}
+```{sql}
+#| eval: false
 You need to add SELECT at the start of line 2!
 ```
 
@@ -100,8 +107,9 @@ You need to add SELECT at the start of line 2!
 1. Submit the code to the right, check out the errors, then fix them!
 
 ```{sql}
+#| connection: con
 -- Try running me!
-SELECT 'DataCamp <3 SQL'
+SELECT 'I <3 SQL'
 AS result;
 ```
 
@@ -173,15 +181,16 @@ While SQL can be used to create and modify databases, the focus of this course w
 
 In SQL, you can select data from a table using a `SELECT` statement. For example, the following query selects the `name` column from the `people` table:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT name
 FROM people;
 ```
 
 In this query, `SELECT` and `FROM` are called keywords. In SQL, keywords are not case-sensitive, which means you can write the same query as:
 
-
-```{sql,eval=F}
+```{sql}
+#| eval: false
 select name
 from people;
 ```
@@ -223,7 +232,8 @@ In the real world, you will often want to select multiple columns. Luckily, SQL 
 
 For example, this query selects two columns, `name` and `birthdate`, from the `people` table:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT name, birthdate
 FROM people;
 ```
@@ -231,14 +241,16 @@ FROM people;
 Sometimes, you may want to select all columns from a table. Typing out every column name would be a pain, so there's a handy shortcut:
 
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT *
 FROM people;
 ```
 
 If you only want to return a certain number of results, you can use the `LIMIT` keyword to limit the number of rows returned:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT *
 FROM people
 LIMIT 10;
@@ -283,7 +295,8 @@ Often your results will include many duplicate values. If you want to select all
 This might be useful if, for example, you're interested in knowing which languages are represented in the `films` table:
 
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT DISTINCT language
 FROM films;
 ```
@@ -342,7 +355,8 @@ As you've seen, `COUNT(*)` tells you how many rows are in a table. However, if y
 For example, to count the number of birth dates present in the `people` table:
 
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT COUNT(birthdate)
 FROM people;
 ```
@@ -351,8 +365,8 @@ It's also common to combine `COUNT()` with `DISTINCT` to count the number of *di
 
 For example, this query counts the number of distinct birth dates contained in the `people` table:
 
-
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT COUNT(DISTINCT birthdate)
 FROM people;
 ```
@@ -415,7 +429,8 @@ In SQL, the `WHERE` keyword allows you to filter based on both text and numeric 
 
 For example, you can filter text records such as `title`. The following code returns all films with the title `'Metropolis'`:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT title
 FROM films
 WHERE title = 'Metropolis';
@@ -425,7 +440,8 @@ Notice that the `WHERE` clause always comes after the `FROM` statement!
 
 **Note that in this course we will use `<>` and not `!=` for the not equal operator, as per the SQL standard.**
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT title
 FROM films
 WHERE release_year > 2000;
@@ -446,7 +462,8 @@ As you learned in the previous exercise, the `WHERE` clause can also be used to 
 
 For example, the following query selects all details for films with a budget over ten thousand dollars:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT *
 FROM films
 WHERE budget > 10000;
@@ -488,7 +505,8 @@ Remember, the `WHERE` clause can also be used to filter text results, such as na
 
 For example, this query gets the titles of all films which were filmed in China:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT title
 FROM films
 WHERE country = 'China';
@@ -540,7 +558,8 @@ Often, you'll want to select data based on multiple conditions. You can build up
 
 For example,
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT title
 FROM films
 WHERE release_year > 1994
@@ -551,7 +570,8 @@ gives you the titles of films released between 1994 and 2000.
 
 Note that you need to specify the column name separately for every `AND` condition, so the following would be invalid:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT title
 FROM films
 WHERE release_year > 1994 AND < 2000;
@@ -597,7 +617,8 @@ What if you want to select rows based on multiple conditions where some but not 
 
 For example, the following returns all films released in *either* 1994 or 2000:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT title
 FROM films
 WHERE release_year = 1994
@@ -606,7 +627,8 @@ OR release_year = 2000;
 
 Note that you need to specify the column for every `OR` condition, so the following is invalid:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT title
 FROM films
 WHERE release_year = 1994 OR 2000;
@@ -614,7 +636,8 @@ WHERE release_year = 1994 OR 2000;
 
 When combining `AND` and `OR`, be sure to enclose the individual clauses in parentheses, like so:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT title
 FROM films
 WHERE (release_year = 1994 OR release_year = 1995)
@@ -638,7 +661,8 @@ You now know how to select rows that meet **some** but not **all** conditions by
 
 For example, the following query selects all films that were released in 1994 or 1995 which had a rating of PG or R.
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT title
 FROM films
 WHERE (release_year = 1994 OR release_year = 1995)
@@ -684,7 +708,8 @@ That was pretty involved!
 
 As you've learned, you can use the following query to get titles of all films released in and between 1994 and 2000:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT title
 FROM films
 WHERE release_year >= 1994
@@ -693,7 +718,8 @@ AND release_year <= 2000;
 
 Checking for ranges like this is very common, so in SQL the `BETWEEN` keyword provides a useful shorthand for filtering values within a specified range. This query is equivalent to the one above:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT title
 FROM films
 WHERE release_year
@@ -717,7 +743,8 @@ Similar to the `WHERE` clause, the `BETWEEN` clause can be used with multiple `A
 
 For example, suppose we have a table called `kids`. We can get the names of all kids between the ages of 2 and 12 from the United States:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT name
 FROM kids
 WHERE age BETWEEN 2 AND 12
@@ -771,7 +798,8 @@ Well done! Off to the next filtering operator!
 
 As you've seen, `WHERE` is very useful for filtering results. However, if you want to filter based on many conditions, `WHERE` can get unwieldy. For example:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT name
 FROM kids
 WHERE age = 2
@@ -785,7 +813,8 @@ Enter the `IN` operator! The `IN` operator allows you to specify multiple values
 
 So, the above example would become simply:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT name
 FROM kids
 WHERE age IN (2, 4, 6, 8, 10);
@@ -826,7 +855,8 @@ Your SQL vocabulary is growing by the minute!
 
 In SQL, `NULL` represents a missing or unknown value. You can check for `NULL` values using the expression `IS NULL`. For example, to count the number of missing birth dates in the `people` table:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT COUNT(*)
 FROM people
 WHERE birthdate IS NULL;
@@ -838,7 +868,8 @@ Sometimes, you'll want to filter out missing values so you only get results whic
 
 For example, this query gives the names of all people whose birth dates are *not* missing in the `people` table.
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT name
 FROM people
 WHERE birthdate IS NOT NULL;
@@ -895,7 +926,8 @@ In SQL, the `LIKE` operator can be used in a `WHERE` clause to search for a patt
 
 The `%` wildcard will match zero, one, or many characters in text. For example, the following query matches companies like `'Data'`, `'DataC'` `'DataCamp'`, `'DataMind'`, and so on:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT name
 FROM companies
 WHERE name LIKE 'Data%';
@@ -903,7 +935,8 @@ WHERE name LIKE 'Data%';
 
 The `_` wildcard will match a *single* character. For example, the following query matches companies like `'DataCamp'`, `'DataComp'`, and so on:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT name
 FROM companies
 WHERE name LIKE 'DataC_mp';
@@ -951,21 +984,24 @@ Often, you will want to perform some calculation on the data in a database. SQL 
 
 For example,
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT AVG(budget)
 FROM films;
 ```
 
 gives you the average value from the `budget` column of the `films` table. Similarly, the `MAX()` function returns the highest budget:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT MAX(budget)
 FROM films;
 ```
 
 The `SUM()` function returns the result of adding up the numeric values in a column:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT SUM(budget)
 FROM films;
 ```
@@ -1046,7 +1082,8 @@ Aggregate functions can be combined with the `WHERE` clause to gain further insi
 
 For example, to get the total budget of movies made in the year 2010 or later:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT SUM(budget)
 FROM films
 WHERE release_year >= 2010;
@@ -1096,13 +1133,15 @@ In addition to using aggregate functions, you can perform basic arithmetic with 
 
 So, for example, this gives a result of `12`:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT (4 * 3);
 ```
 
 However, the following gives a result of `1`:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT (4 / 3);
 ```
 
@@ -1112,7 +1151,8 @@ SQL assumes that if you divide an integer by an integer, you want to get an inte
 
 If you want more precision when dividing, you can add decimal places to your numbers. For example,
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT (4.0 / 3.0) AS result;
 ```
 
@@ -1131,14 +1171,16 @@ gives you the result you would expect: `1.333`.
 
 You may have noticed in the first exercise of this chapter that the column name of your result was just the name of the function you used. For example,
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT MAX(budget)
 FROM films;
 ```
 
 gives you a result with one column, named `max`. But what if you use two functions like this?
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT MAX(budget), MAX(duration)
 FROM films;
 ```
@@ -1149,7 +1191,8 @@ To avoid situations like this, SQL allows you to do something called *aliasing*.
 
 For example, in the above example we could use aliases to make the result clearer:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT MAX(budget) AS max_budget,
        MAX(duration) AS max_duration
 FROM films;
@@ -1188,7 +1231,8 @@ Let's practice your newfound aliasing skills some more before moving on!
 
 This means that the following will erroneously result in `400.0`:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT 45 / 10 * 100.0;
 ```
 
@@ -1196,7 +1240,8 @@ This is because `45 / 10` evaluates to an integer (`4`), and not a decimal numbe
 
 So when you're dividing make sure at least one of your numbers has a decimal place:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT 45 * 100.0 / 10;
 ```
 
@@ -1245,7 +1290,8 @@ In SQL, the `ORDER BY` keyword is used to sort results in ascending or descendin
 
 By default `ORDER BY` will sort in ascending order. If you want to sort the results in descending order, you can use the `DESC` keyword. For example,
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT title
 FROM films
 ORDER BY release_year DESC;
@@ -1331,7 +1377,8 @@ Can you feel the SQL power dawn on you?!
 
 To order results in *descending* order, you can put the keyword `DESC` after your `ORDER BY`. For example, to get all the names in the `people` table, in reverse alphabetical order:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT name
 FROM people
 ORDER BY name DESC;
@@ -1371,7 +1418,8 @@ Nice. Let's explore how you can sort multiple columns!
 
 `ORDER BY` can also be used to sort on multiple columns. It will sort by the first column specified, then sort by the next, then the next, and so on. For example,
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT birthdate, name
 FROM people
 ORDER BY birthdate, name;
@@ -1421,7 +1469,8 @@ Well done. Notice how the second column you order on only steps in when the firs
 
 Now you know how to sort results! Often you'll need to aggregate results. For example, you might want to count the number of male and female employees in your company. Here, what you want is to group all the males together and count them, and group all the females together and count them. In SQL, `GROUP BY` allows you to group a result by one or more columns, like so:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT sex, count(*)
 FROM employees
 GROUP BY sex;
@@ -1455,7 +1504,8 @@ A word of warning: SQL will return an error if you try to `SELECT` a field that 
 
 Note that you can combine `GROUP BY` with `ORDER BY` to group your results, calculate something about them, and then order your results. For example,
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT sex, count(*)
 FROM employees
 GROUP BY sex
@@ -1563,7 +1613,8 @@ Off to the next statement!
 
 In SQL, aggregate functions can't be used in `WHERE` clauses. For example, the following query is invalid:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT release_year
 FROM films
 GROUP BY release_year
@@ -1572,7 +1623,8 @@ WHERE COUNT(title) > 10;
 
 This means that if you want to filter based on the result of an aggregate function, you need another way! That's where the `HAVING` clause comes in. For example,
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT release_year
 FROM films
 GROUP BY release_year

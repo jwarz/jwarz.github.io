@@ -2,6 +2,9 @@
 title: "Introduction to Relational Databases in SQL"
 author: "Joschka Schwarz"
 toc-depth: 2
+execute: 
+  eval: true
+  echo: true
 ---
 
 ```{r}
@@ -10,7 +13,8 @@ toc-depth: 2
 system("psql postgres -U")
 ```
   
-```{r setup, include=FALSE}
+```{r setup}
+#| include: false
 library(DBI)
 con <- dbConnect(RPostgres::Postgres(), 
                  host='localhost', 
@@ -578,7 +582,8 @@ transactions <- readRDS("data/transactions.rds")
 dbWriteTable(con, "transactions", transactions, overwrite = T)
 ```
 
-```{sql, error=TRUE}
+```{sql}
+#| error: true
 -- Let's add a record to the table
 INSERT INTO transactions (transaction_date, amount, fee) 
 VALUES ('2018-24-09', 5454, '30');
@@ -602,7 +607,8 @@ Good work. You can see that data types provide certain *restrictions* on how dat
 
 In the video, you saw that type casts are a possible solution for data type issues. If you know that a certain column stores numbers as `text`, you can *cast* the column to a numeric form, i.e. to `integer`. 
 
-```{sql, eval=F}
+```{sql}
+#| eval: false
 SELECT CAST(some_column AS integer)
 FROM table;
 ```
@@ -614,7 +620,8 @@ Now, the `some_column` column is temporarily represented as `integer` instead of
 1. Execute the given sample code. 
 2. As it doesn't work, add an `integer` type cast at the right place and execute it again.
 
-```{sql, error=TRUE}
+```{sql}
+#| error: true
 -- Calculate the net amount as amount + fee
 SELECT transaction_date, amount + fee AS net_amount 
 FROM transactions;
@@ -664,7 +671,8 @@ Let's apply this to your database and add the proper types to your table columns
 
 The syntax for changing the data type of a column is straightforward. The following code changes the data type of the `column_name` column in `table_name` to `varchar(10)`: 
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 ALTER TABLE table_name
 ALTER COLUMN column_name
 TYPE varchar(10)
@@ -707,7 +715,8 @@ If you don't want to reserve too much space for a certain `varchar` column, you 
 
 For this, you can use the following syntax:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 ALTER TABLE table_name
 ALTER COLUMN column_name
 TYPE varchar(x)
@@ -795,7 +804,8 @@ Good job – it is no longer possible to add professors which have either their 
 
 Execute the following statement:
 
-```{sql,error=T}
+```{sql}
+#| error: true
 INSERT INTO professors (firstname, lastname, university_shortname)
 VALUES (NULL, 'Miller', 'ETH');
 ```
@@ -815,7 +825,8 @@ Correct! This statement violates one of the not-null constraints you've just spe
 
 As seen in the video, you add the `UNIQUE` keyword after the `column_name` that should be unique. This, of course, only works for *new* tables: 
 
-```{sq,eval=F}
+```{sql}
+#| eval: false
 CREATE TABLE table_name (
  column_name UNIQUE
 );
@@ -823,7 +834,8 @@ CREATE TABLE table_name (
 
 If you want to add a unique constraint to an *existing* table, you do it like that:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 ALTER TABLE table_name
 ADD CONSTRAINT some_name UNIQUE(column_name);
 ```
@@ -894,7 +906,8 @@ There's a simple way of finding out whether a certain column (or a combination) 
 
 You already know the `SELECT DISTINCT` query from the first chapter. Now you just have to wrap everything within the `COUNT()` function and PostgreSQL will return the number of unique rows for the given columns:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT COUNT(DISTINCT(column_a, column_b, ...))
 FROM table;
 ```
@@ -972,7 +985,8 @@ Let's go add these keys.
 
 Have a look at the example table from the previous video. As the database designer, you have to make a wise choice as to which column should be the primary key.
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
      license_no     | serial_no |    make    |  model  | year
 --------------------+-----------+------------+---------+------
  Texas ABC-739      | A69352    | Ford       | Mustang |    2
@@ -1000,7 +1014,8 @@ Two of the tables in your database already have well-suited candidate keys consi
 
 In this exercise, you'll rename these columns to `id` using the `RENAME COLUMN` command and then specify primary key constraints for them. This is as straightforward as adding unique constraints (see the last exercise of Chapter 2):
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 ALTER TABLE table_name
 ADD CONSTRAINT some_name PRIMARY KEY (column_name)
 ```
@@ -1118,7 +1133,8 @@ Another strategy to add a surrogate key to an existing table is to concatenate e
 
 Let's think of the following example table:
 
-```{sql, include=F}
+```{sql}
+#| include: false
 DROP TABLE IF EXISTS cars;
 ```
 
@@ -1132,7 +1148,8 @@ CREATE TABLE cars (
 
 The table is populated with **10** rows of *completely fictional* data. 
 
-```{r,include=FALSE}
+```{r}
+#| include: false
 cars <- readRDS("data/cars.rds")
 dbWriteTable(con, "cars", cars, overwrite = T)
 ```
@@ -1204,7 +1221,8 @@ Let's think of an entity type "student". A student has:
 
 *Note that there is no formal length requirement for the integer column. The application would have to make sure it's a correct SSN!*
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 -- Create the table
 CREATE TABLE students (
   last_name varchar(128) NOT NULL,
@@ -1261,7 +1279,8 @@ In your database, you want the `professors` table to reference the `universities
 
 As just shown in the video, the syntax for that looks like this: 
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 ALTER TABLE a 
 ADD CONSTRAINT a_fkey FOREIGN KEY (b_id) REFERENCES b (id);
 ```
@@ -1302,7 +1321,8 @@ The foreign key on `professors` referencing `universities` you just created thus
 1. Run the sample code and have a look at the error message.
 2. What's wrong? Correct the `university_id` so that it actually reflects where Albert Einstein wrote his dissertation and became a professor – at the University of Zurich (UZH)!
 
-```{sql,error=T}
+```{sql}
+#| error: true
 -- Try to insert a new professor
 INSERT INTO professors (firstname, lastname, university_id)
 VALUES ('Albert', 'Einstein', 'MIT');
@@ -1324,7 +1344,8 @@ You might already know how SQL joins work from the <a href="https://www.datacamp
 
 Here's a quick recap on how joins generally work:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT ...
 FROM table_a
 JOIN table_b
@@ -1415,7 +1436,8 @@ Now it's time to also populate `professors_id`. You'll take the ID directly from
 Here's a way to update columns of a table based on values in another table: 
 
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 UPDATE table_a
 SET column_to_update = table_b.column_to_update_from
 FROM table_b
@@ -1520,7 +1542,8 @@ Let's practice this a bit and change the referential integrity behavior of your 
 
 ## Referential integrity violations
 
-```{sql, error=T}
+```{sql}
+#| error: true
 DELETE FROM universities WHERE id = 'EPF';
 ```
 
@@ -1624,7 +1647,8 @@ In this exercise, you will find out which university has the most affiliations (
 
 As a quick repetition, remember that joins have the following structure:
 
-```{sql,eval=F}
+```{sql}
+#| eval: false
 SELECT table_a.column1, table_a.column2, table_b.column1, ... 
 FROM table_a
 JOIN table_b 
@@ -1716,3 +1740,14 @@ ORDER BY count DESC;
 ```
 
 Good job! The professor with `id` 538 has the most affiliations in the "Media & communication" sector, and he or she lives in the city of Lausanne. Thanks to your database design, you can be sure that the data you've just queried is consistent. Of course, you could also put `university_city` and `organization_sector` in their own tables, making the data model even more formal. However, in database design, you have to strike a balance between modeling overhead, desired data consistency, and usability for queries like the one you\\'ve just wrote. Congratulations, you made it to the end!
+
+```{r}
+#| include: false
+dbRemoveTable(con, "affiliations")
+dbRemoveTable(con, "cars")
+dbRemoveTable(con, "organizations")
+dbRemoveTable(con, "professors")
+dbRemoveTable(con, "transactions")
+dbRemoveTable(con, "universities")
+dbRemoveTable(con, "university_professors")
+```
