@@ -1,12 +1,7 @@
 ---
 title: "Intermediate R"
 author: "Joschka Schwarz"
-toc-depth: 2
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = F)
-```
 
 **Sshort Description**
 
@@ -16,7 +11,7 @@ Discover conditional statements, loops, and functions to power your own R script
 
 Intermediate R is the next stop on your journey in mastering the R programming language. In this R training, you will learn about conditional statements, loops, and functions to power your own R scripts. Next, make your R code more efficient and readable using the apply functions. Finally, the utilities chapter gets you up to speed with regular expressions in R, data structure manipulations, and times and dates. This course will allow you to take the next step in advancing your overall knowledge and capabilities while programming in R.
 
-# 1. Conditionals and Control Flow
+# Conditionals and Control Flow
 
 In this chapter, you'll learn about relational operators for comparing R objects, and logical operators like "and" and "or" for combining TRUE and FALSE values.  Then, you'll use this knowledge to build conditional statements.
 
@@ -56,25 +51,20 @@ You can also compare vectors to vectors; suppose you also recorded the number of
 
 Just as for vectors, R also knows how to compare other data structures, such as matrices and lists. Head over the interactive exercises and add Relational Operators to your ever growing R skillset!
 
-## Equality
+### Equality
 
 The most basic form of comparison is equality. Let's briefly recap its syntax. The following statements all evaluate to `TRUE` (feel free to try them out in the console).
 
 ```{r}
+#| collapse: true
 3 == (2 + 1)
-#> [1] TRUE
 
 "intermediate" != "r"
-#> [1] TRUE
 
 TRUE != FALSE
-#> [1] TRUE
 
 "Rchitect" != "rchitect"
-#> [1] TRUE
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Notice from the last expression that R is case sensitive: "R" is not equal to "r". Keep this in mind when solving the exercises in this chapter!
 
@@ -86,43 +76,34 @@ Notice from the last expression that R is case sensitive: "R" is not equal to "r
 4. Finally, find out what happens if you compare logicals to numerics: are `TRUE` and 1 equal?
 
 ```{r}
+#| collapse: true
 # Comparison of logicals
 TRUE == FALSE
-#> [1] FALSE
 
 # Comparison of numerics
 -6*14 != 17-101
-#> [1] FALSE
 
 # Comparison of character strings
 "useR" == "user"
-#> [1] FALSE
 
 # Compare a logical with a numeric
 TRUE == 1
-#> [1] TRUE
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Awesome! Since `TRUE` coerces to `1` under the hood, `TRUE == 1` evaluates to `TRUE`. Make sure not to mix up `==` (comparison) and `=` (assignment), `==` is what need to check the equality of R objects.
 
-## Greater and less than
+### Greater and less than
 
 Apart from equality operators, Filip also introduced the *less than* and *greater than* operators: `<` and `>`. You can also add an equal sign to express *less than or equal to* or *greater than or equal to*, respectively. Have a look at the following R expressions, that all evaluate to `FALSE`:
 
 ```{r}
+#| collapse: true
 (1 + 2) > 4
-#> [1] FALSE
 
 "dog" < "Cats"
-#> [1] FALSE
 
 TRUE <= FALSE
-#> [1] FALSE
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Remember that for string comparison, R determines the *greater than* relationship based on alphabetical order. Also, keep in mind that `TRUE` is treated as `1` for arithmetic, and `FALSE` is treated as `0`. Therefore, `FALSE < TRUE` is `TRUE`.
 
@@ -135,24 +116,21 @@ Remember that for string comparison, R determines the *greater than* relationshi
     * TRUE is greater than FALSE.
 
 ```{r}
+#| collapse: true
+#| code-fold: true
 # Comparison of numerics
 -6*5+2>=-10+1
-#> [1] FALSE
 
 # Comparison of character strings
 "raining" <= "raining dogs"
-#> [1] TRUE
 
 # Comparison of logicals
 TRUE > FALSE
-#> [1] TRUE
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Great job! Make sure to have a look at the console output to see if R returns the results you expected.
 
-## Compare vectors
+### Compare vectors
 
 You are already aware that R is very good with vectors. Without having to change anything about the syntax, R's relational operators also work on vectors.
 
@@ -167,28 +145,24 @@ Let's go back to the example that was started in the video. You want to figure o
     * When was your LinkedIn profile visited more often than your Facebook profile?
 
 ```{r}
+#| collapse: true
 # The linkedin and facebook vectors have already been created for you
 linkedin <- c(16, 9, 13, 5, 2, 17, 14)
 facebook <- c(17, 7, 5, 16, 8, 13, 14)
 
 # Popular days
 linkedin > 15
-#> [1]  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE
 
 # Quiet days
 linkedin <= 5
-#> [1] FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE
 
 # LinkedIn more popular than Facebook
 linkedin > facebook
-#> [1] FALSE  TRUE  TRUE FALSE FALSE  TRUE FALSE
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Wonderful! Have a look at the console output. Your LinkedIn profile was pretty popular on the sixth day, but less so on the fourth and fifth day.
 
-## Compare matrices
+### Compare matrices
 
 R's ability to deal with different data structures for comparisons does not stop at vectors. Matrices and relational operators also work together seamlessly!
 
@@ -202,23 +176,16 @@ Instead of in vectors (as in the previous exercise), the LinkedIn and Facebook d
     * For which days were the number of views less than or equal to 14? Again, have R return a logical matrix.
 
 ```{r}
+#| collapse: true
 # The social data has been created for you
 views <- matrix(c(linkedin, facebook), nrow = 2, byrow = TRUE)
 
 # When does views equal 13?
 views == 13
-#>       [,1]  [,2]  [,3]  [,4]  [,5]  [,6]  [,7]
-#> [1,] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
-#> [2,] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
 
 # When is views less than or equal to 14?
 views <= 14
-#>       [,1] [,2] [,3]  [,4] [,5]  [,6] [,7]
-#> [1,] FALSE TRUE TRUE  TRUE TRUE FALSE TRUE
-#> [2,] FALSE TRUE TRUE FALSE TRUE  TRUE TRUE
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Nice job! This exercise concludes the part on comparators. Now that you know how to query the relation between R objects, the next step will be to use the results to alter the behavior of your programs. 
 
@@ -274,22 +241,21 @@ You can see similar things happening with the OR operator. The single sign versi
 
 Another difference between a single and a double ampersand or a vertical bar that is less obvious has something to do with control structures, but that's more advanced material. For now, just remember that you have to pay attention when doing logical operations on vectors. You will very likely want to use the single sign versions.
 
-## & and |
+### & and |
 
 Before you work your way through the next exercises, have a look at the following R expressions. All of them will evaluate to `TRUE`:
 
 ```{r}
+#| collapse: true
 TRUE & TRUE
-#> [1] TRUE
-FALSE | TRUE
-#> [1] TRUE
-5 <= 5 & 2 < 3
-#> [1] TRUE
-3 < 4 | 7 < 6
-#> [1] TRUE
-```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
+FALSE | TRUE
+
+5 <= 5 & 2 < 3
+
+3 < 4 | 7 < 6
+
+```
 
 Watch out: `3 < x < 7` to check if `x` is between 3 and 7 will not work; you'll need `3 < x & x < 7` for that.
 
@@ -303,22 +269,19 @@ In this exercise, you'll be working with the `last` variable. This variable equa
     * Is `last` between 15 and 20, excluding 15 but including 20?
 
 ```{r}
+#| collapse: true
 last <- tail(linkedin, 1)
 
 # Is last under 5 or above 10?
 last < 5 | last > 10
-#> [1] TRUE
 
 # Is last between 15 (exclusive) and 20 (inclusive)?
 last > 15 & last <= 20
-#> [1] FALSE
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Great! Do the results of the different expressions make sense?
 
-## & and | (2)
+### & and | (2)
 
 Like relational operators, logical operators work perfectly fine with vectors and matrices.
 
@@ -331,39 +294,31 @@ Both the vectors `linkedin` and `facebook` are available again. Also a matrix - 
 3. When is the `views` matrix equal to a number between 11 and 14, excluding 11 and including 14?
 
 ```{r}
+#| collapse: true
 # linkedin exceeds 10 but facebook below 10
 linkedin > 10 & facebook < 10
-#> [1] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
 
 # When were one or both visited at least 12 times?
 linkedin >= 12 | facebook >= 12
-#> [1]  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE
 
 # When is views between 11 (exclusive) and 14 (inclusive)?
 views > 11 & views <= 14
-#>       [,1]  [,2]  [,3]  [,4]  [,5]  [,6] [,7]
-#> [1,] FALSE FALSE  TRUE FALSE FALSE FALSE TRUE
-#> [2,] FALSE FALSE FALSE FALSE FALSE  TRUE TRUE
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Bravo! You'll have noticed how easy it is to use logical operators to vectors and matrices. What do these results tell us? The third day of the recordings was the only day where your LinkedIn profile was visited more than 10 times, while your Facebook profile wasn't. Can you draw similar conclusions for the other results?
 
-## Reverse the result: !
+### Reverse the result: !
 
 On top of the `&` and `|` operators, you also learned about the `!` operator, which negates a logical value. To refresh your memory, here are some R expressions that use `!`. They all evaluate to `FALSE`:
 
 ```{r}
+#| collapse: true
 !TRUE
-#> [1] FALSE
-!(5 > 3)
-#> [1] FALSE
-!!FALSE
-#> [1] FALSE
-```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
+!(5 > 3)
+
+!!FALSE
+```
 
 > *Question*
 > ---
@@ -377,12 +332,9 @@ On top of the `&` and `|` operators, you also learned about the `!` operator, wh
 x <- 5
 y <- 7
 !(!(x < 4) & !!!(y > 12))
-#> [1] FALSE
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
-## Blend it all together
+### Blend it all together
 
 With the things you've learned by now, you're able to solve pretty cool problems.
 
@@ -395,7 +347,7 @@ Instead of recording the number of views for your own LinkedIn profile, suppose 
 2. Use `second` to create a logical vector, that contains `TRUE` if the corresponding number of views is strictly greater than 25 or strictly lower than 5 and `FALSE` otherwise. Store this logical vector as `extremes`.
 3. Use `sum()` on the `extremes` vector to calculate the number of `TRUE`s in `extremes` (i.e. to calculate the number of employees that are either very popular or very low-profile). Simply print this number to the console.
 
-```{r,eval=TRUE}
+```{r}
 # load li_df in your workspace
 li_df <- readr::read_rds("data/li_df.rds")
 
@@ -458,11 +410,12 @@ Finally, what happens when x equals 5? Well, the if condition evaluates to FALSE
 
 Remember that as soon as R stumbles upon a condition that evaluates to TRUE, R executes the corresponding code and then ignores the rest of the control structure. This becomes important if the conditions you list are not mutually exclusive. Have a look at this example, that sees if a number is divisible by 2 or by 3.When x equals 6, the first condition evaluates to TRUE, so R prints out "divisible by 2". Now R exits the control structure and will not look at the rest of the statements. So although the second condition, for the else if part, would evaluate to TRUE, nothing gets printed out.
 
-## The if statement
+### The if statement
 
 Before diving into some exercises on the `if` statement, have another look at its syntax:
 
 ```{r}
+#| eval: false
 if (condition) {
   expr
 }
@@ -476,6 +429,7 @@ Remember your vectors with social profile views? Let's look at it from another a
 2. Code an `if` statement that prints `"You are popular!"` to the console if the `num_views` variable exceeds 15.
 
 ```{r}
+#| collapse: true
 # Variables related to your last day of recordings
 medium    <- "LinkedIn"
 num_views <- 14
@@ -484,7 +438,6 @@ num_views <- 14
 if (medium == "LinkedIn") {
   print("Showing LinkedIn information")
 }
-#> [1] "Showing LinkedIn information"
 
 # Write the if statement for num_views
 if (num_views > 15) {
@@ -492,15 +445,14 @@ if (num_views > 15) {
 }
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
 Great! Try to see what happens if you change the `medium` and `num_views` variables and run your code again. Let's further customize these if statements in the next exercise.
 
-## Add an else
+### Add an else
 
 You can only use an `else` statement in combination with an `if` statement. The `else` statement does not require a condition; its corresponding code is simply run if all of the preceding conditions in the control structure are `FALSE`. Here's a recipe for its usage:
 
 ```{r}
+#| eval: false
 if (condition) {
   expr1
 } else {
@@ -520,13 +472,13 @@ Both `if` statements that you coded in the previous exercises are already availa
     * R prints out "Try to be more visible!" when the if-condition on `num_views` is not met.
 
 ```{r}
+#| collapse: true
 # Control structure for medium
 if (medium == "LinkedIn") {
   print("Showing LinkedIn information")
 } else {
   print("Unknown medium")
 }
-#> [1] "Showing LinkedIn information"
 
 # Control structure for num_views
 if (num_views > 15) {
@@ -534,18 +486,16 @@ if (num_views > 15) {
 } else {
   print("Try to be more visible!")
 }
-#> [1] "Try to be more visible!"
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Great job! You also had Facebook information available, remember? Time to add some more statements to our control structures using `else if`!
 
-## Customize further: else if
+### Customize further: else if
 
 The `else if` statement allows you to further customize your control structure. You can add as many `else if` statements as you like. Keep in mind that R ignores the remainder of the control structure once a condition has been found that is `TRUE` and the corresponding expressions have been executed. Here's an overview of the syntax to freshen your memory:
 
 ```{r}
+#| eval: false
 if (condition1) {
   expr1
 } else if (condition2) {
@@ -561,13 +511,13 @@ if (condition1) {
 
 **Steps**
 
-
 1. Add code to both control structures such that:
 
     * R prints out "Showing Facebook information" if `medium` is equal to "Facebook". Remember that R is case sensitive!
     * "Your number of views is average" is printed if `num_views` is between 15 (inclusive) and 10 (exclusive).\nFeel free to change the variables `medium` and `num_views` to see how the control structure respond. In both cases, the existing code should be extended in the `else if` statement. No existing code should be modified.
 
 ```{r}
+#| collapse: true
 # Control structure for medium
 if (medium == "LinkedIn") {
   print("Showing LinkedIn information")
@@ -577,7 +527,6 @@ if (medium == "LinkedIn") {
 } else {
   print("Unknown medium")
 }
-#> [1] "Showing LinkedIn information"
 
 # Control structure for num_views
 if (num_views > 15) {
@@ -588,16 +537,14 @@ if (num_views > 15) {
 } else {
   print("Try to be more visible!")
 }
-#> [1] "Your number of views is average"
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
-## Else if 2.0
+### Else if 2.0
 
 You can do anything you want inside if-else constructs. You can even put in another set of conditional statements. Examine the following code chunk:
 
 ```{r}
+#| eval: false
 if (number < 10) {
   if (number < 5) {
     result <- "extra small"
@@ -628,7 +575,7 @@ Have a look at the following statements:
 > ✅ 1 and 3<br>
 > ⬜ 2 and 3<br>
 
-## Take control!
+### Take control!
 
 In this exercise, you will combine everything that you've learned so far: relational operators, logical operators and control constructs. You'll need it all!
 
@@ -659,13 +606,9 @@ if (li >= 15 & fb >= 15) {
 
 # Print the resulting sms to the console
 sms
-#> [1] 24
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
-
-# 2. Loops
+# Loops
 
 Loops can come in handy on numerous occasions. While loops are like repeated if statements, the for loop is designed to iterate over all elements in a sequence. Learn about them in this chapter.
 
@@ -720,11 +663,12 @@ If we now run this code in R, the line "ctr is set to 1" would be printed indefi
 
 There's one more thing I want to discuss before you get started with the exercises. The break statement.The break statement simply breaks out of the while loop: when R finds it, it abandons the currently active while loop.Suppose we want R to stop our while loop from before as soon as the value of ctr is divisible by 5. We can do this with a break statement.If we now run this piece of code, the sentence is only printed out 4 times, for the ctr values 1 to 4. If we check out the ctr variable, it is equal to 5, because for ctr equal to 5, the condition that checked if ctr was divisible by 5 became TRUE, and the while loop was abandoned.
 
-## Write a while loop
+### Write a while loop
 
 Let's get you started with building a `while` loop from the ground up. Have another look at its recipe:
 
 ```{r}
+#| eval: false
 while (condition) {
   expr
 }
@@ -745,6 +689,7 @@ Have a look at the sample code provided; it initializes the `speed` variables an
     * Inside the body of the `while` loop, decrease the `speed` by 7 units and assign this new  value to `speed` again. This step is crucial; otherwise your `while` loop will never stop and *your session will expire*.
 
 ```{r}
+#| collapse: true
 # Initialize the speed variable
 speed <- 64
 
@@ -754,20 +699,12 @@ while (speed > 30) {
 print("Slow down!")  
 speed <- speed - 7
 }
-#> [1] "Slow down!"
-#> [1] "Slow down!"
-#> [1] "Slow down!"
-#> [1] "Slow down!"
-#> [1] "Slow down!"
 
 # Print out the speed variable
 speed
-#> [1] 29
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
-## Throw in more conditionals
+### Throw in more conditionals
 
 In the previous exercise, you simulated the interaction between a driver and a driver's assistant: When the speed was too high, "Slow down!" got printed out to the console, resulting in a decrease of your speed by 7 units. 
 
@@ -784,6 +721,7 @@ A `while` loop similar to the one you've coded in the previous exercise is alrea
 If the session keeps timing out and throwing an error, you are probably stuck in an infinite loop! Check the body of your `while` loop and make sure you are assigning new values to `speed`.
 
 ```{r}
+#| collapse: true
 # Extend/adapt the while loop
 while (speed > 30) {
   print(paste("Your speed is",speed))
@@ -799,19 +737,9 @@ while (speed > 30) {
   speed <- speed - 6  
   }
 }
-#> [1] "Your speed is 64"
-#> [1] "Slow down big time!"
-#> [1] "Your speed is 53"
-#> [1] "Slow down big time!"
-#> [1] "Your speed is 42"
-#> [1] "Slow down!"
-#> [1] "Your speed is 36"
-#> [1] "Slow down!"
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
-## Stop the while loop: break
+### Stop the while loop: break
 
 There are some very rare situations in which severe speeding is necessary: what if a hurricane is approaching and you have to get away as quickly as possible? You don't want the driver's assistant sending you speeding notifications in that scenario, right?
 
@@ -822,6 +750,7 @@ This seems like a great opportunity to include the `break` statement in the `whi
 1. Adapt the `while` loop such that it is abandoned when the `speed` of the vehicle is greater than 80. This time, the `speed` variable has been initialized to 88; keep it that way.
 
 ```{r}
+#| collapse: true
 # Initialize the speed variable
 speed <- 88
 
@@ -841,12 +770,9 @@ while (speed > 30) {
     speed <- speed - 6
   }
 }
-#> [1] "Your speed is 88"
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
-## Build a while loop from scratch
+### Build a while loop from scratch
 
 The previous exercises guided you through developing a pretty advanced `while` loop, containing a `break` statement and different messages and updates as determined by control flow constructs. If you manage to solve this comprehensive exercise using a `while` loop, you're totally ready for the next topic: the `for` loop.
 
@@ -859,6 +785,7 @@ The previous exercises guided you through developing a pretty advanced `while` l
     * is abandoned with a `break` if the triple of `i` is divisible by 8, but still prints out this triple before breaking.
 
 ```{r}
+#| code-fold: true
 # Initialize i as 1 
 i <- 1
 
@@ -870,53 +797,83 @@ while (i <= 10) {
   }
   i <- i + 1
 }
-#> [1] 3
-#> [1] 6
-#> [1] 9
-#> [1] 12
-#> [1] 15
-#> [1] 18
-#> [1] 21
-#> [1] 24
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 ## For loop
 
 Theory. Coming soon ...
 
-## Loop over a vector
+1. For loop
+The for loop is somewhat different from the while loop. Have a look at this 'recipe'.
+
+2. for loop
+This can be read as: for each var, a variable, in seq, a sequence, execute expressions. Makes sense? Let's see how this actually works with an example. Suppose you have a vector, cities, containing the names of a number of cities. We can simply print the cities vector to the console. But suppose we want to have a different printout for every element in the vector. We can accomplish this using a for loop.
+
+3. for loop
+Let's start from the recipe and convert it to a functional for loop step by step.
+
+4. for loop
+Inside the parentheses, we write 'city in cities', meaning that we want to execute the code in the expression block for every city in the cities vector.
+
+5. for loop
+We'll simply replace the expression by a simple print statement for starters. How does R handle this code? At the start of the loop, R evaluates the seq element, being cities in our case. It realizes that it is a vector containing 6 elements. Next, R stores the first element of this sequence in the variable city, so city equals "New York" now.
+
+6. for loop
+Then, the expression, print(city), is executed, printing out "New York" to the console.
+
+7. for loop
+After the execution, R stores the second element of the cities vector, "Paris", in city and re-runs the code. This process repeats itself until all cities in the cities vector are iterated over.
+
+8. for loop
+The final result looks like this: for each city, a separate printout was done.
+
+9. for loop over list
+The for loop does not only work on vectors: it also works with lists for example. Suppose that the cities vector is a list instead of a vector: The exact same for loop as we've been using before can be used for lists, and the result is exactly the same. So there's no need to worry about the difference between subsetting vectors and lists, because the for loop does this for us. I would encourage you to try the for loop with different data structures as well, such as matrices and data frames. I won't go into detail on these in this video. Instead, I want to talk about two control statements for loops. The first one is break, and the second one is next.
+
+10. break statement
+The break statement is a statement that you already know: just like in the while loop, break in a for loop simply stops the execution of the code and abandons the for loop altogether. Suppose we want to leave the for loop as soon as we encounter a city that consists of 6 characters. We can use the nchar function, which stands for number of characters, inside an if statement for this: How will R deal with this code? Well, for the first city in the cities vector, "New York", the nchar condition is false, so the "New York" still gets printed to the console. The same happens for "Paris". But in the third iteration, when city is equal to "London", the nchar condition is TRUE, causing the for loop to break. Since the break construct comes before the print command, the character string "London" is not printed to the console anymore.
+
+11. break statement
+If we run the code, we see that indeed, only "New York" and "Paris" get printed to the console, after which the for loop is abandoned.
+
+12. next statement
+The next statement also alters the flow of your for loop, but does so in a slightly different way. Let's see what happens if we change the break statement by the next statement and execute the entire loop again. All city names except for "London" get printed to the console. How could this happen? Because the next statement skips the remainder of the code inside the for loop and proceeds to the next iteration. So as soon as next is encountered, the print(city) part is not processed and the for loop is continued. Of course it is perfectly possible to use both break and next in the for loop.
+
+13. for loop: v2
+Before you can have some more looping fun in the exercises, I want to talk about another way we can loop over different data structures. Let's retake the basic for loop that prints the city names that are stored in a vector. Suppose that instead of simply printing out the city's name, we also want to give information on the city's position inside the vector. We can't use this construct, given that we don't have access to the so-called looping index. This index is a counter that R uses behind the scenes to know which element to select on every iteration. In the first iteration, the looping index is 1, and the first element of the cities vector is selected. But what if we want to use this looping vector ourselves? There's no way for us to access it. Fortunately, we can easily solve this. Instead of iterating over the cities, we can manually create a looping index ourselves. Let's start with changing the looping details.
+
+14. for loop: v2
+Now, we let i progress from 1 to length of the cities vector, which is 6, by steps of 1. Remember that 1 colon 6 is a compact way of coding the a vector containing the elements 1, 2, 3, 4, 5 and 6. By using a manual looping index, we lose our city variable, so we have to change the contents of the for loop as well.
+
+15. for loop: v2
+We now do the subsetting of the vector explicitly, using square brackets. The result is exactly the same as before. This might seem a bit more work, but we now gain access to the index as well.
+
+16. for loop: v2
+Adding some more information is easier now.
+
+17. for loop: wrap-up
+I can imagine that you're wondering, "Which one of the two is best?" It depends. The first one, the city in cities version, is typically more concise and easier to read, but does not give access to all looping information. The version with the explicit looping index takes more thought to write, but gives you all the information you need.
+
+18. Let's practice!
+
+### Loop over a vector
 
 In the previous video, Filip told you about two different strategies for using the `for` loop. To refresh your memory, consider the following loops that are equivalent in R:
 
 ```{r}
+#| collapse: true
 primes <- c(2, 3, 5, 7, 11, 13)
 
 # loop version 1
 for (p in primes) {
   print(p)
 }
-#> [1] 2
-#> [1] 3
-#> [1] 5
-#> [1] 7
-#> [1] 11
-#> [1] 13
 
 # loop version 2
 for (i in 1:length(primes)) {
   print(primes[i])
 }
-#> [1] 2
-#> [1] 3
-#> [1] 5
-#> [1] 7
-#> [1] 11
-#> [1] 13
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Remember our `linkedin` vector? It's a vector that contains the number of views your LinkedIn profile had in the last seven days. The `linkedin` vector has been pre-defined so that you can fully focus on the instructions!
 
@@ -926,6 +883,7 @@ Remember our `linkedin` vector? It's a vector that contains the number of views 
 1. Write a `for` loop that iterates over all the elements of `linkedin` and prints out every element separately. Do this in two ways: using the *loop version 1* and the *loop version 2* in the example code above.
 
 ```{r}
+#| collapse: true
 # The linkedin vector has already been defined for you
 linkedin <- c(16, 9, 13, 5, 2, 17, 14)
 
@@ -933,60 +891,31 @@ linkedin <- c(16, 9, 13, 5, 2, 17, 14)
 for(l in linkedin){
   print(l)
 }
-#> [1] 16
-#> [1] 9
-#> [1] 13
-#> [1] 5
-#> [1] 2
-#> [1] 17
-#> [1] 14
 
 # Loop version 2
 for(l in 1:length(linkedin)){
   print(linkedin[l])
 }
-#> [1] 16
-#> [1] 9
-#> [1] 13
-#> [1] 5
-#> [1] 2
-#> [1] 17
-#> [1] 14
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
-## Loop over a list
+### Loop over a list
 
 Looping over a list is just as easy and convenient as looping over a vector. There are again two different approaches here:
 
 ```{r}
+#| collapse: true
 primes_list <- list(2, 3, 5, 7, 11, 13)
 
 # loop version 1
 for (p in primes_list) {
   print(p)
 }
-#> [1] 2
-#> [1] 3
-#> [1] 5
-#> [1] 7
-#> [1] 11
-#> [1] 13
 
 # loop version 2
 for (i in 1:length(primes_list)) {
   print(primes_list[[i]])
 }
-#> [1] 2
-#> [1] 3
-#> [1] 5
-#> [1] 7
-#> [1] 11
-#> [1] 13
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Notice that you need double square brackets - `[[ ]]` - to select the list elements in loop version 2.
 
@@ -1000,6 +929,7 @@ Suppose you have a list of all sorts of information on New York City: its popula
     * Define a looping index and do subsetting using double brackets (loop version 2).
 
 ```{r}
+#| collapse: true
 # The nyc list is already specified
 nyc <- list(pop      = 8405837, 
             boroughs = c("Manhattan", "Bronx", "Brooklyn", "Queens", "Staten Island"), 
@@ -1011,10 +941,6 @@ for(i in nyc) {
   print(i)
   
 }
-#> [1] 8405837
-#> [1] "Manhattan"     "Bronx"         "Brooklyn"      "Queens"       
-#> [5] "Staten Island"
-#> [1] FALSE
 
 # Loop version 2
 for(j in 1:length(nyc)) {
@@ -1022,23 +948,18 @@ for(j in 1:length(nyc)) {
   print(nyc[[j]])
 
 }
-#> [1] 8405837
-#> [1] "Manhattan"     "Bronx"         "Brooklyn"      "Queens"       
-#> [5] "Staten Island"
-#> [1] FALSE
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 `for` loops can also be used for matrices. Let's put that to a test in the next exercise.
 
-## Loop over a matrix
+### Loop over a matrix
 
 In your workspace, there's a matrix `ttt`, that represents the status of a <a href="http://en.wikipedia.org/wiki/Tic-tac-toe" target="_blank" rel="noopener noreferrer">tic-tac-toe</a> game. It contains the values "X", "O" and "NA". Print out `ttt` to get a closer look. On row 1 and column 1, there's "O", while on row 3 and column 2 there's "NA". 
 
 To solve this exercise, you'll need a `for` loop inside a `for` loop, often called a nested loop. Doing this in R is a breeze! Simply use the following recipe:
 
 ```{r}
+#| eval: false
 for (var1 in seq1) {
   for (var2 in seq2) {
     expr
@@ -1056,6 +977,7 @@ for (var1 in seq1) {
     * Inside the inner loop, make use of `print()` and `paste()` to print out information in the following format: "On row i and column j the board contains x", where `x` is the value on that position.
 
 ```{r}
+#| collapse: true
 # The tic-tac-toe matrix ttt has already been defined for you
 ttt_values <- c("0", NA, "X", NA, "0", "0", "X", NA, "X")
 ttt        <- matrix(ttt_values, byrow=TRUE, nrow=3)
@@ -1067,20 +989,9 @@ for (i in 1:nrow(ttt)) {
     print(paste("On row", i, "and column", j, "the board contains",ttt[i,j]))
   }
 }
-#> [1] "On row 1 and column 1 the board contains 0"
-#> [1] "On row 1 and column 2 the board contains NA"
-#> [1] "On row 1 and column 3 the board contains X"
-#> [1] "On row 2 and column 1 the board contains NA"
-#> [1] "On row 2 and column 2 the board contains 0"
-#> [1] "On row 2 and column 3 the board contains 0"
-#> [1] "On row 3 and column 1 the board contains X"
-#> [1] "On row 3 and column 2 the board contains NA"
-#> [1] "On row 3 and column 3 the board contains X"
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
-## Mix it up with control flow
+### Mix it up with control flow
 
 Let's return to the *LinkedIn* profile views data, stored in a vector `linkedin`. In the first exercise on `for` loops you already did a simple printout of each element in this vector. A little more in-depth interpretation of this data wouldn't hurt, right? Time to throw in some conditionals! As with the `while` loop, you can use the `if` and `else` statements inside the `for` loop.
 
@@ -1092,6 +1003,7 @@ Let's return to the *LinkedIn* profile views data, stored in a vector `linkedin`
     * If the vector element's value does not exceed 10, print out "Be more visible!"
 
 ```{r}
+#| collapse: true
 # The linkedin vector has already been defined for you
 linkedin <- c(16, 9, 13, 5, 2, 17, 14)
 
@@ -1104,32 +1016,15 @@ for (li in linkedin) {
   }
   print(li)
 }
-#> [1] "You're popular!"
-#> [1] 16
-#> [1] "Be more visible!"
-#> [1] 9
-#> [1] "You're popular!"
-#> [1] 13
-#> [1] "Be more visible!"
-#> [1] 5
-#> [1] "Be more visible!"
-#> [1] 2
-#> [1] "You're popular!"
-#> [1] 17
-#> [1] "You're popular!"
-#> [1] 14
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Outstanding! In the next exercise, you'll customize this `for` loop even further with `break` and `next` statements.
 
-## Next, you break it
+### Next, you break it
 
 A possible solution to the previous exercise has been provided for you. The code loops over the `linkedin` vector and prints out different messages depending on the values of `li`. 
 
 In this exercise, you will use the `break` and `next` statements:
-
 
 * The `break` statement abandons the active loop: the remaining code in the loop is skipped and the loop is not iterated over anymore.
 * The `next` statement skips the remainder of the code in the loop, but continues the iteration.
@@ -1142,6 +1037,7 @@ In this exercise, you will use the `break` and `next` statements:
     * If the value is lower than 5, print out "This is too embarrassing!" and fast-forward to the next iteration (`next`).
 
 ```{r}
+#| collapse: true
 # The linkedin vector has already been defined for you
 linkedin <- c(16, 9, 13, 5, 2, 17, 14)
 
@@ -1167,30 +1063,15 @@ for (li in linkedin) {
   
   print(li)
 }
-#> [1] "You're popular!"
-#> [1] 16
-#> [1] "Be more visible!"
-#> [1] 9
-#> [1] "You're popular!"
-#> [1] 13
-#> [1] "Be more visible!"
-#> [1] 5
-#> [1] "Be more visible!"
-#> [1] "This is too embarrassing!"
-#> [1] "You're popular!"
-#> [1] "This is ridiculous, I'm outta here!"
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
-## Build a for loop from scratch
+### Build a for loop from scratch
 
 This exercise will not introduce any new concepts on `for` loops.
 
 We already went ahead and defined a variable `rquote`. This variable has been split up into a vector that contains separate letters and has been stored in a vector `chars` with the <a href="http://www.rdocumentation.org/packages/base/functions/strsplit" target="_blank" rel="noopener noreferrer">`strsplit()`</a> function.
 
 Can you write code that counts the number of r's that come before the first u in `rquote`?
-
 
 **Steps**
 
@@ -1227,13 +1108,9 @@ for (char in chars) {
 
 # Print out rcount
 rcount
-#> [1] 5
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
-
-# 3. Functions
+# Functions
 
 Functions are an extremely important concept in almost every programming language, and R is no different. Learn what functions are and how to use them—then take charge by writing your own functions.
 
@@ -1344,13 +1221,10 @@ In the next exercises, you'll be learning how to use the <a href="http://www.rdo
 
 # Inspect the arguments of the mean() function
 args(mean)
-#> function (x, ...) 
-#> NULL
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
 ## Use a function
+### Use a function (1)
 
 The documentation on the <a href="http://www.rdocumentation.org/packages/base/functions/mean" target="_blank" rel="noopener noreferrer">`mean()`</a> function gives us quite some information:
 
@@ -1369,26 +1243,24 @@ Once more, you'll be working with the view counts of your social network profile
 2. Print out both `avg_li` and `avg_fb`.
 
 ```{r}
+#| collapse: true
 # The linkedin and facebook vectors have already been created for you
 linkedin <- c(16, 9, 13, 5, 2, 17, 14)
 facebook <- c(17, 7, 5, 16, 8, 13, 14)
 
 # Calculate average number of views
-
 avg_li <- mean(linkedin)
 avg_fb <- mean(facebook)
+
 # Inspect avg_li and avg_fb
 avg_li
-#> [1] 10.85714
-avg_fb
-#> [1] 11.42857
-```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
+avg_fb
+```
 
 Nice! I'm sure you've already called more advanced R functions in your history as a programmer. Now you also know what actually happens under the hood ;-)
 
-## Use a function (2)
+### Use a function (2)
 
 Check the documentation on the <a href="http://www.rdocumentation.org/packages/base/functions/mean" target="_blank" rel="noopener noreferrer">`mean()`</a> function again:
 
@@ -1400,12 +1272,14 @@ The Usage section of the documentation includes two versions of the <a href="htt
 
 
 ```{r}
+#| eval: false
 mean(x, ...)
 ```
 
 is the most general usage of the mean function. The 'Default S3 method', however, is:
 
 ```{r}
+#| eval: false
 mean(x, trim = 0, na.rm = FALSE, ...)
 ```
 
@@ -1421,6 +1295,7 @@ For the remainder of this exercise, just work with the second usage of the mean 
 3. Print out both `avg_sum` and `avg_sum_trimmed`; can you spot the difference?
 
 ```{r}
+#| collapse: true
 # Calculate the mean of the sum
 avg_sum <- mean(linkedin + facebook)
 
@@ -1429,16 +1304,13 @@ avg_sum_trimmed <- mean(linkedin + facebook, trim = 0.2 )
 
 # Inspect both new variables
 avg_sum
-#> [1] 22.28571
-avg_sum_trimmed
-#> [1] 22.6
-```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
+avg_sum_trimmed
+```
 
 Nice! When the `trim` argument is not zero, it chops off a fraction (equal to `trim`) of the vector you pass as argument `x`.
 
-## Use a function (3)
+### Use a function (3)
 
 In the video, Filip guided you through the example of specifying arguments of the <a href="http://www.rdocumentation.org/packages/stats/functions/sd" target="_blank" rel="noopener noreferrer">`sd()`</a> function. The <a href="http://www.rdocumentation.org/packages/stats/functions/sd" target="_blank" rel="noopener noreferrer">`sd()`</a> function has an optional argument, `na.rm` that specified whether or not to remove missing values from the input vector before calculating the standard deviation.
 
@@ -1446,6 +1318,7 @@ If you've had a good look at the documentation, you'll know by now that the <a h
 
 
 ```{r}
+#| eval: false
 mean(x, trim = 0, na.rm = FALSE, ...)
 ```
 
@@ -1457,28 +1330,22 @@ Let's see what happens if your vectors `linkedin` and `facebook` contain missing
 2. Calculate the average number of LinkedIn profile views, but this time tell R to strip missing values from the input vector.
 
 ```{r}
+#| collapse: true
 # Basic average of linkedin
 mean(linkedin)
-#> [1] NA
 
 # Advanced average of linkedin
 mean(linkedin, na.rm = TRUE)
-#> [1] 12.33333
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
-## Functions inside functions
+### Functions inside functions
 
 You already know that R functions return objects that you can then use somewhere else. This makes it easy to use functions inside functions, as you've seen before:
 
 ```{r}
 speed <- 31
 print(paste("Your speed is", speed))
-#> [1] "Your speed is 31"
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Notice that both the <a href="http://www.rdocumentation.org/packages/base/functions/print" target="_blank" rel="noopener noreferrer">`print()`</a> and <a href="http://www.rdocumentation.org/packages/base/functions/paste" target="_blank" rel="noopener noreferrer">`paste()`</a> functions use the ellipsis - `...` - as an argument. Can you figure out how they're used?
 
@@ -1489,16 +1356,14 @@ Notice that both the <a href="http://www.rdocumentation.org/packages/base/functi
 ```{r}
 # Calculate the mean absolute deviation
 mean(abs(linkedin - facebook), na.rm = TRUE)
-#> [1] 4.8
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
-## Required, or optional?
+### Required, or optional?
 
 By now, you will probably have a good understanding of the difference between required and optional arguments. Let's refresh this difference by having one last look at the <a href="http://www.rdocumentation.org/packages/base/functions/mean" target="_blank" rel="noopener noreferrer">`mean()`</a> function:
 
 ```{r}
+#| eval: false
 mean(x, trim = 0, na.rm = FALSE, ...)
 ```
 
@@ -1597,11 +1462,12 @@ We can simply extend our function with an if-test with a return statement inside
 
 I guess those were my 2 cents on writing functions. Time to get your own R functions rolling!
 
-## Write your own function
+### Write your own function (1)
 
 Wow, things are getting serious… you're about to write your own function! Before you have a go at it, have a look at the following function template:
 
 ```{r}
+#| eval: false
 my_fun <- function(arg1, arg2) {
   body
 }
@@ -1617,6 +1483,7 @@ Notice that this recipe uses the assignment operator (`<-`) just as if you were 
 4. Finally, call the function `sum_abs()` with arguments `-2` and `3` afterwards.
 
 ```{r}
+#| collapse: true
 # Create a function pow_two()
 pow_two <- function(x) {
   
@@ -1626,7 +1493,6 @@ pow_two <- function(x) {
 
 # Use the function
 pow_two(12)
-#> [1] 144
 
 # Create a function sum_abs()
 sum_abs <- function (a, b){
@@ -1637,12 +1503,9 @@ sum_abs <- function (a, b){
 
 # Use the function
 sum_abs(-2, 3)
-#> [1] 5
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
-## Write your own function (2)
+### Write your own function (2)
 
 There are situations in which your function does not require an input. Let's say you want to write a function that gives us the random outcome of throwing a fair die:
 
@@ -1671,17 +1534,14 @@ hello <- function () {
 
 # Call the function hello()
 hello()
-#> [1] "Hi there!"
-#> [1] TRUE
 ```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
-## Write your own function (3)
+### Write your own function (3)
 
 Do you still remember the difference between an argument with and without default values? The usage section in the `sd()` documentation shows the following information:
 
 ```{r}
+#| eval: false
 sd(x, na.rm = FALSE)
 ```
 
@@ -1690,6 +1550,7 @@ This tells us that `x` has to be defined for the `sd()` function to be called co
 You can define default argument values in your own R functions as well. You can use the following recipe to do so:
 
 ```{r}
+#| eval: false
 my_fun <- function(arg1, arg2 = val2) {
   body
 }
@@ -1716,11 +1577,7 @@ pow_two <- function(x, print_info = TRUE) {
 }
 
 pow_two(5)
-#> [1] "5 to the power two equals 25"
-#> [1] 25
 ```
-
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Wonderful! Have you tried calling this `pow_two()` function? Try `pow_two(5)`, `pow_two(5, TRUE)` and `pow_two(5, FALSE)`. Which ones give different results?
 
@@ -1757,7 +1614,7 @@ two_dice <- function() {
 }
 ```
 
-## R passes arguments by value
+### R passes arguments by value
 
 The title gives it away already: R passes arguments by value. What does this mean? Simply put, it means that an R function cannot change the variable that you input to that function. Let's look at a simple example (try it in the console):
 
@@ -1793,8 +1650,8 @@ b <- increment(count)
 count <- increment(count, 2)
 ```
 
-
-## R you functional?
+## Example Case
+### R you functional? (1)
 
 Now that you've acquired some skills in defining functions with different types of arguments and return values, you should try to create more advanced functions. As you've noticed in the previous exercises, it's perfectly possible to add control-flow constructs, loops and even other functions to your function body.
 
@@ -1810,6 +1667,7 @@ Remember our social media example? The vectors `linkedin` and `facebook` are alr
 5. Finally, call the `interpret()` function twice: on the first value of the `linkedin` vector and on the second element of the `facebook` vector.
 
 ```{r}
+#| collapse: true
 # Define the interpret function
 interpret <- function(num_views) {
   if (num_views > 15) {
@@ -1827,18 +1685,13 @@ interpret <- function(num_views) {
 
 # Call the interpret function twice
 interpret(linkedin[1])
-#> [1] "You're popular!"
-#> [1] 16
-interpret(facebook[2])
-#> [1] "Try to be more visible!"
-#> [1] 0
-```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
+interpret(facebook[2])
+```
 
 Funkadelic! The annoying thing here is that `interpret()` only takes one argument. Proceed to the next exercise to implement something more useful.
 
-## R you functional? (2)
+### R you functional? (2)
 
 A possible implementation of the `interpret()` function has been provided for you. In this exercise you'll be writing another function that will use the `interpret()` function to interpret *all* the data from your daily profile views inside a vector. Furthermore, your function will return the sum of views on popular days, if asked for. A `for` loop is ideal for iterating over all the vector elements. The ability to return the sum of views on popular days is something you can code through a function argument with a default value.
 
@@ -1856,6 +1709,7 @@ A possible implementation of the `interpret()` function has been provided for yo
 Call this newly defined function on both `linkedin` and `facebook`.
 
 ```{r}
+#| collapse: true
 # The linkedin and facebook vectors have already been created for you
 linkedin <- c(16, 9, 13, 5, 2, 17, 14)
 facebook <- c(17, 7, 5, 16, 8, 13, 14)
@@ -1892,26 +1746,9 @@ interpret_all <- function(views, return_sum = TRUE) {
 
 # Call the interpret_all() function on both linkedin and facebook
 interpret_all(linkedin)
-#> [1] "You're popular!"
-#> [1] "Try to be more visible!"
-#> [1] "Try to be more visible!"
-#> [1] "Try to be more visible!"
-#> [1] "Try to be more visible!"
-#> [1] "You're popular!"
-#> [1] "Try to be more visible!"
-#> [1] 33
-interpret_all(facebook)
-#> [1] "You're popular!"
-#> [1] "Try to be more visible!"
-#> [1] "Try to be more visible!"
-#> [1] "You're popular!"
-#> [1] "Try to be more visible!"
-#> [1] "Try to be more visible!"
-#> [1] "Try to be more visible!"
-#> [1] 33
-```
 
-<sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
+interpret_all(facebook)
+```
 
 Perfect! Have a look at the results; it appears that the sum of views on popular days are the same for Facebook and LinkedIn, what a coincidence! Your different social profiles must be fairly balanced ;-) 
 
@@ -1952,7 +1789,7 @@ Also, the result of this require function will be FALSE if attaching the package
 
 So to wrap up: the install (dot) packages() function installs packages for you, while library() and require() load them for you. And when you load packages, you're attaching them to a search list, making them available in your current R session.Before you start writing your own functions, first do a quick search for packages that do the same thing. You can simply install and load the package, have a look at the documentation and avoid having to rewrite a bunch of code that's already been written. I'm not saying that you should never write your own functions, but for common problems such as data manipulation or visualization, there are some pretty neat packages out there that will get you up and running in no time.
 
-## Load an R Package
+### Load an R Package
 
 There are basically two extremely important functions when it comes down to R packages:
 
@@ -1977,7 +1814,7 @@ An error should occur, because you haven't loaded the `ggplot2` package yet!
 2. Now, retry calling the <a href="http://www.rdocumentation.org/packages/ggplot2/functions/qplot" target="_blank" rel="noopener noreferrer">`qplot()`</a> function with the same arguments.
 3. Finally, check out the currently attached packages again.
 
-```{r, eval=TRUE}
+```{r}
 # Load the ggplot2 package
 library(ggplot2)
 
@@ -1985,14 +1822,14 @@ library(ggplot2)
 qplot(mtcars$wt, mtcars$hp)
 ```
 
-```{r,eval=TRUE}
+```{r}
 # Check out the currently attached packages again
 search()
 ```
 
 Awesome! Notice how `search()` and `library()` are closely interconnected functions.
 
-## Different ways to load a package
+### Different ways to load a package
 
 The <a href="http://www.rdocumentation.org/packages/base/functions/library" target="_blank" rel="noopener noreferrer">`library()`</a> and <a href="http://www.rdocumentation.org/packages/base/functions/library" target="_blank" rel="noopener noreferrer">`require()`</a> functions are not very picky when it comes down to argument types: both `library(rjson)` and `library("rjson")` work perfectly fine for loading a package.
 
@@ -2000,6 +1837,7 @@ Have a look at some more code chunks that (attempt to) load one or more packages
 
 
 ```{r}
+#| eval: false
 # Chunk 1
 library(data.table)
 require(rjson)
@@ -2025,8 +1863,7 @@ library(c("data.table", "rjson"))
 > ⬜ (1), (2) and (3)<br>
 > ⬜ All of them are valid<br>
 
-# 4. The apply family
-
+# The apply family
 
 Whenever you're using a for loop, you may want to revise your code to see whether you can use the lapply function instead. Learn all about this intuitive way of applying a function over a list or a vector, and how to use its variants, sapply and vapply.
 
@@ -2079,6 +1916,7 @@ In the next set of exercises, you'll get hands on experience with the lapply fun
 Before you go about solving the exercises below, have a look at the documentation of the <a href="http://www.rdocumentation.org/packages/base/functions/lapply" target="_blank" rel="noopener noreferrer">`lapply()`</a> function. The Usage section shows the following expression:
 
 ```{r}
+#| eval: false
 lapply(X, FUN, ...)
 ```
 
@@ -2323,6 +2161,7 @@ You can use <a href="http://www.rdocumentation.org/packages/base/functions/lappl
 
 
 ```{r}
+#| eval: false
 sapply(X, FUN, ...)
 ```
 
@@ -2409,6 +2248,7 @@ Nice! Can you tell the difference between the output of `lapply()` and `sapply()
 Like <a href="http://www.rdocumentation.org/packages/base/functions/lapply" target="_blank" rel="noopener noreferrer">`lapply()`</a>, <a href="http://www.rdocumentation.org/packages/base/functions/lapply" target="_blank" rel="noopener noreferrer">`sapply()`</a> allows you to use self-defined functions and apply them over a vector or a list:
 
 ```{r}
+#| eval: false
 sapply(X, FUN, ...)
 ```
 
@@ -2744,6 +2584,7 @@ Wow, that's a lot of applying that you can do in R now! In fact, there's even mo
 Before you get your hands dirty with the third and last apply function that you'll learn about in this intermediate R course, let's take a look at its syntax. The function is called <a href="http://www.rdocumentation.org/packages/base/functions/lapply" target="_blank" rel="noopener noreferrer">`vapply()`</a>, and it has the following syntax:
 
 ```{r}
+#| eval: false
 vapply(X, FUN, FUN.VALUE, ..., USE.NAMES = TRUE)
 ```
 
@@ -2821,7 +2662,7 @@ vapply(temp, function(x, y) { mean(x) > y }, y = 5, logical(1))
 
 <sup>Created on 2022-01-19 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
-# 5. Utilities
+# Utilities
 
 Mastering R programming is not only about understanding its programming concepts. Having a solid understanding of a wide range of R functions is also important. This chapter introduces you to many useful functions for data structure manipulation, regular expressions, and working with times and dates.
 
@@ -3002,6 +2843,7 @@ Just as before, let's switch roles. It's up to you to see what unforgivable mist
 1. Correct the expression. Make sure that your fix still uses the functions <a href="http://www.rdocumentation.org/packages/base/functions/rep" target="_blank" rel="noopener noreferrer">`rep()`</a> and <a href="http://www.rdocumentation.org/packages/base/functions/seq" target="_blank" rel="noopener noreferrer">`seq()`</a>.
 
 ```{r}
+#| eval: false
 # Fix me
 seq(rep(1, 7, by = 2), times = 7)
 ```
