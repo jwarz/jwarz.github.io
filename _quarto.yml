@@ -61,7 +61,9 @@ website:
               file: content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.qmd
             - text: "3: Introduction to the tidyverse"
               file: content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.qmd
+            - text: "---"
             - text: "<b><i>Importing Data</i></b>"
+            - text: "---"
             - text: "4: Introduction to Importing Data"
               file: content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.qmd
             - text: "5: Intermediate Importing Data"
@@ -79,7 +81,7 @@ website:
               file: content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.qmd
             - text: "10: Data Manipulation with data.table"
               file: content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.qmd
-            - text: "10: Joining Data with data.table"
+            - text: "11: Joining Data with data.table"
               file: content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.qmd
             - text: "---"
             - text: "<b><i>Data Visualization</i></b>"
@@ -178,7 +180,11 @@ format:
     code-line-numbers: true
     code-link: true
     toc: true
-    df-print: kable
+    df-print: paged
     smooth-scroll: true
     link-external-newwindow: false
     linkcolor: '#BC0031'
+knitr:
+  opts_chunk: 
+    R.options:
+      max.print: 10
