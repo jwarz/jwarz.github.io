@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Joschka Schwarz">
 
 <title>Joschka Schwarz - Causal model</title>
 <style>
@@ -297,13 +298,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Contents</h2>
    
-  <ul>
-  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions">Instructions</a></li>
-  <li><a href="#dag-i" id="toc-dag-i" class="nav-link" data-scroll-target="#dag-i">1: DAG I</a></li>
-  <li><a href="#dag-ii" id="toc-dag-ii" class="nav-link" data-scroll-target="#dag-ii">2: DAG II</a></li>
-  <li><a href="#dag-for-your-program" id="toc-dag-for-your-program" class="nav-link" data-scroll-target="#dag-for-your-program">3: DAG for your program</a></li>
+  <ul class="collapse">
+  <li><a href="#instructions" id="toc-instructions" class="nav-link active" data-scroll-target="#instructions"><span class="toc-section-number">1</span>  Instructions</a></li>
+  <li><a href="#dag-i" id="toc-dag-i" class="nav-link" data-scroll-target="#dag-i"><span class="toc-section-number">2</span>  1: DAG I</a></li>
+  <li><a href="#dag-ii" id="toc-dag-ii" class="nav-link" data-scroll-target="#dag-ii"><span class="toc-section-number">3</span>  2: DAG II</a></li>
+  <li><a href="#dag-for-your-program" id="toc-dag-for-your-program" class="nav-link" data-scroll-target="#dag-for-your-program"><span class="toc-section-number">4</span>  3: DAG for your program</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/python/03-eval-dag.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -319,6 +320,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Joschka Schwarz </p>
+          </div>
+  </div>
     
     <div>
     <div class="quarto-title-meta-heading">Published</div>
@@ -335,15 +342,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>For your <a href="../../assignment/final-project.qmd">final project</a>, you will conduct an evaluation for a social program of your choosing. In this assignment, you will decide how to model the causal effect of your program on your primary outcome.</p>
 <p>If you decide to use a different program for your final project, that’s okay! This assignment doesn’t have to be related to your final program, but it would be extraordinarily helpful—a more polished version of this assignment can be included as part of your final project.</p>
-<section id="instructions" class="level2">
-<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<section id="instructions" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="instructions"><span class="header-section-number">1</span> Instructions</h2>
 <p>You need to complete the three sections listed below. Ideally you should type this in R Markdown and knit your document to HTML or Word or PDF, but you can also write in Word if you want (though your final project will need to be in R Markdown, and this would give you practice).</p>
 <p><strong>I’ve created an R Markdown template you can use here:</strong> <a href="../../projects/causal-model.zip"> <code>causal-model.zip</code></a>. It’s also <a href="https://rstudio.cloud/spaces/269500/content/4357670">available on RStudio.cloud</a>.</p>
 <p><strong>Submit this assignment as a PDF or Word file on iCollege.</strong></p>
 <hr>
 </section>
-<section id="dag-i" class="level2">
-<h2 class="anchored" data-anchor-id="dag-i">1: DAG I</h2>
+<section id="dag-i" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="dag-i"><span class="header-section-number">2</span> 1: DAG I</h2>
 <p>Find a news article that makes a causal claim and interpret that claim by drawing an appropriate diagram. The article likely won’t explain all the things the researchers controlled for, so you’ll need to create an ideal DAG. What should be included in the causal process to measure the effect of X on Y?</p>
 <p>Export the figure from dagitty and include it in your assignment, or use this code to draw the DAG with R:</p>
 <div class="cell">
@@ -378,15 +385,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Summarize the causal claim. Describe what the authors controlled for and what else you included in the DAG. Justify the inclusion of each node (point) and connection (line) in the graph. <em>(≈150 words)</em></p>
 <p>Identify all the frontdoor and backdoor paths between your exposure and outcome. What variables need to be controlled for / adjusted to close the backdoors? Did this happen in the study or article? <em>(≈100 words)</em></p>
 </section>
-<section id="dag-ii" class="level2">
-<h2 class="anchored" data-anchor-id="dag-ii">2: DAG II</h2>
+<section id="dag-ii" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="dag-ii"><span class="header-section-number">3</span> 2: DAG II</h2>
 <p>Find a different news article with a causal claim and do the same thing as above.</p>
 <p>Draw and include a DAG.</p>
 <p>Summarize the causal claim. Describe what the authors controlled for and what else you included in the DAG. Justify the inclusion of each node (point) and connection (line) in the graph. <em>(≈150 words)</em></p>
 <p>Identify all the frontdoor and backdoor paths between your exposure and outcome. What variables need to be controlled for / adjusted to close the backdoors? Did this happen in the study or article? <em>(≈100 words)</em></p>
 </section>
-<section id="dag-for-your-program" class="level2">
-<h2 class="anchored" data-anchor-id="dag-for-your-program">3: DAG for your program</h2>
+<section id="dag-for-your-program" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="dag-for-your-program"><span class="header-section-number">4</span> 3: DAG for your program</h2>
 <p>Identify the outcome you care most about from your final project program. Draw a DAG that shows the causal effect of your program’s intervention on the outcome.</p>
 <p>Summarize the causal claim. Describe what needs to be controlled for and what else you included in the DAG. Justify the inclusion of each node (point) and connection (line) in the graph. <em>(≈150 words)</em></p>
 <p>Identify all the frontdoor and backdoor paths between your exposure and outcome. What variables need to be controlled for / adjusted to close the backdoors? How might you do this with your evaluation? <em>(≈100 words)</em></p>

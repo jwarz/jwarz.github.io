@@ -93,6 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../../../">
+<link href="../../../../../content/R/topics/05_statistics/02_fundamentals_of_bayesian_data_analysis/02_fundamentals_of_bayesian_data_analysis.html" rel="next">
 <script src="../../../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -125,11 +126,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+<link href="../../../../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -201,81 +206,331 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Introduction to Statistics in R</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Topics</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <b><i>Programming Basics</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">1: Introduction to R</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">2: Intermediate R</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">3: Introduction to the tidyverse</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Importing Data</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">4: Introduction to Importing Data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">5: Intermediate Importing Data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">6: Working with web data</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Data Wrangling</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">7: Exploratory Data Analysis</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">8: Case Study: EDA</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">9: Cleaning Data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">10: Data Manipulation with data.table</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">11: Joining Data with data.table</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Data Visualization</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">12: Intermediate Data Visualization with ggplot2</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Statistics</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link active">13: Introduction to Statistics</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/05_statistics/02_fundamentals_of_bayesian_data_analysis/02_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">14: Fundamentals of Bayesian Data Analysis</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Regression</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/06_regression/01_regression_beginner/01_regression_beginner.html" class="sidebar-item-text sidebar-link">15: Introduction to Regression</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/06_regression/02_regression_intermediate/02_regression_intermediate.html" class="sidebar-item-text sidebar-link">16: Intermediate Regression</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Machine Learning</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">17: Supervised Learning: Classification</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">18: Supervised Learning: Regression</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">19: Unsupervised Learning</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">20: Machine Learning in the tidyverse</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">21: Cluster Analysis</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">22: Cluster Analysis</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">23: Modeling with tidymodels</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">24: Machine Learning with tree-based Models</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">25: Support Vector Machines</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">26: Topic Modeling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">27: Hyperparameter Tuning</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">28: Bayesian Regression Modeling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">29: Introduction to Spark</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Manuals</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">1: An Introduction to R</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">2: R Data Import/Export</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">3: R Installation and Administration</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">4: Writing R Extensions</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">5: R Language Definition</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">6: R Internals</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link active" data-scroll-target="#summary-statistics">1. Summary Statistics</a>
+  <li><a href="#summary-statistics" id="toc-summary-statistics" class="nav-link active" data-scroll-target="#summary-statistics"><span class="toc-section-number">1</span>  1. Summary Statistics</a>
   <ul class="collapse">
-  <li><a href="#what-is-statistics" id="toc-what-is-statistics" class="nav-link" data-scroll-target="#what-is-statistics">What is statistics?</a></li>
-  <li><a href="#descriptive-and-inferential-statistics" id="toc-descriptive-and-inferential-statistics" class="nav-link" data-scroll-target="#descriptive-and-inferential-statistics">Descriptive and inferential statistics</a></li>
-  <li><a href="#data-type-classification" id="toc-data-type-classification" class="nav-link" data-scroll-target="#data-type-classification">Data type classification</a></li>
-  <li><a href="#measures-of-center" id="toc-measures-of-center" class="nav-link" data-scroll-target="#measures-of-center">Measures of center</a></li>
-  <li><a href="#mean-and-median" id="toc-mean-and-median" class="nav-link" data-scroll-target="#mean-and-median">Mean and median</a></li>
-  <li><a href="#mean-vs.-median" id="toc-mean-vs.-median" class="nav-link" data-scroll-target="#mean-vs.-median">Mean vs.&nbsp;median</a></li>
-  <li><a href="#measures-of-spread" id="toc-measures-of-spread" class="nav-link" data-scroll-target="#measures-of-spread">Measures of spread</a></li>
-  <li><a href="#quartiles-quantiles-and-quintiles" id="toc-quartiles-quantiles-and-quintiles" class="nav-link" data-scroll-target="#quartiles-quantiles-and-quintiles">Quartiles, quantiles, and quintiles</a></li>
-  <li><a href="#variance-and-standard-deviation" id="toc-variance-and-standard-deviation" class="nav-link" data-scroll-target="#variance-and-standard-deviation">Variance and standard deviation</a></li>
-  <li><a href="#finding-outliers-using-iqr" id="toc-finding-outliers-using-iqr" class="nav-link" data-scroll-target="#finding-outliers-using-iqr">Finding outliers using IQR</a></li>
+  <li><a href="#what-is-statistics" id="toc-what-is-statistics" class="nav-link" data-scroll-target="#what-is-statistics"><span class="toc-section-number">1.1</span>  What is statistics?</a></li>
+  <li><a href="#descriptive-and-inferential-statistics" id="toc-descriptive-and-inferential-statistics" class="nav-link" data-scroll-target="#descriptive-and-inferential-statistics"><span class="toc-section-number">1.2</span>  Descriptive and inferential statistics</a></li>
+  <li><a href="#data-type-classification" id="toc-data-type-classification" class="nav-link" data-scroll-target="#data-type-classification"><span class="toc-section-number">1.3</span>  Data type classification</a></li>
+  <li><a href="#measures-of-center" id="toc-measures-of-center" class="nav-link" data-scroll-target="#measures-of-center"><span class="toc-section-number">1.4</span>  Measures of center</a></li>
+  <li><a href="#mean-and-median" id="toc-mean-and-median" class="nav-link" data-scroll-target="#mean-and-median"><span class="toc-section-number">1.5</span>  Mean and median</a></li>
+  <li><a href="#mean-vs.-median" id="toc-mean-vs.-median" class="nav-link" data-scroll-target="#mean-vs.-median"><span class="toc-section-number">1.6</span>  Mean vs.&nbsp;median</a></li>
+  <li><a href="#measures-of-spread" id="toc-measures-of-spread" class="nav-link" data-scroll-target="#measures-of-spread"><span class="toc-section-number">1.9</span>  Measures of spread</a></li>
+  <li><a href="#quartiles-quantiles-and-quintiles" id="toc-quartiles-quantiles-and-quintiles" class="nav-link" data-scroll-target="#quartiles-quantiles-and-quintiles"><span class="toc-section-number">1.10</span>  Quartiles, quantiles, and quintiles</a></li>
+  <li><a href="#variance-and-standard-deviation" id="toc-variance-and-standard-deviation" class="nav-link" data-scroll-target="#variance-and-standard-deviation"><span class="toc-section-number">1.11</span>  Variance and standard deviation</a></li>
+  <li><a href="#finding-outliers-using-iqr" id="toc-finding-outliers-using-iqr" class="nav-link" data-scroll-target="#finding-outliers-using-iqr"><span class="toc-section-number">1.12</span>  Finding outliers using IQR</a></li>
   </ul></li>
-  <li><a href="#random-numbers-and-probability" id="toc-random-numbers-and-probability" class="nav-link" data-scroll-target="#random-numbers-and-probability">2. Random Numbers and Probability</a>
+  <li><a href="#random-numbers-and-probability" id="toc-random-numbers-and-probability" class="nav-link" data-scroll-target="#random-numbers-and-probability"><span class="toc-section-number">2</span>  2. Random Numbers and Probability</a>
   <ul class="collapse">
-  <li><a href="#what-are-the-chances" id="toc-what-are-the-chances" class="nav-link" data-scroll-target="#what-are-the-chances">What are the chances?</a></li>
-  <li><a href="#with-or-without-replacement" id="toc-with-or-without-replacement" class="nav-link" data-scroll-target="#with-or-without-replacement">With or without replacement?</a></li>
-  <li><a href="#calculating-probabilities" id="toc-calculating-probabilities" class="nav-link" data-scroll-target="#calculating-probabilities">Calculating probabilities</a></li>
-  <li><a href="#sampling-deals" id="toc-sampling-deals" class="nav-link" data-scroll-target="#sampling-deals">Sampling deals</a></li>
-  <li><a href="#discrete-distributions" id="toc-discrete-distributions" class="nav-link" data-scroll-target="#discrete-distributions">Discrete distributions</a></li>
-  <li><a href="#creating-a-probability-distribution" id="toc-creating-a-probability-distribution" class="nav-link" data-scroll-target="#creating-a-probability-distribution">Creating a probability distribution</a></li>
-  <li><a href="#identifying-distributions" id="toc-identifying-distributions" class="nav-link" data-scroll-target="#identifying-distributions">Identifying distributions</a></li>
-  <li><a href="#expected-value-vs.-sample-mean" id="toc-expected-value-vs.-sample-mean" class="nav-link" data-scroll-target="#expected-value-vs.-sample-mean">Expected value vs.&nbsp;sample mean</a></li>
-  <li><a href="#continuous-distributions" id="toc-continuous-distributions" class="nav-link" data-scroll-target="#continuous-distributions">Continuous distributions</a></li>
-  <li><a href="#which-distribution" id="toc-which-distribution" class="nav-link" data-scroll-target="#which-distribution">Which distribution?</a></li>
-  <li><a href="#data-back-ups" id="toc-data-back-ups" class="nav-link" data-scroll-target="#data-back-ups">Data back-ups</a></li>
-  <li><a href="#simulating-wait-times" id="toc-simulating-wait-times" class="nav-link" data-scroll-target="#simulating-wait-times">Simulating wait times</a></li>
-  <li><a href="#the-binomial-distribution" id="toc-the-binomial-distribution" class="nav-link" data-scroll-target="#the-binomial-distribution">The binomial distribution</a></li>
-  <li><a href="#simulating-sales-deals" id="toc-simulating-sales-deals" class="nav-link" data-scroll-target="#simulating-sales-deals">Simulating sales deals</a></li>
-  <li><a href="#calculating-binomial-probabilities" id="toc-calculating-binomial-probabilities" class="nav-link" data-scroll-target="#calculating-binomial-probabilities">Calculating binomial probabilities</a></li>
-  <li><a href="#how-many-sales-will-be-won" id="toc-how-many-sales-will-be-won" class="nav-link" data-scroll-target="#how-many-sales-will-be-won">How many sales will be won?</a></li>
+  <li><a href="#what-are-the-chances" id="toc-what-are-the-chances" class="nav-link" data-scroll-target="#what-are-the-chances"><span class="toc-section-number">2.1</span>  What are the chances?</a></li>
+  <li><a href="#with-or-without-replacement" id="toc-with-or-without-replacement" class="nav-link" data-scroll-target="#with-or-without-replacement"><span class="toc-section-number">2.2</span>  With or without replacement?</a></li>
+  <li><a href="#calculating-probabilities" id="toc-calculating-probabilities" class="nav-link" data-scroll-target="#calculating-probabilities"><span class="toc-section-number">2.3</span>  Calculating probabilities</a></li>
+  <li><a href="#sampling-deals" id="toc-sampling-deals" class="nav-link" data-scroll-target="#sampling-deals"><span class="toc-section-number">2.5</span>  Sampling deals</a></li>
+  <li><a href="#discrete-distributions" id="toc-discrete-distributions" class="nav-link" data-scroll-target="#discrete-distributions"><span class="toc-section-number">2.7</span>  Discrete distributions</a></li>
+  <li><a href="#creating-a-probability-distribution" id="toc-creating-a-probability-distribution" class="nav-link" data-scroll-target="#creating-a-probability-distribution"><span class="toc-section-number">2.8</span>  Creating a probability distribution</a></li>
+  <li><a href="#identifying-distributions" id="toc-identifying-distributions" class="nav-link" data-scroll-target="#identifying-distributions"><span class="toc-section-number">2.9</span>  Identifying distributions</a></li>
+  <li><a href="#expected-value-vs.-sample-mean" id="toc-expected-value-vs.-sample-mean" class="nav-link" data-scroll-target="#expected-value-vs.-sample-mean"><span class="toc-section-number">2.11</span>  Expected value vs.&nbsp;sample mean</a></li>
+  <li><a href="#continuous-distributions" id="toc-continuous-distributions" class="nav-link" data-scroll-target="#continuous-distributions"><span class="toc-section-number">2.13</span>  Continuous distributions</a></li>
+  <li><a href="#which-distribution" id="toc-which-distribution" class="nav-link" data-scroll-target="#which-distribution"><span class="toc-section-number">2.14</span>  Which distribution?</a></li>
+  <li><a href="#data-back-ups" id="toc-data-back-ups" class="nav-link" data-scroll-target="#data-back-ups"><span class="toc-section-number">2.15</span>  Data back-ups</a></li>
+  <li><a href="#simulating-wait-times" id="toc-simulating-wait-times" class="nav-link" data-scroll-target="#simulating-wait-times"><span class="toc-section-number">2.16</span>  Simulating wait times</a></li>
+  <li><a href="#the-binomial-distribution" id="toc-the-binomial-distribution" class="nav-link" data-scroll-target="#the-binomial-distribution"><span class="toc-section-number">2.17</span>  The binomial distribution</a></li>
+  <li><a href="#simulating-sales-deals" id="toc-simulating-sales-deals" class="nav-link" data-scroll-target="#simulating-sales-deals"><span class="toc-section-number">2.18</span>  Simulating sales deals</a></li>
+  <li><a href="#calculating-binomial-probabilities" id="toc-calculating-binomial-probabilities" class="nav-link" data-scroll-target="#calculating-binomial-probabilities"><span class="toc-section-number">2.19</span>  Calculating binomial probabilities</a></li>
+  <li><a href="#how-many-sales-will-be-won" id="toc-how-many-sales-will-be-won" class="nav-link" data-scroll-target="#how-many-sales-will-be-won"><span class="toc-section-number">2.20</span>  How many sales will be won?</a></li>
   </ul></li>
-  <li><a href="#more-distributions-and-the-central-limit-theorem" id="toc-more-distributions-and-the-central-limit-theorem" class="nav-link" data-scroll-target="#more-distributions-and-the-central-limit-theorem">3. More Distributions and the Central Limit Theorem</a>
+  <li><a href="#more-distributions-and-the-central-limit-theorem" id="toc-more-distributions-and-the-central-limit-theorem" class="nav-link" data-scroll-target="#more-distributions-and-the-central-limit-theorem"><span class="toc-section-number">3</span>  3. More Distributions and the Central Limit Theorem</a>
   <ul class="collapse">
-  <li><a href="#the-normal-distribution" id="toc-the-normal-distribution" class="nav-link" data-scroll-target="#the-normal-distribution">The normal distribution</a></li>
-  <li><a href="#distribution-of-amirs-sales" id="toc-distribution-of-amirs-sales" class="nav-link" data-scroll-target="#distribution-of-amirs-sales">Distribution of Amir’s sales</a></li>
-  <li><a href="#probabilities-from-the-normal-distribution" id="toc-probabilities-from-the-normal-distribution" class="nav-link" data-scroll-target="#probabilities-from-the-normal-distribution">Probabilities from the normal distribution</a></li>
-  <li><a href="#simulating-sales-under-new-market-conditions" id="toc-simulating-sales-under-new-market-conditions" class="nav-link" data-scroll-target="#simulating-sales-under-new-market-conditions">Simulating sales under new market conditions</a></li>
-  <li><a href="#which-market-is-better" id="toc-which-market-is-better" class="nav-link" data-scroll-target="#which-market-is-better">Which market is better?</a></li>
-  <li><a href="#the-central-limit-theorem" id="toc-the-central-limit-theorem" class="nav-link" data-scroll-target="#the-central-limit-theorem">The central limit theorem</a></li>
-  <li><a href="#visualizing-sampling-distributions" id="toc-visualizing-sampling-distributions" class="nav-link" data-scroll-target="#visualizing-sampling-distributions">Visualizing sampling distributions</a></li>
-  <li><a href="#the-clt-in-action" id="toc-the-clt-in-action" class="nav-link" data-scroll-target="#the-clt-in-action">The CLT in action</a></li>
-  <li><a href="#the-mean-of-means" id="toc-the-mean-of-means" class="nav-link" data-scroll-target="#the-mean-of-means">The mean of means</a></li>
-  <li><a href="#the-poisson-distribution" id="toc-the-poisson-distribution" class="nav-link" data-scroll-target="#the-poisson-distribution">The Poisson distribution</a></li>
-  <li><a href="#identifying-lambda" id="toc-identifying-lambda" class="nav-link" data-scroll-target="#identifying-lambda">Identifying lambda</a></li>
-  <li><a href="#tracking-lead-responses" id="toc-tracking-lead-responses" class="nav-link" data-scroll-target="#tracking-lead-responses">Tracking lead responses</a></li>
-  <li><a href="#more-probability-distributions" id="toc-more-probability-distributions" class="nav-link" data-scroll-target="#more-probability-distributions">More probability distributions</a></li>
-  <li><a href="#too-many-distributions" id="toc-too-many-distributions" class="nav-link" data-scroll-target="#too-many-distributions">Too many distributions</a></li>
-  <li><a href="#modeling-time-between-leads" id="toc-modeling-time-between-leads" class="nav-link" data-scroll-target="#modeling-time-between-leads">Modeling time between leads</a></li>
-  <li><a href="#the-t-distribution" id="toc-the-t-distribution" class="nav-link" data-scroll-target="#the-t-distribution">The t-distribution</a></li>
+  <li><a href="#the-normal-distribution" id="toc-the-normal-distribution" class="nav-link" data-scroll-target="#the-normal-distribution"><span class="toc-section-number">3.1</span>  The normal distribution</a></li>
+  <li><a href="#distribution-of-amirs-sales" id="toc-distribution-of-amirs-sales" class="nav-link" data-scroll-target="#distribution-of-amirs-sales"><span class="toc-section-number">3.2</span>  Distribution of Amir’s sales</a></li>
+  <li><a href="#probabilities-from-the-normal-distribution" id="toc-probabilities-from-the-normal-distribution" class="nav-link" data-scroll-target="#probabilities-from-the-normal-distribution"><span class="toc-section-number">3.4</span>  Probabilities from the normal distribution</a></li>
+  <li><a href="#simulating-sales-under-new-market-conditions" id="toc-simulating-sales-under-new-market-conditions" class="nav-link" data-scroll-target="#simulating-sales-under-new-market-conditions"><span class="toc-section-number">3.5</span>  Simulating sales under new market conditions</a></li>
+  <li><a href="#which-market-is-better" id="toc-which-market-is-better" class="nav-link" data-scroll-target="#which-market-is-better"><span class="toc-section-number">3.6</span>  Which market is better?</a></li>
+  <li><a href="#the-central-limit-theorem" id="toc-the-central-limit-theorem" class="nav-link" data-scroll-target="#the-central-limit-theorem"><span class="toc-section-number">3.8</span>  The central limit theorem</a></li>
+  <li><a href="#visualizing-sampling-distributions" id="toc-visualizing-sampling-distributions" class="nav-link" data-scroll-target="#visualizing-sampling-distributions"><span class="toc-section-number">3.9</span>  Visualizing sampling distributions</a></li>
+  <li><a href="#the-clt-in-action" id="toc-the-clt-in-action" class="nav-link" data-scroll-target="#the-clt-in-action"><span class="toc-section-number">3.11</span>  The CLT in action</a></li>
+  <li><a href="#the-mean-of-means" id="toc-the-mean-of-means" class="nav-link" data-scroll-target="#the-mean-of-means"><span class="toc-section-number">3.12</span>  The mean of means</a></li>
+  <li><a href="#the-poisson-distribution" id="toc-the-poisson-distribution" class="nav-link" data-scroll-target="#the-poisson-distribution"><span class="toc-section-number">3.13</span>  The Poisson distribution</a></li>
+  <li><a href="#identifying-lambda" id="toc-identifying-lambda" class="nav-link" data-scroll-target="#identifying-lambda"><span class="toc-section-number">3.14</span>  Identifying lambda</a></li>
+  <li><a href="#tracking-lead-responses" id="toc-tracking-lead-responses" class="nav-link" data-scroll-target="#tracking-lead-responses"><span class="toc-section-number">3.15</span>  Tracking lead responses</a></li>
+  <li><a href="#more-probability-distributions" id="toc-more-probability-distributions" class="nav-link" data-scroll-target="#more-probability-distributions"><span class="toc-section-number">3.16</span>  More probability distributions</a></li>
+  <li><a href="#too-many-distributions" id="toc-too-many-distributions" class="nav-link" data-scroll-target="#too-many-distributions"><span class="toc-section-number">3.17</span>  Too many distributions</a></li>
+  <li><a href="#modeling-time-between-leads" id="toc-modeling-time-between-leads" class="nav-link" data-scroll-target="#modeling-time-between-leads"><span class="toc-section-number">3.18</span>  Modeling time between leads</a></li>
+  <li><a href="#the-t-distribution" id="toc-the-t-distribution" class="nav-link" data-scroll-target="#the-t-distribution"><span class="toc-section-number">3.19</span>  The t-distribution</a></li>
   </ul></li>
-  <li><a href="#correlation-and-experimental-design" id="toc-correlation-and-experimental-design" class="nav-link" data-scroll-target="#correlation-and-experimental-design">4. Correlation and Experimental Design</a>
+  <li><a href="#correlation-and-experimental-design" id="toc-correlation-and-experimental-design" class="nav-link" data-scroll-target="#correlation-and-experimental-design"><span class="toc-section-number">4</span>  4. Correlation and Experimental Design</a>
   <ul class="collapse">
-  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation">Correlation</a></li>
-  <li><a href="#guess-the-correlation" id="toc-guess-the-correlation" class="nav-link" data-scroll-target="#guess-the-correlation">Guess the correlation</a></li>
-  <li><a href="#relationships-between-variables" id="toc-relationships-between-variables" class="nav-link" data-scroll-target="#relationships-between-variables">Relationships between variables</a></li>
-  <li><a href="#correlation-caveats" id="toc-correlation-caveats" class="nav-link" data-scroll-target="#correlation-caveats">Correlation caveats</a></li>
-  <li><a href="#what-cant-correlation-measure" id="toc-what-cant-correlation-measure" class="nav-link" data-scroll-target="#what-cant-correlation-measure">What can’t correlation measure?</a></li>
-  <li><a href="#transforming-variables" id="toc-transforming-variables" class="nav-link" data-scroll-target="#transforming-variables">Transforming variables</a></li>
-  <li><a href="#does-sugar-improve-happiness" id="toc-does-sugar-improve-happiness" class="nav-link" data-scroll-target="#does-sugar-improve-happiness">Does sugar improve happiness?</a></li>
-  <li><a href="#confounders" id="toc-confounders" class="nav-link" data-scroll-target="#confounders">Confounders</a></li>
-  <li><a href="#design-of-experiments" id="toc-design-of-experiments" class="nav-link" data-scroll-target="#design-of-experiments">Design of experiments</a></li>
-  <li><a href="#study-types" id="toc-study-types" class="nav-link" data-scroll-target="#study-types">Study types</a></li>
-  <li><a href="#longitudinal-vs.-cross-sectional-studies" id="toc-longitudinal-vs.-cross-sectional-studies" class="nav-link" data-scroll-target="#longitudinal-vs.-cross-sectional-studies">Longitudinal vs.&nbsp;cross-sectional studies</a></li>
-  <li><a href="#congratulations" id="toc-congratulations" class="nav-link" data-scroll-target="#congratulations">Congratulations!</a></li>
+  <li><a href="#correlation" id="toc-correlation" class="nav-link" data-scroll-target="#correlation"><span class="toc-section-number">4.1</span>  Correlation</a></li>
+  <li><a href="#guess-the-correlation" id="toc-guess-the-correlation" class="nav-link" data-scroll-target="#guess-the-correlation"><span class="toc-section-number">4.2</span>  Guess the correlation</a></li>
+  <li><a href="#relationships-between-variables" id="toc-relationships-between-variables" class="nav-link" data-scroll-target="#relationships-between-variables"><span class="toc-section-number">4.4</span>  Relationships between variables</a></li>
+  <li><a href="#correlation-caveats" id="toc-correlation-caveats" class="nav-link" data-scroll-target="#correlation-caveats"><span class="toc-section-number">4.6</span>  Correlation caveats</a></li>
+  <li><a href="#what-cant-correlation-measure" id="toc-what-cant-correlation-measure" class="nav-link" data-scroll-target="#what-cant-correlation-measure"><span class="toc-section-number">4.7</span>  What can’t correlation measure?</a></li>
+  <li><a href="#transforming-variables" id="toc-transforming-variables" class="nav-link" data-scroll-target="#transforming-variables"><span class="toc-section-number">4.9</span>  Transforming variables</a></li>
+  <li><a href="#does-sugar-improve-happiness" id="toc-does-sugar-improve-happiness" class="nav-link" data-scroll-target="#does-sugar-improve-happiness"><span class="toc-section-number">4.10</span>  Does sugar improve happiness?</a></li>
+  <li><a href="#confounders" id="toc-confounders" class="nav-link" data-scroll-target="#confounders"><span class="toc-section-number">4.12</span>  Confounders</a></li>
+  <li><a href="#design-of-experiments" id="toc-design-of-experiments" class="nav-link" data-scroll-target="#design-of-experiments"><span class="toc-section-number">4.14</span>  Design of experiments</a></li>
+  <li><a href="#study-types" id="toc-study-types" class="nav-link" data-scroll-target="#study-types"><span class="toc-section-number">4.15</span>  Study types</a></li>
+  <li><a href="#longitudinal-vs.-cross-sectional-studies" id="toc-longitudinal-vs.-cross-sectional-studies" class="nav-link" data-scroll-target="#longitudinal-vs.-cross-sectional-studies"><span class="toc-section-number">4.16</span>  Longitudinal vs.&nbsp;cross-sectional studies</a></li>
+  <li><a href="#congratulations" id="toc-congratulations" class="nav-link" data-scroll-target="#congratulations"><span class="toc-section-number">4.18</span>  Congratulations!</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -285,7 +540,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to Statistics in R</h1>
+<h1 class="title d-none d-lg-block">Introduction to Statistics in R</h1>
 </div>
 
 
@@ -310,11 +565,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Grow your statistical skills and learn how to collect, analyze, and draw accurate conclusions from data. Learn how to work with variables, plotting, and standard deviation in R. It covers histograms, distributions and more.</p>
 <p><strong>Long Description</strong></p>
 <p>Statistics is the study of how to collect, analyze, and draw conclusions from data. It’s a hugely valuable tool that you can use to bring the future into focus and infer the answer to tons of questions. For example, what is the likelihood of someone purchasing your product, how many calls will your support team receive, and how many jeans sizes should you manufacture to fit 95% of the population? In this course, you’ll use sales data to discover how to answer questions like these as you grow your statistical skills and learn how to calculate averages, use scatterplots to show the relationship between numeric values, and calculate correlation. You’ll also tackle probability, the backbone of statistical reasoning, and learn how to conduct a well-designed study to draw your own conclusions from data.</p>
-<section id="summary-statistics" class="level1">
-<h1>1. Summary Statistics</h1>
+<section id="summary-statistics" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> 1. Summary Statistics</h1>
 <p>Summary statistics gives you the tools you need to boil down massive datasets to reveal the highlights. In this chapter, you’ll explore summary statistics including mean, median, and standard deviation, and learn how to accurately interpret them. You’ll also develop your critical thinking skills, allowing you to choose the best summary statistics for your data.</p>
-<section id="what-is-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="what-is-statistics">What is statistics?</h2>
+<section id="what-is-statistics" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="what-is-statistics"><span class="header-section-number">1.1</span> What is statistics?</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. What is statistics?</strong></p>
 <p>Hi and welcome to the course. My name is Maggie, and I’ll be your host as we dive in to the world of statistics.</p>
@@ -337,8 +592,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>10. Let’s practice!</strong></p>
 <p>Time to master these important skills!</p>
 </section>
-<section id="descriptive-and-inferential-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="descriptive-and-inferential-statistics">Descriptive and inferential statistics</h2>
+<section id="descriptive-and-inferential-statistics" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="descriptive-and-inferential-statistics"><span class="header-section-number">1.2</span> Descriptive and inferential statistics</h2>
 <p>Statistics can be used to answer lots of different types of questions, but being able to identify which type of statistics is needed is essential to drawing accurate conclusions. In this exercise, you’ll sharpen your skills by identifying which type is needed to answer each question.</p>
 <p>Identify which questions can be answered with descriptive statistics and which questions can be answered with inferential statistics.</p>
 <table class="table">
@@ -364,8 +619,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </section>
-<section id="data-type-classification" class="level2">
-<h2 class="anchored" data-anchor-id="data-type-classification">Data type classification</h2>
+<section id="data-type-classification" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="data-type-classification"><span class="header-section-number">1.3</span> Data type classification</h2>
 <p>In the video, you learned about two main types of data: numeric and categorical. Numeric variables can be classified as either discrete or continuous, and categorical variables can be classified as either nominal or ordinal. These characteristics of a variable determine which ways of summarizing your data will work best.</p>
 <p>Map each variable to its data type by dragging and dropping.</p>
 <table class="table">
@@ -400,8 +655,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </section>
-<section id="measures-of-center" class="level2">
-<h2 class="anchored" data-anchor-id="measures-of-center">Measures of center</h2>
+<section id="measures-of-center" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="measures-of-center"><span class="header-section-number">1.4</span> Measures of center</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Measures of center</strong></p>
 <p>In this lesson, we’ll begin to discuss summary statistics, some of which you may already be familiar with, like mean and median.</p>
@@ -438,8 +693,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>17. Let’s practice!</strong></p>
 <p>Let’s practice using measures of center.</p>
 </section>
-<section id="mean-and-median" class="level2">
-<h2 class="anchored" data-anchor-id="mean-and-median">Mean and median</h2>
+<section id="mean-and-median" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="mean-and-median"><span class="header-section-number">1.5</span> Mean and median</h2>
 <p>In this chapter, you’ll be working with the <a href="https://www.nu3.de/blogs/nutrition/food-carbon-footprint-index-2018">2018 Food Carbon Footprint Index</a> from nu3. The <code>food_consumption</code> dataset contains information about the kilograms of food consumed per person per year in each country in each food category (<code>consumption</code>) as well as information about the carbon footprint of that food category (<code>co2_emissions</code>) measured in kilograms of carbon dioxide, or CO2, per person per year in each country.</p>
 <p>In this exercise, you’ll compute measures of center to compare food consumption in the US and Belgium using your <code>dplyr</code> skills.</p>
 <p><strong>Steps</strong></p>
@@ -490,8 +745,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Marvelous mean and median calculation! When you want to compare summary statistics between groups, it’s much easier to do a <code>group_by()</code> and one <code>summarize()</code> instead of filtering and calling the same functions multiple times.</p>
 </section>
-<section id="mean-vs.-median" class="level2">
-<h2 class="anchored" data-anchor-id="mean-vs.-median">Mean vs.&nbsp;median</h2>
+<section id="mean-vs.-median" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="mean-vs.-median"><span class="header-section-number">1.6</span> Mean vs.&nbsp;median</h2>
 <p>In the video, you learned that the mean is the sum of all the data points divided by the total number of data points, and the median is the middle value of the dataset where 50% of the data is less than the median, and 50% of the data is greater than the median. In this exercise, you’ll compare these two measures of center.</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -510,7 +765,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-9"><a href="#cb5-9"></a>    <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question" class="anchored"><em>Question</em></h2>
+<h2 id="question" data-number="1.7" class="anchored"><span class="header-section-number">1.7</span> <em>Question</em></h2>
 <p>Take a look at the histogram of the CO2 emissions for rice you just calculated. Which of the following terms best describes the shape of the data?<br> <br> ⬜ No skew<br> ⬜ Left-skewed<br> ✅ Right-skewed<br></p>
 </blockquote>
 <ol start="3" type="1">
@@ -536,13 +791,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb7-6"><a href="#cb7-6"></a>            <span class="at">median_co2 =</span> <span class="fu">median</span>(co2_emission))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-1" class="anchored"><em>Question</em></h2>
+<h2 id="question-1" data-number="1.8" class="anchored"><span class="header-section-number">1.8</span> <em>Question</em></h2>
 <p>Given the skew of this data, what measure of central tendency best summarizes the kilograms of CO2 emissions per person per year for rice?<br> <br> ⬜ Mean<br> ✅ Median<br> ⬜ Both mean and median<br></p>
 </blockquote>
 <p>Great work! The mean is substantially higher than the median since it’s being pulled up by the high values over 100 kg/person/year.</p>
 </section>
-<section id="measures-of-spread" class="level2">
-<h2 class="anchored" data-anchor-id="measures-of-spread">Measures of spread</h2>
+<section id="measures-of-spread" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="measures-of-spread"><span class="header-section-number">1.9</span> Measures of spread</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Measures of spread</strong></p>
 <p>In this lesson, we’ll talk about another set of summary statistics: measures of spread.</p>
@@ -575,8 +830,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>15. Let’s practice!</strong></p>
 <p>Time to practice measuring spread and finding outliers.</p>
 </section>
-<section id="quartiles-quantiles-and-quintiles" class="level2">
-<h2 class="anchored" data-anchor-id="quartiles-quantiles-and-quintiles">Quartiles, quantiles, and quintiles</h2>
+<section id="quartiles-quantiles-and-quintiles" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="quartiles-quantiles-and-quintiles"><span class="header-section-number">1.10</span> Quartiles, quantiles, and quintiles</h2>
 <p>Quantiles are a great way of summarizing numerical data since they can be used to measure center and spread, as well as to get a sense of where a data point stands in relation to the rest of the dataset. For example, you might want to give a discount to the 10% most active users on a website.</p>
 <p>In this exercise, you’ll calculate quartiles, quintiles, and deciles, which split up a dataset into 4, 5, and 10 pieces, respectively.</p>
 <p><strong>Steps</strong></p>
@@ -603,8 +858,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Those are some high-quality quantiles! While calculating more quantiles gives you a more detailed look at the data, it also produces more numbers, making the summary more difficult to quickly understand.</p>
 </section>
-<section id="variance-and-standard-deviation" class="level2">
-<h2 class="anchored" data-anchor-id="variance-and-standard-deviation">Variance and standard deviation</h2>
+<section id="variance-and-standard-deviation" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="variance-and-standard-deviation"><span class="header-section-number">1.11</span> Variance and standard deviation</h2>
 <p>Variance and standard deviation are two of the most common ways to measure the spread of a variable, and you’ll practice calculating these in this exercise. Spread is important since it can help inform expectations. For example, if a salesperson sells a mean of 20 products a day, but has a standard deviation of 10 products, there will probably be days where they sell 40 products, but also days where they only sell one or two. Information like this is important, especially when making predictions.</p>
 <p>Both <code>dplyr</code> and <code>ggplot2</code> are loaded, and <code>food_consumption</code> is available.</p>
 <p><strong>Steps</strong></p>
@@ -631,8 +886,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Superb spread measurement! Beef has the biggest amount of variation in its CO<span class="math inline">\(_2\)</span> emissions, while eggs, nuts, and soybeans have relatively small amounts of variation.</p>
 </section>
-<section id="finding-outliers-using-iqr" class="level2">
-<h2 class="anchored" data-anchor-id="finding-outliers-using-iqr">Finding outliers using IQR</h2>
+<section id="finding-outliers-using-iqr" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="finding-outliers-using-iqr"><span class="header-section-number">1.12</span> Finding outliers using IQR</h2>
 <p>Outliers can have big effects on statistics like mean, as well as statistics that rely on the mean, such as variance and standard deviation. Interquartile range, or IQR, is another way of measuring spread that’s less influenced by outliers. IQR is also often used to find outliers. If a value is less than Q1 - 1.5 * IQR or greater than Q3 + 1.5 * IQR, it’s considered an outlier. In fact, this is how the lengths of the whiskers in a <code>ggplot2</code> box plot are calculated.</p>
 <p><img src="https://assets.datacamp.com/production/repositories/5758/datasets/ca7e6e1832be7ec1842f62891815a9b0488efa83/Screen%20Shot%202020-04-28%20at%2010.04.54%20AM.png" alt="Diagram of a box plot showing median, quartiles, and outliers"></p>
 <p>In this exercise, you’ll calculate IQR and use it to find some outliers.</p>
@@ -674,11 +929,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Outstanding outlier detection! It looks like Argentina has a substantially higher amount of CO<span class="math inline">\(_2\)</span> emissions per person than other countries in the world.</p>
 </section>
 </section>
-<section id="random-numbers-and-probability" class="level1">
-<h1>2. Random Numbers and Probability</h1>
+<section id="random-numbers-and-probability" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> 2. Random Numbers and Probability</h1>
 <p>In this chapter, you’ll learn how to generate random samples and measure chance using probability. You’ll work with real-world sales data to calculate the probability of a salesperson being successful. Finally, you’ll use the binomial distribution to model events with binary outcomes.</p>
-<section id="what-are-the-chances" class="level2">
-<h2 class="anchored" data-anchor-id="what-are-the-chances">What are the chances?</h2>
+<section id="what-are-the-chances" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="what-are-the-chances"><span class="header-section-number">2.1</span> What are the chances?</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. What are the chances?</strong></p>
 <p>People talk about chance pretty frequently, like what are the chances of closing a sale, of rain tomorrow, or of winning a game? But how exactly do we measure chance?</p>
@@ -717,8 +972,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>18. Let’s practice!</strong></p>
 <p>Head over to the exercises!</p>
 </section>
-<section id="with-or-without-replacement" class="level2">
-<h2 class="anchored" data-anchor-id="with-or-without-replacement">With or without replacement?</h2>
+<section id="with-or-without-replacement" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="with-or-without-replacement"><span class="header-section-number">2.2</span> With or without replacement?</h2>
 <p>In the video, you learned about two different ways of taking samples: with replacement and without replacement. Although it isn’t always easy to tell which best fits various situations, it’s important to correctly identify this so that any probabilities you report are accurate. In this exercise, you’ll put your new knowledge to the test and practice figuring this out.</p>
 <p>For each scenario, decide whether it’s sampling with replacement or sampling without replacement.</p>
 <table class="table">
@@ -748,8 +1003,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </section>
-<section id="calculating-probabilities" class="level2">
-<h2 class="anchored" data-anchor-id="calculating-probabilities">Calculating probabilities</h2>
+<section id="calculating-probabilities" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="calculating-probabilities"><span class="header-section-number">2.3</span> Calculating probabilities</h2>
 <p>You’re in charge of the sales team, and it’s time for performance reviews, starting with Amir. As part of the review, you want to randomly select a few of the deals that he’s worked on over the past year so that you can look at them more deeply. Before you start selecting deals, you’ll first figure out what the chances are of selecting certain deals.</p>
 <p>Recall that the probability of an event can be calculated by</p>
 <p><img src="https://render.githubusercontent.com/render/math?math={\color{red}P(x)=\frac{%23ways event can happen}{total %23 of possible outcomes}}"></p>
@@ -774,13 +1029,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">mutate</span>(<span class="at">prob =</span> n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-2" class="anchored"><em>Question</em></h2>
+<h2 id="question-2" data-number="2.4" class="anchored"><span class="header-section-number">2.4</span> <em>Question</em></h2>
 <p>If you randomly select one of Amir’s deals, what’s the probability that the deal will involve Product C?<br> <br> ⬜ 15%<br> ⬜ 80.43%<br> ✅ 8.43%<br> ⬜ 22.5%<br></p>
 </blockquote>
 <p>Perfect probability calculations! Now that you know what the chances are, it’s time to start sampling.</p>
 </section>
-<section id="sampling-deals" class="level2">
-<h2 class="anchored" data-anchor-id="sampling-deals">Sampling deals</h2>
+<section id="sampling-deals" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="sampling-deals"><span class="header-section-number">2.5</span> Sampling deals</h2>
 <p>In the previous exercise, you counted the deals Amir worked on. Now it’s time to randomly pick five deals so that you can reach out to each customer and ask if they were satisfied with the service they received. You’ll try doing this both with and without replacement.</p>
 <p>Additionally, you want to make sure this is done randomly and that it can be reproduced in case you get asked how you chose the deals, so you’ll need to set the random seed before sampling from the deals.</p>
 <p><strong>Steps</strong></p>
@@ -808,13 +1063,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb19-6"><a href="#cb19-6"></a>  <span class="fu">sample_n</span>(<span class="dv">5</span>, <span class="at">replace =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-3" class="anchored"><em>Question</em></h2>
+<h2 id="question-3" data-number="2.6" class="anchored"><span class="header-section-number">2.6</span> <em>Question</em></h2>
 <p>What type of sampling is better to use for this situation?<br> <br> ⬜ With replacement<br> ✅ Without replacement<br> ⬜ It doesn’t matter<br></p>
 </blockquote>
 <p>Spectactular sampling! It’s important to consider how you’ll take a sample since there’s no one-size-fits-all way to sample, and this can have an effect on your results.</p>
 </section>
-<section id="discrete-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="discrete-distributions">Discrete distributions</h2>
+<section id="discrete-distributions" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="discrete-distributions"><span class="header-section-number">2.7</span> Discrete distributions</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Discrete distributions</strong></p>
 <p>In this lesson, we’ll take a deeper dive into probability and begin looking at probability distributions.</p>
@@ -857,8 +1112,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>20. Let’s practice!</strong></p>
 <p>Time to solidify your knowledge of probability distributions.</p>
 </section>
-<section id="creating-a-probability-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="creating-a-probability-distribution">Creating a probability distribution</h2>
+<section id="creating-a-probability-distribution" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="creating-a-probability-distribution"><span class="header-section-number">2.8</span> Creating a probability distribution</h2>
 <p>A new restaurant opened a few months ago, and the restaurant’s management wants to optimize its seating space based on the size of the groups that come most often. On one night, there are 10 groups of people waiting to be seated at the restaurant, but instead of being called in the order they arrived, they will be called randomly. In this exercise, you’ll investigate the probability of groups of different sizes getting picked first. Data on each of the ten groups is contained in the <code>restaurant_groups</code> data frame.</p>
 <p>Remember that expected value can be calculated by multiplying each possible outcome with its corresponding probability and taking the sum.</p>
 <p><strong>Steps</strong></p>
@@ -912,21 +1167,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Dexterous distribution utilization! You’ll continue to build upon these skills since many statistical tests and methods use probability distributions as their foundation.</p>
 </section>
-<section id="identifying-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="identifying-distributions">Identifying distributions</h2>
+<section id="identifying-distributions" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="identifying-distributions"><span class="header-section-number">2.9</span> Identifying distributions</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb24-2"><a href="#cb24-2"></a>p1 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/p1.rds"</span>); p2 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/p2.rds"</span>); p3 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/p3.rds"</span>)</span>
 <span id="cb24-3"><a href="#cb24-3"></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-4" class="anchored"><em>Question</em></h2>
+<h2 id="question-4" data-number="2.10" class="anchored"><span class="header-section-number">2.10</span> <em>Question</em></h2>
 <p>Which sample is most likely to have been taken from a uniform distribution?<br> <br> ✅ A<br> ⬜ B<br> ⬜ C<br></p>
 </blockquote>
 <p>Impressive identification! Since the histogram depicts a sample and not the actual probability distribution, each outcome won’t happen the exact same number of times due to randomness, but they’re similar in number.</p>
 </section>
-<section id="expected-value-vs.-sample-mean" class="level2">
-<h2 class="anchored" data-anchor-id="expected-value-vs.-sample-mean">Expected value vs.&nbsp;sample mean</h2>
+<section id="expected-value-vs.-sample-mean" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="expected-value-vs.-sample-mean"><span class="header-section-number">2.11</span> Expected value vs.&nbsp;sample mean</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">library</span>(purrr)</span>
 <span id="cb25-2"><a href="#cb25-2"></a></span>
@@ -950,13 +1205,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>The code above will take a sample from a discrete uniform distribution, which includes the numbers 1 through 9, and calculate the sample’s mean. You can adjust the size of the samples by changing the values of <code>sample_sizes</code>. Note that the expected value of this distribution is 5.</p>
 <blockquote class="blockquote">
-<h2 id="question-5" class="anchored"><em>Question</em></h2>
+<h2 id="question-5" data-number="2.12" class="anchored"><span class="header-section-number">2.12</span> <em>Question</em></h2>
 <p>A sample is taken, and you win twenty dollars if the sample’s mean is less than 4. There’s a catch: you get to pick the sample’s size. Which sample size is most likely to win you the twenty dollars?<br> <br> ✅ 10<br> ⬜ 100<br> ⬜ 1000<br> ⬜ 5000<br> ⬜ 10000<br></p>
 </blockquote>
 <p>Nice work! Since the sample mean will likely be closer to 5 (the expected value) with larger sample sizes, you have a better chance of getting a sample mean further away from 5 with a smaller sample.</p>
 </section>
-<section id="continuous-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="continuous-distributions">Continuous distributions</h2>
+<section id="continuous-distributions" class="level2" data-number="2.13">
+<h2 data-number="2.13" class="anchored" data-anchor-id="continuous-distributions"><span class="header-section-number">2.13</span> Continuous distributions</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Continuous distributions</strong></p>
 <p>We can use discrete distributions to model situations that involve discrete or countable variables, but how can we model continuous variables?</p>
@@ -995,8 +1250,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>18. Let’s practice!</strong></p>
 <p>Time to practice working with continuous distributions.</p>
 </section>
-<section id="which-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="which-distribution">Which distribution?</h2>
+<section id="which-distribution" class="level2" data-number="2.14">
+<h2 data-number="2.14" class="anchored" data-anchor-id="which-distribution"><span class="header-section-number">2.14</span> Which distribution?</h2>
 <p>At this point, you’ve learned about the two different variants of the uniform distribution: the discrete uniform distribution, and the continuous uniform distribution. In this exercise, you’ll decide which situations follow which distribution.</p>
 <p><img src="https://assets.datacamp.com/production/repositories/5758/datasets/fe928d4c840f66544c6228b8b755e9bf15361b9f/Screen%20Shot%202020-05-04%20at%205.18.16%20PM.png" alt="Illustration of discrete and continuous uniform distributions"></p>
 <p><strong>Steps</strong></p>
@@ -1028,8 +1283,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </section>
-<section id="data-back-ups" class="level2">
-<h2 class="anchored" data-anchor-id="data-back-ups">Data back-ups</h2>
+<section id="data-back-ups" class="level2" data-number="2.15">
+<h2 data-number="2.15" class="anchored" data-anchor-id="data-back-ups"><span class="header-section-number">2.15</span> Data back-ups</h2>
 <p>The sales software used at your company is set to automatically back itself up, but no one knows exactly what time the back-ups happen. It is known, however, that back-ups happen exactly every 30 minutes. Amir comes back from sales meetings at random times to update the data on the client he just met with. He wants to know how long he’ll have to wait for his newly-entered data to get backed up. Use your new knowledge of continuous uniform distributions to model this situation and answer Amir’s questions.</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -1063,8 +1318,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Wonderful wait-time calculations! There’s a 33% chance that Amir will wait 10-20 minutes. In the next exercise, you’ll make sure this calculation holds up by simulating some wait times.</p>
 </section>
-<section id="simulating-wait-times" class="level2">
-<h2 class="anchored" data-anchor-id="simulating-wait-times">Simulating wait times</h2>
+<section id="simulating-wait-times" class="level2" data-number="2.16">
+<h2 data-number="2.16" class="anchored" data-anchor-id="simulating-wait-times"><span class="header-section-number">2.16</span> Simulating wait times</h2>
 <p>To give Amir a better idea of how long he’ll have to wait, you’ll simulate Amir waiting 1000 times and create a histogram to show him what he should expect. Recall from the last exercise that his minimum wait time is 0 minutes and his maximum wait time is 30 minutes.</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -1099,8 +1354,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Superb simulating! Unless Amir figures out exactly what time each backup happens, he won’t be able to time his data entry so it gets backed up sooner, but it looks like he’ll wait about 15 minutes on average.</p>
 </section>
-<section id="the-binomial-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="the-binomial-distribution">The binomial distribution</h2>
+<section id="the-binomial-distribution" class="level2" data-number="2.17">
+<h2 data-number="2.17" class="anchored" data-anchor-id="the-binomial-distribution"><span class="header-section-number">2.17</span> The binomial distribution</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. The binomial distribution</strong></p>
 <p>It’s time to further expand your toolbox of distributions. In this video, you’ll learn about the binomial distribution.</p>
@@ -1135,8 +1390,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>16. Let’s practice!</strong></p>
 <p>Time to explore binary outcomes using the binomial distribution.</p>
 </section>
-<section id="simulating-sales-deals" class="level2">
-<h2 class="anchored" data-anchor-id="simulating-sales-deals">Simulating sales deals</h2>
+<section id="simulating-sales-deals" class="level2" data-number="2.18">
+<h2 data-number="2.18" class="anchored" data-anchor-id="simulating-sales-deals"><span class="header-section-number">2.18</span> Simulating sales deals</h2>
 <p>Assume that Amir usually works on 3 deals per week, and overall, he wins 30% of deals he works on. Each deal has a binary outcome: it’s either lost, or won, so you can model his sales deals with a binomial distribution. In this exercise, you’ll help Amir simulate a year’s worth of his deals so he can better understand his performance.</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -1175,8 +1430,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Brilliant binomial simulation! In this simulated year, Amir won 0.8 deals on average each week.</p>
 </section>
-<section id="calculating-binomial-probabilities" class="level2">
-<h2 class="anchored" data-anchor-id="calculating-binomial-probabilities">Calculating binomial probabilities</h2>
+<section id="calculating-binomial-probabilities" class="level2" data-number="2.19">
+<h2 data-number="2.19" class="anchored" data-anchor-id="calculating-binomial-probabilities"><span class="header-section-number">2.19</span> Calculating binomial probabilities</h2>
 <p>Just as in the last exercise, assume that Amir wins 30% of deals. He wants to get an idea of how likely he is to close a certain number of deals each week. In this exercise, you’ll calculate what the chances are of him closing different numbers of deals using the binomial distribution.</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -1202,8 +1457,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Powerful probability calculations! Amir has about a 22% chance of closing more than one deal in a week.</p>
 </section>
-<section id="how-many-sales-will-be-won" class="level2">
-<h2 class="anchored" data-anchor-id="how-many-sales-will-be-won">How many sales will be won?</h2>
+<section id="how-many-sales-will-be-won" class="level2" data-number="2.20">
+<h2 data-number="2.20" class="anchored" data-anchor-id="how-many-sales-will-be-won"><span class="header-section-number">2.20</span> How many sales will be won?</h2>
 <p>Now Amir wants to know how many deals he can expect to close each week if his win rate changes. Luckily, you can use your binomial distribution knowledge to help him calculate the expected value in different situations. Recall from the video that the expected value of a binomial distribution can be calculated by (n * p).</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -1233,11 +1488,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Excellent expectation experimentation! If Amir’s win rate goes up by 5%, he can expect to close more than 1 deal on average each week.</p>
 </section>
 </section>
-<section id="more-distributions-and-the-central-limit-theorem" class="level1">
-<h1>3. More Distributions and the Central Limit Theorem</h1>
+<section id="more-distributions-and-the-central-limit-theorem" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> 3. More Distributions and the Central Limit Theorem</h1>
 <p>It’s time to explore one of the most important probability distributions in statistics, normal distribution. You’ll create histograms to plot normal distributions and gain an understanding of the central limit theorem, before expanding your knowledge of statistical functions by adding the Poisson, exponential, and t-distributions to your repertoire.</p>
-<section id="the-normal-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="the-normal-distribution">The normal distribution</h2>
+<section id="the-normal-distribution" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="the-normal-distribution"><span class="header-section-number">3.1</span> The normal distribution</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. The normal distribution</strong></p>
 <p>The next probability distribution we’ll discuss is the normal distribution. It’s one of the most important probability distributions you’ll learn about since a countless number of statistical methods rely on it, and it applies to more real-world situations than the distributions we’ve covered so far.</p>
@@ -1280,8 +1535,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>20. Let’s practice!</strong></p>
 <p>Time to practice using the normal distribution!</p>
 </section>
-<section id="distribution-of-amirs-sales" class="level2">
-<h2 class="anchored" data-anchor-id="distribution-of-amirs-sales">Distribution of Amir’s sales</h2>
+<section id="distribution-of-amirs-sales" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="distribution-of-amirs-sales"><span class="header-section-number">3.2</span> Distribution of Amir’s sales</h2>
 <p>Since each deal Amir worked on (both won and lost) was different, each was worth a different amount of money. These values are stored in the <code>amount</code> column of <code>amir_deals</code> As part of Amir’s performance review, you want to be able to estimate the probability of him selling different amounts, but before you can do this, you’ll need to determine what kind of distribution the <code>amount</code> variable follows.</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -1293,13 +1548,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb40-3"><a href="#cb40-3"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-6" class="anchored"><em>Question</em></h2>
+<h2 id="question-6" data-number="3.3" class="anchored"><span class="header-section-number">3.3</span> <em>Question</em></h2>
 <p>Which probability distribution do the sales amounts most closely follow?<br> <br> ⬜ Uniform<br> ⬜ Binomial<br> ✅ Normal<br> ⬜ None of the above<br></p>
 </blockquote>
 <p>Fabulous work! Now that you’ve visualized the data, you know that you can approximate probabilities of different <code>amount</code>s using the normal distribution.</p>
 </section>
-<section id="probabilities-from-the-normal-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="probabilities-from-the-normal-distribution">Probabilities from the normal distribution</h2>
+<section id="probabilities-from-the-normal-distribution" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="probabilities-from-the-normal-distribution"><span class="header-section-number">3.4</span> Probabilities from the normal distribution</h2>
 <p>Since each deal Amir worked on (both won and lost) was different, each was worth a different amount of money. These values are stored in the <code>amount</code> column of <code>amir_deals</code> and follow a normal distribution with a mean of 5000 dollars and a standard deviation of 2000 dollars. As part of his performance metrics, you want to calculate the probability of Amir closing a deal worth various amounts.</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -1332,8 +1587,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Nifty normal distribution usage! You know that you can count on Amir 75% of the time to make a sale worth at least $3651.02, and this information will be useful in making company-wide sales projections.</p>
 </section>
-<section id="simulating-sales-under-new-market-conditions" class="level2">
-<h2 class="anchored" data-anchor-id="simulating-sales-under-new-market-conditions">Simulating sales under new market conditions</h2>
+<section id="simulating-sales-under-new-market-conditions" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="simulating-sales-under-new-market-conditions"><span class="header-section-number">3.5</span> Simulating sales under new market conditions</h2>
 <p>The company’s financial analyst is predicting that next quarter, the worth of each sale will increase by 20% and the volatility, or standard deviation, of each sale’s worth will increase by 30%. To see what Amir’s sales might look like next quarter under these new market conditions, you’ll simulate new sales amounts using the normal distribution and store these in the <code>new_sales</code> data frame, which has already been created for you.</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -1364,18 +1619,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Successful simulating! Although the average sale amount went up, the variation also increased, so it’s not straightforward to decide whether these sales are better than his current ones. In the next exercise, you’ll explore the effects of higher variation.</p>
 </section>
-<section id="which-market-is-better" class="level2">
-<h2 class="anchored" data-anchor-id="which-market-is-better">Which market is better?</h2>
+<section id="which-market-is-better" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="which-market-is-better"><span class="header-section-number">3.6</span> Which market is better?</h2>
 <p>The key metric that the company uses to evaluate salespeople is the percent of sales they make over $1000 since the time put into each sale is usually worth a bit more than that, so the higher this metric, the better the salesperson is performing.</p>
 <p>Recall that Amir’s current sales amounts have a mean of $5000 and a standard deviation of $2000, and Amir’s predicted amounts in next quarter’s market have a mean of $6000 and a standard deviation of $2600.</p>
 <blockquote class="blockquote">
-<h2 id="question-7" class="anchored"><em>Question</em></h2>
+<h2 id="question-7" data-number="3.7" class="anchored"><span class="header-section-number">3.7</span> <em>Question</em></h2>
 <p>Based only on the metric of <strong>percent of sales over $1000</strong>, does Amir perform better in the current market or the predicted market?<br> <br> ⬜ Amir performs much better in the current market.<br> ⬜ Amir performs much better in next quarter’s predicted market.<br> ✅ Amir performs about equally in both markets.<br></p>
 </blockquote>
 <p>Great work! In the current market, Amir makes sales over $1000 about 97.7% of the time, and about 97.3% of the time in the predicted market, so there’s not much of a difference. However, his average sale amount is higher in the predicted market, so the company may want to consider other metrics as well.</p>
 </section>
-<section id="the-central-limit-theorem" class="level2">
-<h2 class="anchored" data-anchor-id="the-central-limit-theorem">The central limit theorem</h2>
+<section id="the-central-limit-theorem" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="the-central-limit-theorem"><span class="header-section-number">3.8</span> The central limit theorem</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. The central limit theorem</strong></p>
 <p>Now that you’re familiar with the normal distribution, it’s time to learn about what makes it so important.</p>
@@ -1404,8 +1659,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>13. Let’s practice!</strong></p>
 <p>Now, it’s time to practice utilizing the central limit theorem.</p>
 </section>
-<section id="visualizing-sampling-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-sampling-distributions">Visualizing sampling distributions</h2>
+<section id="visualizing-sampling-distributions" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="visualizing-sampling-distributions"><span class="header-section-number">3.9</span> Visualizing sampling distributions</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Function to resample distributions</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a>resample_dist <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">sample_mean =</span> <span class="dv">100000</span>, <span class="at">sample_size =</span> <span class="dv">20</span>) {</span>
@@ -1467,13 +1722,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>https://audhiaprilliant.medium.com/the-statistics-simulation-of-central-limit-theorem-and-law-of-large-number-b4e489a139c4</p>
 <blockquote class="blockquote">
-<h2 id="question-8" class="anchored"><em>Question</em></h2>
+<h2 id="question-8" data-number="3.10" class="anchored"><span class="header-section-number">3.10</span> <em>Question</em></h2>
 <p>Try creating sampling distributions of different summary statistics from samples of different distributions. Which distribution does the central limit theorem not apply to?<br> <br> ⬜ Discrete uniform distribution<br> ⬜ Continuous uniform distribution<br> ⬜ Binomial distribution<br> ⬜ All of the above<br> ✅ None of the above<br></p>
 </blockquote>
 <p>Victorious visualizing! Regardless of the shape of the distribution you’re taking sample means from, the central limit theorem will apply if the sampling distribution contains enough sample means.</p>
 </section>
-<section id="the-clt-in-action" class="level2">
-<h2 class="anchored" data-anchor-id="the-clt-in-action">The CLT in action</h2>
+<section id="the-clt-in-action" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="the-clt-in-action"><span class="header-section-number">3.11</span> The CLT in action</h2>
 <p>The central limit theorem states that a sampling distribution of a sample statistic approaches the normal distribution as you take more samples, no matter the original distribution being sampled from.</p>
 <p>In this exercise, you’ll focus on the sample mean and see the central limit theorem in action while examining the <code>num_users</code> column of <code>amir_deals</code> more closely, which contains the number of people who intend to use the product Amir is selling.</p>
 <p><strong>Steps</strong></p>
@@ -1523,8 +1778,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Fabulous job! You’ve just seen the central limit thorem at work. Even though the distribution of <code>num_users</code> is not normal, the distribution of its sample mean resembles the normal distribution.</p>
 </section>
-<section id="the-mean-of-means" class="level2">
-<h2 class="anchored" data-anchor-id="the-mean-of-means">The mean of means</h2>
+<section id="the-mean-of-means" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="the-mean-of-means"><span class="header-section-number">3.12</span> The mean of means</h2>
 <p>You want to know what the average number of users (<code>num_users</code>) is per deal, but you want to know this number for the entire company so that you can see if Amir’s deals have more or fewer users than the company’s average deal. The problem is that over the past year, the company has worked on more than ten thousand deals, so it’s not realistic to compile all the data. Instead, you’ll estimate the mean by taking several random samples of deals, since this is much easier than collecting data from everyone in the company.</p>
 <p>The user data for all the company’s deals is available in <code>all_deals</code>.</p>
 <p><strong>Steps</strong></p>
@@ -1554,8 +1809,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Magnificent mean calculation! Amir’s average number of users is very close to the overall average, so it looks like he’s meeting expectations. Make sure to note this in his performance review!</p>
 </section>
-<section id="the-poisson-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="the-poisson-distribution">The Poisson distribution</h2>
+<section id="the-poisson-distribution" class="level2" data-number="3.13">
+<h2 data-number="3.13" class="anchored" data-anchor-id="the-poisson-distribution"><span class="header-section-number">3.13</span> The Poisson distribution</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. The Poisson distribution</strong></p>
 <p>In this video, we’ll talk about another probability distribution called the Poisson distribution.</p>
@@ -1580,8 +1835,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>11. Let’s practice!</strong></p>
 <p>Time to practice taking Poisson probabilities!</p>
 </section>
-<section id="identifying-lambda" class="level2">
-<h2 class="anchored" data-anchor-id="identifying-lambda">Identifying lambda</h2>
+<section id="identifying-lambda" class="level2" data-number="3.14">
+<h2 data-number="3.14" class="anchored" data-anchor-id="identifying-lambda"><span class="header-section-number">3.14</span> Identifying lambda</h2>
 <p>Now that you’ve learned about the Poisson distribution, you know that its shape is described by a value called lambda. In this exercise, you’ll match histograms to lambda values.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">20</span>) <span class="sc">|&gt;</span> </span>
@@ -1598,8 +1853,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Match each Poisson distribution to its lambda value.</p>
 </section>
-<section id="tracking-lead-responses" class="level2">
-<h2 class="anchored" data-anchor-id="tracking-lead-responses">Tracking lead responses</h2>
+<section id="tracking-lead-responses" class="level2" data-number="3.15">
+<h2 data-number="3.15" class="anchored" data-anchor-id="tracking-lead-responses"><span class="header-section-number">3.15</span> Tracking lead responses</h2>
 <p>Your company uses sales software to keep track of new sales leads. It organizes them into a queue so that anyone can follow up on one when they have a bit of free time. Since the number of lead responses is a countable outcome over a period of time, this scenario corresponds to a Poisson distribution. On average, Amir responds to 4 leads each day. In this exercise, you’ll calculate probabilities of Amir responding to different numbers of leads.</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -1632,8 +1887,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Perfect Poisson probabilities! Note that if you provide <code>dpois()</code> or <code>ppois()</code> with a non-integer, it returns 0 and throws a warning since the Poisson distribution only applies to integers.</p>
 </section>
-<section id="more-probability-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="more-probability-distributions">More probability distributions</h2>
+<section id="more-probability-distributions" class="level2" data-number="3.16">
+<h2 data-number="3.16" class="anchored" data-anchor-id="more-probability-distributions"><span class="header-section-number">3.16</span> More probability distributions</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. More probability distributions</strong></p>
 <p>In this lesson, we’ll discuss a few other probability distributions.</p>
@@ -1656,8 +1911,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>10. Let’s practice!</strong></p>
 <p>In addition to the three in this video, there are lots of other probability distributions that are out of the scope of this course, but that you can learn about in other DataCamp courses. For now, it’s time to practice the distributions you’ve learned so far!</p>
 </section>
-<section id="too-many-distributions" class="level2">
-<h2 class="anchored" data-anchor-id="too-many-distributions">Too many distributions</h2>
+<section id="too-many-distributions" class="level2" data-number="3.17">
+<h2 data-number="3.17" class="anchored" data-anchor-id="too-many-distributions"><span class="header-section-number">3.17</span> Too many distributions</h2>
 <p>By this point, you’ve learned about so many different probability distributions that it can be difficult to remember which is which. In this exercise, you’ll practice distinguishing between distributions and identifying the distribution that best matches different scenarios.</p>
 <p>Match each situation to the distribution that best models it.</p>
 <table class="table">
@@ -1687,8 +1942,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </section>
-<section id="modeling-time-between-leads" class="level2">
-<h2 class="anchored" data-anchor-id="modeling-time-between-leads">Modeling time between leads</h2>
+<section id="modeling-time-between-leads" class="level2" data-number="3.18">
+<h2 data-number="3.18" class="anchored" data-anchor-id="modeling-time-between-leads"><span class="header-section-number">3.18</span> Modeling time between leads</h2>
 <p>To further evaluate Amir’s performance, you want to know how much time it takes him to respond to a lead after he opens it. On average, it takes 2.5 hours for him to respond. In this exercise, you’ll calculate probabilities of different amounts of time passing between Amir receiving a lead and sending a response.</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -1714,20 +1969,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Excellent exponential computations! There’s only about a 20% chance it will take Amir more than 4 hours to respond, so he’s pretty speedy in his responses.</p>
 </section>
-<section id="the-t-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="the-t-distribution">The t-distribution</h2>
+<section id="the-t-distribution" class="level2" data-number="3.19">
+<h2 data-number="3.19" class="anchored" data-anchor-id="the-t-distribution"><span class="header-section-number">3.19</span> The t-distribution</h2>
 <blockquote class="blockquote">
-<h2 id="question-9" class="anchored"><em>Question</em></h2>
+<h2 id="question-9" data-number="3.20" class="anchored"><span class="header-section-number">3.20</span> <em>Question</em></h2>
 <p>Which statement is <strong>not</strong> true regarding the t-distribution?<br> <br> ⬜ The t-distribution has thicker tails than the normal distribution.<br> ⬜ A t-distribution with high degrees of freedom resembles the normal distribution.<br> ⬜ The number of degrees of freedom affects the distribution’s variance.<br> ✅ The t-distribution is skewed.<br></p>
 </blockquote>
 <p>Terrific! The t-distribution is not skewed, just like the normal distribution, but it does have thicker tails and higher variance than the normal distribution.</p>
 </section>
 </section>
-<section id="correlation-and-experimental-design" class="level1">
-<h1>4. Correlation and Experimental Design</h1>
+<section id="correlation-and-experimental-design" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> 4. Correlation and Experimental Design</h1>
 <p>In this chapter, you’ll learn how to quantify the strength of a linear relationship between two variables, and explore how confounding variables can affect the relationship between two other variables. You’ll also see how a study’s design can influence its results, change how the data should be analyzed, and potentially affect the reliability of your conclusions.</p>
-<section id="correlation" class="level2">
-<h2 class="anchored" data-anchor-id="correlation">Correlation</h2>
+<section id="correlation" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="correlation"><span class="header-section-number">4.1</span> Correlation</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Correlation</strong></p>
 <p>Welcome to the final chapter of the course, where we’ll talk about correlation and experimental design.</p>
@@ -1760,16 +2015,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>15. Let’s practice!</strong></p>
 <p>Okay, time to practice calculating correlations.</p>
 </section>
-<section id="guess-the-correlation" class="level2">
-<h2 class="anchored" data-anchor-id="guess-the-correlation">Guess the correlation</h2>
+<section id="guess-the-correlation" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="guess-the-correlation"><span class="header-section-number">4.2</span> Guess the correlation</h2>
 <blockquote class="blockquote">
-<h2 id="question-10" class="anchored"><em>Question</em></h2>
+<h2 id="question-10" data-number="4.3" class="anchored"><span class="header-section-number">4.3</span> <em>Question</em></h2>
 <p>Which of the following statements is NOT true about correlation?<br> <br> ⬜ If the correlation between <code>x</code> and <code>y</code> has a high magnitude, the data points will be clustered closely around a line.<br> ⬜ Correlation can be written as <em>r</em>.<br> ⬜ If <code>x</code> and <code>y</code> are negatively correlated, values of <code>y</code> decrease as values of <code>x</code> increase.<br> ✅ Correlation cannot be 0.<br></p>
 </blockquote>
 <p>Spot on! When correlation is 0, that means there is no relationship between two variables and the points appear to be randomly scattered.</p>
 </section>
-<section id="relationships-between-variables" class="level2">
-<h2 class="anchored" data-anchor-id="relationships-between-variables">Relationships between variables</h2>
+<section id="relationships-between-variables" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="relationships-between-variables"><span class="header-section-number">4.4</span> Relationships between variables</h2>
 <p>In this chapter, you’ll be working with a dataset <code>world_happiness</code> containing results from the <a href="https://worldhappiness.report/ed/2019/" target="_blank" rel="noopener noreferrer">2019 World Happiness Report</a>. The report scores various countries based on how happy people in that country are. It also ranks each country on various societal aspects such as social support, freedom, corruption, and others. The dataset also includes the GDP per capita and life expectancy for each country.</p>
 <p>In this exercise, you’ll examine the relationship between a country’s life expectancy (<code>life_exp</code>) and happiness score (<code>happiness_score</code>) both visually and quantitatively. Both <code>dplyr</code> and <code>ggplot2</code> are loaded and <code>world_happiness</code> is available.</p>
 <p><strong>Steps</strong></p>
@@ -1793,7 +2048,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb63-4"><a href="#cb63-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-11" class="anchored"><em>Question</em></h2>
+<h2 id="question-11" data-number="4.5" class="anchored"><span class="header-section-number">4.5</span> <em>Question</em></h2>
 <p>Based on the scatterplot, which is most likely the correlation between <code>life_exp</code> and <code>happiness_score</code>?<br> <br> ⬜ 0.3<br> ⬜ -0.3<br> ✅ 0.8<br> ⬜ -0.8<br></p>
 </blockquote>
 <ol start="3" type="1">
@@ -1805,8 +2060,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Vibrant visualizations! Scatterplots with trendlines are a great way to verify that a relationship between two variables is indeed linear.</p>
 </section>
-<section id="correlation-caveats" class="level2">
-<h2 class="anchored" data-anchor-id="correlation-caveats">Correlation caveats</h2>
+<section id="correlation-caveats" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="correlation-caveats"><span class="header-section-number">4.6</span> Correlation caveats</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Correlation caveats</strong></p>
 <p>While correlation is a useful way to quantify relationships, there are some caveats.</p>
@@ -1843,8 +2098,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>17. Let’s practice!</strong></p>
 <p>Now that you’ve learned how to use correlation responsibly, time to practice.</p>
 </section>
-<section id="what-cant-correlation-measure" class="level2">
-<h2 class="anchored" data-anchor-id="what-cant-correlation-measure">What can’t correlation measure?</h2>
+<section id="what-cant-correlation-measure" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="what-cant-correlation-measure"><span class="header-section-number">4.7</span> What can’t correlation measure?</h2>
 <p>While the correlation coefficient is a convenient way to quantify the strength of a relationship between two variables, it’s far from perfect. In this exercise, you’ll explore one of the caveats of the correlation coefficient by examining the relationship between a country’s GDP per capita (<code>gdp_per_cap</code>) and happiness score.</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -1863,13 +2118,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb66-2"><a href="#cb66-2"></a><span class="fu">cor</span>(world_happiness<span class="sc">$</span>gdp_per_cap, world_happiness<span class="sc">$</span>life_exp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-12" class="anchored"><em>Question</em></h2>
+<h2 id="question-12" data-number="4.8" class="anchored"><span class="header-section-number">4.8</span> <em>Question</em></h2>
 <p>The correlation between GDP per capita and life expectancy is 0.7. Why is correlation not the best way to measure the relationship between the two variables?<br> <br> ⬜ Correlation measures how one variable affects another.<br> ✅ Correlation only measures linear relationships.<br> ⬜ Correlation cannot properly measure relationships between numeric variables.<br></p>
 </blockquote>
 <p>Correct! The correlation coefficient can’t account for any relationships that aren’t linear, regardless of strength.</p>
 </section>
-<section id="transforming-variables" class="level2">
-<h2 class="anchored" data-anchor-id="transforming-variables">Transforming variables</h2>
+<section id="transforming-variables" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="transforming-variables"><span class="header-section-number">4.9</span> Transforming variables</h2>
 <p>When variables have skewed distributions, they often require a transformation in order to form a linear relationship with another variable so that correlation can be computed. In this exercise, you’ll perform a transformation yourself.</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -1909,8 +2164,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Terrific transforming! The relationship between GDP per capita and happiness became more linear by applying a log transformation. Log transformations are great to use on variables with a skewed distribution, such as GDP.</p>
 </section>
-<section id="does-sugar-improve-happiness" class="level2">
-<h2 class="anchored" data-anchor-id="does-sugar-improve-happiness">Does sugar improve happiness?</h2>
+<section id="does-sugar-improve-happiness" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="does-sugar-improve-happiness"><span class="header-section-number">4.10</span> Does sugar improve happiness?</h2>
 <p>A new column has been added to <code>world_happiness</code> called <code>grams_sugar_per_day</code>, which contains the average amount of sugar eaten per person per day in each country. In this exercise, you’ll examine the effect of a country’s average sugar consumption on its happiness score.</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -1929,22 +2184,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb72-2"><a href="#cb72-2"></a><span class="fu">cor</span>(world_happiness<span class="sc">$</span>grams_sugar_per_day, world_happiness<span class="sc">$</span>happiness_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-13" class="anchored"><em>Question</em></h2>
+<h2 id="question-13" data-number="4.11" class="anchored"><span class="header-section-number">4.11</span> <em>Question</em></h2>
 <p>Based on this data, which statement about sugar consumption and happiness scores is true?<br> <br> ⬜ Increased sugar consumption leads to a higher happiness score.<br> ⬜ Lower sugar consumption results in a lower happiness score<br> ✅ Increased sugar consumption is associated with a higher happiness score.<br> ⬜ Sugar consumption is not related to happiness.<br></p>
 </blockquote>
 <p>Nice interpretation of correlation! If correlation always implied that one thing causes another, people may do some nonsensical things, like eat more sugar to be happier.</p>
 </section>
-<section id="confounders" class="level2">
-<h2 class="anchored" data-anchor-id="confounders">Confounders</h2>
+<section id="confounders" class="level2" data-number="4.12">
+<h2 data-number="4.12" class="anchored" data-anchor-id="confounders"><span class="header-section-number">4.12</span> Confounders</h2>
 <p>A study is investigating the relationship between neighborhood residence and lung capacity. Researchers measure the lung capacity of thirty people from neighborhood A, which is located near a highway, and thirty people from neighborhood B, which is not near a highway. Both groups have similar smoking habits and a similar gender breakdown.</p>
 <blockquote class="blockquote">
-<h2 id="question-14" class="anchored"><em>Question</em></h2>
+<h2 id="question-14" data-number="4.13" class="anchored"><span class="header-section-number">4.13</span> <em>Question</em></h2>
 <p>Which of the following could be a <em>confounder</em> in this study?<br> <br> ⬜ Lung capacity<br> ⬜ Neighborhood<br> ✅ Air pollution<br> ⬜ Smoking status<br> ⬜ Gender<br></p>
 </blockquote>
 <p>Correct! You would expect there to be more air pollution in the neighborhood situated near the highway, which can cause lower lung capacity.</p>
 </section>
-<section id="design-of-experiments" class="level2">
-<h2 class="anchored" data-anchor-id="design-of-experiments">Design of experiments</h2>
+<section id="design-of-experiments" class="level2" data-number="4.14">
+<h2 data-number="4.14" class="anchored" data-anchor-id="design-of-experiments"><span class="header-section-number">4.14</span> Design of experiments</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Design of experiments</strong></p>
 <p>Often, data is created as a result of a study that aims to answer a specific question. However, data needs to be analyzed and interpreted differently depending on how the data was generated and how the study was designed.</p>
@@ -1963,8 +2218,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>8. Let’s practice!</strong></p>
 <p>Time to practice your study design skills!</p>
 </section>
-<section id="study-types" class="level2">
-<h2 class="anchored" data-anchor-id="study-types">Study types</h2>
+<section id="study-types" class="level2" data-number="4.15">
+<h2 data-number="4.15" class="anchored" data-anchor-id="study-types"><span class="header-section-number">4.15</span> Study types</h2>
 <p>While controlled experiments are ideal, many situations and research questions are not conducive to a controlled experiment. In a controlled experiment, causation can likely be inferred if the control and test groups have similar characteristics and don’t have any systematic difference between them. On the other hand, causation cannot usually be inferred from observational studies, whose results are often misinterpreted as a result.</p>
 <p>In this exercise, you’ll practice distinguishing controlled experiments from observational studies.</p>
 <p>Determine if each study is a controlled experiment or observational study.</p>
@@ -1995,18 +2250,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </section>
-<section id="longitudinal-vs.-cross-sectional-studies" class="level2">
-<h2 class="anchored" data-anchor-id="longitudinal-vs.-cross-sectional-studies">Longitudinal vs.&nbsp;cross-sectional studies</h2>
+<section id="longitudinal-vs.-cross-sectional-studies" class="level2" data-number="4.16">
+<h2 data-number="4.16" class="anchored" data-anchor-id="longitudinal-vs.-cross-sectional-studies"><span class="header-section-number">4.16</span> Longitudinal vs.&nbsp;cross-sectional studies</h2>
 <div class="">
 <p>A company manufactures thermometers, and they want to study the relationship between a thermometer’s age and its accuracy. To do this, they take a sample of 100 different thermometers of different ages and test how accurate they are. Is this data longitudinal or cross-sectional?</p>
 <blockquote class="blockquote">
-<h2 id="question-15" class="anchored"><em>Question</em></h2>
+<h2 id="question-15" data-number="4.17" class="anchored"><span class="header-section-number">4.17</span> <em>Question</em></h2>
 <p>Which of the following could be a <em>confounder</em> in this study?<br> <br> ⬜ Longitudinal<br> ✅ Cross-sectional<br> ⬜ Both<br> ⬜ Neither<br></p>
 </blockquote>
 <p>Perfect! This is a cross-sectional study since researchers aren’t following the same set of thermometers over time and repeatedly measuring their accuracy at different ages.</p>
 </div></section>
-<section id="congratulations" class="level2">
-<h2 class="anchored" data-anchor-id="congratulations">Congratulations!</h2>
+<section id="congratulations" class="level2" data-number="4.18">
+<h2 data-number="4.18" class="anchored" data-anchor-id="congratulations"><span class="header-section-number">4.18</span> Congratulations!</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Congratulations!</strong></p>
 <p>Congratulations on completing the course! You now have foundational statistics skills that you can use in your analyses and build upon further.</p>
@@ -2270,6 +2525,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../../../content/R/topics/05_statistics/02_fundamentals_of_bayesian_data_analysis/02_fundamentals_of_bayesian_data_analysis.html" class="pagination-link">
+        <span class="nav-page-text">14: Fundamentals of Bayesian Data Analysis</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

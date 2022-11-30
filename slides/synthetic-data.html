@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Joschka Schwarz">
 
 <title>Joschka Schwarz - The ultimate guide to generating synthetic data for causal inference</title>
 <style>
@@ -269,38 +270,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Contents</h2>
    
-  <ul>
-  <li><a href="#basic-example" id="toc-basic-example" class="nav-link active" data-scroll-target="#basic-example">Basic example</a>
   <ul class="collapse">
-  <li><a href="#relationships-and-regression" id="toc-relationships-and-regression" class="nav-link" data-scroll-target="#relationships-and-regression">Relationships and regression</a></li>
-  <li><a href="#explanatory-variables-linked-to-outcome-no-connection-between-explanatory-variables" id="toc-explanatory-variables-linked-to-outcome-no-connection-between-explanatory-variables" class="nav-link" data-scroll-target="#explanatory-variables-linked-to-outcome-no-connection-between-explanatory-variables">Explanatory variables linked to outcome; no connection between explanatory variables</a></li>
-  <li><a href="#explanatory-variables-linked-to-outcome-connection-between-explanatory-variables" id="toc-explanatory-variables-linked-to-outcome-connection-between-explanatory-variables" class="nav-link" data-scroll-target="#explanatory-variables-linked-to-outcome-connection-between-explanatory-variables">Explanatory variables linked to outcome; connection between explanatory variables</a></li>
-  <li><a href="#adding-extra-noise" id="toc-adding-extra-noise" class="nav-link" data-scroll-target="#adding-extra-noise">Adding extra noise</a></li>
-  </ul></li>
-  <li><a href="#visualizing-variables-and-relationships" id="toc-visualizing-variables-and-relationships" class="nav-link" data-scroll-target="#visualizing-variables-and-relationships">Visualizing variables and relationships</a>
-  <ul class="collapse">
-  <li><a href="#visualizing-one-variable" id="toc-visualizing-one-variable" class="nav-link" data-scroll-target="#visualizing-one-variable">Visualizing one variable</a></li>
-  <li><a href="#visualizing-two-continuous-variables" id="toc-visualizing-two-continuous-variables" class="nav-link" data-scroll-target="#visualizing-two-continuous-variables">Visualizing two continuous variables</a></li>
-  <li><a href="#visualizing-a-binary-variable-and-a-continuous-variable" id="toc-visualizing-a-binary-variable-and-a-continuous-variable" class="nav-link" data-scroll-target="#visualizing-a-binary-variable-and-a-continuous-variable">Visualizing a binary variable and a continuous variable</a></li>
-  </ul></li>
-  <li><a href="#specific-examples" id="toc-specific-examples" class="nav-link" data-scroll-target="#specific-examples">Specific examples</a>
-  <ul class="collapse">
-  <li><a href="#tldr-the-general-process" id="toc-tldr-the-general-process" class="nav-link" data-scroll-target="#tldr-the-general-process">tl;dr: The general process</a></li>
-  <li><a href="#creating-an-effect-in-an-observational-dag" id="toc-creating-an-effect-in-an-observational-dag" class="nav-link" data-scroll-target="#creating-an-effect-in-an-observational-dag">Creating an effect in an observational DAG</a></li>
-  <li><a href="#brief-pep-talk-intermission" id="toc-brief-pep-talk-intermission" class="nav-link" data-scroll-target="#brief-pep-talk-intermission">Brief pep talk intermission</a></li>
-  <li><a href="#creating-an-effect-for-rcts" id="toc-creating-an-effect-for-rcts" class="nav-link" data-scroll-target="#creating-an-effect-for-rcts">Creating an effect for RCTs</a></li>
-  <li><a href="#creating-an-effect-for-diff-in-diff" id="toc-creating-an-effect-for-diff-in-diff" class="nav-link" data-scroll-target="#creating-an-effect-for-diff-in-diff">Creating an effect for diff-in-diff</a></li>
-  <li><a href="#creating-an-effect-for-regression-discontinuity" id="toc-creating-an-effect-for-regression-discontinuity" class="nav-link" data-scroll-target="#creating-an-effect-for-regression-discontinuity">Creating an effect for regression discontinuity</a></li>
-  <li><a href="#creating-an-effect-for-instrumental-variables" id="toc-creating-an-effect-for-instrumental-variables" class="nav-link" data-scroll-target="#creating-an-effect-for-instrumental-variables">Creating an effect for instrumental variables</a></li>
-  </ul></li>
-  <li><a href="#use-synthetic-data-packages" id="toc-use-synthetic-data-packages" class="nav-link" data-scroll-target="#use-synthetic-data-packages">Use synthetic data packages</a>
-  <ul class="collapse">
-  <li><a href="#fabricatr" id="toc-fabricatr" class="nav-link" data-scroll-target="#fabricatr">fabricatr</a></li>
-  <li><a href="#wakefield" id="toc-wakefield" class="nav-link" data-scroll-target="#wakefield">wakefield</a></li>
-  <li><a href="#faux" id="toc-faux" class="nav-link" data-scroll-target="#faux">faux</a></li>
-  </ul></li>
+  <li><a href="#basic-example" id="toc-basic-example" class="nav-link active" data-scroll-target="#basic-example"><span class="toc-section-number">1</span>  Basic example</a></li>
+  <li><a href="#visualizing-variables-and-relationships" id="toc-visualizing-variables-and-relationships" class="nav-link" data-scroll-target="#visualizing-variables-and-relationships"><span class="toc-section-number">2</span>  Visualizing variables and relationships</a></li>
+  <li><a href="#specific-examples" id="toc-specific-examples" class="nav-link" data-scroll-target="#specific-examples"><span class="toc-section-number">3</span>  Specific examples</a></li>
+  <li><a href="#use-synthetic-data-packages" id="toc-use-synthetic-data-packages" class="nav-link" data-scroll-target="#use-synthetic-data-packages"><span class="toc-section-number">4</span>  Use synthetic data packages</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/slides/synthetic-data.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -316,6 +292,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Joschka Schwarz </p>
+          </div>
+  </div>
     
   
     
@@ -333,8 +315,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(scales)</span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="fu">library</span>(ggdag)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="basic-example" class="level2">
-<h2 class="anchored" data-anchor-id="basic-example">Basic example</h2>
+<section id="basic-example" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="basic-example"><span class="header-section-number">1</span> Basic example</h2>
 <section id="relationships-and-regression" class="level3">
 <h3 class="anchored" data-anchor-id="relationships-and-regression">Relationships and regression</h3>
 <p>Let’s pretend we want to predict someone’s happiness on a 10-point scale based on the number of cookies they’ve eaten and whether or not their favorite color is blue.</p>
@@ -614,8 +596,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you want more realistic-looking synthetic data, it’s a good idea to add some random noise wherever you can.</p>
 </section>
 </section>
-<section id="visualizing-variables-and-relationships" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-variables-and-relationships">Visualizing variables and relationships</h2>
+<section id="visualizing-variables-and-relationships" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="visualizing-variables-and-relationships"><span class="header-section-number">2</span> Visualizing variables and relationships</h2>
 <p>Going through this process requires <em>a ton</em> of trial and error. You will change all sorts of numbers to make sure the relationships you’re building work. This is especially the case if you rescale things, since that rescales your effects. There are a lot of moving parts and this is a complicated process.</p>
 <p>You’ll run your data generation chunks lots and lots and lots of times, tinkering with the numbers as you go. This example makes it look easy, since it’s the final product, but I ran all these chunks over and over again until I got the causal effect and relationships just right.</p>
 <p>It’s best if you also create plots and models to see what the relationships look like</p>
@@ -711,8 +693,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="specific-examples" class="level2">
-<h2 class="anchored" data-anchor-id="specific-examples">Specific examples</h2>
+<section id="specific-examples" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="specific-examples"><span class="header-section-number">3</span> Specific examples</h2>
 <section id="tldr-the-general-process" class="level3">
 <h3 class="anchored" data-anchor-id="tldr-the-general-process">tl;dr: The general process</h3>
 <p>Those previous sections go into a lot of detail. In general, here’s the process you should follow when building relationships in synthetic data:</p>
@@ -1438,8 +1420,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 </section>
 </section>
-<section id="use-synthetic-data-packages" class="level2">
-<h2 class="anchored" data-anchor-id="use-synthetic-data-packages">Use synthetic data packages</h2>
+<section id="use-synthetic-data-packages" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="use-synthetic-data-packages"><span class="header-section-number">4</span> Use synthetic data packages</h2>
 <p>There are several R packages that let you generate synthetic data with built-in relationships in a more automatic way. They all work a little differently, and if you’re interested in trying them out, make sure you check the documentation for details.</p>
 <section id="fabricatr" class="level3">
 <h3 class="anchored" data-anchor-id="fabricatr">fabricatr</h3>

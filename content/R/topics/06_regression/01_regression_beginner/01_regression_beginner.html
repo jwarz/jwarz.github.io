@@ -93,6 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../../../">
+<link href="../../../../../content/R/topics/06_regression/02_regression_intermediate/02_regression_intermediate.html" rel="next">
 <script src="../../../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -128,7 +129,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -200,79 +202,329 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Introduction to Regression in R</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Topics</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <b><i>Programming Basics</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">1: Introduction to R</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">2: Intermediate R</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">3: Introduction to the tidyverse</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Importing Data</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">4: Introduction to Importing Data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">5: Intermediate Importing Data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">6: Working with web data</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Data Wrangling</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">7: Exploratory Data Analysis</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">8: Case Study: EDA</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">9: Cleaning Data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">10: Data Manipulation with data.table</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">11: Joining Data with data.table</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Data Visualization</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">12: Intermediate Data Visualization with ggplot2</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Statistics</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">13: Introduction to Statistics</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/05_statistics/02_fundamentals_of_bayesian_data_analysis/02_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">14: Fundamentals of Bayesian Data Analysis</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Regression</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/06_regression/01_regression_beginner/01_regression_beginner.html" class="sidebar-item-text sidebar-link active">15: Introduction to Regression</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/06_regression/02_regression_intermediate/02_regression_intermediate.html" class="sidebar-item-text sidebar-link">16: Intermediate Regression</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Machine Learning</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">17: Supervised Learning: Classification</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">18: Supervised Learning: Regression</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">19: Unsupervised Learning</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">20: Machine Learning in the tidyverse</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">21: Cluster Analysis</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">22: Cluster Analysis</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">23: Modeling with tidymodels</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">24: Machine Learning with tree-based Models</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">25: Support Vector Machines</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">26: Topic Modeling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">27: Hyperparameter Tuning</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">28: Bayesian Regression Modeling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">29: Introduction to Spark</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Manuals</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">1: An Introduction to R</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">2: R Data Import/Export</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">3: R Installation and Administration</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">4: Writing R Extensions</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">5: R Language Definition</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">6: R Internals</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#simple-linear-regression" id="toc-simple-linear-regression" class="nav-link active" data-scroll-target="#simple-linear-regression">1. Simple Linear Regression</a>
+  <li><a href="#simple-linear-regression" id="toc-simple-linear-regression" class="nav-link active" data-scroll-target="#simple-linear-regression"><span class="toc-section-number">1</span>  1. Simple Linear Regression</a>
   <ul class="collapse">
-  <li><a href="#a-tale-of-two-variables" id="toc-a-tale-of-two-variables" class="nav-link" data-scroll-target="#a-tale-of-two-variables">A tale of two variables</a></li>
-  <li><a href="#which-one-is-the-response-variable" id="toc-which-one-is-the-response-variable" class="nav-link" data-scroll-target="#which-one-is-the-response-variable">Which one is the response variable?</a></li>
-  <li><a href="#visualizing-two-variables" id="toc-visualizing-two-variables" class="nav-link" data-scroll-target="#visualizing-two-variables">Visualizing two variables</a></li>
-  <li><a href="#fitting-a-linear-regression" id="toc-fitting-a-linear-regression" class="nav-link" data-scroll-target="#fitting-a-linear-regression">Fitting a linear regression</a></li>
-  <li><a href="#estimate-the-intercept" id="toc-estimate-the-intercept" class="nav-link" data-scroll-target="#estimate-the-intercept">Estimate the intercept</a></li>
-  <li><a href="#estimate-the-slope" id="toc-estimate-the-slope" class="nav-link" data-scroll-target="#estimate-the-slope">Estimate the slope</a></li>
-  <li><a href="#linear-regression-with-lm" id="toc-linear-regression-with-lm" class="nav-link" data-scroll-target="#linear-regression-with-lm">Linear regression with lm()</a></li>
-  <li><a href="#categorical-explanatory-variables" id="toc-categorical-explanatory-variables" class="nav-link" data-scroll-target="#categorical-explanatory-variables">Categorical explanatory variables</a></li>
-  <li><a href="#visualizing-numeric-vs.-categorical" id="toc-visualizing-numeric-vs.-categorical" class="nav-link" data-scroll-target="#visualizing-numeric-vs.-categorical">Visualizing numeric vs.&nbsp;categorical</a></li>
-  <li><a href="#calculating-means-by-category" id="toc-calculating-means-by-category" class="nav-link" data-scroll-target="#calculating-means-by-category">Calculating means by category</a></li>
-  <li><a href="#lm-with-a-categorical-explanatory-variable" id="toc-lm-with-a-categorical-explanatory-variable" class="nav-link" data-scroll-target="#lm-with-a-categorical-explanatory-variable">lm() with a categorical explanatory variable</a></li>
+  <li><a href="#a-tale-of-two-variables" id="toc-a-tale-of-two-variables" class="nav-link" data-scroll-target="#a-tale-of-two-variables"><span class="toc-section-number">1.1</span>  A tale of two variables</a></li>
+  <li><a href="#which-one-is-the-response-variable" id="toc-which-one-is-the-response-variable" class="nav-link" data-scroll-target="#which-one-is-the-response-variable"><span class="toc-section-number">1.2</span>  Which one is the response variable?</a></li>
+  <li><a href="#visualizing-two-variables" id="toc-visualizing-two-variables" class="nav-link" data-scroll-target="#visualizing-two-variables"><span class="toc-section-number">1.4</span>  Visualizing two variables</a></li>
+  <li><a href="#fitting-a-linear-regression" id="toc-fitting-a-linear-regression" class="nav-link" data-scroll-target="#fitting-a-linear-regression"><span class="toc-section-number">1.5</span>  Fitting a linear regression</a></li>
+  <li><a href="#estimate-the-intercept" id="toc-estimate-the-intercept" class="nav-link" data-scroll-target="#estimate-the-intercept"><span class="toc-section-number">1.6</span>  Estimate the intercept</a></li>
+  <li><a href="#estimate-the-slope" id="toc-estimate-the-slope" class="nav-link" data-scroll-target="#estimate-the-slope"><span class="toc-section-number">1.8</span>  Estimate the slope</a></li>
+  <li><a href="#linear-regression-with-lm" id="toc-linear-regression-with-lm" class="nav-link" data-scroll-target="#linear-regression-with-lm"><span class="toc-section-number">1.10</span>  Linear regression with lm()</a></li>
+  <li><a href="#categorical-explanatory-variables" id="toc-categorical-explanatory-variables" class="nav-link" data-scroll-target="#categorical-explanatory-variables"><span class="toc-section-number">1.13</span>  Categorical explanatory variables</a></li>
+  <li><a href="#visualizing-numeric-vs.-categorical" id="toc-visualizing-numeric-vs.-categorical" class="nav-link" data-scroll-target="#visualizing-numeric-vs.-categorical"><span class="toc-section-number">1.14</span>  Visualizing numeric vs.&nbsp;categorical</a></li>
+  <li><a href="#calculating-means-by-category" id="toc-calculating-means-by-category" class="nav-link" data-scroll-target="#calculating-means-by-category"><span class="toc-section-number">1.15</span>  Calculating means by category</a></li>
+  <li><a href="#lm-with-a-categorical-explanatory-variable" id="toc-lm-with-a-categorical-explanatory-variable" class="nav-link" data-scroll-target="#lm-with-a-categorical-explanatory-variable"><span class="toc-section-number">1.16</span>  lm() with a categorical explanatory variable</a></li>
   </ul></li>
-  <li><a href="#predictions-and-model-objects" id="toc-predictions-and-model-objects" class="nav-link" data-scroll-target="#predictions-and-model-objects">2. Predictions and model objects</a>
+  <li><a href="#predictions-and-model-objects" id="toc-predictions-and-model-objects" class="nav-link" data-scroll-target="#predictions-and-model-objects"><span class="toc-section-number">2</span>  2. Predictions and model objects</a>
   <ul class="collapse">
-  <li><a href="#making-predictions" id="toc-making-predictions" class="nav-link" data-scroll-target="#making-predictions">Making predictions</a></li>
-  <li><a href="#predicting-house-prices" id="toc-predicting-house-prices" class="nav-link" data-scroll-target="#predicting-house-prices">Predicting house prices</a></li>
-  <li><a href="#visualizing-predictions" id="toc-visualizing-predictions" class="nav-link" data-scroll-target="#visualizing-predictions">Visualizing predictions</a></li>
-  <li><a href="#the-limits-of-prediction" id="toc-the-limits-of-prediction" class="nav-link" data-scroll-target="#the-limits-of-prediction">The limits of prediction</a></li>
-  <li><a href="#working-with-model-objects" id="toc-working-with-model-objects" class="nav-link" data-scroll-target="#working-with-model-objects">Working with model objects</a></li>
-  <li><a href="#extracting-model-elements" id="toc-extracting-model-elements" class="nav-link" data-scroll-target="#extracting-model-elements">Extracting model elements</a></li>
-  <li><a href="#manually-predicting-house-prices" id="toc-manually-predicting-house-prices" class="nav-link" data-scroll-target="#manually-predicting-house-prices">Manually predicting house prices</a></li>
-  <li><a href="#using-broom" id="toc-using-broom" class="nav-link" data-scroll-target="#using-broom">Using broom</a></li>
-  <li><a href="#regression-to-the-mean" id="toc-regression-to-the-mean" class="nav-link" data-scroll-target="#regression-to-the-mean">Regression to the mean</a></li>
-  <li><a href="#home-run" id="toc-home-run" class="nav-link" data-scroll-target="#home-run">Home run!</a></li>
-  <li><a href="#plotting-consecutive-portfolio-returns" id="toc-plotting-consecutive-portfolio-returns" class="nav-link" data-scroll-target="#plotting-consecutive-portfolio-returns">Plotting consecutive portfolio returns</a></li>
-  <li><a href="#modeling-consecutive-returns" id="toc-modeling-consecutive-returns" class="nav-link" data-scroll-target="#modeling-consecutive-returns">Modeling consecutive returns</a></li>
-  <li><a href="#transforming-variables" id="toc-transforming-variables" class="nav-link" data-scroll-target="#transforming-variables">Transforming variables</a></li>
-  <li><a href="#transforming-the-explanatory-variable" id="toc-transforming-the-explanatory-variable" class="nav-link" data-scroll-target="#transforming-the-explanatory-variable">Transforming the explanatory variable</a></li>
-  <li><a href="#transforming-the-response-variable-too" id="toc-transforming-the-response-variable-too" class="nav-link" data-scroll-target="#transforming-the-response-variable-too">Transforming the response variable too</a></li>
+  <li><a href="#making-predictions" id="toc-making-predictions" class="nav-link" data-scroll-target="#making-predictions"><span class="toc-section-number">2.1</span>  Making predictions</a></li>
+  <li><a href="#predicting-house-prices" id="toc-predicting-house-prices" class="nav-link" data-scroll-target="#predicting-house-prices"><span class="toc-section-number">2.2</span>  Predicting house prices</a></li>
+  <li><a href="#visualizing-predictions" id="toc-visualizing-predictions" class="nav-link" data-scroll-target="#visualizing-predictions"><span class="toc-section-number">2.3</span>  Visualizing predictions</a></li>
+  <li><a href="#the-limits-of-prediction" id="toc-the-limits-of-prediction" class="nav-link" data-scroll-target="#the-limits-of-prediction"><span class="toc-section-number">2.4</span>  The limits of prediction</a></li>
+  <li><a href="#working-with-model-objects" id="toc-working-with-model-objects" class="nav-link" data-scroll-target="#working-with-model-objects"><span class="toc-section-number">2.6</span>  Working with model objects</a></li>
+  <li><a href="#extracting-model-elements" id="toc-extracting-model-elements" class="nav-link" data-scroll-target="#extracting-model-elements"><span class="toc-section-number">2.7</span>  Extracting model elements</a></li>
+  <li><a href="#manually-predicting-house-prices" id="toc-manually-predicting-house-prices" class="nav-link" data-scroll-target="#manually-predicting-house-prices"><span class="toc-section-number">2.8</span>  Manually predicting house prices</a></li>
+  <li><a href="#using-broom" id="toc-using-broom" class="nav-link" data-scroll-target="#using-broom"><span class="toc-section-number">2.9</span>  Using broom</a></li>
+  <li><a href="#regression-to-the-mean" id="toc-regression-to-the-mean" class="nav-link" data-scroll-target="#regression-to-the-mean"><span class="toc-section-number">2.10</span>  Regression to the mean</a></li>
+  <li><a href="#home-run" id="toc-home-run" class="nav-link" data-scroll-target="#home-run"><span class="toc-section-number">2.11</span>  Home run!</a></li>
+  <li><a href="#plotting-consecutive-portfolio-returns" id="toc-plotting-consecutive-portfolio-returns" class="nav-link" data-scroll-target="#plotting-consecutive-portfolio-returns"><span class="toc-section-number">2.13</span>  Plotting consecutive portfolio returns</a></li>
+  <li><a href="#modeling-consecutive-returns" id="toc-modeling-consecutive-returns" class="nav-link" data-scroll-target="#modeling-consecutive-returns"><span class="toc-section-number">2.14</span>  Modeling consecutive returns</a></li>
+  <li><a href="#transforming-variables" id="toc-transforming-variables" class="nav-link" data-scroll-target="#transforming-variables"><span class="toc-section-number">2.15</span>  Transforming variables</a></li>
+  <li><a href="#transforming-the-explanatory-variable" id="toc-transforming-the-explanatory-variable" class="nav-link" data-scroll-target="#transforming-the-explanatory-variable"><span class="toc-section-number">2.16</span>  Transforming the explanatory variable</a></li>
+  <li><a href="#transforming-the-response-variable-too" id="toc-transforming-the-response-variable-too" class="nav-link" data-scroll-target="#transforming-the-response-variable-too"><span class="toc-section-number">2.17</span>  Transforming the response variable too</a></li>
   </ul></li>
-  <li><a href="#assessing-model-fit" id="toc-assessing-model-fit" class="nav-link" data-scroll-target="#assessing-model-fit">3. Assessing model fit</a>
+  <li><a href="#assessing-model-fit" id="toc-assessing-model-fit" class="nav-link" data-scroll-target="#assessing-model-fit"><span class="toc-section-number">3</span>  3. Assessing model fit</a>
   <ul class="collapse">
-  <li><a href="#quantifying-model-fit" id="toc-quantifying-model-fit" class="nav-link" data-scroll-target="#quantifying-model-fit">Quantifying model fit</a></li>
-  <li><a href="#coefficient-of-determination" id="toc-coefficient-of-determination" class="nav-link" data-scroll-target="#coefficient-of-determination">Coefficient of determination</a></li>
-  <li><a href="#residual-standard-error" id="toc-residual-standard-error" class="nav-link" data-scroll-target="#residual-standard-error">Residual standard error</a></li>
-  <li><a href="#visualizing-model-fit" id="toc-visualizing-model-fit" class="nav-link" data-scroll-target="#visualizing-model-fit">Visualizing model fit</a></li>
-  <li><a href="#residuals-vs.-fitted-values" id="toc-residuals-vs.-fitted-values" class="nav-link" data-scroll-target="#residuals-vs.-fitted-values">Residuals vs.&nbsp;fitted values</a></li>
-  <li><a href="#q-q-plot-of-residuals" id="toc-q-q-plot-of-residuals" class="nav-link" data-scroll-target="#q-q-plot-of-residuals">Q-Q plot of residuals</a></li>
-  <li><a href="#scale-location" id="toc-scale-location" class="nav-link" data-scroll-target="#scale-location">Scale-location</a></li>
-  <li><a href="#drawing-diagnostic-plots" id="toc-drawing-diagnostic-plots" class="nav-link" data-scroll-target="#drawing-diagnostic-plots">Drawing diagnostic plots</a></li>
-  <li><a href="#outliers-leverage-and-influence" id="toc-outliers-leverage-and-influence" class="nav-link" data-scroll-target="#outliers-leverage-and-influence">Outliers, leverage, and influence</a></li>
-  <li><a href="#leverage" id="toc-leverage" class="nav-link" data-scroll-target="#leverage">Leverage</a></li>
-  <li><a href="#influence" id="toc-influence" class="nav-link" data-scroll-target="#influence">Influence</a></li>
-  <li><a href="#extracting-leverage-and-influence" id="toc-extracting-leverage-and-influence" class="nav-link" data-scroll-target="#extracting-leverage-and-influence">Extracting leverage and influence</a></li>
+  <li><a href="#quantifying-model-fit" id="toc-quantifying-model-fit" class="nav-link" data-scroll-target="#quantifying-model-fit"><span class="toc-section-number">3.1</span>  Quantifying model fit</a></li>
+  <li><a href="#coefficient-of-determination" id="toc-coefficient-of-determination" class="nav-link" data-scroll-target="#coefficient-of-determination"><span class="toc-section-number">3.2</span>  Coefficient of determination</a></li>
+  <li><a href="#residual-standard-error" id="toc-residual-standard-error" class="nav-link" data-scroll-target="#residual-standard-error"><span class="toc-section-number">3.5</span>  Residual standard error</a></li>
+  <li><a href="#visualizing-model-fit" id="toc-visualizing-model-fit" class="nav-link" data-scroll-target="#visualizing-model-fit"><span class="toc-section-number">3.8</span>  Visualizing model fit</a></li>
+  <li><a href="#residuals-vs.-fitted-values" id="toc-residuals-vs.-fitted-values" class="nav-link" data-scroll-target="#residuals-vs.-fitted-values"><span class="toc-section-number">3.9</span>  Residuals vs.&nbsp;fitted values</a></li>
+  <li><a href="#q-q-plot-of-residuals" id="toc-q-q-plot-of-residuals" class="nav-link" data-scroll-target="#q-q-plot-of-residuals"><span class="toc-section-number">3.11</span>  Q-Q plot of residuals</a></li>
+  <li><a href="#scale-location" id="toc-scale-location" class="nav-link" data-scroll-target="#scale-location"><span class="toc-section-number">3.13</span>  Scale-location</a></li>
+  <li><a href="#drawing-diagnostic-plots" id="toc-drawing-diagnostic-plots" class="nav-link" data-scroll-target="#drawing-diagnostic-plots"><span class="toc-section-number">3.15</span>  Drawing diagnostic plots</a></li>
+  <li><a href="#outliers-leverage-and-influence" id="toc-outliers-leverage-and-influence" class="nav-link" data-scroll-target="#outliers-leverage-and-influence"><span class="toc-section-number">3.16</span>  Outliers, leverage, and influence</a></li>
+  <li><a href="#leverage" id="toc-leverage" class="nav-link" data-scroll-target="#leverage"><span class="toc-section-number">3.17</span>  Leverage</a></li>
+  <li><a href="#influence" id="toc-influence" class="nav-link" data-scroll-target="#influence"><span class="toc-section-number">3.19</span>  Influence</a></li>
+  <li><a href="#extracting-leverage-and-influence" id="toc-extracting-leverage-and-influence" class="nav-link" data-scroll-target="#extracting-leverage-and-influence"><span class="toc-section-number">3.21</span>  Extracting leverage and influence</a></li>
   </ul></li>
-  <li><a href="#simple-logistic-regression" id="toc-simple-logistic-regression" class="nav-link" data-scroll-target="#simple-logistic-regression">4. Simple logistic regression</a>
+  <li><a href="#simple-logistic-regression" id="toc-simple-logistic-regression" class="nav-link" data-scroll-target="#simple-logistic-regression"><span class="toc-section-number">4</span>  4. Simple logistic regression</a>
   <ul class="collapse">
-  <li><a href="#why-you-need-logistic-regression" id="toc-why-you-need-logistic-regression" class="nav-link" data-scroll-target="#why-you-need-logistic-regression">Why you need logistic regression</a></li>
-  <li><a href="#exploring-the-explanatory-variables" id="toc-exploring-the-explanatory-variables" class="nav-link" data-scroll-target="#exploring-the-explanatory-variables">Exploring the explanatory variables</a></li>
-  <li><a href="#visualizing-linear-and-logistic-models" id="toc-visualizing-linear-and-logistic-models" class="nav-link" data-scroll-target="#visualizing-linear-and-logistic-models">Visualizing linear and logistic models</a></li>
-  <li><a href="#logistic-regression-with-glm" id="toc-logistic-regression-with-glm" class="nav-link" data-scroll-target="#logistic-regression-with-glm">Logistic regression with glm()</a></li>
-  <li><a href="#predictions-and-odds-ratios" id="toc-predictions-and-odds-ratios" class="nav-link" data-scroll-target="#predictions-and-odds-ratios">Predictions and odds ratios</a></li>
-  <li><a href="#probabilities" id="toc-probabilities" class="nav-link" data-scroll-target="#probabilities">Probabilities</a></li>
-  <li><a href="#most-likely-outcome" id="toc-most-likely-outcome" class="nav-link" data-scroll-target="#most-likely-outcome">Most likely outcome</a></li>
-  <li><a href="#odds-ratio" id="toc-odds-ratio" class="nav-link" data-scroll-target="#odds-ratio">Odds ratio</a></li>
-  <li><a href="#log-odds-ratio" id="toc-log-odds-ratio" class="nav-link" data-scroll-target="#log-odds-ratio">Log odds ratio</a></li>
-  <li><a href="#quantifying-logistic-regression-fit" id="toc-quantifying-logistic-regression-fit" class="nav-link" data-scroll-target="#quantifying-logistic-regression-fit">Quantifying logistic regression fit</a></li>
-  <li><a href="#calculating-the-confusion-matrix" id="toc-calculating-the-confusion-matrix" class="nav-link" data-scroll-target="#calculating-the-confusion-matrix">Calculating the confusion matrix</a></li>
-  <li><a href="#measuring-logistic-model-performance" id="toc-measuring-logistic-model-performance" class="nav-link" data-scroll-target="#measuring-logistic-model-performance">Measuring logistic model performance</a></li>
-  <li><a href="#accuracy-sensitivity-specificity" id="toc-accuracy-sensitivity-specificity" class="nav-link" data-scroll-target="#accuracy-sensitivity-specificity">Accuracy, sensitivity, specificity</a></li>
-  <li><a href="#congratulations" id="toc-congratulations" class="nav-link" data-scroll-target="#congratulations">Congratulations</a></li>
+  <li><a href="#why-you-need-logistic-regression" id="toc-why-you-need-logistic-regression" class="nav-link" data-scroll-target="#why-you-need-logistic-regression"><span class="toc-section-number">4.1</span>  Why you need logistic regression</a></li>
+  <li><a href="#exploring-the-explanatory-variables" id="toc-exploring-the-explanatory-variables" class="nav-link" data-scroll-target="#exploring-the-explanatory-variables"><span class="toc-section-number">4.2</span>  Exploring the explanatory variables</a></li>
+  <li><a href="#visualizing-linear-and-logistic-models" id="toc-visualizing-linear-and-logistic-models" class="nav-link" data-scroll-target="#visualizing-linear-and-logistic-models"><span class="toc-section-number">4.3</span>  Visualizing linear and logistic models</a></li>
+  <li><a href="#logistic-regression-with-glm" id="toc-logistic-regression-with-glm" class="nav-link" data-scroll-target="#logistic-regression-with-glm"><span class="toc-section-number">4.4</span>  Logistic regression with glm()</a></li>
+  <li><a href="#predictions-and-odds-ratios" id="toc-predictions-and-odds-ratios" class="nav-link" data-scroll-target="#predictions-and-odds-ratios"><span class="toc-section-number">4.5</span>  Predictions and odds ratios</a></li>
+  <li><a href="#probabilities" id="toc-probabilities" class="nav-link" data-scroll-target="#probabilities"><span class="toc-section-number">4.6</span>  Probabilities</a></li>
+  <li><a href="#most-likely-outcome" id="toc-most-likely-outcome" class="nav-link" data-scroll-target="#most-likely-outcome"><span class="toc-section-number">4.7</span>  Most likely outcome</a></li>
+  <li><a href="#odds-ratio" id="toc-odds-ratio" class="nav-link" data-scroll-target="#odds-ratio"><span class="toc-section-number">4.8</span>  Odds ratio</a></li>
+  <li><a href="#log-odds-ratio" id="toc-log-odds-ratio" class="nav-link" data-scroll-target="#log-odds-ratio"><span class="toc-section-number">4.9</span>  Log odds ratio</a></li>
+  <li><a href="#quantifying-logistic-regression-fit" id="toc-quantifying-logistic-regression-fit" class="nav-link" data-scroll-target="#quantifying-logistic-regression-fit"><span class="toc-section-number">4.10</span>  Quantifying logistic regression fit</a></li>
+  <li><a href="#calculating-the-confusion-matrix" id="toc-calculating-the-confusion-matrix" class="nav-link" data-scroll-target="#calculating-the-confusion-matrix"><span class="toc-section-number">4.11</span>  Calculating the confusion matrix</a></li>
+  <li><a href="#measuring-logistic-model-performance" id="toc-measuring-logistic-model-performance" class="nav-link" data-scroll-target="#measuring-logistic-model-performance"><span class="toc-section-number">4.12</span>  Measuring logistic model performance</a></li>
+  <li><a href="#accuracy-sensitivity-specificity" id="toc-accuracy-sensitivity-specificity" class="nav-link" data-scroll-target="#accuracy-sensitivity-specificity"><span class="toc-section-number">4.13</span>  Accuracy, sensitivity, specificity</a></li>
+  <li><a href="#congratulations" id="toc-congratulations" class="nav-link" data-scroll-target="#congratulations"><span class="toc-section-number">4.14</span>  Congratulations</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/06_regression/01_regression_beginner/01_regression_beginner.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -282,7 +534,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to Regression in R</h1>
+<h1 class="title d-none d-lg-block">Introduction to Regression in R</h1>
 </div>
 
 
@@ -307,11 +559,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Learn how you can predict housing prices and ad click-through rate by implementing, analyzing, and interpreting linear and logistic regressions using R.</p>
 <p><strong>Long Description</strong></p>
 <p>Linear regression and logistic regression are the two most widely used statistical models and act like master keys, unlocking the secrets hidden in datasets. In this course, you’ll gain the skills you need to fit simple linear and logistic regressions. Through hands-on exercises, you’ll explore the relationships between variables in real-world datasets, including motor insurance claims, Taiwan house prices, fish sizes, and more. By the end of this course, you’ll know how to make predictions from your data, quantify model performance, and diagnose problems with model fit.</p>
-<section id="simple-linear-regression" class="level1">
-<h1>1. Simple Linear Regression</h1>
+<section id="simple-linear-regression" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> 1. Simple Linear Regression</h1>
 <p>You’ll learn the basics of this popular statistical model, what regression is, and how linear and logistic regressions differ. You’ll then learn how to fit simple linear regression models with numeric and categorical explanatory variables, and how to describe the relationship between the response and explanatory variables using model coefficients.</p>
-<section id="a-tale-of-two-variables" class="level2">
-<h2 class="anchored" data-anchor-id="a-tale-of-two-variables">A tale of two variables</h2>
+<section id="a-tale-of-two-variables" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="a-tale-of-two-variables"><span class="header-section-number">1.1</span> A tale of two variables</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. A tale of two variables</strong></p>
 <p>Hi, I’m Richie. Welcome to the course. You’ll be learning about relationships between pairs of variables. Let’s start with a real example.</p>
@@ -334,8 +586,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>10. Let’s practice!</strong></p>
 <p>Let’s get started.</p>
 </section>
-<section id="which-one-is-the-response-variable" class="level2">
-<h2 class="anchored" data-anchor-id="which-one-is-the-response-variable">Which one is the response variable?</h2>
+<section id="which-one-is-the-response-variable" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="which-one-is-the-response-variable"><span class="header-section-number">1.2</span> Which one is the response variable?</h2>
 <!--
 LO: Can identify which response and explantory variables.
 -->
@@ -371,13 +623,13 @@ LO: Can identify which response and explantory variables.
 </tbody>
 </table>
 <blockquote class="blockquote">
-<h2 id="question" class="anchored"><em>Question</em></h2>
+<h2 id="question" data-number="1.3" class="anchored"><span class="header-section-number">1.3</span> <em>Question</em></h2>
 <p>Type <code>View(taiwan_real_estate)</code> in the console to view the dataset, and decide which variable would make a good response variable.<br> <br> ⬜ <code>dist_to_mrt_station_m</code><br> ⬜ <code>n_convenience</code><br> ⬜ <code>house_age_years</code><br> ✅ <code>price_twd_msq</code><br></p>
 </blockquote>
 <p>Rapid response! Predicting prices is a common business task, so house price makes a good response variable.</p>
 </section>
-<section id="visualizing-two-variables" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-two-variables">Visualizing two variables</h2>
+<section id="visualizing-two-variables" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="visualizing-two-variables"><span class="header-section-number">1.4</span> Visualizing two variables</h2>
 <!--
 LO: Can visualize the relationship between two numeric variables using a scatter plot with linear trend line.
 -->
@@ -420,8 +672,8 @@ LO: Can visualize the relationship between two numeric variables using a scatter
 </div>
 <p>Scholarly scatter plotting! Scatter plots are the standard way to visualize the relationship between two numeric variables, and ggplot makes adding linear trend lines easy.</p>
 </section>
-<section id="fitting-a-linear-regression" class="level2">
-<h2 class="anchored" data-anchor-id="fitting-a-linear-regression">Fitting a linear regression</h2>
+<section id="fitting-a-linear-regression" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="fitting-a-linear-regression"><span class="header-section-number">1.5</span> Fitting a linear regression</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Fitting a linear regression</strong></p>
 <p>You may have noticed that the linear regression trend lines in the scatter plots were straight lines. That’s a defining feature of a linear regression.</p>
@@ -448,8 +700,8 @@ LO: Can visualize the relationship between two numeric variables using a scatter
 <p><strong>12. Let’s practice!</strong></p>
 <p>Time to fit some models.</p>
 </section>
-<section id="estimate-the-intercept" class="level2">
-<h2 class="anchored" data-anchor-id="estimate-the-intercept">Estimate the intercept</h2>
+<section id="estimate-the-intercept" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="estimate-the-intercept"><span class="header-section-number">1.6</span> Estimate the intercept</h2>
 <!--
 LO: Can estimate the intercept of a straight line.
 
@@ -458,13 +710,13 @@ Note: this exercise will be changed to an InputExercise once those become availa
 <p>Linear regression models always fit a straight line to the data. Straight lines are defined by two properties: their intercept and their slope.</p>
 <p>Here, you can see a scatter plot of house price per area versus number of nearby convenience stores, using the Taiwan real estate dataset.</p>
 <blockquote class="blockquote">
-<h2 id="question-1" class="anchored"><em>Question</em></h2>
+<h2 id="question-1" data-number="1.7" class="anchored"><span class="header-section-number">1.7</span> <em>Question</em></h2>
 <p>Click the plot, then estimate the intercept of the linear regression trend line.<br> <br> ⬜ 0<br> ✅ 8.22<br> ⬜ 16.21<br></p>
 </blockquote>
 <p>Insightful intercept interpretation! The intercept is the y-value when x equals zero.</p>
 </section>
-<section id="estimate-the-slope" class="level2">
-<h2 class="anchored" data-anchor-id="estimate-the-slope">Estimate the slope</h2>
+<section id="estimate-the-slope" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="estimate-the-slope"><span class="header-section-number">1.8</span> Estimate the slope</h2>
 <!--
 LO: Can estimate the slope of a straight line.
 
@@ -473,13 +725,13 @@ Note: this exercise will be changed to an InputExercise once those become availa
 <p>Here is the same scatter plot of house price per area versus number of nearby convenience stores, using the Taiwan real estate dataset.</p>
 <p>This time, estimate the slope of the trend line. Click the line once, then double click as different position on the line, then read the slope value.</p>
 <blockquote class="blockquote">
-<h2 id="question-2" class="anchored"><em>Question</em></h2>
+<h2 id="question-2" data-number="1.9" class="anchored"><span class="header-section-number">1.9</span> <em>Question</em></h2>
 <p>???<br> <br> ✅ 0.80<br> ⬜ 1<br> ⬜ 8.22<br></p>
 </blockquote>
 <p>Super slope-estimation! The slope is the rate of change in the y direction divided by the rate of change in the x direction.</p>
 </section>
-<section id="linear-regression-with-lm" class="level2">
-<h2 class="anchored" data-anchor-id="linear-regression-with-lm">Linear regression with lm()</h2>
+<section id="linear-regression-with-lm" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="linear-regression-with-lm"><span class="header-section-number">1.10</span> Linear regression with lm()</h2>
 <!--
 LO: Can run a linear regression using lm()
 -->
@@ -495,17 +747,17 @@ LO: Can run a linear regression using lm()
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">lm</span>(price_twd_msq <span class="sc">~</span> n_convenience, <span class="at">data =</span> taiwan_real_estate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-3" class="anchored"><em>Question</em></h2>
+<h2 id="question-3" data-number="1.11" class="anchored"><span class="header-section-number">1.11</span> <em>Question</em></h2>
 <p>The model had an <code>(Intercept)</code> coefficient of <code>8.2242</code>. What does this mean?<br> <br> ⬜ On average, houses had a price of 8.2242 TWD per square meter.<br> ✅ On average, a house with zero convenience stores nearby had a price of 8.2242 TWD per square meter.<br> ⬜ The minimum house price was 8.2242 TWD per square meter.<br> ⬜ The minimum house price with zero convenience stores nearby was 8.2242 TWD per square meter.<br> ⬜ The intercept tells you nothing about house prices.<br></p>
 </blockquote>
 <blockquote class="blockquote">
-<h2 id="question-4" class="anchored"><em>Question</em></h2>
+<h2 id="question-4" data-number="1.12" class="anchored"><span class="header-section-number">1.12</span> <em>Question</em></h2>
 <p>The model had an <code>n_convenience</code> coefficient of <code>0.7981</code>. What does this mean?<br> <br> ⬜ If you increase the number of nearby convenience stores by one, then the expected increase in house price is <code>0.7981</code> TWD per square meter.<br> ⬜ If you increase the house price by <code>0.7981</code> TWD per square meter, then the expected increase in the number of nearby convenience stores is one.<br> ⬜ If you increase the number of nearby convenience stores by <code>0.7981</code>, then the expected increase in house price is one TWD per square meter.<br> ✅ If you increase the house price by one TWD per square meter, then the expected increase in the number of nearby convenience stores is <code>0.7981</code>.<br> ⬜ The <code>n_convenience</code> coefficient tells you nothing about house prices.<br></p>
 </blockquote>
 <p>Lively linear regression modeling! The intercept is positive, so a house with no convenience stores nearby still has a positive price. The coefficient for convenience stores is also positive, so as the number of nearby convenience stores increases, so does the price of the house.</p>
 </section>
-<section id="categorical-explanatory-variables" class="level2">
-<h2 class="anchored" data-anchor-id="categorical-explanatory-variables">Categorical explanatory variables</h2>
+<section id="categorical-explanatory-variables" class="level2" data-number="1.13">
+<h2 data-number="1.13" class="anchored" data-anchor-id="categorical-explanatory-variables"><span class="header-section-number">1.13</span> Categorical explanatory variables</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Categorical explanatory variables</strong></p>
 <p>So far we looked at running a linear regression using a numeric explanatory variable. Now let’s look at what happens with a categorical explanatory variable.</p>
@@ -522,8 +774,8 @@ LO: Can run a linear regression using lm()
 <p><strong>7. Let’s practice!</strong></p>
 <p>Time for you to try it.</p>
 </section>
-<section id="visualizing-numeric-vs.-categorical" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-numeric-vs.-categorical">Visualizing numeric vs.&nbsp;categorical</h2>
+<section id="visualizing-numeric-vs.-categorical" class="level2" data-number="1.14">
+<h2 data-number="1.14" class="anchored" data-anchor-id="visualizing-numeric-vs.-categorical"><span class="header-section-number">1.14</span> Visualizing numeric vs.&nbsp;categorical</h2>
 <!-- 
 LO: Can visualize a numeric variable splitby a categorical variable using a faceted histogram.
 -->
@@ -545,8 +797,8 @@ LO: Can visualize a numeric variable splitby a categorical variable using a face
 </div>
 <p>High five for histograms! It appears that new houses are the most expensive on average, and the medium aged ones (15 to 30 years) are the cheapest.</p>
 </section>
-<section id="calculating-means-by-category" class="level2">
-<h2 class="anchored" data-anchor-id="calculating-means-by-category">Calculating means by category</h2>
+<section id="calculating-means-by-category" class="level2" data-number="1.15">
+<h2 data-number="1.15" class="anchored" data-anchor-id="calculating-means-by-category"><span class="header-section-number">1.15</span> Calculating means by category</h2>
 <!-- 
 LO: Can calculate grouped means.
 -->
@@ -572,8 +824,8 @@ LO: Can calculate grouped means.
 </div>
 <p>Stunning summary stat calculation! Make a mental note of the results, as they’ll feature in the next exercise too.</p>
 </section>
-<section id="lm-with-a-categorical-explanatory-variable" class="level2">
-<h2 class="anchored" data-anchor-id="lm-with-a-categorical-explanatory-variable">lm() with a categorical explanatory variable</h2>
+<section id="lm-with-a-categorical-explanatory-variable" class="level2" data-number="1.16">
+<h2 data-number="1.16" class="anchored" data-anchor-id="lm-with-a-categorical-explanatory-variable"><span class="header-section-number">1.16</span> lm() with a categorical explanatory variable</h2>
 <!-- 
 LO: Can run a simple linear regression with a categorical explanatory variable. Understands that the model coefficients are the group means.
 -->
@@ -609,11 +861,11 @@ LO: Can run a simple linear regression with a categorical explanatory variable. 
 <p>Classy categorical linear regression! The coefficients of the model are just the means of each category you calculated previously.</p>
 </section>
 </section>
-<section id="predictions-and-model-objects" class="level1">
-<h1>2. Predictions and model objects</h1>
+<section id="predictions-and-model-objects" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> 2. Predictions and model objects</h1>
 <p>In this chapter, you’ll discover how to use linear regression models to make predictions on Taiwanese house prices and Facebook advert clicks. You’ll also grow your regression skills as you get hands-on with model objects, understand the concept of “regression to the mean”, and learn how to transform variables in a dataset.</p>
-<section id="making-predictions" class="level2">
-<h2 class="anchored" data-anchor-id="making-predictions">Making predictions</h2>
+<section id="making-predictions" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="making-predictions"><span class="header-section-number">2.1</span> Making predictions</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Making predictions</strong></p>
 <p>The big benefit of running models rather than simply calculating descriptive statistics is that models let you make predictions.</p>
@@ -636,8 +888,8 @@ LO: Can run a simple linear regression with a categorical explanatory variable. 
 <p><strong>10. Let’s practice!</strong></p>
 <p>I predict that you are about to make some predictions.</p>
 </section>
-<section id="predicting-house-prices" class="level2">
-<h2 class="anchored" data-anchor-id="predicting-house-prices">Predicting house prices</h2>
+<section id="predicting-house-prices" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="predicting-house-prices"><span class="header-section-number">2.2</span> Predicting house prices</h2>
 <!--
 LO: Can make predictions from linear models using predict() and stroe them in a data frame.
 -->
@@ -688,8 +940,8 @@ LO: Can make predictions from linear models using predict() and stroe them in a 
 </div>
 <p>Premium predicting! Having the predictions in a data frame will make it easier to visualize them.</p>
 </section>
-<section id="visualizing-predictions" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-predictions">Visualizing predictions</h2>
+<section id="visualizing-predictions" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="visualizing-predictions"><span class="header-section-number">2.3</span> Visualizing predictions</h2>
 <!--
 LO: Can annotate a scatter plot of response vs. explanatory variables with predictions.
 -->
@@ -709,8 +961,8 @@ LO: Can annotate a scatter plot of response vs. explanatory variables with predi
 </div>
 <p>Perfect prediction plotting! Naturally, the predicted points lie on the trend line.</p>
 </section>
-<section id="the-limits-of-prediction" class="level2">
-<h2 class="anchored" data-anchor-id="the-limits-of-prediction">The limits of prediction</h2>
+<section id="the-limits-of-prediction" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="the-limits-of-prediction"><span class="header-section-number">2.4</span> The limits of prediction</h2>
 <!--
 LO: Understand that predict() will let you make predictions about situations that are impossible in real-life.
 -->
@@ -729,13 +981,13 @@ LO: Understand that predict() will let you make predictions about situations tha
 <span id="cb13-5"><a href="#cb13-5"></a>two_pt_five <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">n_convenience =</span> <span class="fl">2.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-5" class="anchored"><em>Question</em></h2>
+<h2 id="question-5" data-number="2.5" class="anchored"><span class="header-section-number">2.5</span> <em>Question</em></h2>
 <p>Try making predictions on your two impossible cases. What happens?<br> <br> ⬜ The model throws an error because these cases are impossible in real life.<br> ⬜ The model throws a warning because these cases are impossible in real life.<br> ✅ The model successfully gives a prediction about cases that are impossible in real life.<br> ⬜ The model throws an error for <code>-1</code> stores because it violates the assumptions of a linear regression. <code>2.5</code> stores gives a successful prediction.<br> ⬜ The model throws an error for <code>2.5</code> stores because it violates the assumptions of a linear regression. <code>-1</code> stores gives a successful prediction.<br></p>
 </blockquote>
 <p>Legendary limit detection! Linear models don’t know what is possible or not in real life. That means that they can give you predictions that don’t make any sense when applied to your data. You need to understand what your data means in order to determine whether a prediction is nonsense or not.</p>
 </section>
-<section id="working-with-model-objects" class="level2">
-<h2 class="anchored" data-anchor-id="working-with-model-objects">Working with model objects</h2>
+<section id="working-with-model-objects" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="working-with-model-objects"><span class="header-section-number">2.6</span> Working with model objects</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Working with model objects</strong></p>
 <p>The model objects created by lm contain a lot of information. In this video, you’ll see how to extract it.</p>
@@ -764,8 +1016,8 @@ LO: Understand that predict() will let you make predictions about situations tha
 <p><strong>13. Let’s practice!</strong></p>
 <p>Your turn to extract some model elements.</p>
 </section>
-<section id="extracting-model-elements" class="level2">
-<h2 class="anchored" data-anchor-id="extracting-model-elements">Extracting model elements</h2>
+<section id="extracting-model-elements" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="extracting-model-elements"><span class="header-section-number">2.7</span> Extracting model elements</h2>
 <!--
 LO: Can extract coefficients, fitted values, residuals, and a summary from a linear regression model.
 -->
@@ -801,8 +1053,8 @@ LO: Can extract coefficients, fitted values, residuals, and a summary from a lin
 </div>
 <p>Marvelous model manipulation! Working with individual pieces of the model is often more useful than working with the whole model object at once.</p>
 </section>
-<section id="manually-predicting-house-prices" class="level2">
-<h2 class="anchored" data-anchor-id="manually-predicting-house-prices">Manually predicting house prices</h2>
+<section id="manually-predicting-house-prices" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="manually-predicting-house-prices"><span class="header-section-number">2.8</span> Manually predicting house prices</h2>
 <!--
 LO: Can calculate simple linear regression predictions manually.
 -->
@@ -839,8 +1091,8 @@ LO: Can calculate simple linear regression predictions manually.
 </div>
 <p>Magic manual prediction! For simple linear regression, the prediction just involves one addition and one multiplication.</p>
 </section>
-<section id="using-broom" class="level2">
-<h2 class="anchored" data-anchor-id="using-broom">Using broom</h2>
+<section id="using-broom" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="using-broom"><span class="header-section-number">2.9</span> Using broom</h2>
 <!--
 LO: Can extract coefficient-/observation-/model-level data from a linear regression model object using broom.
 -->
@@ -873,8 +1125,8 @@ LO: Can extract coefficient-/observation-/model-level data from a linear regress
 </div>
 <p>Terrific model tidying! <code>broom</code> lets you convert model objects to data frames for easier programming.</p>
 </section>
-<section id="regression-to-the-mean" class="level2">
-<h2 class="anchored" data-anchor-id="regression-to-the-mean">Regression to the mean</h2>
+<section id="regression-to-the-mean" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="regression-to-the-mean"><span class="header-section-number">2.10</span> Regression to the mean</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Regression to the mean</strong></p>
 <p>Let’s take a short break from thinking about regression modeling, to a related concept called “regression to the mean”. Regression to the mean is a property of the data, not a type of model, but linear regression can be used to quantify its effect.</p>
@@ -893,21 +1145,21 @@ LO: Can extract coefficient-/observation-/model-level data from a linear regress
 <p><strong>8. Let’s practice!</strong></p>
 <p>Time to apply regression to the mean to sports and finance.</p>
 </section>
-<section id="home-run" class="level2">
-<h2 class="anchored" data-anchor-id="home-run">Home run!</h2>
+<section id="home-run" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="home-run"><span class="header-section-number">2.11</span> Home run!</h2>
 <!--
 LO: Understands regression to the mean, and its application to sports.
 -->
 <p>Regression to the mean is an important concept in many areas, including sports.</p>
 <p>Here you can see a dataset of baseball batting data in 2017 and 2018. Each point represents a player, and more home runs is better. A naive prediction might be that the performance in 2018 would be that it is the same as the performance in 2017. That is, a linear regression would lie on the “y equals x” line.</p>
 <blockquote class="blockquote">
-<h2 id="question-6" class="anchored"><em>Question</em></h2>
+<h2 id="question-6" data-number="2.12" class="anchored"><span class="header-section-number">2.12</span> <em>Question</em></h2>
 <p>Explore the plot and make predictions. What does regression to the mean say about the number of home runs in 2018 for a player who was very successful in 2017?<br> ⬜ Someone who hit 40 home runs in 2017 is predicted to hit the same number of home runs the next year because regression to the mean states that performance is consistent over time.<br> ⬜ If someone hit 40 home runs in 2017, we can’t predict the number of home runs the next year because regression to the mean states that extremely high values are unpredictable.<br> ✅ Someone who hit 40 home runs in 2017 is predicted to hit 10 fewer home runs the next year because regression to the mean states that, on average, extremely high values are not sustained.<br> ⬜ Someone who hit 40 home runs in 2017 is predicted to hit 10 more home runs the next year because regression to the mean states that, on average, extremely high values are amplified over time.<br></p>
 </blockquote>
 <p>Magnificent regression to the mean! Due to regression to the mean, it’s common that one player or team that does really well one year, doesn’t do as well the next. Likewise players or teams that perform very badly one year do better the next year.</p>
 </section>
-<section id="plotting-consecutive-portfolio-returns" class="level2">
-<h2 class="anchored" data-anchor-id="plotting-consecutive-portfolio-returns">Plotting consecutive portfolio returns</h2>
+<section id="plotting-consecutive-portfolio-returns" class="level2" data-number="2.13">
+<h2 data-number="2.13" class="anchored" data-anchor-id="plotting-consecutive-portfolio-returns"><span class="header-section-number">2.13</span> Plotting consecutive portfolio returns</h2>
 <!--
 LO: Understands regression to the mean, and its application to investing.
 -->
@@ -962,8 +1214,8 @@ LO: Understands regression to the mean, and its application to investing.
 </div>
 <p>Super scatter plotting! The regression trend line looks very different to the y equals x line. As the financial advisors say, “Past performance is no guarantee of future results.”</p>
 </section>
-<section id="modeling-consecutive-returns" class="level2">
-<h2 class="anchored" data-anchor-id="modeling-consecutive-returns">Modeling consecutive returns</h2>
+<section id="modeling-consecutive-returns" class="level2" data-number="2.14">
+<h2 data-number="2.14" class="anchored" data-anchor-id="modeling-consecutive-returns"><span class="header-section-number">2.14</span> Modeling consecutive returns</h2>
 <!--
 LO: Can quantify regression to the mean using linear regression.
 -->
@@ -1004,8 +1256,8 @@ LO: Can quantify regression to the mean using linear regression.
 </div>
 <p>Incredible investment predictions! Investments that gained a lot in value in 2018 on average gained only a small amount in 2019. Similarly, investments that lost a lot of value in 2018 on average also gained a small amount in 2019.</p>
 </section>
-<section id="transforming-variables" class="level2">
-<h2 class="anchored" data-anchor-id="transforming-variables">Transforming variables</h2>
+<section id="transforming-variables" class="level2" data-number="2.15">
+<h2 data-number="2.15" class="anchored" data-anchor-id="transforming-variables"><span class="header-section-number">2.15</span> Transforming variables</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Transforming variables</strong></p>
 <p>Sometimes, the relationship between the explanatory variable and the response variable may not be a straight line. To fit a linear regression model, you need to transform the explanatory variable or the response variable, or both of them.</p>
@@ -1034,8 +1286,8 @@ LO: Can quantify regression to the mean using linear regression.
 <p><strong>13. Let’s practice!</strong></p>
 <p>Time to transform some variables.</p>
 </section>
-<section id="transforming-the-explanatory-variable" class="level2">
-<h2 class="anchored" data-anchor-id="transforming-the-explanatory-variable">Transforming the explanatory variable</h2>
+<section id="transforming-the-explanatory-variable" class="level2" data-number="2.16">
+<h2 data-number="2.16" class="anchored" data-anchor-id="transforming-the-explanatory-variable"><span class="header-section-number">2.16</span> Transforming the explanatory variable</h2>
 <!--
 LO: Can fit a linear regression with a transformed explanatory variable and make predictions.
 -->
@@ -1117,8 +1369,8 @@ LO: Can fit a linear regression with a transformed explanatory variable and make
 </div>
 <p>You transform like a robot in disguise! By transforming the explanatory variable, the relationship with the response variable became linear, and so a linear regression became an appropriate model.</p>
 </section>
-<section id="transforming-the-response-variable-too" class="level2">
-<h2 class="anchored" data-anchor-id="transforming-the-response-variable-too">Transforming the response variable too</h2>
+<section id="transforming-the-response-variable-too" class="level2" data-number="2.17">
+<h2 data-number="2.17" class="anchored" data-anchor-id="transforming-the-response-variable-too"><span class="header-section-number">2.17</span> Transforming the response variable too</h2>
 <!--
 LO: Can fit a model with a transformed response variable, and use backtransformation to make predictions.
 -->
@@ -1203,11 +1455,11 @@ LO: Can fit a model with a transformed response variable, and use backtransforma
 <p>Two-way transform! When the response variable is transformed you need to back transform the predictions.</p>
 </section>
 </section>
-<section id="assessing-model-fit" class="level1">
-<h1>3. Assessing model fit</h1>
+<section id="assessing-model-fit" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> 3. Assessing model fit</h1>
 <p>In this chapter, you’ll learn how to ask questions of your model to assess fit. You’ll learn how to quantify how well a linear regression model fits, diagnose model problems using visualizations, and understand the leverage and influence of each observation used to create the model.</p>
-<section id="quantifying-model-fit" class="level2">
-<h2 class="anchored" data-anchor-id="quantifying-model-fit">Quantifying model fit</h2>
+<section id="quantifying-model-fit" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="quantifying-model-fit"><span class="header-section-number">3.1</span> Quantifying model fit</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Quantifying model fit</strong></p>
 <p>It’s usually important to know whether or not predictions from your model are nonsense. In this chapter, we’ll look at ways of quantifying how good your model is.</p>
@@ -1242,8 +1494,8 @@ LO: Can fit a model with a transformed response variable, and use backtransforma
 <p><strong>16. Let’s practice!</strong></p>
 <p>Let’s make some metrics.</p>
 </section>
-<section id="coefficient-of-determination" class="level2">
-<h2 class="anchored" data-anchor-id="coefficient-of-determination">Coefficient of determination</h2>
+<section id="coefficient-of-determination" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="coefficient-of-determination"><span class="header-section-number">3.2</span> Coefficient of determination</h2>
 <!-- 
 LO: Understands and can calculate the coefficient of determination (r-squared) of a linear regression model.
 -->
@@ -1285,17 +1537,17 @@ LO: Understands and can calculate the coefficient of determination (r-squared) o
 <span id="cb36-4"><a href="#cb36-4"></a>  <span class="fu">pull</span>(r.squared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-7" class="anchored"><em>Question</em></h2>
+<h2 id="question-7" data-number="3.3" class="anchored"><span class="header-section-number">3.3</span> <em>Question</em></h2>
 <p><code>mdl_click_vs_impression_orig</code> has a coefficient of determination of <code>0.89</code>. Which statement about the model is true?<br> <br> ⬜ The number of clicks explains 89% of the variability in the number of impressions.<br> ✅ The number of impressions explains 89% of the variability in the number of clicks.<br> ⬜ The model is correct 89% of the time.<br> ⬜ The correlation between the number of impressions and the number of clicks is <code>0.89</code>.<br></p>
 </blockquote>
 <blockquote class="blockquote">
-<h2 id="question-8" class="anchored"><em>Question</em></h2>
+<h2 id="question-8" data-number="3.4" class="anchored"><span class="header-section-number">3.4</span> <em>Question</em></h2>
 <p>Which model does the coefficient of determination suggest gives a better fit?<br> <br> ⬜ The original model, <code>mdl_click_vs_impression_orig</code>.<br> ✅ The transformed model, <code>mdl_click_vs_impression_trans</code>.<br> ⬜ Both models are equally good.<br> ⬜ Coefficient of determination doesn’t measure the goodness of fit of a regression model.<br></p>
 </blockquote>
 <p>Cool coefficient of determination calculating! The transformed model has a higher coefficient of determination that the original model, suggesting that it gives a better fit to the data.</p>
 </section>
-<section id="residual-standard-error" class="level2">
-<h2 class="anchored" data-anchor-id="residual-standard-error">Residual standard error</h2>
+<section id="residual-standard-error" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="residual-standard-error"><span class="header-section-number">3.5</span> Residual standard error</h2>
 <!-- 
 LO: Understand and can calculate the residual standard error of a linear regression model.
 -->
@@ -1320,17 +1572,17 @@ LO: Understand and can calculate the residual standard error of a linear regress
 <span id="cb37-11"><a href="#cb37-11"></a>  <span class="fu">pull</span>(sigma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-9" class="anchored"><em>Question</em></h2>
+<h2 id="question-9" data-number="3.6" class="anchored"><span class="header-section-number">3.6</span> <em>Question</em></h2>
 <p><code>mdl_click_vs_impression_orig</code> has an RSE of <code>20</code>. Which statement is true?<br> <br> ⬜ The model explains <code>20%</code> of the variability in the number of clicks.<br> ⬜ <code>20%</code> of the residuals are typically greater than the observed values.<br> ✅ The typical difference between observed number of clicks and predicted number of clicks is <code>20</code>.<br> ⬜ The typical difference between observed number of impressions and predicted number of impressions is <code>20</code>.<br> ⬜ The model predicts that you get one click for every <code>20</code> observed impressions.<br></p>
 </blockquote>
 <blockquote class="blockquote">
-<h2 id="question-10" class="anchored"><em>Question</em></h2>
+<h2 id="question-10" data-number="3.7" class="anchored"><span class="header-section-number">3.7</span> <em>Question</em></h2>
 <p>Which model does the RSE suggest gives more accurate predictions?<br> <br> ⬜ The original model, <code>mdl_click_vs_impression_orig</code>.<br> ✅ The transformed model, <code>mdl_click_vs_impression_trans</code>.<br> ⬜ Both models are equally good.<br> ⬜ RSE doesn’t measure the accuracy of a regression model.<br></p>
 </blockquote>
 <p>Rapid RSE wrangling! RSE is a measure of accuracy for regression models. It even works on other other statistical model types like regression trees, so you can compare accuracy across different classes of models.</p>
 </section>
-<section id="visualizing-model-fit" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-model-fit">Visualizing model fit</h2>
+<section id="visualizing-model-fit" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="visualizing-model-fit"><span class="header-section-number">3.8</span> Visualizing model fit</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Visualizing model fit</strong></p>
 <p>There are several plots that can quantify the performance of a model. We’ll look at these plots and their interpretation first, then the code to draw them.</p>
@@ -1351,8 +1603,8 @@ LO: Understand and can calculate the residual standard error of a linear regress
 <p><strong>9. ‘Autoplots, roll out!’ -Plotimus Prime</strong></p>
 <p>Autoplots, roll out!</p>
 </section>
-<section id="residuals-vs.-fitted-values" class="level2">
-<h2 class="anchored" data-anchor-id="residuals-vs.-fitted-values">Residuals vs.&nbsp;fitted values</h2>
+<section id="residuals-vs.-fitted-values" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="residuals-vs.-fitted-values"><span class="header-section-number">3.9</span> Residuals vs.&nbsp;fitted values</h2>
 <!-- 
 LO: Can interpret a linear regression model diagnostic plot of residuals versus fitted values.
 -->
@@ -1362,13 +1614,13 @@ LO: Can interpret a linear regression model diagnostic plot of residuals versus 
 <p>Transformed model (<code>n_clicks ^ 0.25</code> versus <code>n_impressions ^ 0.25</code>)</p>
 <p><img src="https://assets.datacamp.com/production/repositories/5759/datasets/a3817e52fb4ca961e7a6e866b0b27334c17aecb9/scatter-residuals-vs-fitted-ad-conversion-trans.png" alt="scatter-residuals-vs-fitted-ad-conversion-trans.png"></p>
 <blockquote class="blockquote">
-<h2 id="question-11" class="anchored"><em>Question</em></h2>
+<h2 id="question-11" data-number="3.10" class="anchored"><span class="header-section-number">3.10</span> <em>Question</em></h2>
 <p><em>Look at the numbers on the y-axis scales, and how well the trend lines follow the \(y = 0\) line.</em> Which statement is true?<br> <br> ⬜ The residuals track the “y equals 0” line more closely in the original model compared to the transformed model, indicating that the original model is a better fit for the data.<br> ⬜ The residuals track the “y equals 0” line more closely in the transformed model compared to the original model, indicating that the original model is a better fit for the data.<br> ⬜ The residuals track the “y equals 0” line more closely in the original model compared to the transformed model, indicating that the transformed model is a better fit for the data.<br> ✅ The residuals track the “y equals 0” line more closely in the transformed model compared to the original model, indicating that the transformed model is a better fit for the data.<br></p>
 </blockquote>
 <p>Dapper diagnosis! In a good model, the residuals should have a trend line close to zero.</p>
 </section>
-<section id="q-q-plot-of-residuals" class="level2">
-<h2 class="anchored" data-anchor-id="q-q-plot-of-residuals">Q-Q plot of residuals</h2>
+<section id="q-q-plot-of-residuals" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="q-q-plot-of-residuals"><span class="header-section-number">3.11</span> Q-Q plot of residuals</h2>
 <!-- 
 LO: Can interpret a linear regression model diagnostic Q-Q plot.
 -->
@@ -1378,13 +1630,13 @@ LO: Can interpret a linear regression model diagnostic Q-Q plot.
 <p>Transformed model (<code>n_clicks ^ 0.25</code> versus <code>n_impressions ^ 0.25</code>)</p>
 <p><img src="https://assets.datacamp.com/production/repositories/5759/datasets/b73c44b4b5ae95bf0afc129f2c1c1a2c1b3843e2/qq-ad-conversion-trans.png" alt="qq-ad-conversion-trans.png"></p>
 <blockquote class="blockquote">
-<h2 id="question-12" class="anchored"><em>Question</em></h2>
+<h2 id="question-12" data-number="3.12" class="anchored"><span class="header-section-number">3.12</span> <em>Question</em></h2>
 <p><em>Look at how well the points track the “normality” line.</em> Which statement is true?<br> <br> ⬜ The residuals track the “normality” line more closely in the original model compared to the transformed model, indicating that the original model is a better fit for the data.<br> ⬜ The residuals track the “normality” line more closely in the transformed model compared to the original model, indicating that the original model is a better fit for the data.<br> ⬜ The residuals track the “normality” line more closely in the original model compared to the transformed model, indicating that the transformed model is a better fit for the data.<br> ✅ The residuals track the “normality” line more closely in the transformed model compared to the original model, indicating that the transformed model is a better fit for the data.<br></p>
 </blockquote>
 <p>You have Q-Q juju! If the residuals from the model are normally distributed, then the points will track the line on the Q-Q plot. In this case, neither model is perfect, but the transformed model is closer.</p>
 </section>
-<section id="scale-location" class="level2">
-<h2 class="anchored" data-anchor-id="scale-location">Scale-location</h2>
+<section id="scale-location" class="level2" data-number="3.13">
+<h2 data-number="3.13" class="anchored" data-anchor-id="scale-location"><span class="header-section-number">3.13</span> Scale-location</h2>
 <!-- 
 LO:  Can interpret a linear regression model diagnostic scale-location plot.
 -->
@@ -1394,13 +1646,13 @@ LO:  Can interpret a linear regression model diagnostic scale-location plot.
 <p>Transformed model (<code>n_clicks ^ 0.25</code> versus <code>n_impressions ^ 0.25</code>)</p>
 <p><img src="https://assets.datacamp.com/production/repositories/5759/datasets/33704b5086bdf4cd0263a7c56dd1c112f8f09bb4/scale-location-ad-conversion-trans.png" alt="scale-location-ad-conversion-trans.png"></p>
 <blockquote class="blockquote">
-<h2 id="question-13" class="anchored"><em>Question</em></h2>
+<h2 id="question-13" data-number="3.14" class="anchored"><span class="header-section-number">3.14</span> <em>Question</em></h2>
 <p><em>Look at the numbers on the y-axis and the slope of the trend line.</em> Which statement is true?<br> <br> ⬜ The size of the standardized residuals is more consistent in the original model compared to the transformed model, indicating that the original model is a better fit for the data.<br> ⬜ The size of the standardized residuals is more consistent in the transformed model compared to the original model, indicating that the original model is a better fit for the data.<br> ⬜ The size of the standardized residuals is more consistent in the original model compared to the transformed model, indicating that the transformed model is a better fit for the data.<br> ✅ The size of the standardized residuals is more consistent in the transformed model compared to the original model, indicating that the transformed model is a better fit for the data.<br></p>
 </blockquote>
 <p>Skillful scale-location analysis! In a good model, the size of the residuals shouldn’t change much as the fitted values change.</p>
 </section>
-<section id="drawing-diagnostic-plots" class="level2">
-<h2 class="anchored" data-anchor-id="drawing-diagnostic-plots">Drawing diagnostic plots</h2>
+<section id="drawing-diagnostic-plots" class="level2" data-number="3.15">
+<h2 data-number="3.15" class="anchored" data-anchor-id="drawing-diagnostic-plots"><span class="header-section-number">3.15</span> Drawing diagnostic plots</h2>
 <!-- 
 LO: Can draw linear regression model diagnostic plots using autoplot().
 -->
@@ -1426,8 +1678,8 @@ LO: Can draw linear regression model diagnostic plots using autoplot().
 </div>
 <p>Awesome autoplotting! These three diagnostic plots are excellent for sanity-checking the quality of your models.</p>
 </section>
-<section id="outliers-leverage-and-influence" class="level2">
-<h2 class="anchored" data-anchor-id="outliers-leverage-and-influence">Outliers, leverage, and influence</h2>
+<section id="outliers-leverage-and-influence" class="level2" data-number="3.16">
+<h2 data-number="3.16" class="anchored" data-anchor-id="outliers-leverage-and-influence"><span class="header-section-number">3.16</span> Outliers, leverage, and influence</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Outliers, leverage, and influence</strong></p>
 <p>Sometimes, datasets contains weird values. Here, we’ll look at how to spot the weird values, and the consequences they have for your regression models.</p>
@@ -1460,8 +1712,8 @@ LO: Can draw linear regression model diagnostic plots using autoplot().
 <p><strong>15. Let’s practice!</strong></p>
 <p>Let’s get under the influence.</p>
 </section>
-<section id="leverage" class="level2">
-<h2 class="anchored" data-anchor-id="leverage">Leverage</h2>
+<section id="leverage" class="level2" data-number="3.17">
+<h2 data-number="3.17" class="anchored" data-anchor-id="leverage"><span class="header-section-number">3.17</span> Leverage</h2>
 <!--
 LO: Understands leverage in the context of linear regression models.
 -->
@@ -1469,13 +1721,13 @@ LO: Understands leverage in the context of linear regression models.
 <p>Here, you’ll look at highly leveraged values in the model of house price versus the square root of distance from the nearest MRT station in the Taiwan real estate dataset.</p>
 <p>Guess which observations you think will have a high leverage, then move the slider to find out.</p>
 <blockquote class="blockquote">
-<h2 id="question-14" class="anchored"><em>Question</em></h2>
+<h2 id="question-14" data-number="3.18" class="anchored"><span class="header-section-number">3.18</span> <em>Question</em></h2>
 <p>Which statement is true?<br> <br> ⬜ Observations with a large distance to the nearest MRT station have the highest leverage, because these points are furthest away from the linear regression trend line.<br> ⬜ Observations with a large distance to the nearest MRT station have the highest leverage, because leverage is proportional to the explanatory variable.<br> ✅ Observations with a large distance to the nearest MRT station have the highest leverage, because most of the observations have a short distance, so long distances are more extreme.<br> ⬜ Observations with a high price have the highest leverage, because most of the observations have a low price, so high prices are most extreme.<br></p>
 </blockquote>
 <p>Lovely leveraging! Highly leveraged points are the ones with explanatory variables that are furthest away from the others.</p>
 </section>
-<section id="influence" class="level2">
-<h2 class="anchored" data-anchor-id="influence">Influence</h2>
+<section id="influence" class="level2" data-number="3.19">
+<h2 data-number="3.19" class="anchored" data-anchor-id="influence"><span class="header-section-number">3.19</span> Influence</h2>
 <!--
 LO: Understands influence on the context of linear regression models.
 -->
@@ -1484,13 +1736,13 @@ LO: Understands influence on the context of linear regression models.
 <p>Here you can see the same model as last time: house price versus the square root of distance from the nearest MRT station in the Taiwan real estate dataset.</p>
 <p>Guess which observations you think will have a high influence, then move the slider to find out.</p>
 <blockquote class="blockquote">
-<h2 id="question-15" class="anchored"><em>Question</em></h2>
+<h2 id="question-15" data-number="3.20" class="anchored"><span class="header-section-number">3.20</span> <em>Question</em></h2>
 <p>Which statement is true?<br> <br> ✅ Observations with predictions far away from the trend line have high influence, because they have large residuals and are far away from other observations.<br> ⬜ Observations with high prices have high influence, because influence is proportional to the response variable.<br> ⬜ Observations with predictions far away from the trend line have high influence, because the slope of the trend is negative.<br> ⬜ Observations with predictions far away from the trend line have high influence, because that increases the leverage of those points.<br></p>
 </blockquote>
 <p>Impressive influence interpretation! The majority of the influential houses were those with prices that were much higher than the model predicted (and one with a price that was much lower).</p>
 </section>
-<section id="extracting-leverage-and-influence" class="level2">
-<h2 class="anchored" data-anchor-id="extracting-leverage-and-influence">Extracting leverage and influence</h2>
+<section id="extracting-leverage-and-influence" class="level2" data-number="3.21">
+<h2 data-number="3.21" class="anchored" data-anchor-id="extracting-leverage-and-influence"><span class="header-section-number">3.21</span> Extracting leverage and influence</h2>
 <!--
 LO: Can calculate and visualize observations with high leverage and influence.
 -->
@@ -1530,11 +1782,11 @@ LO: Can calculate and visualize observations with high leverage and influence.
 <p>Delightful outlier diagnosing! Leverage and influence are important concepts for determining your model is overly affected by some unusual data points.</p>
 </section>
 </section>
-<section id="simple-logistic-regression" class="level1">
-<h1>4. Simple logistic regression</h1>
+<section id="simple-logistic-regression" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> 4. Simple logistic regression</h1>
 <p>Learn to fit logistic regression models. Using real-world data, you’ll predict the likelihood of a customer closing their bank account as probabilities of success and odds ratios, and quantify model performance using confusion matrices.</p>
-<section id="why-you-need-logistic-regression" class="level2">
-<h2 class="anchored" data-anchor-id="why-you-need-logistic-regression">Why you need logistic regression</h2>
+<section id="why-you-need-logistic-regression" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="why-you-need-logistic-regression"><span class="header-section-number">4.1</span> Why you need logistic regression</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Why you need logistic regression</strong></p>
 <p>The datasets you’ve seen so far all had a numeric response variable. Now we’ll explore the case of a binary response variable.</p>
@@ -1559,8 +1811,8 @@ LO: Can calculate and visualize observations with high leverage and influence.
 <p><strong>11. Let’s practice!</strong></p>
 <p>Let’s get logistic on this dataset.</p>
 </section>
-<section id="exploring-the-explanatory-variables" class="level2">
-<h2 class="anchored" data-anchor-id="exploring-the-explanatory-variables">Exploring the explanatory variables</h2>
+<section id="exploring-the-explanatory-variables" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="exploring-the-explanatory-variables"><span class="header-section-number">4.2</span> Exploring the explanatory variables</h2>
 <!--
 LO: Visualize data for a simple logistic regression using a faceted histogram.
 -->
@@ -1592,8 +1844,8 @@ LO: Visualize data for a simple logistic regression using a faceted histogram.
 </div>
 <p>High five for the histograms! In the <code>time_since_last_purchase</code> plot, the distribution of churned customers was further right than the distribution of churned customers (churners typically has longer since their last purchase). For <code>time_since_first_purchase</code> the opposite is true: churners have a shorter length of relationship.</p>
 </section>
-<section id="visualizing-linear-and-logistic-models" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-linear-and-logistic-models">Visualizing linear and logistic models</h2>
+<section id="visualizing-linear-and-logistic-models" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="visualizing-linear-and-logistic-models"><span class="header-section-number">4.3</span> Visualizing linear and logistic models</h2>
 <!--
 LO: Can visualize linear and logistic regression model predictions using geom_smooth().
 -->
@@ -1626,8 +1878,8 @@ LO: Can visualize linear and logistic regression model predictions using geom_sm
 </div>
 <p>Magnificent model comparison plotting! The two models give similar predictions in some places, but notice the slight curve in the logistic model trend.</p>
 </section>
-<section id="logistic-regression-with-glm" class="level2">
-<h2 class="anchored" data-anchor-id="logistic-regression-with-glm">Logistic regression with glm()</h2>
+<section id="logistic-regression-with-glm" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="logistic-regression-with-glm"><span class="header-section-number">4.4</span> Logistic regression with glm()</h2>
 <!--
 LO: Can fit a logistic regression model with glm().
 -->
@@ -1651,8 +1903,8 @@ LO: Can fit a logistic regression model with glm().
 </div>
 <p>Lovely logistic modeling! The code to run a logistic regression is a simple change from the code to run a linear regression. Now we need to make some predictions with the model.</p>
 </section>
-<section id="predictions-and-odds-ratios" class="level2">
-<h2 class="anchored" data-anchor-id="predictions-and-odds-ratios">Predictions and odds ratios</h2>
+<section id="predictions-and-odds-ratios" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="predictions-and-odds-ratios"><span class="header-section-number">4.5</span> Predictions and odds ratios</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Predictions and odds ratios</strong></p>
 <p>Let’s see how to make predictions with your logistic regression model.</p>
@@ -1683,8 +1935,8 @@ LO: Can fit a logistic regression model with glm().
 <p><strong>14. Let’s practice!</strong></p>
 <p>Let’s make some predictions.</p>
 </section>
-<section id="probabilities" class="level2">
-<h2 class="anchored" data-anchor-id="probabilities">Probabilities</h2>
+<section id="probabilities" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="probabilities"><span class="header-section-number">4.6</span> Probabilities</h2>
 <!-- 
 LO: Can calculate logistic regression model predictions as probabilities of success.
 -->
@@ -1743,8 +1995,8 @@ LO: Can calculate logistic regression model predictions as probabilities of succ
 </div>
 <p>Probably perfect probability plotting! The probability of a positive response is a natural way of thinking about predictions.</p>
 </section>
-<section id="most-likely-outcome" class="level2">
-<h2 class="anchored" data-anchor-id="most-likely-outcome">Most likely outcome</h2>
+<section id="most-likely-outcome" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="most-likely-outcome"><span class="header-section-number">4.7</span> Most likely outcome</h2>
 <!-- 
 LO: Can calculate logistic regression model predictions as most likely outcome.
 -->
@@ -1789,8 +2041,8 @@ LO: Can calculate logistic regression model predictions as most likely outcome.
 </div>
 <p>The most likely outcome is that you will master logistic regression! Providing the most likely response is a great way to share the model results with a non-technical audience.</p>
 </section>
-<section id="odds-ratio" class="level2">
-<h2 class="anchored" data-anchor-id="odds-ratio">Odds ratio</h2>
+<section id="odds-ratio" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="odds-ratio"><span class="header-section-number">4.8</span> Odds ratio</h2>
 <!-- 
 LO: Can calculate logistic regression model predictions as odds ratios.
 -->
@@ -1834,8 +2086,8 @@ LO: Can calculate logistic regression model predictions as odds ratios.
 </div>
 <p>You beat the odds! Odds ratios provide an alternative to probabilities that make it easier to compare positive and negative responses.</p>
 </section>
-<section id="log-odds-ratio" class="level2">
-<h2 class="anchored" data-anchor-id="log-odds-ratio">Log odds ratio</h2>
+<section id="log-odds-ratio" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="log-odds-ratio"><span class="header-section-number">4.9</span> Log odds ratio</h2>
 <!-- 
 LO: Can calculate logistic regression model predictions as log-odds ratios.
 -->
@@ -1881,8 +2133,8 @@ LO: Can calculate logistic regression model predictions as log-odds ratios.
 </div>
 <p>Laudable log odds ratio work! The linear relationship between predicted log odds ratio and the explanatory variable makes changes easier to reason about.</p>
 </section>
-<section id="quantifying-logistic-regression-fit" class="level2">
-<h2 class="anchored" data-anchor-id="quantifying-logistic-regression-fit">Quantifying logistic regression fit</h2>
+<section id="quantifying-logistic-regression-fit" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="quantifying-logistic-regression-fit"><span class="header-section-number">4.10</span> Quantifying logistic regression fit</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Quantifying logistic regression fit</strong></p>
 <p>Now we’ll assess the performance of the logistic regression models. The diagnostic plots we drew for linear models are less useful in the logistic case. Instead, we’ll look at confusion matrices.</p>
@@ -1903,8 +2155,8 @@ LO: Can calculate logistic regression model predictions as log-odds ratios.
 <p><strong>9. Let’s practice!</strong></p>
 <p>Let’s calculate some metrics.</p>
 </section>
-<section id="calculating-the-confusion-matrix" class="level2">
-<h2 class="anchored" data-anchor-id="calculating-the-confusion-matrix">Calculating the confusion matrix</h2>
+<section id="calculating-the-confusion-matrix" class="level2" data-number="4.11">
+<h2 data-number="4.11" class="anchored" data-anchor-id="calculating-the-confusion-matrix"><span class="header-section-number">4.11</span> Calculating the confusion matrix</h2>
 <!-- 
 LO: Can calculate a confusion matrix form a logistic regression model.
 -->
@@ -1936,8 +2188,8 @@ LO: Can calculate a confusion matrix form a logistic regression model.
 </div>
 <p>Courageous confusion creation! The name ‘confusion matrix’ sounds scary, but it’s just a table of counts. Simple!</p>
 </section>
-<section id="measuring-logistic-model-performance" class="level2">
-<h2 class="anchored" data-anchor-id="measuring-logistic-model-performance">Measuring logistic model performance</h2>
+<section id="measuring-logistic-model-performance" class="level2" data-number="4.12">
+<h2 data-number="4.12" class="anchored" data-anchor-id="measuring-logistic-model-performance"><span class="header-section-number">4.12</span> Measuring logistic model performance</h2>
 <!-- 
 LO: Can visualize a confusion matrix as a mosaic plot.
 -->
@@ -1968,8 +2220,8 @@ LO: Can visualize a confusion matrix as a mosaic plot.
 </div>
 <p>Magnificent model performance measuring! By converting from a standard table object to a yardstick confusion matrix object, plotting and getting performance metrics is easy.</p>
 </section>
-<section id="accuracy-sensitivity-specificity" class="level2">
-<h2 class="anchored" data-anchor-id="accuracy-sensitivity-specificity">Accuracy, sensitivity, specificity</h2>
+<section id="accuracy-sensitivity-specificity" class="level2" data-number="4.13">
+<h2 data-number="4.13" class="anchored" data-anchor-id="accuracy-sensitivity-specificity"><span class="header-section-number">4.13</span> Accuracy, sensitivity, specificity</h2>
 <p><code>yardstick</code> can compute lots of performance metrics from a confusion matrix. For logistic regression, three of them in particular are important: accuracy, sensitivity, and specificity. Can you identify what each of those terms mean in the context of the churn model?</p>
 <p>Match the definition of the churn model performance metric to the name of that metric.</p>
 <table class="table">
@@ -1995,8 +2247,8 @@ LO: Can visualize a confusion matrix as a mosaic plot.
 </table>
 <p>Insightful metric identification! Accuracy, sensitivity, and specificity are the most important performance metrics for logistic regression models.</p>
 </section>
-<section id="congratulations" class="level2">
-<h2 class="anchored" data-anchor-id="congratulations">Congratulations</h2>
+<section id="congratulations" class="level2" data-number="4.14">
+<h2 data-number="4.14" class="anchored" data-anchor-id="congratulations"><span class="header-section-number">4.14</span> Congratulations</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Congratulations</strong></p>
 <p>Well done! You made it through the course!</p>
@@ -2264,6 +2516,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../../../content/R/topics/06_regression/02_regression_intermediate/02_regression_intermediate.html" class="pagination-link">
+        <span class="nav-page-text">16: Intermediate Regression</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

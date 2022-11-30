@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Joschka Schwarz">
 
 <title>Joschka Schwarz - Generating random numbers</title>
 <style>
@@ -269,22 +270,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Contents</h2>
    
-  <ul>
-  <li><a href="#seeds" id="toc-seeds" class="nav-link active" data-scroll-target="#seeds">Seeds</a></li>
-  <li><a href="#distributions" id="toc-distributions" class="nav-link" data-scroll-target="#distributions">Distributions</a>
   <ul class="collapse">
-  <li><a href="#uniform-distribution" id="toc-uniform-distribution" class="nav-link" data-scroll-target="#uniform-distribution">Uniform distribution</a></li>
-  <li><a href="#normal-distribution" id="toc-normal-distribution" class="nav-link" data-scroll-target="#normal-distribution">Normal distribution</a></li>
-  <li><a href="#truncated-normal-distribution" id="toc-truncated-normal-distribution" class="nav-link" data-scroll-target="#truncated-normal-distribution">Truncated normal distribution</a></li>
-  <li><a href="#beta-distribution" id="toc-beta-distribution" class="nav-link" data-scroll-target="#beta-distribution">Beta distribution</a></li>
-  <li><a href="#binomial-distribution" id="toc-binomial-distribution" class="nav-link" data-scroll-target="#binomial-distribution">Binomial distribution</a></li>
-  <li><a href="#poisson-distribution" id="toc-poisson-distribution" class="nav-link" data-scroll-target="#poisson-distribution">Poisson distribution</a></li>
-  </ul></li>
-  <li><a href="#rescaling-numbers" id="toc-rescaling-numbers" class="nav-link" data-scroll-target="#rescaling-numbers">Rescaling numbers</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#seeds" id="toc-seeds" class="nav-link active" data-scroll-target="#seeds"><span class="toc-section-number">1</span>  Seeds</a></li>
+  <li><a href="#distributions" id="toc-distributions" class="nav-link" data-scroll-target="#distributions"><span class="toc-section-number">2</span>  Distributions</a></li>
+  <li><a href="#rescaling-numbers" id="toc-rescaling-numbers" class="nav-link" data-scroll-target="#rescaling-numbers"><span class="toc-section-number">3</span>  Rescaling numbers</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="toc-section-number">4</span>  Summary</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="toc-section-number">5</span>  Example</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/slides/random-numbers.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -300,6 +293,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Joschka Schwarz </p>
+          </div>
+  </div>
     
   
     
@@ -315,8 +314,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(patchwork)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="seeds" class="level2">
-<h2 class="anchored" data-anchor-id="seeds">Seeds</h2>
+<section id="seeds" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="seeds"><span class="header-section-number">1</span> Seeds</h2>
 <p>When R (or any computer program, really) generates random numbers, it uses an algorithm to simulate randomness. This algorithm always starts with an initial number, or seed. Typically it will use something like the current number of milliseconds since some date, so that every time you generate random numbers they’ll be different. Look at this, for instance:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Choose 3 numbers between 1 and 10</span></span>
@@ -372,8 +371,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Typically it’s easiest to just include <code>set.seed(SOME_NUMBER)</code> at the top of your script after you load all the libraries. Some functions have a <code>seed</code> argument, and it’s a good idea to use it: <code>position_jitter(..., seed = 1234)</code>.</p>
 </section>
-<section id="distributions" class="level2">
-<h2 class="anchored" data-anchor-id="distributions">Distributions</h2>
+<section id="distributions" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="distributions"><span class="header-section-number">2</span> Distributions</h2>
 <p>Remember in elementary school when you’d decide on playground turns by saying “Pick a number between 1 and 10” and whoever was the closest would win? When you generate random numbers in R, you’re essentially doing the same thing, only with some fancier bells and whistles.</p>
 <p>When you ask someone to choose a number between 1 and 10, any of those numbers should be equally likely. 1 isn’t really less common than 5 or anything. In some situations, though, there are numbers that are more likely to appear than others (i.e.&nbsp;when you roll two dice, it’s pretty rare to get a 2, but pretty common to get a 7). These different kinds of likelihood change the shape of the <em>distribution</em> of possible values. There are <a href="https://en.wikipedia.org/wiki/List_of_probability_distributions">hundreds of different distributions</a>, but for the sake of generating data, there are only a few that you need to know.</p>
 <section id="uniform-distribution" class="level3">
@@ -771,8 +770,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now most families have 1–2 kids. Cool.</p>
 </section>
 </section>
-<section id="rescaling-numbers" class="level2">
-<h2 class="anchored" data-anchor-id="rescaling-numbers">Rescaling numbers</h2>
+<section id="rescaling-numbers" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="rescaling-numbers"><span class="header-section-number">3</span> Rescaling numbers</h2>
 <p>All these different distributions are good at generating general shapes:</p>
 <ul>
 <li>Uniform: a bunch of random numbers with no central gravity</li>
@@ -826,15 +825,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This gives you less control over the center of the distribution (here it happens to be 40 because that’s in the middle of 18 and 65), but it gives you more control over the edges of the distribution.</p>
 <p>Rescaling things is really helpful when building in effects and interacting columns with other columns, since multiplying variables by different coefficients can make the values go way out of the normal range. You’ll see a lot more of that in the <a href="../example/synthetic-data.qmd">synthetic data example</a>.</p>
 </section>
-<section id="summary" class="level2">
-<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<section id="summary" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="summary"><span class="header-section-number">4</span> Summary</h2>
 <p>Phew. We covered a lot here, and we barely scratched the surface of all the distributions that exist. Here’s a helpful summary of the main distributions you should care about:</p>
 <div class="cell">
 
 </div>
 </section>
-<section id="example" class="level2">
-<h2 class="anchored" data-anchor-id="example">Example</h2>
+<section id="example" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="example"><span class="header-section-number">5</span> Example</h2>
 <p>And here’s an example dataset of 1,000 fake people and different characteristics. One shortcoming of this fake data is that each of these columns is completely independent—there’s no relationship between age and education and family size and income. You can see how to make these columns correlated (and make one cause another!) in the <a href="../example/synthetic-data.qmd">example for synthetic data</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>

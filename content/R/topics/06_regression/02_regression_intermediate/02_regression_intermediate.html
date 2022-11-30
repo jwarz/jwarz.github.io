@@ -93,6 +93,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../../../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../../../">
+<link href="../../../../../content/R/topics/06_regression/01_regression_beginner/01_regression_beginner.html" rel="prev">
 <script src="../../../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -128,7 +129,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
+
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -200,77 +202,327 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Intermediate Regression in R</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Topics</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <b><i>Programming Basics</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">1: Introduction to R</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">2: Intermediate R</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">3: Introduction to the tidyverse</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Importing Data</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">4: Introduction to Importing Data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">5: Intermediate Importing Data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">6: Working with web data</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Data Wrangling</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">7: Exploratory Data Analysis</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">8: Case Study: EDA</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">9: Cleaning Data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">10: Data Manipulation with data.table</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">11: Joining Data with data.table</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Data Visualization</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">12: Intermediate Data Visualization with ggplot2</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Statistics</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">13: Introduction to Statistics</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/05_statistics/02_fundamentals_of_bayesian_data_analysis/02_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">14: Fundamentals of Bayesian Data Analysis</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Regression</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/06_regression/01_regression_beginner/01_regression_beginner.html" class="sidebar-item-text sidebar-link">15: Introduction to Regression</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/06_regression/02_regression_intermediate/02_regression_intermediate.html" class="sidebar-item-text sidebar-link active">16: Intermediate Regression</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <b><i>Machine Learning</i></b>
+  </li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">17: Supervised Learning: Classification</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">18: Supervised Learning: Regression</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">19: Unsupervised Learning</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">20: Machine Learning in the tidyverse</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">21: Cluster Analysis</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">22: Cluster Analysis</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">23: Modeling with tidymodels</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">24: Machine Learning with tree-based Models</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">25: Support Vector Machines</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">26: Topic Modeling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">27: Hyperparameter Tuning</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">28: Bayesian Regression Modeling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">29: Introduction to Spark</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Manuals</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">1: An Introduction to R</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">2: R Data Import/Export</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">3: R Installation and Administration</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">4: Writing R Extensions</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">5: R Language Definition</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">6: R Internals</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#parallel-slopes" id="toc-parallel-slopes" class="nav-link active" data-scroll-target="#parallel-slopes">1. Parallel Slopes</a>
+  <li><a href="#parallel-slopes" id="toc-parallel-slopes" class="nav-link active" data-scroll-target="#parallel-slopes"><span class="toc-section-number">1</span>  1. Parallel Slopes</a>
   <ul class="collapse">
-  <li><a href="#parallel-slopes-linear-regression" id="toc-parallel-slopes-linear-regression" class="nav-link" data-scroll-target="#parallel-slopes-linear-regression">Parallel slopes linear regression</a></li>
-  <li><a href="#fitting-a-parallel-slopes-linear-regression" id="toc-fitting-a-parallel-slopes-linear-regression" class="nav-link" data-scroll-target="#fitting-a-parallel-slopes-linear-regression">Fitting a parallel slopes linear regression</a></li>
-  <li><a href="#interpreting-parallel-slopes-coefficients" id="toc-interpreting-parallel-slopes-coefficients" class="nav-link" data-scroll-target="#interpreting-parallel-slopes-coefficients">Interpreting parallel slopes coefficients</a></li>
-  <li><a href="#visualizing-each-explanatory-variable" id="toc-visualizing-each-explanatory-variable" class="nav-link" data-scroll-target="#visualizing-each-explanatory-variable">Visualizing each explanatory variable</a></li>
-  <li><a href="#visualizing-parallel-slopes" id="toc-visualizing-parallel-slopes" class="nav-link" data-scroll-target="#visualizing-parallel-slopes">Visualizing parallel slopes</a></li>
-  <li><a href="#predicting-parallel-slopes" id="toc-predicting-parallel-slopes" class="nav-link" data-scroll-target="#predicting-parallel-slopes">Predicting parallel slopes</a></li>
-  <li><a href="#predicting-with-a-parallel-slopes-model" id="toc-predicting-with-a-parallel-slopes-model" class="nav-link" data-scroll-target="#predicting-with-a-parallel-slopes-model">Predicting with a parallel slopes model</a></li>
-  <li><a href="#manually-calculating-predictions" id="toc-manually-calculating-predictions" class="nav-link" data-scroll-target="#manually-calculating-predictions">Manually calculating predictions</a></li>
-  <li><a href="#assessing-model-performance" id="toc-assessing-model-performance" class="nav-link" data-scroll-target="#assessing-model-performance">Assessing model performance</a></li>
-  <li><a href="#comparing-coefficients-of-determination" id="toc-comparing-coefficients-of-determination" class="nav-link" data-scroll-target="#comparing-coefficients-of-determination">Comparing coefficients of determination</a></li>
-  <li><a href="#comparing-residual-standard-error" id="toc-comparing-residual-standard-error" class="nav-link" data-scroll-target="#comparing-residual-standard-error">Comparing residual standard error</a></li>
+  <li><a href="#parallel-slopes-linear-regression" id="toc-parallel-slopes-linear-regression" class="nav-link" data-scroll-target="#parallel-slopes-linear-regression"><span class="toc-section-number">1.1</span>  Parallel slopes linear regression</a></li>
+  <li><a href="#fitting-a-parallel-slopes-linear-regression" id="toc-fitting-a-parallel-slopes-linear-regression" class="nav-link" data-scroll-target="#fitting-a-parallel-slopes-linear-regression"><span class="toc-section-number">1.2</span>  Fitting a parallel slopes linear regression</a></li>
+  <li><a href="#interpreting-parallel-slopes-coefficients" id="toc-interpreting-parallel-slopes-coefficients" class="nav-link" data-scroll-target="#interpreting-parallel-slopes-coefficients"><span class="toc-section-number">1.3</span>  Interpreting parallel slopes coefficients</a></li>
+  <li><a href="#visualizing-each-explanatory-variable" id="toc-visualizing-each-explanatory-variable" class="nav-link" data-scroll-target="#visualizing-each-explanatory-variable"><span class="toc-section-number">1.6</span>  Visualizing each explanatory variable</a></li>
+  <li><a href="#visualizing-parallel-slopes" id="toc-visualizing-parallel-slopes" class="nav-link" data-scroll-target="#visualizing-parallel-slopes"><span class="toc-section-number">1.7</span>  Visualizing parallel slopes</a></li>
+  <li><a href="#predicting-parallel-slopes" id="toc-predicting-parallel-slopes" class="nav-link" data-scroll-target="#predicting-parallel-slopes"><span class="toc-section-number">1.8</span>  Predicting parallel slopes</a></li>
+  <li><a href="#predicting-with-a-parallel-slopes-model" id="toc-predicting-with-a-parallel-slopes-model" class="nav-link" data-scroll-target="#predicting-with-a-parallel-slopes-model"><span class="toc-section-number">1.9</span>  Predicting with a parallel slopes model</a></li>
+  <li><a href="#manually-calculating-predictions" id="toc-manually-calculating-predictions" class="nav-link" data-scroll-target="#manually-calculating-predictions"><span class="toc-section-number">1.10</span>  Manually calculating predictions</a></li>
+  <li><a href="#assessing-model-performance" id="toc-assessing-model-performance" class="nav-link" data-scroll-target="#assessing-model-performance"><span class="toc-section-number">1.11</span>  Assessing model performance</a></li>
+  <li><a href="#comparing-coefficients-of-determination" id="toc-comparing-coefficients-of-determination" class="nav-link" data-scroll-target="#comparing-coefficients-of-determination"><span class="toc-section-number">1.12</span>  Comparing coefficients of determination</a></li>
+  <li><a href="#comparing-residual-standard-error" id="toc-comparing-residual-standard-error" class="nav-link" data-scroll-target="#comparing-residual-standard-error"><span class="toc-section-number">1.14</span>  Comparing residual standard error</a></li>
   </ul></li>
-  <li><a href="#interactions" id="toc-interactions" class="nav-link" data-scroll-target="#interactions">2. Interactions</a>
+  <li><a href="#interactions" id="toc-interactions" class="nav-link" data-scroll-target="#interactions"><span class="toc-section-number">2</span>  2. Interactions</a>
   <ul class="collapse">
-  <li><a href="#models-for-each-category" id="toc-models-for-each-category" class="nav-link" data-scroll-target="#models-for-each-category">Models for each category</a></li>
-  <li><a href="#one-model-per-category" id="toc-one-model-per-category" class="nav-link" data-scroll-target="#one-model-per-category">One model per category</a></li>
-  <li><a href="#predicting-multiple-models" id="toc-predicting-multiple-models" class="nav-link" data-scroll-target="#predicting-multiple-models">Predicting multiple models</a></li>
-  <li><a href="#visualizing-multiple-models" id="toc-visualizing-multiple-models" class="nav-link" data-scroll-target="#visualizing-multiple-models">Visualizing multiple models</a></li>
-  <li><a href="#assessing-model-performance-1" id="toc-assessing-model-performance-1" class="nav-link" data-scroll-target="#assessing-model-performance-1">Assessing model performance</a></li>
-  <li><a href="#one-model-with-an-interaction" id="toc-one-model-with-an-interaction" class="nav-link" data-scroll-target="#one-model-with-an-interaction">One model with an interaction</a></li>
-  <li><a href="#specifying-an-interaction" id="toc-specifying-an-interaction" class="nav-link" data-scroll-target="#specifying-an-interaction">Specifying an interaction</a></li>
-  <li><a href="#interactions-with-understandable-coeffs" id="toc-interactions-with-understandable-coeffs" class="nav-link" data-scroll-target="#interactions-with-understandable-coeffs">Interactions with understandable coeffs</a></li>
-  <li><a href="#making-predictions-with-interactions" id="toc-making-predictions-with-interactions" class="nav-link" data-scroll-target="#making-predictions-with-interactions">Making predictions with interactions</a></li>
-  <li><a href="#predicting-with-interactions" id="toc-predicting-with-interactions" class="nav-link" data-scroll-target="#predicting-with-interactions">Predicting with interactions</a></li>
-  <li><a href="#manually-calculating-predictions-with-interactions" id="toc-manually-calculating-predictions-with-interactions" class="nav-link" data-scroll-target="#manually-calculating-predictions-with-interactions">Manually calculating predictions with interactions</a></li>
-  <li><a href="#simpsons-paradox" id="toc-simpsons-paradox" class="nav-link" data-scroll-target="#simpsons-paradox">Simpson’s Paradox</a></li>
-  <li><a href="#modeling-ebay-auctions" id="toc-modeling-ebay-auctions" class="nav-link" data-scroll-target="#modeling-ebay-auctions">Modeling eBay auctions</a></li>
-  <li><a href="#modeling-each-auction-type" id="toc-modeling-each-auction-type" class="nav-link" data-scroll-target="#modeling-each-auction-type">Modeling each auction type</a></li>
+  <li><a href="#models-for-each-category" id="toc-models-for-each-category" class="nav-link" data-scroll-target="#models-for-each-category"><span class="toc-section-number">2.1</span>  Models for each category</a></li>
+  <li><a href="#one-model-per-category" id="toc-one-model-per-category" class="nav-link" data-scroll-target="#one-model-per-category"><span class="toc-section-number">2.2</span>  One model per category</a></li>
+  <li><a href="#predicting-multiple-models" id="toc-predicting-multiple-models" class="nav-link" data-scroll-target="#predicting-multiple-models"><span class="toc-section-number">2.3</span>  Predicting multiple models</a></li>
+  <li><a href="#visualizing-multiple-models" id="toc-visualizing-multiple-models" class="nav-link" data-scroll-target="#visualizing-multiple-models"><span class="toc-section-number">2.4</span>  Visualizing multiple models</a></li>
+  <li><a href="#assessing-model-performance-1" id="toc-assessing-model-performance-1" class="nav-link" data-scroll-target="#assessing-model-performance-1"><span class="toc-section-number">2.5</span>  Assessing model performance</a></li>
+  <li><a href="#one-model-with-an-interaction" id="toc-one-model-with-an-interaction" class="nav-link" data-scroll-target="#one-model-with-an-interaction"><span class="toc-section-number">2.6</span>  One model with an interaction</a></li>
+  <li><a href="#specifying-an-interaction" id="toc-specifying-an-interaction" class="nav-link" data-scroll-target="#specifying-an-interaction"><span class="toc-section-number">2.7</span>  Specifying an interaction</a></li>
+  <li><a href="#interactions-with-understandable-coeffs" id="toc-interactions-with-understandable-coeffs" class="nav-link" data-scroll-target="#interactions-with-understandable-coeffs"><span class="toc-section-number">2.8</span>  Interactions with understandable coeffs</a></li>
+  <li><a href="#making-predictions-with-interactions" id="toc-making-predictions-with-interactions" class="nav-link" data-scroll-target="#making-predictions-with-interactions"><span class="toc-section-number">2.10</span>  Making predictions with interactions</a></li>
+  <li><a href="#predicting-with-interactions" id="toc-predicting-with-interactions" class="nav-link" data-scroll-target="#predicting-with-interactions"><span class="toc-section-number">2.11</span>  Predicting with interactions</a></li>
+  <li><a href="#manually-calculating-predictions-with-interactions" id="toc-manually-calculating-predictions-with-interactions" class="nav-link" data-scroll-target="#manually-calculating-predictions-with-interactions"><span class="toc-section-number">2.12</span>  Manually calculating predictions with interactions</a></li>
+  <li><a href="#simpsons-paradox" id="toc-simpsons-paradox" class="nav-link" data-scroll-target="#simpsons-paradox"><span class="toc-section-number">2.13</span>  Simpson’s Paradox</a></li>
+  <li><a href="#modeling-ebay-auctions" id="toc-modeling-ebay-auctions" class="nav-link" data-scroll-target="#modeling-ebay-auctions"><span class="toc-section-number">2.14</span>  Modeling eBay auctions</a></li>
+  <li><a href="#modeling-each-auction-type" id="toc-modeling-each-auction-type" class="nav-link" data-scroll-target="#modeling-each-auction-type"><span class="toc-section-number">2.15</span>  Modeling each auction type</a></li>
   </ul></li>
-  <li><a href="#multiple-linear-regression" id="toc-multiple-linear-regression" class="nav-link" data-scroll-target="#multiple-linear-regression">3. Multiple Linear Regression</a>
+  <li><a href="#multiple-linear-regression" id="toc-multiple-linear-regression" class="nav-link" data-scroll-target="#multiple-linear-regression"><span class="toc-section-number">3</span>  3. Multiple Linear Regression</a>
   <ul class="collapse">
-  <li><a href="#two-numeric-explanatory-variables" id="toc-two-numeric-explanatory-variables" class="nav-link" data-scroll-target="#two-numeric-explanatory-variables">Two numeric explanatory variables</a></li>
-  <li><a href="#d-visualizations" id="toc-d-visualizations" class="nav-link" data-scroll-target="#d-visualizations">3D visualizations</a></li>
-  <li><a href="#modeling-2-numeric-explanatory-variables" id="toc-modeling-2-numeric-explanatory-variables" class="nav-link" data-scroll-target="#modeling-2-numeric-explanatory-variables">Modeling 2 numeric explanatory variables</a></li>
-  <li><a href="#including-an-interaction" id="toc-including-an-interaction" class="nav-link" data-scroll-target="#including-an-interaction">Including an interaction</a></li>
-  <li><a href="#more-than-2-explanatory-variables" id="toc-more-than-2-explanatory-variables" class="nav-link" data-scroll-target="#more-than-2-explanatory-variables">More than 2 explanatory variables</a></li>
-  <li><a href="#visualizing-many-variables" id="toc-visualizing-many-variables" class="nav-link" data-scroll-target="#visualizing-many-variables">Visualizing many variables</a></li>
-  <li><a href="#different-levels-of-interaction" id="toc-different-levels-of-interaction" class="nav-link" data-scroll-target="#different-levels-of-interaction">Different levels of interaction</a></li>
-  <li><a href="#predicting-again" id="toc-predicting-again" class="nav-link" data-scroll-target="#predicting-again">Predicting again</a></li>
-  <li><a href="#how-linear-regression-works" id="toc-how-linear-regression-works" class="nav-link" data-scroll-target="#how-linear-regression-works">How linear regression works</a></li>
-  <li><a href="#the-sum-of-squares" id="toc-the-sum-of-squares" class="nav-link" data-scroll-target="#the-sum-of-squares">The sum of squares</a></li>
-  <li><a href="#linear-regression-algorithm" id="toc-linear-regression-algorithm" class="nav-link" data-scroll-target="#linear-regression-algorithm">Linear regression algorithm</a></li>
+  <li><a href="#two-numeric-explanatory-variables" id="toc-two-numeric-explanatory-variables" class="nav-link" data-scroll-target="#two-numeric-explanatory-variables"><span class="toc-section-number">3.1</span>  Two numeric explanatory variables</a></li>
+  <li><a href="#d-visualizations" id="toc-d-visualizations" class="nav-link" data-scroll-target="#d-visualizations"><span class="toc-section-number">3.2</span>  3D visualizations</a></li>
+  <li><a href="#modeling-2-numeric-explanatory-variables" id="toc-modeling-2-numeric-explanatory-variables" class="nav-link" data-scroll-target="#modeling-2-numeric-explanatory-variables"><span class="toc-section-number">3.3</span>  Modeling 2 numeric explanatory variables</a></li>
+  <li><a href="#including-an-interaction" id="toc-including-an-interaction" class="nav-link" data-scroll-target="#including-an-interaction"><span class="toc-section-number">3.4</span>  Including an interaction</a></li>
+  <li><a href="#more-than-2-explanatory-variables" id="toc-more-than-2-explanatory-variables" class="nav-link" data-scroll-target="#more-than-2-explanatory-variables"><span class="toc-section-number">3.5</span>  More than 2 explanatory variables</a></li>
+  <li><a href="#visualizing-many-variables" id="toc-visualizing-many-variables" class="nav-link" data-scroll-target="#visualizing-many-variables"><span class="toc-section-number">3.6</span>  Visualizing many variables</a></li>
+  <li><a href="#different-levels-of-interaction" id="toc-different-levels-of-interaction" class="nav-link" data-scroll-target="#different-levels-of-interaction"><span class="toc-section-number">3.7</span>  Different levels of interaction</a></li>
+  <li><a href="#predicting-again" id="toc-predicting-again" class="nav-link" data-scroll-target="#predicting-again"><span class="toc-section-number">3.8</span>  Predicting again</a></li>
+  <li><a href="#how-linear-regression-works" id="toc-how-linear-regression-works" class="nav-link" data-scroll-target="#how-linear-regression-works"><span class="toc-section-number">3.9</span>  How linear regression works</a></li>
+  <li><a href="#the-sum-of-squares" id="toc-the-sum-of-squares" class="nav-link" data-scroll-target="#the-sum-of-squares"><span class="toc-section-number">3.10</span>  The sum of squares</a></li>
+  <li><a href="#linear-regression-algorithm" id="toc-linear-regression-algorithm" class="nav-link" data-scroll-target="#linear-regression-algorithm"><span class="toc-section-number">3.12</span>  Linear regression algorithm</a></li>
   </ul></li>
-  <li><a href="#multiple-logistic-regression" id="toc-multiple-logistic-regression" class="nav-link" data-scroll-target="#multiple-logistic-regression">4. Multiple Logistic Regression</a>
+  <li><a href="#multiple-logistic-regression" id="toc-multiple-logistic-regression" class="nav-link" data-scroll-target="#multiple-logistic-regression"><span class="toc-section-number">4</span>  4. Multiple Logistic Regression</a>
   <ul class="collapse">
-  <li><a href="#multiple-logistic-regression-1" id="toc-multiple-logistic-regression-1" class="nav-link" data-scroll-target="#multiple-logistic-regression-1">Multiple logistic regression</a></li>
-  <li><a href="#visualizing-multiple-explanatory-variables" id="toc-visualizing-multiple-explanatory-variables" class="nav-link" data-scroll-target="#visualizing-multiple-explanatory-variables">Visualizing multiple explanatory variables</a></li>
-  <li><a href="#logistic-regression-with-2-explanatory-variables" id="toc-logistic-regression-with-2-explanatory-variables" class="nav-link" data-scroll-target="#logistic-regression-with-2-explanatory-variables">Logistic regression with 2 explanatory variables</a></li>
-  <li><a href="#logistic-regression-prediction" id="toc-logistic-regression-prediction" class="nav-link" data-scroll-target="#logistic-regression-prediction">Logistic regression prediction</a></li>
-  <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix">Confusion matrix</a></li>
-  <li><a href="#the-logistic-distribution" id="toc-the-logistic-distribution" class="nav-link" data-scroll-target="#the-logistic-distribution">The logistic distribution</a></li>
-  <li><a href="#cumulative-distribution-function" id="toc-cumulative-distribution-function" class="nav-link" data-scroll-target="#cumulative-distribution-function">Cumulative distribution function</a></li>
-  <li><a href="#inverse-cumulative-distribution-function" id="toc-inverse-cumulative-distribution-function" class="nav-link" data-scroll-target="#inverse-cumulative-distribution-function">Inverse cumulative distribution function</a></li>
-  <li><a href="#binomial-family-argument" id="toc-binomial-family-argument" class="nav-link" data-scroll-target="#binomial-family-argument">binomial family argument</a></li>
-  <li><a href="#logistic-distribution-parameters" id="toc-logistic-distribution-parameters" class="nav-link" data-scroll-target="#logistic-distribution-parameters">Logistic distribution parameters</a></li>
-  <li><a href="#how-logistic-regression-works" id="toc-how-logistic-regression-works" class="nav-link" data-scroll-target="#how-logistic-regression-works">How logistic regression works</a></li>
-  <li><a href="#likelihood-log-likelihood" id="toc-likelihood-log-likelihood" class="nav-link" data-scroll-target="#likelihood-log-likelihood">Likelihood &amp; log-likelihood</a></li>
-  <li><a href="#logistic-regression-algorithm" id="toc-logistic-regression-algorithm" class="nav-link" data-scroll-target="#logistic-regression-algorithm">Logistic regression algorithm</a></li>
-  <li><a href="#congratulations" id="toc-congratulations" class="nav-link" data-scroll-target="#congratulations">Congratulations</a></li>
+  <li><a href="#multiple-logistic-regression-1" id="toc-multiple-logistic-regression-1" class="nav-link" data-scroll-target="#multiple-logistic-regression-1"><span class="toc-section-number">4.1</span>  Multiple logistic regression</a></li>
+  <li><a href="#visualizing-multiple-explanatory-variables" id="toc-visualizing-multiple-explanatory-variables" class="nav-link" data-scroll-target="#visualizing-multiple-explanatory-variables"><span class="toc-section-number">4.2</span>  Visualizing multiple explanatory variables</a></li>
+  <li><a href="#logistic-regression-with-2-explanatory-variables" id="toc-logistic-regression-with-2-explanatory-variables" class="nav-link" data-scroll-target="#logistic-regression-with-2-explanatory-variables"><span class="toc-section-number">4.3</span>  Logistic regression with 2 explanatory variables</a></li>
+  <li><a href="#logistic-regression-prediction" id="toc-logistic-regression-prediction" class="nav-link" data-scroll-target="#logistic-regression-prediction"><span class="toc-section-number">4.4</span>  Logistic regression prediction</a></li>
+  <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix"><span class="toc-section-number">4.5</span>  Confusion matrix</a></li>
+  <li><a href="#the-logistic-distribution" id="toc-the-logistic-distribution" class="nav-link" data-scroll-target="#the-logistic-distribution"><span class="toc-section-number">4.6</span>  The logistic distribution</a></li>
+  <li><a href="#cumulative-distribution-function" id="toc-cumulative-distribution-function" class="nav-link" data-scroll-target="#cumulative-distribution-function"><span class="toc-section-number">4.7</span>  Cumulative distribution function</a></li>
+  <li><a href="#inverse-cumulative-distribution-function" id="toc-inverse-cumulative-distribution-function" class="nav-link" data-scroll-target="#inverse-cumulative-distribution-function"><span class="toc-section-number">4.8</span>  Inverse cumulative distribution function</a></li>
+  <li><a href="#binomial-family-argument" id="toc-binomial-family-argument" class="nav-link" data-scroll-target="#binomial-family-argument"><span class="toc-section-number">4.9</span>  binomial family argument</a></li>
+  <li><a href="#logistic-distribution-parameters" id="toc-logistic-distribution-parameters" class="nav-link" data-scroll-target="#logistic-distribution-parameters"><span class="toc-section-number">4.10</span>  Logistic distribution parameters</a></li>
+  <li><a href="#how-logistic-regression-works" id="toc-how-logistic-regression-works" class="nav-link" data-scroll-target="#how-logistic-regression-works"><span class="toc-section-number">4.12</span>  How logistic regression works</a></li>
+  <li><a href="#likelihood-log-likelihood" id="toc-likelihood-log-likelihood" class="nav-link" data-scroll-target="#likelihood-log-likelihood"><span class="toc-section-number">4.13</span>  Likelihood &amp; log-likelihood</a></li>
+  <li><a href="#logistic-regression-algorithm" id="toc-logistic-regression-algorithm" class="nav-link" data-scroll-target="#logistic-regression-algorithm"><span class="toc-section-number">4.15</span>  Logistic regression algorithm</a></li>
+  <li><a href="#congratulations" id="toc-congratulations" class="nav-link" data-scroll-target="#congratulations"><span class="toc-section-number">4.16</span>  Congratulations</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/06_regression/02_regression_intermediate/02_regression_intermediate.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -280,7 +532,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Intermediate Regression in R</h1>
+<h1 class="title d-none d-lg-block">Intermediate Regression in R</h1>
 </div>
 
 
@@ -307,11 +559,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Discover how to include multiple explanatory variables in a model, how interactions affect predictions, and how linear and logistic regression work in R.</p>
 <p><strong>Long Description</strong></p>
 <p>Linear regression and logistic regression are the two most widely used statistical models and act like master keys, unlocking the secrets hidden in datasets. This course builds on the skills you gained in “Introduction to Regression in R”, covering linear and logistic regression with multiple explanatory variables. Through hands-on exercises, you’ll explore the relationships between variables in real-world datasets, Taiwan house prices and customer churn modeling, and more. By the end of this course, you’ll know how to include multiple explanatory variables in a model, understand how interactions between variables affect predictions, and understand how linear and logistic regression work.</p>
-<section id="parallel-slopes" class="level1">
-<h1>1. Parallel Slopes</h1>
+<section id="parallel-slopes" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> 1. Parallel Slopes</h1>
 <p>Extend your linear regression skills to “parallel slopes” regression, with one numeric and one categorical explanatory variable. This is the first step towards conquering multiple linear regression.</p>
-<section id="parallel-slopes-linear-regression" class="level2">
-<h2 class="anchored" data-anchor-id="parallel-slopes-linear-regression">Parallel slopes linear regression</h2>
+<section id="parallel-slopes-linear-regression" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="parallel-slopes-linear-regression"><span class="header-section-number">1.1</span> Parallel slopes linear regression</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Parallel slopes linear regression</strong></p>
 <p>Hi, I’m Richie. Welcome!</p>
@@ -338,8 +590,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>12. Let’s practice!</strong></p>
 <p>Let’s begin.</p>
 </section>
-<section id="fitting-a-parallel-slopes-linear-regression" class="level2">
-<h2 class="anchored" data-anchor-id="fitting-a-parallel-slopes-linear-regression">Fitting a parallel slopes linear regression</h2>
+<section id="fitting-a-parallel-slopes-linear-regression" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="fitting-a-parallel-slopes-linear-regression"><span class="header-section-number">1.2</span> Fitting a parallel slopes linear regression</h2>
 <!-- 
 LO: Fit a linear regression model with two explanatory variables, without interactions.
 -->
@@ -418,25 +670,25 @@ LO: Fit a linear regression model with two explanatory variables, without intera
 </div>
 <p>Perfect parallel slopes fitting! To combine multiple explanatory variables in the regression formula, separate them with a <code>+</code>.</p>
 </section>
-<section id="interpreting-parallel-slopes-coefficients" class="level2">
-<h2 class="anchored" data-anchor-id="interpreting-parallel-slopes-coefficients">Interpreting parallel slopes coefficients</h2>
+<section id="interpreting-parallel-slopes-coefficients" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="interpreting-parallel-slopes-coefficients"><span class="header-section-number">1.3</span> Interpreting parallel slopes coefficients</h2>
 <!-- 
 LO: Interpret the coefficients (one slope and several intercepts) for a parallel slopes regression.
 -->
 <p>For linear regression with a single numeric explanatory variable, there is an intercept coefficient and a slope coefficient. For linear regression with a single categorical explanatory variable, there is an intercept coefficient for each category.</p>
 <p>In the “parallel slopes” case, where you have a numeric and a categorical explanatory variable, what do the coefficients mean?</p>
 <blockquote class="blockquote">
-<h2 id="question" class="anchored"><em>Question</em></h2>
+<h2 id="question" data-number="1.4" class="anchored"><span class="header-section-number">1.4</span> <em>Question</em></h2>
 <p>Look at the coefficients of <code>mdl_price_vs_both</code>. What is the meaning of the <code>n_convenience</code> coefficient?<br> <br> ⬜ The mean number of nearby convenience stores is <code>0.79</code>.<br> ⬜ For a house with zero nearby convenience stores, the expected house price is <code>0.79</code> TWD per square meter.<br> ✅ For each additional nearby convenience store, the expected house price, in TWD per square meter, increases by <code>0.79</code>.<br> ⬜ For each additional <code>0.79</code> nearby conveniences stores, the expected house price increases by 1 TWD per square meter.<br></p>
 </blockquote>
 <blockquote class="blockquote">
-<h2 id="question-1" class="anchored"><em>Question</em></h2>
+<h2 id="question-1" data-number="1.5" class="anchored"><span class="header-section-number">1.5</span> <em>Question</em></h2>
 <p>What is the meaning of the <code>"0 to 15 years"</code> coefficient?<br> <br> ⬜ For a house aged 0 to 15 years, the mean number of nearby convenience stores is <code>9.41</code>.<br> ✅ For a house aged 0 to 15 years with zero nearby convenience stores, the expected house price is <code>9.41</code> TWD per square meter.<br> ⬜ For each additional year of house age, the expected house price, in TWD per square meter, increases by <code>9.41</code>.<br> ⬜ For each additional <code>15</code> years of house age, the expected house price increases by <code>9.41</code> TWD per square meter.<br></p>
 </blockquote>
 <p>Insightful interpretation! The model has one slope coefficient, and three intercept coefficients (one for each possible value of the categorical explanatory variable).</p>
 </section>
-<section id="visualizing-each-explanatory-variable" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-each-explanatory-variable">Visualizing each explanatory variable</h2>
+<section id="visualizing-each-explanatory-variable" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="visualizing-each-explanatory-variable"><span class="header-section-number">1.6</span> Visualizing each explanatory variable</h2>
 <!-- 
 LO: Draw a scatter plot with a linear regession trend line, and a box plot.
 -->
@@ -472,8 +724,8 @@ LO: Draw a scatter plot with a linear regession trend line, and a box plot.
 </div>
 <p>Veracious visualizing! With a single numeric explanatory variable, the predictions form a single straight line. With a single categorical explanatory variable, the predictions are the means for each category.</p>
 </section>
-<section id="visualizing-parallel-slopes" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-parallel-slopes">Visualizing parallel slopes</h2>
+<section id="visualizing-parallel-slopes" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="visualizing-parallel-slopes"><span class="header-section-number">1.7</span> Visualizing parallel slopes</h2>
 <!-- 
 LO: Draw a scatter plot with parallel slope predictions.
 -->
@@ -499,8 +751,8 @@ LO: Draw a scatter plot with parallel slope predictions.
 </div>
 <p>Parallel slope paradise! The “parallel slope” model name comes from the fact that the prediction for each category is a slope, and all those slopes are parallel.</p>
 </section>
-<section id="predicting-parallel-slopes" class="level2">
-<h2 class="anchored" data-anchor-id="predicting-parallel-slopes">Predicting parallel slopes</h2>
+<section id="predicting-parallel-slopes" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="predicting-parallel-slopes"><span class="header-section-number">1.8</span> Predicting parallel slopes</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Predicting parallel slopes</strong></p>
 <p>Predicting responses is perhaps the most useful feature of regression models. With two explanatory variables, the code for prediction has one subtle difference from the case with a single explanatory variable.</p>
@@ -527,8 +779,8 @@ LO: Draw a scatter plot with parallel slope predictions.
 <p><strong>12. Let’s practice!</strong></p>
 <p>Time for you to make predictions.</p>
 </section>
-<section id="predicting-with-a-parallel-slopes-model" class="level2">
-<h2 class="anchored" data-anchor-id="predicting-with-a-parallel-slopes-model">Predicting with a parallel slopes model</h2>
+<section id="predicting-with-a-parallel-slopes-model" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="predicting-with-a-parallel-slopes-model"><span class="header-section-number">1.9</span> Predicting with a parallel slopes model</h2>
 <!-- 
 LO: Make predictions with multiple explanatory variables.
 -->
@@ -603,8 +855,8 @@ LO: Make predictions with multiple explanatory variables.
 </div>
 <p>Excellent grid expansion of explanatory variables! The workflow for making predictions with multiple explanatory variables is the same as for a single variable, except that you can use <code>expand_grid()</code> to get a more complete set of predictions.</p>
 </section>
-<section id="manually-calculating-predictions" class="level2">
-<h2 class="anchored" data-anchor-id="manually-calculating-predictions">Manually calculating predictions</h2>
+<section id="manually-calculating-predictions" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="manually-calculating-predictions"><span class="header-section-number">1.10</span> Manually calculating predictions</h2>
 <!-- 
 LO: Can calculate parallel slopes linear regression predictions manually.
 -->
@@ -662,8 +914,8 @@ LO: Can calculate parallel slopes linear regression predictions manually.
 </div>
 <p>This is the case when you’ve succeeded! Even for more complicated linear regression models, the prediction just involve adding and multiplying coefficients for different cases of explanatory variables.</p>
 </section>
-<section id="assessing-model-performance" class="level2">
-<h2 class="anchored" data-anchor-id="assessing-model-performance">Assessing model performance</h2>
+<section id="assessing-model-performance" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="assessing-model-performance"><span class="header-section-number">1.11</span> Assessing model performance</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Assessing model performance</strong></p>
 <p>The big benefit of using more than one explanatory variable in a model is that you can sometimes get a better fit than when you use a single explanatory variable.</p>
@@ -680,8 +932,8 @@ LO: Can calculate parallel slopes linear regression predictions manually.
 <p><strong>7. Let’s practice!</strong></p>
 <p>Your turn to look at some model metrics.</p>
 </section>
-<section id="comparing-coefficients-of-determination" class="level2">
-<h2 class="anchored" data-anchor-id="comparing-coefficients-of-determination">Comparing coefficients of determination</h2>
+<section id="comparing-coefficients-of-determination" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="comparing-coefficients-of-determination"><span class="header-section-number">1.12</span> Comparing coefficients of determination</h2>
 <!-- 
 LO: Understands that using multiple explanatory variables can increase the coefficient of determination, providing a better fit.
 -->
@@ -713,13 +965,13 @@ LO: Understands that using multiple explanatory variables can increase the coeff
 <span id="cb12-18"><a href="#cb12-18"></a>  <span class="fu">select</span>(r.squared, adj.r.squared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-2" class="anchored"><em>Question</em></h2>
+<h2 id="question-2" data-number="1.13" class="anchored"><span class="header-section-number">1.13</span> <em>Question</em></h2>
 <p>Which model does the adjusted coefficient of determination suggest gives a better fit?<br> <br> ⬜ <code>mdl_price_vs_conv</code>.<br> ⬜ <code>mdl_price_vs_age</code>.<br> ✅ <code>mdl_price_vs_both</code>.<br> ⬜ All models are equally good.<br> ⬜ Adjusted coefficient of determination doesn’t measure the goodness of fit of a regression model.<br></p>
 </blockquote>
 <p>Magnificent model metric comparing! When both explanatory variables are included in the model, the adjusted coefficient of determination is higher, resulting in a better fit.</p>
 </section>
-<section id="comparing-residual-standard-error" class="level2">
-<h2 class="anchored" data-anchor-id="comparing-residual-standard-error">Comparing residual standard error</h2>
+<section id="comparing-residual-standard-error" class="level2" data-number="1.14">
+<h2 data-number="1.14" class="anchored" data-anchor-id="comparing-residual-standard-error"><span class="header-section-number">1.14</span> Comparing residual standard error</h2>
 <!--
 LO: Understand that including multiple explanatory variables can lower the RSE, improving the fit.
 -->
@@ -749,17 +1001,17 @@ LO: Understand that including multiple explanatory variables can lower the RSE, 
 <span id="cb13-15"><a href="#cb13-15"></a>  <span class="fu">pull</span>(sigma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-3" class="anchored"><em>Question</em></h2>
+<h2 id="question-3" data-number="1.15" class="anchored"><span class="header-section-number">1.15</span> <em>Question</em></h2>
 <p>Which model does the RSE suggest gives more accurate predictions?<br> <br> ⬜ <code>mdl_price_vs_conv</code>.<br> ⬜ <code>mdl_price_vs_age</code>.<br> ✅ <code>mdl_price_vs_both</code>.<br> ⬜ Both models are equally good.<br> ⬜ RSE doesn’t measure the accuracy of a regression model.<br></p>
 </blockquote>
 <p>Resplendent use of RSE! By including both explanatory variables in the model, a lower RSE was achieved, indicating a smaller difference between the predicted responses and the actual responses.</p>
 </section>
 </section>
-<section id="interactions" class="level1">
-<h1>2. Interactions</h1>
+<section id="interactions" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> 2. Interactions</h1>
 <p>Explore the effect of interactions between explanatory variables. Considering interactions allows for more realistic models that can have better predictive power. You'll also deal with Simpson's Paradox: a non-intuitive result that arises when you have multiple explanatory variables.</p>
-<section id="models-for-each-category" class="level2">
-<h2 class="anchored" data-anchor-id="models-for-each-category">Models for each category</h2>
+<section id="models-for-each-category" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="models-for-each-category"><span class="header-section-number">2.1</span> Models for each category</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Models for each category</strong></p>
 <p>The parallel slopes model enforced a common slope for each category. That’s not always the best option.</p>
@@ -784,8 +1036,8 @@ LO: Understand that including multiple explanatory variables can lower the RSE, 
 <p><strong>11. Let’s practice!</strong></p>
 <p>Let’s try this on the housing data.</p>
 </section>
-<section id="one-model-per-category" class="level2">
-<h2 class="anchored" data-anchor-id="one-model-per-category">One model per category</h2>
+<section id="one-model-per-category" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="one-model-per-category"><span class="header-section-number">2.2</span> One model per category</h2>
 <!-- 
 LO: {{This is mostly setup for the next two exercises, so not much learning.}} Can create a model for each category of a categorical variable.
 -->
@@ -837,8 +1089,8 @@ LO: {{This is mostly setup for the next two exercises, so not much learning.}} C
 </div>
 <p>Multiple model magic! You now have three models giving three different answers. Let’s visualize the differences, then figure out how to reconcile the differences.</p>
 </section>
-<section id="predicting-multiple-models" class="level2">
-<h2 class="anchored" data-anchor-id="predicting-multiple-models">Predicting multiple models</h2>
+<section id="predicting-multiple-models" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="predicting-multiple-models"><span class="header-section-number">2.3</span> Predicting multiple models</h2>
 <!-- 
 LO: Make predictions from a simple linear regression model.
 -->
@@ -878,8 +1130,8 @@ LO: Make predictions from a simple linear regression model.
 </div>
 <p>Predictions, predictions, predictions! Now that you have predictions for each model, let’s see how they compare.</p>
 </section>
-<section id="visualizing-multiple-models" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-multiple-models">Visualizing multiple models</h2>
+<section id="visualizing-multiple-models" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="visualizing-multiple-models"><span class="header-section-number">2.4</span> Visualizing multiple models</h2>
 <!-- 
 LO: Visualize multiple linear models on the same plot.
 -->
@@ -919,8 +1171,8 @@ LO: Visualize multiple linear models on the same plot.
 </div>
 <p>Three cheers for three trend lines! It’s a good sign that our predictions match those of ggplot’s. Notice that the 30 to 45 year house age group has a much shallower slope compared to the other lines.</p>
 </section>
-<section id="assessing-model-performance-1" class="level2">
-<h2 class="anchored" data-anchor-id="assessing-model-performance-1">Assessing model performance</h2>
+<section id="assessing-model-performance-1" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="assessing-model-performance-1"><span class="header-section-number">2.5</span> Assessing model performance</h2>
 <!-- 
 LO: Can extract model performance metrics from linear regression model objects.
 -->
@@ -977,8 +1229,8 @@ LO: Can extract model performance metrics from linear regression model objects.
 </div>
 <p>Meritable model metric measuring! It seems that both metrics for the 15 to 30 age group model are much better than those for the whole dataset model, but the models for the other two age groups are similar to the whole dataset model. Thus using individual models will improve predictions for 15 to 30 age group.</p>
 </section>
-<section id="one-model-with-an-interaction" class="level2">
-<h2 class="anchored" data-anchor-id="one-model-with-an-interaction">One model with an interaction</h2>
+<section id="one-model-with-an-interaction" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="one-model-with-an-interaction"><span class="header-section-number">2.6</span> One model with an interaction</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. One model with an interaction</strong></p>
 <p>Messing about with different models for different bits of your dataset is a pain. A better solution is to specify a single model that contains intercepts and slopes for each category. This is achieved through specifying interactions between explanatory variables.</p>
@@ -995,8 +1247,8 @@ LO: Can extract model performance metrics from linear regression model objects.
 <p><strong>7. Let’s practice!</strong></p>
 <p>Let’s interact with some exercises!</p>
 </section>
-<section id="specifying-an-interaction" class="level2">
-<h2 class="anchored" data-anchor-id="specifying-an-interaction">Specifying an interaction</h2>
+<section id="specifying-an-interaction" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="specifying-an-interaction"><span class="header-section-number">2.7</span> Specifying an interaction</h2>
 <!--
 LO: Specify an interaction term in a model formula using times or colon syntax.
 -->
@@ -1022,8 +1274,8 @@ LO: Specify an interaction term in a model formula using times or colon syntax.
 </div>
 <p>Incredible interaction inclusion! Notice that the model coefficients are the same in each case. The formula syntax is very flexible, giving you a choice between ‘easy to type’ and ‘very explicit’, depending on your preference.</p>
 </section>
-<section id="interactions-with-understandable-coeffs" class="level2">
-<h2 class="anchored" data-anchor-id="interactions-with-understandable-coeffs">Interactions with understandable coeffs</h2>
+<section id="interactions-with-understandable-coeffs" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="interactions-with-understandable-coeffs"><span class="header-section-number">2.8</span> Interactions with understandable coeffs</h2>
 <!--
 LO: Can interpret coefficients of linear regression with interaction term.
 -->
@@ -1054,13 +1306,13 @@ LO: Can interpret coefficients of linear regression with interaction term.
 <span id="cb24-17"><a href="#cb24-17"></a><span class="fu">coefficients</span>(mdl_30_to_45)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-4" class="anchored"><em>Question</em></h2>
+<h2 id="question-4" data-number="2.9" class="anchored"><span class="header-section-number">2.9</span> <em>Question</em></h2>
 <p>Which statement about the coefficients of <code>mdl_readable_inter</code> is true?<br> <br> ⬜ For house ages of 0 to 15 years, when there are zero nearby convenience stores, the expected house price is 6.87 TWD per square meter.<br> ✅ The expected increase in house price for each nearby convenience store is lowest for the 30 to 45 year age group.<br> ⬜ The expected increase in house price for each nearby convenience store is lowest for the 15 to 30 year age group.<br> ⬜ For house ages of 0 to 15 years, when there are zero nearby convenience stores, the expected house price is 0.83 TWD per square meter.<br></p>
 </blockquote>
 <p>Insightful intercept introspection! Sometimes fiddling about with how the model formula is specified makes it easier to interpret the coefficients. In this version, you can see how each category has its own intercept and slope (just like the 3 separate models had).</p>
 </section>
-<section id="making-predictions-with-interactions" class="level2">
-<h2 class="anchored" data-anchor-id="making-predictions-with-interactions">Making predictions with interactions</h2>
+<section id="making-predictions-with-interactions" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="making-predictions-with-interactions"><span class="header-section-number">2.10</span> Making predictions with interactions</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Making predictions with interactions</strong></p>
 <p>Let’s run through the prediction flow again, this time with the model containing an interaction. I’m hoping you get a sense of deja vu, because you’ve seen all this code before.</p>
@@ -1083,8 +1335,8 @@ LO: Can interpret coefficients of linear regression with interaction term.
 <p><strong>10. Let’s practice!</strong></p>
 <p>Time for you to make some predictions.</p>
 </section>
-<section id="predicting-with-interactions" class="level2">
-<h2 class="anchored" data-anchor-id="predicting-with-interactions">Predicting with interactions</h2>
+<section id="predicting-with-interactions" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="predicting-with-interactions"><span class="header-section-number">2.11</span> Predicting with interactions</h2>
 <!-- 
 LO: Make predictions of a linear regression containing interaction terms.
 -->
@@ -1160,8 +1412,8 @@ LO: Make predictions of a linear regression containing interaction terms.
 </div>
 <p>Pretty good predicting! The code flow here is identical to the parallel slopes case in Chapter 1. Take a look again at that exercise to check.</p>
 </section>
-<section id="manually-calculating-predictions-with-interactions" class="level2">
-<h2 class="anchored" data-anchor-id="manually-calculating-predictions-with-interactions">Manually calculating predictions with interactions</h2>
+<section id="manually-calculating-predictions-with-interactions" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="manually-calculating-predictions-with-interactions"><span class="header-section-number">2.12</span> Manually calculating predictions with interactions</h2>
 <!--
 LO: Can calculate linear regression predictions manually for case with 1 numeric, 1 categorical explanatory variable and interaction.
 -->
@@ -1226,8 +1478,8 @@ LO: Can calculate linear regression predictions manually for case with 1 numeric
 </div>
 <p>Magnificent manual prediction! As before, the prediction just involved adding and multiplying coefficients and explanatory values.</p>
 </section>
-<section id="simpsons-paradox" class="level2">
-<h2 class="anchored" data-anchor-id="simpsons-paradox">Simpson’s Paradox</h2>
+<section id="simpsons-paradox" class="level2" data-number="2.13">
+<h2 data-number="2.13" class="anchored" data-anchor-id="simpsons-paradox"><span class="header-section-number">2.13</span> Simpson’s Paradox</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Simpson’s Paradox</strong></p>
 <p>This chapter looked at the difference between models of a whole dataset and individual models for each category. For some datasets, this can lead to a nonintuitive result known as Simpson’s Paradox.</p>
@@ -1254,8 +1506,8 @@ LO: Can calculate linear regression predictions manually for case with 1 numeric
 <p><strong>12. Let’s practice!</strong></p>
 <p>Time to play with the paradox.</p>
 </section>
-<section id="modeling-ebay-auctions" class="level2">
-<h2 class="anchored" data-anchor-id="modeling-ebay-auctions">Modeling eBay auctions</h2>
+<section id="modeling-ebay-auctions" class="level2" data-number="2.14">
+<h2 data-number="2.14" class="anchored" data-anchor-id="modeling-ebay-auctions"><span class="header-section-number">2.14</span> Modeling eBay auctions</h2>
 <!-- 
 LO: Can fit and visualize a linear regression on the whole dataset.
 -->
@@ -1313,8 +1565,8 @@ LO: Can fit and visualize a linear regression on the whole dataset.
 </div>
 <p>Amazing auction modeling! The slope coefficient is small enough that it might as well be zero. That is, opening bid appears to have no effect on the final sale price for Palm Pilots.</p>
 </section>
-<section id="modeling-each-auction-type" class="level2">
-<h2 class="anchored" data-anchor-id="modeling-each-auction-type">Modeling each auction type</h2>
+<section id="modeling-each-auction-type" class="level2" data-number="2.15">
+<h2 data-number="2.15" class="anchored" data-anchor-id="modeling-each-auction-type"><span class="header-section-number">2.15</span> Modeling each auction type</h2>
 <!-- 
 LO: Can reason about Simpson's Paradox.
 -->
@@ -1345,17 +1597,17 @@ LO: Can reason about Simpson's Paradox.
 <span id="cb33-5"><a href="#cb33-5"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-5" class="anchored"><em>Question</em></h2>
+<h2 id="question-5" data-number="2.16" class="anchored"><span class="header-section-number">2.16</span> <em>Question</em></h2>
 <p>Which statement about the model resolves Simpson’s Paradox?<br> <br> ⬜ The model of the whole dataset showed no expected change in final sale price due to opening bid. Since this model includes all the data, we should believe it and conclude that there is no effect from opening bid price.<br> ⬜ The model including auction type showed that final sale price increases in the 5 day auction category. Since this model is more specific, we should believe it and conclude that there is an effect from opening bid price.<br> ⬜ The two models disagree, so we can’t conclude anything from the models.<br> ✅ The two models disagree, and the best model to take advice from depends upon the question we are trying to answer.<br></p>
 </blockquote>
 <p>Super Simpson solving! Interpreting models is a subtle art, and your conclusions need to be based on the question you are trying to answer. Here, the answer to ‘Does opening bid affect final sale price?’ is <em>no</em> overall, but the answer to ‘Does opening bid price affect final sale price for any type of auction?’ is <em>yes, for 5 day auctions</em>.</p>
 </section>
 </section>
-<section id="multiple-linear-regression" class="level1">
-<h1>3. Multiple Linear Regression</h1>
+<section id="multiple-linear-regression" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> 3. Multiple Linear Regression</h1>
 <p>See how modeling, and linear regression in particular, makes it easy to work with more than two explanatory variables. Once you've mastered fitting linear regression models, you'll get to implement your own linear regression algorithm.</p>
-<section id="two-numeric-explanatory-variables" class="level2">
-<h2 class="anchored" data-anchor-id="two-numeric-explanatory-variables">Two numeric explanatory variables</h2>
+<section id="two-numeric-explanatory-variables" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="two-numeric-explanatory-variables"><span class="header-section-number">3.1</span> Two numeric explanatory variables</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Two numeric explanatory variables</strong></p>
 <p>In the previous chapters, the models had one numeric and one categorical explanatory variable. Let’s see what changes if you have two numeric explanatory variables instead.</p>
@@ -1386,8 +1638,8 @@ LO: Can reason about Simpson's Paradox.
 <p><strong>14. Let’s practice!</strong></p>
 <p>Back to the housing dataset.</p>
 </section>
-<section id="d-visualizations" class="level2">
-<h2 class="anchored" data-anchor-id="d-visualizations">3D visualizations</h2>
+<section id="d-visualizations" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="d-visualizations"><span class="header-section-number">3.2</span> 3D visualizations</h2>
 <!-- 
 LO: Can visualize three continuous variables.
 -->
@@ -1424,8 +1676,8 @@ LO: Can visualize three continuous variables.
 </div>
 <p>Three cheers for plotting three variables! 3D scatter plots are usually a pain to easily interpret due to problems with perspective. The best alternative for displaying a third variable involves using colors.</p>
 </section>
-<section id="modeling-2-numeric-explanatory-variables" class="level2">
-<h2 class="anchored" data-anchor-id="modeling-2-numeric-explanatory-variables">Modeling 2 numeric explanatory variables</h2>
+<section id="modeling-2-numeric-explanatory-variables" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="modeling-2-numeric-explanatory-variables"><span class="header-section-number">3.3</span> Modeling 2 numeric explanatory variables</h2>
 <!--
 LO: Can model and predict with two numeric explanatory variables.
 -->
@@ -1491,8 +1743,8 @@ LO: Can model and predict with two numeric explanatory variables.
 </div>
 <p>Nice numeric modeling! The modeling and prediction flow for two numeric variables is just as it was for the previous case that included a categorical variable. R automatically handles this different scenario.</p>
 </section>
-<section id="including-an-interaction" class="level2">
-<h2 class="anchored" data-anchor-id="including-an-interaction">Including an interaction</h2>
+<section id="including-an-interaction" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="including-an-interaction"><span class="header-section-number">3.4</span> Including an interaction</h2>
 <!--
 LO: Can model and predict with two numeric explanatory variables with an interaction.
 -->
@@ -1558,8 +1810,8 @@ LO: Can model and predict with two numeric explanatory variables with an interac
 </div>
 <p>Insightful interaction inclusion! Although the predictions from the model are different now that the interaction is included, the code to create them is the same.</p>
 </section>
-<section id="more-than-2-explanatory-variables" class="level2">
-<h2 class="anchored" data-anchor-id="more-than-2-explanatory-variables">More than 2 explanatory variables</h2>
+<section id="more-than-2-explanatory-variables" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="more-than-2-explanatory-variables"><span class="header-section-number">3.5</span> More than 2 explanatory variables</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. More than 2 explanatory variables</strong></p>
 <p>Regression models aren’t limited to two explanatory variables. Here, we’ll consider three of them, and think about what happens when you increase that number even further.</p>
@@ -1580,8 +1832,8 @@ LO: Can model and predict with two numeric explanatory variables with an interac
 <p><strong>9. Let’s practice!</strong></p>
 <p>Let’s make some models!</p>
 </section>
-<section id="visualizing-many-variables" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-many-variables">Visualizing many variables</h2>
+<section id="visualizing-many-variables" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="visualizing-many-variables"><span class="header-section-number">3.6</span> Visualizing many variables</h2>
 <!-- 
 LO: Can visualize more than 3 variables at once.
 -->
@@ -1609,8 +1861,8 @@ LO: Can visualize more than 3 variables at once.
 </div>
 <p>Sublime scatter plotting! As you add more variables, it becomes increasingly challenging to create an easily interpretable plot.</p>
 </section>
-<section id="different-levels-of-interaction" class="level2">
-<h2 class="anchored" data-anchor-id="different-levels-of-interaction">Different levels of interaction</h2>
+<section id="different-levels-of-interaction" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="different-levels-of-interaction"><span class="header-section-number">3.7</span> Different levels of interaction</h2>
 <!--
 LO: Can specify models with three explanatory variables, including interactions.
 -->
@@ -1661,8 +1913,8 @@ LO: Can specify models with three explanatory variables, including interactions.
 </div>
 <p>Magnificent model fitting! The formula syntax is flexible enough to provide precise control over which interactions are specified.</p>
 </section>
-<section id="predicting-again" class="level2">
-<h2 class="anchored" data-anchor-id="predicting-again">Predicting again</h2>
+<section id="predicting-again" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="predicting-again"><span class="header-section-number">3.8</span> Predicting again</h2>
 <!--
 LO: Run a prediction workflow using multiple explanatory variables.
 -->
@@ -1739,8 +1991,8 @@ LO: Run a prediction workflow using multiple explanatory variables.
 </div>
 <p>Premier predicting! The plot nicely shows that the house price decreases as the square-root of the distance to the nearest MRT station increases, and increases as the number of nearby convenience stores increases, and is higher for houses under 15 years old.</p>
 </section>
-<section id="how-linear-regression-works" class="level2">
-<h2 class="anchored" data-anchor-id="how-linear-regression-works">How linear regression works</h2>
+<section id="how-linear-regression-works" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="how-linear-regression-works"><span class="header-section-number">3.9</span> How linear regression works</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. How linear regression works</strong></p>
 <p>Let’s see how linear regression works. To keep things understandable, we’ll stick to simple linear regression, with a single numeric explanatory variable.</p>
@@ -1763,21 +2015,21 @@ LO: Run a prediction workflow using multiple explanatory variables.
 <p><strong>10. Let’s practice!</strong></p>
 <p>Time to delve into linear regression’s internals!</p>
 </section>
-<section id="the-sum-of-squares" class="level2">
-<h2 class="anchored" data-anchor-id="the-sum-of-squares">The sum of squares</h2>
+<section id="the-sum-of-squares" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="the-sum-of-squares"><span class="header-section-number">3.10</span> The sum of squares</h2>
 <!--
 LO: Understands that linear regression involves minimizing the sum of squares metric.
 -->
 <p>In order to choose the “best” line to fit the data, regression models need to optimize some metric. For linear regression, this metric is called the <em>sum of squares</em>.</p>
 <p>In the dashboard, try setting different values of the intercept and slope coefficients. In the plot, the solid black line has the intercept and slope you specified. The dotted blue line has the intercept and slope calculated by a linear regression on the dataset.</p>
 <blockquote class="blockquote">
-<h2 id="question-6" class="anchored"><em>Question</em></h2>
+<h2 id="question-6" data-number="3.11" class="anchored"><span class="header-section-number">3.11</span> <em>Question</em></h2>
 <p>How does linear regression try to optimize the sum of squares metric?<br> <br> ⬜ Linear regression makes the sum of the squares of the differences between the actual responses and the predicted responses zero.<br> ⬜ Linear regression makes the sum of the squares of the differences between the actual responses and the predicted responses infinite.<br> ⬜ Linear regression maximizes the sum of the squares of the differences between the actual responses and the predicted responses.<br> ✅ Linear regression minimizes the sum of the squares of the differences between the actual responses and the predicted responses.<br></p>
 </blockquote>
 <p>Magic minimization! Sum of squares is a measure of how far the predited responses are from the actual responses, so a smaller number is better.</p>
 </section>
-<section id="linear-regression-algorithm" class="level2">
-<h2 class="anchored" data-anchor-id="linear-regression-algorithm">Linear regression algorithm</h2>
+<section id="linear-regression-algorithm" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="linear-regression-algorithm"><span class="header-section-number">3.12</span> Linear regression algorithm</h2>
 <!--
 LO: Can write a simple linear regression algorithm for a specific dataset. 
 -->
@@ -1877,11 +2129,11 @@ LO: Can write a simple linear regression algorithm for a specific dataset.
 <p>Outstanding optimization! The results you got here with just a few lines of code are very close to the finely-tuned results from <code>lm()</code>. All you needed was a function to calculate the sum of squares metric, and the <code>optim()</code> function worked its magic to find where this function had its minimum value.</p>
 </section>
 </section>
-<section id="multiple-logistic-regression" class="level1">
-<h1>4. Multiple Logistic Regression</h1>
+<section id="multiple-logistic-regression" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> 4. Multiple Logistic Regression</h1>
 <p>Extend your logistic regression skills to multiple explanatory variables. Understand the logistic distribution, which underpins this form of regression. Finally, implement your own logistic regression algorithm.</p>
-<section id="multiple-logistic-regression-1" class="level2">
-<h2 class="anchored" data-anchor-id="multiple-logistic-regression-1">Multiple logistic regression</h2>
+<section id="multiple-logistic-regression-1" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="multiple-logistic-regression-1"><span class="header-section-number">4.1</span> Multiple logistic regression</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Multiple logistic regression</strong></p>
 <p>Let’s switch from linear regression to logistic regression.</p>
@@ -1902,8 +2154,8 @@ LO: Can write a simple linear regression algorithm for a specific dataset.
 <p><strong>8. Let’s practice!</strong></p>
 <p>Let’s get logistic!</p>
 </section>
-<section id="visualizing-multiple-explanatory-variables" class="level2">
-<h2 class="anchored" data-anchor-id="visualizing-multiple-explanatory-variables">Visualizing multiple explanatory variables</h2>
+<section id="visualizing-multiple-explanatory-variables" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="visualizing-multiple-explanatory-variables"><span class="header-section-number">4.2</span> Visualizing multiple explanatory variables</h2>
 <!--
 LO: Can visualize logistic data with two numeric explanatory variables.
 -->
@@ -1935,8 +2187,8 @@ LO: Can visualize logistic data with two numeric explanatory variables.
 </div>
 <p>Cool colored scatter plot! The 2-color gradient is excellent for distinguishing the two cases of a positive and negative response.</p>
 </section>
-<section id="logistic-regression-with-2-explanatory-variables" class="level2">
-<h2 class="anchored" data-anchor-id="logistic-regression-with-2-explanatory-variables">Logistic regression with 2 explanatory variables</h2>
+<section id="logistic-regression-with-2-explanatory-variables" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="logistic-regression-with-2-explanatory-variables"><span class="header-section-number">4.3</span> Logistic regression with 2 explanatory variables</h2>
 <!--
 LO: Can fit a logistic regression with multiple explanatory variables.
 -->
@@ -1960,8 +2212,8 @@ LO: Can fit a logistic regression with multiple explanatory variables.
 </div>
 <p>Laudable logistic regression! The formula syntax for including multiple explanatory variables is the same for logistic regression as it is for linear regression.</p>
 </section>
-<section id="logistic-regression-prediction" class="level2">
-<h2 class="anchored" data-anchor-id="logistic-regression-prediction">Logistic regression prediction</h2>
+<section id="logistic-regression-prediction" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="logistic-regression-prediction"><span class="header-section-number">4.4</span> Logistic regression prediction</h2>
 <!--
 LO: Can make predictions with a logistic regression model that includes multiple explanatory variables.
 -->
@@ -2035,8 +2287,8 @@ LO: Can make predictions with a logistic regression model that includes multiple
 </div>
 <p>Painless probability predictions! The prediction workflow should be familiar now: you’ve seen it many times before. The only thing to remember here is to set the prediction type to <code>"response"</code>.</p>
 </section>
-<section id="confusion-matrix" class="level2">
-<h2 class="anchored" data-anchor-id="confusion-matrix">Confusion matrix</h2>
+<section id="confusion-matrix" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="confusion-matrix"><span class="header-section-number">4.5</span> Confusion matrix</h2>
 <!--
 LO: Can generate a confusion matrix from a dataset and logistic regression model, and plot in a mosaic plot.
 -->
@@ -2086,8 +2338,8 @@ LO: Can generate a confusion matrix from a dataset and logistic regression model
 </div>
 <p>Metric magic! Generating a confusion matrix and calculating metrics like accuracy, sensitivity, and specificity is the standard way to measure how well a logistic model fits.</p>
 </section>
-<section id="the-logistic-distribution" class="level2">
-<h2 class="anchored" data-anchor-id="the-logistic-distribution">The logistic distribution</h2>
+<section id="the-logistic-distribution" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="the-logistic-distribution"><span class="header-section-number">4.6</span> The logistic distribution</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. The logistic distribution</strong></p>
 <p>In order to understand logistic regression, you need to know about the logistic distribution.</p>
@@ -2112,8 +2364,8 @@ LO: Can generate a confusion matrix from a dataset and logistic regression model
 <p><strong>11. Let’s practice!</strong></p>
 <p>Let’s look at those curves!</p>
 </section>
-<section id="cumulative-distribution-function" class="level2">
-<h2 class="anchored" data-anchor-id="cumulative-distribution-function">Cumulative distribution function</h2>
+<section id="cumulative-distribution-function" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="cumulative-distribution-function"><span class="header-section-number">4.7</span> Cumulative distribution function</h2>
 <!--
 LO: Knows what a logistic distribution CDF looks like.
 -->
@@ -2163,8 +2415,8 @@ LO: Knows what a logistic distribution CDF looks like.
 </div>
 <p>Super sigmoid plotting! The logistic distribution’s cumulative distribution function has an “S” shape, known as a sigmoid curve.</p>
 </section>
-<section id="inverse-cumulative-distribution-function" class="level2">
-<h2 class="anchored" data-anchor-id="inverse-cumulative-distribution-function">Inverse cumulative distribution function</h2>
+<section id="inverse-cumulative-distribution-function" class="level2" data-number="4.8">
+<h2 data-number="4.8" class="anchored" data-anchor-id="inverse-cumulative-distribution-function"><span class="header-section-number">4.8</span> Inverse cumulative distribution function</h2>
 <!--
 LO: Knows what a logistic distribution inverse CDF looks like.
 -->
@@ -2214,8 +2466,8 @@ LO: Knows what a logistic distribution inverse CDF looks like.
 </div>
 <p>Incredible inversing! The inverse CDF is the “opposite” transformation to the CDF. If you flip the x and y axes on this plot, you get the same plot you saw in the previous exercise.</p>
 </section>
-<section id="binomial-family-argument" class="level2">
-<h2 class="anchored" data-anchor-id="binomial-family-argument">binomial family argument</h2>
+<section id="binomial-family-argument" class="level2" data-number="4.9">
+<h2 data-number="4.9" class="anchored" data-anchor-id="binomial-family-argument"><span class="header-section-number">4.9</span> binomial family argument</h2>
 <!--
 LO: Understands the fmaily argument for glm(), in the context of logistic regression.
 -->
@@ -2250,20 +2502,20 @@ LO: Understands the fmaily argument for glm(), in the context of logistic regres
 </div>
 <p>Terrific transforming! The <code>binomial()</code> family object contains <code>linkinv</code> and <code>linkfun</code> functions that correspond to the logistic distribution CDF and inverse CDF respectively. These are used to translate between numbers and probabilities.</p>
 </section>
-<section id="logistic-distribution-parameters" class="level2">
-<h2 class="anchored" data-anchor-id="logistic-distribution-parameters">Logistic distribution parameters</h2>
+<section id="logistic-distribution-parameters" class="level2" data-number="4.10">
+<h2 data-number="4.10" class="anchored" data-anchor-id="logistic-distribution-parameters"><span class="header-section-number">4.10</span> Logistic distribution parameters</h2>
 <!--
 LO:
 -->
 <p>The logistic distribution CDF is not just a single curve. In the same way that the normal distribution has mean and standard deviation parameters that affect the CDF curve, the logistic distribution has <em>location</em> and <em>scale</em> parameters. Here, you’ll visualize how changing those parameters changes the CDF curve.</p>
 <blockquote class="blockquote">
-<h2 id="question-7" class="anchored"><em>Question</em></h2>
+<h2 id="question-7" data-number="4.11" class="anchored"><span class="header-section-number">4.11</span> <em>Question</em></h2>
 <p>How do changes to the parameters change the CDF curve?<br> <br> ⬜ As <code>location</code> increases, the logistic CDF curve moves rightwards. As <code>scale</code> increases, the steepness of the slope increases.<br> ⬜ As <code>location</code> increases, the logistic CDF curve moves upwards. As <code>scale</code> increases, the steepness of the slope increases.<br> ✅ As <code>location</code> increases, the logistic CDF curve moves rightwards. As <code>scale</code> increases, the steepness of the slope decreases.<br> ⬜ As <code>location</code> increases, the logistic CDF curve moves upwards. As <code>scale</code> increases, the steepness of the slope decreases.<br></p>
 </blockquote>
 <p>Perfect parameter play! The logistic distribution consists of a whole family of curves specified by the location and scale parameters. This allows logistic model prediction curves to have different positions or steepnesses.</p>
 </section>
-<section id="how-logistic-regression-works" class="level2">
-<h2 class="anchored" data-anchor-id="how-logistic-regression-works">How logistic regression works</h2>
+<section id="how-logistic-regression-works" class="level2" data-number="4.12">
+<h2 data-number="4.12" class="anchored" data-anchor-id="how-logistic-regression-works"><span class="header-section-number">4.12</span> How logistic regression works</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. How logistic regression works</strong></p>
 <p>Let’s see how logistic regression works. The principle is the same as for linear regression: choose a metric that measures how far the predicted responses are from the actual responses, and optimize that metric.</p>
@@ -2284,8 +2536,8 @@ LO:
 <p><strong>9. Let’s practice!</strong></p>
 <p>Almost there!</p>
 </section>
-<section id="likelihood-log-likelihood" class="level2">
-<h2 class="anchored" data-anchor-id="likelihood-log-likelihood">Likelihood &amp; log-likelihood</h2>
+<section id="likelihood-log-likelihood" class="level2" data-number="4.13">
+<h2 data-number="4.13" class="anchored" data-anchor-id="likelihood-log-likelihood"><span class="header-section-number">4.13</span> Likelihood &amp; log-likelihood</h2>
 <!--
 LO: Understands that logistic regression involves maximizing the likelihood metric. 
 -->
@@ -2293,13 +2545,13 @@ LO: Understands that logistic regression involves maximizing the likelihood metr
 <p>The dashboard shows churn status versus line time since last purchase from the <code>churn</code> dataset. The blue dotted line is the logistic regression prediction line calculated by ggplot2’s <code>geom_smooth()</code>. (That is, it’s the “best fit” line.) The black solid line shows a prediction line calculated from the intercept and slope coefficients you specify as <code>plogis(intercept + slope * time_since_last_purchase)</code>.</p>
 <p>Change the intercept and slope coefficients and watch how the likelihood and log-likelihood values change.</p>
 <blockquote class="blockquote">
-<h2 id="question-8" class="anchored"><em>Question</em></h2>
+<h2 id="question-8" data-number="4.14" class="anchored"><span class="header-section-number">4.14</span> <em>Question</em></h2>
 <p>As you get closer to the best fit line, what statement is true about likelihood and log-likelihood?<br> <br> ✅ Both likelihood and log-likelihood increase to a maximum value.<br> ⬜ Both likelihood and log-likelihood decrease to a minimum value.<br> ⬜ Likelihood increases to a maximum value; log-likelihood decreases to a minimum value.<br> ⬜ Likelihood decreases to a minimum value; log-likelihood increases to a maximum value.<br></p>
 </blockquote>
 <p>It seems likely that you know what you are doing! Logistic regression chooses the prediction line that gives you the maximum likelihood value. It also gives maximum log-likelihood.</p>
 </section>
-<section id="logistic-regression-algorithm" class="level2">
-<h2 class="anchored" data-anchor-id="logistic-regression-algorithm">Logistic regression algorithm</h2>
+<section id="logistic-regression-algorithm" class="level2" data-number="4.15">
+<h2 data-number="4.15" class="anchored" data-anchor-id="logistic-regression-algorithm"><span class="header-section-number">4.15</span> Logistic regression algorithm</h2>
 <!--
 LO: Can write a simple logistic regression algorithm for a specific dataset. 
 -->
@@ -2392,8 +2644,8 @@ LO: Can write a simple logistic regression algorithm for a specific dataset.
 </div>
 <p>Ace algorithmic implementation! To make a really simple version of <code>glm()</code>, you just needed a function to calculate the negative log-likelihood, and a general-purpose optimization function.</p>
 </section>
-<section id="congratulations" class="level2">
-<h2 class="anchored" data-anchor-id="congratulations">Congratulations</h2>
+<section id="congratulations" class="level2" data-number="4.16">
+<h2 data-number="4.16" class="anchored" data-anchor-id="congratulations"><span class="header-section-number">4.16</span> Congratulations</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. Congratulations</strong></p>
 <p>Well done! You’ve learned linear and logistic regression!</p>
@@ -2659,6 +2911,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../../../content/R/topics/06_regression/01_regression_beginner/01_regression_beginner.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">15: Introduction to Regression</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
