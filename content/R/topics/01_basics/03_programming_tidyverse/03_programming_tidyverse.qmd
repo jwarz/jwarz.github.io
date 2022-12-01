@@ -2,10 +2,111 @@
 title: "Introduction to the tidyverse"
 author: "Joschka Schwarz"
 toc-depth: 2
-execute: 
-  eval: true
-  echo: true
 ---
+
+```{r}
+#| include: false
+library(ggplot2)
+tie_theme <- function (base_size = 11, base_family = "") {
+  
+  blue <- "#ffffff" #labeling_col
+  green <- "#18BC9C"
+  white <- "#FFFFFF"
+  grey <- "grey80" # used for grid
+  
+  ggplot2::theme_grey(base_size = base_size, base_family = base_family) %+replace%
+    ggplot2::theme(line = ggplot2::element_line(colour   = blue, 
+                                                size     = 0.5, 
+                                                linetype = 1, lineend = "butt"), 
+                   rect = ggplot2::element_rect(fill     = white,
+                                                colour   = blue, 
+                                                size     = 0.5, 
+                                                linetype = 1), 
+                   text = ggplot2::element_text(family     = base_family,
+                                                face       = "plain", 
+                                                colour     = blue, 
+                                                size       = base_size, 
+                                                lineheight = 0.9, 
+                                                hjust      = 0.5, 
+                                                vjust      = 0.5, 
+                                                angle      = 0,
+                                                margin     = ggplot2::margin(), 
+                                                debug      = FALSE), 
+                   axis.line  = ggplot2::element_blank(), 
+                   axis.text  = ggplot2::element_text(size  = ggplot2::rel(0.8)), 
+                   axis.ticks = ggplot2::element_line(color = grey, 
+                                                      size  = ggplot2::rel(1/3)), 
+                   axis.title = ggplot2::element_text(size  = ggplot2::rel(1)),
+                   axis.title.x = element_text(margin = margin(t = 10, r = 0,  b = 0, l = 0)),
+                   axis.title.y = element_text(margin = margin(t = 0,  r = 20, b = 0, l = 0)),
+                                               
+                   panel.background = ggplot2::element_rect(fill = "transparent", # white,     ################
+                                                            color = NA), 
+                   plot.background       = element_rect(fill = "transparent", color = NA),     ################
+                   
+                   panel.border = ggplot2::element_rect(fill  = NA, 
+                                                        size  = ggplot2::rel(1/2), 
+                                                        color = blue), 
+                   panel.grid.major = ggplot2::element_line(color = grey,
+                                                            size  = ggplot2::rel(1/3)), 
+                   panel.grid.minor = ggplot2::element_line(color = grey, 
+                                                            size  = ggplot2::rel(1/3)), 
+                   panel.grid.minor.x = ggplot2::element_blank(),
+                   panel.spacing = ggplot2::unit(0.75, "cm"), 
+                   
+                   legend.key = ggplot2::element_blank(),                                      ################
+                   
+                   legend.background = element_blank(),                                        ################   
+                   legend.box.background = element_rect(color = "white", size = ggplot2::rel(1/3)),
+                   
+                   # legend.justification = 'left', 
+                   legend.position = "bottom", 
+                   legend.box = 'vertical',
+                   legend.box.just = 'left',
+                   legend.spacing.y = unit(2, "pt"),
+                   # legend.margin = margin(-5, 0, 0, 0),
+                   
+                   strip.background = ggplot2::element_rect(fill  = blue, 
+                                                            color = blue), 
+                   strip.text = ggplot2::element_text(color  = white, 
+                                                      size   = ggplot2::rel(0.8), 
+                                                      margin = ggplot2::margin(t = 5, b = 5)), 
+                   plot.title = ggplot2::element_text(size   = ggplot2::rel(1.2), 
+                                                      hjust  = 0, 
+                                                      margin = ggplot2::margin(t = 0, r = 0, b = 4, l = 0, unit = "pt")), 
+                   plot.subtitle = ggplot2::element_text(size   = ggplot2::rel(0.9),
+                                                         hjust  = 0, 
+                                                         margin = ggplot2::margin(t = 0, r = 0, b = 3, l = 0, unit = "pt")), 
+                   complete = TRUE)
+}
+
+
+tuhh_colors <- c("#D0D0CE", "#00C1D4", "#FF4F4F", "#5AFFC5",
+                 "#FFDE36", "#143BFF", "#FF7E15", "#FFAEA2")
+
+# initialise theme
+cds_theme <- ggthemr::define_palette(
+  swatch = tuhh_colors,
+  gradient = c(lower = "#FFAEA2", upper = "#00C1D4"))
+
+# set theme
+ggthemr::ggthemr(cds_theme, type = "outer")
+
+knitr::opts_chunk$set(dev.args  = list(bg="transparent"),
+                      fig.align = "center")
+ggplot2::theme_set(tie_theme())
+
+options(dplyr.summarise.inform = FALSE)
+```
+
+```{r}
+#| include: false
+sysfonts::font_add_google("Poppins", "poppinslight", regular.wt=200, bold.wt=500)
+# font_add_google("Poppins", "Poppins")
+showtext::showtext_auto()
+# To Do: Create TIE ggplot theme
+#source("R/setup-ggplot2-tie.R")
+```
 
 **Short Description**
 
@@ -15,11 +116,11 @@ Get started on the path to exploring and visualizing your own data with the tidy
 
 This is an introduction to the programming language R, focused on a powerful set of tools known as the Tidyverse. You'll learn the intertwined processes of data manipulation and visualization using the tools dplyr and ggplot2. You'll learn to manipulate data by filtering, sorting, and summarizing a real dataset of historical country data in order to answer exploratory questions. You'll then learn to turn this processed data into informative line plots, bar plots, histograms, and more with the ggplot2 package. You’ll get a taste of the value of exploratory data analysis and the power of Tidyverse tools. This is a suitable introduction for those who have no previous experience in R and are interested in performing data analysis.
 
-# 1. Data Wrangling
+# Data Wrangling
 
 In this chapter, you'll learn to do three things with a table: filter for particular observations, arrange the observations in a desired order, and mutate to add or change a column. You'll see how each of these steps allows you to answer questions about your data.
 
-## The gapminder dataset
+### The gapminder dataset
 
 Theory. Coming soon ...
 
@@ -47,7 +148,7 @@ first code you'll write is to load two R packages, which is done by writing "lib
 
 gapminder to display the contents of the gapminder object, which is structured as a data frame. A data frame keeps rectangular data in rows and columns, similar to a spreadsheet, or a table in a SQL database. Most data analyses in R, and everything you'll do in this course, are centered around data frames. As described in the first line of the output, this is a special type of data frame called a tibble, though for now you don't have to worry about the difference.R displays the first ten rows so that you can get a glimpse of it, and you can see a short description in the first line. This tells you the tibble has one thousand seven hundred and four rows, each of which we call an observation. It has six columns, each of which we call a variable.It's important in an analysis to understand what each observation, or row, represents. Here, each represents a unique pair of a country and a year. For example, the first observation represents country statistics for Afghanistan in 1952, the second for Afghanistan in 1957, and so on.For each combination of a country and year, the dataset contains several variables, or columns, describing the country's demographics. We see the continent - in this case, Asia - the life expectancy in years, the population, and the GDP per capita. The GDP per capita is the country's total economic output (Gross Domestic Product) divided by its population, and it's a common measure of how wealthy a country is. Each variable is of one consistent data type: some are numbers, like life expectancy and population, and some are categorical, like country and continent.Even with this small glimpse of the data, you can extract a few insights. For example, you can see that Afghanistan's life expectancy and population have both gone up from 1952 to 1997, but that its GDP per capita has wavered. In the rest of this course, you'll learn to use R to draw many conclusions about the social and economic history of countries around the world.
 
-## Loading the gapminder and dplyr packages
+### Loading the gapminder and dplyr packages
 
 Before you can work with the `gapminder` dataset, you'll need to load two R packages that contain the tools for working with it, then display the `gapminder` dataset so that you can see what it contains.
 
@@ -65,13 +166,7 @@ You can use the R Console interactively by simply typing R code and hitting Ente
 2. Type `gapminder`, on its own line, to look at the gapminder dataset.
 
 ```{r}
-#| include: false
-library(gapminder)
-library(dplyr)
-```
-
-```{r}
-#| eval: false
+#| message: false
 # Load the gapminder package
 library(gapminder)
 
@@ -80,14 +175,13 @@ library(dplyr)
 ```
 
 ```{r}
-#| eval: true
 # Look at the gapminder dataset
 gapminder
 ```
 
 Great job! Notice that you can see the gapminder dataset in the output. This is called 'printing' a dataset.
 
-## Understanding a data frame
+### Understanding a data frame
 
 Now that you've loaded the `gapminder` dataset, you can start examining and understanding it.
 
@@ -127,7 +221,7 @@ besides the year. For example, suppose we wanted to get only the observations fr
 we can specify multiple conditions in the filter.Each of the conditions is separated by a comma: here we are saying we want only the one observation for the year 2007, comma, where the country is the United States. Each of these equals equals expressions is called an argument.This kind of double filter is useful for extracting a single observation you're interested in. You'll be able to practice this in the exercises.
 
 
-## Filtering for one year
+### Filtering for one year
 
 The `filter()` verb extracts particular observations based on a condition. In this exercise you'll filter for observations from a particular year.
 
@@ -142,7 +236,7 @@ gapminder %>% filter(year == 1957)
 
 That's right! Notice that all the observations in the output have the year 1957.
 
-## Filtering for one country and one year
+### Filtering for one country and one year
 
 You can also use the `filter()` verb to set two conditions, which could retrieve a single observation. 
 
@@ -185,7 +279,7 @@ To do that, you'd put the D-E-S-C- for descending- around the variable you're so
 
 To do that, you can combine the two verbs you've already learned: filter, and arrange.You start with the gapminder dataset, then a pipe to give the dataset to filter. Then you specify that you want to filter for year equals equals 2007. Then you use another pipe. This takes the result of the filter, and gives it to arrange. You specify that you want to sort in descending order of GDP per capita.This shows you that the countries with the highest GDP per capita in 2007 were Norway, Kuwait, Singapore, and the United States.We can explore many such questions with various combinations of dplyr verbs. Over the course of these lessons, you'll learn to pipe together multiple simple operations to create a rich and informative data analysis.
 
-## Arranging observations by life expectancy
+### Arranging observations by life expectancy
 
 You use `arrange()` to sort observations in ascending or descending order of a particular variable. In this case, you'll sort the dataset based on the `lifeExp` variable.
 
@@ -207,7 +301,7 @@ gapminder %>% arrange(desc(lifeExp))
 
 That's right! Take a look at the countries with the highest and lowest life expectancy- is it similar to what you expected?
 
-## Filtering and arranging
+### Filtering and arranging
 
 You'll often need to use the pipe operator (`%>%`) to combine multiple dplyr verbs in a row. In this case, you'll combine a `filter()` with an `arrange()` to find the highest population countries in a particular year.
 
@@ -249,7 +343,7 @@ you may want to add a new variable. For instance, you  currently have the GDP pe
 
 Let's put together the three verbs you learned in this chapter to answer a question about our data. Suppose we wanted to know the countries with the highest total GDP in the year 2007. We would do this in three steps- create the column, filter for 2007, then sort.We use mutate to create the total GDP column. Then we'd use filter to restrict our analysis to only the year 2007. Then we'd use arrange to sort the data in descending order of our new GDP variable.This gives us the answer we're looking for. The United States was the country with the highest total GDP in 2007, with a GDP of 13 trillion dollars. The US is followed by China, Japan, India, and Germany as the highest GDP countries.Once you become comfortable with dplyr, you'll be able to find answers like these, and answer much more complicated questions, on your own data.
 
-## Using mutate to change or create a column
+### Using mutate to change or create a column
 
 Suppose we want life expectancy to be measured in months instead of years: you'd have to multiply the existing value by 12. You can use the `mutate()` verb to change this column, or to create a new column that's calculated this way.
 
@@ -272,7 +366,7 @@ gapminder %>%
   mutate(lifeExpMonths = 12 * lifeExp )
 ```
 
-## Combining filter, mutate, and arrange
+### Combining filter, mutate, and arrange
 
 In this exercise, you'll combine all three of the verbs you've learned in this chapter, to find the countries with the highest life expectancy, in months, in the year 2007.
 
@@ -293,7 +387,7 @@ gapminder %>%
 
 Great work! Notice how you can combine several `dplyr` operations to answer a more complicated question like this.
 
-# 2. Data visualization
+# Data visualization
 
 Often a better way to understand and present data as a graph. In this chapter, you'll learn the essential skills of data visualization using the ggplot2 package, and you'll see how the dplyr and ggplot2 packages work closely together to create informative graphs.
 
@@ -317,7 +411,7 @@ In this chapter, you'll mostly be visualizing subsets of the gapminder dataset. 
 
 Suppose you want to examine the relationship between a country's wealth and its life expectancy. You could do this with a scatterplot comparing two variables in our gapminder dataset: GDP per capita on the X axis and life expectancy on the y-axis.You'll be creating this plot using the ggplot2 package. Just like the gapminder and dplyr packages, you'll have to load it with library parentheses ggplot2 end parentheses first.This is the code to create this scatterplot. There are three parts to a ggplot graph. First is the data that we're visualizing. In this case, that is the gapminder_2007 variable you just created.Second is the mapping of variables in your dataset to aesthetics in your graph. An aesthetic is a visual dimension of a graph that can be used to communicate information. In a scatterplot, your two dimensions are the x axis and the y axis, so you write aes (for "aesthetic"), parentheses, x equals gdpPerCap, y = lifeExp, telling it which variables to place on which axes.The third step is specifying the type of graph you're creating. You do that by adding a layer to the graph: use a plus after the ggplot, and then geom underscore point. The "geom" means you're adding a type of geometric object to the graph, the "point" indicates it's a scatter plot, where each observation corresponds to one point. Together, these three parts of the code- the data, the aesthetic mapping, and the layer- construct the scatter plot you see here.In the exercises, you'll practice creating other scatter plots to compare variables across countries, and in the rest of this chapter you'll learn more ways to communicate information in a graph.
 
-## Variable assignment
+### Variable assignment
 
 Throughout the exercises in this chapter, you'll be visualizing a subset of the gapminder data from the year 1952. First, you'll have to load the ggplot2 package, and create a `gapminder_1952` dataset to visualize.
 
@@ -339,7 +433,7 @@ gapminder_1952 <- gapminder %>%
 
 Great! If you typed `gapminder_1952` now, you'd see the filtered dataset.
 
-## Comparing population and GDP per capita
+### Comparing population and GDP per capita
 
 In the video you learned to create a scatter plot with GDP per capita on the x-axis and life expectancy on the y-axis (the code for that graph has been provided in the exercise code). When you're exploring data visually, you'll often need to try different combinations of variables and aesthetics.
 
@@ -355,7 +449,7 @@ ggplot(gapminder_1952, aes(x = pop, y = gdpPercap)) +
 
 Great work on your first graph! Each point represents a country: can you guess which country any of the points are?
 
-## Comparing population and life expectancy
+### Comparing population and life expectancy
 
 In this exercise, you'll use `ggplot2` to create a scatter plot from scratch, to compare each country's population with its life expectancy in the year 1952.
 
@@ -375,7 +469,7 @@ Great! You might notice the points are crowded towards the left side of the plot
 
 Theory. Coming soon ...
 
-## Putting the x-axis on a log scale
+### Putting the x-axis on a log scale
 
 You previously created a scatter plot with population on the x-axis and life expectancy on the y-axis. Since population is spread over several orders of magnitude, with some countries having a much higher population than others, it's a good idea to put the x-axis on a log scale.
 
@@ -392,7 +486,7 @@ ggplot(gapminder_1952, aes(x = pop, y = lifeExp)) +
 
 Great! Notice the points are more spread out on the x-axis. This makes it easy to see that there isn't a correlation between population and life expectancy.
 
-## Putting the x- and y- axes on a log scale
+### Putting the x- and y- axes on a log scale
 
 Suppose you want to create a scatter plot with population on the x-axis and GDP per capita on the y-axis. Both population and GDP per-capita are better represented with log scales, since they vary over many orders of magnitude.
 
@@ -442,7 +536,7 @@ You've now learned to use four aesthetics in a plot: x, y, color, and size: to c
 
 you'll learn to mix and match aesthetics and variables to further explore the statistical state of the world within one year. 
 
-## Adding color to a scatter plot
+### Adding color to a scatter plot
 
 In this lesson you learned how to use the color aesthetic, which can be used to show which continent each point in a scatter plot represents.
 
@@ -460,7 +554,7 @@ ggplot(gapminder_1952, aes(x = pop, y = lifeExp, color = continent)) +
 
 Good work! What differences can you see between continents, in terms of their population and life expectancy?
 
-## Adding size and color to a plot
+### Adding size and color to a plot
 
 In the last exercise, you created a scatter plot communicating information about each country's population, life expectancy, and continent. Now you'll use the size of the points to communicate even more.
 
@@ -497,7 +591,7 @@ ggplot2 lets you divide your plot into subplots to get one smaller graph for eac
 
 the exercises you'll see how you can use faceting not just to compare among continents, but to compare between all of the years in our dataset.
 
-## Creating a subgraph for each continent
+### Creating a subgraph for each continent
 
 You've learned to use faceting to divide a graph into subplots based on one of its variables, such as the continent.
 
@@ -515,7 +609,7 @@ ggplot(gapminder_1952, aes(x = pop, y = lifeExp)) +
 
 Great work! Faceting is a powerful way to understand subsets of your data separately.
 
-## Faceting by year
+### Faceting by year
 
 All of the graphs in this chapter have been visualizing statistics within one year. Now that you're able to use faceting, however, you can create a graph showing **all** the country-level data from 1952 to 2007, to understand how global statistics have changed over time.
 
@@ -537,7 +631,7 @@ ggplot(gapminder, aes(x = gdpPercap, y = lifeExp, color = continent, size = pop)
 
 Awesome! That's a lot of information you're now able to share in one graph.
 
-# 3. Grouping and summarizing
+# Grouping and summarizing
 
 So far you've been answering questions about individual country-year pairs, but you may be interested in aggregations of the data, such as the average life expectancy of all countries within each year. Here you'll learn to use the group by and summarize verbs, which collapse large datasets into manageable summaries.
 
@@ -573,7 +667,7 @@ For example, suppose that along with finding the average life expectancy in 2007
 
 mean and sum are just two of the built-in functions you could use to summarize a variable within a dataset. Another example is median: the median represents the point in a set of numbers where half the numbers are above that point and half of the numbers are below. Two others are min, for minimum, and max, for maximum. In the exercises, you'll use several of these functions to answer questions about the gapminder dataset.
 
-## Summarizing the median life expectancy
+### Summarizing the median life expectancy
 
 You've seen how to find the mean life expectancy and the total population across a set of observations, but `mean()` and `sum()` are only two of the functions R provides for summarizing a collection of numbers. Here, you'll learn to use the `median()` function in combination with `summarize()`.
 
@@ -604,7 +698,7 @@ gapminder %>%
 
 That's right! Note that this is the median across all countries and all years in the dataset.
 
-## Summarizing the median life expectancy in 1957
+### Summarizing the median life expectancy in 1957
 
 Rather than summarizing the entire dataset, you may want to find the median life expectancy for only one particular year. In this case, you'll find the median in the year 1957.
 
@@ -621,7 +715,7 @@ gapminder %>%
 
 Great! Just like in Chapter 1, this chapter will often involve performing multiple `dplyr` steps in a row.
 
-## Summarizing multiple variables in 1957
+### Summarizing multiple variables in 1957
 
 The `summarize()` verb allows you to summarize multiple variables at once. In this case, you'll use the `median()` function to find the median life expectancy and the `max()` function to find the maximum GDP per capita.
 
@@ -663,7 +757,7 @@ interested in the average life expectancy and the total population in 2007 withi
 
 To do so, you can summarize by both year and continent, by adding year comma continent within the group by. Now the output has one row for each combination of a year and continent. For example, we see the total population and average life expectancy in 1952 for Africa, the Americas, Asia, Europe, and Oceania, followed by each of the continent-level summaries for 1957. In the next video, you'll learn how to visualize this per-year, per-continent data to understand trends over time. 
 
-## Summarizing by year
+### Summarizing by year
 
 In a previous exercise, you found the median life expectancy and the maximum GDP per capita in the year 1957. Now, you'll perform those two summaries within each year in the dataset, using the `group_by` verb.
 
@@ -681,7 +775,7 @@ gapminder %>%
 
 Great! Interesting: notice that median life expectancy across countries is generally going up over time, but maximum GDP per capita is not.
 
-## Summarizing by continent
+### Summarizing by continent
 
 You can group by any variable in your dataset to create a summary. Rather than comparing across time, you might be interested in comparing among continents. You'll want to do that within one year of the dataset: let's use 1957.
 
@@ -701,7 +795,7 @@ gapminder %>%
 
 Great work! Which continent had the highest median life expectancy in 1957?
 
-## Summarizing by continent and year
+### Summarizing by continent and year
 
 Instead of grouping just by year, or just by continent, you'll now group by both continent and year to summarize within each.
 
@@ -747,7 +841,7 @@ far you've been graphing the by-year summarized data. But you have also learned 
 
 you learned about in chapter two. By setting color equals continent, you can show five separate trends on the same graph. This lets us see that Asia was always the most populated continent and has been growing the most rapidly, that Europe has a slower rate of growth, and that Africa has grown to surpass both Europe and the Americas in terms of population. In Chapter 4 you'll learn to turn these into line plots that are a bit better for presenting data over time. You'll often combine dplyr verbs and ggplot2 visualizations as part of an exploratory analysis, so it's important to get into the habit of visualizing summarized or processed data. 
 
-## Visualizing median life expectancy over time
+### Visualizing median life expectancy over time
 
 In the last chapter, you summarized the gapminder data to calculate the median life expectancy within each year. This code is provided for you, and is saved (with `<-`) as the `by_year` dataset.
 
@@ -771,7 +865,7 @@ ggplot(by_year, aes(x = year, y = medianLifeExp)) +
 
 Great! It looks like median life expectancy across countries is increasing over time.
 
-## Visualizing median GDP per capita per continent over time
+### Visualizing median GDP per capita per continent over time
 
 In the last exercise you were able to see how the median life expectancy of countries changed over time. Now you'll examine the median GDP per capita instead, and see how the trend differs among continents.
 
@@ -794,7 +888,7 @@ ggplot(by_year_continent, aes(x = year, y = medianGdpPercap, color = continent))
 
 Great! You might be wondering how you can connect these points with lines. You'll learn that in Chapter 4!
 
-## Comparing median life expectancy and median GDP per continent in 2007
+### Comparing median life expectancy and median GDP per continent in 2007
 
 In these exercises you've generally created plots that show change over time. But as another way of exploring your data visually, you can also use ggplot2 to plot summarized data to compare continents within a single year.
 
@@ -818,7 +912,7 @@ ggplot(by_continent_2007, aes(x = medianGdpPercap, y = medianLifeExp, color = co
 
 Great work! Scatter plots are a very flexible tool for examining relationships.
 
-# 4. Types of visualizations
+# Types of visualizations
 
 In this chapter, you'll learn how to create line plots, bar plots, histograms, and boxplots. You'll see how each plot requires different methods of data manipulation and preparation, and you’ll understand how each of these plot types plays a different role in data analysis.
 
@@ -846,7 +940,7 @@ You'll start by making a line plot, for visualizing a change over time. In the l
 
 how you make a line plot. Most of it looks exactly the same as a scatter plot: provide the data you're plotting, the aesthetics of x, y, and color, and end with expand_limits(y = 0). The only difference is the type of plot: geom underscore line.In the exercises, you'll use code like this to generate several visualizations of change over time.
 
-## Visualizing median GDP per capita over time
+### Visualizing median GDP per capita over time
 
 A line plot is useful for visualizing trends over time. In this exercise, you'll examine how the median GDP per capita has changed over time.
 
@@ -869,7 +963,7 @@ ggplot(by_year, aes(x = year, y = medianGdpPercap)) +
 
 Great! Looks like median GDP per capita across countries has gone up over time.
 
-## Visualizing median GDP per capita per continent over time
+### Visualizing median GDP per capita per continent over time
 
 In the last exercise you were able to see how the median life expectancy of countries changed over time. Now you'll examine the median GDP per capita instead, and see how the trend differs among continents.
 
@@ -892,10 +986,7 @@ ggplot(by_year_continent, aes(x = year, y = medianGdpPercap, color = continent))
 
 Excellent work! Take a look at the plot: did the growth in median GDP per capita differ between continents?
 
-
-
-
-## Comparing median life expectancy and median GDP per continent in 2007
+### Comparing median life expectancy and median GDP per continent in 2007
 
 In these exercises you've generally created plots that show change over time. But as another way of exploring your data visually, you can also use ggplot2 to plot summarized data to compare continents within a single year.
 
@@ -921,7 +1012,7 @@ ggplot(by_continent_2007, aes(x = medianGdpPercap, y = medianLifeExp, color = co
 ```
 
 
-## Visualizing median GDP per capita over time
+### Visualizing median GDP per capita over time
 
 A line plot is useful for visualizing trends over time. In this exercise, you'll examine how the median GDP per capita has changed over time.
 
@@ -945,7 +1036,7 @@ ggplot(by_year, aes(x = year, y = medianGdpPercap)) +
   expand_limits(y = 0)
 ```
 
-## Visualizing median GDP per capita by continent over time
+### Visualizing median GDP per capita by continent over time
 
 In the last exercise you used a line plot to visualize the increase in median GDP per capita over time. Now you'll examine the change within each continent.
 
@@ -991,7 +1082,7 @@ bar plot. This kind of plot represents the data using one bar for each continent
 
 In the exercises, you'll summarize other statistics within each continent, and then use bar plots to compare them visually.
 
-## Visualizing median GDP per capita by continent
+### Visualizing median GDP per capita by continent
 
 A bar plot is useful for visualizing summary statistics, such as the median GDP in each continent.
 
@@ -1014,7 +1105,7 @@ ggplot(by_continent, aes(x = continent, y = medianGdpPercap)) +
 
 Excellent! That's three kinds of plots you're now able to make with ggplot2.
 
-## Visualizing GDP per capita by country in Oceania
+### Visualizing GDP per capita by country in Oceania
 
 You've created a plot where each bar represents one continent, showing the median GDP per capita for each. But the x-axis of the bar plot doesn't have to be the continent: you can instead create a bar plot where each bar represents a country.
 
@@ -1057,7 +1148,7 @@ do so with the binwidth option, which is set inside the parentheses of the geom 
 
 Recall that you do this by adding a scale underscore x underscore log10 to the graph. You'll practice doing so in the exercises.
 
-## Visualizing population
+### Visualizing population
 
 A histogram is useful for examining the distribution of a numeric variable. In this exercise, you'll create a histogram showing the distribution of country populations (by millions) in the year 1952.
 
@@ -1079,7 +1170,7 @@ ggplot(gapminder_1952, aes(x = pop_by_mil)) +
 
 That's right! Notice that most of the distribution is in the smallest (leftmost) bins. In the next exercise you'll put the x-axis on a log scale.
 
-## Visualizing population with x-axis on a log scale
+### Visualizing population with x-axis on a log scale
 
 In the last exercise you created a histogram of populations across countries. You might have noticed that there were several countries with a much higher population than others, which causes the distribution to be very skewed, with most of the distribution crammed into a small part of the graph. (Consider that it's hard to tell the median or the minimum population from that histogram).
 
@@ -1121,7 +1212,7 @@ This is a box plot, which shows the distribution of life expectancies within eac
 
 A boxplot helps give more context to the shape of the earlier histogram, where there were two bumps: one for countries between 65 and 80 representing most of Europe, Asia, and the Americas, and another, lower distribution. You'll use boxplots to examine other differences in distribution between continents in the final exercises. 
 
-## Comparing GDP per capita across continents
+### Comparing GDP per capita across continents
 
 A boxplot is useful for comparing a distribution of values across several groups. In this exercise, you'll examine the distribution of GDP per capita by continent. Since GDP per capita varies across several orders of magnitude, you'll need to put the y-axis on a log scale.
 
@@ -1138,7 +1229,7 @@ ggplot(gapminder_1952, aes(x = continent, y = gdpPercap)) +
 
 Looks good! What continents had countries with the highest GDP per capita?
 
-## Adding a title to your graph
+### Adding a title to your graph
 
 There are many other options for customizing a `ggplot2` graph, which you can learn about in other DataCamp courses. You can also learn about them from online resources, which is an important skill to develop.
 
@@ -1159,7 +1250,7 @@ ggplot(gapminder_1952, aes(x = continent, y = gdpPercap)) +
 
 Brilliant! Now you know how to look up additional methods for customizing graphs. That will be very useful in your career as an R user!<br><br><i> Don't forget to download the <a href='https://datacamp-community-prod.s3.amazonaws.com/c1fae72f-d2d7-4646-9dce-dd0f8fb5c5e8'>Cheat Sheet</a> for this course to keep track of what you've learned today! <i>
 
-## Conclusion
+### Conclusion
 
 **1. Conclusion**
 

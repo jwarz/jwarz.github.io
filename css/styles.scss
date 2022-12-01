@@ -35,7 +35,9 @@ dd p {
 /*******
 CODE Blocks
 ********/
-div.cell-output {
+/* Output */
+div.cell-output,
+.quarto-figure {
   background-color: #2b2b2b;
   border-radius: .25rem;
 }
@@ -44,8 +46,8 @@ div.cell-output pre code {
   color: #fff;
 }
 
-@media (min-width: 992px) {
-    div.cell-output {
-        margin-left: calc(calc(-0.6em + -3px) + 2px);
-    }
+.cell-output-display {
+  @media (min-width: 992px) {
+          margin-left: calc(calc(-0.6em + -3px) + 2px);
+  }
 }
