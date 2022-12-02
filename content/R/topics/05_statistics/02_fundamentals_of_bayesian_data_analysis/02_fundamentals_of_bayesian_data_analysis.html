@@ -105,6 +105,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -579,7 +582,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Bayesian data analysis is named after Thomas Bayes who in the middle of the 18th century wrote the first article describing what we today would call Bayesian inference. But the term Bayesian inference doesn’t really give you any clues to what it is, and a better term would be probabilistic inference because that’s what you do when you do Bayesian data analysis.</p>
 <p>It’s really just about using the full power of probability theory to draw conclusions and learn from your data. Confusingly the term probability can be defined in different ways. All definitions agree on the basic rules of probability and that it’s a number between 0 to 1, but they don’t agree on what probabilities stand for. The definition we are going to use here is that a probability is a statement about the certainty or uncertainty of different outcomes, where a probability of 1 means complete certainty that something is the case or is going to happen and 0 mean complete certainty that this something is not the case or that it’s not going to happen. This definition is very similar to the common sense use of probability. Like, you might say “I’m 99 % sure it’s gonna rain tomorrow”, which means you’re very certain, or you might say “It’s a 50-50 chance it’s going to rain” which means you’re very uncertain, it could go either way. Probability does not only have to be about yes/no-type of events, but it can also be used to describe uncertainty over continuous quantities.</p>
 <p>For example, here is a graph showing the probability over how many inches it will rain next week. Each bar shows the probability for the corresponding outcome, and together the probabilities sum to one.</p>
-<p><img src="readme_files/figure-gfm/prob_dist.png" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="readme_files/figure-gfm/prob_dist.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="readme_files/figure-gfm/prob_dist.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 <p>This graph here is also an example of a probability distribution, which just is an allocation of probability over many mutually exclusive outcomes. So, the role of probability distributions in Bayesian data analysis is to represent uncertainty, and the role of Bayesian inference is to update these probability distributions to reflect what has been learned from data.</p>
 </section>
 <section id="simple-bayesian-model" class="level2" data-number="1.3">
@@ -1143,7 +1150,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="readme_files/figure-gfm/marg_hist1.gif" class="img-fluid figure-img" style="width:50.0%"></p>
+<p><a href="readme_files/figure-gfm/marg_hist1.gif" class="lightbox" title="marg_hist" data-gallery="quarto-lightbox-gallery-2"><img src="readme_files/figure-gfm/marg_hist1.gif" class="img-fluid figure-img" style="width:50.0%"></a></p>
 <p></p><figcaption class="figure-caption">marg_hist</figcaption><p></p>
 </figure>
 </div>
@@ -1175,7 +1182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="readme_files/figure-gfm/marg_hist2.gif" class="img-fluid figure-img" style="width:50.0%"></p>
+<p><a href="readme_files/figure-gfm/marg_hist2.gif" class="lightbox" title="marg_hist" data-gallery="quarto-lightbox-gallery-3"><img src="readme_files/figure-gfm/marg_hist2.gif" class="img-fluid figure-img" style="width:50.0%"></a></p>
 <p></p><figcaption class="figure-caption">marg_hist</figcaption><p></p>
 </figure>
 </div>
@@ -3068,6 +3075,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":true,"closeEffect":"zoom","descPosition":"bottom"});</script>
 
 
 
