@@ -31,17 +31,13 @@ You can also execute R commands straight in the console. This is a good way to e
 * Add a line of code that calculates the sum of 6 and 12, and hit the 'Submit Answer' button.
 
 ```{r}
-#| eval: false
+#| collapse: true
 ## Sample: Calculate 3 + 4
 3 + 4
-#> [1] 7
 
 ## Instruction: Calculate 6 + 12
 6 + 12
-#> [1] 18
 ```
-
-<sup>Created on 2022-01-17 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Awesome! See how the console shows the result of the R code you submitted? Now that you're familiar with the interface, let's get down to R business!
 
@@ -71,35 +67,25 @@ With this knowledge, follow the instructions to complete the exercise.
 4. Note how the `#` symbol is used to add comments on the R code.
 
 ```{r}
-#| eval: false
+#| collapse: true
 ## An addition
 5 + 5 
-#> [1] 10
 
 ## A subtraction
 5 - 5 
-#> [1] 0
 
 ## A multiplication
 3 * 5
-#> [1] 15
 
 ## A division
 (5 + 5) / 2 
-#> [1] 5
 
 ## Exponentiation
 2^5
-#> [1] 32
 
 ## Modulo
 28%%6
-#> [1] 4
 ```
-
-<sup>Created on 2022-01-17 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
-
-
 
 ## Variable assignment
 
@@ -156,6 +142,7 @@ Every tasty fruit basket needs oranges, so you decide to add six oranges. As a d
 3. Assign the result of adding `my_apples` and `my_oranges` to a new variable `my_fruit`.
 
 ```{r}
+#| collapse: true
 ## Assign a value to the variables my_apples and my_oranges
 my_apples  <- 5
 my_oranges <- 6
@@ -231,7 +218,7 @@ Do you remember that when you added `5 + "six"`, you got an error due to a misma
 1. Complete the code in the editor and also print out the classes of `my_character` and `my_logical`.<br>
 
 ```{r}
-#| eval: false
+#| collapse: true
 ## Declare variables of different types
 my_numeric   <- 42
 my_character <- "universe"
@@ -239,18 +226,13 @@ my_logical   <- FALSE
 
 ## Check class of my_numeric
 class(my_numeric)
-#> [1] "numeric"
 
 ## Check class of my_character
 class(my_character)
-#> [1] "character"
 
 ## Check class of my_logical
 class(my_logical)
-#> [1] "logical"
 ```
-
-<sup>Created on 2022-01-18 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 # Vectors
 
@@ -612,12 +594,8 @@ The (logical) comparison operators known to R are:<br>
 As seen in the previous chapter, stating `6 &gt; 5` returns `TRUE`. The nice thing about R is that you can use these comparison operators also on vectors. For example:<br>
 
 ```{r}
-#| eval: false
 c(4, 5, 6) > 5
-#> [1] FALSE FALSE  TRUE
 ```
-
-<sup>Created on 2022-01-17 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 This command tests for every element of the vector if the condition stated by the comparison operator is `TRUE` or `FALSE`.<br>
 
@@ -891,6 +869,7 @@ Back to Star Wars with this newly acquired knowledge! As in the previous exercis
 4. Use `mean()` again to print out the average of the values in `non_us_some`.
 
 ```{r}
+#| collapse: true
 ## Select the non-US revenue for all movies
 non_us_all  <- all_wars_matrix[,2]
   
@@ -900,7 +879,6 @@ mean(non_us_all)
 ## Select the non-US revenue for first two movies
 non_us_some <- all_wars_matrix[1:2,2]
   
-## Average non-US revenue for first two movies
 mean(non_us_some)
 ```
 
@@ -919,9 +897,6 @@ As a newly-hired data analyst for Lucasfilm, it is your job to find out how many
 2. Print out `visitors` so you can have a look.
 
 ```{r}
-## all_wars_matrix is available in your workspace
-all_wars_matrix
-
 ## Estimate the visitors
 visitors <- all_wars_matrix / 5
   
@@ -1098,18 +1073,13 @@ Going back to our survey, you would like to know how many `"Male"` responses you
 1. Ask a <a href="http://www.rdocumentation.org/packages/base/functions/summary" target="_blank" rel="noopener noreferrer">`summary()`</a> of the `survey_vector` and `factor_survey_vector`. Interpret the results of both vectors. Are they both equally useful in this case?
 
 ```{r}
+#| collapse: true
 ## Generate summary for survey_vector
 summary(survey_vector)
-#>    Length     Class      Mode 
-#>         5 character character
 
 ## Generate summary for factor_survey_vector
 summary(factor_survey_vector)
-#> Female   Male 
-#>      2      3
 ```
-
-<sup>Created on 2022-01-18 by the [reprex package](https://reprex.tidyverse.org) (v2.0.1)</sup>
 
 Nice! Have a look at the output. The fact that you identified `"Male"` and `"Female"` as factor levels in `factor_survey_vector` enables R to show the number of elements for each category.
 
@@ -1355,6 +1325,7 @@ Sometimes you want to select all elements of a row or column. For example, `my_d
 2. From `planets_df`, select all data on Mars (the fourth row). Simply print out the result.
 
 ```{r}
+#| collapse: true
 ## The planets_df data frame from the previous exercise is pre-loaded
 
 ## Print out diameter of Mercury (row 1, column 3)
@@ -1666,6 +1637,7 @@ Besides selecting components, you often need to select specific elements out of 
 2. Select from `shining_list` the second element in the vector representing the actors. Do a printout like before.
 
 ```{r}
+#| collapse: true
 ## Print out the vector representing the actors
 shining_list$actors
 

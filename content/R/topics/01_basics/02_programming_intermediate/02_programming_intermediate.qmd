@@ -786,6 +786,7 @@ The previous exercises guided you through developing a pretty advanced `while` l
 
 ```{r}
 #| code-fold: true
+#| collapse: true
 # Initialize i as 1 
 i <- 1
 
@@ -1586,14 +1587,20 @@ Wonderful! Have you tried calling this `pow_two()` function? Try `pow_two(5)`, `
 An issue that Filip did not discuss in the video is function scoping. It implies that variables that are defined inside a function are not accessible outside that function. Try running the following code and see if you understand the results:
 
 ```{r}
+#| eval: false
 pow_two <- function(x) {
   y <- x ^ 2
   return(y)
 }
 pow_two(4)
+#> [1] 16
 y
+#> Error in eval(expr, envir, enclos): object 'y' not found
 x
+#> Error in eval(expr, envir, enclos): object 'x' not found
 ```
+
+<sup>Created on 2022-12-02 with [reprex v2.0.2](https://reprex.tidyverse.org)</sup>
 
 `y` was defined inside the `pow_two()` function and therefore it is not accessible outside of that function. This is also true for the function's arguments of course - `x` in this case.
 
@@ -1619,6 +1626,7 @@ two_dice <- function() {
 The title gives it away already: R passes arguments by value. What does this mean? Simply put, it means that an R function cannot change the variable that you input to that function. Let's look at a simple example (try it in the console):
 
 ```{r}
+#| collapse: true
 triple <- function(x) {
   x <- 3*x
   x
@@ -1815,6 +1823,12 @@ An error should occur, because you haven't loaded the `ggplot2` package yet!
 3. Finally, check out the currently attached packages again.
 
 ```{r}
+#| include: false
+source(here::here("R/setup-ggplot2-tie.R"))
+```
+
+```{r}
+#| warning: false
 # Load the ggplot2 package
 library(ggplot2)
 
@@ -1992,6 +2006,7 @@ Previously, you learned that functions in R are objects in their own right. This
 
 
 ```{r}
+#| collapse: true
 # Named function
 triple <- function(x) { 3 * x }
 
@@ -2610,6 +2625,7 @@ seq(rep(1, 7, by = 2), times = 7)
 ```
 
 ```{r}
+#| code-fold: true
 rep(seq(1, 7, by = 2), 7)
 ```
 
