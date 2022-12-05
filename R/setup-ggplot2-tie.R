@@ -197,8 +197,9 @@ theme_tie <- function(
 # )
 
 # Using ggthemr
-tuhh_colors <- c("#D0D0CE", "#00C1D4", "#FF4F4F", "#5AFFC5",
-                 "#FFDE36", "#143BFF", "#FF7E15", "#FFAEA2")
+# tuhh_colors <- c("#FFFFFF", "#00C1D4", "#FF4F4F", "#5AFFC5","#FFDE36", "#143BFF", "#FF7E15", "#FFAEA2","#A8968C", "#D0D0CE", "#000000")
+tuhh_colors <- c("#FFFFFF", "#00C1D4", "#FF7E15", "#7200FE", "#FF4F4F", "#5AFFC5","#FFDE36", "#143BFF", "#FFAEA2","#A8968C", "#D0D0CE", "#000000")
+# tuhh_colors <- c("#FFFFFF", "#00C1D4", "#7200FE", "#5AFFC5", "#143BFF", "#FF4F4F", "#FFDE36", "#FF7E15", "#FFAEA2", "#D0D0CE", "#A8968C", "#000000")
 
 # set theme
 ggthemr::ggthemr(
