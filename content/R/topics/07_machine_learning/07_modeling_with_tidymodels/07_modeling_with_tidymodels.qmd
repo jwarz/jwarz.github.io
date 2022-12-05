@@ -1175,6 +1175,7 @@ The first step in feature engineering is to specify a `recipe` object with the `
 Use the R console to explore a `recipe` object named `telecom_rec`, which was specified using the `telecom_training` data from the previous chapter and the code below.
 
 ```{r}
+library(recipes)
 telecom_rec <- recipe(canceled_service ~ .,
                       data = telecom_df) %>% 
   step_log(avg_call_mins, base = 10)
@@ -1967,6 +1968,8 @@ Your model object, `dt_model`, `recipe` object, `loans_recipe`, and data split, 
 1. Create a `workflow` object, `loans_dt_wkfl`, that combines your decision tree model and feature engineering `recipe`.
 
 ```{r}
+library(workflows)
+
 # Create a workflow
 loans_dt_wkfl <- workflow() %>% 
   # Include the model object
@@ -2301,6 +2304,8 @@ Your cross validation folds, `loans_folds`, `workflow` object, `loans_tune_wkfl`
 1. Create a random grid of 5 hyperparameter value combinations using the hyperparameters of your `dt_tune_model` object.
 
 ```{r}
+library(dials)
+
 # Hyperparameter tuning with grid search
 set.seed(214)
 dt_grid <- grid_random(parameters(dt_tune_model),

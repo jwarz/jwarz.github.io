@@ -2,6 +2,8 @@
 title: "Cleaning data in R"
 author: "Joschka Schwarz"
 toc-depth: 2
+execute: 
+  eval: false
 ---
 
 ```{r setup, include=FALSE}
@@ -2131,7 +2133,7 @@ The first step towards this goal is to generate pairs of records so that you can
 
 1. Generate all possible pairs of records between the `zagat` and `fodors` datasets (no blocking used).
 
-```{r,message=FALSE}
+```{r}
 zagat  <- readRDS("data/zagat.rds")
 fodors <- readRDS("data/fodors.rds")
 
@@ -2139,7 +2141,7 @@ fodors <- readRDS("data/fodors.rds")
 library(reclin)
 
 # 1. Generate all possible pairs
-pair_blocking(zagat, fodors)
+reclin::pair_blocking(zagat, fodors)
 ```
 
 2. Use pair blocking to generate only pairs that have matching values in the `city` column.
