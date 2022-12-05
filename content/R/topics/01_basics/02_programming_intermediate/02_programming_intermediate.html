@@ -379,7 +379,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">22: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">22: Machine Learning with caret</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -535,9 +535,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p><strong>Sshort Description</strong></p>
-<p>Discover conditional statements, loops, and functions to power your own R scripts, and learn to make your R code more efficient using the apply functions.</p>
-<p><strong>Long Description</strong></p>
 <p>Intermediate R is the next stop on your journey in mastering the R programming language. In this R training, you will learn about conditional statements, loops, and functions to power your own R scripts. Next, make your R code more efficient and readable using the apply functions. Finally, the utilities chapter gets you up to speed with regular expressions in R, data structure manipulations, and times and dates. This course will allow you to take the next step in advancing your overall knowledge and capabilities while programming in R.</p>
 <section id="conditionals-and-control-flow" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Conditionals and Control Flow</h1>
@@ -1873,7 +1870,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb58-5"><a href="#cb58-5"></a></span>
 <span id="cb58-6"><a href="#cb58-6"></a><span class="fu">throw_die</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 2</code></pre>
+<pre><code>#&gt; [1] 3</code></pre>
 </div>
 </div>
 <p>Up to you to code a function that doesn’t take any arguments!</p>
@@ -2806,9 +2803,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb100-2"><a href="#cb100-2"></a>       <span class="cf">function</span>(x) <span class="fu">c</span>(<span class="at">min =</span> <span class="fu">min</span>(x), <span class="at">mean =</span> <span class="fu">mean</span>(x), <span class="at">max =</span> <span class="fu">max</span>(x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;            [,1]      [,2]
-#&gt; min  0.01518771 0.0680658
-#&gt; mean 0.51425812 0.4905307
-#&gt; max  0.98759270 0.7937301</code></pre>
+#&gt; min  0.03713748 0.0255906
+#&gt; mean 0.37718428 0.4363776
+#&gt; max  0.91127422 0.9243953</code></pre>
 </div>
 </div>
 <p>Without going straight to the console to run the code, try to reason through which of the following statements are correct and why.</p>
@@ -3059,10 +3056,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb114-2"><a href="#cb114-2"></a><span class="fu">seq</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">7</span>, <span class="at">by =</span> <span class="dv">2</span>), <span class="at">times =</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning: In seq.default(rep(1, 7, by = 2), times = 7) :
-#&gt;  zusätzliches Argument 'times' wird verworfen</code></pre>
+#&gt;  extra argument 'times' will be disregarded</code></pre>
 </div>
 <div class="cell-output cell-output-error">
-<pre><code>#&gt; Error in seq.default(rep(1, 7, by = 2), times = 7): 'from' muss Länge 1 haben</code></pre>
+<pre><code>#&gt; Error in seq.default(rep(1, 7, by = 2), times = 7): 'from' must be of length 1</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
@@ -3271,7 +3268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb127-3"><a href="#cb127-3"></a></span>
 <span id="cb127-4"><a href="#cb127-4"></a><span class="co"># See what today looks like under the hood</span></span>
 <span id="cb127-5"><a href="#cb127-5"></a><span class="fu">unclass</span>(today)</span>
-<span id="cb127-6"><a href="#cb127-6"></a><span class="co">#&gt; [1] 19329</span></span>
+<span id="cb127-6"><a href="#cb127-6"></a><span class="co">#&gt; [1] 19331</span></span>
 <span id="cb127-7"><a href="#cb127-7"></a></span>
 <span id="cb127-8"><a href="#cb127-8"></a><span class="co"># Get the current time: now</span></span>
 <span id="cb127-9"><a href="#cb127-9"></a></span>
@@ -3279,7 +3276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb127-11"><a href="#cb127-11"></a></span>
 <span id="cb127-12"><a href="#cb127-12"></a><span class="co"># See what now looks like under the hood</span></span>
 <span id="cb127-13"><a href="#cb127-13"></a><span class="fu">unclass</span>(now)</span>
-<span id="cb127-14"><a href="#cb127-14"></a><span class="co">#&gt; [1] 1670062935</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb127-14"><a href="#cb127-14"></a><span class="co">#&gt; [1] 1670255282</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great! Using R to get the current date and time is nice, but you should also know how to create dates and times from character strings. Find out how in the next exercises!</p>
 </section>
@@ -3310,9 +3307,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1"></a>today <span class="ot">&lt;-</span> <span class="fu">Sys.Date</span>()</span>
 <span id="cb129-2"><a href="#cb129-2"></a><span class="fu">format</span>(<span class="fu">Sys.Date</span>(), <span class="at">format =</span> <span class="st">"%d %B, %Y"</span>)</span>
-<span id="cb129-3"><a href="#cb129-3"></a><span class="co">#&gt; [1] "03 December, 2022"</span></span>
+<span id="cb129-3"><a href="#cb129-3"></a><span class="co">#&gt; [1] "05 December, 2022"</span></span>
 <span id="cb129-4"><a href="#cb129-4"></a><span class="fu">format</span>(<span class="fu">Sys.Date</span>(), <span class="at">format =</span> <span class="st">"Today is a %A!"</span>)</span>
-<span id="cb129-5"><a href="#cb129-5"></a><span class="co">#&gt; [1] "Today is a Saturday!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb129-5"><a href="#cb129-5"></a><span class="co">#&gt; [1] "Today is a Monday!"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -3389,9 +3386,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb133"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1"></a>today <span class="ot">&lt;-</span> <span class="fu">Sys.Date</span>()</span>
 <span id="cb133-2"><a href="#cb133-2"></a>today <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb133-3"><a href="#cb133-3"></a><span class="co">#&gt; [1] "2022-12-04"</span></span>
+<span id="cb133-3"><a href="#cb133-3"></a><span class="co">#&gt; [1] "2022-12-06"</span></span>
 <span id="cb133-4"><a href="#cb133-4"></a>today <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb133-5"><a href="#cb133-5"></a><span class="co">#&gt; [1] "2022-12-02"</span></span>
+<span id="cb133-5"><a href="#cb133-5"></a><span class="co">#&gt; [1] "2022-12-04"</span></span>
 <span id="cb133-6"><a href="#cb133-6"></a></span>
 <span id="cb133-7"><a href="#cb133-7"></a><span class="fu">as.Date</span>(<span class="st">"2015-03-12"</span>) <span class="sc">-</span> <span class="fu">as.Date</span>(<span class="st">"2015-02-27"</span>)</span>
 <span id="cb133-8"><a href="#cb133-8"></a><span class="co">#&gt; Time difference of 13 days</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3432,9 +3429,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1"></a>now <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
 <span id="cb135-2"><a href="#cb135-2"></a>now <span class="sc">+</span> <span class="dv">3600</span>          <span class="co"># add an hour</span></span>
-<span id="cb135-3"><a href="#cb135-3"></a><span class="co">#&gt; [1] "2022-12-03 12:22:15 CET"</span></span>
+<span id="cb135-3"><a href="#cb135-3"></a><span class="co">#&gt; [1] "2022-12-05 17:48:02 CET"</span></span>
 <span id="cb135-4"><a href="#cb135-4"></a>now <span class="sc">-</span> <span class="dv">3600</span> <span class="sc">*</span> <span class="dv">24</span>     <span class="co"># subtract a day</span></span>
-<span id="cb135-5"><a href="#cb135-5"></a><span class="co">#&gt; [1] "2022-12-02 11:22:15 CET"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb135-5"><a href="#cb135-5"></a><span class="co">#&gt; [1] "2022-12-04 16:48:02 CET"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Adding or subtracting time objects is also straightforward:</p>
 <div class="cell" data-layout-align="center">
@@ -3784,7 +3781,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","loop":true});</script>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":true,"selector":".lightbox"});</script>
 
 
 

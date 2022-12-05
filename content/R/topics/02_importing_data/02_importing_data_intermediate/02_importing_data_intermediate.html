@@ -130,6 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+<link href="../../../../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
 
 </head>
 
@@ -376,7 +379,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">22: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">22: Machine Learning with caret</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -558,9 +561,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p><strong>Short Description</strong></p>
-<p>Parse data in any format. Whether it’s flat files, statistical software, databases, or data right from the web.</p>
-<p><strong>Long Description</strong></p>
 <p>In this course, you will take a deeper dive into the wide range of data formats out there. More specifically, you’ll learn how to import data from relational databases and how to import and work with data coming from the web. Finally, you’ll get hands-on experience with importing data from statistical software packages such as SAS, STATA, and SPSS.</p>
 <section id="importing-data-from-databases-part-1" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> 1. Importing data from databases (Part 1)</h1>
@@ -653,7 +653,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-4"><a href="#cb2-4"></a><span class="co"># Display structure of tables</span></span>
 <span id="cb2-5"><a href="#cb2-5"></a><span class="fu">str</span>(tables)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> chr [1:3] "comments" "tweats" "users"</code></pre>
+<pre><code>#&gt;  chr [1:3] "comments" "tweats" "users"</code></pre>
 </div>
 </div>
 <p>Good! <a href="http://www.rdocumentation.org/packages/DBI/functions/dbListTables"><code>dbListTables()</code></a> can be very useful to get a first idea about the contents of your database. Can you guess what kind of information this database contains?</p>
@@ -671,53 +671,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-4"><a href="#cb4-4"></a><span class="co"># Print users</span></span>
 <span id="cb4-5"><a href="#cb4-5"></a>users</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped">
-<thead>
-<tr class="header">
-<th style="text-align: right;">id</th>
-<th style="text-align: left;">name</th>
-<th style="text-align: left;">login</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">elisabeth</td>
-<td style="text-align: left;">elismith</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">mike</td>
-<td style="text-align: left;">mikey</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">thea</td>
-<td style="text-align: left;">teatime</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">thomas</td>
-<td style="text-align: left;">tomatotom</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">oliver</td>
-<td style="text-align: left;">olivander</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">kate</td>
-<td style="text-align: left;">katebenn</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">7</td>
-<td style="text-align: left;">anjali</td>
-<td style="text-align: left;">lianja</td>
-</tr>
-</tbody>
-</table>
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]},{"label":["login"],"name":[3],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"elisabeth","3":"elismith"},{"1":"2","2":"mike","3":"mikey"},{"1":"3","2":"thea","3":"teatime"},{"1":"4","2":"thomas","3":"tomatotom"},{"1":"5","2":"oliver","3":"olivander"},{"1":"6","2":"kate","3":"katebenn"},{"1":"7","2":"anjali","3":"lianja"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
 </div>
@@ -740,53 +698,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-7"><a href="#cb5-7"></a><span class="co"># Print out tables</span></span>
 <span id="cb5-8"><a href="#cb5-8"></a>tables</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[[1]]
-     id tweat_id user_id            message
-1  1022       87       7              nice!
-2  1000       77       7             great!
-3  1011       49       5            love it
-4  1012       87       1   awesome! thanks!
-5  1010       88       6              yuck!
-6  1026       77       4      not my thing!
-7  1004       49       1  this is fabulous!
-8  1030       75       6           so easy!
-9  1025       88       2             oh yes
-10 1007       49       3           serious?
-11 1020       77       1 couldn't be better
-12 1014       77       1       saved my day
-
-[[2]]
-  id user_id
-1 75       3
-2 88       4
-3 77       6
-4 87       5
-5 49       1
-6 24       7
-                                                                 post
-1                                       break egg. bake egg. eat egg.
-2                           wash strawberries. add ice. blend. enjoy.
-3                       2 slices of bread. add cheese. grill. heaven.
-4               open and crush avocado. add shrimps. perfect starter.
-5 nachos. add tomato sauce, minced meat and cheese. oven for 10 mins.
-6                              just eat an apple. simply and healthy.
-        date
-1 2015-09-05
-2 2015-09-14
-3 2015-09-21
-4 2015-09-22
-5 2015-09-22
-6 2015-09-24
-
-[[3]]
-  id      name     login
-1  1 elisabeth  elismith
-2  2      mike     mikey
-3  3      thea   teatime
-4  4    thomas tomatotom
-5  5    oliver olivander
-6  6      kate  katebenn
-7  7    anjali    lianja</code></pre>
+<pre><code>#&gt; [[1]]
+#&gt;      id tweat_id user_id            message
+#&gt; 1  1022       87       7              nice!
+#&gt; 2  1000       77       7             great!
+#&gt; 3  1011       49       5            love it
+#&gt; 4  1012       87       1   awesome! thanks!
+#&gt; 5  1010       88       6              yuck!
+#&gt; 6  1026       77       4      not my thing!
+#&gt; 7  1004       49       1  this is fabulous!
+#&gt; 8  1030       75       6           so easy!
+#&gt; 9  1025       88       2             oh yes
+#&gt; 10 1007       49       3           serious?
+#&gt; 11 1020       77       1 couldn't be better
+#&gt; 12 1014       77       1       saved my day
+#&gt; 
+#&gt; [[2]]
+#&gt;   id user_id
+#&gt; 1 75       3
+#&gt; 2 88       4
+#&gt; 3 77       6
+#&gt; 4 87       5
+#&gt; 5 49       1
+#&gt; 6 24       7
+#&gt;                                                                  post
+#&gt; 1                                       break egg. bake egg. eat egg.
+#&gt; 2                           wash strawberries. add ice. blend. enjoy.
+#&gt; 3                       2 slices of bread. add cheese. grill. heaven.
+#&gt; 4               open and crush avocado. add shrimps. perfect starter.
+#&gt; 5 nachos. add tomato sauce, minced meat and cheese. oven for 10 mins.
+#&gt; 6                              just eat an apple. simply and healthy.
+#&gt;         date
+#&gt; 1 2015-09-05
+#&gt; 2 2015-09-14
+#&gt; 3 2015-09-21
+#&gt; 4 2015-09-22
+#&gt; 5 2015-09-22
+#&gt; 6 2015-09-24
+#&gt; 
+#&gt; [[3]]
+#&gt;   id      name     login
+#&gt; 1  1 elisabeth  elismith
+#&gt; 2  2      mike     mikey
+#&gt; 3  3      thea   teatime
+#&gt; 4  4    thomas tomatotom
+#&gt; 5  5    oliver olivander
+#&gt; 6  6      kate  katebenn
+#&gt; 7  7    anjali    lianja</code></pre>
 </div>
 </div>
 <p>Wonderful! Now that you have an R version of all data that is contained in the database, you can dive a little deeper into the relations between the different data frames.</p>
@@ -869,28 +827,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-4"><a href="#cb8-4"></a><span class="co"># Print elisabeth</span></span>
 <span id="cb8-5"><a href="#cb8-5"></a>elisabeth</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped">
-<thead>
-<tr class="header">
-<th style="text-align: right;">tweat_id</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">87</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">49</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">77</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">77</td>
-</tr>
-</tbody>
-</table>
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["tweat_id"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"87"},{"1":"49"},{"1":"77"},{"1":"77"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
 </div>
@@ -914,25 +855,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-7"><a href="#cb9-7"></a><span class="co"># Print latest</span></span>
 <span id="cb9-8"><a href="#cb9-8"></a>latest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped">
-<thead>
-<tr class="header">
-<th style="text-align: left;">post</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">open and crush avocado. add shrimps. perfect starter.</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">nachos. add tomato sauce, minced meat and cheese. oven for 10 mins.</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">just eat an apple. simply and healthy.</td>
-</tr>
-</tbody>
-</table>
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["post"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"open and crush avocado. add shrimps. perfect starter."},{"1":"nachos. add tomato sauce, minced meat and cheese. oven for 10 mins."},{"1":"just eat an apple. simply and healthy."}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
 </div>
@@ -961,19 +888,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-6"><a href="#cb11-6"></a><span class="co"># Print specific</span></span>
 <span id="cb11-7"><a href="#cb11-7"></a>specific</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped">
-<thead>
-<tr class="header">
-<th style="text-align: left;">message</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">great!</td>
-</tr>
-</tbody>
-</table>
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["message"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"great!"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
 </div>
@@ -995,29 +914,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb12-6"><a href="#cb12-6"></a><span class="co"># Print short</span></span>
 <span id="cb12-7"><a href="#cb12-7"></a>short</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped">
-<thead>
-<tr class="header">
-<th style="text-align: right;">id</th>
-<th style="text-align: left;">name</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">mike</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">thea</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">kate</td>
-</tr>
-</tbody>
-</table>
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["name"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"2","2":"mike"},{"1":"3","2":"thea"},{"1":"6","2":"kate"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
 </div>
@@ -1077,72 +978,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb15-4"><a href="#cb15-4"></a><span class="co"># Use dbFetch() twice</span></span>
 <span id="cb15-5"><a href="#cb15-5"></a><span class="fu">dbFetch</span>(res, <span class="at">n =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped">
-<thead>
-<tr class="header">
-<th style="text-align: right;">id</th>
-<th style="text-align: right;">tweat_id</th>
-<th style="text-align: right;">user_id</th>
-<th style="text-align: left;">message</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1022</td>
-<td style="text-align: right;">87</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: left;">nice!</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1000</td>
-<td style="text-align: right;">77</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: left;">great!</td>
-</tr>
-</tbody>
-</table>
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["tweat_id"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["user_id"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["message"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"1022","2":"87","3":"7","4":"nice!"},{"1":"1000","2":"77","3":"7","4":"great!"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">dbFetch</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped">
-<thead>
-<tr class="header">
-<th style="text-align: right;">id</th>
-<th style="text-align: right;">tweat_id</th>
-<th style="text-align: right;">user_id</th>
-<th style="text-align: left;">message</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1011</td>
-<td style="text-align: right;">49</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">love it</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1010</td>
-<td style="text-align: right;">88</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">yuck!</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1030</td>
-<td style="text-align: right;">75</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">so easy!</td>
-</tr>
-</tbody>
-</table>
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["tweat_id"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["user_id"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["message"],"name":[4],"type":["chr"],"align":["left"]}],"data":[{"1":"1011","2":"49","3":"5","4":"love it"},{"1":"1010","2":"88","3":"6","4":"yuck!"},{"1":"1030","2":"75","3":"6","4":"so easy!"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Clear res</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a><span class="fu">dbClearResult</span>(res)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<pre><code>#&gt; [1] TRUE</code></pre>
 </div>
 </div>
 <p>Perfect! In our toy example, chopping up the fetches doesn’t make a lot of sense, but make sure to remember this technique when you’re struggling with huge databases!</p>
@@ -1166,21 +1021,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb19-6"><a href="#cb19-6"></a><span class="co"># Print long_tweats</span></span>
 <span id="cb19-7"><a href="#cb19-7"></a><span class="fu">print</span>(long_tweats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                                                                 post
-1                           wash strawberries. add ice. blend. enjoy.
-2                       2 slices of bread. add cheese. grill. heaven.
-3               open and crush avocado. add shrimps. perfect starter.
-4 nachos. add tomato sauce, minced meat and cheese. oven for 10 mins.
-        date
-1 2015-09-14
-2 2015-09-21
-3 2015-09-22
-4 2015-09-22</code></pre>
+<pre><code>#&gt;                                                                  post
+#&gt; 1                           wash strawberries. add ice. blend. enjoy.
+#&gt; 2                       2 slices of bread. add cheese. grill. heaven.
+#&gt; 3               open and crush avocado. add shrimps. perfect starter.
+#&gt; 4 nachos. add tomato sauce, minced meat and cheese. oven for 10 mins.
+#&gt;         date
+#&gt; 1 2015-09-14
+#&gt; 2 2015-09-21
+#&gt; 3 2015-09-22
+#&gt; 4 2015-09-22</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Disconnect from the database</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="fu">dbDisconnect</span>(con)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<pre><code>#&gt; [1] TRUE</code></pre>
 </div>
 </div>
 <p>Wonderful! This concludes the chapter on databases. Of course, there is tons more to learn about interfacing to databases and working with them as efficiently as possible, but that’s something for more advanced courses.</p>
@@ -1233,72 +1088,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb23-6"><a href="#cb23-6"></a></span>
 <span id="cb23-7"><a href="#cb23-7"></a>pools <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url_csv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 20 Columns: 4
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (2): Name, Address
-dbl (2): Latitude, Longitude
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre><code>#&gt; Rows: 20 Columns: 4
+#&gt; ── Column specification ────────────────────────────────────────────────────────
+#&gt; Delimiter: ","
+#&gt; chr (2): Name, Address
+#&gt; dbl (2): Latitude, Longitude
+#&gt; 
+#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.
+#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Import the txt file: potatoes</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a>url_delim <span class="ot">&lt;-</span> <span class="st">"http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/potatoes.txt"</span></span>
 <span id="cb25-3"><a href="#cb25-3"></a></span>
 <span id="cb25-4"><a href="#cb25-4"></a>potatoes <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(url_delim)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 160 Columns: 8
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: "\t"
-dbl (8): area, temp, size, storage, method, texture, flavor, moistness
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre><code>#&gt; Rows: 160 Columns: 8
+#&gt; ── Column specification ────────────────────────────────────────────────────────
+#&gt; Delimiter: "\t"
+#&gt; dbl (8): area, temp, size, storage, method, texture, flavor, moistness
+#&gt; 
+#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.
+#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Print pools and potatoes</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a><span class="fu">print</span>(pools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 20 × 4
-   Name                                      Address             Latit…¹ Longi…²
-   &lt;chr&gt;                                     &lt;chr&gt;                 &lt;dbl&gt;   &lt;dbl&gt;
- 1 Acacia Ridge Leisure Centre               1391 Beaudesert Ro…   -27.6    153.
- 2 Bellbowrie Pool                           Sugarwood Street, …   -27.6    153.
- 3 Carole Park                               Cnr Boundary Road …   -27.6    153.
- 4 Centenary Pool (inner City)               400 Gregory Terrac…   -27.5    153.
- 5 Chermside Pool                            375 Hamilton Road,…   -27.4    153.
- 6 Colmslie Pool (Morningside)               400 Lytton Road, M…   -27.5    153.
- 7 Spring Hill Baths (inner City)            14 Torrington Stre…   -27.5    153.
- 8 Dunlop Park Pool (Corinda)                794 Oxley Road, Co…   -27.5    153.
- 9 Fortitude Valley Pool                     432 Wickham Street…   -27.5    153.
-10 Hibiscus Sports Complex (upper MtGravatt) 90 Klumpp Road, Up…   -27.6    153.
-11 Ithaca Pool ( Paddington)                 131 Caxton Street,…   -27.5    153.
-12 Jindalee Pool                             11 Yallambee Road,…   -27.5    153.
-13 Manly Pool                                1 Fairlead Crescen…   -27.5    153.
-14 Mt Gravatt East Aquatic Centre            Cnr wecker Road an…   -27.5    153.
-15 Musgrave Park Pool (South Brisbane)       100 Edmonstone Str…   -27.5    153.
-16 Newmarket Pool                            71 Alderson Stret,…   -27.4    153.
-17 Runcorn Pool                              37 Bonemill Road, …   -27.6    153.
-18 Sandgate Pool                             231 Flinders Parad…   -27.3    153.
-19 Langlands Parks Pool (Stones Corner)      5 Panitya Street, …   -27.5    153.
-20 Yeronga Park Pool                         81 School Road, Ye…   -27.5    153.
-# … with abbreviated variable names ¹​Latitude, ²​Longitude</code></pre>
+<pre><code>#&gt; # A tibble: 20 × 4
+#&gt;    Name                                      Address             Latit…¹ Longi…²
+#&gt;    &lt;chr&gt;                                     &lt;chr&gt;                 &lt;dbl&gt;   &lt;dbl&gt;
+#&gt;  1 Acacia Ridge Leisure Centre               1391 Beaudesert Ro…   -27.6    153.
+#&gt;  2 Bellbowrie Pool                           Sugarwood Street, …   -27.6    153.
+#&gt;  3 Carole Park                               Cnr Boundary Road …   -27.6    153.
+#&gt;  4 Centenary Pool (inner City)               400 Gregory Terrac…   -27.5    153.
+#&gt;  5 Chermside Pool                            375 Hamilton Road,…   -27.4    153.
+#&gt;  6 Colmslie Pool (Morningside)               400 Lytton Road, M…   -27.5    153.
+#&gt;  7 Spring Hill Baths (inner City)            14 Torrington Stre…   -27.5    153.
+#&gt;  8 Dunlop Park Pool (Corinda)                794 Oxley Road, Co…   -27.5    153.
+#&gt;  9 Fortitude Valley Pool                     432 Wickham Street…   -27.5    153.
+#&gt; 10 Hibiscus Sports Complex (upper MtGravatt) 90 Klumpp Road, Up…   -27.6    153.
+#&gt; 11 Ithaca Pool ( Paddington)                 131 Caxton Street,…   -27.5    153.
+#&gt; 12 Jindalee Pool                             11 Yallambee Road,…   -27.5    153.
+#&gt; 13 Manly Pool                                1 Fairlead Crescen…   -27.5    153.
+#&gt; 14 Mt Gravatt East Aquatic Centre            Cnr wecker Road an…   -27.5    153.
+#&gt; 15 Musgrave Park Pool (South Brisbane)       100 Edmonstone Str…   -27.5    153.
+#&gt; 16 Newmarket Pool                            71 Alderson Stret,…   -27.4    153.
+#&gt; 17 Runcorn Pool                              37 Bonemill Road, …   -27.6    153.
+#&gt; 18 Sandgate Pool                             231 Flinders Parad…   -27.3    153.
+#&gt; 19 Langlands Parks Pool (Stones Corner)      5 Panitya Street, …   -27.5    153.
+#&gt; 20 Yeronga Park Pool                         81 School Road, Ye…   -27.5    153.
+#&gt; # … with abbreviated variable names ¹​Latitude, ²​Longitude</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">print</span>(potatoes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 160 × 8
-    area  temp  size storage method texture flavor moistness
-   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
- 1     1     1     1       1      1     2.9    3.2       3  
- 2     1     1     1       1      2     2.3    2.5       2.6
- 3     1     1     1       1      3     2.5    2.8       2.8
- 4     1     1     1       1      4     2.1    2.9       2.4
- 5     1     1     1       1      5     1.9    2.8       2.2
- 6     1     1     1       2      1     1.8    3         1.7
- 7     1     1     1       2      2     2.6    3.1       2.4
- 8     1     1     1       2      3     3      3         2.9
- 9     1     1     1       2      4     2.2    3.2       2.5
-10     1     1     1       2      5     2      2.8       1.9
-# … with 150 more rows</code></pre>
+<pre><code>#&gt; # A tibble: 160 × 8
+#&gt;     area  temp  size storage method texture flavor moistness
+#&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
+#&gt;  1     1     1     1       1      1     2.9    3.2       3  
+#&gt;  2     1     1     1       1      2     2.3    2.5       2.6
+#&gt;  3     1     1     1       1      3     2.5    2.8       2.8
+#&gt;  4     1     1     1       1      4     2.1    2.9       2.4
+#&gt;  5     1     1     1       1      5     1.9    2.8       2.2
+#&gt;  6     1     1     1       2      1     1.8    3         1.7
+#&gt;  7     1     1     1       2      2     2.6    3.1       2.4
+#&gt;  8     1     1     1       2      3     3      3         2.9
+#&gt;  9     1     1     1       2      4     2.2    3.2       2.5
+#&gt; 10     1     1     1       2      5     2      2.8       1.9
+#&gt; # … with 150 more rows</code></pre>
 </div>
 </div>
 <p>Great! It seems to work without any additional problems!</p>
@@ -1324,39 +1179,39 @@ dbl (8): area, temp, size, storage, method, texture, flavor, moistness
 <span id="cb31-7"><a href="#cb31-7"></a><span class="co"># Import the file using read_csv(): pools2</span></span>
 <span id="cb31-8"><a href="#cb31-8"></a>pools2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(url_csv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 20 Columns: 4
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (2): Name, Address
-dbl (2): Latitude, Longitude
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<pre><code>#&gt; Rows: 20 Columns: 4
+#&gt; ── Column specification ────────────────────────────────────────────────────────
+#&gt; Delimiter: ","
+#&gt; chr (2): Name, Address
+#&gt; dbl (2): Latitude, Longitude
+#&gt; 
+#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.
+#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Print the structure of pools1 and pools2</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a><span class="fu">str</span>(pools1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   20 obs. of  4 variables:
- $ Name     : chr  "Acacia Ridge Leisure Centre" "Bellbowrie Pool" "Carole Park" "Centenary Pool (inner City)" ...
- $ Address  : chr  "1391 Beaudesert Road, Acacia Ridge" "Sugarwood Street, Bellbowrie" "Cnr Boundary Road and Waterford Road Wacol" "400 Gregory Terrace, Spring Hill" ...
- $ Latitude : num  -27.6 -27.6 -27.6 -27.5 -27.4 ...
- $ Longitude: num  153 153 153 153 153 ...</code></pre>
+<pre><code>#&gt; 'data.frame':    20 obs. of  4 variables:
+#&gt;  $ Name     : chr  "Acacia Ridge Leisure Centre" "Bellbowrie Pool" "Carole Park" "Centenary Pool (inner City)" ...
+#&gt;  $ Address  : chr  "1391 Beaudesert Road, Acacia Ridge" "Sugarwood Street, Bellbowrie" "Cnr Boundary Road and Waterford Road Wacol" "400 Gregory Terrace, Spring Hill" ...
+#&gt;  $ Latitude : num  -27.6 -27.6 -27.6 -27.5 -27.4 ...
+#&gt;  $ Longitude: num  153 153 153 153 153 ...</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="fu">str</span>(pools2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>spc_tbl_ [20 × 4] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
- $ Name     : chr [1:20] "Acacia Ridge Leisure Centre" "Bellbowrie Pool" "Carole Park" "Centenary Pool (inner City)" ...
- $ Address  : chr [1:20] "1391 Beaudesert Road, Acacia Ridge" "Sugarwood Street, Bellbowrie" "Cnr Boundary Road and Waterford Road Wacol" "400 Gregory Terrace, Spring Hill" ...
- $ Latitude : num [1:20] -27.6 -27.6 -27.6 -27.5 -27.4 ...
- $ Longitude: num [1:20] 153 153 153 153 153 ...
- - attr(*, "spec")=
-  .. cols(
-  ..   Name = col_character(),
-  ..   Address = col_character(),
-  ..   Latitude = col_double(),
-  ..   Longitude = col_double()
-  .. )
- - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
+<pre><code>#&gt; spc_tbl_ [20 × 4] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+#&gt;  $ Name     : chr [1:20] "Acacia Ridge Leisure Centre" "Bellbowrie Pool" "Carole Park" "Centenary Pool (inner City)" ...
+#&gt;  $ Address  : chr [1:20] "1391 Beaudesert Road, Acacia Ridge" "Sugarwood Street, Bellbowrie" "Cnr Boundary Road and Waterford Road Wacol" "400 Gregory Terrace, Spring Hill" ...
+#&gt;  $ Latitude : num [1:20] -27.6 -27.6 -27.6 -27.5 -27.4 ...
+#&gt;  $ Longitude: num [1:20] 153 153 153 153 153 ...
+#&gt;  - attr(*, "spec")=
+#&gt;   .. cols(
+#&gt;   ..   Name = col_character(),
+#&gt;   ..   Address = col_character(),
+#&gt;   ..   Latitude = col_double(),
+#&gt;   ..   Longitude = col_double()
+#&gt;   .. )
+#&gt;  - attr(*, "problems")=&lt;externalptr&gt;</code></pre>
 </div>
 </div>
 <p>Great! It seems to work without any additional problems!</p>
@@ -1389,32 +1244,32 @@ dbl (2): Latitude, Longitude
 <span id="cb37-2"><a href="#cb37-2"></a><span class="fu">library</span>(readxl)</span>
 <span id="cb37-3"><a href="#cb37-3"></a><span class="fu">library</span>(gdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>gdata: read.xls support for 'XLS' (Excel 97-2004) files ENABLED.</code></pre>
+<pre><code>#&gt; gdata: read.xls support for 'XLS' (Excel 97-2004) files ENABLED.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code></code></pre>
+<pre><code>#&gt; </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>gdata: read.xls support for 'XLSX' (Excel 2007+) files ENABLED.</code></pre>
+<pre><code>#&gt; gdata: read.xls support for 'XLSX' (Excel 2007+) files ENABLED.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>
-Attache Paket: 'gdata'</code></pre>
+<pre><code>#&gt; 
+#&gt; Attache Paket: 'gdata'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Das folgende Objekt ist maskiert 'package:stats':
-
-    nobs</code></pre>
+<pre><code>#&gt; Das folgende Objekt ist maskiert 'package:stats':
+#&gt; 
+#&gt;     nobs</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Das folgende Objekt ist maskiert 'package:utils':
-
-    object.size</code></pre>
+<pre><code>#&gt; Das folgende Objekt ist maskiert 'package:utils':
+#&gt; 
+#&gt;     object.size</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Das folgende Objekt ist maskiert 'package:base':
-
-    startsWith</code></pre>
+<pre><code>#&gt; Das folgende Objekt ist maskiert 'package:base':
+#&gt; 
+#&gt;     startsWith</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># Specification of url: url_xls</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a>url_xls <span class="ot">&lt;-</span> <span class="st">"http://s3.amazonaws.com/assets.datacamp.com/production/course_1478/datasets/latitude.xls"</span></span>
@@ -1455,27 +1310,27 @@ Attache Paket: 'gdata'</code></pre>
 <span id="cb46-10"><a href="#cb46-10"></a><span class="co"># Print out the summary of the wine data</span></span>
 <span id="cb46-11"><a href="#cb46-11"></a><span class="fu">summary</span>(wine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    Alcohol        Malic acid        Ash        Alcalinity of ash
- Min.   :11.03   Min.   :0.74   Min.   :1.360   Min.   :10.60    
- 1st Qu.:12.36   1st Qu.:1.60   1st Qu.:2.210   1st Qu.:17.20    
- Median :13.05   Median :1.87   Median :2.360   Median :19.50    
- Mean   :12.99   Mean   :2.34   Mean   :2.366   Mean   :19.52    
- 3rd Qu.:13.67   3rd Qu.:3.10   3rd Qu.:2.560   3rd Qu.:21.50    
- Max.   :14.83   Max.   :5.80   Max.   :3.230   Max.   :30.00    
-   Magnesium      Total phenols     Flavanoids    Nonflavanoid phenols
- Min.   : 70.00   Min.   :0.980   Min.   :0.340   Min.   :0.1300      
- 1st Qu.: 88.00   1st Qu.:1.740   1st Qu.:1.200   1st Qu.:0.2700      
- Median : 98.00   Median :2.350   Median :2.130   Median :0.3400      
- Mean   : 99.59   Mean   :2.292   Mean   :2.023   Mean   :0.3623      
- 3rd Qu.:107.00   3rd Qu.:2.800   3rd Qu.:2.860   3rd Qu.:0.4400      
- Max.   :162.00   Max.   :3.880   Max.   :5.080   Max.   :0.6600      
- Proanthocyanins Color intensity       Hue           Proline      
- Min.   :0.410   Min.   : 1.280   Min.   :1.270   Min.   : 278.0  
- 1st Qu.:1.250   1st Qu.: 3.210   1st Qu.:1.930   1st Qu.: 500.0  
- Median :1.550   Median : 4.680   Median :2.780   Median : 672.0  
- Mean   :1.587   Mean   : 5.055   Mean   :2.604   Mean   : 745.1  
- 3rd Qu.:1.950   3rd Qu.: 6.200   3rd Qu.:3.170   3rd Qu.: 985.0  
- Max.   :3.580   Max.   :13.000   Max.   :4.000   Max.   :1680.0  </code></pre>
+<pre><code>#&gt;     Alcohol        Malic acid        Ash        Alcalinity of ash
+#&gt;  Min.   :11.03   Min.   :0.74   Min.   :1.360   Min.   :10.60    
+#&gt;  1st Qu.:12.36   1st Qu.:1.60   1st Qu.:2.210   1st Qu.:17.20    
+#&gt;  Median :13.05   Median :1.87   Median :2.360   Median :19.50    
+#&gt;  Mean   :12.99   Mean   :2.34   Mean   :2.366   Mean   :19.52    
+#&gt;  3rd Qu.:13.67   3rd Qu.:3.10   3rd Qu.:2.560   3rd Qu.:21.50    
+#&gt;  Max.   :14.83   Max.   :5.80   Max.   :3.230   Max.   :30.00    
+#&gt;    Magnesium      Total phenols     Flavanoids    Nonflavanoid phenols
+#&gt;  Min.   : 70.00   Min.   :0.980   Min.   :0.340   Min.   :0.1300      
+#&gt;  1st Qu.: 88.00   1st Qu.:1.740   1st Qu.:1.200   1st Qu.:0.2700      
+#&gt;  Median : 98.00   Median :2.350   Median :2.130   Median :0.3400      
+#&gt;  Mean   : 99.59   Mean   :2.292   Mean   :2.023   Mean   :0.3623      
+#&gt;  3rd Qu.:107.00   3rd Qu.:2.800   3rd Qu.:2.860   3rd Qu.:0.4400      
+#&gt;  Max.   :162.00   Max.   :3.880   Max.   :5.080   Max.   :0.6600      
+#&gt;  Proanthocyanins Color intensity       Hue           Proline      
+#&gt;  Min.   :0.410   Min.   : 1.280   Min.   :1.270   Min.   : 278.0  
+#&gt;  1st Qu.:1.250   1st Qu.: 3.210   1st Qu.:1.930   1st Qu.: 500.0  
+#&gt;  Median :1.550   Median : 4.680   Median :2.780   Median : 672.0  
+#&gt;  Mean   :1.587   Mean   : 5.055   Mean   :2.604   Mean   : 745.1  
+#&gt;  3rd Qu.:1.950   3rd Qu.: 6.200   3rd Qu.:3.170   3rd Qu.: 985.0  
+#&gt;  Max.   :3.580   Max.   :13.000   Max.   :4.000   Max.   :1680.0</code></pre>
 </div>
 </div>
 <p>Great! Another way to load remote <code>RData</code> files is to use the <a href="http://www.rdocumentation.org/packages/base/functions/connections"><code>url()</code></a> function inside <a href="http://www.rdocumentation.org/packages/base/functions/load"><code>load()</code></a>. However, this will not save the <code>RData</code> file to a local file.</p>
@@ -1512,22 +1367,22 @@ Attache Paket: 'gdata'</code></pre>
 <span id="cb48-8"><a href="#cb48-8"></a><span class="co"># Print resp</span></span>
 <span id="cb48-9"><a href="#cb48-9"></a>resp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Response [http://www.example.com/]
-  Date: 2022-11-29 14:44
-  Status: 200
-  Content-Type: text/html; charset=UTF-8
-  Size: 1.26 kB
-&lt;!doctype html&gt;
-&lt;html&gt;
-&lt;head&gt;
-    &lt;title&gt;Example Domain&lt;/title&gt;
-
-    &lt;meta charset="utf-8" /&gt;
-    &lt;meta http-equiv="Content-type" content="text/html; charset=utf-8" /&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
-    &lt;style type="text/css"&gt;
-    body {
-...</code></pre>
+<pre><code>#&gt; Response [http://www.example.com/]
+#&gt;   Date: 2022-12-05 16:37
+#&gt;   Status: 200
+#&gt;   Content-Type: text/html; charset=UTF-8
+#&gt;   Size: 1.26 kB
+#&gt; &lt;!doctype html&gt;
+#&gt; &lt;html&gt;
+#&gt; &lt;head&gt;
+#&gt;     &lt;title&gt;Example Domain&lt;/title&gt;
+#&gt; 
+#&gt;     &lt;meta charset="utf-8" /&gt;
+#&gt;     &lt;meta http-equiv="Content-type" content="text/html; charset=utf-8" /&gt;
+#&gt;     &lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;
+#&gt;     &lt;style type="text/css"&gt;
+#&gt;     body {
+#&gt; ...</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Get the raw content of resp: raw_content</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a>raw_content <span class="ot">&lt;-</span> <span class="fu">content</span>(resp, <span class="at">as =</span> <span class="st">"raw"</span>)</span>
@@ -1535,7 +1390,7 @@ Attache Paket: 'gdata'</code></pre>
 <span id="cb50-4"><a href="#cb50-4"></a><span class="co"># Print the head of raw_content</span></span>
 <span id="cb50-5"><a href="#cb50-5"></a><span class="fu">head</span>(raw_content)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 3c 21 64 6f 63 74</code></pre>
+<pre><code>#&gt; [1] 3c 21 64 6f 63 74</code></pre>
 </div>
 </div>
 <p>Great! The raw content of the response doesn’t make a lot of sense, does it? Luckily, the <a href="http://www.rdocumentation.org/packages/httr/functions/content"><code>content()</code></a> function by default, if you don’t specify the <code>as</code> argument, figures out what type of data you’re dealing with and parses it for you.</p>
@@ -1559,117 +1414,117 @@ Attache Paket: 'gdata'</code></pre>
 <span id="cb52-5"><a href="#cb52-5"></a>resp <span class="ot">&lt;-</span> <span class="fu">GET</span>(url)</span>
 <span id="cb52-6"><a href="#cb52-6"></a><span class="fu">print</span>(resp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Response [http://www.omdbapi.com/?apikey=72bc447a&amp;t=Annie+Hall&amp;y=&amp;plot=short&amp;r=json]
-  Date: 2022-11-29 14:44
-  Status: 200
-  Content-Type: application/json; charset=utf-8
-  Size: 1.02 kB</code></pre>
+<pre><code>#&gt; Response [http://www.omdbapi.com/?apikey=72bc447a&amp;t=Annie+Hall&amp;y=&amp;plot=short&amp;r=json]
+#&gt;   Date: 2022-12-05 16:37
+#&gt;   Status: 200
+#&gt;   Content-Type: application/json; charset=utf-8
+#&gt;   Size: 1.02 kB</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># Print content of resp as text</span></span>
 <span id="cb54-2"><a href="#cb54-2"></a><span class="fu">print</span>(<span class="fu">content</span>(resp, <span class="at">as =</span> <span class="st">"text"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "{\"Title\":\"Annie Hall\",\"Year\":\"1977\",\"Rated\":\"PG\",\"Released\":\"20 Apr 1977\",\"Runtime\":\"93 min\",\"Genre\":\"Comedy, Romance\",\"Director\":\"Woody Allen\",\"Writer\":\"Woody Allen, Marshall Brickman\",\"Actors\":\"Woody Allen, Diane Keaton, Tony Roberts\",\"Plot\":\"Alvy Singer, a divorced Jewish comedian, reflects on his relationship with ex-lover Annie Hall, an aspiring nightclub singer, which ended abruptly just like his previous marriages.\",\"Language\":\"English, German\",\"Country\":\"United States\",\"Awards\":\"Won 4 Oscars. 31 wins &amp; 8 nominations total\",\"Poster\":\"https://m.media-amazon.com/images/M/MV5BZDg1OGQ4YzgtM2Y2NS00NjA3LWFjYTctMDRlMDI3NWE1OTUyXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg\",\"Ratings\":[{\"Source\":\"Internet Movie Database\",\"Value\":\"8.0/10\"},{\"Source\":\"Rotten Tomatoes\",\"Value\":\"97%\"},{\"Source\":\"Metacritic\",\"Value\":\"92/100\"}],\"Metascore\":\"92\",\"imdbRating\":\"8.0\",\"imdbVotes\":\"265,860\",\"imdbID\":\"tt0075686\",\"Type\":\"movie\",\"DVD\":\"05 Jul 2000\",\"BoxOffice\":\"$38,251,425\",\"Production\":\"N/A\",\"Website\":\"N/A\",\"Response\":\"True\"}"</code></pre>
+<pre><code>#&gt; [1] "{\"Title\":\"Annie Hall\",\"Year\":\"1977\",\"Rated\":\"PG\",\"Released\":\"20 Apr 1977\",\"Runtime\":\"93 min\",\"Genre\":\"Comedy, Romance\",\"Director\":\"Woody Allen\",\"Writer\":\"Woody Allen, Marshall Brickman\",\"Actors\":\"Woody Allen, Diane Keaton, Tony Roberts\",\"Plot\":\"Alvy Singer, a divorced Jewish comedian, reflects on his relationship with ex-lover Annie Hall, an aspiring nightclub singer, which ended abruptly just like his previous marriages.\",\"Language\":\"English, German\",\"Country\":\"United States\",\"Awards\":\"Won 4 Oscars. 31 wins &amp; 8 nominations total\",\"Poster\":\"https://m.media-amazon.com/images/M/MV5BZDg1OGQ4YzgtM2Y2NS00NjA3LWFjYTctMDRlMDI3NWE1OTUyXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg\",\"Ratings\":[{\"Source\":\"Internet Movie Database\",\"Value\":\"8.0/10\"},{\"Source\":\"Rotten Tomatoes\",\"Value\":\"97%\"},{\"Source\":\"Metacritic\",\"Value\":\"92/100\"}],\"Metascore\":\"92\",\"imdbRating\":\"8.0\",\"imdbVotes\":\"266,470\",\"imdbID\":\"tt0075686\",\"Type\":\"movie\",\"DVD\":\"05 Jul 2000\",\"BoxOffice\":\"$38,251,425\",\"Production\":\"N/A\",\"Website\":\"N/A\",\"Response\":\"True\"}"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># Print content of resp</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a><span class="fu">print</span>(<span class="fu">content</span>(resp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>$Title
-[1] "Annie Hall"
-
-$Year
-[1] "1977"
-
-$Rated
-[1] "PG"
-
-$Released
-[1] "20 Apr 1977"
-
-$Runtime
-[1] "93 min"
-
-$Genre
-[1] "Comedy, Romance"
-
-$Director
-[1] "Woody Allen"
-
-$Writer
-[1] "Woody Allen, Marshall Brickman"
-
-$Actors
-[1] "Woody Allen, Diane Keaton, Tony Roberts"
-
-$Plot
-[1] "Alvy Singer, a divorced Jewish comedian, reflects on his relationship with ex-lover Annie Hall, an aspiring nightclub singer, which ended abruptly just like his previous marriages."
-
-$Language
-[1] "English, German"
-
-$Country
-[1] "United States"
-
-$Awards
-[1] "Won 4 Oscars. 31 wins &amp; 8 nominations total"
-
-$Poster
-[1] "https://m.media-amazon.com/images/M/MV5BZDg1OGQ4YzgtM2Y2NS00NjA3LWFjYTctMDRlMDI3NWE1OTUyXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg"
-
-$Ratings
-$Ratings[[1]]
-$Ratings[[1]]$Source
-[1] "Internet Movie Database"
-
-$Ratings[[1]]$Value
-[1] "8.0/10"
-
-
-$Ratings[[2]]
-$Ratings[[2]]$Source
-[1] "Rotten Tomatoes"
-
-$Ratings[[2]]$Value
-[1] "97%"
-
-
-$Ratings[[3]]
-$Ratings[[3]]$Source
-[1] "Metacritic"
-
-$Ratings[[3]]$Value
-[1] "92/100"
-
-
-
-$Metascore
-[1] "92"
-
-$imdbRating
-[1] "8.0"
-
-$imdbVotes
-[1] "265,860"
-
-$imdbID
-[1] "tt0075686"
-
-$Type
-[1] "movie"
-
-$DVD
-[1] "05 Jul 2000"
-
-$BoxOffice
-[1] "$38,251,425"
-
-$Production
-[1] "N/A"
-
-$Website
-[1] "N/A"
-
-$Response
-[1] "True"</code></pre>
+<pre><code>#&gt; $Title
+#&gt; [1] "Annie Hall"
+#&gt; 
+#&gt; $Year
+#&gt; [1] "1977"
+#&gt; 
+#&gt; $Rated
+#&gt; [1] "PG"
+#&gt; 
+#&gt; $Released
+#&gt; [1] "20 Apr 1977"
+#&gt; 
+#&gt; $Runtime
+#&gt; [1] "93 min"
+#&gt; 
+#&gt; $Genre
+#&gt; [1] "Comedy, Romance"
+#&gt; 
+#&gt; $Director
+#&gt; [1] "Woody Allen"
+#&gt; 
+#&gt; $Writer
+#&gt; [1] "Woody Allen, Marshall Brickman"
+#&gt; 
+#&gt; $Actors
+#&gt; [1] "Woody Allen, Diane Keaton, Tony Roberts"
+#&gt; 
+#&gt; $Plot
+#&gt; [1] "Alvy Singer, a divorced Jewish comedian, reflects on his relationship with ex-lover Annie Hall, an aspiring nightclub singer, which ended abruptly just like his previous marriages."
+#&gt; 
+#&gt; $Language
+#&gt; [1] "English, German"
+#&gt; 
+#&gt; $Country
+#&gt; [1] "United States"
+#&gt; 
+#&gt; $Awards
+#&gt; [1] "Won 4 Oscars. 31 wins &amp; 8 nominations total"
+#&gt; 
+#&gt; $Poster
+#&gt; [1] "https://m.media-amazon.com/images/M/MV5BZDg1OGQ4YzgtM2Y2NS00NjA3LWFjYTctMDRlMDI3NWE1OTUyXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg"
+#&gt; 
+#&gt; $Ratings
+#&gt; $Ratings[[1]]
+#&gt; $Ratings[[1]]$Source
+#&gt; [1] "Internet Movie Database"
+#&gt; 
+#&gt; $Ratings[[1]]$Value
+#&gt; [1] "8.0/10"
+#&gt; 
+#&gt; 
+#&gt; $Ratings[[2]]
+#&gt; $Ratings[[2]]$Source
+#&gt; [1] "Rotten Tomatoes"
+#&gt; 
+#&gt; $Ratings[[2]]$Value
+#&gt; [1] "97%"
+#&gt; 
+#&gt; 
+#&gt; $Ratings[[3]]
+#&gt; $Ratings[[3]]$Source
+#&gt; [1] "Metacritic"
+#&gt; 
+#&gt; $Ratings[[3]]$Value
+#&gt; [1] "92/100"
+#&gt; 
+#&gt; 
+#&gt; 
+#&gt; $Metascore
+#&gt; [1] "92"
+#&gt; 
+#&gt; $imdbRating
+#&gt; [1] "8.0"
+#&gt; 
+#&gt; $imdbVotes
+#&gt; [1] "266,470"
+#&gt; 
+#&gt; $imdbID
+#&gt; [1] "tt0075686"
+#&gt; 
+#&gt; $Type
+#&gt; [1] "movie"
+#&gt; 
+#&gt; $DVD
+#&gt; [1] "05 Jul 2000"
+#&gt; 
+#&gt; $BoxOffice
+#&gt; [1] "$38,251,425"
+#&gt; 
+#&gt; $Production
+#&gt; [1] "N/A"
+#&gt; 
+#&gt; $Website
+#&gt; [1] "N/A"
+#&gt; 
+#&gt; $Response
+#&gt; [1] "True"</code></pre>
 </div>
 </div>
 <p>Great! The fact that <code>httr</code> converts the JSON response body automatically to an R list is very convenient.</p>
@@ -1720,12 +1575,12 @@ $Response
 <span id="cb58-10"><a href="#cb58-10"></a><span class="co"># Print structure of wine</span></span>
 <span id="cb58-11"><a href="#cb58-11"></a><span class="fu">str</span>(wine)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>List of 5
- $ name       : chr "Chateau Migraine"
- $ year       : int 1997
- $ alcohol_pct: num 12.4
- $ color      : chr "red"
- $ awarded    : logi FALSE</code></pre>
+<pre><code>#&gt; List of 5
+#&gt;  $ name       : chr "Chateau Migraine"
+#&gt;  $ year       : int 1997
+#&gt;  $ alcohol_pct: num 12.4
+#&gt;  $ color      : chr "red"
+#&gt;  $ awarded    : logi FALSE</code></pre>
 </div>
 </div>
 </section>
@@ -1747,18 +1602,18 @@ $Response
 <span id="cb60-7"><a href="#cb60-7"></a><span class="co"># Print structure of quandl_data</span></span>
 <span id="cb60-8"><a href="#cb60-8"></a><span class="fu">str</span>(quandl_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>List of 1
- $ dataset_data:List of 10
-  ..$ limit       : NULL
-  ..$ transform   : NULL
-  ..$ column_index: NULL
-  ..$ column_names: chr [1:13] "Date" "Open" "High" "Low" ...
-  ..$ start_date  : chr "2012-05-18"
-  ..$ end_date    : chr "2018-03-27"
-  ..$ frequency   : chr "daily"
-  ..$ data        : chr [1:1472, 1:13] "2018-03-27" "2018-03-26" "2018-03-23" "2018-03-22" ...
-  ..$ collapse    : NULL
-  ..$ order       : NULL</code></pre>
+<pre><code>#&gt; List of 1
+#&gt;  $ dataset_data:List of 10
+#&gt;   ..$ limit       : NULL
+#&gt;   ..$ transform   : NULL
+#&gt;   ..$ column_index: NULL
+#&gt;   ..$ column_names: chr [1:13] "Date" "Open" "High" "Low" ...
+#&gt;   ..$ start_date  : chr "2012-05-18"
+#&gt;   ..$ end_date    : chr "2018-03-27"
+#&gt;   ..$ frequency   : chr "daily"
+#&gt;   ..$ data        : chr [1:1472, 1:13] "2018-03-27" "2018-03-26" "2018-03-23" "2018-03-22" ...
+#&gt;   ..$ collapse    : NULL
+#&gt;   ..$ order       : NULL</code></pre>
 </div>
 </div>
 <p>Great! You successfully imported JSON data directly from the web. If you have a close look at the structure of <code>quandl_data</code>, you’ll see that the <code>data</code> element is a matrix.</p>
@@ -1786,16 +1641,16 @@ $Response
 <span id="cb62-10"><a href="#cb62-10"></a><span class="co"># Print out the Title element of both lists</span></span>
 <span id="cb62-11"><a href="#cb62-11"></a><span class="fu">print</span>(sw4<span class="sc">$</span>Title)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Star Wars: Episode IV - A New Hope"</code></pre>
+<pre><code>#&gt; [1] "Star Wars: Episode IV - A New Hope"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="fu">print</span>(sw3<span class="sc">$</span>Title)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Star Wars: Episode III - Revenge of the Sith"</code></pre>
+<pre><code>#&gt; [1] "Star Wars: Episode III - Revenge of the Sith"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Is the release year of sw4 later than sw3?</span></span>
 <span id="cb66-2"><a href="#cb66-2"></a>sw4<span class="sc">$</span>Year <span class="sc">&gt;</span> sw3<span class="sc">$</span>Year</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
+<pre><code>#&gt; [1] FALSE</code></pre>
 </div>
 </div>
 <p>Well done! The fourth episode of the Star Wars saga was released before the third one! Enough of the <a href="http://www.rdocumentation.org/packages/jsonlite/functions/fromJSON"><code>fromJSON()</code></a> now. Let’s try to convert some R data into JSON format now.</p>
@@ -1833,17 +1688,17 @@ $Response
 <span id="cb68-2"><a href="#cb68-2"></a>json1 <span class="ot">&lt;-</span> <span class="st">'[1, 2, 3, 4, 5, 6]'</span></span>
 <span id="cb68-3"><a href="#cb68-3"></a><span class="fu">fromJSON</span>(json1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1 2 3 4 5 6</code></pre>
+<pre><code>#&gt; [1] 1 2 3 4 5 6</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># Challenge 2</span></span>
 <span id="cb70-2"><a href="#cb70-2"></a>json2 <span class="ot">&lt;-</span> <span class="st">'{"a": [1, 2, 3], "b": [4, 5, 6]}'</span></span>
 <span id="cb70-3"><a href="#cb70-3"></a><span class="fu">fromJSON</span>(json2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>$a
-[1] 1 2 3
-
-$b
-[1] 4 5 6</code></pre>
+<pre><code>#&gt; $a
+#&gt; [1] 1 2 3
+#&gt; 
+#&gt; $b
+#&gt; [1] 4 5 6</code></pre>
 </div>
 </div>
 </section>
@@ -1860,37 +1715,19 @@ $b
 <span id="cb72-2"><a href="#cb72-2"></a>json1 <span class="ot">&lt;-</span> <span class="st">'[[1, 2], [3, 4]]'</span></span>
 <span id="cb72-3"><a href="#cb72-3"></a><span class="fu">fromJSON</span>(json1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     [,1] [,2]
-[1,]    1    2
-[2,]    3    4</code></pre>
+<pre><code>#&gt;      [,1] [,2]
+#&gt; [1,]    1    2
+#&gt; [2,]    3    4</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="co"># Challenge 2</span></span>
 <span id="cb74-2"><a href="#cb74-2"></a>json2 <span class="ot">&lt;-</span> <span class="st">'[{"a": 1, "b": 2}, {"a": 3, "b": 4}, {"a": 5, "b": 6}]'</span></span>
 <span id="cb74-3"><a href="#cb74-3"></a><span class="fu">fromJSON</span>(json2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped">
-<thead>
-<tr class="header">
-<th style="text-align: right;">a</th>
-<th style="text-align: right;">b</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">6</td>
-</tr>
-</tbody>
-</table>
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["a"],"name":[1],"type":["int"],"align":["right"]},{"label":["b"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"2","_rn_":"1"},{"1":"3","2":"4","_rn_":"2"},{"1":"5","2":"6","_rn_":"3"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
 </div>
@@ -1919,7 +1756,7 @@ $b
 <span id="cb75-10"><a href="#cb75-10"></a><span class="co"># Print out water_json</span></span>
 <span id="cb75-11"><a href="#cb75-11"></a><span class="fu">print</span>(water_json)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[{"water":"Algeria","X1992":0.064,"X2002":0.017},{"water":"American Samoa"},{"water":"Angola","X1992":0.0001,"X2002":0.0001},{"water":"Antigua and Barbuda","X1992":0.0033},{"water":"Argentina","X1992":0.0007,"X1997":0.0007,"X2002":0.0007},{"water":"Australia","X1992":0.0298,"X2002":0.0298},{"water":"Austria","X1992":0.0022,"X2002":0.0022},{"water":"Bahamas","X1992":0.0013,"X2002":0.0074},{"water":"Bahrain","X1992":0.0441,"X2002":0.0441,"X2007":0.1024},{"water":"Barbados","X2007":0.0146},{"water":"British Virgin Islands","X2007":0.0042},{"water":"Canada","X1992":0.0027,"X2002":0.0027},{"water":"Cape Verde","X1992":0.002,"X1997":0.0017},{"water":"Cayman Islands","X1992":0.0033},{"water":"Central African Rep."},{"water":"Chile","X1992":0.0048,"X2002":0.0048},{"water":"Colombia","X1992":0.0027,"X2002":0.0027},{"water":"Cuba","X1992":0.0069,"X1997":0.0069,"X2002":0.0069},{"water":"Cyprus","X1992":0.003,"X1997":0.003,"X2002":0.0335},{"water":"Czech Rep.","X1992":0.0002,"X2002":0.0002},{"water":"Denmark","X1992":0.015,"X2002":0.015},{"water":"Djibouti","X1992":0.0001,"X2002":0.0001},{"water":"Ecuador","X1992":0.0022,"X1997":0.0022,"X2002":0.0022},{"water":"Egypt","X1992":0.025,"X1997":0.025,"X2002":0.1},{"water":"El Salvador","X1992":0.0001,"X2002":0.0001},{"water":"Finland","X1992":0.0001,"X2002":0.0001},{"water":"France","X1992":0.0117,"X2002":0.0117},{"water":"Gibraltar","X1992":0.0077},{"water":"Greece","X1992":0.01,"X2002":0.01},{"water":"Honduras","X1992":0.0002,"X2002":0.0002},{"water":"Hungary","X1992":0.0002,"X2002":0.0002},{"water":"India","X1997":0.0005,"X2002":0.0005},{"water":"Indonesia","X1992":0.0187,"X2002":0.0187},{"water":"Iran","X1992":0.003,"X1997":0.003,"X2002":0.003,"X2007":0.2},{"water":"Iraq","X1997":0.0074,"X2002":0.0074},{"water":"Ireland","X1992":0.0002,"X2002":0.0002},{"water":"Israel","X1992":0.0256,"X2002":0.0256,"X2007":0.14},{"water":"Italy","X1992":0.0973,"X2002":0.0973},{"water":"Jamaica","X1992":0.0005,"X1997":0.0005,"X2002":0.0005},{"water":"Japan","X1997":0.04,"X2002":0.04},{"water":"Jordan","X1997":0.002,"X2007":0.0098},{"water":"Kazakhstan","X1997":1.328,"X2002":1.328},{"water":"Kuwait","X1992":0.507,"X1997":0.231,"X2002":0.4202},{"water":"Lebanon","X2007":0.0473},{"water":"Libya","X2002":0.018},{"water":"Malaysia","X1992":0.0043,"X2002":0.0043},{"water":"Maldives","X1992":0.0004},{"water":"Malta","X1992":0.024,"X1997":0.031,"X2002":0.031},{"water":"Marshall Islands","X1992":0.0007},{"water":"Mauritania","X1992":0.002,"X2002":0.002},{"water":"Mexico","X1992":0.0307,"X2002":0.0307},{"water":"Morocco","X1992":0.0034,"X1997":0.0034,"X2002":0.007},{"water":"Namibia","X1992":0.0003,"X2002":0.0003},{"water":"Netherlands Antilles","X1992":0.063},{"water":"Nicaragua","X1992":0.0002,"X2002":0.0002},{"water":"Nigeria","X1992":0.003,"X2002":0.003},{"water":"Norway","X1992":0.0001,"X2002":0.0001},{"water":"Oman","X1997":0.034,"X2002":0.034,"X2007":0.109},{"water":"Peru","X1992":0.0054,"X2002":0.0054},{"water":"Poland","X1992":0.007,"X2002":0.007},{"water":"Portugal","X1992":0.0016,"X2002":0.0016},{"water":"Qatar","X1992":0.065,"X1997":0.099,"X2002":0.099,"X2007":0.18},{"water":"Saudi Arabia","X1992":0.683,"X1997":0.727,"X2002":0.863,"X2007":1.033},{"water":"Senegal","X1992":0,"X2002":0},{"water":"Somalia","X1992":0.0001,"X2002":0.0001},{"water":"South Africa","X1992":0.018,"X2002":0.018},{"water":"Spain","X1992":0.1002,"X2002":0.1002},{"water":"Sudan","X1992":0.0004,"X1997":0.0004,"X2002":0.0004},{"water":"Sweden","X1992":0.0002,"X2002":0.0002},{"water":"Trinidad and Tobago","X2007":0.036},{"water":"Tunisia","X1992":0.008,"X2002":0.013},{"water":"Turkey","X1992":0.0005,"X2002":0.0005,"X2007":0.0005},{"water":"United Arab Emirates","X1992":0.163,"X1997":0.385,"X2007":0.95},{"water":"United Kingdom","X1992":0.0333,"X2002":0.0333},{"water":"United States","X1992":0.58,"X2002":0.58},{"water":"Venezuela","X1992":0.0052,"X2002":0.0052},{"water":"Yemen, Rep.","X1992":0.01,"X2002":0.01}] </code></pre>
+<pre><code>#&gt; [{"water":"Algeria","X1992":0.064,"X2002":0.017},{"water":"American Samoa"},{"water":"Angola","X1992":0.0001,"X2002":0.0001},{"water":"Antigua and Barbuda","X1992":0.0033},{"water":"Argentina","X1992":0.0007,"X1997":0.0007,"X2002":0.0007},{"water":"Australia","X1992":0.0298,"X2002":0.0298},{"water":"Austria","X1992":0.0022,"X2002":0.0022},{"water":"Bahamas","X1992":0.0013,"X2002":0.0074},{"water":"Bahrain","X1992":0.0441,"X2002":0.0441,"X2007":0.1024},{"water":"Barbados","X2007":0.0146},{"water":"British Virgin Islands","X2007":0.0042},{"water":"Canada","X1992":0.0027,"X2002":0.0027},{"water":"Cape Verde","X1992":0.002,"X1997":0.0017},{"water":"Cayman Islands","X1992":0.0033},{"water":"Central African Rep."},{"water":"Chile","X1992":0.0048,"X2002":0.0048},{"water":"Colombia","X1992":0.0027,"X2002":0.0027},{"water":"Cuba","X1992":0.0069,"X1997":0.0069,"X2002":0.0069},{"water":"Cyprus","X1992":0.003,"X1997":0.003,"X2002":0.0335},{"water":"Czech Rep.","X1992":0.0002,"X2002":0.0002},{"water":"Denmark","X1992":0.015,"X2002":0.015},{"water":"Djibouti","X1992":0.0001,"X2002":0.0001},{"water":"Ecuador","X1992":0.0022,"X1997":0.0022,"X2002":0.0022},{"water":"Egypt","X1992":0.025,"X1997":0.025,"X2002":0.1},{"water":"El Salvador","X1992":0.0001,"X2002":0.0001},{"water":"Finland","X1992":0.0001,"X2002":0.0001},{"water":"France","X1992":0.0117,"X2002":0.0117},{"water":"Gibraltar","X1992":0.0077},{"water":"Greece","X1992":0.01,"X2002":0.01},{"water":"Honduras","X1992":0.0002,"X2002":0.0002},{"water":"Hungary","X1992":0.0002,"X2002":0.0002},{"water":"India","X1997":0.0005,"X2002":0.0005},{"water":"Indonesia","X1992":0.0187,"X2002":0.0187},{"water":"Iran","X1992":0.003,"X1997":0.003,"X2002":0.003,"X2007":0.2},{"water":"Iraq","X1997":0.0074,"X2002":0.0074},{"water":"Ireland","X1992":0.0002,"X2002":0.0002},{"water":"Israel","X1992":0.0256,"X2002":0.0256,"X2007":0.14},{"water":"Italy","X1992":0.0973,"X2002":0.0973},{"water":"Jamaica","X1992":0.0005,"X1997":0.0005,"X2002":0.0005},{"water":"Japan","X1997":0.04,"X2002":0.04},{"water":"Jordan","X1997":0.002,"X2007":0.0098},{"water":"Kazakhstan","X1997":1.328,"X2002":1.328},{"water":"Kuwait","X1992":0.507,"X1997":0.231,"X2002":0.4202},{"water":"Lebanon","X2007":0.0473},{"water":"Libya","X2002":0.018},{"water":"Malaysia","X1992":0.0043,"X2002":0.0043},{"water":"Maldives","X1992":0.0004},{"water":"Malta","X1992":0.024,"X1997":0.031,"X2002":0.031},{"water":"Marshall Islands","X1992":0.0007},{"water":"Mauritania","X1992":0.002,"X2002":0.002},{"water":"Mexico","X1992":0.0307,"X2002":0.0307},{"water":"Morocco","X1992":0.0034,"X1997":0.0034,"X2002":0.007},{"water":"Namibia","X1992":0.0003,"X2002":0.0003},{"water":"Netherlands Antilles","X1992":0.063},{"water":"Nicaragua","X1992":0.0002,"X2002":0.0002},{"water":"Nigeria","X1992":0.003,"X2002":0.003},{"water":"Norway","X1992":0.0001,"X2002":0.0001},{"water":"Oman","X1997":0.034,"X2002":0.034,"X2007":0.109},{"water":"Peru","X1992":0.0054,"X2002":0.0054},{"water":"Poland","X1992":0.007,"X2002":0.007},{"water":"Portugal","X1992":0.0016,"X2002":0.0016},{"water":"Qatar","X1992":0.065,"X1997":0.099,"X2002":0.099,"X2007":0.18},{"water":"Saudi Arabia","X1992":0.683,"X1997":0.727,"X2002":0.863,"X2007":1.033},{"water":"Senegal","X1992":0,"X2002":0},{"water":"Somalia","X1992":0.0001,"X2002":0.0001},{"water":"South Africa","X1992":0.018,"X2002":0.018},{"water":"Spain","X1992":0.1002,"X2002":0.1002},{"water":"Sudan","X1992":0.0004,"X1997":0.0004,"X2002":0.0004},{"water":"Sweden","X1992":0.0002,"X2002":0.0002},{"water":"Trinidad and Tobago","X2007":0.036},{"water":"Tunisia","X1992":0.008,"X2002":0.013},{"water":"Turkey","X1992":0.0005,"X2002":0.0005,"X2007":0.0005},{"water":"United Arab Emirates","X1992":0.163,"X1997":0.385,"X2007":0.95},{"water":"United Kingdom","X1992":0.0333,"X2002":0.0333},{"water":"United States","X1992":0.58,"X2002":0.58},{"water":"Venezuela","X1992":0.0052,"X2002":0.0052},{"water":"Yemen, Rep.","X1992":0.01,"X2002":0.01}]</code></pre>
 </div>
 </div>
 <p>Congratulations! As you can see, the JSON you printed out isn’t easy to read. In the next exercise, you will print out some more JSONs, and explore ways to prettify or minify the output.</p>
@@ -1954,456 +1791,456 @@ $b
 <span id="cb78-4"><a href="#cb78-4"></a><span class="co"># Print pretty_json</span></span>
 <span id="cb78-5"><a href="#cb78-5"></a>pretty_json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[
-  {
-    "mpg": 21,
-    "cyl": 6,
-    "disp": 160,
-    "hp": 110,
-    "drat": 3.9,
-    "wt": 2.62,
-    "qsec": 16.46,
-    "vs": 0,
-    "am": 1,
-    "gear": 4,
-    "carb": 4,
-    "_row": "Mazda RX4"
-  },
-  {
-    "mpg": 21,
-    "cyl": 6,
-    "disp": 160,
-    "hp": 110,
-    "drat": 3.9,
-    "wt": 2.875,
-    "qsec": 17.02,
-    "vs": 0,
-    "am": 1,
-    "gear": 4,
-    "carb": 4,
-    "_row": "Mazda RX4 Wag"
-  },
-  {
-    "mpg": 22.8,
-    "cyl": 4,
-    "disp": 108,
-    "hp": 93,
-    "drat": 3.85,
-    "wt": 2.32,
-    "qsec": 18.61,
-    "vs": 1,
-    "am": 1,
-    "gear": 4,
-    "carb": 1,
-    "_row": "Datsun 710"
-  },
-  {
-    "mpg": 21.4,
-    "cyl": 6,
-    "disp": 258,
-    "hp": 110,
-    "drat": 3.08,
-    "wt": 3.215,
-    "qsec": 19.44,
-    "vs": 1,
-    "am": 0,
-    "gear": 3,
-    "carb": 1,
-    "_row": "Hornet 4 Drive"
-  },
-  {
-    "mpg": 18.7,
-    "cyl": 8,
-    "disp": 360,
-    "hp": 175,
-    "drat": 3.15,
-    "wt": 3.44,
-    "qsec": 17.02,
-    "vs": 0,
-    "am": 0,
-    "gear": 3,
-    "carb": 2,
-    "_row": "Hornet Sportabout"
-  },
-  {
-    "mpg": 18.1,
-    "cyl": 6,
-    "disp": 225,
-    "hp": 105,
-    "drat": 2.76,
-    "wt": 3.46,
-    "qsec": 20.22,
-    "vs": 1,
-    "am": 0,
-    "gear": 3,
-    "carb": 1,
-    "_row": "Valiant"
-  },
-  {
-    "mpg": 14.3,
-    "cyl": 8,
-    "disp": 360,
-    "hp": 245,
-    "drat": 3.21,
-    "wt": 3.57,
-    "qsec": 15.84,
-    "vs": 0,
-    "am": 0,
-    "gear": 3,
-    "carb": 4,
-    "_row": "Duster 360"
-  },
-  {
-    "mpg": 24.4,
-    "cyl": 4,
-    "disp": 146.7,
-    "hp": 62,
-    "drat": 3.69,
-    "wt": 3.19,
-    "qsec": 20,
-    "vs": 1,
-    "am": 0,
-    "gear": 4,
-    "carb": 2,
-    "_row": "Merc 240D"
-  },
-  {
-    "mpg": 22.8,
-    "cyl": 4,
-    "disp": 140.8,
-    "hp": 95,
-    "drat": 3.92,
-    "wt": 3.15,
-    "qsec": 22.9,
-    "vs": 1,
-    "am": 0,
-    "gear": 4,
-    "carb": 2,
-    "_row": "Merc 230"
-  },
-  {
-    "mpg": 19.2,
-    "cyl": 6,
-    "disp": 167.6,
-    "hp": 123,
-    "drat": 3.92,
-    "wt": 3.44,
-    "qsec": 18.3,
-    "vs": 1,
-    "am": 0,
-    "gear": 4,
-    "carb": 4,
-    "_row": "Merc 280"
-  },
-  {
-    "mpg": 17.8,
-    "cyl": 6,
-    "disp": 167.6,
-    "hp": 123,
-    "drat": 3.92,
-    "wt": 3.44,
-    "qsec": 18.9,
-    "vs": 1,
-    "am": 0,
-    "gear": 4,
-    "carb": 4,
-    "_row": "Merc 280C"
-  },
-  {
-    "mpg": 16.4,
-    "cyl": 8,
-    "disp": 275.8,
-    "hp": 180,
-    "drat": 3.07,
-    "wt": 4.07,
-    "qsec": 17.4,
-    "vs": 0,
-    "am": 0,
-    "gear": 3,
-    "carb": 3,
-    "_row": "Merc 450SE"
-  },
-  {
-    "mpg": 17.3,
-    "cyl": 8,
-    "disp": 275.8,
-    "hp": 180,
-    "drat": 3.07,
-    "wt": 3.73,
-    "qsec": 17.6,
-    "vs": 0,
-    "am": 0,
-    "gear": 3,
-    "carb": 3,
-    "_row": "Merc 450SL"
-  },
-  {
-    "mpg": 15.2,
-    "cyl": 8,
-    "disp": 275.8,
-    "hp": 180,
-    "drat": 3.07,
-    "wt": 3.78,
-    "qsec": 18,
-    "vs": 0,
-    "am": 0,
-    "gear": 3,
-    "carb": 3,
-    "_row": "Merc 450SLC"
-  },
-  {
-    "mpg": 10.4,
-    "cyl": 8,
-    "disp": 472,
-    "hp": 205,
-    "drat": 2.93,
-    "wt": 5.25,
-    "qsec": 17.98,
-    "vs": 0,
-    "am": 0,
-    "gear": 3,
-    "carb": 4,
-    "_row": "Cadillac Fleetwood"
-  },
-  {
-    "mpg": 10.4,
-    "cyl": 8,
-    "disp": 460,
-    "hp": 215,
-    "drat": 3,
-    "wt": 5.424,
-    "qsec": 17.82,
-    "vs": 0,
-    "am": 0,
-    "gear": 3,
-    "carb": 4,
-    "_row": "Lincoln Continental"
-  },
-  {
-    "mpg": 14.7,
-    "cyl": 8,
-    "disp": 440,
-    "hp": 230,
-    "drat": 3.23,
-    "wt": 5.345,
-    "qsec": 17.42,
-    "vs": 0,
-    "am": 0,
-    "gear": 3,
-    "carb": 4,
-    "_row": "Chrysler Imperial"
-  },
-  {
-    "mpg": 32.4,
-    "cyl": 4,
-    "disp": 78.7,
-    "hp": 66,
-    "drat": 4.08,
-    "wt": 2.2,
-    "qsec": 19.47,
-    "vs": 1,
-    "am": 1,
-    "gear": 4,
-    "carb": 1,
-    "_row": "Fiat 128"
-  },
-  {
-    "mpg": 30.4,
-    "cyl": 4,
-    "disp": 75.7,
-    "hp": 52,
-    "drat": 4.93,
-    "wt": 1.615,
-    "qsec": 18.52,
-    "vs": 1,
-    "am": 1,
-    "gear": 4,
-    "carb": 2,
-    "_row": "Honda Civic"
-  },
-  {
-    "mpg": 33.9,
-    "cyl": 4,
-    "disp": 71.1,
-    "hp": 65,
-    "drat": 4.22,
-    "wt": 1.835,
-    "qsec": 19.9,
-    "vs": 1,
-    "am": 1,
-    "gear": 4,
-    "carb": 1,
-    "_row": "Toyota Corolla"
-  },
-  {
-    "mpg": 21.5,
-    "cyl": 4,
-    "disp": 120.1,
-    "hp": 97,
-    "drat": 3.7,
-    "wt": 2.465,
-    "qsec": 20.01,
-    "vs": 1,
-    "am": 0,
-    "gear": 3,
-    "carb": 1,
-    "_row": "Toyota Corona"
-  },
-  {
-    "mpg": 15.5,
-    "cyl": 8,
-    "disp": 318,
-    "hp": 150,
-    "drat": 2.76,
-    "wt": 3.52,
-    "qsec": 16.87,
-    "vs": 0,
-    "am": 0,
-    "gear": 3,
-    "carb": 2,
-    "_row": "Dodge Challenger"
-  },
-  {
-    "mpg": 15.2,
-    "cyl": 8,
-    "disp": 304,
-    "hp": 150,
-    "drat": 3.15,
-    "wt": 3.435,
-    "qsec": 17.3,
-    "vs": 0,
-    "am": 0,
-    "gear": 3,
-    "carb": 2,
-    "_row": "AMC Javelin"
-  },
-  {
-    "mpg": 13.3,
-    "cyl": 8,
-    "disp": 350,
-    "hp": 245,
-    "drat": 3.73,
-    "wt": 3.84,
-    "qsec": 15.41,
-    "vs": 0,
-    "am": 0,
-    "gear": 3,
-    "carb": 4,
-    "_row": "Camaro Z28"
-  },
-  {
-    "mpg": 19.2,
-    "cyl": 8,
-    "disp": 400,
-    "hp": 175,
-    "drat": 3.08,
-    "wt": 3.845,
-    "qsec": 17.05,
-    "vs": 0,
-    "am": 0,
-    "gear": 3,
-    "carb": 2,
-    "_row": "Pontiac Firebird"
-  },
-  {
-    "mpg": 27.3,
-    "cyl": 4,
-    "disp": 79,
-    "hp": 66,
-    "drat": 4.08,
-    "wt": 1.935,
-    "qsec": 18.9,
-    "vs": 1,
-    "am": 1,
-    "gear": 4,
-    "carb": 1,
-    "_row": "Fiat X1-9"
-  },
-  {
-    "mpg": 26,
-    "cyl": 4,
-    "disp": 120.3,
-    "hp": 91,
-    "drat": 4.43,
-    "wt": 2.14,
-    "qsec": 16.7,
-    "vs": 0,
-    "am": 1,
-    "gear": 5,
-    "carb": 2,
-    "_row": "Porsche 914-2"
-  },
-  {
-    "mpg": 30.4,
-    "cyl": 4,
-    "disp": 95.1,
-    "hp": 113,
-    "drat": 3.77,
-    "wt": 1.513,
-    "qsec": 16.9,
-    "vs": 1,
-    "am": 1,
-    "gear": 5,
-    "carb": 2,
-    "_row": "Lotus Europa"
-  },
-  {
-    "mpg": 15.8,
-    "cyl": 8,
-    "disp": 351,
-    "hp": 264,
-    "drat": 4.22,
-    "wt": 3.17,
-    "qsec": 14.5,
-    "vs": 0,
-    "am": 1,
-    "gear": 5,
-    "carb": 4,
-    "_row": "Ford Pantera L"
-  },
-  {
-    "mpg": 19.7,
-    "cyl": 6,
-    "disp": 145,
-    "hp": 175,
-    "drat": 3.62,
-    "wt": 2.77,
-    "qsec": 15.5,
-    "vs": 0,
-    "am": 1,
-    "gear": 5,
-    "carb": 6,
-    "_row": "Ferrari Dino"
-  },
-  {
-    "mpg": 15,
-    "cyl": 8,
-    "disp": 301,
-    "hp": 335,
-    "drat": 3.54,
-    "wt": 3.57,
-    "qsec": 14.6,
-    "vs": 0,
-    "am": 1,
-    "gear": 5,
-    "carb": 8,
-    "_row": "Maserati Bora"
-  },
-  {
-    "mpg": 21.4,
-    "cyl": 4,
-    "disp": 121,
-    "hp": 109,
-    "drat": 4.11,
-    "wt": 2.78,
-    "qsec": 18.6,
-    "vs": 1,
-    "am": 1,
-    "gear": 4,
-    "carb": 2,
-    "_row": "Volvo 142E"
-  }
-] </code></pre>
+<pre><code>#&gt; [
+#&gt;   {
+#&gt;     "mpg": 21,
+#&gt;     "cyl": 6,
+#&gt;     "disp": 160,
+#&gt;     "hp": 110,
+#&gt;     "drat": 3.9,
+#&gt;     "wt": 2.62,
+#&gt;     "qsec": 16.46,
+#&gt;     "vs": 0,
+#&gt;     "am": 1,
+#&gt;     "gear": 4,
+#&gt;     "carb": 4,
+#&gt;     "_row": "Mazda RX4"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 21,
+#&gt;     "cyl": 6,
+#&gt;     "disp": 160,
+#&gt;     "hp": 110,
+#&gt;     "drat": 3.9,
+#&gt;     "wt": 2.875,
+#&gt;     "qsec": 17.02,
+#&gt;     "vs": 0,
+#&gt;     "am": 1,
+#&gt;     "gear": 4,
+#&gt;     "carb": 4,
+#&gt;     "_row": "Mazda RX4 Wag"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 22.8,
+#&gt;     "cyl": 4,
+#&gt;     "disp": 108,
+#&gt;     "hp": 93,
+#&gt;     "drat": 3.85,
+#&gt;     "wt": 2.32,
+#&gt;     "qsec": 18.61,
+#&gt;     "vs": 1,
+#&gt;     "am": 1,
+#&gt;     "gear": 4,
+#&gt;     "carb": 1,
+#&gt;     "_row": "Datsun 710"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 21.4,
+#&gt;     "cyl": 6,
+#&gt;     "disp": 258,
+#&gt;     "hp": 110,
+#&gt;     "drat": 3.08,
+#&gt;     "wt": 3.215,
+#&gt;     "qsec": 19.44,
+#&gt;     "vs": 1,
+#&gt;     "am": 0,
+#&gt;     "gear": 3,
+#&gt;     "carb": 1,
+#&gt;     "_row": "Hornet 4 Drive"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 18.7,
+#&gt;     "cyl": 8,
+#&gt;     "disp": 360,
+#&gt;     "hp": 175,
+#&gt;     "drat": 3.15,
+#&gt;     "wt": 3.44,
+#&gt;     "qsec": 17.02,
+#&gt;     "vs": 0,
+#&gt;     "am": 0,
+#&gt;     "gear": 3,
+#&gt;     "carb": 2,
+#&gt;     "_row": "Hornet Sportabout"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 18.1,
+#&gt;     "cyl": 6,
+#&gt;     "disp": 225,
+#&gt;     "hp": 105,
+#&gt;     "drat": 2.76,
+#&gt;     "wt": 3.46,
+#&gt;     "qsec": 20.22,
+#&gt;     "vs": 1,
+#&gt;     "am": 0,
+#&gt;     "gear": 3,
+#&gt;     "carb": 1,
+#&gt;     "_row": "Valiant"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 14.3,
+#&gt;     "cyl": 8,
+#&gt;     "disp": 360,
+#&gt;     "hp": 245,
+#&gt;     "drat": 3.21,
+#&gt;     "wt": 3.57,
+#&gt;     "qsec": 15.84,
+#&gt;     "vs": 0,
+#&gt;     "am": 0,
+#&gt;     "gear": 3,
+#&gt;     "carb": 4,
+#&gt;     "_row": "Duster 360"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 24.4,
+#&gt;     "cyl": 4,
+#&gt;     "disp": 146.7,
+#&gt;     "hp": 62,
+#&gt;     "drat": 3.69,
+#&gt;     "wt": 3.19,
+#&gt;     "qsec": 20,
+#&gt;     "vs": 1,
+#&gt;     "am": 0,
+#&gt;     "gear": 4,
+#&gt;     "carb": 2,
+#&gt;     "_row": "Merc 240D"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 22.8,
+#&gt;     "cyl": 4,
+#&gt;     "disp": 140.8,
+#&gt;     "hp": 95,
+#&gt;     "drat": 3.92,
+#&gt;     "wt": 3.15,
+#&gt;     "qsec": 22.9,
+#&gt;     "vs": 1,
+#&gt;     "am": 0,
+#&gt;     "gear": 4,
+#&gt;     "carb": 2,
+#&gt;     "_row": "Merc 230"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 19.2,
+#&gt;     "cyl": 6,
+#&gt;     "disp": 167.6,
+#&gt;     "hp": 123,
+#&gt;     "drat": 3.92,
+#&gt;     "wt": 3.44,
+#&gt;     "qsec": 18.3,
+#&gt;     "vs": 1,
+#&gt;     "am": 0,
+#&gt;     "gear": 4,
+#&gt;     "carb": 4,
+#&gt;     "_row": "Merc 280"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 17.8,
+#&gt;     "cyl": 6,
+#&gt;     "disp": 167.6,
+#&gt;     "hp": 123,
+#&gt;     "drat": 3.92,
+#&gt;     "wt": 3.44,
+#&gt;     "qsec": 18.9,
+#&gt;     "vs": 1,
+#&gt;     "am": 0,
+#&gt;     "gear": 4,
+#&gt;     "carb": 4,
+#&gt;     "_row": "Merc 280C"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 16.4,
+#&gt;     "cyl": 8,
+#&gt;     "disp": 275.8,
+#&gt;     "hp": 180,
+#&gt;     "drat": 3.07,
+#&gt;     "wt": 4.07,
+#&gt;     "qsec": 17.4,
+#&gt;     "vs": 0,
+#&gt;     "am": 0,
+#&gt;     "gear": 3,
+#&gt;     "carb": 3,
+#&gt;     "_row": "Merc 450SE"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 17.3,
+#&gt;     "cyl": 8,
+#&gt;     "disp": 275.8,
+#&gt;     "hp": 180,
+#&gt;     "drat": 3.07,
+#&gt;     "wt": 3.73,
+#&gt;     "qsec": 17.6,
+#&gt;     "vs": 0,
+#&gt;     "am": 0,
+#&gt;     "gear": 3,
+#&gt;     "carb": 3,
+#&gt;     "_row": "Merc 450SL"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 15.2,
+#&gt;     "cyl": 8,
+#&gt;     "disp": 275.8,
+#&gt;     "hp": 180,
+#&gt;     "drat": 3.07,
+#&gt;     "wt": 3.78,
+#&gt;     "qsec": 18,
+#&gt;     "vs": 0,
+#&gt;     "am": 0,
+#&gt;     "gear": 3,
+#&gt;     "carb": 3,
+#&gt;     "_row": "Merc 450SLC"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 10.4,
+#&gt;     "cyl": 8,
+#&gt;     "disp": 472,
+#&gt;     "hp": 205,
+#&gt;     "drat": 2.93,
+#&gt;     "wt": 5.25,
+#&gt;     "qsec": 17.98,
+#&gt;     "vs": 0,
+#&gt;     "am": 0,
+#&gt;     "gear": 3,
+#&gt;     "carb": 4,
+#&gt;     "_row": "Cadillac Fleetwood"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 10.4,
+#&gt;     "cyl": 8,
+#&gt;     "disp": 460,
+#&gt;     "hp": 215,
+#&gt;     "drat": 3,
+#&gt;     "wt": 5.424,
+#&gt;     "qsec": 17.82,
+#&gt;     "vs": 0,
+#&gt;     "am": 0,
+#&gt;     "gear": 3,
+#&gt;     "carb": 4,
+#&gt;     "_row": "Lincoln Continental"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 14.7,
+#&gt;     "cyl": 8,
+#&gt;     "disp": 440,
+#&gt;     "hp": 230,
+#&gt;     "drat": 3.23,
+#&gt;     "wt": 5.345,
+#&gt;     "qsec": 17.42,
+#&gt;     "vs": 0,
+#&gt;     "am": 0,
+#&gt;     "gear": 3,
+#&gt;     "carb": 4,
+#&gt;     "_row": "Chrysler Imperial"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 32.4,
+#&gt;     "cyl": 4,
+#&gt;     "disp": 78.7,
+#&gt;     "hp": 66,
+#&gt;     "drat": 4.08,
+#&gt;     "wt": 2.2,
+#&gt;     "qsec": 19.47,
+#&gt;     "vs": 1,
+#&gt;     "am": 1,
+#&gt;     "gear": 4,
+#&gt;     "carb": 1,
+#&gt;     "_row": "Fiat 128"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 30.4,
+#&gt;     "cyl": 4,
+#&gt;     "disp": 75.7,
+#&gt;     "hp": 52,
+#&gt;     "drat": 4.93,
+#&gt;     "wt": 1.615,
+#&gt;     "qsec": 18.52,
+#&gt;     "vs": 1,
+#&gt;     "am": 1,
+#&gt;     "gear": 4,
+#&gt;     "carb": 2,
+#&gt;     "_row": "Honda Civic"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 33.9,
+#&gt;     "cyl": 4,
+#&gt;     "disp": 71.1,
+#&gt;     "hp": 65,
+#&gt;     "drat": 4.22,
+#&gt;     "wt": 1.835,
+#&gt;     "qsec": 19.9,
+#&gt;     "vs": 1,
+#&gt;     "am": 1,
+#&gt;     "gear": 4,
+#&gt;     "carb": 1,
+#&gt;     "_row": "Toyota Corolla"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 21.5,
+#&gt;     "cyl": 4,
+#&gt;     "disp": 120.1,
+#&gt;     "hp": 97,
+#&gt;     "drat": 3.7,
+#&gt;     "wt": 2.465,
+#&gt;     "qsec": 20.01,
+#&gt;     "vs": 1,
+#&gt;     "am": 0,
+#&gt;     "gear": 3,
+#&gt;     "carb": 1,
+#&gt;     "_row": "Toyota Corona"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 15.5,
+#&gt;     "cyl": 8,
+#&gt;     "disp": 318,
+#&gt;     "hp": 150,
+#&gt;     "drat": 2.76,
+#&gt;     "wt": 3.52,
+#&gt;     "qsec": 16.87,
+#&gt;     "vs": 0,
+#&gt;     "am": 0,
+#&gt;     "gear": 3,
+#&gt;     "carb": 2,
+#&gt;     "_row": "Dodge Challenger"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 15.2,
+#&gt;     "cyl": 8,
+#&gt;     "disp": 304,
+#&gt;     "hp": 150,
+#&gt;     "drat": 3.15,
+#&gt;     "wt": 3.435,
+#&gt;     "qsec": 17.3,
+#&gt;     "vs": 0,
+#&gt;     "am": 0,
+#&gt;     "gear": 3,
+#&gt;     "carb": 2,
+#&gt;     "_row": "AMC Javelin"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 13.3,
+#&gt;     "cyl": 8,
+#&gt;     "disp": 350,
+#&gt;     "hp": 245,
+#&gt;     "drat": 3.73,
+#&gt;     "wt": 3.84,
+#&gt;     "qsec": 15.41,
+#&gt;     "vs": 0,
+#&gt;     "am": 0,
+#&gt;     "gear": 3,
+#&gt;     "carb": 4,
+#&gt;     "_row": "Camaro Z28"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 19.2,
+#&gt;     "cyl": 8,
+#&gt;     "disp": 400,
+#&gt;     "hp": 175,
+#&gt;     "drat": 3.08,
+#&gt;     "wt": 3.845,
+#&gt;     "qsec": 17.05,
+#&gt;     "vs": 0,
+#&gt;     "am": 0,
+#&gt;     "gear": 3,
+#&gt;     "carb": 2,
+#&gt;     "_row": "Pontiac Firebird"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 27.3,
+#&gt;     "cyl": 4,
+#&gt;     "disp": 79,
+#&gt;     "hp": 66,
+#&gt;     "drat": 4.08,
+#&gt;     "wt": 1.935,
+#&gt;     "qsec": 18.9,
+#&gt;     "vs": 1,
+#&gt;     "am": 1,
+#&gt;     "gear": 4,
+#&gt;     "carb": 1,
+#&gt;     "_row": "Fiat X1-9"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 26,
+#&gt;     "cyl": 4,
+#&gt;     "disp": 120.3,
+#&gt;     "hp": 91,
+#&gt;     "drat": 4.43,
+#&gt;     "wt": 2.14,
+#&gt;     "qsec": 16.7,
+#&gt;     "vs": 0,
+#&gt;     "am": 1,
+#&gt;     "gear": 5,
+#&gt;     "carb": 2,
+#&gt;     "_row": "Porsche 914-2"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 30.4,
+#&gt;     "cyl": 4,
+#&gt;     "disp": 95.1,
+#&gt;     "hp": 113,
+#&gt;     "drat": 3.77,
+#&gt;     "wt": 1.513,
+#&gt;     "qsec": 16.9,
+#&gt;     "vs": 1,
+#&gt;     "am": 1,
+#&gt;     "gear": 5,
+#&gt;     "carb": 2,
+#&gt;     "_row": "Lotus Europa"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 15.8,
+#&gt;     "cyl": 8,
+#&gt;     "disp": 351,
+#&gt;     "hp": 264,
+#&gt;     "drat": 4.22,
+#&gt;     "wt": 3.17,
+#&gt;     "qsec": 14.5,
+#&gt;     "vs": 0,
+#&gt;     "am": 1,
+#&gt;     "gear": 5,
+#&gt;     "carb": 4,
+#&gt;     "_row": "Ford Pantera L"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 19.7,
+#&gt;     "cyl": 6,
+#&gt;     "disp": 145,
+#&gt;     "hp": 175,
+#&gt;     "drat": 3.62,
+#&gt;     "wt": 2.77,
+#&gt;     "qsec": 15.5,
+#&gt;     "vs": 0,
+#&gt;     "am": 1,
+#&gt;     "gear": 5,
+#&gt;     "carb": 6,
+#&gt;     "_row": "Ferrari Dino"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 15,
+#&gt;     "cyl": 8,
+#&gt;     "disp": 301,
+#&gt;     "hp": 335,
+#&gt;     "drat": 3.54,
+#&gt;     "wt": 3.57,
+#&gt;     "qsec": 14.6,
+#&gt;     "vs": 0,
+#&gt;     "am": 1,
+#&gt;     "gear": 5,
+#&gt;     "carb": 8,
+#&gt;     "_row": "Maserati Bora"
+#&gt;   },
+#&gt;   {
+#&gt;     "mpg": 21.4,
+#&gt;     "cyl": 4,
+#&gt;     "disp": 121,
+#&gt;     "hp": 109,
+#&gt;     "drat": 4.11,
+#&gt;     "wt": 2.78,
+#&gt;     "qsec": 18.6,
+#&gt;     "vs": 1,
+#&gt;     "am": 1,
+#&gt;     "gear": 4,
+#&gt;     "carb": 2,
+#&gt;     "_row": "Volvo 142E"
+#&gt;   }
+#&gt; ]</code></pre>
 </div>
 </div>
 <ol start="3" type="1">
@@ -2417,7 +2254,7 @@ $b
 <span id="cb80-4"><a href="#cb80-4"></a><span class="co"># Print mini_json</span></span>
 <span id="cb80-5"><a href="#cb80-5"></a>mini_json</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[{"mpg":21,"cyl":6,"disp":160,"hp":110,"drat":3.9,"wt":2.62,"qsec":16.46,"vs":0,"am":1,"gear":4,"carb":4,"_row":"Mazda RX4"},{"mpg":21,"cyl":6,"disp":160,"hp":110,"drat":3.9,"wt":2.875,"qsec":17.02,"vs":0,"am":1,"gear":4,"carb":4,"_row":"Mazda RX4 Wag"},{"mpg":22.8,"cyl":4,"disp":108,"hp":93,"drat":3.85,"wt":2.32,"qsec":18.61,"vs":1,"am":1,"gear":4,"carb":1,"_row":"Datsun 710"},{"mpg":21.4,"cyl":6,"disp":258,"hp":110,"drat":3.08,"wt":3.215,"qsec":19.44,"vs":1,"am":0,"gear":3,"carb":1,"_row":"Hornet 4 Drive"},{"mpg":18.7,"cyl":8,"disp":360,"hp":175,"drat":3.15,"wt":3.44,"qsec":17.02,"vs":0,"am":0,"gear":3,"carb":2,"_row":"Hornet Sportabout"},{"mpg":18.1,"cyl":6,"disp":225,"hp":105,"drat":2.76,"wt":3.46,"qsec":20.22,"vs":1,"am":0,"gear":3,"carb":1,"_row":"Valiant"},{"mpg":14.3,"cyl":8,"disp":360,"hp":245,"drat":3.21,"wt":3.57,"qsec":15.84,"vs":0,"am":0,"gear":3,"carb":4,"_row":"Duster 360"},{"mpg":24.4,"cyl":4,"disp":146.7,"hp":62,"drat":3.69,"wt":3.19,"qsec":20,"vs":1,"am":0,"gear":4,"carb":2,"_row":"Merc 240D"},{"mpg":22.8,"cyl":4,"disp":140.8,"hp":95,"drat":3.92,"wt":3.15,"qsec":22.9,"vs":1,"am":0,"gear":4,"carb":2,"_row":"Merc 230"},{"mpg":19.2,"cyl":6,"disp":167.6,"hp":123,"drat":3.92,"wt":3.44,"qsec":18.3,"vs":1,"am":0,"gear":4,"carb":4,"_row":"Merc 280"},{"mpg":17.8,"cyl":6,"disp":167.6,"hp":123,"drat":3.92,"wt":3.44,"qsec":18.9,"vs":1,"am":0,"gear":4,"carb":4,"_row":"Merc 280C"},{"mpg":16.4,"cyl":8,"disp":275.8,"hp":180,"drat":3.07,"wt":4.07,"qsec":17.4,"vs":0,"am":0,"gear":3,"carb":3,"_row":"Merc 450SE"},{"mpg":17.3,"cyl":8,"disp":275.8,"hp":180,"drat":3.07,"wt":3.73,"qsec":17.6,"vs":0,"am":0,"gear":3,"carb":3,"_row":"Merc 450SL"},{"mpg":15.2,"cyl":8,"disp":275.8,"hp":180,"drat":3.07,"wt":3.78,"qsec":18,"vs":0,"am":0,"gear":3,"carb":3,"_row":"Merc 450SLC"},{"mpg":10.4,"cyl":8,"disp":472,"hp":205,"drat":2.93,"wt":5.25,"qsec":17.98,"vs":0,"am":0,"gear":3,"carb":4,"_row":"Cadillac Fleetwood"},{"mpg":10.4,"cyl":8,"disp":460,"hp":215,"drat":3,"wt":5.424,"qsec":17.82,"vs":0,"am":0,"gear":3,"carb":4,"_row":"Lincoln Continental"},{"mpg":14.7,"cyl":8,"disp":440,"hp":230,"drat":3.23,"wt":5.345,"qsec":17.42,"vs":0,"am":0,"gear":3,"carb":4,"_row":"Chrysler Imperial"},{"mpg":32.4,"cyl":4,"disp":78.7,"hp":66,"drat":4.08,"wt":2.2,"qsec":19.47,"vs":1,"am":1,"gear":4,"carb":1,"_row":"Fiat 128"},{"mpg":30.4,"cyl":4,"disp":75.7,"hp":52,"drat":4.93,"wt":1.615,"qsec":18.52,"vs":1,"am":1,"gear":4,"carb":2,"_row":"Honda Civic"},{"mpg":33.9,"cyl":4,"disp":71.1,"hp":65,"drat":4.22,"wt":1.835,"qsec":19.9,"vs":1,"am":1,"gear":4,"carb":1,"_row":"Toyota Corolla"},{"mpg":21.5,"cyl":4,"disp":120.1,"hp":97,"drat":3.7,"wt":2.465,"qsec":20.01,"vs":1,"am":0,"gear":3,"carb":1,"_row":"Toyota Corona"},{"mpg":15.5,"cyl":8,"disp":318,"hp":150,"drat":2.76,"wt":3.52,"qsec":16.87,"vs":0,"am":0,"gear":3,"carb":2,"_row":"Dodge Challenger"},{"mpg":15.2,"cyl":8,"disp":304,"hp":150,"drat":3.15,"wt":3.435,"qsec":17.3,"vs":0,"am":0,"gear":3,"carb":2,"_row":"AMC Javelin"},{"mpg":13.3,"cyl":8,"disp":350,"hp":245,"drat":3.73,"wt":3.84,"qsec":15.41,"vs":0,"am":0,"gear":3,"carb":4,"_row":"Camaro Z28"},{"mpg":19.2,"cyl":8,"disp":400,"hp":175,"drat":3.08,"wt":3.845,"qsec":17.05,"vs":0,"am":0,"gear":3,"carb":2,"_row":"Pontiac Firebird"},{"mpg":27.3,"cyl":4,"disp":79,"hp":66,"drat":4.08,"wt":1.935,"qsec":18.9,"vs":1,"am":1,"gear":4,"carb":1,"_row":"Fiat X1-9"},{"mpg":26,"cyl":4,"disp":120.3,"hp":91,"drat":4.43,"wt":2.14,"qsec":16.7,"vs":0,"am":1,"gear":5,"carb":2,"_row":"Porsche 914-2"},{"mpg":30.4,"cyl":4,"disp":95.1,"hp":113,"drat":3.77,"wt":1.513,"qsec":16.9,"vs":1,"am":1,"gear":5,"carb":2,"_row":"Lotus Europa"},{"mpg":15.8,"cyl":8,"disp":351,"hp":264,"drat":4.22,"wt":3.17,"qsec":14.5,"vs":0,"am":1,"gear":5,"carb":4,"_row":"Ford Pantera L"},{"mpg":19.7,"cyl":6,"disp":145,"hp":175,"drat":3.62,"wt":2.77,"qsec":15.5,"vs":0,"am":1,"gear":5,"carb":6,"_row":"Ferrari Dino"},{"mpg":15,"cyl":8,"disp":301,"hp":335,"drat":3.54,"wt":3.57,"qsec":14.6,"vs":0,"am":1,"gear":5,"carb":8,"_row":"Maserati Bora"},{"mpg":21.4,"cyl":4,"disp":121,"hp":109,"drat":4.11,"wt":2.78,"qsec":18.6,"vs":1,"am":1,"gear":4,"carb":2,"_row":"Volvo 142E"}] </code></pre>
+<pre><code>#&gt; [{"mpg":21,"cyl":6,"disp":160,"hp":110,"drat":3.9,"wt":2.62,"qsec":16.46,"vs":0,"am":1,"gear":4,"carb":4,"_row":"Mazda RX4"},{"mpg":21,"cyl":6,"disp":160,"hp":110,"drat":3.9,"wt":2.875,"qsec":17.02,"vs":0,"am":1,"gear":4,"carb":4,"_row":"Mazda RX4 Wag"},{"mpg":22.8,"cyl":4,"disp":108,"hp":93,"drat":3.85,"wt":2.32,"qsec":18.61,"vs":1,"am":1,"gear":4,"carb":1,"_row":"Datsun 710"},{"mpg":21.4,"cyl":6,"disp":258,"hp":110,"drat":3.08,"wt":3.215,"qsec":19.44,"vs":1,"am":0,"gear":3,"carb":1,"_row":"Hornet 4 Drive"},{"mpg":18.7,"cyl":8,"disp":360,"hp":175,"drat":3.15,"wt":3.44,"qsec":17.02,"vs":0,"am":0,"gear":3,"carb":2,"_row":"Hornet Sportabout"},{"mpg":18.1,"cyl":6,"disp":225,"hp":105,"drat":2.76,"wt":3.46,"qsec":20.22,"vs":1,"am":0,"gear":3,"carb":1,"_row":"Valiant"},{"mpg":14.3,"cyl":8,"disp":360,"hp":245,"drat":3.21,"wt":3.57,"qsec":15.84,"vs":0,"am":0,"gear":3,"carb":4,"_row":"Duster 360"},{"mpg":24.4,"cyl":4,"disp":146.7,"hp":62,"drat":3.69,"wt":3.19,"qsec":20,"vs":1,"am":0,"gear":4,"carb":2,"_row":"Merc 240D"},{"mpg":22.8,"cyl":4,"disp":140.8,"hp":95,"drat":3.92,"wt":3.15,"qsec":22.9,"vs":1,"am":0,"gear":4,"carb":2,"_row":"Merc 230"},{"mpg":19.2,"cyl":6,"disp":167.6,"hp":123,"drat":3.92,"wt":3.44,"qsec":18.3,"vs":1,"am":0,"gear":4,"carb":4,"_row":"Merc 280"},{"mpg":17.8,"cyl":6,"disp":167.6,"hp":123,"drat":3.92,"wt":3.44,"qsec":18.9,"vs":1,"am":0,"gear":4,"carb":4,"_row":"Merc 280C"},{"mpg":16.4,"cyl":8,"disp":275.8,"hp":180,"drat":3.07,"wt":4.07,"qsec":17.4,"vs":0,"am":0,"gear":3,"carb":3,"_row":"Merc 450SE"},{"mpg":17.3,"cyl":8,"disp":275.8,"hp":180,"drat":3.07,"wt":3.73,"qsec":17.6,"vs":0,"am":0,"gear":3,"carb":3,"_row":"Merc 450SL"},{"mpg":15.2,"cyl":8,"disp":275.8,"hp":180,"drat":3.07,"wt":3.78,"qsec":18,"vs":0,"am":0,"gear":3,"carb":3,"_row":"Merc 450SLC"},{"mpg":10.4,"cyl":8,"disp":472,"hp":205,"drat":2.93,"wt":5.25,"qsec":17.98,"vs":0,"am":0,"gear":3,"carb":4,"_row":"Cadillac Fleetwood"},{"mpg":10.4,"cyl":8,"disp":460,"hp":215,"drat":3,"wt":5.424,"qsec":17.82,"vs":0,"am":0,"gear":3,"carb":4,"_row":"Lincoln Continental"},{"mpg":14.7,"cyl":8,"disp":440,"hp":230,"drat":3.23,"wt":5.345,"qsec":17.42,"vs":0,"am":0,"gear":3,"carb":4,"_row":"Chrysler Imperial"},{"mpg":32.4,"cyl":4,"disp":78.7,"hp":66,"drat":4.08,"wt":2.2,"qsec":19.47,"vs":1,"am":1,"gear":4,"carb":1,"_row":"Fiat 128"},{"mpg":30.4,"cyl":4,"disp":75.7,"hp":52,"drat":4.93,"wt":1.615,"qsec":18.52,"vs":1,"am":1,"gear":4,"carb":2,"_row":"Honda Civic"},{"mpg":33.9,"cyl":4,"disp":71.1,"hp":65,"drat":4.22,"wt":1.835,"qsec":19.9,"vs":1,"am":1,"gear":4,"carb":1,"_row":"Toyota Corolla"},{"mpg":21.5,"cyl":4,"disp":120.1,"hp":97,"drat":3.7,"wt":2.465,"qsec":20.01,"vs":1,"am":0,"gear":3,"carb":1,"_row":"Toyota Corona"},{"mpg":15.5,"cyl":8,"disp":318,"hp":150,"drat":2.76,"wt":3.52,"qsec":16.87,"vs":0,"am":0,"gear":3,"carb":2,"_row":"Dodge Challenger"},{"mpg":15.2,"cyl":8,"disp":304,"hp":150,"drat":3.15,"wt":3.435,"qsec":17.3,"vs":0,"am":0,"gear":3,"carb":2,"_row":"AMC Javelin"},{"mpg":13.3,"cyl":8,"disp":350,"hp":245,"drat":3.73,"wt":3.84,"qsec":15.41,"vs":0,"am":0,"gear":3,"carb":4,"_row":"Camaro Z28"},{"mpg":19.2,"cyl":8,"disp":400,"hp":175,"drat":3.08,"wt":3.845,"qsec":17.05,"vs":0,"am":0,"gear":3,"carb":2,"_row":"Pontiac Firebird"},{"mpg":27.3,"cyl":4,"disp":79,"hp":66,"drat":4.08,"wt":1.935,"qsec":18.9,"vs":1,"am":1,"gear":4,"carb":1,"_row":"Fiat X1-9"},{"mpg":26,"cyl":4,"disp":120.3,"hp":91,"drat":4.43,"wt":2.14,"qsec":16.7,"vs":0,"am":1,"gear":5,"carb":2,"_row":"Porsche 914-2"},{"mpg":30.4,"cyl":4,"disp":95.1,"hp":113,"drat":3.77,"wt":1.513,"qsec":16.9,"vs":1,"am":1,"gear":5,"carb":2,"_row":"Lotus Europa"},{"mpg":15.8,"cyl":8,"disp":351,"hp":264,"drat":4.22,"wt":3.17,"qsec":14.5,"vs":0,"am":1,"gear":5,"carb":4,"_row":"Ford Pantera L"},{"mpg":19.7,"cyl":6,"disp":145,"hp":175,"drat":3.62,"wt":2.77,"qsec":15.5,"vs":0,"am":1,"gear":5,"carb":6,"_row":"Ferrari Dino"},{"mpg":15,"cyl":8,"disp":301,"hp":335,"drat":3.54,"wt":3.57,"qsec":14.6,"vs":0,"am":1,"gear":5,"carb":8,"_row":"Maserati Bora"},{"mpg":21.4,"cyl":4,"disp":121,"hp":109,"drat":4.11,"wt":2.78,"qsec":18.6,"vs":1,"am":1,"gear":4,"carb":2,"_row":"Volvo 142E"}]</code></pre>
 </div>
 </div>
 <p>Great! Hopefully you agree that the pretty format is way easier to read and understand than the minified format! This exercise concludes the course on importing data!</p>
@@ -2496,11 +2333,11 @@ $b
 <span id="cb82-7"><a href="#cb82-7"></a><span class="co"># Display the structure of sales</span></span>
 <span id="cb82-8"><a href="#cb82-8"></a><span class="fu">str</span>(sales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>tibble [431 × 4] (S3: tbl_df/tbl/data.frame)
- $ purchase: num [1:431] 0 0 1 1 0 0 0 0 0 0 ...
- $ age     : num [1:431] 41 47 41 39 32 32 33 45 43 40 ...
- $ gender  : chr [1:431] "Female" "Female" "Female" "Female" ...
- $ income  : chr [1:431] "Low" "Low" "Low" "Low" ...</code></pre>
+<pre><code>#&gt; tibble [431 × 4] (S3: tbl_df/tbl/data.frame)
+#&gt;  $ purchase: num [1:431] 0 0 1 1 0 0 0 0 0 0 ...
+#&gt;  $ age     : num [1:431] 41 47 41 39 32 32 33 45 43 40 ...
+#&gt;  $ gender  : chr [1:431] "Female" "Female" "Female" "Female" ...
+#&gt;  $ income  : chr [1:431] "Low" "Low" "Low" "Low" ...</code></pre>
 </div>
 </div>
 <p>Congratulations! As you can see, <a href="http://cran.r-project.org/web/packages/haven/haven.pdf"><code>read_sas()</code></a> enables you to import <b>SAS</b> data files easily.</p>
@@ -2524,25 +2361,25 @@ $b
 <span id="cb84-4"><a href="#cb84-4"></a><span class="co"># Structure of sugar</span></span>
 <span id="cb84-5"><a href="#cb84-5"></a><span class="fu">str</span>(sugar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>tibble [10 × 5] (S3: tbl_df/tbl/data.frame)
- $ Date    : dbl+lbl [1:10] 10,  9,  8,  7,  6,  5,  4,  3,  2,  1
-   ..@ label       : chr "Date"
-   ..@ format.stata: chr "%9.0g"
-   ..@ labels      : Named num [1:10] 1 2 3 4 5 6 7 8 9 10
-   .. ..- attr(*, "names")= chr [1:10] "2004-12-31" "2005-12-31" "2006-12-31" "2007-12-31" ...
- $ Import  : num [1:10] 37664782 16316512 11082246 35677943 9879878 ...
-  ..- attr(*, "label")= chr "Import"
-  ..- attr(*, "format.stata")= chr "%9.0g"
- $ Weight_I: num [1:10] 54029106 21584365 14526089 55034932 14806865 ...
-  ..- attr(*, "label")= chr "Weight_I"
-  ..- attr(*, "format.stata")= chr "%9.0g"
- $ Export  : num [1:10] 5.45e+07 1.03e+08 3.79e+07 4.85e+07 7.15e+07 ...
-  ..- attr(*, "label")= chr "Export"
-  ..- attr(*, "format.stata")= chr "%9.0g"
- $ Weight_E: num [1:10] 9.34e+07 1.58e+08 8.80e+07 1.12e+08 1.32e+08 ...
-  ..- attr(*, "label")= chr "Weight_E"
-  ..- attr(*, "format.stata")= chr "%9.0g"
- - attr(*, "label")= chr "Written by R."</code></pre>
+<pre><code>#&gt; tibble [10 × 5] (S3: tbl_df/tbl/data.frame)
+#&gt;  $ Date    : dbl+lbl [1:10] 10,  9,  8,  7,  6,  5,  4,  3,  2,  1
+#&gt;    ..@ label       : chr "Date"
+#&gt;    ..@ format.stata: chr "%9.0g"
+#&gt;    ..@ labels      : Named num [1:10] 1 2 3 4 5 6 7 8 9 10
+#&gt;    .. ..- attr(*, "names")= chr [1:10] "2004-12-31" "2005-12-31" "2006-12-31" "2007-12-31" ...
+#&gt;  $ Import  : num [1:10] 37664782 16316512 11082246 35677943 9879878 ...
+#&gt;   ..- attr(*, "label")= chr "Import"
+#&gt;   ..- attr(*, "format.stata")= chr "%9.0g"
+#&gt;  $ Weight_I: num [1:10] 54029106 21584365 14526089 55034932 14806865 ...
+#&gt;   ..- attr(*, "label")= chr "Weight_I"
+#&gt;   ..- attr(*, "format.stata")= chr "%9.0g"
+#&gt;  $ Export  : num [1:10] 5.45e+07 1.03e+08 3.79e+07 4.85e+07 7.15e+07 ...
+#&gt;   ..- attr(*, "label")= chr "Export"
+#&gt;   ..- attr(*, "format.stata")= chr "%9.0g"
+#&gt;  $ Weight_E: num [1:10] 9.34e+07 1.58e+08 8.80e+07 1.12e+08 1.32e+08 ...
+#&gt;   ..- attr(*, "label")= chr "Weight_E"
+#&gt;   ..- attr(*, "format.stata")= chr "%9.0g"
+#&gt;  - attr(*, "label")= chr "Written by R."</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="co"># Convert values in Date column to dates</span></span>
 <span id="cb86-2"><a href="#cb86-2"></a>sugar<span class="sc">$</span>Date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="fu">as_factor</span>(sugar<span class="sc">$</span>Date))</span>
@@ -2550,21 +2387,21 @@ $b
 <span id="cb86-4"><a href="#cb86-4"></a><span class="co"># Structure of sugar again</span></span>
 <span id="cb86-5"><a href="#cb86-5"></a><span class="fu">str</span>(sugar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>tibble [10 × 5] (S3: tbl_df/tbl/data.frame)
- $ Date    : Date[1:10], format: "2013-12-31" "2012-12-31" ...
- $ Import  : num [1:10] 37664782 16316512 11082246 35677943 9879878 ...
-  ..- attr(*, "label")= chr "Import"
-  ..- attr(*, "format.stata")= chr "%9.0g"
- $ Weight_I: num [1:10] 54029106 21584365 14526089 55034932 14806865 ...
-  ..- attr(*, "label")= chr "Weight_I"
-  ..- attr(*, "format.stata")= chr "%9.0g"
- $ Export  : num [1:10] 5.45e+07 1.03e+08 3.79e+07 4.85e+07 7.15e+07 ...
-  ..- attr(*, "label")= chr "Export"
-  ..- attr(*, "format.stata")= chr "%9.0g"
- $ Weight_E: num [1:10] 9.34e+07 1.58e+08 8.80e+07 1.12e+08 1.32e+08 ...
-  ..- attr(*, "label")= chr "Weight_E"
-  ..- attr(*, "format.stata")= chr "%9.0g"
- - attr(*, "label")= chr "Written by R."</code></pre>
+<pre><code>#&gt; tibble [10 × 5] (S3: tbl_df/tbl/data.frame)
+#&gt;  $ Date    : Date[1:10], format: "2013-12-31" "2012-12-31" ...
+#&gt;  $ Import  : num [1:10] 37664782 16316512 11082246 35677943 9879878 ...
+#&gt;   ..- attr(*, "label")= chr "Import"
+#&gt;   ..- attr(*, "format.stata")= chr "%9.0g"
+#&gt;  $ Weight_I: num [1:10] 54029106 21584365 14526089 55034932 14806865 ...
+#&gt;   ..- attr(*, "label")= chr "Weight_I"
+#&gt;   ..- attr(*, "format.stata")= chr "%9.0g"
+#&gt;  $ Export  : num [1:10] 5.45e+07 1.03e+08 3.79e+07 4.85e+07 7.15e+07 ...
+#&gt;   ..- attr(*, "label")= chr "Export"
+#&gt;   ..- attr(*, "format.stata")= chr "%9.0g"
+#&gt;  $ Weight_E: num [1:10] 9.34e+07 1.58e+08 8.80e+07 1.12e+08 1.32e+08 ...
+#&gt;   ..- attr(*, "label")= chr "Weight_E"
+#&gt;   ..- attr(*, "format.stata")= chr "%9.0g"
+#&gt;  - attr(*, "label")= chr "Written by R."</code></pre>
 </div>
 </div>
 </section>
@@ -2594,79 +2431,23 @@ $b
 <span id="cb88-4"><a href="#cb88-4"></a><span class="co"># Summarize traits</span></span>
 <span id="cb88-5"><a href="#cb88-5"></a><span class="fu">summary</span>(traits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    Neurotic      Extroversion   Agreeableness   Conscientiousness
- Min.   : 0.00   Min.   : 5.00   Min.   :15.00   Min.   : 7.00    
- 1st Qu.:18.00   1st Qu.:26.00   1st Qu.:39.00   1st Qu.:25.00    
- Median :24.00   Median :31.00   Median :45.00   Median :30.00    
- Mean   :23.63   Mean   :30.23   Mean   :44.55   Mean   :30.85    
- 3rd Qu.:29.00   3rd Qu.:34.00   3rd Qu.:50.00   3rd Qu.:36.00    
- Max.   :44.00   Max.   :65.00   Max.   :73.00   Max.   :58.00    
- NA's   :14      NA's   :16      NA's   :19      NA's   :14       </code></pre>
+<pre><code>#&gt;     Neurotic      Extroversion   Agreeableness   Conscientiousness
+#&gt;  Min.   : 0.00   Min.   : 5.00   Min.   :15.00   Min.   : 7.00    
+#&gt;  1st Qu.:18.00   1st Qu.:26.00   1st Qu.:39.00   1st Qu.:25.00    
+#&gt;  Median :24.00   Median :31.00   Median :45.00   Median :30.00    
+#&gt;  Mean   :23.63   Mean   :30.23   Mean   :44.55   Mean   :30.85    
+#&gt;  3rd Qu.:29.00   3rd Qu.:34.00   3rd Qu.:50.00   3rd Qu.:36.00    
+#&gt;  Max.   :44.00   Max.   :65.00   Max.   :73.00   Max.   :58.00    
+#&gt;  NA's   :14      NA's   :16      NA's   :19      NA's   :14</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="co"># Print out a subset</span></span>
 <span id="cb90-2"><a href="#cb90-2"></a><span class="fu">subset</span>(traits, Extroversion <span class="sc">&gt;</span> <span class="dv">40</span> <span class="sc">&amp;</span> Agreeableness <span class="sc">&gt;</span> <span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped">
-<thead>
-<tr class="header">
-<th style="text-align: right;">Neurotic</th>
-<th style="text-align: right;">Extroversion</th>
-<th style="text-align: right;">Agreeableness</th>
-<th style="text-align: right;">Conscientiousness</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">38</td>
-<td style="text-align: right;">43</td>
-<td style="text-align: right;">49</td>
-<td style="text-align: right;">29</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: right;">46</td>
-<td style="text-align: right;">31</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: right;">49</td>
-<td style="text-align: right;">31</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">42</td>
-<td style="text-align: right;">43</td>
-<td style="text-align: right;">44</td>
-<td style="text-align: right;">29</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: right;">51</td>
-<td style="text-align: right;">24</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">42</td>
-<td style="text-align: right;">50</td>
-<td style="text-align: right;">25</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">27</td>
-<td style="text-align: right;">45</td>
-<td style="text-align: right;">55</td>
-<td style="text-align: right;">23</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">43</td>
-<td style="text-align: right;">57</td>
-<td style="text-align: right;">34</td>
-</tr>
-</tbody>
-</table>
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["Neurotic"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Extroversion"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Agreeableness"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Conscientiousness"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"38","2":"43","3":"49","4":"29"},{"1":"20","2":"42","3":"46","4":"31"},{"1":"18","2":"42","3":"49","4":"31"},{"1":"42","2":"43","3":"44","4":"29"},{"1":"30","2":"42","3":"51","4":"24"},{"1":"18","2":"42","3":"50","4":"25"},{"1":"27","2":"45","3":"55","4":"23"},{"1":"18","2":"43","3":"57","4":"34"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
 </div>
@@ -2691,8 +2472,8 @@ $b
 <span id="cb91-4"><a href="#cb91-4"></a><span class="co"># Display summary of work$GENDER</span></span>
 <span id="cb91-5"><a href="#cb91-5"></a><span class="fu">summary</span>(work<span class="sc">$</span>GENDER)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Length     Class      Mode 
-      474 character character </code></pre>
+<pre><code>#&gt;    Length     Class      Mode 
+#&gt;       474 character character</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="co"># Convert work$GENDER to a factor</span></span>
 <span id="cb93-2"><a href="#cb93-2"></a>work<span class="sc">$</span>GENDER <span class="ot">&lt;-</span> <span class="fu">as_factor</span>(work<span class="sc">$</span>GENDER)</span>
@@ -2700,8 +2481,8 @@ $b
 <span id="cb93-4"><a href="#cb93-4"></a><span class="co"># Display summary of work$GENDER again</span></span>
 <span id="cb93-5"><a href="#cb93-5"></a><span class="fu">summary</span>(work<span class="sc">$</span>GENDER)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Female   Male 
-   216    258 </code></pre>
+<pre><code>#&gt; Female   Male 
+#&gt;    216    258</code></pre>
 </div>
 </div>
 <p>Well done! The <a href="http://cran.r-project.org/web/packages/haven/haven.pdf"><code>as_factor()</code></a> function has more arguments you can specify, have a look at its documentation to discover more! Proceed to the next video.</p>
@@ -2748,69 +2529,11 @@ $b
 <span id="cb95-7"><a href="#cb95-7"></a><span class="co"># Check tail() of florida</span></span>
 <span id="cb95-8"><a href="#cb95-8"></a><span class="fu">tail</span>(florida)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped">
-<thead>
-<tr class="header">
-<th style="text-align: left;"></th>
-<th style="text-align: right;">gore</th>
-<th style="text-align: right;">bush</th>
-<th style="text-align: right;">buchanan</th>
-<th style="text-align: right;">nader</th>
-<th style="text-align: right;">total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">62</td>
-<td style="text-align: right;">2647</td>
-<td style="text-align: right;">4051</td>
-<td style="text-align: right;">27</td>
-<td style="text-align: right;">59</td>
-<td style="text-align: right;">6784</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">63</td>
-<td style="text-align: right;">1399</td>
-<td style="text-align: right;">2326</td>
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">3780</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">64</td>
-<td style="text-align: right;">97063</td>
-<td style="text-align: right;">82214</td>
-<td style="text-align: right;">396</td>
-<td style="text-align: right;">2436</td>
-<td style="text-align: right;">182109</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">65</td>
-<td style="text-align: right;">3835</td>
-<td style="text-align: right;">4511</td>
-<td style="text-align: right;">46</td>
-<td style="text-align: right;">149</td>
-<td style="text-align: right;">8541</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">66</td>
-<td style="text-align: right;">5637</td>
-<td style="text-align: right;">12176</td>
-<td style="text-align: right;">120</td>
-<td style="text-align: right;">265</td>
-<td style="text-align: right;">18198</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">67</td>
-<td style="text-align: right;">2796</td>
-<td style="text-align: right;">4983</td>
-<td style="text-align: right;">88</td>
-<td style="text-align: right;">93</td>
-<td style="text-align: right;">7960</td>
-</tr>
-</tbody>
-</table>
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["gore"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["bush"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["buchanan"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["nader"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["total"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"2647","2":"4051","3":"27","4":"59","5":"6784","_rn_":"62"},{"1":"1399","2":"2326","3":"26","4":"29","5":"3780","_rn_":"63"},{"1":"97063","2":"82214","3":"396","4":"2436","5":"182109","_rn_":"64"},{"1":"3835","2":"4511","3":"46","4":"149","5":"8541","_rn_":"65"},{"1":"5637","2":"12176","3":"120","4":"265","5":"18198","_rn_":"66"},{"1":"2796","2":"4983","3":"88","4":"93","5":"7960","_rn_":"67"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
 </div>
@@ -2839,235 +2562,235 @@ $b
 <span id="cb96-5"><a href="#cb96-5"></a>edu_equal_1 <span class="ot">&lt;-</span> <span class="fu">read.dta</span>(path)</span>
 <span id="cb96-6"><a href="#cb96-6"></a><span class="fu">str</span>(edu_equal_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   12214 obs. of  27 variables:
- $ hhid              : num  1 1 1 2 2 3 4 4 5 6 ...
- $ hhweight          : num  627 627 627 627 627 ...
- $ location          : Factor w/ 2 levels "urban location",..: 1 1 1 1 1 2 2 2 1 1 ...
- $ region            : Factor w/ 9 levels "Sofia city","Bourgass",..: 8 8 8 9 9 4 4 4 8 8 ...
- $ ethnicity_head    : Factor w/ 4 levels "Bulgaria","Turks",..: 2 2 2 1 1 1 1 1 1 1 ...
- $ age               : num  37 11 8 73 70 75 79 80 82 83 ...
- $ gender            : Factor w/ 2 levels "male","female": 2 2 1 1 2 1 1 2 2 2 ...
- $ relation          : Factor w/ 9 levels "head                      ",..: 1 3 3 1 2 1 1 2 1 1 ...
- $ literate          : Factor w/ 2 levels "no","yes": 1 2 2 2 2 2 2 2 2 2 ...
- $ income_mnt        : num  13.3 13.3 13.3 142.5 142.5 ...
- $ income            : num  160 160 160 1710 1710 ...
- $ aggregate         : num  1042 1042 1042 3271 3271 ...
- $ aggr_ind_annual   : num  347 347 347 1635 1635 ...
- $ educ_completed    : int  2 4 4 4 3 3 3 3 4 4 ...
- $ grade_complete    : num  4 3 0 3 4 4 4 4 5 5 ...
- $ grade_all         : num  4 11 8 11 8 8 8 8 13 13 ...
- $ unemployed        : int  2 1 1 1 1 1 1 1 1 1 ...
- $ reason_OLF        : int  NA NA NA 3 3 3 9 9 3 3 ...
- $ sector            : int  NA NA NA NA NA NA 1 1 NA NA ...
- $ occupation        : int  NA NA NA NA NA NA 5 5 NA NA ...
- $ earn_mont         : num  0 0 0 0 0 0 20 20 0 0 ...
- $ earn_ann          : num  0 0 0 0 0 0 240 240 0 0 ...
- $ hours_week        : num  NA NA NA NA NA NA 30 35 NA NA ...
- $ hours_mnt         : num  NA NA NA NA NA ...
- $ fulltime          : int  NA NA NA NA NA NA 1 1 NA NA ...
- $ hhexp             : num  100 100 100 343 343 ...
- $ legacy_pension_amt: num  NA NA NA NA NA NA NA NA NA NA ...
- - attr(*, "datalabel")= chr ""
- - attr(*, "time.stamp")= chr ""
- - attr(*, "formats")= chr [1:27] "%9.0g" "%9.0g" "%9.0g" "%9.0g" ...
- - attr(*, "types")= int [1:27] 100 100 108 108 108 100 108 108 108 100 ...
- - attr(*, "val.labels")= chr [1:27] "" "" "location" "region" ...
- - attr(*, "var.labels")= chr [1:27] "hhid" "hhweight" "location" "region" ...
- - attr(*, "expansion.fields")=List of 12
-  ..$ : chr [1:3] "_dta" "_svy_su1" "cluster"
-  ..$ : chr [1:3] "_dta" "_svy_strata1" "strata"
-  ..$ : chr [1:3] "_dta" "_svy_stages" "1"
-  ..$ : chr [1:3] "_dta" "_svy_version" "2"
-  ..$ : chr [1:3] "_dta" "__XijVarLabcons" "(sum) cons"
-  ..$ : chr [1:3] "_dta" "ReS_Xij" "cons"
-  ..$ : chr [1:3] "_dta" "ReS_str" "0"
-  ..$ : chr [1:3] "_dta" "ReS_j" "group"
-  ..$ : chr [1:3] "_dta" "ReS_ver" "v.2"
-  ..$ : chr [1:3] "_dta" "ReS_i" "hhid dur"
-  ..$ : chr [1:3] "_dta" "note1" "variables g1pc, g2pc, g3pc, g4pc, g5pc, g7pc, g8pc, g9pc, g10pc, g11pc, g12pc,  gall, health, rent, durables we"| __truncated__
-  ..$ : chr [1:3] "_dta" "note0" "1"
- - attr(*, "version")= int 7
- - attr(*, "label.table")=List of 12
-  ..$ location: Named int [1:2] 1 2
-  .. ..- attr(*, "names")= chr [1:2] "urban location" "rural location"
-  ..$ region  : Named int [1:9] 1 2 3 4 5 6 7 8 9
-  .. ..- attr(*, "names")= chr [1:9] "Sofia city" "Bourgass" "Varna" "Lovetch" ...
-  ..$ ethnic  : Named int [1:4] 1 2 3 4
-  .. ..- attr(*, "names")= chr [1:4] "Bulgaria" "Turks" "Roma" "Other"
-  ..$ s2_q2   : Named int [1:2] 1 2
-  .. ..- attr(*, "names")= chr [1:2] "male" "female"
-  ..$ s2_q3   : Named int [1:9] 1 2 3 4 5 6 7 8 9
-  .. ..- attr(*, "names")= chr [1:9] "head                      " "spouse/partner            " "child                     " "son/daughter-in-law       " ...
-  ..$ lit     : Named int [1:2] 1 2
-  .. ..- attr(*, "names")= chr [1:2] "no" "yes"
-  ..$         : Named int [1:4] 1 2 3 4
-  .. ..- attr(*, "names")= chr [1:4] "never attanded" "primary" "secondary" "postsecondary"
-  ..$         : Named int [1:2] 1 2
-  .. ..- attr(*, "names")= chr [1:2] "Not unemployed" "Unemployed"
-  ..$         : Named int [1:10] 1 2 3 4 5 6 7 8 9 10
-  .. ..- attr(*, "names")= chr [1:10] "student" "housewife/childcare" "in retirement" "illness, disability" ...
-  ..$         : Named int [1:10] 1 2 3 4 5 6 7 8 9 10
-  .. ..- attr(*, "names")= chr [1:10] "agriculture" "mining" "manufacturing" "utilities" ...
-  ..$         : Named int [1:5] 1 2 3 4 5
-  .. ..- attr(*, "names")= chr [1:5] "private company" "public works program" "government,public sector, army" "private individual" ...
-  ..$         : Named int [1:2] 1 2
-  .. ..- attr(*, "names")= chr [1:2] "no" "yes"</code></pre>
+<pre><code>#&gt; 'data.frame':    12214 obs. of  27 variables:
+#&gt;  $ hhid              : num  1 1 1 2 2 3 4 4 5 6 ...
+#&gt;  $ hhweight          : num  627 627 627 627 627 ...
+#&gt;  $ location          : Factor w/ 2 levels "urban location",..: 1 1 1 1 1 2 2 2 1 1 ...
+#&gt;  $ region            : Factor w/ 9 levels "Sofia city","Bourgass",..: 8 8 8 9 9 4 4 4 8 8 ...
+#&gt;  $ ethnicity_head    : Factor w/ 4 levels "Bulgaria","Turks",..: 2 2 2 1 1 1 1 1 1 1 ...
+#&gt;  $ age               : num  37 11 8 73 70 75 79 80 82 83 ...
+#&gt;  $ gender            : Factor w/ 2 levels "male","female": 2 2 1 1 2 1 1 2 2 2 ...
+#&gt;  $ relation          : Factor w/ 9 levels "head                      ",..: 1 3 3 1 2 1 1 2 1 1 ...
+#&gt;  $ literate          : Factor w/ 2 levels "no","yes": 1 2 2 2 2 2 2 2 2 2 ...
+#&gt;  $ income_mnt        : num  13.3 13.3 13.3 142.5 142.5 ...
+#&gt;  $ income            : num  160 160 160 1710 1710 ...
+#&gt;  $ aggregate         : num  1042 1042 1042 3271 3271 ...
+#&gt;  $ aggr_ind_annual   : num  347 347 347 1635 1635 ...
+#&gt;  $ educ_completed    : int  2 4 4 4 3 3 3 3 4 4 ...
+#&gt;  $ grade_complete    : num  4 3 0 3 4 4 4 4 5 5 ...
+#&gt;  $ grade_all         : num  4 11 8 11 8 8 8 8 13 13 ...
+#&gt;  $ unemployed        : int  2 1 1 1 1 1 1 1 1 1 ...
+#&gt;  $ reason_OLF        : int  NA NA NA 3 3 3 9 9 3 3 ...
+#&gt;  $ sector            : int  NA NA NA NA NA NA 1 1 NA NA ...
+#&gt;  $ occupation        : int  NA NA NA NA NA NA 5 5 NA NA ...
+#&gt;  $ earn_mont         : num  0 0 0 0 0 0 20 20 0 0 ...
+#&gt;  $ earn_ann          : num  0 0 0 0 0 0 240 240 0 0 ...
+#&gt;  $ hours_week        : num  NA NA NA NA NA NA 30 35 NA NA ...
+#&gt;  $ hours_mnt         : num  NA NA NA NA NA ...
+#&gt;  $ fulltime          : int  NA NA NA NA NA NA 1 1 NA NA ...
+#&gt;  $ hhexp             : num  100 100 100 343 343 ...
+#&gt;  $ legacy_pension_amt: num  NA NA NA NA NA NA NA NA NA NA ...
+#&gt;  - attr(*, "datalabel")= chr ""
+#&gt;  - attr(*, "time.stamp")= chr ""
+#&gt;  - attr(*, "formats")= chr [1:27] "%9.0g" "%9.0g" "%9.0g" "%9.0g" ...
+#&gt;  - attr(*, "types")= int [1:27] 100 100 108 108 108 100 108 108 108 100 ...
+#&gt;  - attr(*, "val.labels")= chr [1:27] "" "" "location" "region" ...
+#&gt;  - attr(*, "var.labels")= chr [1:27] "hhid" "hhweight" "location" "region" ...
+#&gt;  - attr(*, "expansion.fields")=List of 12
+#&gt;   ..$ : chr [1:3] "_dta" "_svy_su1" "cluster"
+#&gt;   ..$ : chr [1:3] "_dta" "_svy_strata1" "strata"
+#&gt;   ..$ : chr [1:3] "_dta" "_svy_stages" "1"
+#&gt;   ..$ : chr [1:3] "_dta" "_svy_version" "2"
+#&gt;   ..$ : chr [1:3] "_dta" "__XijVarLabcons" "(sum) cons"
+#&gt;   ..$ : chr [1:3] "_dta" "ReS_Xij" "cons"
+#&gt;   ..$ : chr [1:3] "_dta" "ReS_str" "0"
+#&gt;   ..$ : chr [1:3] "_dta" "ReS_j" "group"
+#&gt;   ..$ : chr [1:3] "_dta" "ReS_ver" "v.2"
+#&gt;   ..$ : chr [1:3] "_dta" "ReS_i" "hhid dur"
+#&gt;   ..$ : chr [1:3] "_dta" "note1" "variables g1pc, g2pc, g3pc, g4pc, g5pc, g7pc, g8pc, g9pc, g10pc, g11pc, g12pc,  gall, health, rent, durables we"| __truncated__
+#&gt;   ..$ : chr [1:3] "_dta" "note0" "1"
+#&gt;  - attr(*, "version")= int 7
+#&gt;  - attr(*, "label.table")=List of 12
+#&gt;   ..$ location: Named int [1:2] 1 2
+#&gt;   .. ..- attr(*, "names")= chr [1:2] "urban location" "rural location"
+#&gt;   ..$ region  : Named int [1:9] 1 2 3 4 5 6 7 8 9
+#&gt;   .. ..- attr(*, "names")= chr [1:9] "Sofia city" "Bourgass" "Varna" "Lovetch" ...
+#&gt;   ..$ ethnic  : Named int [1:4] 1 2 3 4
+#&gt;   .. ..- attr(*, "names")= chr [1:4] "Bulgaria" "Turks" "Roma" "Other"
+#&gt;   ..$ s2_q2   : Named int [1:2] 1 2
+#&gt;   .. ..- attr(*, "names")= chr [1:2] "male" "female"
+#&gt;   ..$ s2_q3   : Named int [1:9] 1 2 3 4 5 6 7 8 9
+#&gt;   .. ..- attr(*, "names")= chr [1:9] "head                      " "spouse/partner            " "child                     " "son/daughter-in-law       " ...
+#&gt;   ..$ lit     : Named int [1:2] 1 2
+#&gt;   .. ..- attr(*, "names")= chr [1:2] "no" "yes"
+#&gt;   ..$         : Named int [1:4] 1 2 3 4
+#&gt;   .. ..- attr(*, "names")= chr [1:4] "never attanded" "primary" "secondary" "postsecondary"
+#&gt;   ..$         : Named int [1:2] 1 2
+#&gt;   .. ..- attr(*, "names")= chr [1:2] "Not unemployed" "Unemployed"
+#&gt;   ..$         : Named int [1:10] 1 2 3 4 5 6 7 8 9 10
+#&gt;   .. ..- attr(*, "names")= chr [1:10] "student" "housewife/childcare" "in retirement" "illness, disability" ...
+#&gt;   ..$         : Named int [1:10] 1 2 3 4 5 6 7 8 9 10
+#&gt;   .. ..- attr(*, "names")= chr [1:10] "agriculture" "mining" "manufacturing" "utilities" ...
+#&gt;   ..$         : Named int [1:5] 1 2 3 4 5
+#&gt;   .. ..- attr(*, "names")= chr [1:5] "private company" "public works program" "government,public sector, army" "private individual" ...
+#&gt;   ..$         : Named int [1:2] 1 2
+#&gt;   .. ..- attr(*, "names")= chr [1:2] "no" "yes"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a><span class="co"># Create and print structure of edu_equal_2</span></span>
 <span id="cb98-2"><a href="#cb98-2"></a>edu_equal_2 <span class="ot">&lt;-</span> <span class="fu">read.dta</span>(path, <span class="at">convert.factors =</span> F)</span>
 <span id="cb98-3"><a href="#cb98-3"></a><span class="fu">str</span>(edu_equal_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   12214 obs. of  27 variables:
- $ hhid              : num  1 1 1 2 2 3 4 4 5 6 ...
- $ hhweight          : num  627 627 627 627 627 ...
- $ location          : int  1 1 1 1 1 2 2 2 1 1 ...
- $ region            : int  8 8 8 9 9 4 4 4 8 8 ...
- $ ethnicity_head    : int  2 2 2 1 1 1 1 1 1 1 ...
- $ age               : num  37 11 8 73 70 75 79 80 82 83 ...
- $ gender            : int  2 2 1 1 2 1 1 2 2 2 ...
- $ relation          : int  1 3 3 1 2 1 1 2 1 1 ...
- $ literate          : int  1 2 2 2 2 2 2 2 2 2 ...
- $ income_mnt        : num  13.3 13.3 13.3 142.5 142.5 ...
- $ income            : num  160 160 160 1710 1710 ...
- $ aggregate         : num  1042 1042 1042 3271 3271 ...
- $ aggr_ind_annual   : num  347 347 347 1635 1635 ...
- $ educ_completed    : int  2 4 4 4 3 3 3 3 4 4 ...
- $ grade_complete    : num  4 3 0 3 4 4 4 4 5 5 ...
- $ grade_all         : num  4 11 8 11 8 8 8 8 13 13 ...
- $ unemployed        : int  2 1 1 1 1 1 1 1 1 1 ...
- $ reason_OLF        : int  NA NA NA 3 3 3 9 9 3 3 ...
- $ sector            : int  NA NA NA NA NA NA 1 1 NA NA ...
- $ occupation        : int  NA NA NA NA NA NA 5 5 NA NA ...
- $ earn_mont         : num  0 0 0 0 0 0 20 20 0 0 ...
- $ earn_ann          : num  0 0 0 0 0 0 240 240 0 0 ...
- $ hours_week        : num  NA NA NA NA NA NA 30 35 NA NA ...
- $ hours_mnt         : num  NA NA NA NA NA ...
- $ fulltime          : int  NA NA NA NA NA NA 1 1 NA NA ...
- $ hhexp             : num  100 100 100 343 343 ...
- $ legacy_pension_amt: num  NA NA NA NA NA NA NA NA NA NA ...
- - attr(*, "datalabel")= chr ""
- - attr(*, "time.stamp")= chr ""
- - attr(*, "formats")= chr [1:27] "%9.0g" "%9.0g" "%9.0g" "%9.0g" ...
- - attr(*, "types")= int [1:27] 100 100 108 108 108 100 108 108 108 100 ...
- - attr(*, "val.labels")= chr [1:27] "" "" "location" "region" ...
- - attr(*, "var.labels")= chr [1:27] "hhid" "hhweight" "location" "region" ...
- - attr(*, "expansion.fields")=List of 12
-  ..$ : chr [1:3] "_dta" "_svy_su1" "cluster"
-  ..$ : chr [1:3] "_dta" "_svy_strata1" "strata"
-  ..$ : chr [1:3] "_dta" "_svy_stages" "1"
-  ..$ : chr [1:3] "_dta" "_svy_version" "2"
-  ..$ : chr [1:3] "_dta" "__XijVarLabcons" "(sum) cons"
-  ..$ : chr [1:3] "_dta" "ReS_Xij" "cons"
-  ..$ : chr [1:3] "_dta" "ReS_str" "0"
-  ..$ : chr [1:3] "_dta" "ReS_j" "group"
-  ..$ : chr [1:3] "_dta" "ReS_ver" "v.2"
-  ..$ : chr [1:3] "_dta" "ReS_i" "hhid dur"
-  ..$ : chr [1:3] "_dta" "note1" "variables g1pc, g2pc, g3pc, g4pc, g5pc, g7pc, g8pc, g9pc, g10pc, g11pc, g12pc,  gall, health, rent, durables we"| __truncated__
-  ..$ : chr [1:3] "_dta" "note0" "1"
- - attr(*, "version")= int 7
- - attr(*, "label.table")=List of 12
-  ..$ location: Named int [1:2] 1 2
-  .. ..- attr(*, "names")= chr [1:2] "urban location" "rural location"
-  ..$ region  : Named int [1:9] 1 2 3 4 5 6 7 8 9
-  .. ..- attr(*, "names")= chr [1:9] "Sofia city" "Bourgass" "Varna" "Lovetch" ...
-  ..$ ethnic  : Named int [1:4] 1 2 3 4
-  .. ..- attr(*, "names")= chr [1:4] "Bulgaria" "Turks" "Roma" "Other"
-  ..$ s2_q2   : Named int [1:2] 1 2
-  .. ..- attr(*, "names")= chr [1:2] "male" "female"
-  ..$ s2_q3   : Named int [1:9] 1 2 3 4 5 6 7 8 9
-  .. ..- attr(*, "names")= chr [1:9] "head                      " "spouse/partner            " "child                     " "son/daughter-in-law       " ...
-  ..$ lit     : Named int [1:2] 1 2
-  .. ..- attr(*, "names")= chr [1:2] "no" "yes"
-  ..$         : Named int [1:4] 1 2 3 4
-  .. ..- attr(*, "names")= chr [1:4] "never attanded" "primary" "secondary" "postsecondary"
-  ..$         : Named int [1:2] 1 2
-  .. ..- attr(*, "names")= chr [1:2] "Not unemployed" "Unemployed"
-  ..$         : Named int [1:10] 1 2 3 4 5 6 7 8 9 10
-  .. ..- attr(*, "names")= chr [1:10] "student" "housewife/childcare" "in retirement" "illness, disability" ...
-  ..$         : Named int [1:10] 1 2 3 4 5 6 7 8 9 10
-  .. ..- attr(*, "names")= chr [1:10] "agriculture" "mining" "manufacturing" "utilities" ...
-  ..$         : Named int [1:5] 1 2 3 4 5
-  .. ..- attr(*, "names")= chr [1:5] "private company" "public works program" "government,public sector, army" "private individual" ...
-  ..$         : Named int [1:2] 1 2
-  .. ..- attr(*, "names")= chr [1:2] "no" "yes"</code></pre>
+<pre><code>#&gt; 'data.frame':    12214 obs. of  27 variables:
+#&gt;  $ hhid              : num  1 1 1 2 2 3 4 4 5 6 ...
+#&gt;  $ hhweight          : num  627 627 627 627 627 ...
+#&gt;  $ location          : int  1 1 1 1 1 2 2 2 1 1 ...
+#&gt;  $ region            : int  8 8 8 9 9 4 4 4 8 8 ...
+#&gt;  $ ethnicity_head    : int  2 2 2 1 1 1 1 1 1 1 ...
+#&gt;  $ age               : num  37 11 8 73 70 75 79 80 82 83 ...
+#&gt;  $ gender            : int  2 2 1 1 2 1 1 2 2 2 ...
+#&gt;  $ relation          : int  1 3 3 1 2 1 1 2 1 1 ...
+#&gt;  $ literate          : int  1 2 2 2 2 2 2 2 2 2 ...
+#&gt;  $ income_mnt        : num  13.3 13.3 13.3 142.5 142.5 ...
+#&gt;  $ income            : num  160 160 160 1710 1710 ...
+#&gt;  $ aggregate         : num  1042 1042 1042 3271 3271 ...
+#&gt;  $ aggr_ind_annual   : num  347 347 347 1635 1635 ...
+#&gt;  $ educ_completed    : int  2 4 4 4 3 3 3 3 4 4 ...
+#&gt;  $ grade_complete    : num  4 3 0 3 4 4 4 4 5 5 ...
+#&gt;  $ grade_all         : num  4 11 8 11 8 8 8 8 13 13 ...
+#&gt;  $ unemployed        : int  2 1 1 1 1 1 1 1 1 1 ...
+#&gt;  $ reason_OLF        : int  NA NA NA 3 3 3 9 9 3 3 ...
+#&gt;  $ sector            : int  NA NA NA NA NA NA 1 1 NA NA ...
+#&gt;  $ occupation        : int  NA NA NA NA NA NA 5 5 NA NA ...
+#&gt;  $ earn_mont         : num  0 0 0 0 0 0 20 20 0 0 ...
+#&gt;  $ earn_ann          : num  0 0 0 0 0 0 240 240 0 0 ...
+#&gt;  $ hours_week        : num  NA NA NA NA NA NA 30 35 NA NA ...
+#&gt;  $ hours_mnt         : num  NA NA NA NA NA ...
+#&gt;  $ fulltime          : int  NA NA NA NA NA NA 1 1 NA NA ...
+#&gt;  $ hhexp             : num  100 100 100 343 343 ...
+#&gt;  $ legacy_pension_amt: num  NA NA NA NA NA NA NA NA NA NA ...
+#&gt;  - attr(*, "datalabel")= chr ""
+#&gt;  - attr(*, "time.stamp")= chr ""
+#&gt;  - attr(*, "formats")= chr [1:27] "%9.0g" "%9.0g" "%9.0g" "%9.0g" ...
+#&gt;  - attr(*, "types")= int [1:27] 100 100 108 108 108 100 108 108 108 100 ...
+#&gt;  - attr(*, "val.labels")= chr [1:27] "" "" "location" "region" ...
+#&gt;  - attr(*, "var.labels")= chr [1:27] "hhid" "hhweight" "location" "region" ...
+#&gt;  - attr(*, "expansion.fields")=List of 12
+#&gt;   ..$ : chr [1:3] "_dta" "_svy_su1" "cluster"
+#&gt;   ..$ : chr [1:3] "_dta" "_svy_strata1" "strata"
+#&gt;   ..$ : chr [1:3] "_dta" "_svy_stages" "1"
+#&gt;   ..$ : chr [1:3] "_dta" "_svy_version" "2"
+#&gt;   ..$ : chr [1:3] "_dta" "__XijVarLabcons" "(sum) cons"
+#&gt;   ..$ : chr [1:3] "_dta" "ReS_Xij" "cons"
+#&gt;   ..$ : chr [1:3] "_dta" "ReS_str" "0"
+#&gt;   ..$ : chr [1:3] "_dta" "ReS_j" "group"
+#&gt;   ..$ : chr [1:3] "_dta" "ReS_ver" "v.2"
+#&gt;   ..$ : chr [1:3] "_dta" "ReS_i" "hhid dur"
+#&gt;   ..$ : chr [1:3] "_dta" "note1" "variables g1pc, g2pc, g3pc, g4pc, g5pc, g7pc, g8pc, g9pc, g10pc, g11pc, g12pc,  gall, health, rent, durables we"| __truncated__
+#&gt;   ..$ : chr [1:3] "_dta" "note0" "1"
+#&gt;  - attr(*, "version")= int 7
+#&gt;  - attr(*, "label.table")=List of 12
+#&gt;   ..$ location: Named int [1:2] 1 2
+#&gt;   .. ..- attr(*, "names")= chr [1:2] "urban location" "rural location"
+#&gt;   ..$ region  : Named int [1:9] 1 2 3 4 5 6 7 8 9
+#&gt;   .. ..- attr(*, "names")= chr [1:9] "Sofia city" "Bourgass" "Varna" "Lovetch" ...
+#&gt;   ..$ ethnic  : Named int [1:4] 1 2 3 4
+#&gt;   .. ..- attr(*, "names")= chr [1:4] "Bulgaria" "Turks" "Roma" "Other"
+#&gt;   ..$ s2_q2   : Named int [1:2] 1 2
+#&gt;   .. ..- attr(*, "names")= chr [1:2] "male" "female"
+#&gt;   ..$ s2_q3   : Named int [1:9] 1 2 3 4 5 6 7 8 9
+#&gt;   .. ..- attr(*, "names")= chr [1:9] "head                      " "spouse/partner            " "child                     " "son/daughter-in-law       " ...
+#&gt;   ..$ lit     : Named int [1:2] 1 2
+#&gt;   .. ..- attr(*, "names")= chr [1:2] "no" "yes"
+#&gt;   ..$         : Named int [1:4] 1 2 3 4
+#&gt;   .. ..- attr(*, "names")= chr [1:4] "never attanded" "primary" "secondary" "postsecondary"
+#&gt;   ..$         : Named int [1:2] 1 2
+#&gt;   .. ..- attr(*, "names")= chr [1:2] "Not unemployed" "Unemployed"
+#&gt;   ..$         : Named int [1:10] 1 2 3 4 5 6 7 8 9 10
+#&gt;   .. ..- attr(*, "names")= chr [1:10] "student" "housewife/childcare" "in retirement" "illness, disability" ...
+#&gt;   ..$         : Named int [1:10] 1 2 3 4 5 6 7 8 9 10
+#&gt;   .. ..- attr(*, "names")= chr [1:10] "agriculture" "mining" "manufacturing" "utilities" ...
+#&gt;   ..$         : Named int [1:5] 1 2 3 4 5
+#&gt;   .. ..- attr(*, "names")= chr [1:5] "private company" "public works program" "government,public sector, army" "private individual" ...
+#&gt;   ..$         : Named int [1:2] 1 2
+#&gt;   .. ..- attr(*, "names")= chr [1:2] "no" "yes"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1"></a><span class="co"># Create and print structure of edu_equal_3</span></span>
 <span id="cb100-2"><a href="#cb100-2"></a>edu_equal_3 <span class="ot">&lt;-</span> <span class="fu">read.dta</span>(path, <span class="at">convert.underscore =</span> T)</span>
 <span id="cb100-3"><a href="#cb100-3"></a><span class="fu">str</span>(edu_equal_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>'data.frame':   12214 obs. of  27 variables:
- $ hhid              : num  1 1 1 2 2 3 4 4 5 6 ...
- $ hhweight          : num  627 627 627 627 627 ...
- $ location          : Factor w/ 2 levels "urban location",..: 1 1 1 1 1 2 2 2 1 1 ...
- $ region            : Factor w/ 9 levels "Sofia city","Bourgass",..: 8 8 8 9 9 4 4 4 8 8 ...
- $ ethnicity.head    : Factor w/ 4 levels "Bulgaria","Turks",..: 2 2 2 1 1 1 1 1 1 1 ...
- $ age               : num  37 11 8 73 70 75 79 80 82 83 ...
- $ gender            : Factor w/ 2 levels "male","female": 2 2 1 1 2 1 1 2 2 2 ...
- $ relation          : Factor w/ 9 levels "head                      ",..: 1 3 3 1 2 1 1 2 1 1 ...
- $ literate          : Factor w/ 2 levels "no","yes": 1 2 2 2 2 2 2 2 2 2 ...
- $ income.mnt        : num  13.3 13.3 13.3 142.5 142.5 ...
- $ income            : num  160 160 160 1710 1710 ...
- $ aggregate         : num  1042 1042 1042 3271 3271 ...
- $ aggr.ind.annual   : num  347 347 347 1635 1635 ...
- $ educ.completed    : int  2 4 4 4 3 3 3 3 4 4 ...
- $ grade.complete    : num  4 3 0 3 4 4 4 4 5 5 ...
- $ grade.all         : num  4 11 8 11 8 8 8 8 13 13 ...
- $ unemployed        : int  2 1 1 1 1 1 1 1 1 1 ...
- $ reason.OLF        : int  NA NA NA 3 3 3 9 9 3 3 ...
- $ sector            : int  NA NA NA NA NA NA 1 1 NA NA ...
- $ occupation        : int  NA NA NA NA NA NA 5 5 NA NA ...
- $ earn.mont         : num  0 0 0 0 0 0 20 20 0 0 ...
- $ earn.ann          : num  0 0 0 0 0 0 240 240 0 0 ...
- $ hours.week        : num  NA NA NA NA NA NA 30 35 NA NA ...
- $ hours.mnt         : num  NA NA NA NA NA ...
- $ fulltime          : int  NA NA NA NA NA NA 1 1 NA NA ...
- $ hhexp             : num  100 100 100 343 343 ...
- $ legacy.pension.amt: num  NA NA NA NA NA NA NA NA NA NA ...
- - attr(*, "datalabel")= chr ""
- - attr(*, "time.stamp")= chr ""
- - attr(*, "formats")= chr [1:27] "%9.0g" "%9.0g" "%9.0g" "%9.0g" ...
- - attr(*, "types")= int [1:27] 100 100 108 108 108 100 108 108 108 100 ...
- - attr(*, "val.labels")= chr [1:27] "" "" "location" "region" ...
- - attr(*, "var.labels")= chr [1:27] "hhid" "hhweight" "location" "region" ...
- - attr(*, "expansion.fields")=List of 12
-  ..$ : chr [1:3] "_dta" "_svy_su1" "cluster"
-  ..$ : chr [1:3] "_dta" "_svy_strata1" "strata"
-  ..$ : chr [1:3] "_dta" "_svy_stages" "1"
-  ..$ : chr [1:3] "_dta" "_svy_version" "2"
-  ..$ : chr [1:3] "_dta" "__XijVarLabcons" "(sum) cons"
-  ..$ : chr [1:3] "_dta" "ReS_Xij" "cons"
-  ..$ : chr [1:3] "_dta" "ReS_str" "0"
-  ..$ : chr [1:3] "_dta" "ReS_j" "group"
-  ..$ : chr [1:3] "_dta" "ReS_ver" "v.2"
-  ..$ : chr [1:3] "_dta" "ReS_i" "hhid dur"
-  ..$ : chr [1:3] "_dta" "note1" "variables g1pc, g2pc, g3pc, g4pc, g5pc, g7pc, g8pc, g9pc, g10pc, g11pc, g12pc,  gall, health, rent, durables we"| __truncated__
-  ..$ : chr [1:3] "_dta" "note0" "1"
- - attr(*, "version")= int 7
- - attr(*, "label.table")=List of 12
-  ..$ location: Named int [1:2] 1 2
-  .. ..- attr(*, "names")= chr [1:2] "urban location" "rural location"
-  ..$ region  : Named int [1:9] 1 2 3 4 5 6 7 8 9
-  .. ..- attr(*, "names")= chr [1:9] "Sofia city" "Bourgass" "Varna" "Lovetch" ...
-  ..$ ethnic  : Named int [1:4] 1 2 3 4
-  .. ..- attr(*, "names")= chr [1:4] "Bulgaria" "Turks" "Roma" "Other"
-  ..$ s2_q2   : Named int [1:2] 1 2
-  .. ..- attr(*, "names")= chr [1:2] "male" "female"
-  ..$ s2_q3   : Named int [1:9] 1 2 3 4 5 6 7 8 9
-  .. ..- attr(*, "names")= chr [1:9] "head                      " "spouse/partner            " "child                     " "son/daughter-in-law       " ...
-  ..$ lit     : Named int [1:2] 1 2
-  .. ..- attr(*, "names")= chr [1:2] "no" "yes"
-  ..$         : Named int [1:4] 1 2 3 4
-  .. ..- attr(*, "names")= chr [1:4] "never attanded" "primary" "secondary" "postsecondary"
-  ..$         : Named int [1:2] 1 2
-  .. ..- attr(*, "names")= chr [1:2] "Not unemployed" "Unemployed"
-  ..$         : Named int [1:10] 1 2 3 4 5 6 7 8 9 10
-  .. ..- attr(*, "names")= chr [1:10] "student" "housewife/childcare" "in retirement" "illness, disability" ...
-  ..$         : Named int [1:10] 1 2 3 4 5 6 7 8 9 10
-  .. ..- attr(*, "names")= chr [1:10] "agriculture" "mining" "manufacturing" "utilities" ...
-  ..$         : Named int [1:5] 1 2 3 4 5
-  .. ..- attr(*, "names")= chr [1:5] "private company" "public works program" "government,public sector, army" "private individual" ...
-  ..$         : Named int [1:2] 1 2
-  .. ..- attr(*, "names")= chr [1:2] "no" "yes"</code></pre>
+<pre><code>#&gt; 'data.frame':    12214 obs. of  27 variables:
+#&gt;  $ hhid              : num  1 1 1 2 2 3 4 4 5 6 ...
+#&gt;  $ hhweight          : num  627 627 627 627 627 ...
+#&gt;  $ location          : Factor w/ 2 levels "urban location",..: 1 1 1 1 1 2 2 2 1 1 ...
+#&gt;  $ region            : Factor w/ 9 levels "Sofia city","Bourgass",..: 8 8 8 9 9 4 4 4 8 8 ...
+#&gt;  $ ethnicity.head    : Factor w/ 4 levels "Bulgaria","Turks",..: 2 2 2 1 1 1 1 1 1 1 ...
+#&gt;  $ age               : num  37 11 8 73 70 75 79 80 82 83 ...
+#&gt;  $ gender            : Factor w/ 2 levels "male","female": 2 2 1 1 2 1 1 2 2 2 ...
+#&gt;  $ relation          : Factor w/ 9 levels "head                      ",..: 1 3 3 1 2 1 1 2 1 1 ...
+#&gt;  $ literate          : Factor w/ 2 levels "no","yes": 1 2 2 2 2 2 2 2 2 2 ...
+#&gt;  $ income.mnt        : num  13.3 13.3 13.3 142.5 142.5 ...
+#&gt;  $ income            : num  160 160 160 1710 1710 ...
+#&gt;  $ aggregate         : num  1042 1042 1042 3271 3271 ...
+#&gt;  $ aggr.ind.annual   : num  347 347 347 1635 1635 ...
+#&gt;  $ educ.completed    : int  2 4 4 4 3 3 3 3 4 4 ...
+#&gt;  $ grade.complete    : num  4 3 0 3 4 4 4 4 5 5 ...
+#&gt;  $ grade.all         : num  4 11 8 11 8 8 8 8 13 13 ...
+#&gt;  $ unemployed        : int  2 1 1 1 1 1 1 1 1 1 ...
+#&gt;  $ reason.OLF        : int  NA NA NA 3 3 3 9 9 3 3 ...
+#&gt;  $ sector            : int  NA NA NA NA NA NA 1 1 NA NA ...
+#&gt;  $ occupation        : int  NA NA NA NA NA NA 5 5 NA NA ...
+#&gt;  $ earn.mont         : num  0 0 0 0 0 0 20 20 0 0 ...
+#&gt;  $ earn.ann          : num  0 0 0 0 0 0 240 240 0 0 ...
+#&gt;  $ hours.week        : num  NA NA NA NA NA NA 30 35 NA NA ...
+#&gt;  $ hours.mnt         : num  NA NA NA NA NA ...
+#&gt;  $ fulltime          : int  NA NA NA NA NA NA 1 1 NA NA ...
+#&gt;  $ hhexp             : num  100 100 100 343 343 ...
+#&gt;  $ legacy.pension.amt: num  NA NA NA NA NA NA NA NA NA NA ...
+#&gt;  - attr(*, "datalabel")= chr ""
+#&gt;  - attr(*, "time.stamp")= chr ""
+#&gt;  - attr(*, "formats")= chr [1:27] "%9.0g" "%9.0g" "%9.0g" "%9.0g" ...
+#&gt;  - attr(*, "types")= int [1:27] 100 100 108 108 108 100 108 108 108 100 ...
+#&gt;  - attr(*, "val.labels")= chr [1:27] "" "" "location" "region" ...
+#&gt;  - attr(*, "var.labels")= chr [1:27] "hhid" "hhweight" "location" "region" ...
+#&gt;  - attr(*, "expansion.fields")=List of 12
+#&gt;   ..$ : chr [1:3] "_dta" "_svy_su1" "cluster"
+#&gt;   ..$ : chr [1:3] "_dta" "_svy_strata1" "strata"
+#&gt;   ..$ : chr [1:3] "_dta" "_svy_stages" "1"
+#&gt;   ..$ : chr [1:3] "_dta" "_svy_version" "2"
+#&gt;   ..$ : chr [1:3] "_dta" "__XijVarLabcons" "(sum) cons"
+#&gt;   ..$ : chr [1:3] "_dta" "ReS_Xij" "cons"
+#&gt;   ..$ : chr [1:3] "_dta" "ReS_str" "0"
+#&gt;   ..$ : chr [1:3] "_dta" "ReS_j" "group"
+#&gt;   ..$ : chr [1:3] "_dta" "ReS_ver" "v.2"
+#&gt;   ..$ : chr [1:3] "_dta" "ReS_i" "hhid dur"
+#&gt;   ..$ : chr [1:3] "_dta" "note1" "variables g1pc, g2pc, g3pc, g4pc, g5pc, g7pc, g8pc, g9pc, g10pc, g11pc, g12pc,  gall, health, rent, durables we"| __truncated__
+#&gt;   ..$ : chr [1:3] "_dta" "note0" "1"
+#&gt;  - attr(*, "version")= int 7
+#&gt;  - attr(*, "label.table")=List of 12
+#&gt;   ..$ location: Named int [1:2] 1 2
+#&gt;   .. ..- attr(*, "names")= chr [1:2] "urban location" "rural location"
+#&gt;   ..$ region  : Named int [1:9] 1 2 3 4 5 6 7 8 9
+#&gt;   .. ..- attr(*, "names")= chr [1:9] "Sofia city" "Bourgass" "Varna" "Lovetch" ...
+#&gt;   ..$ ethnic  : Named int [1:4] 1 2 3 4
+#&gt;   .. ..- attr(*, "names")= chr [1:4] "Bulgaria" "Turks" "Roma" "Other"
+#&gt;   ..$ s2_q2   : Named int [1:2] 1 2
+#&gt;   .. ..- attr(*, "names")= chr [1:2] "male" "female"
+#&gt;   ..$ s2_q3   : Named int [1:9] 1 2 3 4 5 6 7 8 9
+#&gt;   .. ..- attr(*, "names")= chr [1:9] "head                      " "spouse/partner            " "child                     " "son/daughter-in-law       " ...
+#&gt;   ..$ lit     : Named int [1:2] 1 2
+#&gt;   .. ..- attr(*, "names")= chr [1:2] "no" "yes"
+#&gt;   ..$         : Named int [1:4] 1 2 3 4
+#&gt;   .. ..- attr(*, "names")= chr [1:4] "never attanded" "primary" "secondary" "postsecondary"
+#&gt;   ..$         : Named int [1:2] 1 2
+#&gt;   .. ..- attr(*, "names")= chr [1:2] "Not unemployed" "Unemployed"
+#&gt;   ..$         : Named int [1:10] 1 2 3 4 5 6 7 8 9 10
+#&gt;   .. ..- attr(*, "names")= chr [1:10] "student" "housewife/childcare" "in retirement" "illness, disability" ...
+#&gt;   ..$         : Named int [1:10] 1 2 3 4 5 6 7 8 9 10
+#&gt;   .. ..- attr(*, "names")= chr [1:10] "agriculture" "mining" "manufacturing" "utilities" ...
+#&gt;   ..$         : Named int [1:5] 1 2 3 4 5
+#&gt;   .. ..- attr(*, "names")= chr [1:5] "private company" "public works program" "government,public sector, army" "private individual" ...
+#&gt;   ..$         : Named int [1:2] 1 2
+#&gt;   .. ..- attr(*, "names")= chr [1:2] "no" "yes"</code></pre>
 </div>
 </div>
 <p>Great! Can you tell the difference between the different versions of <a href="http://www.rdocumentation.org/packages/foreign/functions/read.dta"><code>read.dta()</code></a>? For this data, the first version (where you simply specified the file path) will be most useful to work with. Head over to the next exercise to see if you actually understand your data!</p>
@@ -3102,7 +2825,7 @@ $b
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a><span class="co"># Import international.sav as a data frame: demo</span></span>
 <span id="cb104-2"><a href="#cb104-2"></a>demo <span class="ot">&lt;-</span> <span class="fu">read.spss</span>(<span class="st">"data/international.sav"</span>, <span class="at">to.data.frame =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>re-encoding from CP1252</code></pre>
+<pre><code>#&gt; re-encoding from CP1252</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a><span class="co"># Create boxplot of gdp variable of demo</span></span>
 <span id="cb106-2"><a href="#cb106-2"></a><span class="fu">boxplot</span>(demo<span class="sc">$</span>gdp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3146,161 +2869,31 @@ $b
 <span id="cb108-3"><a href="#cb108-3"></a><span class="co"># Import international.sav as demo_1</span></span>
 <span id="cb108-4"><a href="#cb108-4"></a>demo_1 <span class="ot">&lt;-</span> <span class="fu">read.spss</span>(<span class="st">"data/international.sav"</span>, <span class="at">to.data.frame =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>re-encoding from CP1252</code></pre>
+<pre><code>#&gt; re-encoding from CP1252</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a><span class="co"># Print out the head of demo_1</span></span>
 <span id="cb110-2"><a href="#cb110-2"></a><span class="fu">head</span>(demo_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped">
-<thead>
-<tr class="header">
-<th style="text-align: right;">id</th>
-<th style="text-align: left;">country</th>
-<th style="text-align: left;">contint</th>
-<th style="text-align: right;">m_illit</th>
-<th style="text-align: right;">f_illit</th>
-<th style="text-align: right;">lifeexpt</th>
-<th style="text-align: right;">gdp</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">Argentina</td>
-<td style="text-align: left;">Americas</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">3375</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Benin</td>
-<td style="text-align: left;">Africa</td>
-<td style="text-align: right;">45.2</td>
-<td style="text-align: right;">74.5</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">521</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">Burundi</td>
-<td style="text-align: left;">Africa</td>
-<td style="text-align: right;">33.2</td>
-<td style="text-align: right;">48.1</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">86</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">Chile</td>
-<td style="text-align: left;">Americas</td>
-<td style="text-align: right;">4.2</td>
-<td style="text-align: right;">4.4</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">4523</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">Dominican Republic</td>
-<td style="text-align: left;">Americas</td>
-<td style="text-align: right;">12.0</td>
-<td style="text-align: right;">12.7</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">2408</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">El Salvador</td>
-<td style="text-align: left;">Americas</td>
-<td style="text-align: right;">17.6</td>
-<td style="text-align: right;">22.9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">2302</td>
-</tr>
-</tbody>
-</table>
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["country"],"name":[2],"type":["chr"],"align":["left"]},{"label":["contint"],"name":[3],"type":["fct"],"align":["left"]},{"label":["m_illit"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["f_illit"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["lifeexpt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["gdp"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"Argentina","3":"Americas","4":"3.0","5":"3.0","6":"16","7":"3375","_rn_":"1"},{"1":"2","2":"Benin","3":"Africa","4":"45.2","5":"74.5","6":"7","7":"521","_rn_":"2"},{"1":"3","2":"Burundi","3":"Africa","4":"33.2","5":"48.1","6":"5","7":"86","_rn_":"3"},{"1":"4","2":"Chile","3":"Americas","4":"4.2","5":"4.4","6":"14","7":"4523","_rn_":"4"},{"1":"5","2":"Dominican Republic","3":"Americas","4":"12.0","5":"12.7","6":"12","7":"2408","_rn_":"5"},{"1":"6","2":"El Salvador","3":"Americas","4":"17.6","5":"22.9","6":"11","7":"2302","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1"></a><span class="co"># Import international.sav as demo_2</span></span>
 <span id="cb111-2"><a href="#cb111-2"></a>demo_2 <span class="ot">&lt;-</span> <span class="fu">read.spss</span>(<span class="st">"data/international.sav"</span>, <span class="at">to.data.frame =</span> T, <span class="at">use.value.labels =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>re-encoding from CP1252</code></pre>
+<pre><code>#&gt; re-encoding from CP1252</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1"></a><span class="co"># Print out the head of demo_2</span></span>
 <span id="cb113-2"><a href="#cb113-2"></a><span class="fu">head</span>(demo_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped">
-<thead>
-<tr class="header">
-<th style="text-align: right;">id</th>
-<th style="text-align: left;">country</th>
-<th style="text-align: right;">contint</th>
-<th style="text-align: right;">m_illit</th>
-<th style="text-align: right;">f_illit</th>
-<th style="text-align: right;">lifeexpt</th>
-<th style="text-align: right;">gdp</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">Argentina</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">3.0</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">3375</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Benin</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">45.2</td>
-<td style="text-align: right;">74.5</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">521</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">Burundi</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">33.2</td>
-<td style="text-align: right;">48.1</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">86</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">Chile</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">4.2</td>
-<td style="text-align: right;">4.4</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">4523</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">Dominican Republic</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">12.0</td>
-<td style="text-align: right;">12.7</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">2408</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">El Salvador</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">17.6</td>
-<td style="text-align: right;">22.9</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">2302</td>
-</tr>
-</tbody>
-</table>
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["id"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["country"],"name":[2],"type":["chr"],"align":["left"]},{"label":["contint"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["m_illit"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["f_illit"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["lifeexpt"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["gdp"],"name":[7],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"Argentina","3":"2","4":"3.0","5":"3.0","6":"16","7":"3375","_rn_":"1"},{"1":"2","2":"Benin","3":"1","4":"45.2","5":"74.5","6":"7","7":"521","_rn_":"2"},{"1":"3","2":"Burundi","3":"1","4":"33.2","5":"48.1","6":"5","7":"86","_rn_":"3"},{"1":"4","2":"Chile","3":"2","4":"4.2","5":"4.4","6":"14","7":"4523","_rn_":"4"},{"1":"5","2":"Dominican Republic","3":"2","4":"12.0","5":"12.7","6":"12","7":"2408","_rn_":"5"},{"1":"6","2":"El Salvador","3":"2","4":"17.6","5":"22.9","6":"11","7":"2302","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
 </div>
 </div>
 </div>
@@ -3577,7 +3170,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":true,"selector":".lightbox"});</script>
+<script>var lightboxQuarto = GLightbox({"loop":true,"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom"});</script>
 
 
 

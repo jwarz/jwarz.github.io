@@ -130,6 +130,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+<link href="../../../../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
 
 </head>
 
@@ -376,7 +379,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">22: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">22: Machine Learning with caret</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -528,9 +531,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p><strong>Short Description</strong></p>
-<p>Develop the skills you need to go from raw data to awesome insights as quickly and accurately as possible.</p>
-<p><strong>Long Description</strong></p>
 <p>It’s commonly said that data scientists spend 80% of their time cleaning and manipulating data and only 20% of their time analyzing it. The time spent cleaning is vital since analyzing dirty data can lead you to draw inaccurate conclusions.</p>
 <p>In this section, you’ll learn how to clean dirty data. Using R, you’ll learn how to identify values that don’t look right and fix dirty data by converting data types, filling in missing values, and using fuzzy string matching. As you learn, you’ll brush up on your skills by working with real-world datasets, including bike-share trips, customer asset portfolios, and restaurant reviews—developing the skills you need to go from raw data to awesome insights as quickly and accurately as possible!</p>
 <section id="common-data-problems" class="level1" data-number="1">
@@ -2378,7 +2378,7 @@ The function <code>readr::parse_number()</code> does everything in one step.
 <span id="cb60-5"><a href="#cb60-5"></a><span class="fu">library</span>(reclin)</span>
 <span id="cb60-6"><a href="#cb60-6"></a></span>
 <span id="cb60-7"><a href="#cb60-7"></a><span class="co"># 1. Generate all possible pairs</span></span>
-<span id="cb60-8"><a href="#cb60-8"></a><span class="fu">pair_blocking</span>(zagat, fodors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb60-8"><a href="#cb60-8"></a>reclin<span class="sc">::</span><span class="fu">pair_blocking</span>(zagat, fodors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Use pair blocking to generate only pairs that have matching values in the <code>city</code> column.</li>
@@ -2781,7 +2781,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":true});</script>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":true,"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox"});</script>
 
 
 

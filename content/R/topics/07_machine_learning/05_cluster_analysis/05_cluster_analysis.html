@@ -106,6 +106,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -377,7 +380,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">22: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">22: Machine Learning with caret</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -560,9 +563,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p><strong>Short Description</strong></p>
-<p>Develop a strong intuition for how hierarchical and k-means clustering work and learn how to apply them to extract insights from your data.</p>
-<p><strong>Long Description</strong></p>
 <p>Cluster analysis is a powerful toolkit in the data science workbench. It is used to find groups of observations (clusters) that share similar characteristics. These similarities can inform all kinds of business decisions; for example, in marketing, it is used to identify distinct groups of customers for which advertisements can be tailored. In this course, you will learn about two commonly used clustering methods - hierarchical clustering and k-means clustering. You won’t just learn how to use these methods, you’ll build a <strong> strong intuition</strong> for how they work and how to interpret their results. You’ll develop this intuition by exploring three different datasets: soccer player positions, wholesale customer spending data, and longitudinal occupational wage data.</p>
 <section id="calculating-distance-between-observations" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> 1. Calculating distance between observations</h1>
@@ -676,15 +676,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-11"><a href="#cb1-11"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
 <span id="cb1-12"><a href="#cb1-12"></a>  <span class="co"># Assuming a 40x60 field</span></span>
 <span id="cb1-13"><a href="#cb1-13"></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">30</span>,<span class="dv">30</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">20</span>)) <span class="sc">+</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb1-15"><a href="#cb1-15"></a>  </span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="co"># Split the players data frame into two observations </span></span>
-<span id="cb1-17"><a href="#cb1-17"></a>player1 <span class="ot">&lt;-</span> two_players[<span class="dv">1</span>, ]</span>
-<span id="cb1-18"><a href="#cb1-18"></a>player2 <span class="ot">&lt;-</span> two_players[<span class="dv">2</span>, ]</span>
-<span id="cb1-19"><a href="#cb1-19"></a></span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="co"># Calculate and print their distance using the Euclidean Distance formula</span></span>
-<span id="cb1-21"><a href="#cb1-21"></a>player_distance <span class="ot">&lt;-</span> <span class="fu">sqrt</span>( (player1<span class="sc">$</span>x <span class="sc">-</span> player2<span class="sc">$</span>x)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (player1<span class="sc">$</span>y <span class="sc">-</span> player2<span class="sc">$</span>y)<span class="sc">^</span><span class="dv">2</span> )</span>
-<span id="cb1-22"><a href="#cb1-22"></a>player_distance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Split the players data frame into two observations </span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>player1 <span class="ot">&lt;-</span> two_players[<span class="dv">1</span>, ]</span>
+<span id="cb2-3"><a href="#cb2-3"></a>player2 <span class="ot">&lt;-</span> two_players[<span class="dv">2</span>, ]</span>
+<span id="cb2-4"><a href="#cb2-4"></a></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># Calculate and print their distance using the Euclidean Distance formula</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>player_distance <span class="ot">&lt;-</span> <span class="fu">sqrt</span>( (player1<span class="sc">$</span>x <span class="sc">-</span> player2<span class="sc">$</span>x)<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (player1<span class="sc">$</span>y <span class="sc">-</span> player2<span class="sc">$</span>y)<span class="sc">^</span><span class="dv">2</span> )</span>
+<span id="cb2-7"><a href="#cb2-7"></a>player_distance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 11.6619</code></pre>
+</div>
 </div>
 <p>Excellent work! Using the formula is a great way to learn how distance is measured between two observations.</p>
 </section>
@@ -699,16 +708,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the distance between three players for the data frame <code>three_players</code></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Calculate the Distance Between two_players</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>dist_two_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(two_players)</span>
-<span id="cb2-3"><a href="#cb2-3"></a>dist_two_players</span>
-<span id="cb2-4"><a href="#cb2-4"></a></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># Calculate the Distance Between three_players</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a>three_players <span class="ot">&lt;-</span> two_players <span class="sc">|&gt;</span> </span>
-<span id="cb2-7"><a href="#cb2-7"></a>                  <span class="fu">add_row</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">20</span>)</span>
-<span id="cb2-8"><a href="#cb2-8"></a></span>
-<span id="cb2-9"><a href="#cb2-9"></a>dist_three_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(three_players)</span>
-<span id="cb2-10"><a href="#cb2-10"></a>dist_three_players</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Calculate the Distance Between two_players</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>dist_two_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(two_players)</span>
+<span id="cb4-3"><a href="#cb4-3"></a>dist_two_players</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;         1
+#&gt; 2 11.6619</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Calculate the Distance Between three_players</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>three_players <span class="ot">&lt;-</span> two_players <span class="sc">|&gt;</span> </span>
+<span id="cb6-3"><a href="#cb6-3"></a>                  <span class="fu">add_row</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">20</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a>dist_three_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(three_players)</span>
+<span id="cb6-6"><a href="#cb6-6"></a>dist_three_players</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;          1        2
+#&gt; 2 11.66190         
+#&gt; 3 16.76305 18.02776</code></pre>
+</div>
 </div>
 <p>The dist() function makes life easier when working with many dimensions and observations.</p>
 </section>
@@ -798,22 +815,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Output both <code>dist_trees</code> and <code>dist_scaled_trees</code> matrices and observe the change of which observations have the smallest distance between the two matrices <em>(hint: they have changed)</em></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>three_trees <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Girth  =</span> <span class="fu">c</span>(<span class="fl">8.3</span>, <span class="fl">8.6</span>, <span class="fl">10.5</span>),</span>
-<span id="cb3-2"><a href="#cb3-2"></a>                      <span class="at">Height =</span> <span class="fu">c</span>(<span class="dv">840</span>, <span class="dv">780</span>, <span class="dv">864</span>))</span>
-<span id="cb3-3"><a href="#cb3-3"></a>                  </span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># Calculate distance for three_trees </span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>dist_trees <span class="ot">&lt;-</span> <span class="fu">dist</span>(three_trees)</span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co"># Scale three trees &amp; calculate the distance  </span></span>
-<span id="cb3-8"><a href="#cb3-8"></a>scaled_three_trees <span class="ot">&lt;-</span> <span class="fu">scale</span>(three_trees)</span>
-<span id="cb3-9"><a href="#cb3-9"></a>dist_scaled_trees  <span class="ot">&lt;-</span> <span class="fu">dist</span>(scaled_three_trees)</span>
-<span id="cb3-10"><a href="#cb3-10"></a></span>
-<span id="cb3-11"><a href="#cb3-11"></a><span class="co"># Output the results of both Matrices</span></span>
-<span id="cb3-12"><a href="#cb3-12"></a><span class="fu">print</span>(<span class="st">'Without Scaling'</span>)</span>
-<span id="cb3-13"><a href="#cb3-13"></a>dist_trees</span>
-<span id="cb3-14"><a href="#cb3-14"></a></span>
-<span id="cb3-15"><a href="#cb3-15"></a><span class="fu">print</span>(<span class="st">'With Scaling'</span>)</span>
-<span id="cb3-16"><a href="#cb3-16"></a>dist_scaled_trees</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>three_trees <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Girth  =</span> <span class="fu">c</span>(<span class="fl">8.3</span>, <span class="fl">8.6</span>, <span class="fl">10.5</span>),</span>
+<span id="cb8-2"><a href="#cb8-2"></a>                      <span class="at">Height =</span> <span class="fu">c</span>(<span class="dv">840</span>, <span class="dv">780</span>, <span class="dv">864</span>))</span>
+<span id="cb8-3"><a href="#cb8-3"></a>                  </span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># Calculate distance for three_trees </span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>dist_trees <span class="ot">&lt;-</span> <span class="fu">dist</span>(three_trees)</span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co"># Scale three trees &amp; calculate the distance  </span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>scaled_three_trees <span class="ot">&lt;-</span> <span class="fu">scale</span>(three_trees)</span>
+<span id="cb8-9"><a href="#cb8-9"></a>dist_scaled_trees  <span class="ot">&lt;-</span> <span class="fu">dist</span>(scaled_three_trees)</span>
+<span id="cb8-10"><a href="#cb8-10"></a></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="co"># Output the results of both Matrices</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="fu">print</span>(<span class="st">'Without Scaling'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] "Without Scaling"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>dist_trees</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;          1        2
+#&gt; 2 60.00075         
+#&gt; 3 24.10062 84.02149</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">print</span>(<span class="st">'With Scaling'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] "With Scaling"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>dist_scaled_trees</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;          1        2
+#&gt; 2 1.409365         
+#&gt; 3 1.925659 2.511082</code></pre>
+</div>
 </div>
 <p>Notice that before scaling observations 1 &amp; 3 were the closest but after scaling observations 1 &amp; 2 turn out to have the smallest distance.</p>
 </section>
@@ -863,28 +895,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Note the observations with a distance of 0 in the original data (1, 2, and 4)</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Data</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>job_survey <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="co"># Does not work with tibble</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>  </span>
-<span id="cb4-4"><a href="#cb4-4"></a>  <span class="at">job_satisfaction =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Hi"</span>, <span class="dv">4</span>), <span class="st">"Mid"</span>),</span>
-<span id="cb4-5"><a href="#cb4-5"></a>  <span class="at">is_happy         =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"No"</span>, <span class="dv">3</span>), <span class="st">"Yes"</span>, <span class="st">"No"</span>)</span>
-<span id="cb4-6"><a href="#cb4-6"></a>  </span>
-<span id="cb4-7"><a href="#cb4-7"></a>)</span>
-<span id="cb4-8"><a href="#cb4-8"></a></span>
-<span id="cb4-9"><a href="#cb4-9"></a><span class="co"># Load package</span></span>
-<span id="cb4-10"><a href="#cb4-10"></a><span class="fu">library</span>(dummies)</span>
-<span id="cb4-11"><a href="#cb4-11"></a></span>
-<span id="cb4-12"><a href="#cb4-12"></a><span class="co"># Dummify the Survey Data</span></span>
-<span id="cb4-13"><a href="#cb4-13"></a>dummy_survey <span class="ot">&lt;-</span> <span class="fu">dummy.data.frame</span>(job_survey)</span>
-<span id="cb4-14"><a href="#cb4-14"></a></span>
-<span id="cb4-15"><a href="#cb4-15"></a><span class="co"># Calculate the Distance</span></span>
-<span id="cb4-16"><a href="#cb4-16"></a>dist_survey <span class="ot">&lt;-</span> <span class="fu">dist</span>(dummy_survey, <span class="at">method =</span> <span class="st">'binary'</span>)</span>
-<span id="cb4-17"><a href="#cb4-17"></a></span>
-<span id="cb4-18"><a href="#cb4-18"></a><span class="co"># Print the Original Data</span></span>
-<span id="cb4-19"><a href="#cb4-19"></a>job_survey</span>
-<span id="cb4-20"><a href="#cb4-20"></a></span>
-<span id="cb4-21"><a href="#cb4-21"></a><span class="co"># Print the Distance Matrix</span></span>
-<span id="cb4-22"><a href="#cb4-22"></a>dist_survey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Data</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>job_survey <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="co"># Does not work with tibble</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>  </span>
+<span id="cb16-4"><a href="#cb16-4"></a>  <span class="at">job_satisfaction =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"Hi"</span>, <span class="dv">4</span>), <span class="st">"Mid"</span>),</span>
+<span id="cb16-5"><a href="#cb16-5"></a>  <span class="at">is_happy         =</span> <span class="fu">c</span>(<span class="fu">rep</span>(<span class="st">"No"</span>, <span class="dv">3</span>), <span class="st">"Yes"</span>, <span class="st">"No"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6"></a>  </span>
+<span id="cb16-7"><a href="#cb16-7"></a>)</span>
+<span id="cb16-8"><a href="#cb16-8"></a></span>
+<span id="cb16-9"><a href="#cb16-9"></a><span class="co"># Load package</span></span>
+<span id="cb16-10"><a href="#cb16-10"></a><span class="fu">library</span>(dummies)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; dummies-1.5.6 provided by Decision Patterns</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Dummify the Survey Data</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>dummy_survey <span class="ot">&lt;-</span> <span class="fu">dummy.data.frame</span>(job_survey)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning in dummy.classes == "ALL" || class(data[, nm]) %in% dummy.classes:
+#&gt; 'length(x) = 2 &gt; 1' in coercion to 'logical(1)'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning in model.matrix.default(~x - 1, model.frame(~x - 1), contrasts = FALSE):
+#&gt; non-list contrasts argument ignored</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning in dummy.classes == "ALL" || class(data[, nm]) %in% dummy.classes:
+#&gt; 'length(x) = 2 &gt; 1' in coercion to 'logical(1)'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning in model.matrix.default(~x - 1, model.frame(~x - 1), contrasts = FALSE):
+#&gt; non-list contrasts argument ignored</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Calculate the Distance</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>dist_survey <span class="ot">&lt;-</span> <span class="fu">dist</span>(dummy_survey, <span class="at">method =</span> <span class="st">'binary'</span>)</span>
+<span id="cb23-3"><a href="#cb23-3"></a></span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="co"># Print the Original Data</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a>job_survey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["job_satisfaction"],"name":[1],"type":["chr"],"align":["left"]},{"label":["is_happy"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"Hi","2":"No"},{"1":"Hi","2":"No"},{"1":"Hi","2":"No"},{"1":"Hi","2":"Yes"},{"1":"Mid","2":"No"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Print the Distance Matrix</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>dist_survey</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;           1         2         3         4
+#&gt; 2 0.0000000                              
+#&gt; 3 0.0000000 0.0000000                    
+#&gt; 4 0.6666667 0.6666667 0.6666667          
+#&gt; 5 0.6666667 0.6666667 0.6666667 1.0000000</code></pre>
+</div>
 </div>
 <p>Great work! <br> Notice that this distance metric successfully captured that observations 1 and 2 are identical (distance of 0)</p>
 </section>
@@ -1004,24 +1067,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>dist_players <span class="ot">&lt;-</span> dist_three_players</span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># Extract the pair distances</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>distance_1_2 <span class="ot">&lt;-</span> dist_players[<span class="dv">1</span>]</span>
-<span id="cb5-5"><a href="#cb5-5"></a>distance_1_3 <span class="ot">&lt;-</span> dist_players[<span class="dv">2</span>]</span>
-<span id="cb5-6"><a href="#cb5-6"></a>distance_2_3 <span class="ot">&lt;-</span> dist_players[<span class="dv">3</span>]</span>
-<span id="cb5-7"><a href="#cb5-7"></a></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co"># Calculate the complete distance between group 1-2 and 3</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a>complete <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">c</span>(distance_1_3, distance_2_3))</span>
-<span id="cb5-10"><a href="#cb5-10"></a>complete</span>
-<span id="cb5-11"><a href="#cb5-11"></a></span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="co"># Calculate the single distance between group 1-2 and 3</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a>single <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">c</span>(distance_1_3, distance_2_3))</span>
-<span id="cb5-14"><a href="#cb5-14"></a>single</span>
-<span id="cb5-15"><a href="#cb5-15"></a></span>
-<span id="cb5-16"><a href="#cb5-16"></a><span class="co"># Calculate the average distance between group 1-2 and 3</span></span>
-<span id="cb5-17"><a href="#cb5-17"></a>average <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(distance_1_3, distance_2_3))</span>
-<span id="cb5-18"><a href="#cb5-18"></a>average</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>dist_players <span class="ot">&lt;-</span> dist_three_players</span>
+<span id="cb26-2"><a href="#cb26-2"></a></span>
+<span id="cb26-3"><a href="#cb26-3"></a><span class="co"># Extract the pair distances</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a>distance_1_2 <span class="ot">&lt;-</span> dist_players[<span class="dv">1</span>]</span>
+<span id="cb26-5"><a href="#cb26-5"></a>distance_1_3 <span class="ot">&lt;-</span> dist_players[<span class="dv">2</span>]</span>
+<span id="cb26-6"><a href="#cb26-6"></a>distance_2_3 <span class="ot">&lt;-</span> dist_players[<span class="dv">3</span>]</span>
+<span id="cb26-7"><a href="#cb26-7"></a></span>
+<span id="cb26-8"><a href="#cb26-8"></a><span class="co"># Calculate the complete distance between group 1-2 and 3</span></span>
+<span id="cb26-9"><a href="#cb26-9"></a>complete <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="fu">c</span>(distance_1_3, distance_2_3))</span>
+<span id="cb26-10"><a href="#cb26-10"></a>complete</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 18.02776</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Calculate the single distance between group 1-2 and 3</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>single <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="fu">c</span>(distance_1_3, distance_2_3))</span>
+<span id="cb28-3"><a href="#cb28-3"></a>single</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 16.76305</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Calculate the average distance between group 1-2 and 3</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a>average <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">c</span>(distance_1_3, distance_2_3))</span>
+<span id="cb30-3"><a href="#cb30-3"></a>average</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 17.39541</code></pre>
+</div>
 </div>
 <p>Great work! <br> Now you have all the knowledge you need to tackle exercise 12 from chapter 1.</p>
 </section>
@@ -1117,23 +1187,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Append the cluster assignments as a column <code>cluster</code> to the <code>lineup</code> data frame and save the results to a new data frame called <code>lineup_k2_complete</code></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Load package</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># Load data</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a>lineup <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/lineup.rds"</span>)</span>
-<span id="cb6-6"><a href="#cb6-6"></a></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co"># Calculate the Distance</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup)</span>
-<span id="cb6-9"><a href="#cb6-9"></a></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="co"># Perform the hierarchical clustering using the complete linkage</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a>hc_players <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">"complete"</span>)</span>
-<span id="cb6-12"><a href="#cb6-12"></a></span>
-<span id="cb6-13"><a href="#cb6-13"></a><span class="co"># Calculate the assignment vector with a k of 2</span></span>
-<span id="cb6-14"><a href="#cb6-14"></a>clusters_k2 <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_players, <span class="at">k =</span> <span class="dv">2</span>)</span>
-<span id="cb6-15"><a href="#cb6-15"></a></span>
-<span id="cb6-16"><a href="#cb6-16"></a><span class="co"># Create a new data frame storing these results</span></span>
-<span id="cb6-17"><a href="#cb6-17"></a>lineup_k2_complete <span class="ot">&lt;-</span> <span class="fu">mutate</span>(lineup, <span class="at">cluster =</span> clusters_k2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Load package</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; 
+#&gt; Attache Paket: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Die folgenden Objekte sind maskiert von 'package:stats':
+#&gt; 
+#&gt;     filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Die folgenden Objekte sind maskiert von 'package:base':
+#&gt; 
+#&gt;     intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Load data</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>lineup <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/lineup.rds"</span>)</span>
+<span id="cb36-3"><a href="#cb36-3"></a></span>
+<span id="cb36-4"><a href="#cb36-4"></a><span class="co"># Calculate the Distance</span></span>
+<span id="cb36-5"><a href="#cb36-5"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup)</span>
+<span id="cb36-6"><a href="#cb36-6"></a></span>
+<span id="cb36-7"><a href="#cb36-7"></a><span class="co"># Perform the hierarchical clustering using the complete linkage</span></span>
+<span id="cb36-8"><a href="#cb36-8"></a>hc_players <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">"complete"</span>)</span>
+<span id="cb36-9"><a href="#cb36-9"></a></span>
+<span id="cb36-10"><a href="#cb36-10"></a><span class="co"># Calculate the assignment vector with a k of 2</span></span>
+<span id="cb36-11"><a href="#cb36-11"></a>clusters_k2 <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_players, <span class="at">k =</span> <span class="dv">2</span>)</span>
+<span id="cb36-12"><a href="#cb36-12"></a></span>
+<span id="cb36-13"><a href="#cb36-13"></a><span class="co"># Create a new data frame storing these results</span></span>
+<span id="cb36-14"><a href="#cb36-14"></a>lineup_k2_complete <span class="ot">&lt;-</span> <span class="fu">mutate</span>(lineup, <span class="at">cluster =</span> clusters_k2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Fantastic job! In the next exercise we will explore this result.</p>
 </section>
@@ -1153,13 +1236,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Using <code>ggplot()</code>, plot the positions of the players and color them by cluster assignment.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Count the cluster assignments</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">count</span>(lineup_k2_complete, cluster)</span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># Plot the positions of the players and color them using their cluster</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="fu">ggplot</span>(lineup_k2_complete, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> <span class="fu">factor</span>(cluster))) <span class="sc">+</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Count the cluster assignments</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="fu">count</span>(lineup_k2_complete, cluster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["cluster"],"name":[1],"type":["int"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"6"},{"1":"2","2":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Plot the positions of the players and color them using their cluster</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="fu">ggplot</span>(lineup_k2_complete, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> <span class="fu">factor</span>(cluster))) <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="#cb38-4"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>You’re doing great! <br> Think carefully about whether these results make sense to you and why.</p>
 </section>
@@ -1214,20 +1311,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Plot the three dendrograms side by side and review the changes</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Prepare the Distance Matrix</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup)</span>
-<span id="cb8-3"><a href="#cb8-3"></a></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># Generate hclust for complete, single &amp; average linkage methods</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a>hc_complete <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">"complete"</span>)</span>
-<span id="cb8-6"><a href="#cb8-6"></a>hc_single   <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">"single"</span>)</span>
-<span id="cb8-7"><a href="#cb8-7"></a>hc_average  <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">"average"</span>)</span>
-<span id="cb8-8"><a href="#cb8-8"></a></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="co"># Plot &amp; Label the 3 Dendrograms Side-by-Side</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="co"># Hint: To see these Side-by-Side run the 4 lines together as one command</span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="fu">plot</span>(hc_complete, <span class="at">main =</span> <span class="st">'Complete Linkage'</span>)</span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="fu">plot</span>(hc_single,   <span class="at">main =</span> <span class="st">'Single Linkage'</span>)</span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="fu">plot</span>(hc_average,  <span class="at">main =</span> <span class="st">'Average Linkage'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Prepare the Distance Matrix</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup)</span>
+<span id="cb39-3"><a href="#cb39-3"></a></span>
+<span id="cb39-4"><a href="#cb39-4"></a><span class="co"># Generate hclust for complete, single &amp; average linkage methods</span></span>
+<span id="cb39-5"><a href="#cb39-5"></a>hc_complete <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">"complete"</span>)</span>
+<span id="cb39-6"><a href="#cb39-6"></a>hc_single   <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">"single"</span>)</span>
+<span id="cb39-7"><a href="#cb39-7"></a>hc_average  <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">"average"</span>)</span>
+<span id="cb39-8"><a href="#cb39-8"></a></span>
+<span id="cb39-9"><a href="#cb39-9"></a><span class="co"># Plot &amp; Label the 3 Dendrograms Side-by-Side</span></span>
+<span id="cb39-10"><a href="#cb39-10"></a><span class="co"># Hint: To see these Side-by-Side run the 4 lines together as one command</span></span>
+<span id="cb39-11"><a href="#cb39-11"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))</span>
+<span id="cb39-12"><a href="#cb39-12"></a><span class="fu">plot</span>(hc_complete, <span class="at">main =</span> <span class="st">'Complete Linkage'</span>)</span>
+<span id="cb39-13"><a href="#cb39-13"></a><span class="fu">plot</span>(hc_single,   <span class="at">main =</span> <span class="st">'Single Linkage'</span>)</span>
+<span id="cb39-14"><a href="#cb39-14"></a><span class="fu">plot</span>(hc_average,  <span class="at">main =</span> <span class="st">'Average Linkage'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Excellent! Did you notice how the trees all look different? <br> In the coming exercises you will see how visualizing this structure can be helpful for building clusters.</p>
 </section>
@@ -1236,9 +1340,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>An advantage of working with a clustering method like hierarchical clustering is that you can describe the relationships between your observations based on both the <strong>distance metric</strong> and the <strong>linkage metric</strong> selected (the combination of which defines the height of the tree).</p>
 <p><strong>Based on the code below what can you concretely say about the height of a branch in the resulting dendrogram?</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
-<span id="cb9-2"><a href="#cb9-2"></a>hc_players <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">'single'</span>)</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="fu">plot</span>(hc_players)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
+<span id="cb40-2"><a href="#cb40-2"></a>hc_players <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">'single'</span>)</span>
+<span id="cb40-3"><a href="#cb40-3"></a><span class="fu">plot</span>(hc_players)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <h2 id="question-6" data-number="2.13" class="anchored"><span class="header-section-number">2.13</span> <em>Question</em></h2>
@@ -1284,27 +1388,71 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Repeat the above step with a height of 40</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">library</span>(dendextend)</span>
-<span id="cb10-2"><a href="#cb10-2"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
-<span id="cb10-3"><a href="#cb10-3"></a>hc_players   <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">"complete"</span>)</span>
-<span id="cb10-4"><a href="#cb10-4"></a></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="co"># Create a dendrogram object from the hclust variable</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a>dend_players <span class="ot">&lt;-</span> <span class="fu">as.dendrogram</span>(hc_players)</span>
-<span id="cb10-7"><a href="#cb10-7"></a></span>
-<span id="cb10-8"><a href="#cb10-8"></a><span class="co"># Plot the dendrogram</span></span>
-<span id="cb10-9"><a href="#cb10-9"></a><span class="fu">plot</span>(dend_players)</span>
-<span id="cb10-10"><a href="#cb10-10"></a></span>
-<span id="cb10-11"><a href="#cb10-11"></a><span class="co"># Color branches by cluster formed from the cut at a height of 20 &amp; plot</span></span>
-<span id="cb10-12"><a href="#cb10-12"></a>dend_20 <span class="ot">&lt;-</span> <span class="fu">color_branches</span>(dend_players, <span class="at">h =</span> <span class="dv">20</span>)</span>
-<span id="cb10-13"><a href="#cb10-13"></a></span>
-<span id="cb10-14"><a href="#cb10-14"></a><span class="co"># Plot the dendrogram with clusters colored below height 20</span></span>
-<span id="cb10-15"><a href="#cb10-15"></a><span class="fu">plot</span>(dend_20)</span>
-<span id="cb10-16"><a href="#cb10-16"></a></span>
-<span id="cb10-17"><a href="#cb10-17"></a><span class="co"># Color branches by cluster formed from the cut at a height of 40 &amp; plot</span></span>
-<span id="cb10-18"><a href="#cb10-18"></a>dend_40 <span class="ot">&lt;-</span> <span class="fu">color_branches</span>(dend_players, <span class="at">h =</span> <span class="dv">40</span>)</span>
-<span id="cb10-19"><a href="#cb10-19"></a></span>
-<span id="cb10-20"><a href="#cb10-20"></a><span class="co"># Plot the dendrogram with clusters colored below height 40</span></span>
-<span id="cb10-21"><a href="#cb10-21"></a><span class="fu">plot</span>(dend_40)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">library</span>(dendextend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; 
+#&gt; ---------------------
+#&gt; Welcome to dendextend version 1.16.0
+#&gt; Type citation('dendextend') for how to cite the package.
+#&gt; 
+#&gt; Type browseVignettes(package = 'dendextend') for the package vignette.
+#&gt; The github page is: https://github.com/talgalili/dendextend/
+#&gt; 
+#&gt; Suggestions and bug-reports can be submitted at: https://github.com/talgalili/dendextend/issues
+#&gt; You may ask questions at stackoverflow, use the r and dendextend tags: 
+#&gt;   https://stackoverflow.com/questions/tagged/dendextend
+#&gt; 
+#&gt;  To suppress this message use:  suppressPackageStartupMessages(library(dendextend))
+#&gt; ---------------------</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; 
+#&gt; Attache Paket: 'dendextend'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Das folgende Objekt ist maskiert 'package:stats':
+#&gt; 
+#&gt;     cutree</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
+<span id="cb45-2"><a href="#cb45-2"></a>hc_players   <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">"complete"</span>)</span>
+<span id="cb45-3"><a href="#cb45-3"></a></span>
+<span id="cb45-4"><a href="#cb45-4"></a><span class="co"># Create a dendrogram object from the hclust variable</span></span>
+<span id="cb45-5"><a href="#cb45-5"></a>dend_players <span class="ot">&lt;-</span> <span class="fu">as.dendrogram</span>(hc_players)</span>
+<span id="cb45-6"><a href="#cb45-6"></a></span>
+<span id="cb45-7"><a href="#cb45-7"></a><span class="co"># Plot the dendrogram</span></span>
+<span id="cb45-8"><a href="#cb45-8"></a><span class="fu">plot</span>(dend_players)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-10-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Color branches by cluster formed from the cut at a height of 20 &amp; plot</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>dend_20 <span class="ot">&lt;-</span> <span class="fu">color_branches</span>(dend_players, <span class="at">h =</span> <span class="dv">20</span>)</span>
+<span id="cb46-3"><a href="#cb46-3"></a></span>
+<span id="cb46-4"><a href="#cb46-4"></a><span class="co"># Plot the dendrogram with clusters colored below height 20</span></span>
+<span id="cb46-5"><a href="#cb46-5"></a><span class="fu">plot</span>(dend_20)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-10-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Color branches by cluster formed from the cut at a height of 40 &amp; plot</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>dend_40 <span class="ot">&lt;-</span> <span class="fu">color_branches</span>(dend_players, <span class="at">h =</span> <span class="dv">40</span>)</span>
+<span id="cb47-3"><a href="#cb47-3"></a></span>
+<span id="cb47-4"><a href="#cb47-4"></a><span class="co"># Plot the dendrogram with clusters colored below height 40</span></span>
+<span id="cb47-5"><a href="#cb47-5"></a><span class="fu">plot</span>(dend_40)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-10-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-10-3.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Excellent! Can you see that the height that you use to cut the tree greatly influences the number of clusters and their size? Consider taking a moment to play with other values of height before continuing.</p>
 </section>
@@ -1319,30 +1467,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use ggplot2 to create a scatter plot, colored by the cluster assignment for both heights</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
-<span id="cb11-2"><a href="#cb11-2"></a>hc_players   <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">"complete"</span>)</span>
-<span id="cb11-3"><a href="#cb11-3"></a></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="co"># Calculate the assignment vector with a h of 20</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a>clusters_h20 <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_players, <span class="at">h =</span> <span class="dv">20</span>)</span>
-<span id="cb11-6"><a href="#cb11-6"></a></span>
-<span id="cb11-7"><a href="#cb11-7"></a><span class="co"># Create a new data frame storing these results</span></span>
-<span id="cb11-8"><a href="#cb11-8"></a>lineup_h20_complete <span class="ot">&lt;-</span> <span class="fu">mutate</span>(lineup, <span class="at">cluster =</span> clusters_h20)</span>
-<span id="cb11-9"><a href="#cb11-9"></a></span>
-<span id="cb11-10"><a href="#cb11-10"></a><span class="co"># Calculate the assignment vector with a h of 40</span></span>
-<span id="cb11-11"><a href="#cb11-11"></a>clusters_h40 <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_players, <span class="at">h =</span> <span class="dv">40</span>)</span>
-<span id="cb11-12"><a href="#cb11-12"></a></span>
-<span id="cb11-13"><a href="#cb11-13"></a><span class="co"># Create a new data frame storing these results</span></span>
-<span id="cb11-14"><a href="#cb11-14"></a>lineup_h40_complete <span class="ot">&lt;-</span> <span class="fu">mutate</span>(lineup, <span class="at">cluster =</span> clusters_h40)</span>
-<span id="cb11-15"><a href="#cb11-15"></a></span>
-<span id="cb11-16"><a href="#cb11-16"></a><span class="co"># Plot the positions of the players and color them using their cluster for height = 20</span></span>
-<span id="cb11-17"><a href="#cb11-17"></a><span class="fu">ggplot</span>(lineup_h20_complete, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> <span class="fu">factor</span>(cluster))) <span class="sc">+</span></span>
-<span id="cb11-18"><a href="#cb11-18"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb11-19"><a href="#cb11-19"></a>  <span class="fu">theme_bw</span>()</span>
-<span id="cb11-20"><a href="#cb11-20"></a></span>
-<span id="cb11-21"><a href="#cb11-21"></a><span class="co"># Plot the positions of the players and color them using their cluster for height = 40</span></span>
-<span id="cb11-22"><a href="#cb11-22"></a><span class="fu">ggplot</span>(lineup_h40_complete, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> <span class="fu">factor</span>(cluster))) <span class="sc">+</span></span>
-<span id="cb11-23"><a href="#cb11-23"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb11-24"><a href="#cb11-24"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
+<span id="cb48-2"><a href="#cb48-2"></a>hc_players   <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">"complete"</span>)</span>
+<span id="cb48-3"><a href="#cb48-3"></a></span>
+<span id="cb48-4"><a href="#cb48-4"></a><span class="co"># Calculate the assignment vector with a h of 20</span></span>
+<span id="cb48-5"><a href="#cb48-5"></a>clusters_h20 <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_players, <span class="at">h =</span> <span class="dv">20</span>)</span>
+<span id="cb48-6"><a href="#cb48-6"></a></span>
+<span id="cb48-7"><a href="#cb48-7"></a><span class="co"># Create a new data frame storing these results</span></span>
+<span id="cb48-8"><a href="#cb48-8"></a>lineup_h20_complete <span class="ot">&lt;-</span> <span class="fu">mutate</span>(lineup, <span class="at">cluster =</span> clusters_h20)</span>
+<span id="cb48-9"><a href="#cb48-9"></a></span>
+<span id="cb48-10"><a href="#cb48-10"></a><span class="co"># Calculate the assignment vector with a h of 40</span></span>
+<span id="cb48-11"><a href="#cb48-11"></a>clusters_h40 <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_players, <span class="at">h =</span> <span class="dv">40</span>)</span>
+<span id="cb48-12"><a href="#cb48-12"></a></span>
+<span id="cb48-13"><a href="#cb48-13"></a><span class="co"># Create a new data frame storing these results</span></span>
+<span id="cb48-14"><a href="#cb48-14"></a>lineup_h40_complete <span class="ot">&lt;-</span> <span class="fu">mutate</span>(lineup, <span class="at">cluster =</span> clusters_h40)</span>
+<span id="cb48-15"><a href="#cb48-15"></a></span>
+<span id="cb48-16"><a href="#cb48-16"></a><span class="co"># Plot the positions of the players and color them using their cluster for height = 20</span></span>
+<span id="cb48-17"><a href="#cb48-17"></a><span class="fu">ggplot</span>(lineup_h20_complete, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> <span class="fu">factor</span>(cluster))) <span class="sc">+</span></span>
+<span id="cb48-18"><a href="#cb48-18"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb48-19"><a href="#cb48-19"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-11-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># Plot the positions of the players and color them using their cluster for height = 40</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="fu">ggplot</span>(lineup_h40_complete, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> <span class="fu">factor</span>(cluster))) <span class="sc">+</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb49-4"><a href="#cb49-4"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-11-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Great job! You can now explore your clusters using both <strong>k</strong> and <strong>h</strong> parameters.</p>
 </section>
@@ -1350,9 +1511,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="2.17" class="anchored" data-anchor-id="what-do-we-know-about-our-clusters"><span class="header-section-number">2.17</span> What do we know about our clusters?</h2>
 <p><strong>Based on the code below, what can you concretely say about the relationships of the members within each cluster?</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
-<span id="cb12-2"><a href="#cb12-2"></a>hc_players   <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">'complete'</span>)</span>
-<span id="cb12-3"><a href="#cb12-3"></a>clusters     <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_players, <span class="at">h =</span> <span class="dv">40</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
+<span id="cb50-2"><a href="#cb50-2"></a>hc_players   <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">'complete'</span>)</span>
+<span id="cb50-3"><a href="#cb50-3"></a>clusters     <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_players, <span class="at">h =</span> <span class="dv">40</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
 <h2 id="question-7" data-number="2.18" class="anchored"><span class="header-section-number">2.18</span> <em>Question</em></h2>
@@ -1388,23 +1549,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Generate a new data frame <code>segment_customers</code> by appending the cluster assignment as the column <code>cluster</code> to the original <code>customers_spend</code> data frame</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Load data</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>customers_spend <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/ws_customers.rds"</span>)</span>
-<span id="cb13-3"><a href="#cb13-3"></a></span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="co"># Calculate Euclidean distance between customers</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a>dist_customers <span class="ot">&lt;-</span> <span class="fu">dist</span>(customers_spend)</span>
-<span id="cb13-6"><a href="#cb13-6"></a></span>
-<span id="cb13-7"><a href="#cb13-7"></a><span class="co"># Generate a complete linkage analysis </span></span>
-<span id="cb13-8"><a href="#cb13-8"></a>hc_customers <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_customers, <span class="at">method =</span> <span class="st">"complete"</span>)</span>
-<span id="cb13-9"><a href="#cb13-9"></a></span>
-<span id="cb13-10"><a href="#cb13-10"></a><span class="co"># Plot the dendrogram</span></span>
-<span id="cb13-11"><a href="#cb13-11"></a><span class="fu">plot</span>(hc_customers)</span>
-<span id="cb13-12"><a href="#cb13-12"></a></span>
-<span id="cb13-13"><a href="#cb13-13"></a><span class="co"># Create a cluster assignment vector at h = 15000</span></span>
-<span id="cb13-14"><a href="#cb13-14"></a>clust_customers <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_customers, <span class="at">h =</span> <span class="dv">15000</span>)</span>
-<span id="cb13-15"><a href="#cb13-15"></a></span>
-<span id="cb13-16"><a href="#cb13-16"></a><span class="co"># Generate the segmented customers data frame</span></span>
-<span id="cb13-17"><a href="#cb13-17"></a>segment_customers <span class="ot">&lt;-</span> <span class="fu">mutate</span>(customers_spend, <span class="at">cluster =</span> clust_customers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Load data</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a>customers_spend <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/ws_customers.rds"</span>)</span>
+<span id="cb51-3"><a href="#cb51-3"></a></span>
+<span id="cb51-4"><a href="#cb51-4"></a><span class="co"># Calculate Euclidean distance between customers</span></span>
+<span id="cb51-5"><a href="#cb51-5"></a>dist_customers <span class="ot">&lt;-</span> <span class="fu">dist</span>(customers_spend)</span>
+<span id="cb51-6"><a href="#cb51-6"></a></span>
+<span id="cb51-7"><a href="#cb51-7"></a><span class="co"># Generate a complete linkage analysis </span></span>
+<span id="cb51-8"><a href="#cb51-8"></a>hc_customers <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_customers, <span class="at">method =</span> <span class="st">"complete"</span>)</span>
+<span id="cb51-9"><a href="#cb51-9"></a></span>
+<span id="cb51-10"><a href="#cb51-10"></a><span class="co"># Plot the dendrogram</span></span>
+<span id="cb51-11"><a href="#cb51-11"></a><span class="fu">plot</span>(hc_customers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-13-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Create a cluster assignment vector at h = 15000</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>clust_customers <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_customers, <span class="at">h =</span> <span class="dv">15000</span>)</span>
+<span id="cb52-3"><a href="#cb52-3"></a></span>
+<span id="cb52-4"><a href="#cb52-4"></a><span class="co"># Generate the segmented customers data frame</span></span>
+<span id="cb52-5"><a href="#cb52-5"></a>segment_customers <span class="ot">&lt;-</span> <span class="fu">mutate</span>(customers_spend, <span class="at">cluster =</span> clust_customers)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Excellent! Let’s move on to the next exercise and explore these clusters.</p>
 </section>
@@ -1419,25 +1586,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the average spending for each category within each cluster using the <code>summarise_all()</code> function.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>dist_customers <span class="ot">&lt;-</span> <span class="fu">dist</span>(customers_spend)</span>
-<span id="cb14-2"><a href="#cb14-2"></a>hc_customers <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_customers)</span>
-<span id="cb14-3"><a href="#cb14-3"></a>clust_customers <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_customers, <span class="at">h =</span> <span class="dv">15000</span>)</span>
-<span id="cb14-4"><a href="#cb14-4"></a>segment_customers <span class="ot">&lt;-</span> <span class="fu">mutate</span>(customers_spend, <span class="at">cluster =</span> clust_customers)</span>
-<span id="cb14-5"><a href="#cb14-5"></a></span>
-<span id="cb14-6"><a href="#cb14-6"></a><span class="co"># Count the number of customers that fall into each cluster</span></span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="fu">count</span>(segment_customers, cluster)</span>
-<span id="cb14-8"><a href="#cb14-8"></a></span>
-<span id="cb14-9"><a href="#cb14-9"></a><span class="co"># Color the dendrogram based on the height cutoff</span></span>
-<span id="cb14-10"><a href="#cb14-10"></a>dend_customers <span class="ot">&lt;-</span> <span class="fu">as.dendrogram</span>(hc_customers)</span>
-<span id="cb14-11"><a href="#cb14-11"></a>dend_colored <span class="ot">&lt;-</span> <span class="fu">color_branches</span>(dend_customers, <span class="at">h =</span> <span class="dv">15000</span>)</span>
-<span id="cb14-12"><a href="#cb14-12"></a></span>
-<span id="cb14-13"><a href="#cb14-13"></a><span class="co"># Plot the colored dendrogram</span></span>
-<span id="cb14-14"><a href="#cb14-14"></a><span class="fu">plot</span>(dend_colored)</span>
-<span id="cb14-15"><a href="#cb14-15"></a></span>
-<span id="cb14-16"><a href="#cb14-16"></a><span class="co"># Calculate the mean for each category</span></span>
-<span id="cb14-17"><a href="#cb14-17"></a>segment_customers <span class="sc">%&gt;%</span> </span>
-<span id="cb14-18"><a href="#cb14-18"></a>  <span class="fu">group_by</span>(cluster) <span class="sc">%&gt;%</span> </span>
-<span id="cb14-19"><a href="#cb14-19"></a>  <span class="fu">summarise_all</span>(<span class="fu">list</span>(mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>dist_customers <span class="ot">&lt;-</span> <span class="fu">dist</span>(customers_spend)</span>
+<span id="cb53-2"><a href="#cb53-2"></a>hc_customers <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_customers)</span>
+<span id="cb53-3"><a href="#cb53-3"></a>clust_customers <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_customers, <span class="at">h =</span> <span class="dv">15000</span>)</span>
+<span id="cb53-4"><a href="#cb53-4"></a>segment_customers <span class="ot">&lt;-</span> <span class="fu">mutate</span>(customers_spend, <span class="at">cluster =</span> clust_customers)</span>
+<span id="cb53-5"><a href="#cb53-5"></a></span>
+<span id="cb53-6"><a href="#cb53-6"></a><span class="co"># Count the number of customers that fall into each cluster</span></span>
+<span id="cb53-7"><a href="#cb53-7"></a><span class="fu">count</span>(segment_customers, cluster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["cluster"],"name":[1],"type":["int"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"5"},{"1":"2","2":"29"},{"1":"3","2":"5"},{"1":"4","2":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># Color the dendrogram based on the height cutoff</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a>dend_customers <span class="ot">&lt;-</span> <span class="fu">as.dendrogram</span>(hc_customers)</span>
+<span id="cb54-3"><a href="#cb54-3"></a>dend_colored <span class="ot">&lt;-</span> <span class="fu">color_branches</span>(dend_customers, <span class="at">h =</span> <span class="dv">15000</span>)</span>
+<span id="cb54-4"><a href="#cb54-4"></a></span>
+<span id="cb54-5"><a href="#cb54-5"></a><span class="co"># Plot the colored dendrogram</span></span>
+<span id="cb54-6"><a href="#cb54-6"></a><span class="fu">plot</span>(dend_colored)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-14-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># Calculate the mean for each category</span></span>
+<span id="cb55-2"><a href="#cb55-2"></a>segment_customers <span class="sc">%&gt;%</span> </span>
+<span id="cb55-3"><a href="#cb55-3"></a>  <span class="fu">group_by</span>(cluster) <span class="sc">%&gt;%</span> </span>
+<span id="cb55-4"><a href="#cb55-4"></a>  <span class="fu">summarise_all</span>(<span class="fu">list</span>(mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["cluster"],"name":[1],"type":["int"],"align":["right"]},{"label":["Milk"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Grocery"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Frozen"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"16950.000","3":"12891.400","4":"991.200"},{"1":"2","2":"2512.828","3":"5228.931","4":"1795.517"},{"1":"3","2":"10452.200","3":"22550.600","4":"1354.800"},{"1":"4","2":"1249.500","3":"3916.833","4":"10888.667"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
 </div>
 <p>Great work! You’ve gathered a bunch of information about these clusters, now let’s see what can be interpreted from them.</p>
 </section>
@@ -1539,19 +1727,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use ggplot to plot the positions of each player on the field and color them by their cluster</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Build a kmeans model</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a>model_km2 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(lineup, <span class="at">centers =</span> <span class="dv">2</span>)</span>
-<span id="cb15-3"><a href="#cb15-3"></a></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="co"># Extract the cluster assignment vector from the kmeans model</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a>clust_km2 <span class="ot">&lt;-</span> model_km2<span class="sc">$</span>cluster</span>
-<span id="cb15-6"><a href="#cb15-6"></a></span>
-<span id="cb15-7"><a href="#cb15-7"></a><span class="co"># Create a new data frame appending the cluster assignment</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a>lineup_km2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(lineup, <span class="at">cluster =</span> clust_km2)</span>
-<span id="cb15-9"><a href="#cb15-9"></a></span>
-<span id="cb15-10"><a href="#cb15-10"></a><span class="co"># Plot the positions of the players and color them using their cluster</span></span>
-<span id="cb15-11"><a href="#cb15-11"></a><span class="fu">ggplot</span>(lineup_km2, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> <span class="fu">factor</span>(cluster))) <span class="sc">+</span></span>
-<span id="cb15-12"><a href="#cb15-12"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb15-13"><a href="#cb15-13"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># Build a kmeans model</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>model_km2 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(lineup, <span class="at">centers =</span> <span class="dv">2</span>)</span>
+<span id="cb56-3"><a href="#cb56-3"></a></span>
+<span id="cb56-4"><a href="#cb56-4"></a><span class="co"># Extract the cluster assignment vector from the kmeans model</span></span>
+<span id="cb56-5"><a href="#cb56-5"></a>clust_km2 <span class="ot">&lt;-</span> model_km2<span class="sc">$</span>cluster</span>
+<span id="cb56-6"><a href="#cb56-6"></a></span>
+<span id="cb56-7"><a href="#cb56-7"></a><span class="co"># Create a new data frame appending the cluster assignment</span></span>
+<span id="cb56-8"><a href="#cb56-8"></a>lineup_km2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(lineup, <span class="at">cluster =</span> clust_km2)</span>
+<span id="cb56-9"><a href="#cb56-9"></a></span>
+<span id="cb56-10"><a href="#cb56-10"></a><span class="co"># Plot the positions of the players and color them using their cluster</span></span>
+<span id="cb56-11"><a href="#cb56-11"></a><span class="fu">ggplot</span>(lineup_km2, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> <span class="fu">factor</span>(cluster))) <span class="sc">+</span></span>
+<span id="cb56-12"><a href="#cb56-12"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb56-13"><a href="#cb56-13"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Well done! Knowing the desired number of clusters ahead of time can be very helpful when performing a k-means analysis. In the next section we will see what happens when we use an incorrect value of k.</p>
 </section>
@@ -1567,19 +1762,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use ggplot to plot the positions of each player on the field and color them by their cluster</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Build a kmeans model</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a>model_km3 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(lineup, <span class="at">centers =</span> <span class="dv">3</span>)</span>
-<span id="cb16-3"><a href="#cb16-3"></a></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="co"># Extract the cluster assignment vector from the kmeans model</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a>clust_km3 <span class="ot">&lt;-</span> model_km3<span class="sc">$</span>cluster</span>
-<span id="cb16-6"><a href="#cb16-6"></a></span>
-<span id="cb16-7"><a href="#cb16-7"></a><span class="co"># Create a new data frame appending the cluster assignment</span></span>
-<span id="cb16-8"><a href="#cb16-8"></a>lineup_km3 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(lineup, <span class="at">cluster =</span> clust_km3)</span>
-<span id="cb16-9"><a href="#cb16-9"></a></span>
-<span id="cb16-10"><a href="#cb16-10"></a><span class="co"># Plot the positions of the players and color them using their cluster</span></span>
-<span id="cb16-11"><a href="#cb16-11"></a><span class="fu">ggplot</span>(lineup_km3, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> <span class="fu">factor</span>(cluster))) <span class="sc">+</span></span>
-<span id="cb16-12"><a href="#cb16-12"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb16-13"><a href="#cb16-13"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># Build a kmeans model</span></span>
+<span id="cb57-2"><a href="#cb57-2"></a>model_km3 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(lineup, <span class="at">centers =</span> <span class="dv">3</span>)</span>
+<span id="cb57-3"><a href="#cb57-3"></a></span>
+<span id="cb57-4"><a href="#cb57-4"></a><span class="co"># Extract the cluster assignment vector from the kmeans model</span></span>
+<span id="cb57-5"><a href="#cb57-5"></a>clust_km3 <span class="ot">&lt;-</span> model_km3<span class="sc">$</span>cluster</span>
+<span id="cb57-6"><a href="#cb57-6"></a></span>
+<span id="cb57-7"><a href="#cb57-7"></a><span class="co"># Create a new data frame appending the cluster assignment</span></span>
+<span id="cb57-8"><a href="#cb57-8"></a>lineup_km3 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(lineup, <span class="at">cluster =</span> clust_km3)</span>
+<span id="cb57-9"><a href="#cb57-9"></a></span>
+<span id="cb57-10"><a href="#cb57-10"></a><span class="co"># Plot the positions of the players and color them using their cluster</span></span>
+<span id="cb57-11"><a href="#cb57-11"></a><span class="fu">ggplot</span>(lineup_km3, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> <span class="fu">factor</span>(cluster))) <span class="sc">+</span></span>
+<span id="cb57-12"><a href="#cb57-12"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb57-13"><a href="#cb57-13"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Does this result make sense? Remember we only have 2 teams on the field. It’s <strong>very</strong> important to remember that k-means will run with any k that is more than 2 and less than your total observations, but it doesn’t always mean the results will be meaningful.</p>
 </section>
@@ -1619,19 +1821,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build a new data frame <code>elbow_df</code> containing the values of k and the vector of <strong>total within-cluster sum of squares</strong></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">library</span>(purrr)</span>
-<span id="cb17-2"><a href="#cb17-2"></a></span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="co"># Use map_dbl to run many models with varying value of k (centers)</span></span>
-<span id="cb17-4"><a href="#cb17-4"></a>tot_withinss <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,  <span class="cf">function</span>(k){</span>
-<span id="cb17-5"><a href="#cb17-5"></a>  model <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(<span class="at">x =</span> lineup, <span class="at">centers =</span> k)</span>
-<span id="cb17-6"><a href="#cb17-6"></a>  model<span class="sc">$</span>tot.withinss</span>
-<span id="cb17-7"><a href="#cb17-7"></a>})</span>
-<span id="cb17-8"><a href="#cb17-8"></a></span>
-<span id="cb17-9"><a href="#cb17-9"></a><span class="co"># Generate a data frame containing both k and tot_withinss</span></span>
-<span id="cb17-10"><a href="#cb17-10"></a>elbow_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb17-11"><a href="#cb17-11"></a>  <span class="at">k =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
-<span id="cb17-12"><a href="#cb17-12"></a>  <span class="at">tot_withinss =</span> tot_withinss</span>
-<span id="cb17-13"><a href="#cb17-13"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb58-2"><a href="#cb58-2"></a></span>
+<span id="cb58-3"><a href="#cb58-3"></a><span class="co"># Use map_dbl to run many models with varying value of k (centers)</span></span>
+<span id="cb58-4"><a href="#cb58-4"></a>tot_withinss <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,  <span class="cf">function</span>(k){</span>
+<span id="cb58-5"><a href="#cb58-5"></a>  model <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(<span class="at">x =</span> lineup, <span class="at">centers =</span> k)</span>
+<span id="cb58-6"><a href="#cb58-6"></a>  model<span class="sc">$</span>tot.withinss</span>
+<span id="cb58-7"><a href="#cb58-7"></a>})</span>
+<span id="cb58-8"><a href="#cb58-8"></a></span>
+<span id="cb58-9"><a href="#cb58-9"></a><span class="co"># Generate a data frame containing both k and tot_withinss</span></span>
+<span id="cb58-10"><a href="#cb58-10"></a>elbow_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb58-11"><a href="#cb58-11"></a>  <span class="at">k =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb58-12"><a href="#cb58-12"></a>  <span class="at">tot_withinss =</span> tot_withinss</span>
+<span id="cb58-13"><a href="#cb58-13"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great work! In the next exercise you will plot the elbow plot from this data.</p>
 </section>
@@ -1644,23 +1846,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Continuing your work from the previous exercise, use the values in <code>elbow_df</code> to plot a line plot showing the relationship between <strong>k</strong> and <strong>total within-cluster sum of squares</strong></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Use map_dbl to run many models with varying value of k (centers)</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>tot_withinss <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,  <span class="cf">function</span>(k){</span>
-<span id="cb18-3"><a href="#cb18-3"></a>  model <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(<span class="at">x =</span> lineup, <span class="at">centers =</span> k)</span>
-<span id="cb18-4"><a href="#cb18-4"></a>  model<span class="sc">$</span>tot.withinss</span>
-<span id="cb18-5"><a href="#cb18-5"></a>})</span>
-<span id="cb18-6"><a href="#cb18-6"></a></span>
-<span id="cb18-7"><a href="#cb18-7"></a><span class="co"># Generate a data frame containing both k and tot_withinss</span></span>
-<span id="cb18-8"><a href="#cb18-8"></a>elbow_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb18-9"><a href="#cb18-9"></a>  <span class="at">k =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
-<span id="cb18-10"><a href="#cb18-10"></a>  <span class="at">tot_withinss =</span> tot_withinss</span>
-<span id="cb18-11"><a href="#cb18-11"></a>)</span>
-<span id="cb18-12"><a href="#cb18-12"></a></span>
-<span id="cb18-13"><a href="#cb18-13"></a><span class="co"># Plot the elbow plot</span></span>
-<span id="cb18-14"><a href="#cb18-14"></a><span class="fu">ggplot</span>(elbow_df, <span class="fu">aes</span>(<span class="at">x =</span> k, <span class="at">y =</span> tot_withinss)) <span class="sc">+</span></span>
-<span id="cb18-15"><a href="#cb18-15"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb18-16"><a href="#cb18-16"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb18-17"><a href="#cb18-17"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># Use map_dbl to run many models with varying value of k (centers)</span></span>
+<span id="cb59-2"><a href="#cb59-2"></a>tot_withinss <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,  <span class="cf">function</span>(k){</span>
+<span id="cb59-3"><a href="#cb59-3"></a>  model <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(<span class="at">x =</span> lineup, <span class="at">centers =</span> k)</span>
+<span id="cb59-4"><a href="#cb59-4"></a>  model<span class="sc">$</span>tot.withinss</span>
+<span id="cb59-5"><a href="#cb59-5"></a>})</span>
+<span id="cb59-6"><a href="#cb59-6"></a></span>
+<span id="cb59-7"><a href="#cb59-7"></a><span class="co"># Generate a data frame containing both k and tot_withinss</span></span>
+<span id="cb59-8"><a href="#cb59-8"></a>elbow_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb59-9"><a href="#cb59-9"></a>  <span class="at">k =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb59-10"><a href="#cb59-10"></a>  <span class="at">tot_withinss =</span> tot_withinss</span>
+<span id="cb59-11"><a href="#cb59-11"></a>)</span>
+<span id="cb59-12"><a href="#cb59-12"></a></span>
+<span id="cb59-13"><a href="#cb59-13"></a><span class="co"># Plot the elbow plot</span></span>
+<span id="cb59-14"><a href="#cb59-14"></a><span class="fu">ggplot</span>(elbow_df, <span class="fu">aes</span>(<span class="at">x =</span> k, <span class="at">y =</span> tot_withinss)) <span class="sc">+</span></span>
+<span id="cb59-15"><a href="#cb59-15"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb59-16"><a href="#cb59-16"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb59-17"><a href="#cb59-17"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-18-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Fantastic! You have learned how to create and visualize elbow plots as a tool for finding a “good” value of <strong>k</strong>. In the next section you will add another tool to your arsenal for finding <strong>k</strong>.</p>
 </section>
@@ -1731,19 +1940,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Make sure to review the differences between the plots before proceeding (especially observation <strong>3</strong>) for <code>pam_k3</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">library</span>(cluster)</span>
-<span id="cb19-2"><a href="#cb19-2"></a></span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="co"># Generate a k-means model using the pam() function with a k = 2</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a>pam_k2 <span class="ot">&lt;-</span> <span class="fu">pam</span>(lineup, <span class="at">k =</span> <span class="dv">2</span>)</span>
-<span id="cb19-5"><a href="#cb19-5"></a></span>
-<span id="cb19-6"><a href="#cb19-6"></a><span class="co"># Plot the silhouette visual for the pam_k2 model</span></span>
-<span id="cb19-7"><a href="#cb19-7"></a><span class="fu">plot</span>(<span class="fu">silhouette</span>(pam_k2))</span>
-<span id="cb19-8"><a href="#cb19-8"></a></span>
-<span id="cb19-9"><a href="#cb19-9"></a><span class="co"># Generate a k-means model using the pam() function with a k = 3</span></span>
-<span id="cb19-10"><a href="#cb19-10"></a>pam_k3 <span class="ot">&lt;-</span> <span class="fu">pam</span>(lineup, <span class="at">k =</span> <span class="dv">3</span>)</span>
-<span id="cb19-11"><a href="#cb19-11"></a></span>
-<span id="cb19-12"><a href="#cb19-12"></a><span class="co"># Plot the silhouette visual for the pam_k3 model</span></span>
-<span id="cb19-13"><a href="#cb19-13"></a><span class="fu">plot</span>(<span class="fu">silhouette</span>(pam_k3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="fu">library</span>(cluster)</span>
+<span id="cb60-2"><a href="#cb60-2"></a></span>
+<span id="cb60-3"><a href="#cb60-3"></a><span class="co"># Generate a k-means model using the pam() function with a k = 2</span></span>
+<span id="cb60-4"><a href="#cb60-4"></a>pam_k2 <span class="ot">&lt;-</span> <span class="fu">pam</span>(lineup, <span class="at">k =</span> <span class="dv">2</span>)</span>
+<span id="cb60-5"><a href="#cb60-5"></a></span>
+<span id="cb60-6"><a href="#cb60-6"></a><span class="co"># Plot the silhouette visual for the pam_k2 model</span></span>
+<span id="cb60-7"><a href="#cb60-7"></a><span class="fu">plot</span>(<span class="fu">silhouette</span>(pam_k2))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-19-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># Generate a k-means model using the pam() function with a k = 3</span></span>
+<span id="cb61-2"><a href="#cb61-2"></a>pam_k3 <span class="ot">&lt;-</span> <span class="fu">pam</span>(lineup, <span class="at">k =</span> <span class="dv">3</span>)</span>
+<span id="cb61-3"><a href="#cb61-3"></a></span>
+<span id="cb61-4"><a href="#cb61-4"></a><span class="co"># Plot the silhouette visual for the pam_k3 model</span></span>
+<span id="cb61-5"><a href="#cb61-5"></a><span class="fu">plot</span>(<span class="fu">silhouette</span>(pam_k3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-19-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Great work! Did you notice that for k = 2, no observation has a silhouette width close to 0? What about the fact that for k = 3, observation 3 is close to 0 and is negative? This suggests that k = 3 is not the right number of clusters.</p>
 </section>
@@ -1777,23 +1999,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the values in <code>sil_df</code> to plot a line plot showing the relationship between <strong>k</strong> and <strong>average silhouette width</strong></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Use map_dbl to run many models with varying value of k</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a>sil_width <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>,  <span class="cf">function</span>(k){</span>
-<span id="cb20-3"><a href="#cb20-3"></a>  model <span class="ot">&lt;-</span> <span class="fu">pam</span>(<span class="at">x =</span> customers_spend, <span class="at">k =</span> k)</span>
-<span id="cb20-4"><a href="#cb20-4"></a>  model<span class="sc">$</span>silinfo<span class="sc">$</span>avg.width</span>
-<span id="cb20-5"><a href="#cb20-5"></a>})</span>
-<span id="cb20-6"><a href="#cb20-6"></a></span>
-<span id="cb20-7"><a href="#cb20-7"></a><span class="co"># Generate a data frame containing both k and sil_width</span></span>
-<span id="cb20-8"><a href="#cb20-8"></a>sil_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb20-9"><a href="#cb20-9"></a>  <span class="at">k =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>,</span>
-<span id="cb20-10"><a href="#cb20-10"></a>  <span class="at">sil_width =</span> sil_width</span>
-<span id="cb20-11"><a href="#cb20-11"></a>)</span>
-<span id="cb20-12"><a href="#cb20-12"></a></span>
-<span id="cb20-13"><a href="#cb20-13"></a><span class="co"># Plot the relationship between k and sil_width</span></span>
-<span id="cb20-14"><a href="#cb20-14"></a><span class="fu">ggplot</span>(sil_df, <span class="fu">aes</span>(<span class="at">x =</span> k, <span class="at">y =</span> sil_width)) <span class="sc">+</span></span>
-<span id="cb20-15"><a href="#cb20-15"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb20-16"><a href="#cb20-16"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb20-17"><a href="#cb20-17"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># Use map_dbl to run many models with varying value of k</span></span>
+<span id="cb62-2"><a href="#cb62-2"></a>sil_width <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>,  <span class="cf">function</span>(k){</span>
+<span id="cb62-3"><a href="#cb62-3"></a>  model <span class="ot">&lt;-</span> <span class="fu">pam</span>(<span class="at">x =</span> customers_spend, <span class="at">k =</span> k)</span>
+<span id="cb62-4"><a href="#cb62-4"></a>  model<span class="sc">$</span>silinfo<span class="sc">$</span>avg.width</span>
+<span id="cb62-5"><a href="#cb62-5"></a>})</span>
+<span id="cb62-6"><a href="#cb62-6"></a></span>
+<span id="cb62-7"><a href="#cb62-7"></a><span class="co"># Generate a data frame containing both k and sil_width</span></span>
+<span id="cb62-8"><a href="#cb62-8"></a>sil_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb62-9"><a href="#cb62-9"></a>  <span class="at">k =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb62-10"><a href="#cb62-10"></a>  <span class="at">sil_width =</span> sil_width</span>
+<span id="cb62-11"><a href="#cb62-11"></a>)</span>
+<span id="cb62-12"><a href="#cb62-12"></a></span>
+<span id="cb62-13"><a href="#cb62-13"></a><span class="co"># Plot the relationship between k and sil_width</span></span>
+<span id="cb62-14"><a href="#cb62-14"></a><span class="fu">ggplot</span>(sil_df, <span class="fu">aes</span>(<span class="at">x =</span> k, <span class="at">y =</span> sil_width)) <span class="sc">+</span></span>
+<span id="cb62-15"><a href="#cb62-15"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb62-16"><a href="#cb62-16"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb62-17"><a href="#cb62-17"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-20-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>You’re doing great! From the plot I hope you noticed that k = 2 has the highest average sillhouette width and is the <strong>\“best\”</strong> value of <strong>k</strong> we will move forward with.</p>
 </section>
@@ -1808,24 +2037,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the size of each cluster using <code>count()</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb21-2"><a href="#cb21-2"></a></span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="co"># Build a k-means model for the customers_spend with a k of 2</span></span>
-<span id="cb21-4"><a href="#cb21-4"></a>model_customers <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(customers_spend, <span class="at">centers =</span> <span class="dv">2</span>)</span>
-<span id="cb21-5"><a href="#cb21-5"></a></span>
-<span id="cb21-6"><a href="#cb21-6"></a><span class="co"># Extract the vector of cluster assignments from the model</span></span>
-<span id="cb21-7"><a href="#cb21-7"></a>clust_customers <span class="ot">&lt;-</span> model_customers<span class="sc">$</span>cluster</span>
-<span id="cb21-8"><a href="#cb21-8"></a></span>
-<span id="cb21-9"><a href="#cb21-9"></a><span class="co"># Build the segment_customers data frame</span></span>
-<span id="cb21-10"><a href="#cb21-10"></a>segment_customers <span class="ot">&lt;-</span> <span class="fu">mutate</span>(customers_spend, <span class="at">cluster =</span> clust_customers)</span>
-<span id="cb21-11"><a href="#cb21-11"></a></span>
-<span id="cb21-12"><a href="#cb21-12"></a><span class="co"># Calculate the size of each cluster</span></span>
-<span id="cb21-13"><a href="#cb21-13"></a><span class="fu">count</span>(segment_customers, cluster)</span>
-<span id="cb21-14"><a href="#cb21-14"></a></span>
-<span id="cb21-15"><a href="#cb21-15"></a><span class="co"># Calculate the mean for each category</span></span>
-<span id="cb21-16"><a href="#cb21-16"></a>segment_customers <span class="sc">%&gt;%</span> </span>
-<span id="cb21-17"><a href="#cb21-17"></a>  <span class="fu">group_by</span>(cluster) <span class="sc">%&gt;%</span> </span>
-<span id="cb21-18"><a href="#cb21-18"></a>  <span class="fu">summarise_all</span>(<span class="fu">list</span>(mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb63-2"><a href="#cb63-2"></a></span>
+<span id="cb63-3"><a href="#cb63-3"></a><span class="co"># Build a k-means model for the customers_spend with a k of 2</span></span>
+<span id="cb63-4"><a href="#cb63-4"></a>model_customers <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(customers_spend, <span class="at">centers =</span> <span class="dv">2</span>)</span>
+<span id="cb63-5"><a href="#cb63-5"></a></span>
+<span id="cb63-6"><a href="#cb63-6"></a><span class="co"># Extract the vector of cluster assignments from the model</span></span>
+<span id="cb63-7"><a href="#cb63-7"></a>clust_customers <span class="ot">&lt;-</span> model_customers<span class="sc">$</span>cluster</span>
+<span id="cb63-8"><a href="#cb63-8"></a></span>
+<span id="cb63-9"><a href="#cb63-9"></a><span class="co"># Build the segment_customers data frame</span></span>
+<span id="cb63-10"><a href="#cb63-10"></a>segment_customers <span class="ot">&lt;-</span> <span class="fu">mutate</span>(customers_spend, <span class="at">cluster =</span> clust_customers)</span>
+<span id="cb63-11"><a href="#cb63-11"></a></span>
+<span id="cb63-12"><a href="#cb63-12"></a><span class="co"># Calculate the size of each cluster</span></span>
+<span id="cb63-13"><a href="#cb63-13"></a><span class="fu">count</span>(segment_customers, cluster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["cluster"],"name":[1],"type":["int"],"align":["right"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"1","2":"35"},{"1":"2","2":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># Calculate the mean for each category</span></span>
+<span id="cb64-2"><a href="#cb64-2"></a>segment_customers <span class="sc">%&gt;%</span> </span>
+<span id="cb64-3"><a href="#cb64-3"></a>  <span class="fu">group_by</span>(cluster) <span class="sc">%&gt;%</span> </span>
+<span id="cb64-4"><a href="#cb64-4"></a>  <span class="fu">summarise_all</span>(<span class="fu">list</span>(mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["cluster"],"name":[1],"type":["int"],"align":["right"]},{"label":["Milk"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Grocery"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Frozen"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"1","2":"2296.257","3":"5004","4":"3354.343"},{"1":"2","2":"13701.100","3":"17721","4":"1173.000"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
 </div>
 <p>Well done! It seems that in this case <strong>cluster 1</strong> consists of individuals who proportionally spend more on <strong>Frozen</strong> food while <strong>cluster 2</strong> customers spent more on <strong>Milk</strong> and <strong>Grocery</strong>. Did you notice that when you explored this data using hierarchical clustering, the method resulted in <strong>4</strong> clusters while using k-means got you <strong>2</strong>. Both of these results are valid, but which one is appropriate for this would require more subject matter expertise. Before you proceed with the next chapter, remember that: Generating clusters is a science, but interpreting them is an art.</p>
 </section>
@@ -1854,8 +2098,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>You are presented with data from the Occupational Employment Statistics (OES) program which produces employment and wage estimates annually. This data contains the yearly average income from <strong>2001</strong> to <strong>2016</strong> for <strong>22</strong> occupation groups. You would like to use this data to identify clusters of occupations that maintained similar income trends.</p>
 <p>The data is stored in your environment as the data.matrix <code>oes</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>oes <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/oes.rds"</span>)</span>
-<span id="cb22-2"><a href="#cb22-2"></a>oes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a>oes <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/oes.rds"</span>)</span>
+<span id="cb65-2"><a href="#cb65-2"></a>oes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;                             2001  2002  2003  2004  2005  2006  2007   2008
+#&gt; Management                 70800 78870 83400 87090 88450 91930 96150 100310
+#&gt; Business Operations        50580 53350 56000 57120 57930 60000 62410  64720
+#&gt; Computer Science           60350 61630 64150 66370 67100 69240 72190  74500
+#&gt; Architecture/Engineering   56330 58020 60390 63060 63910 66190 68880  71430
+#&gt; Life/Physical/Social Sci.  49710 52380 54930 57550 58030 59660 62020  64280
+#&gt; Community Services         34190 34630 35800 37050 37530 39000 40540  41790
+#&gt; Legal                      69030 77330 78590 81180 81070 85360 88450  92270
+#&gt; Education/Training/Library 39130 40160 41390 42810 43450 45320 46610  48460
+#&gt; Arts/Design/Entertainment  39770 41660 43350 43820 44310 46110 48410  50670
+#&gt; Healthcare Practitioners   49930 53990 56240 58310 59170 62030 65020  67890
+#&gt; Healthcare Support         21900 22410 22960 23510 23850 24610 25600  26340
+#&gt; Protective Service         32530 33330 34430 35240 35750 37040 38750  40200
+#&gt; Food Preparation           16720 17180 17400 17620 17840 18430 19440  20220
+#&gt; Grounds Cleaning &amp; Maint.  20380 20850 21290 21670 21930 22580 23560  24370
+#&gt; Personal Care              21010 21370 21570 22080 22180 22920 23980  24120
+#&gt; Sales                      28920 30610 31560 32280 32800 34350 35240  36080
+#&gt; Office Administrative      27230 27910 28540 29390 29710 30370 31200  32220
+#&gt; Farming/Fishing/Forestry   19630 20220 20290 20670 21010 21810 22640  23560
+#&gt; Construction               35450 36340 37000 37890 38260 39290 40620  42350
+#&gt; Installation/Repair/Maint. 34960 35780 36560 37620 38050 39060 39930  41230
+#&gt; Production                 27600 28190 28930 29480 29890 30480 31310  32320
+#&gt; Transportation/Moving      26560 27220 27630 28250 28820 29460 30680  31450
+#&gt;                              2010   2011   2012   2013   2014   2015   2016
+#&gt; Management                 105440 107410 108570 110550 112490 115020 118020
+#&gt; Business Operations         67690  68740  69550  71020  72410  73800  75070
+#&gt; Computer Science            77230  78730  80180  82010  83970  86170  87880
+#&gt; Architecture/Engineering    75550  77120  79000  80100  81520  82980  84300
+#&gt; Life/Physical/Social Sci.   66390  67470  68360  69400  70070  71220  72930
+#&gt; Community Services          43180  43830  44240  44710  45310  46160  47200
+#&gt; Legal                       96940  98380  98570  99620 101110 103460 105980
+#&gt; Education/Training/Library  50440  50870  51210  51500  52210  53000  54520
+#&gt; Arts/Design/Entertainment   52290  53850  54490  55580  55790  56980  58390
+#&gt; Healthcare Practitioners    71280  72730  73540  74740  76010  77800  79160
+#&gt; Healthcare Support          26920  27370  27780  28300  28820  29520  30470
+#&gt; Protective Service          42490  42730  43050  43510  43980  44610  45810
+#&gt; Food Preparation            21240  21430  21380  21580  21980  22850  23850
+#&gt; Grounds Cleaning &amp; Maint.   25300  25560  25670  26010  26370  27080  28010
+#&gt; Personal Care               24590  24620  24550  24710  24980  25650  26510
+#&gt; Sales                       36790  37520  37990  38200  38660  39320  40560
+#&gt; Office Administrative       33470  34120  34410  34900  35530  36330  37260
+#&gt; Farming/Fishing/Forestry    24330  24300  24230  24330  25160  26360  27810
+#&gt; Construction                43870  44630  44960  45630  46600  47580  48900
+#&gt; Installation/Repair/Maint.  42810  43390  43870  44420  45220  45990  46690
+#&gt; Production                  33770  34220  34500  34930  35490  36220  37190
+#&gt; Transportation/Moving       32660  33200  33590  33860  34460  35160  36070</code></pre>
+</div>
 </div>
 <p>Before you begin to cluster this data you should determine whether any pre-processing steps (such as scaling and imputation) are necessary.</p>
 <blockquote class="blockquote">
@@ -1876,23 +2168,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Using the <code>color_branches()</code> function create &amp; plot a new dendrogram with clusters colored by a cut height of 100,000</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Calculate Euclidean distance between the occupations</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a>dist_oes <span class="ot">&lt;-</span> <span class="fu">dist</span>(oes, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
-<span id="cb23-3"><a href="#cb23-3"></a></span>
-<span id="cb23-4"><a href="#cb23-4"></a><span class="co"># Generate an average linkage analysis </span></span>
-<span id="cb23-5"><a href="#cb23-5"></a>hc_oes <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_oes, <span class="at">method =</span> <span class="st">'average'</span>)</span>
-<span id="cb23-6"><a href="#cb23-6"></a></span>
-<span id="cb23-7"><a href="#cb23-7"></a><span class="co"># Create a dendrogram object from the hclust variable</span></span>
-<span id="cb23-8"><a href="#cb23-8"></a>dend_oes <span class="ot">&lt;-</span> <span class="fu">as.dendrogram</span>(hc_oes)</span>
-<span id="cb23-9"><a href="#cb23-9"></a></span>
-<span id="cb23-10"><a href="#cb23-10"></a><span class="co"># Plot the dendrogram</span></span>
-<span id="cb23-11"><a href="#cb23-11"></a><span class="fu">plot</span>(dend_oes)</span>
-<span id="cb23-12"><a href="#cb23-12"></a></span>
-<span id="cb23-13"><a href="#cb23-13"></a><span class="co"># Color branches by cluster formed from the cut at a height of 100000</span></span>
-<span id="cb23-14"><a href="#cb23-14"></a>dend_colored <span class="ot">&lt;-</span> <span class="fu">color_branches</span>(dend_oes, <span class="at">h =</span> <span class="dv">100000</span>)</span>
-<span id="cb23-15"><a href="#cb23-15"></a></span>
-<span id="cb23-16"><a href="#cb23-16"></a><span class="co"># Plot the colored dendrogram</span></span>
-<span id="cb23-17"><a href="#cb23-17"></a><span class="fu">plot</span>(dend_colored)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Calculate Euclidean distance between the occupations</span></span>
+<span id="cb67-2"><a href="#cb67-2"></a>dist_oes <span class="ot">&lt;-</span> <span class="fu">dist</span>(oes, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
+<span id="cb67-3"><a href="#cb67-3"></a></span>
+<span id="cb67-4"><a href="#cb67-4"></a><span class="co"># Generate an average linkage analysis </span></span>
+<span id="cb67-5"><a href="#cb67-5"></a>hc_oes <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_oes, <span class="at">method =</span> <span class="st">'average'</span>)</span>
+<span id="cb67-6"><a href="#cb67-6"></a></span>
+<span id="cb67-7"><a href="#cb67-7"></a><span class="co"># Create a dendrogram object from the hclust variable</span></span>
+<span id="cb67-8"><a href="#cb67-8"></a>dend_oes <span class="ot">&lt;-</span> <span class="fu">as.dendrogram</span>(hc_oes)</span>
+<span id="cb67-9"><a href="#cb67-9"></a></span>
+<span id="cb67-10"><a href="#cb67-10"></a><span class="co"># Plot the dendrogram</span></span>
+<span id="cb67-11"><a href="#cb67-11"></a><span class="fu">plot</span>(dend_oes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-23-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># Color branches by cluster formed from the cut at a height of 100000</span></span>
+<span id="cb68-2"><a href="#cb68-2"></a>dend_colored <span class="ot">&lt;-</span> <span class="fu">color_branches</span>(dend_oes, <span class="at">h =</span> <span class="dv">100000</span>)</span>
+<span id="cb68-3"><a href="#cb68-3"></a></span>
+<span id="cb68-4"><a href="#cb68-4"></a><span class="co"># Plot the colored dendrogram</span></span>
+<span id="cb68-5"><a href="#cb68-5"></a><span class="fu">plot</span>(dend_colored)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-23-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-23-2.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Well done! Based on the dendrogram it may be reasonable to start with the three clusters formed at a height of 100,000. The members of these clusters appear to be tightly grouped but different from one another. Let’s continue this exploration.</p>
 </section>
@@ -1907,26 +2212,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the <code>gather()</code> function from the <code>tidyr()</code> library to reshape the data into a format amenable for ggplot2 analysis and save the tidied data frame as <code>gather_oes</code></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Load package</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb24-3"><a href="#cb24-3"></a></span>
-<span id="cb24-4"><a href="#cb24-4"></a>dist_oes <span class="ot">&lt;-</span> <span class="fu">dist</span>(oes,        <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
-<span id="cb24-5"><a href="#cb24-5"></a>hc_oes   <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_oes, <span class="at">method =</span> <span class="st">'average'</span>)</span>
-<span id="cb24-6"><a href="#cb24-6"></a></span>
-<span id="cb24-7"><a href="#cb24-7"></a><span class="co"># Use rownames_to_column to move the rownames into a column of the data frame</span></span>
-<span id="cb24-8"><a href="#cb24-8"></a>df_oes <span class="ot">&lt;-</span> <span class="fu">rownames_to_column</span>(<span class="fu">as.data.frame</span>(oes), <span class="at">var =</span> <span class="st">'occupation'</span>)</span>
-<span id="cb24-9"><a href="#cb24-9"></a></span>
-<span id="cb24-10"><a href="#cb24-10"></a><span class="co"># Create a cluster assignment vector at h = 100,000</span></span>
-<span id="cb24-11"><a href="#cb24-11"></a>cut_oes <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_oes, <span class="at">h =</span> <span class="dv">100000</span>)</span>
-<span id="cb24-12"><a href="#cb24-12"></a></span>
-<span id="cb24-13"><a href="#cb24-13"></a><span class="co"># Generate the segmented the oes data frame</span></span>
-<span id="cb24-14"><a href="#cb24-14"></a>clust_oes <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df_oes, <span class="at">cluster =</span> cut_oes)</span>
-<span id="cb24-15"><a href="#cb24-15"></a></span>
-<span id="cb24-16"><a href="#cb24-16"></a><span class="co"># Create a tidy data frame by gathering the year and values into two columns</span></span>
-<span id="cb24-17"><a href="#cb24-17"></a>gathered_oes <span class="ot">&lt;-</span> <span class="fu">gather</span>(<span class="at">data =</span> clust_oes, </span>
-<span id="cb24-18"><a href="#cb24-18"></a>                       <span class="at">key =</span> year, </span>
-<span id="cb24-19"><a href="#cb24-19"></a>                       <span class="at">value =</span> mean_salary, </span>
-<span id="cb24-20"><a href="#cb24-20"></a>                       <span class="sc">-</span>occupation, <span class="sc">-</span>cluster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># Load package</span></span>
+<span id="cb69-2"><a href="#cb69-2"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb69-3"><a href="#cb69-3"></a></span>
+<span id="cb69-4"><a href="#cb69-4"></a>dist_oes <span class="ot">&lt;-</span> <span class="fu">dist</span>(oes,        <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
+<span id="cb69-5"><a href="#cb69-5"></a>hc_oes   <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_oes, <span class="at">method =</span> <span class="st">'average'</span>)</span>
+<span id="cb69-6"><a href="#cb69-6"></a></span>
+<span id="cb69-7"><a href="#cb69-7"></a><span class="co"># Use rownames_to_column to move the rownames into a column of the data frame</span></span>
+<span id="cb69-8"><a href="#cb69-8"></a>df_oes <span class="ot">&lt;-</span> <span class="fu">rownames_to_column</span>(<span class="fu">as.data.frame</span>(oes), <span class="at">var =</span> <span class="st">'occupation'</span>)</span>
+<span id="cb69-9"><a href="#cb69-9"></a></span>
+<span id="cb69-10"><a href="#cb69-10"></a><span class="co"># Create a cluster assignment vector at h = 100,000</span></span>
+<span id="cb69-11"><a href="#cb69-11"></a>cut_oes <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_oes, <span class="at">h =</span> <span class="dv">100000</span>)</span>
+<span id="cb69-12"><a href="#cb69-12"></a></span>
+<span id="cb69-13"><a href="#cb69-13"></a><span class="co"># Generate the segmented the oes data frame</span></span>
+<span id="cb69-14"><a href="#cb69-14"></a>clust_oes <span class="ot">&lt;-</span> <span class="fu">mutate</span>(df_oes, <span class="at">cluster =</span> cut_oes)</span>
+<span id="cb69-15"><a href="#cb69-15"></a></span>
+<span id="cb69-16"><a href="#cb69-16"></a><span class="co"># Create a tidy data frame by gathering the year and values into two columns</span></span>
+<span id="cb69-17"><a href="#cb69-17"></a>gathered_oes <span class="ot">&lt;-</span> <span class="fu">gather</span>(<span class="at">data =</span> clust_oes, </span>
+<span id="cb69-18"><a href="#cb69-18"></a>                       <span class="at">key =</span> year, </span>
+<span id="cb69-19"><a href="#cb69-19"></a>                       <span class="at">value =</span> mean_salary, </span>
+<span id="cb69-20"><a href="#cb69-20"></a>                       <span class="sc">-</span>occupation, <span class="sc">-</span>cluster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great work! You now have the data frames necessary to explore the results of this clustering</p>
 </section>
@@ -1939,13 +2244,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use ggplot2 to plot each occupation’s average income by year and color the lines by the occupation’s assigned cluster.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># View the clustering assignments by sorting the cluster assignment vector</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">sort</span>(cut_oes)</span>
-<span id="cb25-3"><a href="#cb25-3"></a></span>
-<span id="cb25-4"><a href="#cb25-4"></a><span class="co"># Plot the relationship between mean_salary and year and color the lines by the assigned cluster</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a><span class="fu">ggplot</span>(gathered_oes, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_salary, <span class="at">color =</span> <span class="fu">factor</span>(cluster))) <span class="sc">+</span> </span>
-<span id="cb25-6"><a href="#cb25-6"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> occupation)) <span class="sc">+</span></span>
-<span id="cb25-7"><a href="#cb25-7"></a>    <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># View the clustering assignments by sorting the cluster assignment vector</span></span>
+<span id="cb70-2"><a href="#cb70-2"></a><span class="fu">sort</span>(cut_oes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;                 Management                      Legal 
+#&gt;                          1                          1 
+#&gt;        Business Operations           Computer Science 
+#&gt;                          2                          2 
+#&gt;   Architecture/Engineering  Life/Physical/Social Sci. 
+#&gt;                          2                          2 
+#&gt;   Healthcare Practitioners         Community Services 
+#&gt;                          2                          3 
+#&gt; Education/Training/Library  Arts/Design/Entertainment 
+#&gt;                          3                          3 
+#&gt;         Healthcare Support         Protective Service 
+#&gt;                          3                          3 
+#&gt;           Food Preparation  Grounds Cleaning &amp; Maint. 
+#&gt;                          3                          3 
+#&gt;              Personal Care                      Sales 
+#&gt;                          3                          3 
+#&gt;      Office Administrative   Farming/Fishing/Forestry 
+#&gt;                          3                          3 
+#&gt;               Construction Installation/Repair/Maint. 
+#&gt;                          3                          3 
+#&gt;                 Production      Transportation/Moving 
+#&gt;                          3                          3</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="co"># Plot the relationship between mean_salary and year and color the lines by the assigned cluster</span></span>
+<span id="cb72-2"><a href="#cb72-2"></a><span class="fu">ggplot</span>(gathered_oes, <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_salary, <span class="at">color =</span> <span class="fu">factor</span>(cluster))) <span class="sc">+</span> </span>
+<span id="cb72-3"><a href="#cb72-3"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> occupation)) <span class="sc">+</span></span>
+<span id="cb72-4"><a href="#cb72-4"></a>    <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-25-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Cool huh! From this work it looks like both Management &amp; Legal professions (cluster 1) experienced the most rapid growth in these 15 years.’s see what we can get by exploring this data using k-means.</p>
 </section>
@@ -1977,23 +2312,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the values in <code>elbow_df</code> to plot a line plot showing the relationship between <strong>k</strong> and <strong>total within-cluster sum of squares</strong></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Use map_dbl to run many models with varying value of k (centers)</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a>tot_withinss <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,  <span class="cf">function</span>(k){</span>
-<span id="cb26-3"><a href="#cb26-3"></a>  model <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(<span class="at">x =</span> oes, <span class="at">centers =</span> k)</span>
-<span id="cb26-4"><a href="#cb26-4"></a>  model<span class="sc">$</span>tot.withinss</span>
-<span id="cb26-5"><a href="#cb26-5"></a>})</span>
-<span id="cb26-6"><a href="#cb26-6"></a></span>
-<span id="cb26-7"><a href="#cb26-7"></a><span class="co"># Generate a data frame containing both k and tot_withinss</span></span>
-<span id="cb26-8"><a href="#cb26-8"></a>elbow_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb26-9"><a href="#cb26-9"></a>  <span class="at">k =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
-<span id="cb26-10"><a href="#cb26-10"></a>  <span class="at">tot_withinss =</span> tot_withinss</span>
-<span id="cb26-11"><a href="#cb26-11"></a>)</span>
-<span id="cb26-12"><a href="#cb26-12"></a></span>
-<span id="cb26-13"><a href="#cb26-13"></a><span class="co"># Plot the elbow plot</span></span>
-<span id="cb26-14"><a href="#cb26-14"></a><span class="fu">ggplot</span>(elbow_df, <span class="fu">aes</span>(<span class="at">x =</span> k, <span class="at">y =</span> tot_withinss)) <span class="sc">+</span></span>
-<span id="cb26-15"><a href="#cb26-15"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb26-16"><a href="#cb26-16"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb26-17"><a href="#cb26-17"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># Use map_dbl to run many models with varying value of k (centers)</span></span>
+<span id="cb73-2"><a href="#cb73-2"></a>tot_withinss <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,  <span class="cf">function</span>(k){</span>
+<span id="cb73-3"><a href="#cb73-3"></a>  model <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(<span class="at">x =</span> oes, <span class="at">centers =</span> k)</span>
+<span id="cb73-4"><a href="#cb73-4"></a>  model<span class="sc">$</span>tot.withinss</span>
+<span id="cb73-5"><a href="#cb73-5"></a>})</span>
+<span id="cb73-6"><a href="#cb73-6"></a></span>
+<span id="cb73-7"><a href="#cb73-7"></a><span class="co"># Generate a data frame containing both k and tot_withinss</span></span>
+<span id="cb73-8"><a href="#cb73-8"></a>elbow_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb73-9"><a href="#cb73-9"></a>  <span class="at">k =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb73-10"><a href="#cb73-10"></a>  <span class="at">tot_withinss =</span> tot_withinss</span>
+<span id="cb73-11"><a href="#cb73-11"></a>)</span>
+<span id="cb73-12"><a href="#cb73-12"></a></span>
+<span id="cb73-13"><a href="#cb73-13"></a><span class="co"># Plot the elbow plot</span></span>
+<span id="cb73-14"><a href="#cb73-14"></a><span class="fu">ggplot</span>(elbow_df, <span class="fu">aes</span>(<span class="at">x =</span> k, <span class="at">y =</span> tot_withinss)) <span class="sc">+</span></span>
+<span id="cb73-15"><a href="#cb73-15"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb73-16"><a href="#cb73-16"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb73-17"><a href="#cb73-17"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-26-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Fascinating! So the elbow analysis proposes a different value of <strong>k</strong>, in the next section let’s see what we can learn from Silhouette Width Analysis.</p>
 </section>
@@ -2009,23 +2351,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the values in <code>sil_df</code> to plot a line plot showing the relationship between <strong>k</strong> and <strong>average silhouette width</strong></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Use map_dbl to run many models with varying value of k</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a>sil_width <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>,  <span class="cf">function</span>(k){</span>
-<span id="cb27-3"><a href="#cb27-3"></a>  model <span class="ot">&lt;-</span> <span class="fu">pam</span>(oes, <span class="at">k =</span> k)</span>
-<span id="cb27-4"><a href="#cb27-4"></a>  model<span class="sc">$</span>silinfo<span class="sc">$</span>avg.width</span>
-<span id="cb27-5"><a href="#cb27-5"></a>})</span>
-<span id="cb27-6"><a href="#cb27-6"></a></span>
-<span id="cb27-7"><a href="#cb27-7"></a><span class="co"># Generate a data frame containing both k and sil_width</span></span>
-<span id="cb27-8"><a href="#cb27-8"></a>sil_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb27-9"><a href="#cb27-9"></a>  <span class="at">k =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>,</span>
-<span id="cb27-10"><a href="#cb27-10"></a>  <span class="at">sil_width =</span> sil_width</span>
-<span id="cb27-11"><a href="#cb27-11"></a>)</span>
-<span id="cb27-12"><a href="#cb27-12"></a></span>
-<span id="cb27-13"><a href="#cb27-13"></a><span class="co"># Plot the relationship between k and sil_width</span></span>
-<span id="cb27-14"><a href="#cb27-14"></a><span class="fu">ggplot</span>(sil_df, <span class="fu">aes</span>(<span class="at">x =</span> k, <span class="at">y =</span> sil_width)) <span class="sc">+</span></span>
-<span id="cb27-15"><a href="#cb27-15"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb27-16"><a href="#cb27-16"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">+</span></span>
-<span id="cb27-17"><a href="#cb27-17"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="co"># Use map_dbl to run many models with varying value of k</span></span>
+<span id="cb74-2"><a href="#cb74-2"></a>sil_width <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>,  <span class="cf">function</span>(k){</span>
+<span id="cb74-3"><a href="#cb74-3"></a>  model <span class="ot">&lt;-</span> <span class="fu">pam</span>(oes, <span class="at">k =</span> k)</span>
+<span id="cb74-4"><a href="#cb74-4"></a>  model<span class="sc">$</span>silinfo<span class="sc">$</span>avg.width</span>
+<span id="cb74-5"><a href="#cb74-5"></a>})</span>
+<span id="cb74-6"><a href="#cb74-6"></a></span>
+<span id="cb74-7"><a href="#cb74-7"></a><span class="co"># Generate a data frame containing both k and sil_width</span></span>
+<span id="cb74-8"><a href="#cb74-8"></a>sil_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb74-9"><a href="#cb74-9"></a>  <span class="at">k =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb74-10"><a href="#cb74-10"></a>  <span class="at">sil_width =</span> sil_width</span>
+<span id="cb74-11"><a href="#cb74-11"></a>)</span>
+<span id="cb74-12"><a href="#cb74-12"></a></span>
+<span id="cb74-13"><a href="#cb74-13"></a><span class="co"># Plot the relationship between k and sil_width</span></span>
+<span id="cb74-14"><a href="#cb74-14"></a><span class="fu">ggplot</span>(sil_df, <span class="fu">aes</span>(<span class="at">x =</span> k, <span class="at">y =</span> sil_width)) <span class="sc">+</span></span>
+<span id="cb74-15"><a href="#cb74-15"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb74-16"><a href="#cb74-16"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb74-17"><a href="#cb74-17"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-27-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Great work! It seems that this analysis results in another value of <strong>k</strong>, this time 7 is the top contender (although 2 comes very close).</p>
 </section>
@@ -2317,7 +2666,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="pagination-link">
-        <span class="nav-page-text">22: Cluster Analysis</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">22: Machine Learning with caret</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -2328,6 +2677,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":true,"openEffect":"zoom","descPosition":"bottom"});</script>
 
 
 

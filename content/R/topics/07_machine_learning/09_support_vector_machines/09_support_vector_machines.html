@@ -106,6 +106,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -376,7 +379,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">22: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">22: Machine Learning with caret</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -554,9 +557,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p><strong>Short Description</strong></p>
-<p>This course will introduce the support vector machine (SVM) using an intuitive, visual approach.</p>
-<p><strong>Long Description</strong></p>
 <p>This course will introduce a powerful classifier, the support vector machine (SVM) using an intuitive, visual approach. Support Vector Machines in R will help students develop an understanding of the SVM model as a classifier and gain practical experience using R’s libsvm implementation from the e1071 package. Along the way, students will gain an intuitive understanding of important concepts, such as hard and soft margins, the kernel trick, different types of kernels, and how to tune SVM parameters. Get ready to classify data with this impressive model.</p>
 <section id="introduction" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> 1. Introduction</h1>
@@ -608,15 +608,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-5"><a href="#cb1-5"></a>df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/df.rds"</span>)</span>
 <span id="cb1-6"><a href="#cb1-6"></a></span>
 <span id="cb1-7"><a href="#cb1-7"></a><span class="co"># Print variable names</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">colnames</span>(df)</span>
-<span id="cb1-9"><a href="#cb1-9"></a></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># Plot sugar content along the x-axis</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a>plot_df <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> sugar_content, <span class="at">y =</span> <span class="dv">0</span>)) <span class="sc">+</span> </span>
-<span id="cb1-12"><a href="#cb1-12"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb1-13"><a href="#cb1-13"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> sugar_content), <span class="at">size =</span> <span class="fl">2.5</span>, <span class="at">vjust =</span> <span class="dv">2</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>)</span>
-<span id="cb1-14"><a href="#cb1-14"></a></span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="co"># Display plot</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a>plot_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">colnames</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] "sample."       "sugar_content"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Plot sugar content along the x-axis</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>plot_df <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> sugar_content, <span class="at">y =</span> <span class="dv">0</span>)) <span class="sc">+</span> </span>
+<span id="cb3-3"><a href="#cb3-3"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb3-4"><a href="#cb3-4"></a>    <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> sugar_content), <span class="at">size =</span> <span class="fl">2.5</span>, <span class="at">vjust =</span> <span class="dv">2</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co"># Display plot</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>plot_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Nice work! Notice the gap between 9 and 10. Sample with sugar content below 9 form a “low sugar” cluster, and samples above 10 form a “high sugar” cluster.</p>
 </section>
@@ -637,8 +646,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the displayed plot to find the sugar content values of the relevant extremal data points in each class.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co">#The maximal margin separator is at the midpoint of the two extreme points in each cluster.</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>mm_separator <span class="ot">&lt;-</span> (<span class="fl">8.9</span><span class="sc">+</span><span class="dv">10</span>)<span class="sc">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#The maximal margin separator is at the midpoint of the two extreme points in each cluster.</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>mm_separator <span class="ot">&lt;-</span> (<span class="fl">8.9</span><span class="sc">+</span><span class="dv">10</span>)<span class="sc">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Well done! We’ll visualize the separator in the next exercise.</p>
 </section>
@@ -651,14 +660,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the data frame created to add the maximal margin separator to the sugar content scatterplot created in the earlier exercise and display the result.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">#create data frame containing the maximum margin separator</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>separator <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sep =</span> mm_separator)</span>
-<span id="cb3-3"><a href="#cb3-3"></a></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#add separator to sugar content scatterplot</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a>plot_sep <span class="ot">&lt;-</span> plot_df <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">data =</span> separator, <span class="fu">aes</span>(<span class="at">x =</span> mm_separator, <span class="at">y =</span> <span class="dv">0</span>), <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">4</span>)</span>
-<span id="cb3-6"><a href="#cb3-6"></a></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#display plot</span></span>
-<span id="cb3-8"><a href="#cb3-8"></a>plot_sep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#create data frame containing the maximum margin separator</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>separator <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sep =</span> mm_separator)</span>
+<span id="cb5-3"><a href="#cb5-3"></a></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#add separator to sugar content scatterplot</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>plot_sep <span class="ot">&lt;-</span> plot_df <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">data =</span> separator, <span class="fu">aes</span>(<span class="at">x =</span> mm_separator, <span class="at">y =</span> <span class="dv">0</span>), <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">4</span>)</span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#display plot</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>plot_sep</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Well done! It should be clear from the plot that the blue point is the best possible separator. Why?</p>
 </section>
@@ -697,15 +713,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Generate a dataframe <code>df</code> with two uniformly distributed variables, <code>x1</code> and <code>x2</code> lying in (0, 1).</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#set seed</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#set number of data points. </span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>n <span class="ot">&lt;-</span> <span class="dv">600</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#Generate data frame with two uniformly distributed predictors lying between 0 and 1.</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fu">runif</span>(n), </span>
-<span id="cb4-9"><a href="#cb4-9"></a>                 <span class="at">x2 =</span> <span class="fu">runif</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#set seed</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#set number of data points. </span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>n <span class="ot">&lt;-</span> <span class="dv">600</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#Generate data frame with two uniformly distributed predictors lying between 0 and 1.</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fu">runif</span>(n), </span>
+<span id="cb6-9"><a href="#cb6-9"></a>                 <span class="at">x2 =</span> <span class="fu">runif</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Good work. Next we’ll divide the dataset into two classes that are separated by a linear decision boundary.</p>
 </section>
@@ -721,9 +737,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#classify data points depending on location</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(df<span class="sc">$</span>x2<span class="fl">-1.4</span><span class="sc">*</span>df<span class="sc">$</span>x1 <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), </span>
-<span id="cb5-3"><a href="#cb5-3"></a>    <span class="at">levels =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">#classify data points depending on location</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(df<span class="sc">$</span>x2<span class="fl">-1.4</span><span class="sc">*</span>df<span class="sc">$</span>x1 <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), </span>
+<span id="cb7-3"><a href="#cb7-3"></a>    <span class="at">levels =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nice work. Next we’ll introduce a margin in the dataset and visualize it.</p>
 </section>
@@ -736,21 +752,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Replot the dataset, displaying the margin boundaries as dashed lines and the decision boundary as a solid line.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#set margin</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>delta <span class="ot">&lt;-</span> <span class="fl">0.07</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># retain only those points that lie outside the margin</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a>df1 <span class="ot">&lt;-</span> df[<span class="fu">abs</span>(<span class="fl">1.4</span><span class="sc">*</span>df<span class="sc">$</span>x1 <span class="sc">-</span> df<span class="sc">$</span>x2) <span class="sc">&gt;</span> delta, ]</span>
-<span id="cb6-6"><a href="#cb6-6"></a></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#build plot</span></span>
-<span id="cb6-8"><a href="#cb6-8"></a>plot_margins <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df1, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb6-9"><a href="#cb6-9"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)) <span class="sc">+</span> </span>
-<span id="cb6-10"><a href="#cb6-10"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="fl">1.4</span>, <span class="at">intercept =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
-<span id="cb6-11"><a href="#cb6-11"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="fl">1.4</span>, <span class="at">intercept =</span> delta, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb6-12"><a href="#cb6-12"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="fl">1.4</span>, <span class="at">intercept =</span> <span class="sc">-</span>delta, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
-<span id="cb6-13"><a href="#cb6-13"></a> </span>
-<span id="cb6-14"><a href="#cb6-14"></a><span class="co">#display plot</span></span>
-<span id="cb6-15"><a href="#cb6-15"></a>plot_margins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#set margin</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>delta <span class="ot">&lt;-</span> <span class="fl">0.07</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># retain only those points that lie outside the margin</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>df1 <span class="ot">&lt;-</span> df[<span class="fu">abs</span>(<span class="fl">1.4</span><span class="sc">*</span>df<span class="sc">$</span>x1 <span class="sc">-</span> df<span class="sc">$</span>x2) <span class="sc">&gt;</span> delta, ]</span>
+<span id="cb8-6"><a href="#cb8-6"></a></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#build plot</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a>plot_margins <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df1, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb8-9"><a href="#cb8-9"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)) <span class="sc">+</span> </span>
+<span id="cb8-10"><a href="#cb8-10"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="fl">1.4</span>, <span class="at">intercept =</span> <span class="dv">0</span>)<span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="fl">1.4</span>, <span class="at">intercept =</span> delta, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="fl">1.4</span>, <span class="at">intercept =</span> <span class="sc">-</span>delta, <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb8-13"><a href="#cb8-13"></a> </span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="co">#display plot</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a>plot_margins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Nice work! We will use this dataset to learn about linear support vector machines in the next chapter.</p>
 </section>
@@ -791,20 +814,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Remove <code>train</code> column from training and test datasets by index.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">#split train and test data in an 80/20 proportion</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>df[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(df))<span class="sc">&lt;</span><span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co">#assign training rows to data frame trainset</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a>trainset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">1</span>, ]</span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#assign test rows to data frame testset</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a>testset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">0</span>, ]</span>
-<span id="cb7-8"><a href="#cb7-8"></a></span>
-<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#find index of "train" column</span></span>
-<span id="cb7-10"><a href="#cb7-10"></a>trainColNum <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"train"</span>, <span class="fu">names</span>(df))</span>
-<span id="cb7-11"><a href="#cb7-11"></a></span>
-<span id="cb7-12"><a href="#cb7-12"></a><span class="co">#remove "train" column from train and test dataset</span></span>
-<span id="cb7-13"><a href="#cb7-13"></a>trainset <span class="ot">&lt;-</span> trainset[, <span class="sc">-</span>trainColNum]</span>
-<span id="cb7-14"><a href="#cb7-14"></a>testset <span class="ot">&lt;-</span> testset[, <span class="sc">-</span>trainColNum]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">#split train and test data in an 80/20 proportion</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>df[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(df))<span class="sc">&lt;</span><span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#assign training rows to data frame trainset</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>trainset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">1</span>, ]</span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#assign test rows to data frame testset</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a>testset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">0</span>, ]</span>
+<span id="cb9-8"><a href="#cb9-8"></a></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#find index of "train" column</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a>trainColNum <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"train"</span>, <span class="fu">names</span>(df))</span>
+<span id="cb9-11"><a href="#cb9-11"></a></span>
+<span id="cb9-12"><a href="#cb9-12"></a><span class="co">#remove "train" column from train and test dataset</span></span>
+<span id="cb9-13"><a href="#cb9-13"></a>trainset <span class="ot">&lt;-</span> trainset[, <span class="sc">-</span>trainColNum]</span>
+<span id="cb9-14"><a href="#cb9-14"></a>testset <span class="ot">&lt;-</span> testset[, <span class="sc">-</span>trainColNum]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nice work! In the next exercise we will use these datasets to build our first SVM model.</p>
 </section>
@@ -818,14 +841,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Do not scale the variables (this is to allow comparison with the original dataset later).</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">library</span>(e1071)</span>
-<span id="cb8-2"><a href="#cb8-2"></a></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="co">#build svm model, setting required parameters</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a>svm_model<span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., </span>
-<span id="cb8-5"><a href="#cb8-5"></a>                <span class="at">data =</span> trainset, </span>
-<span id="cb8-6"><a href="#cb8-6"></a>                <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
-<span id="cb8-7"><a href="#cb8-7"></a>                <span class="at">kernel =</span> <span class="st">"linear"</span>, </span>
-<span id="cb8-8"><a href="#cb8-8"></a>                <span class="at">scale =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">library</span>(e1071)</span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#build svm model, setting required parameters</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>svm_model<span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., </span>
+<span id="cb10-5"><a href="#cb10-5"></a>                <span class="at">data =</span> trainset, </span>
+<span id="cb10-6"><a href="#cb10-6"></a>                <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb10-7"><a href="#cb10-7"></a>                <span class="at">kernel =</span> <span class="st">"linear"</span>, </span>
+<span id="cb10-8"><a href="#cb10-8"></a>                <span class="at">scale =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nice work! In the next exercise we will explore the contents of the model.</p>
 </section>
@@ -837,33 +860,163 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>List the components of your SVM model.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">#list components of model</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">names</span>(svm_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#list components of model</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">names</span>(svm_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;  [1] "call"            "type"            "kernel"          "cost"           
+#&gt;  [5] "degree"          "gamma"           "coef0"           "nu"             
+#&gt;  [9] "epsilon"         "sparse"          "scaled"          "x.scale"        
+#&gt; [13] "y.scale"         "nclasses"        "levels"          "tot.nSV"        
+#&gt; [17] "nSV"             "labels"          "SV"              "index"          
+#&gt; [21] "rho"             "compprob"        "probA"           "probB"          
+#&gt; [25] "sigma"           "coefs"           "na.action"       "fitted"         
+#&gt; [29] "decision.values" "terms"</code></pre>
+</div>
 </div>
 <ol start="2" type="1">
 <li>List the contents of <code>SV</code>, <code>index</code>, and <code>rho</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co">#list values of the SV, index and rho</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>svm_model<span class="sc">$</span>SV</span>
-<span id="cb10-3"><a href="#cb10-3"></a>svm_model<span class="sc">$</span>index</span>
-<span id="cb10-4"><a href="#cb10-4"></a>svm_model<span class="sc">$</span>rho</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">#list values of the SV, index and rho</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>svm_model<span class="sc">$</span>SV</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;               x1          x2
+#&gt; 7   0.4577417762 0.476919189
+#&gt; 13  0.4749970816 0.486642912
+#&gt; 29  0.3795592405 0.313981685
+#&gt; 33  0.4317512489 0.520339758
+#&gt; 46  0.6756072745 0.772399305
+#&gt; 52  0.6932048204 0.838569788
+#&gt; 55  0.2163854151 0.082716837
+#&gt; 57  0.1974103423 0.095661407
+#&gt; 72  0.7439746463 0.912029979
+#&gt; 74  0.6262453445 0.765520479
+#&gt; 76  0.2165673110 0.202548483
+#&gt; 86  0.3556659538 0.298152283
+#&gt; 105 0.4640695513 0.535269056
+#&gt; 106 0.7793681615 0.941694443
+#&gt; 107 0.7335279596 0.892355152
+#&gt; 109 0.1701624813 0.050030747
+#&gt; 128 0.4140496817 0.380267640
+#&gt; 131 0.1364903601 0.011009041
+#&gt; 135 0.7690324257 0.951921815
+#&gt; 151 0.4427962683 0.532290264
+#&gt; 154 0.2524584394 0.281511990
+#&gt; 166 0.8205145481 0.962842692
+#&gt; 167 0.3070544004 0.226466750
+#&gt; 184 0.2697161783 0.288755647
+#&gt; 190 0.3110496188 0.298268895
+#&gt; 195 0.2050496121 0.182046106
+#&gt; 199 0.7853494422 0.870432480
+#&gt; 204 0.4037828147 0.476424339
+#&gt; 209 0.1709963905 0.164468810
+#&gt; 216 0.3864540118 0.370921416
+#&gt; 217 0.3324459905 0.382318948
+#&gt; 229 0.3921784570 0.343302177
+#&gt; 245 0.5648222226 0.618285144
+#&gt; 253 0.6753195773 0.773493237
+#&gt; 256 0.3169501573 0.333509587
+#&gt; 260 0.3597852497 0.345139100
+#&gt; 292 0.6568108753 0.815567016
+#&gt; 296 0.0755990995 0.007417523
+#&gt; 299 0.1079870730 0.022227321
+#&gt; 305 0.2401496081 0.151690785
+#&gt; 325 0.3626018071 0.369346223
+#&gt; 341 0.6399842701 0.695480783
+#&gt; 365 0.5195604505 0.627322678
+#&gt; 383 0.6494539515 0.833293378
+#&gt; 391 0.4243346907 0.470753220
+#&gt; 400 0.3458497624 0.413091426
+#&gt; 419 0.2065700251 0.089081859
+#&gt; 429 0.7148487861 0.902375512
+#&gt; 434 0.8058112133 0.937903824
+#&gt; 438 0.4587231132 0.446819442
+#&gt; 10  0.4622928225 0.839631285
+#&gt; 19  0.4469696281 0.721333573
+#&gt; 26  0.0073341469 0.108096598
+#&gt; 44  0.2610879638 0.472588875
+#&gt; 51  0.2712866147 0.560707851
+#&gt; 65  0.3052183695 0.548420829
+#&gt; 66  0.0002388966 0.122946701
+#&gt; 75  0.2171576982 0.505044580
+#&gt; 77  0.3889450287 0.717138722
+#&gt; 84  0.4527315726 0.737772155
+#&gt; 93  0.2335235255 0.439058027
+#&gt; 96  0.6034740848 0.958318281
+#&gt; 97  0.6315072989 0.970767964
+#&gt; 112 0.1490720524 0.377477208
+#&gt; 118 0.0290858189 0.148069276
+#&gt; 130 0.4274944656 0.725024226
+#&gt; 133 0.5923042425 0.900228734
+#&gt; 141 0.1333296183 0.390023998
+#&gt; 146 0.0531294835 0.276241161
+#&gt; 150 0.5171110556 0.899924811
+#&gt; 155 0.2596899802 0.503687580
+#&gt; 157 0.4513108502 0.743930877
+#&gt; 159 0.5746373343 0.930141046
+#&gt; 169 0.0483467767 0.218475638
+#&gt; 172 0.1590223818 0.402696270
+#&gt; 176 0.0865806018 0.263718613
+#&gt; 180 0.1495789951 0.351843507
+#&gt; 181 0.4992728804 0.812805236
+#&gt; 188 0.5397982858 0.932383237
+#&gt; 202 0.3367135401 0.672058288
+#&gt; 211 0.0186874117 0.097642665
+#&gt; 215 0.3152607968 0.625878707
+#&gt; 230 0.3199476011 0.541676977
+#&gt; 241 0.4303332213 0.792282316
+#&gt; 263 0.3733412449 0.718439230
+#&gt; 273 0.5825784358 0.900965292
+#&gt; 301 0.0842775232 0.235715229
+#&gt; 317 0.5141573721 0.908452330
+#&gt; 340 0.1147626776 0.363946523
+#&gt; 344 0.3479114065 0.564496977
+#&gt; 348 0.5964720468 0.913432184
+#&gt; 354 0.2485451805 0.533491509
+#&gt; 368 0.1465723943 0.391752972
+#&gt; 382 0.1270027745 0.348539336
+#&gt; 387 0.2665205784 0.458110426
+#&gt; 407 0.2770604359 0.510976796
+#&gt; 423 0.5705413527 0.994652604
+#&gt; 424 0.2458533479 0.494881822
+#&gt; 427 0.4806177358 0.786027395
+#&gt; 430 0.3165616125 0.563688410</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>svm_model<span class="sc">$</span>index</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;   [1]   7  13  29  33  46  52  55  57  72  74  76  86 105 106 107 109 128 131
+#&gt;  [19] 135 151 154 166 167 184 190 195 199 204 209 216 217 229 245 253 256 260
+#&gt;  [37] 292 296 299 305 325 341 365 383 391 400 419 429 434 438  10  19  26  44
+#&gt;  [55]  51  65  66  75  77  84  93  96  97 112 118 130 133 141 146 150 155 157
+#&gt;  [73] 159 169 172 176 180 181 188 202 211 215 230 241 263 273 301 317 340 344
+#&gt;  [91] 348 354 368 382 387 407 423 424 427 430</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>svm_model<span class="sc">$</span>rho</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.02610378</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Calculate the training accuracy of the model.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#compute training accuracy</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co">#compute training accuracy</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
+<span id="cb19-3"><a href="#cb19-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 1</code></pre>
+</div>
 </div>
 <ol start="4" type="1">
 <li>Calculate the test accuracy of the model.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">#compute test accuracy</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">#compute test accuracy</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb21-3"><a href="#cb21-3"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 1</code></pre>
+</div>
 </div>
 <p>Excellent! You are now ready for the next lesson in which we’ll visually explore the model.</p>
 </section>
@@ -900,17 +1053,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Mark out the support vectors on the plot using their indices from the SVM model.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">#build scatter plot of training dataset</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> trainset, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> </span>
-<span id="cb13-3"><a href="#cb13-3"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb13-4"><a href="#cb13-4"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span>
-<span id="cb13-5"><a href="#cb13-5"></a> </span>
-<span id="cb13-6"><a href="#cb13-6"></a><span class="co">#add plot layer marking out the support vectors </span></span>
-<span id="cb13-7"><a href="#cb13-7"></a>layered_plot <span class="ot">&lt;-</span> </span>
-<span id="cb13-8"><a href="#cb13-8"></a>    scatter_plot <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">data =</span> trainset[svm_model<span class="sc">$</span>index, ], <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2), <span class="at">color =</span> <span class="st">"purple"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
-<span id="cb13-9"><a href="#cb13-9"></a></span>
-<span id="cb13-10"><a href="#cb13-10"></a><span class="co">#display plot</span></span>
-<span id="cb13-11"><a href="#cb13-11"></a>layered_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co">#build scatter plot of training dataset</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> trainset, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> </span>
+<span id="cb23-3"><a href="#cb23-3"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb23-4"><a href="#cb23-4"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span>
+<span id="cb23-5"><a href="#cb23-5"></a> </span>
+<span id="cb23-6"><a href="#cb23-6"></a><span class="co">#add plot layer marking out the support vectors </span></span>
+<span id="cb23-7"><a href="#cb23-7"></a>layered_plot <span class="ot">&lt;-</span> </span>
+<span id="cb23-8"><a href="#cb23-8"></a>    scatter_plot <span class="sc">+</span> <span class="fu">geom_point</span>(<span class="at">data =</span> trainset[svm_model<span class="sc">$</span>index, ], <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2), <span class="at">color =</span> <span class="st">"purple"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>)</span>
+<span id="cb23-9"><a href="#cb23-9"></a></span>
+<span id="cb23-10"><a href="#cb23-10"></a><span class="co">#display plot</span></span>
+<span id="cb23-11"><a href="#cb23-11"></a>layered_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-14-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Well done! Now let’s add the decision and margin boundaries to the plot.</p>
 </section>
@@ -924,24 +1084,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add the margin boundaries to the plot.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># calculate w</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>w <span class="ot">&lt;-</span> <span class="fu">t</span>(svm_model<span class="sc">$</span>coefs) <span class="sc">%*%</span> svm_model<span class="sc">$</span>SV</span>
-<span id="cb14-3"><a href="#cb14-3"></a></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="co">#calculate slope and intercept of decision boundary from weight vector and svm model</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a>slope_1 <span class="ot">&lt;-</span> <span class="sc">-</span>w[<span class="dv">1</span>]<span class="sc">/</span>w[<span class="dv">2</span>]</span>
-<span id="cb14-6"><a href="#cb14-6"></a>intercept_1 <span class="ot">&lt;-</span> svm_model<span class="sc">$</span>rho<span class="sc">/</span>w[<span class="dv">2</span>]</span>
-<span id="cb14-7"><a href="#cb14-7"></a></span>
-<span id="cb14-8"><a href="#cb14-8"></a><span class="co">#build scatter plot of training dataset</span></span>
-<span id="cb14-9"><a href="#cb14-9"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> trainset, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> </span>
-<span id="cb14-10"><a href="#cb14-10"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span>
-<span id="cb14-11"><a href="#cb14-11"></a><span class="co">#add decision boundary </span></span>
-<span id="cb14-12"><a href="#cb14-12"></a>plot_decision <span class="ot">&lt;-</span> scatter_plot <span class="sc">+</span> <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1) </span>
-<span id="cb14-13"><a href="#cb14-13"></a><span class="co">#add margin boundaries</span></span>
-<span id="cb14-14"><a href="#cb14-14"></a>plot_margins <span class="ot">&lt;-</span> plot_decision <span class="sc">+</span> </span>
-<span id="cb14-15"><a href="#cb14-15"></a> <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1 <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span>w[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>)<span class="sc">+</span></span>
-<span id="cb14-16"><a href="#cb14-16"></a> <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1 <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>w[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
-<span id="cb14-17"><a href="#cb14-17"></a><span class="co">#display plot</span></span>
-<span id="cb14-18"><a href="#cb14-18"></a>plot_margins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># calculate w</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>w <span class="ot">&lt;-</span> <span class="fu">t</span>(svm_model<span class="sc">$</span>coefs) <span class="sc">%*%</span> svm_model<span class="sc">$</span>SV</span>
+<span id="cb24-3"><a href="#cb24-3"></a></span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="co">#calculate slope and intercept of decision boundary from weight vector and svm model</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a>slope_1 <span class="ot">&lt;-</span> <span class="sc">-</span>w[<span class="dv">1</span>]<span class="sc">/</span>w[<span class="dv">2</span>]</span>
+<span id="cb24-6"><a href="#cb24-6"></a>intercept_1 <span class="ot">&lt;-</span> svm_model<span class="sc">$</span>rho<span class="sc">/</span>w[<span class="dv">2</span>]</span>
+<span id="cb24-7"><a href="#cb24-7"></a></span>
+<span id="cb24-8"><a href="#cb24-8"></a><span class="co">#build scatter plot of training dataset</span></span>
+<span id="cb24-9"><a href="#cb24-9"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> trainset, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> </span>
+<span id="cb24-10"><a href="#cb24-10"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span>
+<span id="cb24-11"><a href="#cb24-11"></a><span class="co">#add decision boundary </span></span>
+<span id="cb24-12"><a href="#cb24-12"></a>plot_decision <span class="ot">&lt;-</span> scatter_plot <span class="sc">+</span> <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1) </span>
+<span id="cb24-13"><a href="#cb24-13"></a><span class="co">#add margin boundaries</span></span>
+<span id="cb24-14"><a href="#cb24-14"></a>plot_margins <span class="ot">&lt;-</span> plot_decision <span class="sc">+</span> </span>
+<span id="cb24-15"><a href="#cb24-15"></a> <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1 <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span>w[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>)<span class="sc">+</span></span>
+<span id="cb24-16"><a href="#cb24-16"></a> <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1 <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span>w[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb24-17"><a href="#cb24-17"></a><span class="co">#display plot</span></span>
+<span id="cb24-18"><a href="#cb24-18"></a>plot_margins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Excellent! We’ll now visualize the decision regions and support vectors using the svm plot function.</p>
 </section>
@@ -954,13 +1121,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Plot the decision regions and support vectors.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co">#build svm model</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a>svm_model<span class="ot">&lt;-</span> </span>
-<span id="cb15-3"><a href="#cb15-3"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
-<span id="cb15-4"><a href="#cb15-4"></a>        <span class="at">kernel =</span> <span class="st">"linear"</span>, <span class="at">scale =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb15-5"><a href="#cb15-5"></a></span>
-<span id="cb15-6"><a href="#cb15-6"></a><span class="co">#plot decision boundaries and support vectors for the training data</span></span>
-<span id="cb15-7"><a href="#cb15-7"></a><span class="fu">plot</span>(<span class="at">x =</span> svm_model, <span class="at">data =</span> trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co">#build svm model</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>svm_model<span class="ot">&lt;-</span> </span>
+<span id="cb25-3"><a href="#cb25-3"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb25-4"><a href="#cb25-4"></a>        <span class="at">kernel =</span> <span class="st">"linear"</span>, <span class="at">scale =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb25-5"><a href="#cb25-5"></a></span>
+<span id="cb25-6"><a href="#cb25-6"></a><span class="co">#plot decision boundaries and support vectors for the training data</span></span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="fu">plot</span>(<span class="at">x =</span> svm_model, <span class="at">data =</span> trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Excellent! We’re now ready for the next lesson in which we’ll learn how to tune linear SVMs.</p>
 </section>
@@ -1001,32 +1175,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print the model to find the number of support vectors.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co">#build svm model, cost = 1</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a>svm_model_1 <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> .,</span>
-<span id="cb16-3"><a href="#cb16-3"></a>                   <span class="at">data =</span> trainset,</span>
-<span id="cb16-4"><a href="#cb16-4"></a>                   <span class="at">type =</span> <span class="st">"C-classification"</span>,</span>
-<span id="cb16-5"><a href="#cb16-5"></a>                   <span class="at">cost =</span> <span class="dv">1</span>,</span>
-<span id="cb16-6"><a href="#cb16-6"></a>                   <span class="at">kernel =</span> <span class="st">"linear"</span>,</span>
-<span id="cb16-7"><a href="#cb16-7"></a>                   <span class="at">scale =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb16-8"><a href="#cb16-8"></a></span>
-<span id="cb16-9"><a href="#cb16-9"></a><span class="co">#print model details</span></span>
-<span id="cb16-10"><a href="#cb16-10"></a>svm_model_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co">#build svm model, cost = 1</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>svm_model_1 <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> .,</span>
+<span id="cb26-3"><a href="#cb26-3"></a>                   <span class="at">data =</span> trainset,</span>
+<span id="cb26-4"><a href="#cb26-4"></a>                   <span class="at">type =</span> <span class="st">"C-classification"</span>,</span>
+<span id="cb26-5"><a href="#cb26-5"></a>                   <span class="at">cost =</span> <span class="dv">1</span>,</span>
+<span id="cb26-6"><a href="#cb26-6"></a>                   <span class="at">kernel =</span> <span class="st">"linear"</span>,</span>
+<span id="cb26-7"><a href="#cb26-7"></a>                   <span class="at">scale =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb26-8"><a href="#cb26-8"></a></span>
+<span id="cb26-9"><a href="#cb26-9"></a><span class="co">#print model details</span></span>
+<span id="cb26-10"><a href="#cb26-10"></a>svm_model_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; 
+#&gt; Call:
+#&gt; svm(formula = y ~ ., data = trainset, type = "C-classification", 
+#&gt;     cost = 1, kernel = "linear", scale = FALSE)
+#&gt; 
+#&gt; 
+#&gt; Parameters:
+#&gt;    SVM-Type:  C-classification 
+#&gt;  SVM-Kernel:  linear 
+#&gt;        cost:  1 
+#&gt; 
+#&gt; Number of Support Vectors:  100</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Build the model again with cost = 100.</li>
 <li>Print the model.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co">#build svm model, cost = 100</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a>svm_model_100 <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> .,</span>
-<span id="cb17-3"><a href="#cb17-3"></a>                   <span class="at">data =</span> trainset,</span>
-<span id="cb17-4"><a href="#cb17-4"></a>                   <span class="at">type =</span> <span class="st">"C-classification"</span>,</span>
-<span id="cb17-5"><a href="#cb17-5"></a>                   <span class="at">cost =</span> <span class="dv">100</span>,</span>
-<span id="cb17-6"><a href="#cb17-6"></a>                   <span class="at">kernel =</span> <span class="st">"linear"</span>,</span>
-<span id="cb17-7"><a href="#cb17-7"></a>                   <span class="at">scale =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb17-8"><a href="#cb17-8"></a></span>
-<span id="cb17-9"><a href="#cb17-9"></a><span class="co">#print model details</span></span>
-<span id="cb17-10"><a href="#cb17-10"></a>svm_model_100</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co">#build svm model, cost = 100</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>svm_model_100 <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> .,</span>
+<span id="cb28-3"><a href="#cb28-3"></a>                   <span class="at">data =</span> trainset,</span>
+<span id="cb28-4"><a href="#cb28-4"></a>                   <span class="at">type =</span> <span class="st">"C-classification"</span>,</span>
+<span id="cb28-5"><a href="#cb28-5"></a>                   <span class="at">cost =</span> <span class="dv">100</span>,</span>
+<span id="cb28-6"><a href="#cb28-6"></a>                   <span class="at">kernel =</span> <span class="st">"linear"</span>,</span>
+<span id="cb28-7"><a href="#cb28-7"></a>                   <span class="at">scale =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb28-8"><a href="#cb28-8"></a></span>
+<span id="cb28-9"><a href="#cb28-9"></a><span class="co">#print model details</span></span>
+<span id="cb28-10"><a href="#cb28-10"></a>svm_model_100</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; 
+#&gt; Call:
+#&gt; svm(formula = y ~ ., data = trainset, type = "C-classification", 
+#&gt;     cost = 100, kernel = "linear", scale = FALSE)
+#&gt; 
+#&gt; 
+#&gt; Parameters:
+#&gt;    SVM-Type:  C-classification 
+#&gt;  SVM-Kernel:  linear 
+#&gt;        cost:  100 
+#&gt; 
+#&gt; Number of Support Vectors:  7</code></pre>
+</div>
 </div>
 <p>Excellent! The number of support vectors decreases as cost increases because the margin becomes narrower.</p>
 </section>
@@ -1047,40 +1249,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Display the resulting plot.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Create train plot and weights</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>train_plot <span class="ot">&lt;-</span> trainset <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
-<span id="cb18-3"><a href="#cb18-3"></a></span>
-<span id="cb18-4"><a href="#cb18-4"></a>w_1         <span class="ot">&lt;-</span> <span class="fu">t</span>(svm_model_1<span class="sc">$</span>coefs) <span class="sc">%*%</span> svm_model_1<span class="sc">$</span>SV</span>
-<span id="cb18-5"><a href="#cb18-5"></a>slope_1     <span class="ot">&lt;-</span> <span class="sc">-</span>w_1[<span class="dv">1</span>]<span class="sc">/</span>w_1[<span class="dv">2</span>]</span>
-<span id="cb18-6"><a href="#cb18-6"></a>intercept_1 <span class="ot">&lt;-</span> svm_model_1<span class="sc">$</span>rho<span class="sc">/</span>w_1[<span class="dv">2</span>]</span>
-<span id="cb18-7"><a href="#cb18-7"></a></span>
-<span id="cb18-8"><a href="#cb18-8"></a><span class="co">#add decision boundary and margins for cost = 1 to training data scatter plot</span></span>
-<span id="cb18-9"><a href="#cb18-9"></a>train_plot_with_margins <span class="ot">&lt;-</span> train_plot <span class="sc">+</span> </span>
-<span id="cb18-10"><a href="#cb18-10"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1) <span class="sc">+</span></span>
-<span id="cb18-11"><a href="#cb18-11"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1<span class="dv">-1</span><span class="sc">/</span>w_1[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>)<span class="sc">+</span></span>
-<span id="cb18-12"><a href="#cb18-12"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>w_1[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
-<span id="cb18-13"><a href="#cb18-13"></a></span>
-<span id="cb18-14"><a href="#cb18-14"></a><span class="co">#display plot</span></span>
-<span id="cb18-15"><a href="#cb18-15"></a>train_plot_with_margins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Create train plot and weights</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a>train_plot <span class="ot">&lt;-</span> trainset <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
+<span id="cb30-3"><a href="#cb30-3"></a></span>
+<span id="cb30-4"><a href="#cb30-4"></a>w_1         <span class="ot">&lt;-</span> <span class="fu">t</span>(svm_model_1<span class="sc">$</span>coefs) <span class="sc">%*%</span> svm_model_1<span class="sc">$</span>SV</span>
+<span id="cb30-5"><a href="#cb30-5"></a>slope_1     <span class="ot">&lt;-</span> <span class="sc">-</span>w_1[<span class="dv">1</span>]<span class="sc">/</span>w_1[<span class="dv">2</span>]</span>
+<span id="cb30-6"><a href="#cb30-6"></a>intercept_1 <span class="ot">&lt;-</span> svm_model_1<span class="sc">$</span>rho<span class="sc">/</span>w_1[<span class="dv">2</span>]</span>
+<span id="cb30-7"><a href="#cb30-7"></a></span>
+<span id="cb30-8"><a href="#cb30-8"></a><span class="co">#add decision boundary and margins for cost = 1 to training data scatter plot</span></span>
+<span id="cb30-9"><a href="#cb30-9"></a>train_plot_with_margins <span class="ot">&lt;-</span> train_plot <span class="sc">+</span> </span>
+<span id="cb30-10"><a href="#cb30-10"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1) <span class="sc">+</span></span>
+<span id="cb30-11"><a href="#cb30-11"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1<span class="dv">-1</span><span class="sc">/</span>w_1[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>)<span class="sc">+</span></span>
+<span id="cb30-12"><a href="#cb30-12"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_1, <span class="at">intercept =</span> intercept_1<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>w_1[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>)</span>
+<span id="cb30-13"><a href="#cb30-13"></a></span>
+<span id="cb30-14"><a href="#cb30-14"></a><span class="co">#display plot</span></span>
+<span id="cb30-15"><a href="#cb30-15"></a>train_plot_with_margins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-19-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Add the decision boundary and margins for the cost = 100 classifier to the plot you created in the first step.</li>
 <li>Display the final plot showing decision boundaries and margins for both classifiers.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>train_plot_100 <span class="ot">&lt;-</span> train_plot_with_margins</span>
-<span id="cb19-2"><a href="#cb19-2"></a>w_100          <span class="ot">&lt;-</span> <span class="fu">t</span>(svm_model_100<span class="sc">$</span>coefs) <span class="sc">%*%</span> svm_model_100<span class="sc">$</span>SV</span>
-<span id="cb19-3"><a href="#cb19-3"></a>slope_100      <span class="ot">&lt;-</span> <span class="sc">-</span>w_100[<span class="dv">1</span>]<span class="sc">/</span>w_100[<span class="dv">2</span>]</span>
-<span id="cb19-4"><a href="#cb19-4"></a>intercept_100  <span class="ot">&lt;-</span> svm_model_100<span class="sc">$</span>rho<span class="sc">/</span>w_100[<span class="dv">2</span>]</span>
-<span id="cb19-5"><a href="#cb19-5"></a></span>
-<span id="cb19-6"><a href="#cb19-6"></a><span class="co">#add decision boundary and margins for cost = 100 to training data scatter plot</span></span>
-<span id="cb19-7"><a href="#cb19-7"></a>train_plot_with_margins <span class="ot">&lt;-</span> train_plot_100 <span class="sc">+</span> </span>
-<span id="cb19-8"><a href="#cb19-8"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_100, <span class="at">intercept =</span> intercept_100, <span class="at">color =</span> <span class="st">"goldenrod"</span>) <span class="sc">+</span></span>
-<span id="cb19-9"><a href="#cb19-9"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_100, <span class="at">intercept =</span> intercept_100<span class="dv">-1</span><span class="sc">/</span>w_100[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"goldenrod"</span>)<span class="sc">+</span></span>
-<span id="cb19-10"><a href="#cb19-10"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_100, <span class="at">intercept =</span> intercept_100<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>w_100[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"goldenrod"</span>)</span>
-<span id="cb19-11"><a href="#cb19-11"></a></span>
-<span id="cb19-12"><a href="#cb19-12"></a><span class="co">#display plot </span></span>
-<span id="cb19-13"><a href="#cb19-13"></a>train_plot_with_margins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>train_plot_100 <span class="ot">&lt;-</span> train_plot_with_margins</span>
+<span id="cb31-2"><a href="#cb31-2"></a>w_100          <span class="ot">&lt;-</span> <span class="fu">t</span>(svm_model_100<span class="sc">$</span>coefs) <span class="sc">%*%</span> svm_model_100<span class="sc">$</span>SV</span>
+<span id="cb31-3"><a href="#cb31-3"></a>slope_100      <span class="ot">&lt;-</span> <span class="sc">-</span>w_100[<span class="dv">1</span>]<span class="sc">/</span>w_100[<span class="dv">2</span>]</span>
+<span id="cb31-4"><a href="#cb31-4"></a>intercept_100  <span class="ot">&lt;-</span> svm_model_100<span class="sc">$</span>rho<span class="sc">/</span>w_100[<span class="dv">2</span>]</span>
+<span id="cb31-5"><a href="#cb31-5"></a></span>
+<span id="cb31-6"><a href="#cb31-6"></a><span class="co">#add decision boundary and margins for cost = 100 to training data scatter plot</span></span>
+<span id="cb31-7"><a href="#cb31-7"></a>train_plot_with_margins <span class="ot">&lt;-</span> train_plot_100 <span class="sc">+</span> </span>
+<span id="cb31-8"><a href="#cb31-8"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_100, <span class="at">intercept =</span> intercept_100, <span class="at">color =</span> <span class="st">"goldenrod"</span>) <span class="sc">+</span></span>
+<span id="cb31-9"><a href="#cb31-9"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_100, <span class="at">intercept =</span> intercept_100<span class="dv">-1</span><span class="sc">/</span>w_100[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"goldenrod"</span>)<span class="sc">+</span></span>
+<span id="cb31-10"><a href="#cb31-10"></a>    <span class="fu">geom_abline</span>(<span class="at">slope =</span> slope_100, <span class="at">intercept =</span> intercept_100<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>w_100[<span class="dv">2</span>], <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">color =</span> <span class="st">"goldenrod"</span>)</span>
+<span id="cb31-11"><a href="#cb31-11"></a></span>
+<span id="cb31-12"><a href="#cb31-12"></a><span class="co">#display plot </span></span>
+<span id="cb31-13"><a href="#cb31-13"></a>train_plot_with_margins</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-20-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Well done! The plot clearly shows the effect of increasing the cost on linear classifiers.</p>
 </section>
@@ -1119,37 +1335,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build a default cost linear SVM.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Load data</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset2.rds"</span>)</span>
-<span id="cb20-3"><a href="#cb20-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset2.rds"</span>)</span>
-<span id="cb20-4"><a href="#cb20-4"></a></span>
-<span id="cb20-5"><a href="#cb20-5"></a><span class="co"># build svm model</span></span>
-<span id="cb20-6"><a href="#cb20-6"></a>svm_model<span class="ot">&lt;-</span> </span>
-<span id="cb20-7"><a href="#cb20-7"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
-<span id="cb20-8"><a href="#cb20-8"></a>        <span class="at">kernel =</span> <span class="st">"linear"</span>, <span class="at">scale =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Load data</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset2.rds"</span>)</span>
+<span id="cb32-3"><a href="#cb32-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset2.rds"</span>)</span>
+<span id="cb32-4"><a href="#cb32-4"></a></span>
+<span id="cb32-5"><a href="#cb32-5"></a><span class="co"># build svm model</span></span>
+<span id="cb32-6"><a href="#cb32-6"></a>svm_model<span class="ot">&lt;-</span> </span>
+<span id="cb32-7"><a href="#cb32-7"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb32-8"><a href="#cb32-8"></a>        <span class="at">kernel =</span> <span class="st">"linear"</span>, <span class="at">scale =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Calculate training accuracy.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">#compute training accuracy</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co">#compute training accuracy</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.9875969</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Calculate test accuracy.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">#compute test accuracy</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
-<span id="cb22-3"><a href="#cb22-3"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co">#compute test accuracy</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb35-3"><a href="#cb35-3"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.9806452</code></pre>
+</div>
 </div>
 <ol start="4" type="1">
 <li>Plot classifier against training data.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co">#plot</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="fu">plot</span>(svm_model, trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co">#plot</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="fu">plot</span>(svm_model, trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-24-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Well done! The model performs very well even for default settings. The actual separators are lines that pass through the origin at angles of 30 and 60 degrees to the horizontal.</p>
 </section>
@@ -1166,23 +1395,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
-<span id="cb24-2"><a href="#cb24-2"></a></span>
-<span id="cb24-3"><a href="#cb24-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){ </span>
-<span id="cb24-4"><a href="#cb24-4"></a>    <span class="co">#assign 80% of the data to the training set</span></span>
-<span id="cb24-5"><a href="#cb24-5"></a>    iris[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(iris)) <span class="sc">&lt;</span> <span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb24-6"><a href="#cb24-6"></a>    trainColNum <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"train"</span>, <span class="fu">names</span>(iris))</span>
-<span id="cb24-7"><a href="#cb24-7"></a>    trainset <span class="ot">&lt;-</span> iris[iris<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">1</span>, <span class="sc">-</span>trainColNum]</span>
-<span id="cb24-8"><a href="#cb24-8"></a>    testset <span class="ot">&lt;-</span> iris[iris<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">0</span>, <span class="sc">-</span>trainColNum]</span>
-<span id="cb24-9"><a href="#cb24-9"></a>    <span class="co">#build model using training data</span></span>
-<span id="cb24-10"><a href="#cb24-10"></a>    svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(Species<span class="sc">~</span> ., <span class="at">data =</span> trainset, </span>
-<span id="cb24-11"><a href="#cb24-11"></a>                     <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"linear"</span>)</span>
-<span id="cb24-12"><a href="#cb24-12"></a>    <span class="co">#calculate accuracy on test data</span></span>
-<span id="cb24-13"><a href="#cb24-13"></a>    pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
-<span id="cb24-14"><a href="#cb24-14"></a>    accuracy[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>Species)</span>
-<span id="cb24-15"><a href="#cb24-15"></a>}</span>
-<span id="cb24-16"><a href="#cb24-16"></a><span class="fu">mean</span>(accuracy)</span>
-<span id="cb24-17"><a href="#cb24-17"></a><span class="fu">sd</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
+<span id="cb38-2"><a href="#cb38-2"></a></span>
+<span id="cb38-3"><a href="#cb38-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){ </span>
+<span id="cb38-4"><a href="#cb38-4"></a>    <span class="co">#assign 80% of the data to the training set</span></span>
+<span id="cb38-5"><a href="#cb38-5"></a>    iris[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(iris)) <span class="sc">&lt;</span> <span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb38-6"><a href="#cb38-6"></a>    trainColNum <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"train"</span>, <span class="fu">names</span>(iris))</span>
+<span id="cb38-7"><a href="#cb38-7"></a>    trainset <span class="ot">&lt;-</span> iris[iris<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">1</span>, <span class="sc">-</span>trainColNum]</span>
+<span id="cb38-8"><a href="#cb38-8"></a>    testset <span class="ot">&lt;-</span> iris[iris<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">0</span>, <span class="sc">-</span>trainColNum]</span>
+<span id="cb38-9"><a href="#cb38-9"></a>    <span class="co">#build model using training data</span></span>
+<span id="cb38-10"><a href="#cb38-10"></a>    svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(Species<span class="sc">~</span> ., <span class="at">data =</span> trainset, </span>
+<span id="cb38-11"><a href="#cb38-11"></a>                     <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"linear"</span>)</span>
+<span id="cb38-12"><a href="#cb38-12"></a>    <span class="co">#calculate accuracy on test data</span></span>
+<span id="cb38-13"><a href="#cb38-13"></a>    pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb38-14"><a href="#cb38-14"></a>    accuracy[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>Species)</span>
+<span id="cb38-15"><a href="#cb38-15"></a>}</span>
+<span id="cb38-16"><a href="#cb38-16"></a><span class="fu">mean</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.9642514</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">sd</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.03151982</code></pre>
+</div>
 </div>
 <p>Well done! The high accuracy and low standard deviation confirms that the dataset is almost linearly separable.</p>
 </section>
@@ -1224,21 +1459,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create <code>df$y</code>, which takes value -1 or 1 depending on whether a point lies within or outside the circle.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co">#set number of variables and seed</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>n <span class="ot">&lt;-</span> <span class="dv">400</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb25-4"><a href="#cb25-4"></a></span>
-<span id="cb25-5"><a href="#cb25-5"></a><span class="co">#Generate data frame with two uniformly distributed predictors, x1 and x2</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>), </span>
-<span id="cb25-7"><a href="#cb25-7"></a>                 <span class="at">x2 =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>))</span>
-<span id="cb25-8"><a href="#cb25-8"></a></span>
-<span id="cb25-9"><a href="#cb25-9"></a><span class="co">#We want a circular boundary. Set boundary radius </span></span>
-<span id="cb25-10"><a href="#cb25-10"></a>radius <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
-<span id="cb25-11"><a href="#cb25-11"></a>radius_squared <span class="ot">&lt;-</span> radius<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb25-12"><a href="#cb25-12"></a></span>
-<span id="cb25-13"><a href="#cb25-13"></a><span class="co">#create dependent categorical variable, y, with value -1 or 1 depending on whether point lies</span></span>
-<span id="cb25-14"><a href="#cb25-14"></a><span class="co">#within or outside the circle.</span></span>
-<span id="cb25-15"><a href="#cb25-15"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(df<span class="sc">$</span>x1<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> df<span class="sc">$</span>x2<span class="sc">^</span><span class="dv">2</span> <span class="sc">&lt;</span> radius_squared, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co">#set number of variables and seed</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a>n <span class="ot">&lt;-</span> <span class="dv">400</span></span>
+<span id="cb42-3"><a href="#cb42-3"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb42-4"><a href="#cb42-4"></a></span>
+<span id="cb42-5"><a href="#cb42-5"></a><span class="co">#Generate data frame with two uniformly distributed predictors, x1 and x2</span></span>
+<span id="cb42-6"><a href="#cb42-6"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>), </span>
+<span id="cb42-7"><a href="#cb42-7"></a>                 <span class="at">x2 =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>))</span>
+<span id="cb42-8"><a href="#cb42-8"></a></span>
+<span id="cb42-9"><a href="#cb42-9"></a><span class="co">#We want a circular boundary. Set boundary radius </span></span>
+<span id="cb42-10"><a href="#cb42-10"></a>radius <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb42-11"><a href="#cb42-11"></a>radius_squared <span class="ot">&lt;-</span> radius<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb42-12"><a href="#cb42-12"></a></span>
+<span id="cb42-13"><a href="#cb42-13"></a><span class="co">#create dependent categorical variable, y, with value -1 or 1 depending on whether point lies</span></span>
+<span id="cb42-14"><a href="#cb42-14"></a><span class="co">#within or outside the circle.</span></span>
+<span id="cb42-15"><a href="#cb42-15"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(df<span class="sc">$</span>x1<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> df<span class="sc">$</span>x2<span class="sc">^</span><span class="dv">2</span> <span class="sc">&lt;</span> radius_squared, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">levels =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Excellent! Now let’s visualize the dataset.</p>
 </section>
@@ -1250,13 +1485,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create 2d scatter plot and color the two classes (y = -1 and y = 1) red and blue.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co">#build scatter plot, distinguish class by color</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> </span>
-<span id="cb26-3"><a href="#cb26-3"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb26-4"><a href="#cb26-4"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span>
-<span id="cb26-5"><a href="#cb26-5"></a></span>
-<span id="cb26-6"><a href="#cb26-6"></a><span class="co">#display plot</span></span>
-<span id="cb26-7"><a href="#cb26-7"></a>scatter_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co">#build scatter plot, distinguish class by color</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> </span>
+<span id="cb43-3"><a href="#cb43-3"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb43-4"><a href="#cb43-4"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span>
+<span id="cb43-5"><a href="#cb43-5"></a></span>
+<span id="cb43-6"><a href="#cb43-6"></a><span class="co">#display plot</span></span>
+<span id="cb43-7"><a href="#cb43-7"></a>scatter_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-27-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Nice work! We’ll use this dataset extensively in this chapter.</p>
 </section>
@@ -1291,33 +1533,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate training and test accuracies.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Load data</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset3.rds"</span>)</span>
-<span id="cb27-3"><a href="#cb27-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset3.rds"</span>) </span>
-<span id="cb27-4"><a href="#cb27-4"></a></span>
-<span id="cb27-5"><a href="#cb27-5"></a><span class="co">#default cost mode;</span></span>
-<span id="cb27-6"><a href="#cb27-6"></a>svm_model_1 <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">cost =</span> <span class="dv">1</span>, <span class="at">kernel =</span> <span class="st">"linear"</span>)</span>
-<span id="cb27-7"><a href="#cb27-7"></a></span>
-<span id="cb27-8"><a href="#cb27-8"></a><span class="co">#training accuracy</span></span>
-<span id="cb27-9"><a href="#cb27-9"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model_1, trainset)</span>
-<span id="cb27-10"><a href="#cb27-10"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span>
-<span id="cb27-11"><a href="#cb27-11"></a></span>
-<span id="cb27-12"><a href="#cb27-12"></a><span class="co">#test accuracy</span></span>
-<span id="cb27-13"><a href="#cb27-13"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model_1, testset)</span>
-<span id="cb27-14"><a href="#cb27-14"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Load data</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset3.rds"</span>)</span>
+<span id="cb44-3"><a href="#cb44-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset3.rds"</span>) </span>
+<span id="cb44-4"><a href="#cb44-4"></a></span>
+<span id="cb44-5"><a href="#cb44-5"></a><span class="co">#default cost mode;</span></span>
+<span id="cb44-6"><a href="#cb44-6"></a>svm_model_1 <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">cost =</span> <span class="dv">1</span>, <span class="at">kernel =</span> <span class="st">"linear"</span>)</span>
+<span id="cb44-7"><a href="#cb44-7"></a></span>
+<span id="cb44-8"><a href="#cb44-8"></a><span class="co">#training accuracy</span></span>
+<span id="cb44-9"><a href="#cb44-9"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model_1, trainset)</span>
+<span id="cb44-10"><a href="#cb44-10"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.5414013</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co">#test accuracy</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model_1, testset)</span>
+<span id="cb46-3"><a href="#cb46-3"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.5930233</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Set cost = 100 and repeat.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co">#cost = 100 model</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a>svm_model_2 <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">cost =</span> <span class="dv">100</span>, <span class="at">kernel =</span> <span class="st">"linear"</span>)</span>
-<span id="cb28-3"><a href="#cb28-3"></a></span>
-<span id="cb28-4"><a href="#cb28-4"></a><span class="co">#accuracy</span></span>
-<span id="cb28-5"><a href="#cb28-5"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model_2, trainset)</span>
-<span id="cb28-6"><a href="#cb28-6"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span>
-<span id="cb28-7"><a href="#cb28-7"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model_2, testset)</span>
-<span id="cb28-8"><a href="#cb28-8"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="co">#cost = 100 model</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>svm_model_2 <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">cost =</span> <span class="dv">100</span>, <span class="at">kernel =</span> <span class="st">"linear"</span>)</span>
+<span id="cb48-3"><a href="#cb48-3"></a></span>
+<span id="cb48-4"><a href="#cb48-4"></a><span class="co">#accuracy</span></span>
+<span id="cb48-5"><a href="#cb48-5"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model_2, trainset)</span>
+<span id="cb48-6"><a href="#cb48-6"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.5414013</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model_2, testset)</span>
+<span id="cb50-2"><a href="#cb50-2"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.5930233</code></pre>
+</div>
 </div>
 <p>Good work! Next, we’ll get a more reliable measure of accuracy for one of the models.</p>
 </section>
@@ -1329,36 +1582,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a vector to hold accuracies for each step.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Print average accuracy and standard deviation</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
-<span id="cb29-3"><a href="#cb29-3"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Print average accuracy and standard deviation</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
+<span id="cb52-3"><a href="#cb52-3"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Create training / test datasets, build default cost SVMs and calculate the test accuracy for each iteration.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
-<span id="cb30-2"><a href="#cb30-2"></a></span>
-<span id="cb30-3"><a href="#cb30-3"></a><span class="co"># Calculate accuracies for 100 training/test partitions</span></span>
-<span id="cb30-4"><a href="#cb30-4"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
-<span id="cb30-5"><a href="#cb30-5"></a>    df[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(df)) <span class="sc">&lt;</span> <span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb30-6"><a href="#cb30-6"></a>    trainset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">1</span>, ]</span>
-<span id="cb30-7"><a href="#cb30-7"></a>    testset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">0</span>, ]</span>
-<span id="cb30-8"><a href="#cb30-8"></a>    trainColNum <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"train"</span>, <span class="fu">names</span>(trainset))</span>
-<span id="cb30-9"><a href="#cb30-9"></a>    trainset <span class="ot">&lt;-</span> trainset[, <span class="sc">-</span>trainColNum]</span>
-<span id="cb30-10"><a href="#cb30-10"></a>    testset <span class="ot">&lt;-</span> testset[, <span class="sc">-</span>trainColNum]</span>
-<span id="cb30-11"><a href="#cb30-11"></a>    svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"linear"</span>)</span>
-<span id="cb30-12"><a href="#cb30-12"></a>    pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
-<span id="cb30-13"><a href="#cb30-13"></a>    accuracy[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span>
-<span id="cb30-14"><a href="#cb30-14"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb53-2"><a href="#cb53-2"></a></span>
+<span id="cb53-3"><a href="#cb53-3"></a><span class="co"># Calculate accuracies for 100 training/test partitions</span></span>
+<span id="cb53-4"><a href="#cb53-4"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
+<span id="cb53-5"><a href="#cb53-5"></a>    df[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(df)) <span class="sc">&lt;</span> <span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb53-6"><a href="#cb53-6"></a>    trainset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">1</span>, ]</span>
+<span id="cb53-7"><a href="#cb53-7"></a>    testset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">0</span>, ]</span>
+<span id="cb53-8"><a href="#cb53-8"></a>    trainColNum <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"train"</span>, <span class="fu">names</span>(trainset))</span>
+<span id="cb53-9"><a href="#cb53-9"></a>    trainset <span class="ot">&lt;-</span> trainset[, <span class="sc">-</span>trainColNum]</span>
+<span id="cb53-10"><a href="#cb53-10"></a>    testset <span class="ot">&lt;-</span> testset[, <span class="sc">-</span>trainColNum]</span>
+<span id="cb53-11"><a href="#cb53-11"></a>    svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"linear"</span>)</span>
+<span id="cb53-12"><a href="#cb53-12"></a>    pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb53-13"><a href="#cb53-13"></a>    accuracy[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span>
+<span id="cb53-14"><a href="#cb53-14"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Compute the average accuracy and standard deviation over all iterations.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Print average accuracy and its standard deviation</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a><span class="fu">mean</span>(accuracy)</span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="fu">sd</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># Print average accuracy and its standard deviation</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a><span class="fu">mean</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.5554571</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="fu">sd</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.04243524</code></pre>
+</div>
 </div>
 <p>Nice! Next we’ll see how to build a better SVM for radially separable data.</p>
 </section>
@@ -1398,17 +1657,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add a boundary that is linear in terms of transformed coordinates.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co">#transform data</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1sq =</span> df<span class="sc">$</span>x1<span class="sc">^</span><span class="dv">2</span>, <span class="at">x2sq =</span> df<span class="sc">$</span>x2<span class="sc">^</span><span class="dv">2</span>, <span class="at">y =</span> df<span class="sc">$</span>y)</span>
-<span id="cb32-3"><a href="#cb32-3"></a></span>
-<span id="cb32-4"><a href="#cb32-4"></a><span class="co">#plot data points in the transformed space</span></span>
-<span id="cb32-5"><a href="#cb32-5"></a>plot_transformed <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df1, <span class="fu">aes</span>(<span class="at">x =</span> x1sq, <span class="at">y =</span> x2sq, <span class="at">color =</span> y)) <span class="sc">+</span> </span>
-<span id="cb32-6"><a href="#cb32-6"></a>    <span class="fu">geom_point</span>()<span class="sc">+</span> <span class="fu">guides</span>(<span class="at">color =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
-<span id="cb32-7"><a href="#cb32-7"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span>
-<span id="cb32-8"><a href="#cb32-8"></a></span>
-<span id="cb32-9"><a href="#cb32-9"></a><span class="co">#add decision boundary and visualize</span></span>
-<span id="cb32-10"><a href="#cb32-10"></a>plot_decision <span class="ot">&lt;-</span> plot_transformed <span class="sc">+</span> <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">intercept =</span> <span class="fl">0.64</span>)</span>
-<span id="cb32-11"><a href="#cb32-11"></a>plot_decision</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="co">#transform data</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1sq =</span> df<span class="sc">$</span>x1<span class="sc">^</span><span class="dv">2</span>, <span class="at">x2sq =</span> df<span class="sc">$</span>x2<span class="sc">^</span><span class="dv">2</span>, <span class="at">y =</span> df<span class="sc">$</span>y)</span>
+<span id="cb58-3"><a href="#cb58-3"></a></span>
+<span id="cb58-4"><a href="#cb58-4"></a><span class="co">#plot data points in the transformed space</span></span>
+<span id="cb58-5"><a href="#cb58-5"></a>plot_transformed <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df1, <span class="fu">aes</span>(<span class="at">x =</span> x1sq, <span class="at">y =</span> x2sq, <span class="at">color =</span> y)) <span class="sc">+</span> </span>
+<span id="cb58-6"><a href="#cb58-6"></a>    <span class="fu">geom_point</span>()<span class="sc">+</span> <span class="fu">guides</span>(<span class="at">color =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> </span>
+<span id="cb58-7"><a href="#cb58-7"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: The `&lt;scale&gt;` argument of `guides()` cannot be `FALSE`. Use "none" instead as
+#&gt; of ggplot2 3.3.4.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="co">#add decision boundary and visualize</span></span>
+<span id="cb60-2"><a href="#cb60-2"></a>plot_decision <span class="ot">&lt;-</span> plot_transformed <span class="sc">+</span> <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">intercept =</span> <span class="fl">0.64</span>)</span>
+<span id="cb60-3"><a href="#cb60-3"></a>plot_decision</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-33-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Excellent! As expected, the data is linearly separable in the x1^2 - x2^2 plane.</p>
 </section>
@@ -1422,18 +1691,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Plot the model against the training data.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>svm_model<span class="ot">&lt;-</span> </span>
-<span id="cb33-2"><a href="#cb33-2"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
-<span id="cb33-3"><a href="#cb33-3"></a>        <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>)</span>
-<span id="cb33-4"><a href="#cb33-4"></a></span>
-<span id="cb33-5"><a href="#cb33-5"></a><span class="co">#measure training and test accuracy</span></span>
-<span id="cb33-6"><a href="#cb33-6"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
-<span id="cb33-7"><a href="#cb33-7"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span>
-<span id="cb33-8"><a href="#cb33-8"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
-<span id="cb33-9"><a href="#cb33-9"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span>
-<span id="cb33-10"><a href="#cb33-10"></a></span>
-<span id="cb33-11"><a href="#cb33-11"></a><span class="co">#plot</span></span>
-<span id="cb33-12"><a href="#cb33-12"></a><span class="fu">plot</span>(svm_model, trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>svm_model<span class="ot">&lt;-</span> </span>
+<span id="cb61-2"><a href="#cb61-2"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb61-3"><a href="#cb61-3"></a>        <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>)</span>
+<span id="cb61-4"><a href="#cb61-4"></a></span>
+<span id="cb61-5"><a href="#cb61-5"></a><span class="co">#measure training and test accuracy</span></span>
+<span id="cb61-6"><a href="#cb61-6"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
+<span id="cb61-7"><a href="#cb61-7"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.9692308</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb63-2"><a href="#cb63-2"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.9466667</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="co">#plot</span></span>
+<span id="cb65-2"><a href="#cb65-2"></a><span class="fu">plot</span>(svm_model, trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-34-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Well done! The decision boundary using default parameters looks good.</p>
 </section>
@@ -1466,21 +1747,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>gamma</code> and <code>coef0</code> - one of the following values: 0.1, 1 and 10.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Load data</span></span>
-<span id="cb34-2"><a href="#cb34-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset4.rds"</span>)</span>
-<span id="cb34-3"><a href="#cb34-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset4.rds"</span>)</span>
-<span id="cb34-4"><a href="#cb34-4"></a></span>
-<span id="cb34-5"><a href="#cb34-5"></a><span class="co">#tune model</span></span>
-<span id="cb34-6"><a href="#cb34-6"></a>tune_out <span class="ot">&lt;-</span> </span>
-<span id="cb34-7"><a href="#cb34-7"></a>    <span class="fu">tune.svm</span>(<span class="at">x =</span> trainset[, <span class="sc">-</span><span class="dv">3</span>], <span class="at">y =</span> trainset<span class="sc">$</span>y, </span>
-<span id="cb34-8"><a href="#cb34-8"></a>             <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
-<span id="cb34-9"><a href="#cb34-9"></a>             <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>, <span class="at">cost =</span> <span class="dv">10</span><span class="sc">^</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), </span>
-<span id="cb34-10"><a href="#cb34-10"></a>             <span class="at">gamma =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>), <span class="at">coef0 =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>))</span>
-<span id="cb34-11"><a href="#cb34-11"></a></span>
-<span id="cb34-12"><a href="#cb34-12"></a><span class="co">#list optimal values</span></span>
-<span id="cb34-13"><a href="#cb34-13"></a>tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>cost</span>
-<span id="cb34-14"><a href="#cb34-14"></a>tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>gamma</span>
-<span id="cb34-15"><a href="#cb34-15"></a>tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>coef0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Load data</span></span>
+<span id="cb66-2"><a href="#cb66-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset4.rds"</span>)</span>
+<span id="cb66-3"><a href="#cb66-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset4.rds"</span>)</span>
+<span id="cb66-4"><a href="#cb66-4"></a></span>
+<span id="cb66-5"><a href="#cb66-5"></a><span class="co">#tune model</span></span>
+<span id="cb66-6"><a href="#cb66-6"></a>tune_out <span class="ot">&lt;-</span> </span>
+<span id="cb66-7"><a href="#cb66-7"></a>    <span class="fu">tune.svm</span>(<span class="at">x =</span> trainset[, <span class="sc">-</span><span class="dv">3</span>], <span class="at">y =</span> trainset<span class="sc">$</span>y, </span>
+<span id="cb66-8"><a href="#cb66-8"></a>             <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb66-9"><a href="#cb66-9"></a>             <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>, <span class="at">cost =</span> <span class="dv">10</span><span class="sc">^</span>(<span class="sc">-</span><span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>), </span>
+<span id="cb66-10"><a href="#cb66-10"></a>             <span class="at">gamma =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>), <span class="at">coef0 =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>))</span>
+<span id="cb66-11"><a href="#cb66-11"></a></span>
+<span id="cb66-12"><a href="#cb66-12"></a><span class="co">#list optimal values</span></span>
+<span id="cb66-13"><a href="#cb66-13"></a>tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>cost</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>gamma</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a>tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>coef0</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.1</code></pre>
+</div>
 </div>
 <p>Well done! You have obtained the optimal parameters for the specified parameter ranges.</p>
 </section>
@@ -1495,21 +1785,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Plot the decision boundary against the training data.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co">#Build tuned model</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a>svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(y<span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
-<span id="cb35-3"><a href="#cb35-3"></a>                 <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>, </span>
-<span id="cb35-4"><a href="#cb35-4"></a>                 <span class="at">cost =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>cost, </span>
-<span id="cb35-5"><a href="#cb35-5"></a>                 <span class="at">gamma =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>gamma, </span>
-<span id="cb35-6"><a href="#cb35-6"></a>                 <span class="at">coef0 =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>coef0)</span>
-<span id="cb35-7"><a href="#cb35-7"></a></span>
-<span id="cb35-8"><a href="#cb35-8"></a><span class="co">#Calculate training and test accuracies   </span></span>
-<span id="cb35-9"><a href="#cb35-9"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
-<span id="cb35-10"><a href="#cb35-10"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span>
-<span id="cb35-11"><a href="#cb35-11"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
-<span id="cb35-12"><a href="#cb35-12"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span>
-<span id="cb35-13"><a href="#cb35-13"></a></span>
-<span id="cb35-14"><a href="#cb35-14"></a><span class="co">#plot model</span></span>
-<span id="cb35-15"><a href="#cb35-15"></a><span class="fu">plot</span>(svm_model, trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="co">#Build tuned model</span></span>
+<span id="cb72-2"><a href="#cb72-2"></a>svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(y<span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb72-3"><a href="#cb72-3"></a>                 <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>, </span>
+<span id="cb72-4"><a href="#cb72-4"></a>                 <span class="at">cost =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>cost, </span>
+<span id="cb72-5"><a href="#cb72-5"></a>                 <span class="at">gamma =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>gamma, </span>
+<span id="cb72-6"><a href="#cb72-6"></a>                 <span class="at">coef0 =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>coef0)</span>
+<span id="cb72-7"><a href="#cb72-7"></a></span>
+<span id="cb72-8"><a href="#cb72-8"></a><span class="co">#Calculate training and test accuracies   </span></span>
+<span id="cb72-9"><a href="#cb72-9"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
+<span id="cb72-10"><a href="#cb72-10"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.9968153</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb74-2"><a href="#cb74-2"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a><span class="co">#plot model</span></span>
+<span id="cb76-2"><a href="#cb76-2"></a><span class="fu">plot</span>(svm_model, trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-36-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Excellent! Tuning the parameters has given us a considerably better accuracy.</p>
 </section>
@@ -1549,15 +1851,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>x2</code> uniformly distributed in (-1, 1).</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co">#number of data points</span></span>
-<span id="cb36-2"><a href="#cb36-2"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
-<span id="cb36-3"><a href="#cb36-3"></a></span>
-<span id="cb36-4"><a href="#cb36-4"></a><span class="co">#set seed</span></span>
-<span id="cb36-5"><a href="#cb36-5"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb36-6"><a href="#cb36-6"></a></span>
-<span id="cb36-7"><a href="#cb36-7"></a><span class="co">#create dataframe</span></span>
-<span id="cb36-8"><a href="#cb36-8"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">sd =</span> <span class="dv">1</span>), </span>
-<span id="cb36-9"><a href="#cb36-9"></a>                 <span class="at">x2 =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="co">#number of data points</span></span>
+<span id="cb77-2"><a href="#cb77-2"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb77-3"><a href="#cb77-3"></a></span>
+<span id="cb77-4"><a href="#cb77-4"></a><span class="co">#set seed</span></span>
+<span id="cb77-5"><a href="#cb77-5"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb77-6"><a href="#cb77-6"></a></span>
+<span id="cb77-7"><a href="#cb77-7"></a><span class="co">#create dataframe</span></span>
+<span id="cb77-8"><a href="#cb77-8"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1 =</span> <span class="fu">rnorm</span>(n, <span class="at">mean =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">sd =</span> <span class="dv">1</span>), </span>
+<span id="cb77-9"><a href="#cb77-9"></a>                 <span class="at">x2 =</span> <span class="fu">runif</span>(n, <span class="at">min =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">max =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Excellent! Now let’s create a complex decision boundary.</p>
 </section>
@@ -1571,16 +1873,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add a column to <code>df</code> containing the binary classification variable <code>y</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co">#set radius and centers </span></span>
-<span id="cb37-2"><a href="#cb37-2"></a>radius <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
-<span id="cb37-3"><a href="#cb37-3"></a>center_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.8</span>, <span class="dv">0</span>)</span>
-<span id="cb37-4"><a href="#cb37-4"></a>center_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="dv">0</span>)</span>
-<span id="cb37-5"><a href="#cb37-5"></a>radius_squared <span class="ot">&lt;-</span> radius<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb37-6"><a href="#cb37-6"></a></span>
-<span id="cb37-7"><a href="#cb37-7"></a><span class="co">#create binary classification variable </span></span>
-<span id="cb37-8"><a href="#cb37-8"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>((df<span class="sc">$</span>x1<span class="sc">-</span>center_1[<span class="dv">1</span>])<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (df<span class="sc">$</span>x2<span class="sc">-</span>center_1[<span class="dv">2</span>])<span class="sc">^</span><span class="dv">2</span> <span class="sc">&lt;</span> radius_squared<span class="sc">|</span></span>
-<span id="cb37-9"><a href="#cb37-9"></a>                      (df<span class="sc">$</span>x1<span class="sc">-</span>center_2[<span class="dv">1</span>])<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (df<span class="sc">$</span>x2<span class="sc">-</span>center_2[<span class="dv">2</span>])<span class="sc">^</span><span class="dv">2</span> <span class="sc">&lt;</span> radius_squared, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>),</span>
-<span id="cb37-10"><a href="#cb37-10"></a>                      <span class="at">levels =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a><span class="co">#set radius and centers </span></span>
+<span id="cb78-2"><a href="#cb78-2"></a>radius <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb78-3"><a href="#cb78-3"></a>center_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.8</span>, <span class="dv">0</span>)</span>
+<span id="cb78-4"><a href="#cb78-4"></a>center_2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="dv">0</span>)</span>
+<span id="cb78-5"><a href="#cb78-5"></a>radius_squared <span class="ot">&lt;-</span> radius<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb78-6"><a href="#cb78-6"></a></span>
+<span id="cb78-7"><a href="#cb78-7"></a><span class="co">#create binary classification variable </span></span>
+<span id="cb78-8"><a href="#cb78-8"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>((df<span class="sc">$</span>x1<span class="sc">-</span>center_1[<span class="dv">1</span>])<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (df<span class="sc">$</span>x2<span class="sc">-</span>center_1[<span class="dv">2</span>])<span class="sc">^</span><span class="dv">2</span> <span class="sc">&lt;</span> radius_squared<span class="sc">|</span></span>
+<span id="cb78-9"><a href="#cb78-9"></a>                      (df<span class="sc">$</span>x1<span class="sc">-</span>center_2[<span class="dv">1</span>])<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> (df<span class="sc">$</span>x2<span class="sc">-</span>center_2[<span class="dv">2</span>])<span class="sc">^</span><span class="dv">2</span> <span class="sc">&lt;</span> radius_squared, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb78-10"><a href="#cb78-10"></a>                      <span class="at">levels =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Well done! Now let’s visualize the decision boundary.</p>
 </section>
@@ -1595,15 +1897,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Specify equal coordinates by adding <code>coord_equal()</code> without arguments.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Plot x2 vs. x1, colored by y</span></span>
-<span id="cb38-2"><a href="#cb38-2"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2 , <span class="at">color =</span> y)) <span class="sc">+</span> </span>
-<span id="cb38-3"><a href="#cb38-3"></a>    <span class="co"># Add a point layer</span></span>
-<span id="cb38-4"><a href="#cb38-4"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb38-5"><a href="#cb38-5"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)) <span class="sc">+</span></span>
-<span id="cb38-6"><a href="#cb38-6"></a>    <span class="co"># Specify equal coordinates</span></span>
-<span id="cb38-7"><a href="#cb38-7"></a>    <span class="fu">coord_equal</span>()</span>
-<span id="cb38-8"><a href="#cb38-8"></a> </span>
-<span id="cb38-9"><a href="#cb38-9"></a>scatter_plot </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># Plot x2 vs. x1, colored by y</span></span>
+<span id="cb79-2"><a href="#cb79-2"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2 , <span class="at">color =</span> y)) <span class="sc">+</span> </span>
+<span id="cb79-3"><a href="#cb79-3"></a>    <span class="co"># Add a point layer</span></span>
+<span id="cb79-4"><a href="#cb79-4"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb79-5"><a href="#cb79-5"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"blue"</span>)) <span class="sc">+</span></span>
+<span id="cb79-6"><a href="#cb79-6"></a>    <span class="co"># Specify equal coordinates</span></span>
+<span id="cb79-7"><a href="#cb79-7"></a>    <span class="fu">coord_equal</span>()</span>
+<span id="cb79-8"><a href="#cb79-8"></a> </span>
+<span id="cb79-9"><a href="#cb79-9"></a>scatter_plot </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-39-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Excellent! In the next lesson we will see how linear and quadratic kernels perform against this dataset.</p>
 </section>
@@ -1637,31 +1946,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build a linear SVM using the default value of cost.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Load data</span></span>
-<span id="cb39-2"><a href="#cb39-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset5.rds"</span>)</span>
-<span id="cb39-3"><a href="#cb39-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset5.rds"</span>) </span>
-<span id="cb39-4"><a href="#cb39-4"></a></span>
-<span id="cb39-5"><a href="#cb39-5"></a><span class="co">#build model</span></span>
-<span id="cb39-6"><a href="#cb39-6"></a>svm_model<span class="ot">&lt;-</span> </span>
-<span id="cb39-7"><a href="#cb39-7"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
-<span id="cb39-8"><a href="#cb39-8"></a>        <span class="at">kernel =</span> <span class="st">"linear"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a><span class="co"># Load data</span></span>
+<span id="cb80-2"><a href="#cb80-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset5.rds"</span>)</span>
+<span id="cb80-3"><a href="#cb80-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset5.rds"</span>) </span>
+<span id="cb80-4"><a href="#cb80-4"></a></span>
+<span id="cb80-5"><a href="#cb80-5"></a><span class="co">#build model</span></span>
+<span id="cb80-6"><a href="#cb80-6"></a>svm_model<span class="ot">&lt;-</span> </span>
+<span id="cb80-7"><a href="#cb80-7"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb80-8"><a href="#cb80-8"></a>        <span class="at">kernel =</span> <span class="st">"linear"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Calculate training and test accuracies.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co">#accuracy</span></span>
-<span id="cb40-2"><a href="#cb40-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
-<span id="cb40-3"><a href="#cb40-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span>
-<span id="cb40-4"><a href="#cb40-4"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
-<span id="cb40-5"><a href="#cb40-5"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a><span class="co">#accuracy</span></span>
+<span id="cb81-2"><a href="#cb81-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
+<span id="cb81-3"><a href="#cb81-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.5897756</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb83-2"><a href="#cb83-2"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.5959596</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Plot decision boundary against the test data.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co">#plot model against testset</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">plot</span>(svm_model, testset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a><span class="co">#plot model against testset</span></span>
+<span id="cb85-2"><a href="#cb85-2"></a><span class="fu">plot</span>(svm_model, testset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-42-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Nice work! As expected, the accuracy is poor and the plot clearly shows why a linear boundary will never work well.</p>
 </section>
@@ -1673,27 +1995,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build a polynomial SVM of degree 2 using the default parameters.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co">#build model</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a>svm_model<span class="ot">&lt;-</span> </span>
-<span id="cb42-3"><a href="#cb42-3"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
-<span id="cb42-4"><a href="#cb42-4"></a>        <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="co">#build model</span></span>
+<span id="cb86-2"><a href="#cb86-2"></a>svm_model<span class="ot">&lt;-</span> </span>
+<span id="cb86-3"><a href="#cb86-3"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
+<span id="cb86-4"><a href="#cb86-4"></a>        <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Calculate training and test accuracies.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co">#accuracy</span></span>
-<span id="cb43-2"><a href="#cb43-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
-<span id="cb43-3"><a href="#cb43-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span>
-<span id="cb43-4"><a href="#cb43-4"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
-<span id="cb43-5"><a href="#cb43-5"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a><span class="co">#accuracy</span></span>
+<span id="cb87-2"><a href="#cb87-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
+<span id="cb87-3"><a href="#cb87-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.8067332</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb89-2"><a href="#cb89-2"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.7979798</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Plot decision boundary against the training data.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co">#plot model</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">plot</span>(svm_model, trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a><span class="co">#plot model</span></span>
+<span id="cb91-2"><a href="#cb91-2"></a><span class="fu">plot</span>(svm_model, trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-45-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Well done! The model accuracy is not too bad, but the plot shows that it is impossible to capture the figure of 8 shape of the actual boundary using a degree 2 polynomial.</p>
 </section>
@@ -1728,30 +2063,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create training/test datasets, build default cost polynomial SVMs of degree 2, and calculate the test accuracy for each iteration.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="co">#create vector to store accuracies and set random number seed</span></span>
-<span id="cb45-2"><a href="#cb45-2"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
-<span id="cb45-3"><a href="#cb45-3"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
-<span id="cb45-4"><a href="#cb45-4"></a></span>
-<span id="cb45-5"><a href="#cb45-5"></a><span class="co">#calculate accuracies for 100 training/test partitions</span></span>
-<span id="cb45-6"><a href="#cb45-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
-<span id="cb45-7"><a href="#cb45-7"></a>    df[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(df))<span class="sc">&lt;</span><span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb45-8"><a href="#cb45-8"></a>    trainset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">1</span>, ]</span>
-<span id="cb45-9"><a href="#cb45-9"></a>    testset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">0</span>, ]</span>
-<span id="cb45-10"><a href="#cb45-10"></a>    trainColNum <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"train"</span>, <span class="fu">names</span>(trainset))</span>
-<span id="cb45-11"><a href="#cb45-11"></a>    trainset <span class="ot">&lt;-</span> trainset[, <span class="sc">-</span>trainColNum]</span>
-<span id="cb45-12"><a href="#cb45-12"></a>    testset <span class="ot">&lt;-</span> testset[, <span class="sc">-</span>trainColNum]</span>
-<span id="cb45-13"><a href="#cb45-13"></a>    svm_model<span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>)</span>
-<span id="cb45-14"><a href="#cb45-14"></a>    pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
-<span id="cb45-15"><a href="#cb45-15"></a>    accuracy[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span>
-<span id="cb45-16"><a href="#cb45-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="co">#create vector to store accuracies and set random number seed</span></span>
+<span id="cb92-2"><a href="#cb92-2"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
+<span id="cb92-3"><a href="#cb92-3"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb92-4"><a href="#cb92-4"></a></span>
+<span id="cb92-5"><a href="#cb92-5"></a><span class="co">#calculate accuracies for 100 training/test partitions</span></span>
+<span id="cb92-6"><a href="#cb92-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
+<span id="cb92-7"><a href="#cb92-7"></a>    df[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(df))<span class="sc">&lt;</span><span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb92-8"><a href="#cb92-8"></a>    trainset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">1</span>, ]</span>
+<span id="cb92-9"><a href="#cb92-9"></a>    testset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">0</span>, ]</span>
+<span id="cb92-10"><a href="#cb92-10"></a>    trainColNum <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"train"</span>, <span class="fu">names</span>(trainset))</span>
+<span id="cb92-11"><a href="#cb92-11"></a>    trainset <span class="ot">&lt;-</span> trainset[, <span class="sc">-</span>trainColNum]</span>
+<span id="cb92-12"><a href="#cb92-12"></a>    testset <span class="ot">&lt;-</span> testset[, <span class="sc">-</span>trainColNum]</span>
+<span id="cb92-13"><a href="#cb92-13"></a>    svm_model<span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>)</span>
+<span id="cb92-14"><a href="#cb92-14"></a>    pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb92-15"><a href="#cb92-15"></a>    accuracy[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span>
+<span id="cb92-16"><a href="#cb92-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Compute the average accuracy and standard deviation over all iterations.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co">#print average accuracy and standard deviation</span></span>
-<span id="cb46-2"><a href="#cb46-2"></a><span class="fu">mean</span>(accuracy)</span>
-<span id="cb46-3"><a href="#cb46-3"></a><span class="fu">sd</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="co">#print average accuracy and standard deviation</span></span>
+<span id="cb93-2"><a href="#cb93-2"></a><span class="fu">mean</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.804765</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a><span class="fu">sd</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.02398396</code></pre>
+</div>
 </div>
 <p>Nice work! Please note down the average accuracy and standard deviation. We’ll compare these to the default RBF kernel SVM next.</p>
 </section>
@@ -1764,30 +2105,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create training/test datasets, build RBF SVMs with default settings for all parameters and calculate the test accuracy for each iteration.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co">#create vector to store accuracies and set random number seed</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
-<span id="cb47-3"><a href="#cb47-3"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
-<span id="cb47-4"><a href="#cb47-4"></a></span>
-<span id="cb47-5"><a href="#cb47-5"></a><span class="co">#calculate accuracies for 100 training/test partitions</span></span>
-<span id="cb47-6"><a href="#cb47-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
-<span id="cb47-7"><a href="#cb47-7"></a>    df[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(df))<span class="sc">&lt;</span><span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb47-8"><a href="#cb47-8"></a>    trainset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">1</span>, ]</span>
-<span id="cb47-9"><a href="#cb47-9"></a>    testset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">0</span>, ]</span>
-<span id="cb47-10"><a href="#cb47-10"></a>    trainColNum <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"train"</span>, <span class="fu">names</span>(trainset))</span>
-<span id="cb47-11"><a href="#cb47-11"></a>    trainset <span class="ot">&lt;-</span> trainset[, <span class="sc">-</span>trainColNum]</span>
-<span id="cb47-12"><a href="#cb47-12"></a>    testset <span class="ot">&lt;-</span> testset[, <span class="sc">-</span>trainColNum]</span>
-<span id="cb47-13"><a href="#cb47-13"></a>    svm_model<span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"radial"</span>)</span>
-<span id="cb47-14"><a href="#cb47-14"></a>    pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
-<span id="cb47-15"><a href="#cb47-15"></a>    accuracy[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span>
-<span id="cb47-16"><a href="#cb47-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a><span class="co">#create vector to store accuracies and set random number seed</span></span>
+<span id="cb97-2"><a href="#cb97-2"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
+<span id="cb97-3"><a href="#cb97-3"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb97-4"><a href="#cb97-4"></a></span>
+<span id="cb97-5"><a href="#cb97-5"></a><span class="co">#calculate accuracies for 100 training/test partitions</span></span>
+<span id="cb97-6"><a href="#cb97-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){</span>
+<span id="cb97-7"><a href="#cb97-7"></a>    df[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(df))<span class="sc">&lt;</span><span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb97-8"><a href="#cb97-8"></a>    trainset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">1</span>, ]</span>
+<span id="cb97-9"><a href="#cb97-9"></a>    testset <span class="ot">&lt;-</span> df[df<span class="sc">$</span>train <span class="sc">==</span> <span class="dv">0</span>, ]</span>
+<span id="cb97-10"><a href="#cb97-10"></a>    trainColNum <span class="ot">&lt;-</span> <span class="fu">grep</span>(<span class="st">"train"</span>, <span class="fu">names</span>(trainset))</span>
+<span id="cb97-11"><a href="#cb97-11"></a>    trainset <span class="ot">&lt;-</span> trainset[, <span class="sc">-</span>trainColNum]</span>
+<span id="cb97-12"><a href="#cb97-12"></a>    testset <span class="ot">&lt;-</span> testset[, <span class="sc">-</span>trainColNum]</span>
+<span id="cb97-13"><a href="#cb97-13"></a>    svm_model<span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"radial"</span>)</span>
+<span id="cb97-14"><a href="#cb97-14"></a>    pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb97-15"><a href="#cb97-15"></a>    accuracy[i] <span class="ot">&lt;-</span> <span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span>
+<span id="cb97-16"><a href="#cb97-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Compute the average accuracy and standard deviation over all iterations.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="co">#print average accuracy and standard deviation</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a><span class="fu">mean</span>(accuracy)</span>
-<span id="cb48-3"><a href="#cb48-3"></a><span class="fu">sd</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a><span class="co">#print average accuracy and standard deviation</span></span>
+<span id="cb98-2"><a href="#cb98-2"></a><span class="fu">mean</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.9034203</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1"></a><span class="fu">sd</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.01786378</code></pre>
+</div>
 </div>
 <p>Well done! Note that the average accuracy is almost 10% better than the one obtained in the previous exercise (polynomial kernel of degree 2)</p>
 </section>
@@ -1799,35 +2146,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>tune.svm()</code> to build a tuned RBF kernel SVM.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co">#tune model</span></span>
-<span id="cb49-2"><a href="#cb49-2"></a>tune_out <span class="ot">&lt;-</span> <span class="fu">tune.svm</span>(<span class="at">x =</span> trainset[, <span class="sc">-</span><span class="dv">3</span>], <span class="at">y =</span> trainset<span class="sc">$</span>y, </span>
-<span id="cb49-3"><a href="#cb49-3"></a>                     <span class="at">gamma =</span> <span class="dv">5</span><span class="sc">*</span><span class="dv">10</span><span class="sc">^</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">2</span>), </span>
-<span id="cb49-4"><a href="#cb49-4"></a>                     <span class="at">cost =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>), </span>
-<span id="cb49-5"><a href="#cb49-5"></a>                     <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"radial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1"></a><span class="co">#tune model</span></span>
+<span id="cb102-2"><a href="#cb102-2"></a>tune_out <span class="ot">&lt;-</span> <span class="fu">tune.svm</span>(<span class="at">x =</span> trainset[, <span class="sc">-</span><span class="dv">3</span>], <span class="at">y =</span> trainset<span class="sc">$</span>y, </span>
+<span id="cb102-3"><a href="#cb102-3"></a>                     <span class="at">gamma =</span> <span class="dv">5</span><span class="sc">*</span><span class="dv">10</span><span class="sc">^</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">2</span>), </span>
+<span id="cb102-4"><a href="#cb102-4"></a>                     <span class="at">cost =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.1</span>, <span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>), </span>
+<span id="cb102-5"><a href="#cb102-5"></a>                     <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"radial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Rebuild SVM using optimal values of <code>cost</code> and <code>gamma</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co">#build tuned model</span></span>
-<span id="cb50-2"><a href="#cb50-2"></a>svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(y<span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"radial"</span>, </span>
-<span id="cb50-3"><a href="#cb50-3"></a>                 <span class="at">cost =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>cost, </span>
-<span id="cb50-4"><a href="#cb50-4"></a>                 <span class="at">gamma =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>gamma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1"></a><span class="co">#build tuned model</span></span>
+<span id="cb103-2"><a href="#cb103-2"></a>svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(y<span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"radial"</span>, </span>
+<span id="cb103-3"><a href="#cb103-3"></a>                 <span class="at">cost =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>cost, </span>
+<span id="cb103-4"><a href="#cb103-4"></a>                 <span class="at">gamma =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>gamma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Calculate the accuracy of your model using the test dataset.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co">#calculate test accuracy</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
-<span id="cb51-3"><a href="#cb51-3"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a><span class="co">#calculate test accuracy</span></span>
+<span id="cb104-2"><a href="#cb104-2"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
+<span id="cb104-3"><a href="#cb104-3"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.9891892</code></pre>
+</div>
 </div>
 <ol start="4" type="1">
 <li>Plot the decision boundary against <code>testset</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="co">#Plot decision boundary against test data</span></span>
-<span id="cb52-2"><a href="#cb52-2"></a><span class="fu">plot</span>(svm_model, testset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a><span class="co">#Plot decision boundary against test data</span></span>
+<span id="cb106-2"><a href="#cb106-2"></a><span class="fu">plot</span>(svm_model, testset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-53-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-53-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 
 
@@ -2102,6 +2459,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":true,"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});</script>
 
 
 

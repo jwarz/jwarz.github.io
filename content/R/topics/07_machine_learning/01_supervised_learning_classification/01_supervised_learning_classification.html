@@ -105,6 +105,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../../../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -375,7 +378,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">22: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">22: Machine Learning with caret</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -561,9 +564,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p><strong>Short Description</strong></p>
-<p>Basics of machine learning for classification.</p>
-<p><strong>Long Description</strong></p>
 <p>This beginner-level introduction to machine learning covers four of the most common classification algorithms. You will come away with a basic understanding of how each algorithm approaches a learning task, as well as learn the R functions needed to apply these tools to your own work.</p>
 <section id="chapter-1-k-nearest-neighbors-knn" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> 1. Chapter 1: k-Nearest Neighbors (kNN)</h1>
@@ -603,19 +603,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load the 'class' package</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(class)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># Load &amp; create data</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a>signs_all  <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/knn_traffic_signs.csv"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7"></a>signs      <span class="ot">&lt;-</span> signs_all <span class="sc">|&gt;</span> <span class="fu">filter</span>(sample <span class="sc">==</span> <span class="st">"train"</span>)   <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>))</span>
-<span id="cb1-8"><a href="#cb1-8"></a>next_sign  <span class="ot">&lt;-</span> signs_all <span class="sc">|&gt;</span> <span class="fu">filter</span>(sample <span class="sc">==</span> <span class="st">"example"</span>) <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))</span>
-<span id="cb1-9"><a href="#cb1-9"></a>signs_test <span class="ot">&lt;-</span> signs_all <span class="sc">|&gt;</span> <span class="fu">filter</span>(sample <span class="sc">==</span> <span class="st">"test"</span>)    <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>))</span>
-<span id="cb1-10"><a href="#cb1-10"></a></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co"># Create a vector of labels</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a>sign_types <span class="ot">&lt;-</span> signs<span class="sc">$</span>sign_type</span>
-<span id="cb1-13"><a href="#cb1-13"></a></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="co"># Classify the next sign observed</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> next_sign, <span class="at">cl =</span> sign_types)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; 
+#&gt; Attache Paket: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Die folgenden Objekte sind maskiert von 'package:stats':
+#&gt; 
+#&gt;     filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Die folgenden Objekte sind maskiert von 'package:base':
+#&gt; 
+#&gt;     intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Load &amp; create data</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>signs_all  <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">"data/knn_traffic_signs.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Rows: 206 Columns: 51</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; ── Column specification ────────────────────────────────────────────────────────
+#&gt; Delimiter: ","
+#&gt; chr  (2): sample, sign_type
+#&gt; dbl (49): id, r1, g1, b1, r2, g2, b2, r3, g3, b3, r4, g4, b4, r5, g5, b5, r6...
+#&gt; 
+#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.
+#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>signs      <span class="ot">&lt;-</span> signs_all <span class="sc">|&gt;</span> <span class="fu">filter</span>(sample <span class="sc">==</span> <span class="st">"train"</span>)   <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>))</span>
+<span id="cb8-2"><a href="#cb8-2"></a>next_sign  <span class="ot">&lt;-</span> signs_all <span class="sc">|&gt;</span> <span class="fu">filter</span>(sample <span class="sc">==</span> <span class="st">"example"</span>) <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>))</span>
+<span id="cb8-3"><a href="#cb8-3"></a>signs_test <span class="ot">&lt;-</span> signs_all <span class="sc">|&gt;</span> <span class="fu">filter</span>(sample <span class="sc">==</span> <span class="st">"test"</span>)    <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>))</span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co"># Create a vector of labels</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>sign_types <span class="ot">&lt;-</span> signs<span class="sc">$</span>sign_type</span>
+<span id="cb8-7"><a href="#cb8-7"></a></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co"># Classify the next sign observed</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> next_sign, <span class="at">cl =</span> sign_types)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] stop
+#&gt; Levels: pedestrian speed stop</code></pre>
+</div>
 </div>
 <p>Awesome! You’ve trained your first nearest neighbor classifier!</p>
 </section>
@@ -641,27 +670,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Run the provided <code>aggregate()</code> command to see whether the average red level might vary by sign type.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Examine the structure of the signs dataset</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">str</span>(signs[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#&gt; tibble [146 × 5] (S3: tbl_df/tbl/data.frame)</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#&gt;  $ sign_type: chr [1:146] "pedestrian" "pedestrian" "pedestrian" "pedestrian" ...</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#&gt;  $ r1       : num [1:146] 155 142 57 22 169 75 136 149 13 123 ...</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#&gt;  $ g1       : num [1:146] 228 217 54 35 179 67 149 225 34 124 ...</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt;  $ b1       : num [1:146] 251 242 50 41 170 60 157 241 28 107 ...</span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt;  $ r2       : num [1:146] 135 166 187 171 231 131 200 34 5 83 ...</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="co"># Count the number of signs of each type</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="fu">table</span>(signs<span class="sc">$</span>sign_type)</span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="co">#&gt; </span></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="co">#&gt; pedestrian      speed       stop </span></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="co">#&gt;         46         49         51</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a></span>
-<span id="cb2-16"><a href="#cb2-16"></a><span class="co"># Check r10's average red level by sign type</span></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="fu">aggregate</span>(r10 <span class="sc">~</span> sign_type, <span class="at">data =</span> signs, mean)</span>
-<span id="cb2-18"><a href="#cb2-18"></a><span class="co">#&gt;    sign_type       r10</span></span>
-<span id="cb2-19"><a href="#cb2-19"></a><span class="co">#&gt; 1 pedestrian 113.71739</span></span>
-<span id="cb2-20"><a href="#cb2-20"></a><span class="co">#&gt; 2      speed  80.63265</span></span>
-<span id="cb2-21"><a href="#cb2-21"></a><span class="co">#&gt; 3       stop 132.39216</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Examine the structure of the signs dataset</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">str</span>(signs[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#&gt; tibble [146 × 5] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co">#&gt;  $ sign_type: chr [1:146] "pedestrian" "pedestrian" "pedestrian" "pedestrian" ...</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co">#&gt;  $ r1       : num [1:146] 155 142 57 22 169 75 136 149 13 123 ...</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt;  $ g1       : num [1:146] 228 217 54 35 179 67 149 225 34 124 ...</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="co">#&gt;  $ b1       : num [1:146] 251 242 50 41 170 60 157 241 28 107 ...</span></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co">#&gt;  $ r2       : num [1:146] 135 166 187 171 231 131 200 34 5 83 ...</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co"># Count the number of signs of each type</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="fu">table</span>(signs<span class="sc">$</span>sign_type)</span>
+<span id="cb10-12"><a href="#cb10-12"></a><span class="co">#&gt; </span></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="co">#&gt; pedestrian      speed       stop </span></span>
+<span id="cb10-14"><a href="#cb10-14"></a><span class="co">#&gt;         46         49         51</span></span>
+<span id="cb10-15"><a href="#cb10-15"></a></span>
+<span id="cb10-16"><a href="#cb10-16"></a><span class="co"># Check r10's average red level by sign type</span></span>
+<span id="cb10-17"><a href="#cb10-17"></a><span class="fu">aggregate</span>(r10 <span class="sc">~</span> sign_type, <span class="at">data =</span> signs, mean)</span>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="co">#&gt;    sign_type       r10</span></span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="co">#&gt; 1 pedestrian 113.71739</span></span>
+<span id="cb10-20"><a href="#cb10-20"></a><span class="co">#&gt; 2      speed  80.63265</span></span>
+<span id="cb10-21"><a href="#cb10-21"></a><span class="co">#&gt; 3       stop 132.39216</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great work! As you might have expected, stop signs tend to have a higher average red value. This is how kNN identifies similar signs.</p>
 </section>
@@ -685,20 +714,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>* Create the vector `signs_actual` by extracting the labels from `test_signs`.
 * Pass the vector of predictions and the vector of actual signs to `table()` to cross tabulate them.</code></pre>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Use kNN to identify the test road signs</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>sign_types <span class="ot">&lt;-</span> signs<span class="sc">$</span>sign_type</span>
-<span id="cb4-3"><a href="#cb4-3"></a>signs_pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types)</span>
-<span id="cb4-4"><a href="#cb4-4"></a></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="co"># Create a confusion matrix of the predicted versus actual values</span></span>
-<span id="cb4-6"><a href="#cb4-6"></a>signs_actual <span class="ot">&lt;-</span> signs_test<span class="sc">$</span>sign_type</span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="fu">table</span>(signs_pred, signs_actual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Use kNN to identify the test road signs</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>sign_types <span class="ot">&lt;-</span> signs<span class="sc">$</span>sign_type</span>
+<span id="cb12-3"><a href="#cb12-3"></a>signs_pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types)</span>
+<span id="cb12-4"><a href="#cb12-4"></a></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="co"># Create a confusion matrix of the predicted versus actual values</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>signs_actual <span class="ot">&lt;-</span> signs_test<span class="sc">$</span>sign_type</span>
+<span id="cb12-7"><a href="#cb12-7"></a><span class="fu">table</span>(signs_pred, signs_actual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;             signs_actual
+#&gt; signs_pred   pedestrian speed stop
+#&gt;   pedestrian         19     2    0
+#&gt;   speed               0    17    0
+#&gt;   stop                0     2   19</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Compute the overall accuracy of the kNN learner using the <code>mean()</code> function.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Compute the accuracy</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">mean</span>(signs_pred <span class="sc">==</span> signs_actual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Compute the accuracy</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">mean</span>(signs_pred <span class="sc">==</span> signs_actual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.9322034</code></pre>
+</div>
 </div>
 <p>Fantastic! That self-driving car is really coming along! The confusion matrix lets you look for patterns in the classifier’s errors.</p>
 </section>
@@ -736,25 +775,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Compute the accuracy of the default <code>k = 1</code> model using the given code, then find the accuracy of the model using <code>mean()</code> to compare <code>signs_actual</code> and the model’s predictions.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Compute the accuracy of the baseline model (default k = 1)</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>k_1 <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types)</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="fu">mean</span>(signs_actual <span class="sc">==</span> k_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Compute the accuracy of the baseline model (default k = 1)</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>k_1 <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types)</span>
+<span id="cb16-3"><a href="#cb16-3"></a><span class="fu">mean</span>(signs_actual <span class="sc">==</span> k_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.9322034</code></pre>
+</div>
 </div>
 <ol start="2" type="1">
 <li>Modify the <code>knn()</code> function call by setting <code>k = 7</code> and again find accuracy value.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Modify the above to set k = 7</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>k_7 <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types, <span class="at">k =</span> <span class="dv">7</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="fu">mean</span>(signs_actual <span class="sc">==</span> k_7)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Modify the above to set k = 7</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>k_7 <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types, <span class="at">k =</span> <span class="dv">7</span>)</span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="fu">mean</span>(signs_actual <span class="sc">==</span> k_7)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.9491525</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Revise the code once more by setting <code>k = 15</code>, plus find the accuracy value one more time.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Set k = 15 and compare to the above</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>k_15 <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types, <span class="at">k =</span> <span class="dv">15</span>)</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="fu">mean</span>(signs_actual <span class="sc">==</span> k_15)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Set k = 15 and compare to the above</span></span>
+<span id="cb20-2"><a href="#cb20-2"></a>k_15 <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types, <span class="at">k =</span> <span class="dv">15</span>)</span>
+<span id="cb20-3"><a href="#cb20-3"></a><span class="fu">mean</span>(signs_actual <span class="sc">==</span> k_15)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.8813559</code></pre>
+</div>
 </div>
 <p>You’re a kNN pro! Which value of k gave the highest accuracy?</p>
 </section>
@@ -770,21 +818,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the <code>attr()</code> function to obtain the vote proportions for the predicted class. These are stored in the attribute <code>"prob"</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Use the prob parameter to get the proportion of votes for the winning class</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>sign_pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types, <span class="at">k =</span> <span class="dv">7</span>, <span class="at">prob =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb9-3"><a href="#cb9-3"></a></span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co"># Get the "prob" attribute from the predicted classes</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a>sign_prob <span class="ot">&lt;-</span> <span class="fu">attr</span>(sign_pred, <span class="st">"prob"</span>)</span>
-<span id="cb9-6"><a href="#cb9-6"></a></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co"># Examine the first several predictions</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="fu">head</span>(sign_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Use the prob parameter to get the proportion of votes for the winning class</span></span>
+<span id="cb22-2"><a href="#cb22-2"></a>sign_pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types, <span class="at">k =</span> <span class="dv">7</span>, <span class="at">prob =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb22-3"><a href="#cb22-3"></a></span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="co"># Get the "prob" attribute from the predicted classes</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>sign_prob <span class="ot">&lt;-</span> <span class="fu">attr</span>(sign_pred, <span class="st">"prob"</span>)</span>
+<span id="cb22-6"><a href="#cb22-6"></a></span>
+<span id="cb22-7"><a href="#cb22-7"></a><span class="co"># Examine the first several predictions</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a><span class="fu">head</span>(sign_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] pedestrian pedestrian pedestrian stop       pedestrian pedestrian
+#&gt; Levels: pedestrian speed stop</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Examine the first several vote outcomes and percentages using the <code>head()</code> function to see how the confidence varies from sign to sign.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Examine the proportion of votes for the winning class</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">head</span>(sign_prob)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Examine the proportion of votes for the winning class</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="fu">head</span>(sign_prob)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.5714286 0.5714286 0.8571429 0.5714286 0.8571429 0.5714286</code></pre>
+</div>
 </div>
 <p>Wow! Awesome job! Now you can get an idea of how certain your kNN learner is about its classifications.</p>
 </section>
@@ -846,28 +901,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print the value of <code>p_A_given_B</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Load package</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="fu">library</span>(readr)</span>
-<span id="cb11-3"><a href="#cb11-3"></a></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="co"># Load data</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a>locations <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/locations.csv"</span>)</span>
-<span id="cb11-6"><a href="#cb11-6"></a>where9am  <span class="ot">&lt;-</span> locations <span class="sc">|&gt;</span> </span>
-<span id="cb11-7"><a href="#cb11-7"></a>                <span class="fu">filter</span>(hour <span class="sc">==</span> <span class="dv">9</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb11-8"><a href="#cb11-8"></a>                <span class="fu">select</span>(daytype, location) <span class="sc">|&gt;</span> </span>
-<span id="cb11-9"><a href="#cb11-9"></a>                <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.factor))</span>
-<span id="cb11-10"><a href="#cb11-10"></a></span>
-<span id="cb11-11"><a href="#cb11-11"></a><span class="co"># Compute P(A) </span></span>
-<span id="cb11-12"><a href="#cb11-12"></a>p_A <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">subset</span>(where9am, location <span class="sc">==</span> <span class="st">"office"</span>)) <span class="sc">/</span> <span class="fu">nrow</span>(where9am)</span>
-<span id="cb11-13"><a href="#cb11-13"></a></span>
-<span id="cb11-14"><a href="#cb11-14"></a><span class="co"># Compute P(B)</span></span>
-<span id="cb11-15"><a href="#cb11-15"></a>p_B <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">subset</span>(where9am, daytype <span class="sc">==</span> <span class="st">"weekday"</span>)) <span class="sc">/</span> <span class="fu">nrow</span>(where9am)</span>
-<span id="cb11-16"><a href="#cb11-16"></a></span>
-<span id="cb11-17"><a href="#cb11-17"></a><span class="co"># Compute the observed P(A and B)</span></span>
-<span id="cb11-18"><a href="#cb11-18"></a>p_AB <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">subset</span>(where9am, location <span class="sc">==</span> <span class="st">"office"</span> <span class="sc">&amp;</span> daytype <span class="sc">==</span> <span class="st">"weekday"</span>)) <span class="sc">/</span> <span class="fu">nrow</span>(where9am)</span>
-<span id="cb11-19"><a href="#cb11-19"></a></span>
-<span id="cb11-20"><a href="#cb11-20"></a><span class="co"># Compute P(A | B) and print its value</span></span>
-<span id="cb11-21"><a href="#cb11-21"></a>p_A_given_B <span class="ot">&lt;-</span> p_AB <span class="sc">/</span> p_B</span>
-<span id="cb11-22"><a href="#cb11-22"></a>p_A_given_B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Load package</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="fu">library</span>(readr)</span>
+<span id="cb26-3"><a href="#cb26-3"></a></span>
+<span id="cb26-4"><a href="#cb26-4"></a><span class="co"># Load data</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a>locations <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/locations.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Rows: 2184 Columns: 7
+#&gt; ── Column specification ────────────────────────────────────────────────────────
+#&gt; Delimiter: ","
+#&gt; chr (4): weekday, daytype, hourtype, location
+#&gt; dbl (3): month, day, hour
+#&gt; 
+#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.
+#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>where9am  <span class="ot">&lt;-</span> locations <span class="sc">|&gt;</span> </span>
+<span id="cb28-2"><a href="#cb28-2"></a>                <span class="fu">filter</span>(hour <span class="sc">==</span> <span class="dv">9</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb28-3"><a href="#cb28-3"></a>                <span class="fu">select</span>(daytype, location) <span class="sc">|&gt;</span> </span>
+<span id="cb28-4"><a href="#cb28-4"></a>                <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), as.factor))</span>
+<span id="cb28-5"><a href="#cb28-5"></a></span>
+<span id="cb28-6"><a href="#cb28-6"></a><span class="co"># Compute P(A) </span></span>
+<span id="cb28-7"><a href="#cb28-7"></a>p_A <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">subset</span>(where9am, location <span class="sc">==</span> <span class="st">"office"</span>)) <span class="sc">/</span> <span class="fu">nrow</span>(where9am)</span>
+<span id="cb28-8"><a href="#cb28-8"></a></span>
+<span id="cb28-9"><a href="#cb28-9"></a><span class="co"># Compute P(B)</span></span>
+<span id="cb28-10"><a href="#cb28-10"></a>p_B <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">subset</span>(where9am, daytype <span class="sc">==</span> <span class="st">"weekday"</span>)) <span class="sc">/</span> <span class="fu">nrow</span>(where9am)</span>
+<span id="cb28-11"><a href="#cb28-11"></a></span>
+<span id="cb28-12"><a href="#cb28-12"></a><span class="co"># Compute the observed P(A and B)</span></span>
+<span id="cb28-13"><a href="#cb28-13"></a>p_AB <span class="ot">&lt;-</span> <span class="fu">nrow</span>(<span class="fu">subset</span>(where9am, location <span class="sc">==</span> <span class="st">"office"</span> <span class="sc">&amp;</span> daytype <span class="sc">==</span> <span class="st">"weekday"</span>)) <span class="sc">/</span> <span class="fu">nrow</span>(where9am)</span>
+<span id="cb28-14"><a href="#cb28-14"></a></span>
+<span id="cb28-15"><a href="#cb28-15"></a><span class="co"># Compute P(A | B) and print its value</span></span>
+<span id="cb28-16"><a href="#cb28-16"></a>p_A_given_B <span class="ot">&lt;-</span> p_AB <span class="sc">/</span> p_B</span>
+<span id="cb28-17"><a href="#cb28-17"></a>p_A_given_B</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.6</code></pre>
+</div>
 </div>
 <p>Great work! In a lot of cases, calculating probabilities is as simple as counting.</p>
 </section>
@@ -891,29 +959,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>naive_bayes()</code> with a formula like <code>y ~ x</code> to build a model of <code>location</code> as a function of <code>daytype</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Load the naivebayes package</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">library</span>(naivebayes)</span>
-<span id="cb12-3"><a href="#cb12-3"></a></span>
-<span id="cb12-4"><a href="#cb12-4"></a><span class="co"># Build the location prediction model</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a>locmodel <span class="ot">&lt;-</span> <span class="fu">naive_bayes</span>(location <span class="sc">~</span> daytype, <span class="at">data =</span> where9am)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Load the naivebayes package</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="fu">library</span>(naivebayes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; naivebayes 0.9.7 loaded</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Build the location prediction model</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>locmodel <span class="ot">&lt;-</span> <span class="fu">naive_bayes</span>(location <span class="sc">~</span> daytype, <span class="at">data =</span> where9am)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: naive_bayes(): Feature daytype - zero probabilities are present.
+#&gt; Consider Laplace smoothing.</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Forecast the Thursday 9am location using <code>predict()</code> with the <code>thursday9am</code> object as the <code>newdata</code> argument.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>thursday9am <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">daytype =</span> <span class="fu">factor</span>(<span class="st">"weekday"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"weekday"</span>, <span class="st">"weekend"</span>)))</span>
-<span id="cb13-2"><a href="#cb13-2"></a></span>
-<span id="cb13-3"><a href="#cb13-3"></a><span class="co"># Predict Thursday's 9am location</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a><span class="fu">predict</span>(locmodel, thursday9am)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>thursday9am <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">daytype =</span> <span class="fu">factor</span>(<span class="st">"weekday"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"weekday"</span>, <span class="st">"weekend"</span>)))</span>
+<span id="cb34-2"><a href="#cb34-2"></a></span>
+<span id="cb34-3"><a href="#cb34-3"></a><span class="co"># Predict Thursday's 9am location</span></span>
+<span id="cb34-4"><a href="#cb34-4"></a><span class="fu">predict</span>(locmodel, thursday9am)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] office
+#&gt; Levels: appointment campus home office</code></pre>
+</div>
 </div>
 <ol start="4" type="1">
 <li>Do the same for predicting the <code>saturday9am</code> location.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>saturday9am <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">daytype =</span> <span class="fu">factor</span>(<span class="st">"weekend"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"weekday"</span>, <span class="st">"weekend"</span>)))</span>
-<span id="cb14-2"><a href="#cb14-2"></a></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="co"># Predict Saturdays's 9am location</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="fu">predict</span>(locmodel, saturday9am)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>saturday9am <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">daytype =</span> <span class="fu">factor</span>(<span class="st">"weekend"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"weekday"</span>, <span class="st">"weekend"</span>)))</span>
+<span id="cb36-2"><a href="#cb36-2"></a></span>
+<span id="cb36-3"><a href="#cb36-3"></a><span class="co"># Predict Saturdays's 9am location</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a><span class="fu">predict</span>(locmodel, saturday9am)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] home
+#&gt; Levels: appointment campus home office</code></pre>
+</div>
 </div>
 <p>Awesome job! Not surprisingly, Brett is most likely at the office at 9am on a Thursday, but at home at the same time on a Saturday!</p>
 </section>
@@ -928,25 +1010,65 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print the <code>locmodel</code> object to the console to view the computed <em>a priori</em> and conditional probabilities.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># The 'naivebayes' package is loaded into the workspace</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="co"># and the Naive Bayes 'locmodel' has been built</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="co"># Examine the location prediction model</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a>locmodel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># The 'naivebayes' package is loaded into the workspace</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="co"># and the Naive Bayes 'locmodel' has been built</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a></span>
+<span id="cb38-4"><a href="#cb38-4"></a><span class="co"># Examine the location prediction model</span></span>
+<span id="cb38-5"><a href="#cb38-5"></a>locmodel</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; 
+#&gt; ================================== Naive Bayes ================================== 
+#&gt;  
+#&gt;  Call: 
+#&gt; naive_bayes.formula(formula = location ~ daytype, data = where9am)
+#&gt; 
+#&gt; --------------------------------------------------------------------------------- 
+#&gt;  
+#&gt; Laplace smoothing: 0
+#&gt; 
+#&gt; --------------------------------------------------------------------------------- 
+#&gt;  
+#&gt;  A priori probabilities: 
+#&gt; 
+#&gt; appointment      campus        home      office 
+#&gt;  0.01098901  0.10989011  0.45054945  0.42857143 
+#&gt; 
+#&gt; --------------------------------------------------------------------------------- 
+#&gt;  
+#&gt;  Tables: 
+#&gt; 
+#&gt; --------------------------------------------------------------------------------- 
+#&gt;  ::: daytype (Bernoulli) 
+#&gt; --------------------------------------------------------------------------------- 
+#&gt;          
+#&gt; daytype   appointment    campus      home    office
+#&gt;   weekday   1.0000000 1.0000000 0.3658537 1.0000000
+#&gt;   weekend   0.0000000 0.0000000 0.6341463 0.0000000
+#&gt; 
+#&gt; ---------------------------------------------------------------------------------</code></pre>
+</div>
 </div>
 <ol start="2" type="1">
 <li>Use the <code>predict()</code> function similarly to the previous exercise, but with <code>type = "prob"</code> to see the predicted probabilities for Thursday at 9am.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Obtain the predicted probabilities for Thursday at 9am</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="fu">predict</span>(locmodel, thursday9am, <span class="at">type =</span> <span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># Obtain the predicted probabilities for Thursday at 9am</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a><span class="fu">predict</span>(locmodel, thursday9am, <span class="at">type =</span> <span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;      appointment    campus      home office
+#&gt; [1,]  0.01538462 0.1538462 0.2307692    0.6</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Compare these to the predicted probabilities for Saturday at 9am.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Obtain the predicted probabilities for Saturday at 9am</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">predict</span>(locmodel, saturday9am, <span class="at">type =</span> <span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Obtain the predicted probabilities for Saturday at 9am</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="fu">predict</span>(locmodel, saturday9am, <span class="at">type =</span> <span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;       appointment       campus      home      office
+#&gt; [1,] 3.838772e-05 0.0003838772 0.9980806 0.001497121</code></pre>
+</div>
 </div>
 <p>Fantastic! Did you notice the predicted probability of Brett being at the office on a Saturday is zero?</p>
 </section>
@@ -994,28 +1116,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Predict Brett’s location on a weekday afternoon using the dataframe <code>weekday_afternoon</code> and the <code>predict()</code> function.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Build a NB model of location</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a>locmodel <span class="ot">&lt;-</span> <span class="fu">naive_bayes</span>(location <span class="sc">~</span> daytype <span class="sc">+</span> hourtype, <span class="at">data =</span> locations)</span>
-<span id="cb18-3"><a href="#cb18-3"></a></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="co"># Data</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a>weekday_afternoon <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">daytype  =</span> <span class="fu">factor</span>(<span class="st">"weekday"</span>,   <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"weekday"</span>, <span class="st">"weekend"</span>)),</span>
-<span id="cb18-6"><a href="#cb18-6"></a>                            <span class="at">hourtype =</span> <span class="fu">factor</span>(<span class="st">"afternoon"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"afternoon"</span>, <span class="st">"evening"</span>, <span class="st">"morning"</span>, <span class="st">"night"</span>)),</span>
-<span id="cb18-7"><a href="#cb18-7"></a>                            <span class="at">location =</span> <span class="fu">factor</span>(<span class="st">"office"</span>,    <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"appointment"</span>, <span class="st">"campus"</span>, <span class="st">"home"</span>, <span class="st">"office"</span>, <span class="st">"restaurant"</span>, <span class="st">"store"</span>, <span class="st">"theater"</span>)))</span>
-<span id="cb18-8"><a href="#cb18-8"></a></span>
-<span id="cb18-9"><a href="#cb18-9"></a><span class="co"># Predict Brett's location on a weekday afternoon</span></span>
-<span id="cb18-10"><a href="#cb18-10"></a><span class="fu">predict</span>(locmodel, weekday_afternoon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Build a NB model of location</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a>locmodel <span class="ot">&lt;-</span> <span class="fu">naive_bayes</span>(location <span class="sc">~</span> daytype <span class="sc">+</span> hourtype, <span class="at">data =</span> locations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: naive_bayes(): Feature daytype - zero probabilities are present.
+#&gt; Consider Laplace smoothing.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: naive_bayes(): Feature hourtype - zero probabilities are present.
+#&gt; Consider Laplace smoothing.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Data</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a>weekday_afternoon <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">daytype  =</span> <span class="fu">factor</span>(<span class="st">"weekday"</span>,   <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"weekday"</span>, <span class="st">"weekend"</span>)),</span>
+<span id="cb47-3"><a href="#cb47-3"></a>                            <span class="at">hourtype =</span> <span class="fu">factor</span>(<span class="st">"afternoon"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"afternoon"</span>, <span class="st">"evening"</span>, <span class="st">"morning"</span>, <span class="st">"night"</span>)),</span>
+<span id="cb47-4"><a href="#cb47-4"></a>                            <span class="at">location =</span> <span class="fu">factor</span>(<span class="st">"office"</span>,    <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"appointment"</span>, <span class="st">"campus"</span>, <span class="st">"home"</span>, <span class="st">"office"</span>, <span class="st">"restaurant"</span>, <span class="st">"store"</span>, <span class="st">"theater"</span>)))</span>
+<span id="cb47-5"><a href="#cb47-5"></a></span>
+<span id="cb47-6"><a href="#cb47-6"></a><span class="co"># Predict Brett's location on a weekday afternoon</span></span>
+<span id="cb47-7"><a href="#cb47-7"></a><span class="fu">predict</span>(locmodel, weekday_afternoon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: predict.naive_bayes(): more features in the newdata are provided as
+#&gt; there are probability tables in the object. Calculation is performed based on
+#&gt; features to be found in the tables.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] office
+#&gt; Levels: appointment campus home office restaurant store theater</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Do the same for a <code>weekday_evening</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Data</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>weekday_evening <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">daytype  =</span> <span class="fu">factor</span>(<span class="st">"weekday"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"weekday"</span>, <span class="st">"weekend"</span>)),</span>
-<span id="cb19-3"><a href="#cb19-3"></a>                          <span class="at">hourtype =</span> <span class="fu">factor</span>(<span class="st">"evening"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"afternoon"</span>, <span class="st">"evening"</span>, <span class="st">"morning"</span>, <span class="st">"night"</span>)),</span>
-<span id="cb19-4"><a href="#cb19-4"></a>                          <span class="at">location =</span> <span class="fu">factor</span>(<span class="st">"home"</span>,    <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"appointment"</span>, <span class="st">"campus"</span>, <span class="st">"home"</span>, <span class="st">"office"</span>, <span class="st">"restaurant"</span>, <span class="st">"store"</span>, <span class="st">"theater"</span>)))</span>
-<span id="cb19-5"><a href="#cb19-5"></a></span>
-<span id="cb19-6"><a href="#cb19-6"></a><span class="co"># Predict Brett's location on a weekday evening</span></span>
-<span id="cb19-7"><a href="#cb19-7"></a><span class="fu">predict</span>(locmodel, weekday_evening)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Data</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>weekday_evening <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">daytype  =</span> <span class="fu">factor</span>(<span class="st">"weekday"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"weekday"</span>, <span class="st">"weekend"</span>)),</span>
+<span id="cb50-3"><a href="#cb50-3"></a>                          <span class="at">hourtype =</span> <span class="fu">factor</span>(<span class="st">"evening"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"afternoon"</span>, <span class="st">"evening"</span>, <span class="st">"morning"</span>, <span class="st">"night"</span>)),</span>
+<span id="cb50-4"><a href="#cb50-4"></a>                          <span class="at">location =</span> <span class="fu">factor</span>(<span class="st">"home"</span>,    <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"appointment"</span>, <span class="st">"campus"</span>, <span class="st">"home"</span>, <span class="st">"office"</span>, <span class="st">"restaurant"</span>, <span class="st">"store"</span>, <span class="st">"theater"</span>)))</span>
+<span id="cb50-5"><a href="#cb50-5"></a></span>
+<span id="cb50-6"><a href="#cb50-6"></a><span class="co"># Predict Brett's location on a weekday evening</span></span>
+<span id="cb50-7"><a href="#cb50-7"></a><span class="fu">predict</span>(locmodel, weekday_evening)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: predict.naive_bayes(): more features in the newdata are provided as
+#&gt; there are probability tables in the object. Calculation is performed based on
+#&gt; features to be found in the tables.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] home
+#&gt; Levels: appointment campus home office restaurant store theater</code></pre>
+</div>
 </div>
 <p>Great job! Your Naive Bayes model forecasts that Brett will be at the office on a weekday afternoon and at home in the evening.</p>
 </section>
@@ -1029,27 +1176,49 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the <code>locmodel</code> to output predicted probabilities for a weekend afternoon by using the <code>predict()</code> function. Remember to set the <code>type</code> argument.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># The 'naivebayes' package is loaded into the workspace already</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="co"># The Naive Bayes location model (locmodel) has already been built</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a></span>
-<span id="cb20-4"><a href="#cb20-4"></a><span class="co"># Data</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a>weekend_afternoon <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">daytype  =</span> <span class="fu">factor</span>(<span class="st">"weekend"</span>,   <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"weekday"</span>, <span class="st">"weekend"</span>)),</span>
-<span id="cb20-6"><a href="#cb20-6"></a>                            <span class="at">hourtype =</span> <span class="fu">factor</span>(<span class="st">"afternoon"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"afternoon"</span>, <span class="st">"evening"</span>, <span class="st">"morning"</span>, <span class="st">"night"</span>)),</span>
-<span id="cb20-7"><a href="#cb20-7"></a>                            <span class="at">location =</span> <span class="fu">factor</span>(<span class="st">"home"</span>,      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"appointment"</span>, <span class="st">"campus"</span>, <span class="st">"home"</span>, <span class="st">"office"</span>, <span class="st">"restaurant"</span>, <span class="st">"store"</span>, <span class="st">"theater"</span>)))</span>
-<span id="cb20-8"><a href="#cb20-8"></a></span>
-<span id="cb20-9"><a href="#cb20-9"></a><span class="co"># Observe the predicted probabilities for a weekend afternoon</span></span>
-<span id="cb20-10"><a href="#cb20-10"></a><span class="fu">predict</span>(locmodel, weekend_afternoon, <span class="at">type =</span> <span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># The 'naivebayes' package is loaded into the workspace already</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a><span class="co"># The Naive Bayes location model (locmodel) has already been built</span></span>
+<span id="cb53-3"><a href="#cb53-3"></a></span>
+<span id="cb53-4"><a href="#cb53-4"></a><span class="co"># Data</span></span>
+<span id="cb53-5"><a href="#cb53-5"></a>weekend_afternoon <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">daytype  =</span> <span class="fu">factor</span>(<span class="st">"weekend"</span>,   <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"weekday"</span>, <span class="st">"weekend"</span>)),</span>
+<span id="cb53-6"><a href="#cb53-6"></a>                            <span class="at">hourtype =</span> <span class="fu">factor</span>(<span class="st">"afternoon"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"afternoon"</span>, <span class="st">"evening"</span>, <span class="st">"morning"</span>, <span class="st">"night"</span>)),</span>
+<span id="cb53-7"><a href="#cb53-7"></a>                            <span class="at">location =</span> <span class="fu">factor</span>(<span class="st">"home"</span>,      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"appointment"</span>, <span class="st">"campus"</span>, <span class="st">"home"</span>, <span class="st">"office"</span>, <span class="st">"restaurant"</span>, <span class="st">"store"</span>, <span class="st">"theater"</span>)))</span>
+<span id="cb53-8"><a href="#cb53-8"></a></span>
+<span id="cb53-9"><a href="#cb53-9"></a><span class="co"># Observe the predicted probabilities for a weekend afternoon</span></span>
+<span id="cb53-10"><a href="#cb53-10"></a><span class="fu">predict</span>(locmodel, weekend_afternoon, <span class="at">type =</span> <span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: predict.naive_bayes(): more features in the newdata are provided as
+#&gt; there are probability tables in the object. Calculation is performed based on
+#&gt; features to be found in the tables.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;      appointment       campus      home      office restaurant      store
+#&gt; [1,]  0.02462883 0.0004802622 0.8439145 0.003349521  0.1111338 0.01641922
+#&gt;          theater
+#&gt; [1,] 7.38865e-05</code></pre>
+</div>
 </div>
 <ol start="2" type="1">
 <li>Create a new naive Bayes model with the Laplace smoothing parameter set to <code>1</code>. You can do this by setting the <code>laplace</code> argument in your call to <code>naive_bayes()</code>. Save this as <code>locmodel2</code>.</li>
 <li>See how the new predicted probabilities compare by using the <code>predict()</code> function on your new model.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Build a new model using the Laplace correction</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>locmodel2 <span class="ot">&lt;-</span> <span class="fu">naive_bayes</span>(location <span class="sc">~</span> daytype <span class="sc">+</span> hourtype, <span class="at">data =</span> locations, <span class="at">laplace =</span> <span class="dv">1</span>)</span>
-<span id="cb21-3"><a href="#cb21-3"></a></span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="co"># Observe the new predicted probabilities for a weekend afternoon</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="fu">predict</span>(locmodel2, weekend_afternoon, <span class="at">type =</span> <span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># Build a new model using the Laplace correction</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>locmodel2 <span class="ot">&lt;-</span> <span class="fu">naive_bayes</span>(location <span class="sc">~</span> daytype <span class="sc">+</span> hourtype, <span class="at">data =</span> locations, <span class="at">laplace =</span> <span class="dv">1</span>)</span>
+<span id="cb56-3"><a href="#cb56-3"></a></span>
+<span id="cb56-4"><a href="#cb56-4"></a><span class="co"># Observe the new predicted probabilities for a weekend afternoon</span></span>
+<span id="cb56-5"><a href="#cb56-5"></a><span class="fu">predict</span>(locmodel2, weekend_afternoon, <span class="at">type =</span> <span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: predict.naive_bayes(): more features in the newdata are provided as
+#&gt; there are probability tables in the object. Calculation is performed based on
+#&gt; features to be found in the tables.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;      appointment      campus      home      office restaurant      store
+#&gt; [1,]  0.02013872 0.006187715 0.8308154 0.007929249  0.1098743 0.01871085
+#&gt;          theater
+#&gt; [1,] 0.006343697</code></pre>
+</div>
 </div>
 <p>Fantastic work! Adding the Laplace correction allows for the small chance that Brett might go to the office on the weekend in the future.</p>
 </section>
@@ -1115,20 +1284,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Examine <code>donors</code> using the <code>str()</code> function.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Load data</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a>donors <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/donors.csv"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb22-3"><a href="#cb22-3"></a>              <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), as.integer),</span>
-<span id="cb22-4"><a href="#cb22-4"></a>                     <span class="fu">across</span>(<span class="fu">where</span>(is.character), as.factor))</span>
-<span id="cb22-5"><a href="#cb22-5"></a></span>
-<span id="cb22-6"><a href="#cb22-6"></a><span class="co"># Examine the dataset to identify potential independent variables</span></span>
-<span id="cb22-7"><a href="#cb22-7"></a><span class="fu">str</span>(donors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># Load data</span></span>
+<span id="cb59-2"><a href="#cb59-2"></a>donors <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/donors.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb59-3"><a href="#cb59-3"></a>              <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), as.integer),</span>
+<span id="cb59-4"><a href="#cb59-4"></a>                     <span class="fu">across</span>(<span class="fu">where</span>(is.character), as.factor))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Rows: 93462 Columns: 13
+#&gt; ── Column specification ────────────────────────────────────────────────────────
+#&gt; Delimiter: ","
+#&gt; chr  (3): recency, frequency, money
+#&gt; dbl (10): donated, veteran, bad_address, age, has_children, wealth_rating, i...
+#&gt; 
+#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.
+#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># Examine the dataset to identify potential independent variables</span></span>
+<span id="cb61-2"><a href="#cb61-2"></a><span class="fu">str</span>(donors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; tibble [93,462 × 13] (S3: tbl_df/tbl/data.frame)
+#&gt;  $ donated          : int [1:93462] 0 0 0 0 0 0 0 0 0 0 ...
+#&gt;  $ veteran          : int [1:93462] 0 0 0 0 0 0 0 0 0 0 ...
+#&gt;  $ bad_address      : int [1:93462] 0 0 0 0 0 0 0 0 0 0 ...
+#&gt;  $ age              : int [1:93462] 60 46 NA 70 78 NA 38 NA NA 65 ...
+#&gt;  $ has_children     : int [1:93462] 0 1 0 0 1 0 1 0 0 0 ...
+#&gt;  $ wealth_rating    : int [1:93462] 0 3 1 2 1 0 2 3 1 0 ...
+#&gt;  $ interest_veterans: int [1:93462] 0 0 0 0 0 0 0 0 0 0 ...
+#&gt;  $ interest_religion: int [1:93462] 0 0 0 0 1 0 0 0 0 0 ...
+#&gt;  $ pet_owner        : int [1:93462] 0 0 0 0 0 0 1 0 0 0 ...
+#&gt;  $ catalog_shopper  : int [1:93462] 0 0 0 0 1 0 0 0 0 0 ...
+#&gt;  $ recency          : Factor w/ 2 levels "CURRENT","LAPSED": 1 1 1 1 1 1 1 1 1 1 ...
+#&gt;  $ frequency        : Factor w/ 2 levels "FREQUENT","INFREQUENT": 1 1 1 1 1 2 2 1 2 2 ...
+#&gt;  $ money            : Factor w/ 2 levels "HIGH","MEDIUM": 2 1 2 2 2 2 2 2 2 2 ...</code></pre>
+</div>
 </div>
 <ol start="2" type="1">
 <li>Count the number of occurrences of each level of the <code>donated</code> variable using the <code>table()</code> function.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Explore the dependent variable</span></span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="fu">table</span>(donors<span class="sc">$</span>donated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Explore the dependent variable</span></span>
+<span id="cb63-2"><a href="#cb63-2"></a><span class="fu">table</span>(donors<span class="sc">$</span>donated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; 
+#&gt;     0     1 
+#&gt; 88751  4711</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Fit a logistic regression model using the formula interface and the three independent variables described above. <code>glm()</code> with the formula as its first argument and the dataframe as the <code>data</code> argument.the result as <code>donation_model</code>.</li>
@@ -1137,12 +1336,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Summarize the model object with <code>summary()</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Build the donation model</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>donation_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(donated <span class="sc">~</span> bad_address <span class="sc">+</span> interest_religion <span class="sc">+</span> interest_veterans, </span>
-<span id="cb24-3"><a href="#cb24-3"></a>                      <span class="at">data =</span> donors, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb24-4"><a href="#cb24-4"></a></span>
-<span id="cb24-5"><a href="#cb24-5"></a><span class="co"># Summarize the model results</span></span>
-<span id="cb24-6"><a href="#cb24-6"></a><span class="fu">summary</span>(donation_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># Build the donation model</span></span>
+<span id="cb65-2"><a href="#cb65-2"></a>donation_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(donated <span class="sc">~</span> bad_address <span class="sc">+</span> interest_religion <span class="sc">+</span> interest_veterans, </span>
+<span id="cb65-3"><a href="#cb65-3"></a>                      <span class="at">data =</span> donors, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb65-4"><a href="#cb65-4"></a></span>
+<span id="cb65-5"><a href="#cb65-5"></a><span class="co"># Summarize the model results</span></span>
+<span id="cb65-6"><a href="#cb65-6"></a><span class="fu">summary</span>(donation_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; 
+#&gt; Call:
+#&gt; glm(formula = donated ~ bad_address + interest_religion + interest_veterans, 
+#&gt;     family = "binomial", data = donors)
+#&gt; 
+#&gt; Deviance Residuals: 
+#&gt;     Min       1Q   Median       3Q      Max  
+#&gt; -0.3480  -0.3192  -0.3192  -0.3192   2.5678  
+#&gt; 
+#&gt; Coefficients:
+#&gt;                   Estimate Std. Error  z value Pr(&gt;|z|)    
+#&gt; (Intercept)       -2.95139    0.01652 -178.664   &lt;2e-16 ***
+#&gt; bad_address       -0.30780    0.14348   -2.145   0.0319 *  
+#&gt; interest_religion  0.06724    0.05069    1.327   0.1847    
+#&gt; interest_veterans  0.11009    0.04676    2.354   0.0186 *  
+#&gt; ---
+#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#&gt; 
+#&gt; (Dispersion parameter for binomial family taken to be 1)
+#&gt; 
+#&gt;     Null deviance: 37330  on 93461  degrees of freedom
+#&gt; Residual deviance: 37316  on 93458  degrees of freedom
+#&gt; AIC: 37324
+#&gt; 
+#&gt; Number of Fisher Scoring iterations: 5</code></pre>
+</div>
 </div>
 <p>Great work! With the model built, you can now use it to make predictions!</p>
 </section>
@@ -1157,22 +1383,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Find the actual probability that an average person would donate by passing the <code>mean()</code> function the appropriate column of the <code>donors</code> dataframe.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Estimate the donation probability</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>donors<span class="sc">$</span>donation_prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(donation_model, <span class="at">type =</span> <span class="st">"response"</span>)</span>
-<span id="cb25-3"><a href="#cb25-3"></a></span>
-<span id="cb25-4"><a href="#cb25-4"></a><span class="co"># Find the donation probability of the average prospect</span></span>
-<span id="cb25-5"><a href="#cb25-5"></a><span class="fu">mean</span>(donors<span class="sc">$</span>donated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Estimate the donation probability</span></span>
+<span id="cb67-2"><a href="#cb67-2"></a>donors<span class="sc">$</span>donation_prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(donation_model, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb67-3"><a href="#cb67-3"></a></span>
+<span id="cb67-4"><a href="#cb67-4"></a><span class="co"># Find the donation probability of the average prospect</span></span>
+<span id="cb67-5"><a href="#cb67-5"></a><span class="fu">mean</span>(donors<span class="sc">$</span>donated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.05040551</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Use <code>ifelse()</code> to predict a donation if their predicted donation probability is greater than average. Assign the predictions to a new column called <code>donation_pred</code>.</li>
 <li>Use the <code>mean()</code> function to calculate the model’s accuracy.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Predict a donation if probability of donation is greater than average</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a>donors<span class="sc">$</span>donation_pred <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(donors<span class="sc">$</span>donation_prob <span class="sc">&gt;</span> <span class="fl">0.0504</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
-<span id="cb26-3"><a href="#cb26-3"></a></span>
-<span id="cb26-4"><a href="#cb26-4"></a><span class="co"># Calculate the model's accuracy</span></span>
-<span id="cb26-5"><a href="#cb26-5"></a><span class="fu">mean</span>(donors<span class="sc">$</span>donated <span class="sc">==</span> donors<span class="sc">$</span>donation_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># Predict a donation if probability of donation is greater than average</span></span>
+<span id="cb69-2"><a href="#cb69-2"></a>donors<span class="sc">$</span>donation_pred <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(donors<span class="sc">$</span>donation_prob <span class="sc">&gt;</span> <span class="fl">0.0504</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb69-3"><a href="#cb69-3"></a></span>
+<span id="cb69-4"><a href="#cb69-4"></a><span class="co"># Calculate the model's accuracy</span></span>
+<span id="cb69-5"><a href="#cb69-5"></a><span class="fu">mean</span>(donors<span class="sc">$</span>donated <span class="sc">==</span> donors<span class="sc">$</span>donation_pred)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.794815</code></pre>
+</div>
 </div>
 <p>Nice work! With an accuracy of nearly 80%, the model seems to be doing its job. But is it too good to be true?</p>
 </section>
@@ -1210,21 +1442,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>plot()</code> to draw the <code>ROC</code> object. Specify <code>col = "blue"</code> to color the curve blue.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Load the pROC package</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="fu">library</span>(pROC)</span>
-<span id="cb27-3"><a href="#cb27-3"></a></span>
-<span id="cb27-4"><a href="#cb27-4"></a><span class="co"># Create a ROC curve</span></span>
-<span id="cb27-5"><a href="#cb27-5"></a>ROC <span class="ot">&lt;-</span> <span class="fu">roc</span>(donors<span class="sc">$</span>donated, donors<span class="sc">$</span>donation_prob)</span>
-<span id="cb27-6"><a href="#cb27-6"></a></span>
-<span id="cb27-7"><a href="#cb27-7"></a><span class="co"># Plot the ROC curve</span></span>
-<span id="cb27-8"><a href="#cb27-8"></a><span class="fu">plot</span>(ROC, <span class="at">col =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a><span class="co"># Load the pROC package</span></span>
+<span id="cb71-2"><a href="#cb71-2"></a><span class="fu">library</span>(pROC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Type 'citation("pROC")' for a citation.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; 
+#&gt; Attache Paket: 'pROC'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Die folgenden Objekte sind maskiert von 'package:stats':
+#&gt; 
+#&gt;     cov, smooth, var</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a><span class="co"># Create a ROC curve</span></span>
+<span id="cb75-2"><a href="#cb75-2"></a>ROC <span class="ot">&lt;-</span> <span class="fu">roc</span>(donors<span class="sc">$</span>donated, donors<span class="sc">$</span>donation_prob)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Setting levels: control = 0, case = 1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Setting direction: controls &lt; cases</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a><span class="co"># Plot the ROC curve</span></span>
+<span id="cb78-2"><a href="#cb78-2"></a><span class="fu">plot</span>(ROC, <span class="at">col =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-26-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <ol start="4" type="1">
 <li>Compute the area under the curve with <code>auc()</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Calculate the area under the curve (AUC)</span></span>
-<span id="cb28-2"><a href="#cb28-2"></a><span class="fu">auc</span>(ROC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># Calculate the area under the curve (AUC)</span></span>
+<span id="cb79-2"><a href="#cb79-2"></a><span class="fu">auc</span>(ROC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; Area under the curve: 0.5102</code></pre>
+</div>
 </div>
 <p>Awesome job! Based on this visualization, the model isn’t doing much better than baseline— a model doing nothing but making predictions at random.</p>
 </section>
@@ -1270,15 +1528,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build a logistic regression model using the column <code>wealth_levels</code> to predict <code>donated</code> and display the result with <code>summary()</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Convert the wealth rating to a factor</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a>donors<span class="sc">$</span>wealth_levels <span class="ot">&lt;-</span> <span class="fu">factor</span>(donors<span class="sc">$</span>wealth_rating, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Unknown"</span>, <span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>))</span>
-<span id="cb29-3"><a href="#cb29-3"></a></span>
-<span id="cb29-4"><a href="#cb29-4"></a><span class="co"># Use relevel() to change reference category</span></span>
-<span id="cb29-5"><a href="#cb29-5"></a>donors<span class="sc">$</span>wealth_levels <span class="ot">&lt;-</span> <span class="fu">relevel</span>(donors<span class="sc">$</span>wealth_levels, <span class="at">ref =</span> <span class="st">"Medium"</span>)</span>
-<span id="cb29-6"><a href="#cb29-6"></a></span>
-<span id="cb29-7"><a href="#cb29-7"></a><span class="co"># See how our factor coding impacts the model</span></span>
-<span id="cb29-8"><a href="#cb29-8"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(donated <span class="sc">~</span> wealth_levels, <span class="at">data =</span> donors, <span class="at">family =</span> <span class="st">"binomial"</span>) </span>
-<span id="cb29-9"><a href="#cb29-9"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a><span class="co"># Convert the wealth rating to a factor</span></span>
+<span id="cb81-2"><a href="#cb81-2"></a>donors<span class="sc">$</span>wealth_levels <span class="ot">&lt;-</span> <span class="fu">factor</span>(donors<span class="sc">$</span>wealth_rating, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Unknown"</span>, <span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>))</span>
+<span id="cb81-3"><a href="#cb81-3"></a></span>
+<span id="cb81-4"><a href="#cb81-4"></a><span class="co"># Use relevel() to change reference category</span></span>
+<span id="cb81-5"><a href="#cb81-5"></a>donors<span class="sc">$</span>wealth_levels <span class="ot">&lt;-</span> <span class="fu">relevel</span>(donors<span class="sc">$</span>wealth_levels, <span class="at">ref =</span> <span class="st">"Medium"</span>)</span>
+<span id="cb81-6"><a href="#cb81-6"></a></span>
+<span id="cb81-7"><a href="#cb81-7"></a><span class="co"># See how our factor coding impacts the model</span></span>
+<span id="cb81-8"><a href="#cb81-8"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(donated <span class="sc">~</span> wealth_levels, <span class="at">data =</span> donors, <span class="at">family =</span> <span class="st">"binomial"</span>) </span>
+<span id="cb81-9"><a href="#cb81-9"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; 
+#&gt; Call:
+#&gt; glm(formula = donated ~ wealth_levels, family = "binomial", data = donors)
+#&gt; 
+#&gt; Deviance Residuals: 
+#&gt;     Min       1Q   Median       3Q      Max  
+#&gt; -0.3320  -0.3243  -0.3175  -0.3175   2.4582  
+#&gt; 
+#&gt; Coefficients:
+#&gt;                      Estimate Std. Error z value Pr(&gt;|z|)    
+#&gt; (Intercept)          -2.91894    0.03614 -80.772   &lt;2e-16 ***
+#&gt; wealth_levelsUnknown -0.04373    0.04243  -1.031    0.303    
+#&gt; wealth_levelsLow     -0.05245    0.05332  -0.984    0.325    
+#&gt; wealth_levelsHigh     0.04804    0.04768   1.008    0.314    
+#&gt; ---
+#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#&gt; 
+#&gt; (Dispersion parameter for binomial family taken to be 1)
+#&gt; 
+#&gt;     Null deviance: 37330  on 93461  degrees of freedom
+#&gt; Residual deviance: 37323  on 93458  degrees of freedom
+#&gt; AIC: 37331
+#&gt; 
+#&gt; Number of Fisher Scoring iterations: 5</code></pre>
+</div>
 </div>
 <p>Great job! What would the model output have looked like if this variable had been left as a numeric column?</p>
 </section>
@@ -1291,24 +1575,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>summary()</code> on <code>donors$age</code> to find the average age of prospects with non-missing data.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Load data</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a>donors <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/donors.csv"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb30-3"><a href="#cb30-3"></a>              <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), as.integer),</span>
-<span id="cb30-4"><a href="#cb30-4"></a>                     <span class="fu">across</span>(<span class="fu">where</span>(is.character), as.factor))</span>
-<span id="cb30-5"><a href="#cb30-5"></a></span>
-<span id="cb30-6"><a href="#cb30-6"></a><span class="co"># Find the average age among non-missing values</span></span>
-<span id="cb30-7"><a href="#cb30-7"></a><span class="fu">summary</span>(donors<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a><span class="co"># Load data</span></span>
+<span id="cb83-2"><a href="#cb83-2"></a>donors <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/donors.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb83-3"><a href="#cb83-3"></a>              <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), as.integer),</span>
+<span id="cb83-4"><a href="#cb83-4"></a>                     <span class="fu">across</span>(<span class="fu">where</span>(is.character), as.factor))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Rows: 93462 Columns: 13
+#&gt; ── Column specification ────────────────────────────────────────────────────────
+#&gt; Delimiter: ","
+#&gt; chr  (3): recency, frequency, money
+#&gt; dbl (10): donated, veteran, bad_address, age, has_children, wealth_rating, i...
+#&gt; 
+#&gt; ℹ Use `spec()` to retrieve the full column specification for this data.
+#&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a><span class="co"># Find the average age among non-missing values</span></span>
+<span id="cb85-2"><a href="#cb85-2"></a><span class="fu">summary</span>(donors<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+#&gt;    1.00   48.00   62.00   61.65   75.00   98.00   22546</code></pre>
+</div>
 </div>
 <ol start="2" type="1">
 <li>Use <code>ifelse()</code> and the test <code>is.na(donors$age)</code> to impute the average (rounded to 2 decimal places) for cases with missing <code>age</code>. Be sure to also ignore <code>NA</code>s.</li>
 <li>Create a binary dummy variable named <code>missing_age</code> indicating the presence of missing data using another <code>ifelse()</code> call and the same test.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Impute missing age values with the mean age</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a>donors<span class="sc">$</span>imputed_age <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(donors<span class="sc">$</span>age), <span class="fu">round</span>(<span class="fu">mean</span>(donors<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>), donors<span class="sc">$</span>age)</span>
-<span id="cb31-3"><a href="#cb31-3"></a></span>
-<span id="cb31-4"><a href="#cb31-4"></a><span class="co"># Create missing value indicator for age</span></span>
-<span id="cb31-5"><a href="#cb31-5"></a>donors<span class="sc">$</span>missing_age <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(donors<span class="sc">$</span>age), <span class="dv">1</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a><span class="co"># Impute missing age values with the mean age</span></span>
+<span id="cb87-2"><a href="#cb87-2"></a>donors<span class="sc">$</span>imputed_age <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(donors<span class="sc">$</span>age), <span class="fu">round</span>(<span class="fu">mean</span>(donors<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>), donors<span class="sc">$</span>age)</span>
+<span id="cb87-3"><a href="#cb87-3"></a></span>
+<span id="cb87-4"><a href="#cb87-4"></a><span class="co"># Create missing value indicator for age</span></span>
+<span id="cb87-5"><a href="#cb87-5"></a>donors<span class="sc">$</span>missing_age <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(donors<span class="sc">$</span>age), <span class="dv">1</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Super! This is one way to handle missing data, but be careful! Sometimes missing data has to be dealt with using more complicated methods.</p>
 </section>
@@ -1337,29 +1634,73 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Examine the model’s <code>summary()</code> to confirm the interaction effect was added.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Build a recency, frequency, and money (RFM) model</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a>rfm_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(donated <span class="sc">~</span> recency <span class="sc">*</span> frequency <span class="sc">+</span> money, <span class="at">data =</span> donors, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb32-3"><a href="#cb32-3"></a></span>
-<span id="cb32-4"><a href="#cb32-4"></a><span class="co"># Summarize the RFM model to see how the parameters were coded</span></span>
-<span id="cb32-5"><a href="#cb32-5"></a><span class="fu">summary</span>(rfm_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a><span class="co"># Build a recency, frequency, and money (RFM) model</span></span>
+<span id="cb88-2"><a href="#cb88-2"></a>rfm_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(donated <span class="sc">~</span> recency <span class="sc">*</span> frequency <span class="sc">+</span> money, <span class="at">data =</span> donors, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb88-3"><a href="#cb88-3"></a></span>
+<span id="cb88-4"><a href="#cb88-4"></a><span class="co"># Summarize the RFM model to see how the parameters were coded</span></span>
+<span id="cb88-5"><a href="#cb88-5"></a><span class="fu">summary</span>(rfm_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; 
+#&gt; Call:
+#&gt; glm(formula = donated ~ recency * frequency + money, family = "binomial", 
+#&gt;     data = donors)
+#&gt; 
+#&gt; Deviance Residuals: 
+#&gt;     Min       1Q   Median       3Q      Max  
+#&gt; -0.3696  -0.3696  -0.2895  -0.2895   2.7924  
+#&gt; 
+#&gt; Coefficients:
+#&gt;                                   Estimate Std. Error z value Pr(&gt;|z|)    
+#&gt; (Intercept)                       -3.01142    0.04279 -70.375   &lt;2e-16 ***
+#&gt; recencyLAPSED                     -0.86677    0.41434  -2.092   0.0364 *  
+#&gt; frequencyINFREQUENT               -0.50148    0.03107 -16.143   &lt;2e-16 ***
+#&gt; moneyMEDIUM                        0.36186    0.04300   8.415   &lt;2e-16 ***
+#&gt; recencyLAPSED:frequencyINFREQUENT  1.01787    0.51713   1.968   0.0490 *  
+#&gt; ---
+#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+#&gt; 
+#&gt; (Dispersion parameter for binomial family taken to be 1)
+#&gt; 
+#&gt;     Null deviance: 37330  on 93461  degrees of freedom
+#&gt; Residual deviance: 36938  on 93457  degrees of freedom
+#&gt; AIC: 36948
+#&gt; 
+#&gt; Number of Fisher Scoring iterations: 6</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Save the model’s predicted probabilities as <code>rfm_prob</code>. Use the <code>predict()</code> function, and remember to set the <code>type</code> argument.</li>
 <li>Plot a ROC curve by using the function <code>roc()</code>. Remember, this function takes the column of outcomes and the vector of predictions.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Compute predicted probabilities for the RFM model</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a>rfm_prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(rfm_model, <span class="at">data =</span> donors, <span class="at">type =</span> <span class="st">"response"</span>)</span>
-<span id="cb33-3"><a href="#cb33-3"></a></span>
-<span id="cb33-4"><a href="#cb33-4"></a><span class="co"># Plot the ROC curve for the new model</span></span>
-<span id="cb33-5"><a href="#cb33-5"></a>ROC <span class="ot">&lt;-</span> <span class="fu">roc</span>(donors<span class="sc">$</span>donated, rfm_prob)</span>
-<span id="cb33-6"><a href="#cb33-6"></a><span class="fu">plot</span>(ROC, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="co"># Compute predicted probabilities for the RFM model</span></span>
+<span id="cb90-2"><a href="#cb90-2"></a>rfm_prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(rfm_model, <span class="at">data =</span> donors, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb90-3"><a href="#cb90-3"></a></span>
+<span id="cb90-4"><a href="#cb90-4"></a><span class="co"># Plot the ROC curve for the new model</span></span>
+<span id="cb90-5"><a href="#cb90-5"></a>ROC <span class="ot">&lt;-</span> <span class="fu">roc</span>(donors<span class="sc">$</span>donated, rfm_prob)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Setting levels: control = 0, case = 1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Setting direction: controls &lt; cases</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="fu">plot</span>(ROC, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-32-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <ol start="5" type="1">
 <li>Compute the AUC for the new model with the function <code>auc()</code> and compare performance to the simpler model.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">auc</span>(ROC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="fu">auc</span>(ROC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; Area under the curve: 0.5785</code></pre>
+</div>
 </div>
 <p>Great work! Based on the ROC curve, you’ve confirmed that past giving patterns are certainly predictive of future giving.</p>
 </section>
@@ -1396,22 +1737,168 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Plot the ROC curve with <code>roc()</code> and <code>plot()</code> and compute the AUC of the stepwise model with <code>auc()</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Specify a null model with no predictors</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a>null_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(donated <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> donors, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb35-3"><a href="#cb35-3"></a></span>
-<span id="cb35-4"><a href="#cb35-4"></a><span class="co"># Specify the full model using all of the potential predictors</span></span>
-<span id="cb35-5"><a href="#cb35-5"></a>full_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(donated <span class="sc">~</span> ., <span class="at">data =</span> donors, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
-<span id="cb35-6"><a href="#cb35-6"></a></span>
-<span id="cb35-7"><a href="#cb35-7"></a><span class="co"># Use a forward stepwise algorithm to build a parsimonious model</span></span>
-<span id="cb35-8"><a href="#cb35-8"></a>step_model <span class="ot">&lt;-</span> <span class="fu">step</span>(null_model, <span class="at">scope =</span> <span class="fu">list</span>(<span class="at">lower =</span> null_model, <span class="at">upper =</span> full_model), <span class="at">direction =</span> <span class="st">"forward"</span>)</span>
-<span id="cb35-9"><a href="#cb35-9"></a></span>
-<span id="cb35-10"><a href="#cb35-10"></a><span class="co"># Estimate the stepwise donation probability</span></span>
-<span id="cb35-11"><a href="#cb35-11"></a>step_prob  <span class="ot">&lt;-</span> <span class="fu">predict</span>(step_model, <span class="at">type =</span> <span class="st">"response"</span>)</span>
-<span id="cb35-12"><a href="#cb35-12"></a></span>
-<span id="cb35-13"><a href="#cb35-13"></a><span class="co"># Plot the ROC of the stepwise model</span></span>
-<span id="cb35-14"><a href="#cb35-14"></a>ROC <span class="ot">&lt;-</span> <span class="fu">roc</span>(donors<span class="sc">$</span>donated, step_prob)</span>
-<span id="cb35-15"><a href="#cb35-15"></a><span class="fu">plot</span>(ROC, <span class="at">col =</span> <span class="st">"red"</span>)</span>
-<span id="cb35-16"><a href="#cb35-16"></a><span class="fu">auc</span>(ROC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="co"># Specify a null model with no predictors</span></span>
+<span id="cb96-2"><a href="#cb96-2"></a>null_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(donated <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> donors, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb96-3"><a href="#cb96-3"></a></span>
+<span id="cb96-4"><a href="#cb96-4"></a><span class="co"># Specify the full model using all of the potential predictors</span></span>
+<span id="cb96-5"><a href="#cb96-5"></a>full_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(donated <span class="sc">~</span> ., <span class="at">data =</span> donors, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
+<span id="cb96-6"><a href="#cb96-6"></a></span>
+<span id="cb96-7"><a href="#cb96-7"></a><span class="co"># Use a forward stepwise algorithm to build a parsimonious model</span></span>
+<span id="cb96-8"><a href="#cb96-8"></a>step_model <span class="ot">&lt;-</span> <span class="fu">step</span>(null_model, <span class="at">scope =</span> <span class="fu">list</span>(<span class="at">lower =</span> null_model, <span class="at">upper =</span> full_model), <span class="at">direction =</span> <span class="st">"forward"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; Start:  AIC=37332.13
+#&gt; donated ~ 1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning in add1.glm(fit, scope$add, scale = scale, trace = trace, k = k, :
+#&gt; benutze 70916/93462 Zeilen aus einem kombinierten Fit</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;                     Df Deviance   AIC
+#&gt; + frequency          1    28502 37122
+#&gt; + money              1    28621 37241
+#&gt; + wealth_rating      1    28705 37326
+#&gt; + has_children       1    28705 37326
+#&gt; + age                1    28707 37328
+#&gt; + imputed_age        1    28707 37328
+#&gt; + interest_veterans  1    28709 37330
+#&gt; + catalog_shopper    1    28710 37330
+#&gt; + pet_owner          1    28711 37331
+#&gt; &lt;none&gt;                    28714 37332
+#&gt; + interest_religion  1    28712 37333
+#&gt; + recency            1    28713 37333
+#&gt; + bad_address        1    28714 37334
+#&gt; + veteran            1    28714 37334
+#&gt; 
+#&gt; Step:  AIC=37024.77
+#&gt; donated ~ frequency</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning in add1.glm(fit, scope$add, scale = scale, trace = trace, k = k, :
+#&gt; benutze 70916/93462 Zeilen aus einem kombinierten Fit</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;                     Df Deviance   AIC
+#&gt; + money              1    28441 36966
+#&gt; + wealth_rating      1    28493 37018
+#&gt; + has_children       1    28494 37019
+#&gt; + interest_veterans  1    28498 37023
+#&gt; + catalog_shopper    1    28499 37024
+#&gt; + age                1    28499 37024
+#&gt; + imputed_age        1    28499 37024
+#&gt; + pet_owner          1    28499 37024
+#&gt; &lt;none&gt;                    28502 37025
+#&gt; + interest_religion  1    28501 37026
+#&gt; + recency            1    28501 37026
+#&gt; + bad_address        1    28502 37026
+#&gt; + veteran            1    28502 37027
+#&gt; 
+#&gt; Step:  AIC=36949.71
+#&gt; donated ~ frequency + money</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning in add1.glm(fit, scope$add, scale = scale, trace = trace, k = k, :
+#&gt; benutze 70916/93462 Zeilen aus einem kombinierten Fit</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;                     Df Deviance   AIC
+#&gt; + wealth_rating      1    28431 36942
+#&gt; + has_children       1    28432 36943
+#&gt; + interest_veterans  1    28438 36948
+#&gt; + catalog_shopper    1    28438 36949
+#&gt; + age                1    28438 36949
+#&gt; + imputed_age        1    28438 36949
+#&gt; + pet_owner          1    28439 36949
+#&gt; &lt;none&gt;                    28441 36950
+#&gt; + interest_religion  1    28440 36951
+#&gt; + recency            1    28440 36951
+#&gt; + bad_address        1    28441 36951
+#&gt; + veteran            1    28441 36952
+#&gt; 
+#&gt; Step:  AIC=36945.26
+#&gt; donated ~ frequency + money + wealth_rating</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning in add1.glm(fit, scope$add, scale = scale, trace = trace, k = k, :
+#&gt; benutze 70916/93462 Zeilen aus einem kombinierten Fit</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;                     Df Deviance   AIC
+#&gt; + has_children       1    28421 36937
+#&gt; + interest_veterans  1    28429 36945
+#&gt; + catalog_shopper    1    28429 36945
+#&gt; + age                1    28429 36945
+#&gt; + imputed_age        1    28429 36945
+#&gt; &lt;none&gt;                    28431 36945
+#&gt; + pet_owner          1    28430 36945
+#&gt; + interest_religion  1    28431 36947
+#&gt; + recency            1    28431 36947
+#&gt; + bad_address        1    28431 36947
+#&gt; + veteran            1    28431 36947
+#&gt; 
+#&gt; Step:  AIC=36938.08
+#&gt; donated ~ frequency + money + wealth_rating + has_children</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning in add1.glm(fit, scope$add, scale = scale, trace = trace, k = k, :
+#&gt; benutze 70916/93462 Zeilen aus einem kombinierten Fit</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;                     Df Deviance   AIC
+#&gt; + pet_owner          1    28418 36937
+#&gt; + catalog_shopper    1    28418 36937
+#&gt; + interest_veterans  1    28418 36937
+#&gt; &lt;none&gt;                    28421 36938
+#&gt; + interest_religion  1    28420 36939
+#&gt; + recency            1    28421 36940
+#&gt; + age                1    28421 36940
+#&gt; + imputed_age        1    28421 36940
+#&gt; + bad_address        1    28421 36940
+#&gt; + veteran            1    28421 36940
+#&gt; 
+#&gt; Step:  AIC=36932.08
+#&gt; donated ~ frequency + money + wealth_rating + has_children + 
+#&gt;     pet_owner</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning in add1.glm(fit, scope$add, scale = scale, trace = trace, k = k, :
+#&gt; benutze 70916/93462 Zeilen aus einem kombinierten Fit</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;                     Df Deviance   AIC
+#&gt; &lt;none&gt;                    28418 36932
+#&gt; + interest_veterans  1    28416 36932
+#&gt; + catalog_shopper    1    28416 36932
+#&gt; + age                1    28417 36933
+#&gt; + imputed_age        1    28417 36933
+#&gt; + recency            1    28417 36934
+#&gt; + interest_religion  1    28417 36934
+#&gt; + bad_address        1    28418 36934
+#&gt; + veteran            1    28418 36934</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a><span class="co"># Estimate the stepwise donation probability</span></span>
+<span id="cb110-2"><a href="#cb110-2"></a>step_prob  <span class="ot">&lt;-</span> <span class="fu">predict</span>(step_model, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb110-3"><a href="#cb110-3"></a></span>
+<span id="cb110-4"><a href="#cb110-4"></a><span class="co"># Plot the ROC of the stepwise model</span></span>
+<span id="cb110-5"><a href="#cb110-5"></a>ROC <span class="ot">&lt;-</span> <span class="fu">roc</span>(donors<span class="sc">$</span>donated, step_prob)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Setting levels: control = 0, case = 1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Setting direction: controls &lt; cases</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1"></a><span class="fu">plot</span>(ROC, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-34-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a><span class="fu">auc</span>(ROC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; Area under the curve: 0.5855</code></pre>
+</div>
 </div>
 <p>Fantastic work! Despite the caveats of stepwise regression, it seems to have resulted in a relatively strong model!</p>
 </section>
@@ -1457,38 +1944,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Load the rpart package</span></span>
-<span id="cb36-2"><a href="#cb36-2"></a><span class="fu">library</span>(rpart)</span>
-<span id="cb36-3"><a href="#cb36-3"></a><span class="fu">library</span>(forcats)</span>
-<span id="cb36-4"><a href="#cb36-4"></a></span>
-<span id="cb36-5"><a href="#cb36-5"></a><span class="co"># Load data</span></span>
-<span id="cb36-6"><a href="#cb36-6"></a>loans <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/loans.csv"</span>, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">.default =</span> <span class="st">"f"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb36-7"><a href="#cb36-7"></a>            <span class="fu">filter</span>(keep <span class="sc">==</span> <span class="st">"1"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb36-8"><a href="#cb36-8"></a>            <span class="fu">mutate</span>(<span class="at">outcome =</span> default <span class="sc">|&gt;</span> <span class="fu">fct_recode</span>(<span class="at">default =</span> <span class="st">"1"</span>, <span class="at">repaid =</span> <span class="st">"0"</span>) <span class="sc">|&gt;</span> <span class="fu">fct_rev</span>()) <span class="sc">|&gt;</span> </span>
-<span id="cb36-9"><a href="#cb36-9"></a>            <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(keep, rand, default))</span>
-<span id="cb36-10"><a href="#cb36-10"></a></span>
-<span id="cb36-11"><a href="#cb36-11"></a><span class="co"># Build a lending model predicting loan outcome versus loan amount and credit score</span></span>
-<span id="cb36-12"><a href="#cb36-12"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">rpart</span>(outcome <span class="sc">~</span> loan_amount <span class="sc">+</span> credit_score, <span class="at">data =</span> loans, <span class="at">method =</span> <span class="st">"class"</span>, <span class="at">control =</span> <span class="fu">rpart.control</span>(<span class="at">cp =</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a><span class="co"># Load the rpart package</span></span>
+<span id="cb116-2"><a href="#cb116-2"></a><span class="fu">library</span>(rpart)</span>
+<span id="cb116-3"><a href="#cb116-3"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb116-4"><a href="#cb116-4"></a></span>
+<span id="cb116-5"><a href="#cb116-5"></a><span class="co"># Load data</span></span>
+<span id="cb116-6"><a href="#cb116-6"></a>loans <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/loans.csv"</span>, <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">.default =</span> <span class="st">"f"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb116-7"><a href="#cb116-7"></a>            <span class="fu">filter</span>(keep <span class="sc">==</span> <span class="st">"1"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb116-8"><a href="#cb116-8"></a>            <span class="fu">mutate</span>(<span class="at">outcome =</span> default <span class="sc">|&gt;</span> <span class="fu">fct_recode</span>(<span class="at">default =</span> <span class="st">"1"</span>, <span class="at">repaid =</span> <span class="st">"0"</span>) <span class="sc">|&gt;</span> <span class="fu">fct_rev</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb116-9"><a href="#cb116-9"></a>            <span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(keep, rand, default))</span>
+<span id="cb116-10"><a href="#cb116-10"></a></span>
+<span id="cb116-11"><a href="#cb116-11"></a><span class="co"># Build a lending model predicting loan outcome versus loan amount and credit score</span></span>
+<span id="cb116-12"><a href="#cb116-12"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">rpart</span>(outcome <span class="sc">~</span> loan_amount <span class="sc">+</span> credit_score, <span class="at">data =</span> loans, <span class="at">method =</span> <span class="st">"class"</span>, <span class="at">control =</span> <span class="fu">rpart.control</span>(<span class="at">cp =</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Use <code>predict()</code> with the resulting loan model to predict the outcome for the <code>good_credit</code> applicant. Use the <code>type</code> argument to predict the <code>"class"</code> of the outcome.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Create good_credit applicant</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a>good_credit <span class="ot">&lt;-</span> loans <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">8</span>)</span>
-<span id="cb37-3"><a href="#cb37-3"></a></span>
-<span id="cb37-4"><a href="#cb37-4"></a><span class="co"># Make a prediction for someone with good credit</span></span>
-<span id="cb37-5"><a href="#cb37-5"></a><span class="fu">predict</span>(loan_model, good_credit, <span class="at">type =</span> <span class="st">"class"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1"></a><span class="co"># Create good_credit applicant</span></span>
+<span id="cb117-2"><a href="#cb117-2"></a>good_credit <span class="ot">&lt;-</span> loans <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">8</span>)</span>
+<span id="cb117-3"><a href="#cb117-3"></a></span>
+<span id="cb117-4"><a href="#cb117-4"></a><span class="co"># Make a prediction for someone with good credit</span></span>
+<span id="cb117-5"><a href="#cb117-5"></a><span class="fu">predict</span>(loan_model, good_credit, <span class="at">type =</span> <span class="st">"class"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;      1 
+#&gt; repaid 
+#&gt; Levels: default repaid</code></pre>
+</div>
 </div>
 <ol start="4" type="1">
 <li>Do the same for the <code>bad_credit</code> applicant.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Create bad_credit applicant</span></span>
-<span id="cb38-2"><a href="#cb38-2"></a>bad_credit <span class="ot">&lt;-</span> loans <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">3</span>)</span>
-<span id="cb38-3"><a href="#cb38-3"></a></span>
-<span id="cb38-4"><a href="#cb38-4"></a><span class="co"># Make a prediction for someone with bad credit</span></span>
-<span id="cb38-5"><a href="#cb38-5"></a><span class="fu">predict</span>(loan_model, bad_credit, <span class="at">type =</span> <span class="st">"class"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1"></a><span class="co"># Create bad_credit applicant</span></span>
+<span id="cb119-2"><a href="#cb119-2"></a>bad_credit <span class="ot">&lt;-</span> loans <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">3</span>)</span>
+<span id="cb119-3"><a href="#cb119-3"></a></span>
+<span id="cb119-4"><a href="#cb119-4"></a><span class="co"># Make a prediction for someone with bad credit</span></span>
+<span id="cb119-5"><a href="#cb119-5"></a><span class="fu">predict</span>(loan_model, bad_credit, <span class="at">type =</span> <span class="st">"class"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;       1 
+#&gt; default 
+#&gt; Levels: default repaid</code></pre>
+</div>
 </div>
 <p>Great job! Growing a decision tree is certainly faster than growing a real tree!</p>
 </section>
@@ -1503,21 +2000,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Apply the <code>rpart.plot()</code> function to the loan model to visualize the tree.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Examine the loan_model object</span></span>
-<span id="cb39-2"><a href="#cb39-2"></a>loan_model</span>
-<span id="cb39-3"><a href="#cb39-3"></a></span>
-<span id="cb39-4"><a href="#cb39-4"></a><span class="co"># Load the rpart.plot package</span></span>
-<span id="cb39-5"><a href="#cb39-5"></a><span class="fu">library</span>(rpart.plot)</span>
-<span id="cb39-6"><a href="#cb39-6"></a></span>
-<span id="cb39-7"><a href="#cb39-7"></a><span class="co"># Plot the loan_model with default settings</span></span>
-<span id="cb39-8"><a href="#cb39-8"></a><span class="fu">rpart.plot</span>(loan_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1"></a><span class="co"># Examine the loan_model object</span></span>
+<span id="cb121-2"><a href="#cb121-2"></a>loan_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; n= 11312 
+#&gt; 
+#&gt; node), split, n, loss, yval, (yprob)
+#&gt;       * denotes terminal node
+#&gt; 
+#&gt;  1) root 11312 5654 repaid (0.4998232 0.5001768)  
+#&gt;    2) credit_score=AVERAGE,LOW 9490 4437 default (0.5324552 0.4675448)  
+#&gt;      4) credit_score=LOW 1667  631 default (0.6214757 0.3785243) *
+#&gt;      5) credit_score=AVERAGE 7823 3806 default (0.5134859 0.4865141)  
+#&gt;       10) loan_amount=HIGH 2472 1079 default (0.5635113 0.4364887) *
+#&gt;       11) loan_amount=LOW,MEDIUM 5351 2624 repaid (0.4903756 0.5096244)  
+#&gt;         22) loan_amount=LOW 1810  874 default (0.5171271 0.4828729) *
+#&gt;         23) loan_amount=MEDIUM 3541 1688 repaid (0.4767015 0.5232985) *
+#&gt;    3) credit_score=HIGH 1822  601 repaid (0.3298573 0.6701427) *</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1"></a><span class="co"># Load the rpart.plot package</span></span>
+<span id="cb123-2"><a href="#cb123-2"></a><span class="fu">library</span>(rpart.plot)</span>
+<span id="cb123-3"><a href="#cb123-3"></a></span>
+<span id="cb123-4"><a href="#cb123-4"></a><span class="co"># Plot the loan_model with default settings</span></span>
+<span id="cb123-5"><a href="#cb123-5"></a><span class="fu">rpart.plot</span>(loan_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-38-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <ol start="4" type="1">
 <li>See how changing other plotting parameters impacts the visualization by running the supplied command.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># Plot the loan_model with customized settings</span></span>
-<span id="cb40-2"><a href="#cb40-2"></a><span class="fu">rpart.plot</span>(loan_model, <span class="at">type =</span> <span class="dv">3</span>, <span class="at">box.palette =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"green"</span>), <span class="at">fallen.leaves =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1"></a><span class="co"># Plot the loan_model with customized settings</span></span>
+<span id="cb124-2"><a href="#cb124-2"></a><span class="fu">rpart.plot</span>(loan_model, <span class="at">type =</span> <span class="dv">3</span>, <span class="at">box.palette =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"green"</span>), <span class="at">fallen.leaves =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-39-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <p>Awesome! What do you think of the fancy visualization?</p>
 </section>
@@ -1569,8 +2095,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Apply the <code>nrow()</code> function to determine how many observations are in the <code>loans</code> dataset, and the number needed for a 75% sample.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Determine the number of rows for training</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">nrow</span>(loans) <span class="sc">*</span> <span class="fl">0.75</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1"></a><span class="co"># Determine the number of rows for training</span></span>
+<span id="cb125-2"><a href="#cb125-2"></a><span class="fu">nrow</span>(loans) <span class="sc">*</span> <span class="fl">0.75</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 8484</code></pre>
+</div>
 </div>
 <ol start="2" type="1">
 <li>Use the <code>sample()</code> function to create an integer vector of row IDs for the 75% sample. The first argument of <code>sample()</code> should be the number of rows in the data set, and the second is the number of rows you need in your training set.</li>
@@ -1578,14 +2107,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Subset <code>loans</code> again, but this time select all the rows that are <em>not</em> in <code>sample_rows</code>. Save this as <code>loans_test</code></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Create a random sample of row IDs</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a>sample_rows <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(loans), <span class="fu">nrow</span>(loans) <span class="sc">*</span> <span class="fl">0.75</span>)</span>
-<span id="cb42-3"><a href="#cb42-3"></a></span>
-<span id="cb42-4"><a href="#cb42-4"></a><span class="co"># Create the training dataset</span></span>
-<span id="cb42-5"><a href="#cb42-5"></a>loans_train <span class="ot">&lt;-</span> loans[sample_rows, ]</span>
-<span id="cb42-6"><a href="#cb42-6"></a></span>
-<span id="cb42-7"><a href="#cb42-7"></a><span class="co"># Create the test dataset</span></span>
-<span id="cb42-8"><a href="#cb42-8"></a>loans_test <span class="ot">&lt;-</span> loans[<span class="sc">-</span>sample_rows, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1"></a><span class="co"># Create a random sample of row IDs</span></span>
+<span id="cb127-2"><a href="#cb127-2"></a>sample_rows <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(loans), <span class="fu">nrow</span>(loans) <span class="sc">*</span> <span class="fl">0.75</span>)</span>
+<span id="cb127-3"><a href="#cb127-3"></a></span>
+<span id="cb127-4"><a href="#cb127-4"></a><span class="co"># Create the training dataset</span></span>
+<span id="cb127-5"><a href="#cb127-5"></a>loans_train <span class="ot">&lt;-</span> loans[sample_rows, ]</span>
+<span id="cb127-6"><a href="#cb127-6"></a></span>
+<span id="cb127-7"><a href="#cb127-7"></a><span class="co"># Create the test dataset</span></span>
+<span id="cb127-8"><a href="#cb127-8"></a>loans_test <span class="ot">&lt;-</span> loans[<span class="sc">-</span>sample_rows, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Amazing work! Creating a test set is an easy way to check your model’s performance.</p>
 </section>
@@ -1602,21 +2131,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a <code>table()</code> to compare the predicted values to the actual <code>outcome</code> values.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Grow a tree using all of the available applicant data</span></span>
-<span id="cb43-2"><a href="#cb43-2"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">rpart</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train, <span class="at">method =</span> <span class="st">"class"</span>, <span class="at">control =</span> <span class="fu">rpart.control</span>(<span class="at">cp =</span> <span class="dv">0</span>))</span>
-<span id="cb43-3"><a href="#cb43-3"></a></span>
-<span id="cb43-4"><a href="#cb43-4"></a><span class="co"># Make predictions on the test dataset</span></span>
-<span id="cb43-5"><a href="#cb43-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model, loans_test, <span class="at">type =</span> <span class="st">"class"</span>)</span>
-<span id="cb43-6"><a href="#cb43-6"></a></span>
-<span id="cb43-7"><a href="#cb43-7"></a><span class="co"># Examine the confusion matrix</span></span>
-<span id="cb43-8"><a href="#cb43-8"></a><span class="fu">table</span>(loans_test<span class="sc">$</span>pred, loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1"></a><span class="co"># Grow a tree using all of the available applicant data</span></span>
+<span id="cb128-2"><a href="#cb128-2"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">rpart</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train, <span class="at">method =</span> <span class="st">"class"</span>, <span class="at">control =</span> <span class="fu">rpart.control</span>(<span class="at">cp =</span> <span class="dv">0</span>))</span>
+<span id="cb128-3"><a href="#cb128-3"></a></span>
+<span id="cb128-4"><a href="#cb128-4"></a><span class="co"># Make predictions on the test dataset</span></span>
+<span id="cb128-5"><a href="#cb128-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model, loans_test, <span class="at">type =</span> <span class="st">"class"</span>)</span>
+<span id="cb128-6"><a href="#cb128-6"></a></span>
+<span id="cb128-7"><a href="#cb128-7"></a><span class="co"># Examine the confusion matrix</span></span>
+<span id="cb128-8"><a href="#cb128-8"></a><span class="fu">table</span>(loans_test<span class="sc">$</span>pred, loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;          
+#&gt;           default repaid
+#&gt;   default     738    630
+#&gt;   repaid      624    836</code></pre>
+</div>
 </div>
 <ol start="4" type="1">
 <li>Compute the accuracy of the predictions using the <code>mean()</code> function.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Compute the accuracy on the test dataset</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1"></a><span class="co"># Compute the accuracy on the test dataset</span></span>
+<span id="cb130-2"><a href="#cb130-2"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.5565771</code></pre>
+</div>
 </div>
 <p>Awesome! How did adding more predictors change the model’s performance?</p>
 </section>
@@ -1659,25 +2197,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># Grow a tree with maxdepth of 6</span></span>
-<span id="cb45-2"><a href="#cb45-2"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">rpart</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train, <span class="at">method =</span> <span class="st">"class"</span>, <span class="at">control =</span> <span class="fu">rpart.control</span>(<span class="at">cp =</span> <span class="dv">0</span>, <span class="at">maxdepth =</span> <span class="dv">6</span>))</span>
-<span id="cb45-3"><a href="#cb45-3"></a></span>
-<span id="cb45-4"><a href="#cb45-4"></a><span class="co"># Make a class prediction on the test set</span></span>
-<span id="cb45-5"><a href="#cb45-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model, loans_test, <span class="at">type =</span> <span class="st">"class"</span>)</span>
-<span id="cb45-6"><a href="#cb45-6"></a></span>
-<span id="cb45-7"><a href="#cb45-7"></a><span class="co"># Compute the accuracy of the simpler tree</span></span>
-<span id="cb45-8"><a href="#cb45-8"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1"></a><span class="co"># Grow a tree with maxdepth of 6</span></span>
+<span id="cb132-2"><a href="#cb132-2"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">rpart</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train, <span class="at">method =</span> <span class="st">"class"</span>, <span class="at">control =</span> <span class="fu">rpart.control</span>(<span class="at">cp =</span> <span class="dv">0</span>, <span class="at">maxdepth =</span> <span class="dv">6</span>))</span>
+<span id="cb132-3"><a href="#cb132-3"></a></span>
+<span id="cb132-4"><a href="#cb132-4"></a><span class="co"># Make a class prediction on the test set</span></span>
+<span id="cb132-5"><a href="#cb132-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model, loans_test, <span class="at">type =</span> <span class="st">"class"</span>)</span>
+<span id="cb132-6"><a href="#cb132-6"></a></span>
+<span id="cb132-7"><a href="#cb132-7"></a><span class="co"># Compute the accuracy of the simpler tree</span></span>
+<span id="cb132-8"><a href="#cb132-8"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.5792079</code></pre>
+</div>
 </div>
 <ol start="3" type="1">
 <li>In the model controls, remove <code>maxdepth</code> and add a minimum split parameter, <code>minsplit</code>, set to <code>500</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Swap maxdepth for a minimum split of 500 </span></span>
-<span id="cb46-2"><a href="#cb46-2"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">rpart</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train, <span class="at">method =</span> <span class="st">"class"</span>, <span class="at">control =</span> <span class="fu">rpart.control</span>(<span class="at">cp =</span> <span class="dv">0</span>, <span class="at">minsplit =</span> <span class="dv">500</span>))</span>
-<span id="cb46-3"><a href="#cb46-3"></a></span>
-<span id="cb46-4"><a href="#cb46-4"></a><span class="co"># Run this. How does the accuracy change?</span></span>
-<span id="cb46-5"><a href="#cb46-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model, loans_test, <span class="at">type =</span> <span class="st">"class"</span>)</span>
-<span id="cb46-6"><a href="#cb46-6"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1"></a><span class="co"># Swap maxdepth for a minimum split of 500 </span></span>
+<span id="cb134-2"><a href="#cb134-2"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">rpart</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train, <span class="at">method =</span> <span class="st">"class"</span>, <span class="at">control =</span> <span class="fu">rpart.control</span>(<span class="at">cp =</span> <span class="dv">0</span>, <span class="at">minsplit =</span> <span class="dv">500</span>))</span>
+<span id="cb134-3"><a href="#cb134-3"></a></span>
+<span id="cb134-4"><a href="#cb134-4"></a><span class="co"># Run this. How does the accuracy change?</span></span>
+<span id="cb134-5"><a href="#cb134-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model, loans_test, <span class="at">type =</span> <span class="st">"class"</span>)</span>
+<span id="cb134-6"><a href="#cb134-6"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.5770863</code></pre>
+</div>
 </div>
 <p>Nice work! It may seem surprising, but creating a simpler decision tree may actually result in greater performance on the test dataset.</p>
 </section>
@@ -1693,23 +2237,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a complexity plot by using <code>plotcp()</code> on the model.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Grow an overly complex tree</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">rpart</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train, <span class="at">method =</span> <span class="st">"class"</span>, <span class="at">control =</span> <span class="fu">rpart.control</span>(<span class="at">cp =</span> <span class="dv">0</span>))</span>
-<span id="cb47-3"><a href="#cb47-3"></a></span>
-<span id="cb47-4"><a href="#cb47-4"></a><span class="co"># Examine the complexity plot</span></span>
-<span id="cb47-5"><a href="#cb47-5"></a><span class="fu">plotcp</span>(loan_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1"></a><span class="co"># Grow an overly complex tree</span></span>
+<span id="cb136-2"><a href="#cb136-2"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">rpart</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train, <span class="at">method =</span> <span class="st">"class"</span>, <span class="at">control =</span> <span class="fu">rpart.control</span>(<span class="at">cp =</span> <span class="dv">0</span>))</span>
+<span id="cb136-3"><a href="#cb136-3"></a></span>
+<span id="cb136-4"><a href="#cb136-4"></a><span class="co"># Examine the complexity plot</span></span>
+<span id="cb136-5"><a href="#cb136-5"></a><span class="fu">plotcp</span>(loan_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-46-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" width="672"></a></p>
+</figure>
+</div>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Based on the complexity plot, prune the tree to a complexity of 0.0014 using the <code>prune()</code> function with the tree and the complexity parameter.</li>
 <li>Compare the accuracy of the pruned tree to the original accuracy of 58.3%. To calculate the accuracy use the <code>predict()</code> and <code>mean()</code> functions.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="co"># Prune the tree</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a>loan_model_pruned <span class="ot">&lt;-</span> <span class="fu">prune</span>(loan_model, <span class="at">cp =</span> <span class="fl">0.0014</span>)</span>
-<span id="cb48-3"><a href="#cb48-3"></a></span>
-<span id="cb48-4"><a href="#cb48-4"></a><span class="co"># Compute the accuracy of the pruned tree</span></span>
-<span id="cb48-5"><a href="#cb48-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model_pruned, loans_test, <span class="at">type =</span> <span class="st">"class"</span>)</span>
-<span id="cb48-6"><a href="#cb48-6"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1"></a><span class="co"># Prune the tree</span></span>
+<span id="cb137-2"><a href="#cb137-2"></a>loan_model_pruned <span class="ot">&lt;-</span> <span class="fu">prune</span>(loan_model, <span class="at">cp =</span> <span class="fl">0.0014</span>)</span>
+<span id="cb137-3"><a href="#cb137-3"></a></span>
+<span id="cb137-4"><a href="#cb137-4"></a><span class="co"># Compute the accuracy of the pruned tree</span></span>
+<span id="cb137-5"><a href="#cb137-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model_pruned, loans_test, <span class="at">type =</span> <span class="st">"class"</span>)</span>
+<span id="cb137-6"><a href="#cb137-6"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.5834512</code></pre>
+</div>
 </div>
 <p>Great job! As with pre-pruning, creating a simpler tree actually improved the performance of the tree on the test dataset.</p>
 </section>
@@ -1758,15 +2312,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Compute the accuracy of the random forest model to compare to the original tree’s accuracy of 58.3% using <code>predict()</code> and <code>mean()</code>.</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># Load the randomForest package</span></span>
-<span id="cb49-2"><a href="#cb49-2"></a><span class="fu">library</span>(randomForest)</span>
-<span id="cb49-3"><a href="#cb49-3"></a></span>
-<span id="cb49-4"><a href="#cb49-4"></a><span class="co"># Build a random forest model</span></span>
-<span id="cb49-5"><a href="#cb49-5"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train)</span>
-<span id="cb49-6"><a href="#cb49-6"></a></span>
-<span id="cb49-7"><a href="#cb49-7"></a><span class="co"># Compute the accuracy of the random forest</span></span>
-<span id="cb49-8"><a href="#cb49-8"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model, loans_test)</span>
-<span id="cb49-9"><a href="#cb49-9"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1"></a><span class="co"># Load the randomForest package</span></span>
+<span id="cb139-2"><a href="#cb139-2"></a><span class="fu">library</span>(randomForest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; randomForest 4.7-1.1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Type rfNews() to see new features/changes/bug fixes.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; 
+#&gt; Attache Paket: 'randomForest'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Das folgende Objekt ist maskiert 'package:dplyr':
+#&gt; 
+#&gt;     combine</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1"></a><span class="co"># Build a random forest model</span></span>
+<span id="cb144-2"><a href="#cb144-2"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train)</span>
+<span id="cb144-3"><a href="#cb144-3"></a></span>
+<span id="cb144-4"><a href="#cb144-4"></a><span class="co"># Compute the accuracy of the random forest</span></span>
+<span id="cb144-5"><a href="#cb144-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model, loans_test)</span>
+<span id="cb144-6"><a href="#cb144-6"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; [1] 0.5795615</code></pre>
+</div>
 </div>
 <p>Wow! Great job! Now you’re really a classification pro! Classification is only one of the problems you’ll have to tackle as a data scientist. Check out some other machine learning courses to learn more about supervised and unsupervised learning.</p>
 
@@ -2039,6 +2610,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"loop":true,"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","descPosition":"bottom"});</script>
 
 
 
