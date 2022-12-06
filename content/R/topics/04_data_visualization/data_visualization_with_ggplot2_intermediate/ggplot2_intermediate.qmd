@@ -281,15 +281,15 @@ ggplot(Vocab, aes(x = education, y = vocabulary, color = year_group)) +
 
     * Update the smooth stat.
       - Map the fill color to `year_group`.
-      - Set the line size to `2`.
+      - Set the line linewidth to `2`.
 
 ```{r}
 #| message: false
 # Amend the plot
 ggplot(Vocab, aes(x = education, y = vocabulary, color = year_group)) +
   geom_jitter(alpha = 0.25) +
-  # Map the fill color to year_group, set the line size to 2
-  stat_smooth(aes(fill = year_group), method = "lm", size = 2)
+  # Map the fill color to year_group, set the linewidth size to 2
+  stat_smooth(aes(fill = year_group), method = "lm", linewidth = 2)
 ```
 
 You have a vast plotting vocabulary! Notice that since 1995, education has relatively smaller effect on increasing vocabulary.

@@ -25,14 +25,14 @@ theme_tie <- function(
     ggplot2::theme(
       line = ggplot2::element_line(
         colour = color_value,
-        size = base_line_size,
+        linewidth = base_line_size,
         linetype = 1,
         lineend = "butt"
       ),
       rect = ggplot2::element_rect(
         fill = color_value,
         colour = color_value,
-        size = base_rect_size,
+        linewidth = base_rect_size,
         linetype = 1
       ),
       text = ggplot2::element_text(
@@ -188,27 +188,30 @@ theme_tie <- function(
 }
 
 # 3. color settings
-# ggplot2::update_geom_defaults("point", list(colour = ggplot2::theme_get()$line$colour))
-# options(
-#   ggplot2.discrete.colour = function(...) ggplot2::scale_colour_viridis_d(..., begin = 0.15, end = 0.85),
-#   ggplot2.discrete.fill = function(...) ggplot2::scale_fill_viridis_d(..., begin = 0.15, end = 0.85),
-#   ggplot2.continuous.colour = function(...) ggplot2::scale_colour_viridis_c(..., begin = 0.15, end = 0.85),
-#   ggplot2.continuous.fill = function(...) ggplot2::scale_fill_viridis_c(..., begin = 0.15, end = 0.85)
-# )
-
-# Using ggthemr
 # tuhh_colors <- c("#FFFFFF", "#00C1D4", "#FF4F4F", "#5AFFC5","#FFDE36", "#143BFF", "#FF7E15", "#FFAEA2","#A8968C", "#D0D0CE", "#000000")
-tuhh_colors <- c("#FFFFFF", "#00C1D4", "#FF7E15", "#7200FE", "#FF4F4F", "#5AFFC5","#FFDE36", "#143BFF", "#FFAEA2","#A8968C", "#D0D0CE", "#000000")
+# tuhh_colors <- c("#FFFFFF", "#00C1D4", "#FF7E15", "#7200FE", "#FF4F4F", "#5AFFC5","#FFDE36", "#143BFF", "#FFAEA2","#A8968C", "#D0D0CE", "#000000")
 # tuhh_colors <- c("#FFFFFF", "#00C1D4", "#7200FE", "#5AFFC5", "#143BFF", "#FF4F4F", "#FFDE36", "#FF7E15", "#FFAEA2", "#D0D0CE", "#A8968C", "#000000")
+tuhh_colors <- c("#00C1D4", "#FF7E15", "#FF4F4F", "#7200FE", "#5AFFC5","#FFDE36", "#143BFF", "#FFAEA2","#A8968C", "#D0D0CE", "#000000")
 
-# set theme
-ggthemr::ggthemr(
-  ggthemr::define_palette(
-    swatch = tuhh_colors,
-    gradient = c(lower = "#FFAEA2", upper = "#00C1D4")
-  ), 
-  type = "outer"
+ggplot2::update_geom_defaults("line", list(colour = "#00C1D4"))
+ggplot2::update_geom_defaults("point", list(colour = "#00C1D4"))
+ggplot2::update_geom_defaults("smooth", list(colour = "#005E73"))
+options(
+  ggplot2.discrete.colour = function(...)   ggplot2::scale_colour_manual(values = tuhh_colors),
+  ggplot2.discrete.fill = function(...)     ggplot2::scale_fill_manual(  values = tuhh_colors),
+  ggplot2.continuous.colour = function(...) ggplot2::scale_color_gradient(low   = "#00C1D4", high = "#FF4F4F"),
+  ggplot2.continuous.fill = function(...)   ggplot2::scale_fill_gradient( low   = "#00C1D4", high = "#FF4F4F")
 )
+
+# 2. Using ggthemr
+# set theme
+# ggthemr::ggthemr(
+#   ggthemr::define_palette(
+#     swatch = tuhh_colors,
+#     gradient = c(lower = "#FFAEA2", upper = "#00C1D4")
+#   ), 
+#   type = "outer"
+# )
 
 knitr::opts_chunk$set(dev.args  = list(bg="transparent"),
                       fig.align = "center")
