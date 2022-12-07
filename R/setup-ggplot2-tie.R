@@ -188,23 +188,18 @@ theme_tie <- function(
 }
 
 # 3. color settings
-tuhh_colors <- c("#00C1D4", "#FF7E15", "#FF4F4F", "#7200FE", "#5AFFC5","#FFDE36", "#143BFF", "#FFAEA2","#A8968C", "#D0D0CE", "#000000")
-tuhh_colors_ordered <- c("#7200FE", "#143BFF", "#00C1D4", "#5AFFC5", "#FFDE36", "#FF7E15", "#FFAEA2", "#FF4F4F")
-tuhh_colors_ordered_rev <- c("#FF4F4F", "#FFAEA2", "#FF7E15", "#FFDE36", "#5AFFC5", "#00C1D4", "#143BFF", "#7200FE")
-
-
 palette_tie <- {
   
   palette <- list(
     categorical = list(
       c("#00C1D4"),
-      c("#00C1D4", "#7200FE"),
-      c("#00C1D4", "#7200FE", "#FF4F4F"),
-      c("#00C1D4", "#7200FE", "#FF4F4F", "#5AFFC5"),
-      c("#00C1D4", "#7200FE", "#FF4F4F", "#5AFFC5", "#FFDE36"),
-      c("#00C1D4", "#7200FE", "#FF4F4F", "#5AFFC5", "#FFDE36", "#143BFF"),
-      c("#00C1D4", "#7200FE", "#FF4F4F", "#5AFFC5", "#FFDE36", "#143BFF", "#FF7E15"),
-      c("#00C1D4", "#7200FE", "#FF4F4F", "#5AFFC5", "#FFDE36", "#143BFF", "#FF7E15", "#FFAEA2")
+      c("#00C1D4", "#FF4F4F"),
+      c("#00C1D4", "#FF4F4F", "#7200FE"),
+      c("#00C1D4", "#FF4F4F", "#7200FE", "#5AFFC5"),
+      c("#00C1D4", "#FF4F4F", "#7200FE", "#5AFFC5", "#FFDE36"),
+      c("#00C1D4", "#FF4F4F", "#7200FE", "#5AFFC5", "#FFDE36", "#143BFF"),
+      c("#00C1D4", "#FF4F4F", "#7200FE", "#5AFFC5", "#FFDE36", "#143BFF", "#FF7E15"),
+      c("#00C1D4", "#FF4F4F", "#7200FE", "#5AFFC5", "#FFDE36", "#143BFF", "#FF7E15", "#FFAEA2")
     ),
     
     sequential = list(
@@ -247,75 +242,95 @@ tie_color_pal <- function(palette = "categorical") {
   }
 }
 
-# Color Geoms
+# add base_family font to text and label geoms ---------------------------
+library(ggrepel)
+ggplot2::update_geom_defaults("text",        list(size = 1 / 0.352777778)) # family = base_family
+ggplot2::update_geom_defaults("label",       list(size = 1 / 0.352777778)) # family = base_family
+ggplot2::update_geom_defaults("text_repel",  list(size = 1 / 0.352777778)) # family = base_family
+ggplot2::update_geom_defaults("label_repel", list(size = 1 / 0.352777778)) # family = base_family
+
+# set defaults for geoms --------------------------------------------------
 geom_colors <- tibble::tibble(
-  geom  = c("line", "point", "smooth", "quantile", "errorbar", "vline", "hline"),
-  color = c("#00C1D4", "#00C1D4", "#005E73", "#005E73", "#FFFFFF", "#FFFFFF", "#FFFFFF") 
+  geom      = c("bar",     "boxplot", "col",     "density", "errorbar", "hline",   "line",    "path",    "point",   "sf",      "smooth",  "step",    "quantile", "violin", "vline"),
+  color     = c("#FFFFFF", NA,        "#FFFFFF", NA,        "#FFFFFF",  "#FFFFFF", "#00C1D4", "#00C1D4", "#00C1D4", NA,        "#005E73", "#00C1D4", "#005E73",  NA,       "#FFFFFF"),
+  fill      = c("#00C1D4", "#00C1D4", "#00C1D4", "#00C1D4", NA,         NA,        NA,        NA,         NA,       "#00C1D4", "grey60",  NA,        NA,         "#00C1D4", NA),
+  size      = c(NA,        NA,        NA,        NA,        NA,         NA,        NA,        NA,         3,        NA,        NA,        NA,        NA,         NA,        NA),
+  linewidth = c(NA,        NA,        NA,        NA,        NA,         0.5,       0.5,       0.5,        NA,       NA,        1,         0.5,       0,          0,         0.5)
 )
-purrr::pwalk(geom_colors, ~ ggplot2::update_geom_defaults(..1, list(color = ..2)) )
+purrr::pwalk(geom_colors, ~ ggplot2::update_geom_defaults(..1, list(color = ..2, fill = ..3)))
 
-# Color Scales
-options(
-  ggplot2.discrete.colour = function(...) {
-    ggplot2::discrete_scale(
-      aesthetics = "colour",
-      scale_name = "tie",
-      palette = tie_color_pal("categorical"),
-      ...
-    )
-  },
-  ggplot2.discrete.fill = function(...) {
-    ggplot2::discrete_scale(
-      aesthetics = "fill",
-      scale_name = "tie",
-      palette = tie_color_pal("categorical"),
-      ...
-    )
-  },
-  ggplot2.continuous.colour = function(...,
-                                       colours = palette_tie$sequential[[8]],
-                                       colors = palette_tie$sequential[[8]],
-                                       values = NULL,
-                                       space = "Lab",
-                                       na.value = "grey50",
-                                       guide = "colourbar") {
-    
-    colours <- if (missing(colours)) colors else colours
-    
-    ggplot2::continuous_scale(
-      aesthetics = "colour",
-      scale_name = "gradientn",
-      palette = scales::gradient_n_pal(colours, values, space),
-      na.value = na.value,
-      guide = guide,
-      ...
-    )
-  },
-  ggplot2.continuous.fill = function(...,
-                                     colours = palette_tie$sequential[[8]],
-                                     colors = palette_tie$sequential[[8]],
-                                     values = NULL,
-                                     space = "Lab",
-                                     na.value = "grey50",
-                                     guide = "colourbar") {
-    
-    colours <- if (missing(colours)) colors else colours
-    
-    ggplot2::continuous_scale(
-      aesthetics = "fill",
-      scale_name = "gradientn",
-      palette = scales::gradient_n_pal(colours, values, space),
-      na.value = na.value,
-      guide = guide,
-      ...
-    )
-  }
-  # ggplot2.binned.colour = function(...)     ggplot2::scale_colour_manual(palette_tie$sequential[[8]]),
-  # ggplot2.binned.fill = function(...)       ggplot2::scale_fill_manual(  palette_tie$sequential[[8]])
+# set defaults for stats --------------------------------------------------
+stat_colors <- tibble::tibble(
+  stat = c("boxplot", "count", "density", "ydensity"),
+  fill = c("#00C1D4", "#00C1D4", "#00C1D4", "#00C1D4")
 )
+purrr::pwalk(stat_colors, ~ ggplot2::update_stat_defaults(..1, list(fill = ..2)))
 
-# Color scales for mapping with ordered factors
-# ggplot2.ordinal.fill, ggplot2.ordinal.color are not in usage
+# Color scales
+# Discrete color scale that aligns with the TIE style
+# These function can only handle up to 8 categories/colors.
+scale_color_discrete <- function(...) {
+  ggplot2::discrete_scale(
+    aesthetics = "colour",
+    scale_name = "tie",
+    palette = tie_color_pal("categorical"),
+    ...
+  )
+}
+scale_colour_discrete <- scale_color_discrete
+scale_fill_discrete <- function(...) {
+  ggplot2::discrete_scale(
+    aesthetics = "fill",
+    scale_name = "tie",
+    palette = tie_color_pal("categorical"),
+    ...
+  )
+}
+
+# Continuous fill scale that aligns with the TIE style
+scale_color_gradientn <- function(...,
+                                  colours = palette_tie$sequential[[8]],
+                                  colors = palette_tie$sequential[[8]],
+                                  values = NULL,
+                                  space = "Lab",
+                                  na.value = "grey50",
+                                  guide = "colourbar") {
+  
+  colours <- if (missing(colours)) colors else colours
+  
+  ggplot2::continuous_scale(
+    aesthetics = "colour",
+    scale_name = "gradientn",
+    palette = scales::gradient_n_pal(colours, values, space),
+    na.value = na.value,
+    guide = guide,
+    ...
+  )
+}
+scale_colour_gradientn <- scale_color_gradientn
+
+# Continuous fill scale that aligns with the Urban Institute style
+scale_fill_gradientn <- function(...,
+                                 colours = palette_tie$sequential[[8]],
+                                 colors = palette_tie$sequential[[8]],
+                                 values = NULL,
+                                 space = "Lab",
+                                 na.value = "grey50",
+                                 guide = "colourbar") {
+  
+  colours <- if (missing(colours)) colors else colours
+  
+  ggplot2::continuous_scale(
+    aesthetics = "fill",
+    scale_name = "gradientn",
+    palette = scales::gradient_n_pal(colours, values, space),
+    na.value = na.value,
+    guide = guide,
+    ...
+  )
+}
+
+# Discrete fill scale for ordinal factors that aligns with the TIE style
 scale_fill_ordinal <- function(...) {
   ggplot2::discrete_scale(
     aesthetics = "fill",
@@ -324,6 +339,8 @@ scale_fill_ordinal <- function(...) {
     ...
   )
 }
+
+# Discrete color scale for ordinal factors that aligns with the TIE style
 scale_color_ordinal <- function(...) {
   ggplot2::discrete_scale(
     aesthetics = "color",
@@ -334,6 +351,17 @@ scale_color_ordinal <- function(...) {
 }
 scale_colour_ordinal <- scale_color_ordinal
 
+# set default color scales ------------------------------------------------
+options(
+  ggplot2.continuous.colour = scale_color_gradientn,
+  ggplot2.continuous.fill   = scale_fill_gradientn
+  # ggplot2.discrete.colour
+  # ggplot2.discrete.fill
+  # ggplot2.binned.colour
+  # ggplot2.binned.fill
+)
+
 knitr::opts_chunk$set(dev.args  = list(bg="transparent"),
                       fig.align = "center")
+
 ggplot2::theme_set(theme_tie())
