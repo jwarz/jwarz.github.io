@@ -1,0 +1,2683 @@
+---
+title: "Introduction to Data Visualization with ggplot2"
+author: "Joschka Schwarz"
+---
+  
+```{r}
+#| include: false
+source(here::here("R/setup-ggplot2-tie.R"))
+options(dplyr.summarise.inform = FALSE)
+```
+
+The ability to produce meaningful and beautiful data visualizations is an essential part of your skill set as a data scientist. This course, the first R data visualization tutorial in the series, introduces you to the principles of good visualizations and the grammar of graphics plotting concepts implemented in the ggplot2 package. ggplot2 has become the go-to tool for flexible and professional plots in R. Here, we’ll examine the first three essential layers for making a plot - Data, Aesthetics and Geometries. By the end of the course you will be able to make complex exploratory plots.
+
+# 1. Introduction
+
+In this chapter we’ll get you into the right frame of mind for developing meaningful visualizations with R. You’ll understand that as a communications tool, visualizations require you to think about your audience first. You’ll also be introduced to the basics of ggplot2 - the 7 different grammatical elements (layers) and aesthetic mappings.
+
+### Introduction
+
+Theory. Coming soon ...
+
+**1. Introduction**
+
+Hi and welcome the first course in DataCamp's data visualization with ggplot2 series!
+
+**2. Your instructor - Rick Scavetta**
+
+My name is Rick Scavetta and I'll be the instructor for this series.I've been training scientists on how to better understand and visualize their data since 2012. I'm very excited to bring my experience to DataCamp.So what is data viz?
+
+**3. Data visualization &amp; data science**
+
+Data visualization is an essential skill for data scientists. It combines statistics and design in meaningful and appropriate ways.On the one hand, data vis is a form of graphical data analysis, emphasizing accurate representation and interpretation of data.On the other hand, data vis relies on good design choices, not only to make our plots attractive, but to also aid both the understanding and communication of results.On top of that, there is an element of creativity, since at it's heart, data vis is a form of visual communication.
+
+**4. Exploratory versus explanatory**
+
+It's important to understand the distinction between exploratory and explanatory visualizations.Exploratory visualizations are easily-generated, data-heavy and intended for a small specialist audience, for example yourself and your colleagues - their primary purpose is graphical data analysis.Explanatory visualizations are labor-intensive, data-specific and intended for a broader audience, e.g. in publications or presentations - they are part of the communications process.As a data scientist, it's essential that you can quickly explore data, but you'll also be tasked with explaining your results to stake-holders.Good design begins with thinking about the audience - and sometimes that just means ourselves.
+
+**5. MASS::mammals**
+
+This data set contains the average brain and body weights of 62 land mammals. To understand the relationship here, the most obvious first step is to make a scatter plot, like this one.
+
+**6. A scatter plot**
+
+Two mammals, the African and Asian Elephants have both very large brain and body weights, leading to a positive skew on both axes.
+
+**7. Explore with a linear model**
+
+Here, applying a linear model is a poor choice since a few extreme values have a large influence.
+
+**8. Explore: fine-tuning**
+
+A log transformation of both variables allows for a better fit.So, although we began with a rough exploratory plot, that informed us about our data and lead us to a meaningful result.
+
+**9. Publication-ready plot**
+
+In the end, we'd probably want a cleaned-up explanatory plot.
+
+**10. Anscombe's plots**
+
+Here's a classic example from Francis Anscombe, first published in 1973. When we imagine a linear model, as presented on this anonymous plot, we imagine that we are describing data that looks
+
+**11. Anscombe's plots**
+
+something like this. But this same model could be describing a very different set of data
+
+**12. Anscombe's plots**
+
+such as a parabolic relationship.
+
+**13. Anscombe's plots**
+
+which calls for a different model.
+
+**14. Anscombe's plots**
+
+or data in which an extreme value has a large effect.
+
+**15. Anscombe's plots**
+
+which becomes clear when the outlier is removed. And sometimes
+
+**16. Anscombe's plots**
+
+the model may be describing a relationship where in fact there is none at all
+
+**17. Anscombe's plots**
+
+because some extreme values may be incorrect.
+
+**18. Anscombe's plots**
+
+If we relied solely on the numerical output without plotting our data, we'd have missed distinct and interesting underlying trends.We can see that data viz is rooted in statistics and graphical data analysis, but it's also a creative process that involves some amount of trial and error.
+
+**19. Let's practice!**
+
+Alright, enough examples, let's get our fingers moving with some exercises.
+
+## Explore and explain
+
+In this video we made the distinction between plots for exploring and plots for explaining data. Which of the following are exploratory plots typically *NOT*?
+
+> *Question*
+> ---
+> ???<br>
+> <br>
+> ⬜ Meant for a specialist audience.<br>
+> ⬜ Data-heavy.<br>
+> ✅ Pretty.<br>
+> ⬜ Rough first drafts.<br>
+> ⬜ Part of our data science toolkit as graphical data analysis.<br>
+
+Exactly. You're not concerned with beautiful at this point. However, the plots should be meaningful and conform to best practices so that you do not mislead yourself!
+
+### Drawing your first plot
+
+To get a first feel for `ggplot2`, let's try to run some basic `ggplot2` commands. The `mtcars` dataset contains information on 32 cars from a 1973 issue of Motor Trend magazine. This dataset is small, intuitive, and contains a variety of continuous and categorical variables.
+
+**Steps**
+
+1. Load the `ggplot2` package using `library()`.
+2. Use `str()` to explore the structure of the `mtcars` dataset.
+3. Hit submit. This will execute the example code on the right. See if you can understand what `ggplot` does with the data.
+
+```{r}
+# Load the ggplot2 package
+library(ggplot2)
+
+# Explore the mtcars data frame with str()
+str(mtcars)
+
+# Execute the following command
+p <- ggplot(mtcars, aes(cyl, mpg)) +
+  geom_point()
+```
+
+Phenomenal plotting! Notice that `ggplot2` treats `cyl` as a continuous variable. You get a plot, but it's not quite right, because it gives the impression that there is such a thing as a 5 or 7-cylinder car, which there is not.
+
+## Data columns types affect plot types
+
+The plot from the previous exercise wasn't really satisfying. Although `cyl` (the number of cylinders) is categorical, you probably noticed that it is classified as numeric in `mtcars`. This is really misleading because the representation in the plot doesn't match the actual data type. You'll have to explicitly tell `ggplot2` that `cyl` is a categorical variable.
+
+**Steps**
+
+1. Change the `ggplot()` command by wrapping `factor()` around `cyl`.
+2. Hit submit and see if the resulting plot is better this time.
+
+```{r}
+# Load the ggplot2 package
+library(ggplot2)
+
+# Change the command below so that cyl is treated as factor
+ggplot(mtcars, aes(factor(cyl), mpg)) +
+  geom_point()
+```
+
+Stellar scatterplotting! Notice that `ggplot2` treats `cyl` as a factor. This time the x-axis does not contain variables like 5 or 7, only the values that are present in the dataset.
+
+## The grammar of graphics
+
+Theory. Coming soon ...
+
+**1. The grammar of graphics**
+
+The first step in thinking creatively about data visualization is to appreciate that graphics are built upon an underlying grammar.
+
+**2. The quick brown fox jumps over the lazy dog**
+
+To begin, let's consider one of the most well-known sentences in English.The quick brown fox jumps over the lazy dog.
+
+**3. The quick brown fox jumps over the lazy dog**
+
+Every word in the sentence has a clear grammatical definition and when we write text, we take great care to choose the grammatical elements so that we communicate a very specific message.If we changed any of the grammatical elements of this sentence it would change the meaning, sometimes subtly, sometimes dramatically.
+
+**4. Grammar of graphics**
+
+The same concept holds true for data visualization - graphics are built on an underlying grammar.The grammar of graphics is a plotting framework developed by Leland Wilkinson and published in his 1999 book, *The Grammar of Graphics*.There are two key things to note about the grammar of graphics.First, graphics are made up of distinct layers of grammatical elements, and second, meaningful plots are built around appropriate aesthetic mappings.To continue our analogy to written grammar, the layers are like the adjectives and nouns and the aesthetic mappings are like the grammatical rules for how to assemble that vocabulary.
+
+**5. The three essential grammatical elements**
+
+Let's explore grammatical elements first. There are three essential grammatical elements: data, aesthetics, and geometries.The data is obviously the data which we want to plot. the aesthetics layer refers to the scales onto which we will map our data, and the geom layer refers to the actual shape the data will take in the plot.
+
+**6. Course 1: core competency**
+
+The rest are optional layers. This includes the theme layer, which controls all the non-data ink.In this course, we'll cover these first four layers which will comprise your core competency.
+
+**7. The seven grammatical elements**
+
+In the next course we'll explore the remaining grammatical elements: the statistics, coordinates and facets layers.
+
+**8. Jargon for each element**
+
+This diagram gives an example of some of the terms we'll encounter in each element. Whenever we make a plot we are choosing among these options and many others not displayed.By the end of this course you'll be able to generate meaningful and publication-quality exploratory plots using the first four layers.
+
+**9. Course 2: Tools for EDA**
+
+Once we've covered the remaining three layers in the second course, we'll be using data viz as a tool for exploratory data analysis.
+
+**10. Let's practice!**
+
+Let's head over to the exercises and explore one of the datasets that you'll be using throughout the two courses.
+
+### Mapping data columns to aesthetics
+
+Let's dive a little deeper into the three main topics in this course: The data, aesthetics, and geom layers. We'll get to making pretty plots in the last chapter with the themes layer.
+
+We'll continue working on the 32 cars in the `mtcars` data frame.
+
+Consider how the examples and concepts we discuss throughout these courses apply to your own data-sets!
+
+**Steps**
+
+1. Add a color aesthetic mapped to the displacement of the car engine: inside <a href="http://www.rdocumentation.org/packages/ggplot2/functions/aes">`aes()`</a>, add a `color` argument equal to `disp`.
+
+
+```{r}
+# Edit to add a color aesthetic mapped to disp
+ggplot(mtcars, aes(wt, mpg, color = disp)) +
+  geom_point()
+```
+
+2. This time, map `disp` to the `size` aesthetic.
+
+```{r}
+# Change the color aesthetic to a size aesthetic
+ggplot(mtcars, aes(wt, mpg, size = disp)) +
+  geom_point()
+```
+
+Legendary! Notice that a legend for the color and size scales was automatically generated.
+
+### Understanding variables
+
+In the previous exercise you saw that `disp` can be mapped onto a color gradient or onto a continuous size scale.
+
+Another argument of <a href="http://www.rdocumentation.org/packages/ggplot2/functions/aes">`aes()`</a> is the `shape` of the points. There are a finite number of shapes which <a href="http://www.rdocumentation.org/packages/ggplot2/functions/ggplot">`ggplot()`</a> can automatically assign to the points. However, if you try this command in the console:
+
+```{r}
+#| error: true
+ggplot(mtcars, aes(wt, mpg, shape = disp)) +
+  geom_point()
+```
+
+It gives an error. What does this mean?
+
+> *Question*
+> ---
+> ???<br>
+> <br>
+> ⬜ `shape` is not a defined argument.<br>
+> ✅ `shape` only makes sense with categorical data, and `disp` is continuous.<br>
+> ⬜ `shape` only makes sense with continuous data, and `disp` is categorical.<br>
+> ⬜ `shape` is not a variable in your dataset.<br>
+> ⬜ `shape` has to be defined as a function.<br>
+
+Correct. The error message 'A continuous variable can not be mapped to shape', means that shape doesn't exist on a continuous scale here.
+
+## ggplot2 layers
+
+Theory. Coming soon ...
+
+**1. ggplot2 layers**
+
+Now that we have some idea about the different grammatical elements of graphics, let's see how this works in practice.
+
+**2. ggplot2 package**
+
+The grammar of graphic is implemented in R using the ggplot2 package.There are two key functions that ggplot2 serves. First, we construct plots by layering grammatical elements on top of each other. Second, we use aesthetic mappings to bridge the link between data and it's visual interpretation.We are going to go through each grammatical element in depth in this and the next course. Here I'll introduce a data set which will be used throughout the videos and we'll go over some simple examples.
+
+**3. Data**
+
+The bottom layer is the data element. Obviously we need some data to plot. I'm going to use several different data sets in the course videos,
+
+**4. Iris dataset**
+
+one of which is the classic iris data set collected by Edgar Anderson in the 1930s and thereafter popularized by Ronald Fisher. The data set contains information on three iris species, setosa, versicolor, and virginica. Four measurements were taken from each plant - the petal length and width and the sepal length and width. You're probably familiar with petals, they're the colorful part of a flower. Sepals are the outer leaves of the flower, they are typically green, but in this case they're also colorful. There are 50 specimens of each species.
+
+**5. Iris dataset**
+
+The data is stored in an object called iris, there are five variables: the species and one for each of the properties which were measured.
+
+**6. Aesthetics**
+
+The next layer we'll add is the aesthetics element, which tells us which scales we should map our data onto. This is where the second main component of the grammar of graphics comes into play. On top of layering the grammatical elements, it's here that we establish our aesthetic mappings.
+
+**7. Iris aesthetics**
+
+In this case we are going to make a scatter plot so we're going to map Sepal-dot-Length onto the X aesthetic and Sepal-dot-Width onto the Y aesthetic.
+
+**8. Geometries**
+
+The next element is the geometry element. This allows us to choose how the plot will look.
+
+**9. Iris geometries**
+
+After we've established our three essential layers, we have enough instructions to make a basic scatter plot. It's pretty rough, so to get a more meaningful and cleaner visualization, we'll have to use the other layers.
+
+**10. Themes**
+
+The next layer we'll look at is the themes element. It controls all the non-data ink on our plot.
+
+**11. Iris themes**
+
+Which allows us to get a nice looking, meaningful and publication-quality plot directly in R.
+
+**12. Let's practice!**
+
+We'll discuss the remaining grammatical elements in the next course.For now, let's begin by exploring these concepts in the exercises.
+
+## Adding geometries
+
+The `diamonds` dataset contains details of 1,000 diamonds. Among the variables included are `carat` (a measurement of the diamond's size) and `price`.
+
+You'll use two common geom layer functions:
+
+
+* <a href="http://www.rdocumentation.org/packages/ggplot2/functions/geom_point">`geom_point()`</a> adds points (as in a scatter plot).
+* <a href="http://www.rdocumentation.org/packages/ggplot2/functions/geom_smooth">`geom_smooth()`</a> adds a smooth trend curve.
+As you saw previously, these are added using the `+` operator.
+
+```{r}
+#| eval: false
+ggplot(data, aes(x, y)) +
+  geom_*()
+```
+
+Where `*` is the specific geometry needed.
+
+**Steps**
+
+1. Explore the `diamonds` data frame with the <a href="http://www.rdocumentation.org/packages/utils/functions/str">`str()`</a> function.
+
+
+```{r}
+# Explore the diamonds data frame with str()
+str(diamonds)
+```
+
+2. Edit the plot code to add a point geom. Use the `+` operator to add <a href="http://www.rdocumentation.org/packages/ggplot2/functions/geom_point">`geom_point()`</a> to the <a href="http://www.rdocumentation.org/packages/ggplot2/functions/ggplot">`ggplot()`</a> command.
+
+
+```{r}
+# Add geom_point() with +
+ggplot(diamonds, aes(carat, price)) +
+  geom_point()
+```
+
+3. Add a smooth geom to the plot. Use the `+` operator to add <a href="http://www.rdocumentation.org/packages/ggplot2/functions/geom_smooth">`geom_smooth()`</a>.
+
+
+```{r}
+# Add geom_smooth() with +
+ggplot(diamonds, aes(carat, price)) +
+  geom_point() +
+  geom_smooth()
+```
+
+Lovely layering! If you had executed the command without adding a `+`, it would produce an error message 'No layers in plot' because you are missing the third essential layer - the geom layer.
+
+### Changing one geom or every geom
+
+If you have multiple geoms, then mapping an aesthetic to data variable inside the call to `ggplot()` will change *all* the geoms. It is also possible to make changes to *individual* geoms by passing arguments to the `geom_*()` functions.
+
+`geom_point()` has an `alpha` argument that controls the opacity of the points. A value of `1` (the default) means that the points are totally opaque; a value of `0` means the points are totally transparent (and therefore invisible). Values in between specify transparency.
+
+The plot you drew last time is provided in the script.
+
+**Steps**
+
+1. Edit the plot code to map the `color` aesthetic to the `clarity` data variable.
+
+
+```{r}
+# Map the color aesthetic to clarity
+ggplot(diamonds, aes(carat, price, color = clarity)) +
+  geom_point() +
+  geom_smooth()
+```
+
+2. Make the points translucent by setting the `alpha` argument to `0.4`.
+
+
+```{r}
+# Make the points 40% opaque
+ggplot(diamonds, aes(carat, price, color = clarity)) +
+  geom_point(alpha = 0.4) +
+  geom_smooth()
+```
+
+Smooth work! `geom_point()` + `geom_smooth()` is a common combination.
+
+### Saving plots as variables
+
+Plots can be saved as variables, which can be added two later on using the `+` operator. This is really useful if you want to make multiple related plots from a common base.
+
+**Steps**
+
+1. Using the `diamonds` dataset, plot the `price` (y-axis) versus the `carat` (x-axis), assigning to `plt_price_vs_carat`.
+2. Using `geom_point()`, add a point layer to `plt_price_vs_carat`.
+
+```{r}
+# Draw a ggplot
+plt_price_vs_carat <- ggplot(
+  # Use the diamonds dataset
+  diamonds,
+  # For the aesthetics, map x to carat and y to price
+  aes(carat, price)
+)
+
+# Add a point layer to plt_price_vs_carat
+plt_price_vs_carat + geom_point()
+```
+
+3. Add an `alpha` argument to the point layer to make the points 20% opaque, assigning to `plt_price_vs_carat_transparent`.
+4. Type the plot's variable name (`plt_price_vs_carat_transparent`) to display it.
+
+```{r}
+# From previous step
+plt_price_vs_carat <- ggplot(diamonds, aes(carat, price))
+
+# Edit this to make points 20% opaque: plt_price_vs_carat_transparent
+plt_price_vs_carat_transparent <- plt_price_vs_carat + geom_point(alpha = 0.2)
+
+# See the plot
+plt_price_vs_carat_transparent
+```
+
+5. Inside `geom_point()`, call `aes()` and map `color` to `clarity`, assigning to `plt_price_vs_carat_by_clarity`.
+6. Type the plot's variable name (`plt_price_vs_carat_by_clarity`) to display it.
+
+```{r}
+# From previous step
+plt_price_vs_carat <- ggplot(diamonds, aes(carat, price))
+
+# Edit this to map color to clarity
+# Assign the updated plot to a new object
+plt_price_vs_carat_by_clarity <- plt_price_vs_carat + geom_point(aes(color = clarity))
+
+# See the plot
+plt_price_vs_carat_by_clarity
+```
+
+Super saving of plotting steps! By assigning parts of plots to a variable then reusing that variable in other plots, it makes it really clear how much those plots have in common.
+
+# 2. Aesthetics
+
+Aesthetic mappings are the cornerstone of the grammar of graphics plotting concept. This is where the magic happens - converting continuous and categorical data into visual scales that provide access to a large amount of information in a very short time. In this chapter you’ll understand how to choose the best aesthetic mappings for your data.
+
+## Visible aesthetics
+
+Theory. Coming soon ...
+
+**1. Visible aesthetics**
+
+In this section we'll explore aesthetics, and understand how they are distinct from attributes.
+
+**2. Mapping onto the X and Y axes**
+
+In ggplot2, the mapping of aesthetics elements is a key concept to master.So what do we mean by mapping? This becomes clear when we understand that our beloved X and Y axes on a straightforward scatter plot are aesthetics. They define the position of dots on a common scale, like this example we saw in the previous chapter.The sepal length is mapped onto the X axis and the sepal width is mapped onto the Y axis.Here, we'll focus on the most common visual aesthetics and but we'll encounter more throughout the courses.When making multivariate plots we'll use aesthetics appropriately to maximize the number of variables we can add to a plot.
+
+**3. Mapping onto color**
+
+For example, the variable Species can be mapped onto the color aesthetic, which colors the points according to the species from which they came.
+
+**4. Mapping onto the color aesthetic**
+
+That is, we map a variable from our dataframe onto one of the visible aesthetics.We call a column in our dataframe to be mapped onto a visible aesthetic. That's why we made such a big deal about data structure earlier. Each mapped variable is its own column variable in the data frame.
+
+**5. Mapping onto the color aesthetic**
+
+Importantly, we call aesthetics in the aes function. We could have also called aesthetics in the geom layer
+
+**6. Mapping onto the color aesthetic in geom**
+
+as shown here, and get the same result.This is typically only done if we don't want all layers to inherit the same aesthetics or we're mixing different data sources. In general, try to keep your data and aesthetics layer in the same ggplot function definition.
+
+**7. Typical visible aesthetics**
+
+In addition to the X and Y axes and color, typical visible aesthetics include
+
+**8. Typical visible aesthetics**
+
+fill, which is distinct from
+
+**9. Typical visible aesthetics**
+
+color in that color usually, but not always, refers to the outline of a shape.
+
+**10. Typical visible aesthetics**
+
+Size adjusts the area or radius of points, the thickness of lines and the font size of text.
+
+**11. Typical visible aesthetics**
+
+alpha refers to alpha-blending, which adjusts the transparency of a shape.
+
+**12. Typical visible aesthetics**
+
+line type refers to the dash pattern of a line and
+
+**13. Typical visible aesthetics**
+
+labels are direct labels of an item, directly on the plot. Like printing an item's name on a scatter plot instead of just drawing a point. Direct labeling of points is an extension of axis labels for categorical data in that they are unambiguous, and
+
+**14. Typical visible aesthetics**
+
+Shape refers to the shape of a point.Many of these aesthetics function as both aesthetic mappings as well as attributes, and one of the most common mistakes beginners make is confusing the two or overwriting aesthetic mappings with fixed attributes. Our goal here is to not only show you how to use them correctly but appropriately for the plot's type and purpose.Just like our two main variable types, there are visible aesthetics for continuous and categorical data which we'll explore in the next video,
+
+**15. Let's Practice**
+
+for now, let's head over to the exercises and take a look at how aesthetics work.
+
+### All about aesthetics: color, shape and size
+
+In the video you saw 9 visible aesthetics. Let's apply them to a categorical variable &mdash; the cylinders in `mtcars`, `cyl`.
+
+These are the aesthetics you can consider within <a href="http://www.rdocumentation.org/packages/ggplot2/functions/aes">`aes()`</a> in this chapter: `x`, `y`, `color`, `fill`, `size`, `alpha`, `labels` and `shape`.
+
+One common convention is that you don't name the `x` and `y` arguments to `aes()`, since they almost always come first, but you do name other arguments.
+
+In the following exercise the `fcyl` column is categorical. It is `cyl` transformed into a `factor`.
+
+**Steps**
+
+1. Map `mpg` onto the `x` aesthetic, and `fcyl` onto the `y`.
+
+
+```{r}
+# Map x to mpg and y to fcyl
+mtcars <- mtcars |> 
+  dplyr::mutate(fcyl = factor(cyl))
+
+mtcars |> 
+  ggplot(aes(mpg, fcyl)) +
+    geom_point()
+```
+
+2. Swap the mappings of the first plot: `fcyl` onto the `x` aesthetic, and `mpg` onto the `y`.
+
+
+```{r}
+# Swap mpg and fcyl
+ggplot(mtcars, aes(fcyl, mpg)) +
+  geom_point()
+```
+
+3. Map `wt` onto `x`, `mpg` onto `y`, and `fcyl` onto `color`.
+
+
+```{r}
+# Map x to wt, y to mpg and color to fcyl
+ggplot(mtcars, aes(wt, mpg, color = fcyl)) +
+  geom_point()
+```
+
+4. Modify the point layer of the previous plot by changing the `shape` argument to `1` and increasing the `size` to `4`.
+
+
+```{r}
+ggplot(mtcars, aes(wt, mpg, color = fcyl)) +
+  # Set the shape and size of the points
+  geom_point(shape = 1, size = 4)
+```
+
+Astounding aestheticism! Head over to the next exercise for some more aesthetics!
+
+### All about aesthetics: color vs. fill
+
+Typically, the `color` aesthetic changes the *outline*  of a geom and the `fill` aesthetic changes the *inside*. `geom_point()` is an exception: you use `color` (not `fill`) for the point color. However, some shapes have special behavior.
+
+The default `geom_point()` uses `shape = 19`: a solid circle. An alternative is `shape = 21`: a circle that allow you to use *both* `fill` for the inside *and* `color` for the outline. This is lets you to map two aesthetics to each point.
+
+All shape values are described on the <a href="https://www.rdocumentation.org/packages/graphics/topics/points">`points()`</a> help page.
+
+`fcyl` and `fam` are the `cyl` and `am` columns converted to factors, respectively.
+
+**Steps**
+
+1. Change the aesthetics so that `fcyl` maps to `fill` rather than `color`.
+
+
+```{r}
+# Map fcyl to fill
+ggplot(mtcars, aes(wt, mpg, fill = fcyl)) +
+  geom_point(shape = 1, size = 4)
+```
+
+2. In `geom_point()` change the `shape` argument to `21` and add an `alpha` argument set to `0.6`.
+
+
+```{r}
+ggplot(mtcars, aes(wt, mpg, fill = fcyl)) +
+  # Change point shape; set alpha
+  geom_point(shape = 21, size = 4, alpha = 0.6)
+```
+
+3. In the `ggplot()` aesthetics, map `fam` to `color`.
+
+
+```{r}
+mtcars <- mtcars |> 
+            dplyr::mutate(fam = factor(am))
+
+# Map color to fam
+ggplot(mtcars, aes(wt, mpg, fill = fcyl, color = fam)) +
+  geom_point(shape = 21, size = 4, alpha = 0.6)
+```
+
+Shapely coding! Notice that mapping a categorical variable onto fill doesn't change the colors, although a legend is generated! This is because the default shape for points only has a color attribute and not a fill attribute! Use fill when you have another shape (such as a bar), or when using a point that does have a fill and a color attribute, such as `shape = 21`, which is a circle with an outline. Any time you use a solid color, make sure to use alpha blending to account for over plotting.
+
+### All about aesthetics: comparing aesthetics
+
+Now that you've got some practice with using attributes, be careful of a major pitfall: these attributes can overwrite the aesthetics of your plot!
+
+**Steps**
+
+1. Using `mtcars`, create a plot base layer, `plt_mpg_vs_wt`. Map `mpg` onto `y` and `wt` onto `x`.
+2. Add a point layer, mapping the categorical no. of cylinders, `fcyl`, onto `size`.
+
+```{r}
+# Establish the base layer
+plt_mpg_vs_wt <- ggplot(mtcars, aes(wt, mpg))
+
+# Map fcyl to size
+plt_mpg_vs_wt +
+  geom_point(aes(size = fcyl))  
+```
+
+3. Change the mapping. This time `fcyl` should be mapped onto `alpha`.
+
+
+```{r}
+#| warning: false
+# Base layer
+plt_mpg_vs_wt <- ggplot(mtcars, aes(wt, mpg))
+
+# Map fcyl to alpha, not size
+plt_mpg_vs_wt +
+  geom_point(aes(alpha = fcyl))
+```
+
+4. Change the mapping again. This time `fycl` should be mapped onto `shape`.
+
+
+```{r}
+# Base layer
+plt_mpg_vs_wt <- ggplot(mtcars, aes(wt, mpg))
+
+# Map fcyl to shape, not alpha
+plt_mpg_vs_wt +
+  geom_point(aes(shape = fcyl))
+```
+
+5. Swap the geom layer: change points to text.
+6. Change the mapping again. This time `fycl` should be mapped onto `label`.
+
+```{r}
+# Base layer
+plt_mpg_vs_wt <- ggplot(mtcars, aes(wt, mpg))
+
+# Use text layer and map fcyl to label
+plt_mpg_vs_wt +
+  geom_text(aes(label = fcyl))
+```
+
+Nice! Which aesthetic do you think is the clearest for categorical data?
+
+## Aesthetics for categorical & continuous variables
+
+Many of the aesthetics can accept either continuous or categorical variables, but some are restricted to categorical data. Which aesthetics are only applicable to categorical data?
+
+> *Question*
+> ---
+> ???<br>
+> <br>
+> ⬜ `color` &amp; `fill`<br>
+> ⬜ `alpha` &amp; `size`<br>
+> ✅ `label` &amp; `shape`<br>
+> ⬜ `alpha` &amp; `label`<br>
+> ⬜ `x` &amp; `y`<br>
+
+Great! `label` and `shape` are only applicable to categorical data.
+
+## Using attributes
+
+Theory. Coming soon ...
+<p class="dc-cookie-banner-text">                DataCamp and our partners use cookies and similar technologies to improve your learning experience, offer data science content relevant to your interests, improve the site and to show more relevant advertisements. You can change your mind at any time.            
+
+
+
+**1. Using attributes**
+
+In the last exercises you learned a fundamental concept of ggplot2: aesthetic mappings.Colloquially, when we say aesthetics we're describing how something looks, but now you know that in ggplot2, we're talking about aesthetic mappings.If we talk about how something looks, we refer to its attributes. One of the most confusing parts of ggplot2 is that all our visible aesthetics also exist as attributes.
+
+**2. Aesthetics? Attributes!**
+
+so it's easy to mix up the two!Attributes are always called in the geom layer (which we'll discuss in more detail in the next chapter).For example, to change the color of these points to red, we'd just set the plot's attribute using the color argument in the geom layer.
+
+**3. Aesthetics? Attributes!**
+
+For example, it's color attribute is set by the color argument, its size by the size argument
+
+**4. Aesthetics? Attributes!**
+
+and its shape by the shape argument. The distinction between aesthetics and attributes is subtle but important. Mixing the two is a very common mistake.
+
+**5. Let's practice!**
+
+OK, let's wrap up with some exercises on setting attributes.
+
+### All about attributes: color, shape, size and alpha
+
+This time you'll use these arguments to set *attributes* of the plot, not map variables onto *aesthetics*.
+
+You can specify colors in R using **hex codes**: a hash followed by two hexadecimal numbers each for red, green, and blue (`"#RRGGBB"`). Hexadecimal is base-16 counting. You have 0 to 9, and A representing 10 up to F representing 15. Pairs of hexadecimal numbers give you a range from 0 to 255. `"#000000"` is "black" (no color), `"#FFFFFF"` means "white", and `"#00FFFF" is cyan (mixed green and blue).
+
+A hexadecimal color variable, `my_blue` has been defined for you.
+
+**Steps**
+
+1. Set the point color to `my_blue` and the alpha to `0.6`.
+
+
+```{r}
+# A hexadecimal color
+my_blue <- "#4ABEFF"
+
+ggplot(mtcars, aes(wt, mpg)) +
+  # Set the point color to my_blue
+  geom_point(color = my_blue, alpha = 0.6)
+```
+
+2. Change the `color` mapping to a `fill` mapping. That is, `fcyl` should be mapped onto `fill`.
+3. Set the `color` of the points to `my_blue`, point `size` to `10` and the point `shape` to `1`.
+
+```{r}
+# A hexadecimal color
+my_blue <- "#4ABEFF"
+
+# Change the color mapping to a fill mapping
+ggplot(mtcars, aes(wt, mpg, fill = fcyl)) +
+  # Set point size to 10; shape to 1
+  geom_point(color = my_blue, size = 10, shape = 1)
+```
+
+Hunky-dory hex specs! `ggplot2` lets you control these attributes in many ways to customize your plots.
+
+### All about attributes: conflicts with aesthetics
+
+In the videos you saw that you can use all the aesthetics as attributes. Let's see how this works with the aesthetics you used in the previous exercises: `x`, `y`, `color`, `fill`, `size`, `alpha`, `label` and `shape`.
+
+In this exercise you will set all kinds of attributes of the points!
+
+You will continue to work with `mtcars`.
+
+**Steps**
+
+1. Add a point layer, setting `alpha`, the transparency, to `0.5`.
+
+```{r}
+ggplot(mtcars, aes(wt, mpg, color = fcyl)) +
+  # Add point layer with alpha 0.5
+  geom_point(alpha = 0.5)
+```
+
+2. Add a text layer, setting the `label` to the rownames of the dataset `mtcars`, and the `color` to `"red"`.
+
+```{r}
+ggplot(mtcars, aes(wt, mpg, color = fcyl)) +
+  # Add text layer with label rownames(mtcars) and color red
+  geom_text(label = rownames(mtcars), color = 'red')
+```
+
+3. Add a point layer, setting the `shape` to `24` and the `color` to `"yellow"`.
+
+```{r}
+ggplot(mtcars, aes(wt, mpg, color = fcyl)) +
+  # Add points layer with shape 24 and color yellow
+  geom_point(shape = 24, color = 'yellow')
+```
+
+NA
+
+### Going all out
+
+In this exercise, you will gradually add more aesthetics layers to the plot. You're still working with the `mtcars` dataset, but this time you're using more features of the cars. Each of the columns is described on the <a href="https://www.rdocumentation.org/packages/datasets/topics/mtcars">`mtcars`</a> help page. Columns `fcyl` and `fam` have been added (as before) as categorical versions of `cyl` and `am` respectively.
+
+Notice that adding more aesthetic mappings to your plot is not always a good idea! You may just increase complexity and decrease readability.
+
+**Steps**
+
+1. Use `mtcars` to draw a plot of `qsec` vs. `mpg`, colored by `fcyl`.
+2. Add a point layer.
+
+```{r}
+# 3 aesthetics: qsec vs. mpg, colored by fcyl
+ggplot(mtcars, aes(mpg, qsec, color = fcyl)) +
+  geom_point()
+```
+
+3. Add another aesthetic: map `fam` onto `shape`.
+
+
+```{r}
+# 4 aesthetics: add a mapping of shape to fam
+ggplot(mtcars, aes(mpg, qsec, color = fcyl, shape = fam)) +
+  geom_point()
+```
+
+4. Add another two aesthetics: map `hp` *divided by* `wt` onto `size`.
+
+
+```{r}
+# 5 aesthetics: add a mapping of size to hp / wt
+ggplot(mtcars, aes(mpg, qsec, color = fcyl, shape = fam, size = hp / wt)) +
+  geom_point()
+```
+
+That's a pretty slick plot! Between the x and y dimensions, the color, shape, and size of the points, your plot displays five dimensions of the dataset!
+
+## Modifying aesthetics
+
+Theory. Coming soon ...
+
+**1. Modifying Aesthetics**
+
+Now that we know what aesthetics are and have some idea about choosing them appropriately, let's explore how to modify them.
+
+**2. Positions**
+
+A common adjustment is the position.Position specifies how ggplot will adjust for overlapping bars or points on a single layer.For example, we have identity, dodge, stack, fill, jitter, jitterdodge, and nudge. Let's take a look.
+
+**3. position = "identity" (default)**
+
+The most straightforward position is identity, which we've actually already seen. It's the default position for our scatter plots. "Identity" means that the value in the data frame is exactly where the value will be positioned in the plot. This basically means, don't do anything, just put the information where the data says to put the information.
+
+**4. position = "identity" (default)**
+
+We could have written it explicitly, but it's not necessary. There is an issue with the precision in this data set. Our sepals were measured to the nearest millimeter. So although we only have 150 points, there is too much overplotting to distinguish them.  To solve this, we need to add some random noise on both the x and y axes to see regions of high density - which is referred to as "jittering".
+
+**5. position = "jitter"**
+
+"jitter" can be used as an argument, but each position type can also be accessed as a function. For example,
+
+**6. position_jitter()**
+
+position jitter can be defined in a function before we call our plot, as shown here. This has two advantages.
+
+**7. position_jitter()**
+
+Now we can set specific arguments for the position, such as the width, which defines how much random noise should be added, and it allows us to use this parameter throughout our plotting functions so that we can maintain consistency across plots. This is available for all position attributes.We'll explore the other positions in the exercises.
+
+**8. Scale functions**
+
+Recall that each of the aesthetics is a scale which we mapped data onto, so color is just a scale, like x and y are scales. Appropriately enough, we can access all the scales with the scale underscore functions. The second part of the function defines which scale we want to modify. All the aesthetics we saw earlier have an associated scale function. The third part must match the type of data we are using. Here discrete means we are working with categorical data.
+
+**9. Scale functions**
+
+That means we have to choose our axis dependent on the type of data we have. Here, we'll consider the continuous x aesthetic and the categorical color aesthetic.Just as an aside, before we move on - don't let the naming conventions confuse you. Categorical variables are also called factors, discrete and qualitative depending on their context and who you're talking to.
+
+**10. scale_*_*()**
+
+There are many arguments for the scale functions.The first argument is always the name of the scale, after that most common are limits, breaks, expand and labels.
+
+**11. The limits argument**
+
+limits describe the scale's range.
+
+**12. The breaks argument**
+
+breaks control the tick mark positions.
+
+**13. The expand argument**
+
+expand is a numeric vector of length two, giving a multiplicative and additive constant used to expand the range of the scales so that there is a small gap between the data and the axes.
+
+**14. The labels argument**
+
+and labels adjust the category names.
+
+**15. labs()**
+
+Note that if we just want to quickly change the axis labels, we can do this with the labs function.
+
+**16. Let's try it out!**
+
+Alright, now let's try it out in the exercises.
+
+### Updating aesthetic labels
+
+In this exercise, you'll modify some aesthetics to make a bar plot of the number of cylinders for cars with different types of transmission.
+
+You'll also make use of some functions for improving the appearance of the plot.
+
+
+* <a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">`labs()`</a> to set the x- and y-axis labels. It takes strings for each argument.
+* <a href="https://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">`scale_color_manual()`</a> defines properties of the color scale (i.e. axis). The first argument sets the legend title. `values` is a named vector of colors to use.
+**Steps**
+
+1. Set the x-axis label to `"Number of Cylinders"`, and the y-axis label to `"Count"` using the `x` and `y` arguments of <a href="https://www.rdocumentation.org/packages/ggplot2/topics/labs">`labs()`</a>, respectively.
+
+
+```{r}
+ggplot(mtcars, aes(fcyl, fill = fam)) +
+  geom_bar() +
+  # Set the axis labels
+  labs(x = "Number of Cylinders", y = "Count")
+```
+
+2. Implement a custom fill color scale using <a href="https://www.rdocumentation.org/packages/ggplot2/topics/scale_manual">`scale_fill_manual()`</a>. Set the first argument to `"Transmission"`, and `values` to `palette`.
+
+
+```{r}
+palette <- c(automatic = "#377EB8", manual = "#E41A1C")
+
+ggplot(mtcars, aes(fcyl, fill = fam)) +
+  geom_bar() +
+  labs(x = "Number of Cylinders", y = "Count")
+  # Set the fill color scale
+  scale_fill_manual("Transmission", values = palette)
+```
+
+3. Modify the code to set the `position` to `dodge` so that the bars for transmissions are displayed side by side.
+
+
+```{r}
+palette <- c(automatic = "#377EB8", manual = "#E41A1C")
+
+# Set the position
+ggplot(mtcars, aes(fcyl, fill = fam)) +
+  geom_bar(position = 'dodge') +
+  labs(x = "Number of Cylinders", y = "Count")
+  scale_fill_manual("Transmission", values = palette)
+```
+
+Premier positioning! Choosing the right `position` argument is an important part of making a good plot.
+
+### Setting a dummy aesthetic
+
+In the last chapter you saw that all the visible aesthetics can serve as attributes and aesthetics, but I very conveniently left out x and y. That's because although you can make univariate plots (such as histograms, which you'll get to in the next chapter), a y-axis will always be provided, even if you didn't ask for it.
+
+You can make univariate plots in `ggplot2`, but you will need to add a fake y axis by mapping `y` to zero.
+
+When using setting y-axis limits, you can specify the limits as separate arguments, or as a single numeric vector. That is, `ylim(lo, hi)` or `ylim(c(lo, hi))`.
+
+**Steps**
+
+1. Using `mtcars`, plot `0` vs. `mpg`.
+2. Make a scatter plot and add `"jitter"` to it.
+
+```{r}
+# Plot 0 vs. mpg
+ggplot(mtcars, aes(mpg, 0)) +
+  # Add jitter
+  geom_point(position="jitter")
+```
+
+3. Use `ylim()` to set the limits on the y-axis from `-2` to `2`.
+
+
+```{r}
+ggplot(mtcars, aes(mpg, 0)) +
+  geom_jitter() +
+  # Set the y-axis limits from -2 to 2
+  ylim(-2, 2)
+```
+
+Great work! The best way to make your plot depends on a lot of different factors and sometimes `ggplot2` might not be the best choice.
+
+## Aesthetics best practices
+
+Theory. Coming soon ...
+
+**1. Aesthetics best practices**
+
+Now that we know what visual aesthetics are, how do we choose the right one?
+
+**2. Which aesthetics?**
+
+There is some creativity involved, but there are some helpful guidelines.This chapter is informed by the seminal work of cartographer Jacques Bertin, who published The Semiology of Graphics in 1967 and William Cleveland, whose research on perception was summarized in two books.
+
+**3. Form follows function**
+
+The best data viz serves a purpose - that is, form follows function. So what is the function in data viz?Well, it depends on your audience.You may just want to confirm expectations and begin analyzing your data, or you may want to inform a specific reader and persuade them with your results.
+
+**4. Form follows function**
+
+First and foremost, our function is the accurate and efficient representation of data. Beautiful is nice, but it's a secondary priority here. If data is not accurately and efficiently presented, it's junk.The function is never to misrepresent or obscure our data. We can avoid this by always considering the intended audience and purpose of our plots.So how do we do this?
+
+**5. Calculating statistics**
+
+Let's look at a simple example. In this data set, I have two continuous variables, x &amp; y, y is a function of x. There are two groups, A and B.
+
+**6. Calculating statistics**
+
+It's pretty difficult to obtain summary statistics just by looking at the data.
+
+**7. Extracting information from Data**
+
+So we have two choices, numeric summaries, which are precise but offer a poor overview, or data visualization, which is imprecise but is great for overviews.
+
+**8. Encoding numbers into plots**
+
+To make a plot, we encode data in numbers and text into a visual medium.That's what we do with aesthetic mappings.
+
+**9. Various aesthetic mappings**
+
+These plots differ in their aesthetic mappings and other values that we'll explore throughout the courses.
+
+**10. Decoding to data**
+
+These visuals are then decoded to form an image of the original data. It's inherently imprecise - kind of like translating between two languages.
+
+**11. The best choices for aesthetics**
+
+We consider the best choices to be those which are both efficient, in that they are faster than numeric summaries, and accurate, in that they minimize this information loss.
+
+**12. Aesthetics - continuous variables**
+
+The choice of aesthetic mapping depends on the type of variable.The scatter plot is so easy to understand because it maps data as position on a common scale.
+
+**13. Aesthetics - continuous variables**
+
+Imagine if we switch the aesthetic mappings for x and color. This is possible, but is neither accurate nor efficient.In the worst case scenario, there is no way to see the relationship between these three variables, and in the best case, our reader will interpret the plot in an unintended way.
+
+**14. Efficiency of decoding**
+
+There are many choices for mapping continuous variables. For example, position on unaligned scales, as in having many plots with different scales but the same data type
+
+**15. Three iris scatter plots**
+
+like this example where we had three plots from the iris wide2 data frame, one for each of our iris species
+
+**16. Three iris scatter plots, unaligned y-axes**
+
+on unaligned y axes, is less efficient and makes it difficult to compare plots compared to
+
+**17. Single faceted plot, common y-axis**
+
+an aligned scale.
+
+**18. Decoding categorical**
+
+There are also a variety of choices for categorical data.
+
+**19. Aesthetics - categorical variables**
+
+Color is often used to good effect for a categorical variables.But efficiency and accuracy are not only functions of aesthetic mappings. This plot suffers from over-plotting since not every point is visible. Over-plotting is an issue whenever we have points, like in a scatter plot.
+
+**20. Aesthetics - categorical variables**
+
+We'll see lots of examples of over-plotting and how to deal with it in the exercises. Here, we'll want to adjust position to add some random noise, and attributes, which we've already seen.
+
+**21. Now it's your turn**
+
+Let's head over to the exercises and play around with these concepts further.
+
+### Appropriate mappings
+
+Incorrect aesthetic mapping causes confusion or misleads the audience.
+
+Typically, the **dependent** variable is mapped onto the the **y**-axis and the **independent** variable is mapped onto the **x**-axis.
+
+In the `ToothGrowth` data set, we have three variables:
+
+
+|Variable |Description                |
+|:--------|:--------------------------|
+|`len`    |Tooth length               |
+|`supp`   |Supplement type (VC or OJ) |
+|`dose`   |Dose in milligrams/day     |
+
+From the six possible ways to map three variables, one solution is shown in the viewer. Which of the remaining five would actually be a better solution?
+
+> *Question*
+> ---
+> ???<br>
+> <br>
+> ✅ `x = supp, y = len, color = dose`<br>
+> ⬜ `x = dose, y = supp, color = len`<br>
+> ⬜ `x = len, y = dose, color = supp`<br>
+> ⬜ `x = len, y = supp, color = dose`<br>
+> ⬜ `x = supp, y = dose, color = len`<br>
+
+That's correct!
+
+# 3. Geometries
+
+A plot’s geometry dictates what visual elements will be used. In this chapter, we’ll familiarize you with the geometries used in the three most common plot types you’ll encounter - scatter plots, bar charts and line plots. We’ll look at a variety of different ways to construct these plots.
+
+## Scatter plots
+
+Theory. Coming soon ...
+
+**1. Scatter plots**
+
+The third essential layer is the geometry layer. This determines how the plot actually looks.We've already seen many geometries in action - so let's take a closer look.
+
+**2. 48 geometries**
+
+At present there are almost 50 different geometries to choose from, although there are some redundancies. They can all be accessed using its own geom_ function.As the domain specialist, it's your job to choose the best geom, but there are some useful guidelines.
+
+**3. Common plot types**
+
+Let's begin with scatter plots.
+
+**4. Scatter plots**
+
+Each geom is associated with specific aesthetic mappings, some of which are essential. To use geom_point, we need the x and y aesthetics.
+
+**5. Scatter plots**
+
+In addition to the essential aesthetics, we can also choose optional aesthetics, like alpha, color, fill, shape, size or stroke. These are all also attribute settings, as we discussed earlier.
+
+**6. Geom-specific aesthetic mappings**
+
+We can specify both geom-specific data and aesthetics. This allows us to control the information for each layer independently.
+
+**7. iris demo**
+
+Imagine I have a data frame which contains summary statistics, such as the mean, for each of my variables. In this case it's the average sepal width and length for each of the three iris species. ggplot2 can actually take care of the statistics for us, we don't need to calculate it ourselves beforehand, but let's see how to use it if we have.To show all the individual points and have the mean of the x and y plotted on top, I could add another geom_point layer accessing this data set.
+
+**8. iris plot**
+
+In this plot one geom_point layer inherits the data and aesthetics from the parent ggplot function, and in the other I specify a different data set. Note that the aesthetics are inherited, as per the first geom function. I've changed the shape and the size attributes of the points so that they are distinguishable from the background points.
+
+**9. Shape attribute values**
+
+The possible values are shown here.15 is a solid square.Numbers 21 - 25 are not simply repeats of earlier codes, these shapes have both fill and color, which can be controlled independently.
+
+**10. Example**
+
+For example, I can have a black fill and use a stroke of 2 for a thick outline. The color aesthetic is still inherited from the parental layer. Imagine I wanted to have crosshairs marking where each mean value appears on the plot.
+
+**11. On-the-fly stats by ggplot2**
+
+It's not fair to plot the mean without some measure of spread, like the standard deviation. We'll get into that in the next course when we discuss the stats layer.
+
+**12. position = "jitter"**
+
+Recall that in the last chapter we used the position argument to change the position from identity to jitter.
+
+**13. geom_jitter()**
+
+We could have also done this with the geom_jitter function directly. geom_jitter is just a wrapper for geom_points with position set to jitter.
+
+**14. Don't forget to adjust alpha**
+
+On top of jittering, we would also need to deal with overplotting of points by adjusting the alpha-blending, which works great as an attribute. This helps us to see regions of high density.
+
+**15. Hollow circles also help**
+
+Yet another way to deal with overplotting is to change the symbol to a hollow circle, which is shape 1. Both of these options help with visual communication because they aid in perception. We can more accurately and quickly see what the data is actually showing, even if the jittering adds some random noise to both axes!It's always recommended to optimize the shape, size and alpha blending of points in a scatter plot.
+
+**16. Let's practice!**
+
+Let's head over to the exercises to understand what overplotting is and how to deal with it.
+
+### Overplotting 1: large datasets
+
+Scatter plots (using `geom_point()`) are intuitive, easily understood, and very common, but we must *always* consider **overplotting**, particularly in the following four situations:
+
+1. Large datasets
+2. Aligned values on a single axis
+3. Low-precision data
+4. Integer data
+
+Typically, *alpha* blending (i.e. adding transparency) is recommended when using solid shapes. Alternatively, you can use opaque, hollow shapes.
+
+Small points are suitable for large datasets with regions of high density (lots of overlapping).
+
+Let's use the `diamonds` dataset to practice dealing with the large dataset case.
+
+**Steps**
+
+1. Add a points layer to the base plot.
+
+    * Set the point transparency to `0.5`.
+    * Set `shape = "."`, the point size of 1 pixel.
+
+```{r}
+# Plot price vs. carat, colored by clarity
+plt_price_vs_carat_by_clarity <- ggplot(diamonds, aes(carat, price, color = clarity))
+
+# Add a point layer with tiny points
+plt_price_vs_carat_by_clarity + geom_point(alpha = 0.5, shape = ".")
+```
+
+2. Update the point shape to remove the line outlines by setting `shape` to `16`.
+
+
+```{r}
+# Plot price vs. carat, colored by clarity
+plt_price_vs_carat_by_clarity <- ggplot(diamonds, aes(carat, price, color = clarity))
+
+# Set transparency to 0.5
+plt_price_vs_carat_by_clarity + geom_point(alpha = 0.5, shape = 16)
+```
+
+NA
+
+### Overplotting 2: Aligned values
+
+Let's take a look at another case where we should be aware of overplotting: Aligning values on a single axis.
+
+This occurs when one axis is continuous and the other is categorical, which can be overcome with some form of jittering.
+
+In the `mtcars` data set, `fam` and `fcyl` are categorical variants of `cyl` and `am`.
+
+**Steps**
+
+1. Create a base plot `plt_mpg_vs_fcyl_by_fam` of `fcyl` by `mpg`, colored by `fam`.
+2. Add a points layer to the base plot.
+
+```{r}
+# Plot base
+plt_mpg_vs_fcyl_by_fam <- ggplot(mtcars, aes(fcyl, mpg, color = fam))
+
+# Default points are shown for comparison
+plt_mpg_vs_fcyl_by_fam + geom_point()
+```
+
+3. Add some jittering by using `position_jitter()`, setting the `width` to `0.3`.
+
+
+```{r}
+# Plot base
+plt_mpg_vs_fcyl_by_fam <- ggplot(mtcars, aes(fcyl, mpg, color = fam))
+
+# Default points are shown for comparison
+plt_mpg_vs_fcyl_by_fam + geom_point()
+
+# Alter the point positions by jittering, width 0.3
+plt_mpg_vs_fcyl_by_fam + geom_point(position = position_jitter(width = 0.3))
+```
+
+4. Alternatively, use `position_jitterdodge()`. Set `jitter.width` and `dodge.width` to `0.3` to separate subgroups further.
+
+
+```{r}
+# Plot base
+plt_mpg_vs_fcyl_by_fam <- ggplot(mtcars, aes(fcyl, mpg, color = fam))
+
+# Default points are shown for comparison
+plt_mpg_vs_fcyl_by_fam + geom_point()
+
+# Now jitter and dodge the point positions
+plt_mpg_vs_fcyl_by_fam + geom_point(position = position_jitterdodge(jitter.width = 0.3, dodge.width = 0.3))
+```
+
+Jubilant jitters! These are some simple ways of dealing with overplotting, but you'll encounter more ideas througout the `ggplot2` courses when we encounter atypical geoms.
+
+### Overplotting 3: Low-precision data
+
+You already saw how to deal with overplotting when using <a href="http://www.rdocumentation.org/packages/ggplot2/functions/geom_point">`geom_point()`</a> in two cases:
+
+1. Large datasets
+2. Aligned values on a single axis
+3. Low-precision data
+
+We used `position = 'jitter'` inside <a href="http://www.rdocumentation.org/packages/ggplot2/functions/geom_point">`geom_point()`</a> or <a href="http://www.rdocumentation.org/packages/ggplot2/functions/geom_jitter">`geom_jitter()`</a>.
+
+Let's take a look at another case:
+
+<ol start="3">
+* Low-precision data
+This results from low-resolution measurements like in the iris dataset, which is measured to 1mm precision (see viewer). It's similar to case 2, but in this case we can jitter on both the x and y axis.
+
+**Steps**
+
+1. Change the points layer into a jitter layer.
+2. Reduce the jitter layer's width by setting the `width` argument to `0.1`.
+
+```{r}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  # Swap for jitter layer with width 0.1
+  geom_jitter(alpha = 0.5, width = 0.1)
+```
+
+3. Let's use a different approach:
+
+    * Within `geom_point()`, set `position` to `"jitter"`.
+
+```{r}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  # Set the position to jitter
+  geom_point(alpha = 0.5, position = "jitter")
+```
+
+4. Provide an alternative specification: 
+
+    * Have the `position` argument call `position_jitter()` with a `width` of `0.1`.
+
+```{r}
+ggplot(iris, aes(Sepal.Length, Sepal.Width, color = Species)) +
+  # Use a jitter position function with width 0.1
+  geom_point(alpha = 0.5, position = position_jitter(width = 0.1))
+```
+
+Good job! Notice that `jitter` can be a geom itself (i.e. `geom_jitter()`), an argument in `geom_point()` (i.e. `position = "jitter"`), or a position function, (i.e. `position_jitter()`).
+
+### Overplotting 4: Integer data
+
+Let's take a look at the last case of dealing with overplotting:
+
+<ol start="4">
+* Integer data
+This can be type `integer` (i.e. 1 ,2, 3…) or categorical (i.e. class `factor`) variables. `factor` is just a special class of type `integer`.
+
+You'll typically have a small, defined number of intersections between two variables, which is similar to case 3, but you may miss it if you don't realize that integer and factor data are the same as low precision data.
+
+The `Vocab` dataset provided contains the years of education and vocabulary test scores from respondents to US General Social Surveys from 1972-2004.
+
+**Steps**
+
+1. Examine the `Vocab` dataset using `str()`.
+2. Using `Vocab`, draw a plot of `vocabulary` vs `education`.
+3. Add a point layer.
+
+```{r}
+# data
+library(car, warn.conflicts = F, quietly = T)
+data(Vocab)
+
+# Examine the structure of Vocab
+str(Vocab)
+```
+
+```{r}
+# Plot vocabulary vs. education
+ggplot(Vocab, aes(education, vocabulary)) +
+  # Add a point layer
+  geom_point()
+```
+
+4. Replace the point layer with a jitter layer.
+
+```{r}
+ggplot(Vocab, aes(education, vocabulary)) +
+  # Change to a jitter layer
+  geom_jitter()
+```
+
+5. Set the jitter transparency to `0.2`.
+
+```{r}
+ggplot(Vocab, aes(education, vocabulary)) +
+  # Set the transparency to 0.2
+  geom_jitter(alpha = 0.2)
+```
+
+6. Set the shape of the jittered points to hollow circles, (shape `1`).
+
+```{r}
+ggplot(Vocab, aes(education, vocabulary)) +
+  # Set the shape to 1
+  geom_jitter(alpha = 0.2, shape = 1)
+```
+
+Good job! Notice how jittering and alpha blending serves as a great solution to the overplotting problem here. Setting the `shape` to `1` didn't really help, but it was useful in the previous exercises when you had less data. You need to consider each plot individually. You'll encounter this dataset again when you look at bar plots.
+
+## Histograms
+
+Theory. Coming soon ...
+
+**1. Histograms**
+
+In this section we'll take a look at the typical uses of bar plots and their associated geoms.
+
+**2. Common plot types**
+
+A histogram is a special type of bar plot that shows the binned distribution of a continuous variable.
+
+**3. Histograms**
+
+Here, we only need a single aesthetic: X, a continuous variable. geom_histogram plots a a binned version of our data.A message lets you know what happened. This geom is associated with a specific statistic, stat_bin. The bin argument took the default value of 30.
+
+**4. Default of 30 even bins**
+
+This is a good starting point, but we don't need to settle for defaults! Let's change it and see what happens.
+
+**5. Intuitive and meaningful bin widths**
+
+Changing the binwidth argument to 0-point-1 gives us a more intuitive impression of our data. Note that there is no space between the bars. That emphasizes that this is a representation of an underlying continuous distribution.
+
+**6. Re-position tick marks**
+
+That's also why the labels on the x axis shouldn't fall directly on the bars, but between the bars. They represent intervals and not actual values.Setting the center argument to half that of the binwidth does the trick.
+
+**7. Different Species**
+
+Remember that we have three species in our data set? We can fill the bars according to each species. This makes it clear that we have three histograms in the same plotting space.There is a perceptual problem here, because it is not immediately clear if the bars are overlapping or if they are stacked on top of each other.
+
+**8. Default position is "stack"**
+
+The default position is stack. In some cases, this may not be clear, so don't risk confusing your viewer with stacked bars.We have some alternative positions we can use.
+
+**9. position = "dodge"**
+
+We can "dodge" our bars, which is a data viz term that simply means to off-set set each data point in a given category. That works but the number of categories really makes it difficult to see what's happening. We'll encounter dodging again in several situations throughout these courses where it can be used to good effect.
+
+**10. position = "fill"**
+
+The fill position normalizes each bin to represent the proportion of all observations in each bin. The y axis label didn't change, but it should say proportion, not count.
+
+**11. Final Slide**
+
+Alright, let's head over to the exercises and take a look at histograms in action.
+
+### Drawing histograms
+
+Recall that histograms cut up a continuous variable into discrete bins and, by default, maps the internally calculated `count` variable (the number of observations in each bin) onto the y aesthetic. An internal variable called `density` can be accessed by using the `..` notation, i.e. `..density..`. Plotting this variable will show the relative frequency, which is the height times the width of each bin.
+
+**Steps**
+
+1. Using `mtcars`, map `mpg` onto the x aesthetic.
+2. Add a histogram layer using `geom_histogram()`.
+
+```{r}
+# Plot mpg
+ggplot(mtcars, aes(mpg)) +
+  # Add a histogram layer
+  geom_histogram()
+```
+
+3. Set the histogram `binwidth` to `1`.
+
+```{r}
+ggplot(mtcars, aes(mpg)) +
+  # Set the binwidth to 1
+  geom_histogram(binwidth = 1)
+```
+
+4. Map `y` to the internal variable `..density..` to show frequency densities.
+
+```{r}
+# Map y to ..density..
+ggplot(mtcars, aes(mpg, ..density..)) +
+  geom_histogram(binwidth = 1)
+```
+
+5. Set the `fill` color of the histogram bars to `datacamp_light_blue`.
+
+```{r}
+datacamp_light_blue <- "#51A8C9"
+
+ggplot(mtcars, aes(mpg, ..density..)) +
+  # Set the fill color to datacamp_light_blue
+  geom_histogram(binwidth = 1, fill = datacamp_light_blue)
+```
+
+Good job! Histograms are one of the most common exploratory plots for continuous data. If you want to use density on the y-axis be sure to set your binwidth to an intuitive value.
+
+### Positions in histograms
+
+Here, we'll examine the various ways of applying positions to histograms. <a href="http://www.rdocumentation.org/packages/ggplot2/functions/geom_histogram">`geom_histogram()`</a>, a special case of <a href="http://www.rdocumentation.org/packages/ggplot2/functions/geom_bar">`geom_bar()`</a>, has a `position` argument that can take on the following values:
+
+
+* `stack` (the default): Bars for different groups are stacked on top of each other.
+* `dodge`: Bars for different groups are placed side by side.
+* `fill`: Bars for different groups are shown as proportions.
+* `identity`: Plot the values as they appear in the dataset.
+**Steps**
+
+1. Update the aesthetics so that the fill color of the bars is determined by `fam`.
+
+
+```{r}
+# Update the aesthetics so the fill color is by fam
+ggplot(mtcars, aes(mpg, fill = fam)) +
+  geom_histogram(binwidth = 1)
+```
+
+2. Update the histogram layer to position the bars side-by-side, that is, `"dodge"`.
+
+
+```{r}
+ggplot(mtcars, aes(mpg, fill = fam)) +
+  # Change the position to dodge
+  geom_histogram(binwidth = 1, position = "dodge")
+```
+
+3. Update the histogram layer so the bars' positions `"fill"` the y-axis.
+
+
+```{r}
+ggplot(mtcars, aes(mpg, fill = fam)) +
+  # Change the position to fill
+  geom_histogram(binwidth = 1, position = "fill")
+```
+
+4. Update the histogram layer so bars are top of each other, using the `"identity"` position. So each bar can be seen, set `alpha` to `0.4`.
+
+
+```{r}
+ggplot(mtcars, aes(mpg, fill = fam)) +
+  # Change the position to identity, with transparency 0.4
+  geom_histogram(binwidth = 1, position = "identity", alpha = 0.4)
+```
+
+Good job! Now proceed with line plots!
+
+## Bar plots
+
+Theory. Coming soon ...
+
+**1. Bar plots**
+
+In the last video, we saw that histograms are a specialized version of bar plots, where we have binned a continuous X-axis.
+
+**2. Bar Plots, with a categorical X-axis**
+
+Classic bar plots refer to a categorical X-axis. Here we need to use either geom_bar or geom_col.
+
+**3. Bar Plots, with a categorical X-axis**
+
+geom_bar will count the number of cases in each category of the variable mapped to the x-axis, whereas geom_col will just plot the actual value it finds in the data set.
+
+**4. Bar Plots, with a categorical X-axis**
+
+All the positions we just looked at are available in bar plots. You will encounter two types of bar plots in wide-spread use. Depicting either absolute counts or distributions. Let's take a look at them in turn.
+
+**5. Habits of mammals**
+
+We'll use a data set containing information on the REM sleep time and eating habits of a variety of mammals.
+
+**6. Bar plot**
+
+In this bar plot, we've split our data set according to eating behavior and simply asked how many observations we have in each category.Notice that something very similar to what happened with geom_histogram has happened here. The data was counted and that count was plotted, so once again there were some statistics which occurred under the hood, in this case there was a default value of "bin" set for the stat argument.These kind of plots are useful in getting a quick visual output, but we often see another type of bar plot, one which tries to depict the distribution of a data set. Let's consider a scenario similar to what we saw with the point geom - that we have a data set with the summary values already calculated.
+
+**7. Plotting distributions instead of absolute counts**
+
+Often times this is the case - you will have descriptive statistics already calculated, but remember that we can make ggplot do this on the fly.
+
+**8. Plotting distributions**
+
+If we want to plot the average sepal width for each species, we can map the avg column in our dataset onto the y aesthetic. In this case we need to use geom_col.If we want to add error bars, there is another geom for that, appropriately called geom_errorbar. Here we again need to specify some aesthetics specific to this geom, namely ymin and ymax. On top of that I've set the width of the error bar tips to be narrow and I've made the fill of the bars themselves gray, so that we can see the error bars.This is the kind of plot that you'll typically see in scientific publications, but it's pretty terrible. There is a special name in the data vis community for these types of plots - they're called dynamite plots, as in Wile E Coyote and the Roadrunner and a giant stick of Acme dynamite. They are strongly discouraged for many reasons, which we'll explore in the data vis best practices chapter at the end of the second course.
+
+**9. Let's practice!**
+
+Let's head over to the exercises and take a look at bar plots in action
+
+### Position in bar and col plots
+
+Let's see how the `position` argument changes <a href="http://www.rdocumentation.org/packages/ggplot2/functions/geom_bar">`geom_bar()`</a>.
+
+We have three position options:
+
+
+* `stack`: The default
+* `dodge`: Preferred
+* `fill`: To show proportions
+While we will be using `geom_bar()` here, note that the function <a href="http://www.rdocumentation.org/packages/ggplot2/functions/geom_col">`geom_col()`</a> is just `geom_bar()` where both the `position` and `stat` arguments are set to `"identity"`. It is used when we want the heights of the bars to represent the exact values in the data.
+
+In this exercise, you'll draw the total count of cars having a given number of cylinders (`fcyl`), according to manual or automatic transmission type (`fam`).
+
+**Steps**
+
+1. Using `mtcars`, plot `fcyl`, filled by `fam`.
+2. Add a bar layer using `geom_bar()`.
+
+```{r}
+# Plot fcyl, filled by fam
+ggplot(mtcars, aes(fcyl, fill = fam)) +
+  # Add a bar layer
+  geom_bar()
+```
+
+3. Set the bar `position` argument to `"fill"`.
+
+
+```{r}
+ggplot(mtcars, aes(fcyl, fill = fam)) +
+  # Set the position to "fill"
+  geom_bar(position = "fill")
+```
+
+4. Change the bar `position` argument to `"dodge"`.
+
+
+```{r}
+ggplot(mtcars, aes(fcyl, fill = fam)) +
+  # Change the position to "dodge"
+  geom_bar(position = "dodge")
+```
+
+Good job! Different kinds of plots need different `position` arguments, so it's important to be familiar with this attribute.
+
+### Overlapping bar plots
+
+You can customize bar plots further by adjusting the dodging so that your bars partially overlap each other. Instead of using `position = "dodge"`, you're going to use `position_dodge()`, like you did with `position_jitter()` in the the previous exercises. Here, you'll save this as an object, `posn_d`, so that you can easily reuse it.
+
+Remember, the reason you want to use `position_dodge()` (and `position_jitter()`) is to specify *how much* dodging (or jittering) you want.
+
+For this example, you'll use the `mtcars` dataset.
+
+**Steps**
+
+1. Use the functional form of the bar position: replace `"dodge"` with a call to `position_dodge()`.
+2. Set its `width` to `0.2`.
+
+```{r}
+ggplot(mtcars, aes(cyl, fill = fam)) +
+  # Change position to use the functional form, with width 0.2
+  geom_bar(position = position_dodge(width = 0.2))
+```
+
+3. Set the bar transparency level of the bars to `0.6`.
+
+```{r}
+ggplot(mtcars, aes(cyl, fill = fam)) +
+  # Set the transparency to 0.6
+  geom_bar(position = position_dodge(width = 0.2), alpha = 0.6)
+```
+
+Good job! By using these position functions, you can customize your plot to suit your needs.
+
+### Bar plots: sequential color palette
+
+In this bar plot, we'll fill each segment according to an ordinal variable. The best way to do that is with a sequential color palette.
+
+Here's an example of using a sequential color palette with the `mtcars` dataset:
+
+```{r}
+ggplot(mtcars, aes(fcyl, fill = fam)) +
+  geom_bar() +
+  scale_fill_brewer(palette = "Set1")
+```
+
+In the exercise, you'll use similar code on the the `Vocab` dataset. Both datasets are **ordinal**.
+
+**Steps**
+
+1. Plot the `Vocab` dataset, mapping `education` onto `x` and `vocabulary` onto `fill`.
+
+```{r}
+# Plot education, filled by vocabulary
+ggplot(Vocab, aes(education, fill = vocabulary))
+```
+
+2. Add a bar layer, setting `position` to `"fill"`.
+
+```{r}
+# Plot education, filled by vocabulary
+ggplot(Vocab, aes(education, fill = vocabulary)) +
+  # Add a bar layer with position "fill"
+  geom_bar(position = "fill")
+```
+
+3. Add a brewer fill scale, using the default palette (don't pass any arguments). Notice how this generates a warning message and an incomplete plot.
+
+```{r}
+# Plot education, filled by vocabulary
+ggplot(Vocab, aes(education, fill = vocabulary)) +
+  # Add a bar layer with position "fill"
+  geom_bar(position = "fill") +
+  # Add a brewer fill scale with default palette
+  scale_fill_brewer()
+```
+
+Good job! However, the plot is not complete! Let's fix this in the next exercise.
+
+## Line plots
+
+Theory. Coming soon ...
+
+**1. Line plots**
+
+Line plots are another very common plot type.
+
+**2. Common plot types**
+
+We'll take a look at two examples of lines plots in situations in which they are very well-suited - time series.
+
+**3. Beaver**
+
+In this first example our data set contains temperature measurements of a beaver in 10 minute intervals over 16-point-5 hours. The time variable is in a proper time format, which can be handled very well with ggplot2.
+
+**4. Beaver**
+
+Our basic line plot follows the syntax we've see so far. This is the simplest case scenario. Let's look at adding additional variables. In this case the transponder in our beaver also measured if the beaver was active or not.
+
+**5. Beaver**
+
+We can directly color each segment of our line according to another variable which is set as a color aesthetic.
+
+**6. The fish catch dataset**
+
+In the fish data set we have the global catch of 7 varieties of salmon over a 60 year period.
+
+**7. Linetype aesthetic**
+
+When we have multiple lines, we have to consider which aesthetic is more appropriate in allowing us to distinguish individual trends.Using linetype makes it difficult to distinguish individual species.
+
+**8. Size aesthetic**
+
+Using size is even worse! Don't forget to use your common sense here.
+
+**9. Color aesthetic**
+
+Using color allows for easily distinguishable groups.There are a couple other ways of showing lines.
+
+**10. Aesthetics for categorical variables**
+
+The most salient choice is color, when available, since it allows the easiest way of distinguishing between each series.
+
+**11. Fill aesthetic with geom_area()**
+
+For example, we could have used an area fill, with geom_area, which defaults to position "stack", so instead of overlapping time series, they are added together at each point.This kind of works in this situation, it really depends on how many time series you have and if that is what you want to communicate.
+
+**12. Using position = "fill"**
+
+If we use position"fill" we'll get a proportion the total capture for each fish at each time-point. Note that we'd need to change the y axis label since these are no longer counts! This kind of plot is pretty popular in looking at proportional trends over time. A difficulty with this kind of plot is that only the bottom and top groups are actually drawn on a common scale, all the other ones are irregular shapes so they can be a bit difficult to decipher.
+
+**13. geom_ribbon()**
+
+The final type of plot we'll look at is when we would want to have overlapping areas plots. In this case we'd have to use geom ribbon and force the y-min to be 0. We need to set the alpha level so that we can see the overlap. There is still a challenge in deciphering all the time series, in particularly at the bottom, where there are many overlapping series.
+
+**14. Let's practice!**
+
+We'll explore line plots in the following exercises, which will bring our discussion of the first three essential layers of ggplot2 to a close. By now you have a good core knowledge to build a wide variety of plots.I'll see you in the next chapter where we'll talk about making clean explanatory plots by using the themes layer!
+
+### Basic line plots
+
+Here, we'll use the `economics` dataset to make some line plots. The dataset contains a time series for unemployment and population statistics from the Federal Reserve Bank of St. Louis in the United States. The data is contained in the `ggplot2` package.
+
+To begin with, you can look at how the median unemployment time and the unemployment rate (the number of unemployed people as a proportion of the population) change over time.
+
+**Steps**
+
+1. Print the head of the `economics` dataset.
+2. Plot `unemploy` vs. `date` as a line plot.
+
+```{r}
+# Print the head of economics
+head(economics)
+
+# Using economics, plot unemploy vs. date
+ggplot(economics, aes(date, unemploy)) +
+  # Make it a line plot
+  geom_line()
+```
+
+3. Adjust the y-axis aesthetic of the plot so that it represents the proportion of the `pop`ulation that is `unemploy`ed.
+
+```{r}
+# Change the y-axis to the proportion of the population that is unemployed
+ggplot(economics, aes(date, unemploy / pop)) +
+  geom_line()
+```
+
+Good job! In the next exercise, we'll make more complicated line plots.
+
+### Multiple time series
+
+We already saw how the form of your data affects how you can plot it. Let's explore that further with multiple time series. Here, it's important that all lines are on the same scale, and if possible, on the same plot.
+
+`fish.species` contains the global capture rates of seven salmon species from 1950-2010. Each variable (column) is a Salmon species and each observation (row) is one year. `fish.tidy` contains the same data, but in three columns: `Species`, `Year`, and `Capture` (i.e. one variable per column).
+
+**Steps**
+
+1. Use `str()` in the console to examine the structure of both `fish.species` and `fish.tidy`.
+2. Plot only the `Rainbow` salmon time series with `geom_line()`.
+
+```{r}
+# data
+fish.species <- readRDS("data/fish.species.rds")
+fish.tidy    <- readRDS("data/fish.tidy.rds")
+
+# Plot the Rainbow Salmon time series
+ggplot(fish.species, aes(x = Year, y = Rainbow)) +
+  geom_line()
+```
+
+3. Plot only the `Pink` salmon time series with `geom_line()`.
+
+```{r}
+# Plot the Rainbow Salmon time series
+ggplot(fish.species, aes(x = Year, y = Rainbow)) +
+  geom_line()
+
+# Plot the Pink Salmon time series
+ggplot(fish.species, aes(x = Year, y = Pink)) +
+  geom_line()
+```
+
+4. Now try and plot all time series in a single plot.
+
+    * Plot the `fish.tidy` dataset, mapping `Year` to `x` and `Capture` to `y`.
+    * `group` by fish species within the aesthetics of `geom_line()`.
+
+```{r}
+# Plot the Rainbow Salmon time series
+ggplot(fish.species, aes(x = Year, y = Rainbow)) +
+  geom_line()
+
+# Plot the Pink Salmon time series
+ggplot(fish.species, aes(x = Year, y = Pink)) +
+  geom_line()
+
+# Plot multiple time-series by grouping by species
+ggplot(fish.tidy, aes(Year, Capture)) +
+  geom_line(aes(group = Species))
+```
+
+5. Let's add color to the previous plot to distinguish between the different time series.
+
+    * Plot the `fish.tidy` dataset again, this time making sure to `color` by `Species`.
+
+```{r}
+# Plot the Rainbow Salmon time series
+ggplot(fish.species, aes(x = Year, y = Rainbow)) +
+  geom_line()
+
+# Plot the Pink Salmon time series
+ggplot(fish.species, aes(x = Year, y = Pink)) +
+  geom_line()
+
+# Plot multiple time-series by grouping by species
+ggplot(fish.tidy, aes(Year, Capture)) +
+  geom_line(aes(group = Species))
+
+# Plot multiple time-series by coloring by species
+ggplot(fish.tidy, aes(Year, Capture, color = Species)) +
+  geom_line()
+```
+
+Good job! As you can see in the the last couple of plots, a grouping aesthetic was vital here. If you don't specify `color = Species`, you'll get a mess of lines.
+
+# 4. Themes
+
+In this chapter, we’ll explore how understanding the structure of your data makes data visualization much easier. Plus, it’s time to make our plots pretty. This is the last step in the data viz process. The Themes layer will enable you to make publication quality plots directly in R. In the next course we'll look at some extra layers to add more variables to your plots.
+
+### Themes from scratch
+
+Theory. Coming soon ...
+
+**1. Themes from scratch**
+
+The themes layer controls all the non-data ink on your plot.
+
+**2. The themes layer**
+
+Which are all the visual elements that are not actually part of the data.
+
+**3. The themes layer**
+
+Visual elements can be classified as one of three different types - text, line or rectangle.
+
+**4. The themes layer**
+
+Each type can be modified by using the appropriate function, which all begin with element_ followed by text, line, or rect, respectively.
+
+**5. A starting plot...**
+
+For example, consider this plot that we've already encounter a few times. It's composed out of a combination of data and lots of non-data embellishments. For example, these are all the text elements on our plot
+
+**6. The text elements**
+
+Each element has it's own unique name. We can access all the text in general, all titles in general but also more and more specific items, such as the plot, legend and axis titles, or the text on specific axes.  All these items are arguments of the theme function.
+
+**7. The text elements**
+
+This is used like all other layers in ggplot, by adding a plus to our plot.
+
+**8. Adjusting theme elements**
+
+To modify an element, just call its argument in the theme function and use the appropriate element_ function to specify what we want to change, in this case we need to use an element_text call. It's within this function that we manipulate things like size, color, alignment and angle of the text.
+
+**9. A starting plot...**
+
+Lines include the tick marks on the axes, the axis lines themselves and all grid lines, both major and minor.
+
+**10. Line elements**
+
+These are also all just arguments within the theme function and are modified by the element_line argument.
+
+**11. A starting plot...**
+
+The remaining non-data ink on our plot are all rectangles of various sizes.
+
+**12. Rect elements**
+
+Access rectangles using arguments in the theme function and modify them using element_rect.
+
+**13. Hierarchical naming reflects inheritance rules**
+
+Although we have access to every item, we don't need to modify them individually. They inherent from each other in a hierarchy. All text elements inherit from text, so if we changed that argument, all downstream arguments would be affected. The same goes for line and rectangle.The naming convention is pretty intuitive.In practice you will call a small combination of arguments that you want to change.
+
+**14. element_blank()**
+
+There is one other element function that we haven't discussed yet: element_blank. We can use this in a plot to remove any item. That is, it won't be drawn at all. In this example we set all lines, text and rectangles to blank, so we are left with just the data. Notice that the legend keys themselves are part of the data, if you want to modify these elements refer back to the chapter aesthetics and the exercises on scales.
+
+**15. Let's practice!**
+
+Here, we saw how the theme layer allows us to modify visual attributes of non-data ink, including text lines and rectangles. But in addition to that, we can also modify a plot's margins and legend position. Let's head over to the exercises and see how this in action.
+
+## Moving the legend
+
+Let's wrap up this course by making a publication-ready plot communicating a clear message.
+
+To change stylistic elements of a plot, call <a href="http://www.rdocumentation.org/packages/ggplot2/functions/theme">`theme()`</a> and set plot properties to a new value. For example, the following changes the legend position.
+
+```{r}
+#| eval: false
+p + theme(legend.position = new_value)
+```
+
+Here, the new value can be
+
+
+* `"top"`, `"bottom"`, `"left"`, or `"right'"`: place it at that side of the plot.
+* `"none"`: don't draw it.
+* `c(x, y)`: `c(0, 0)` means the bottom-left and `c(1, 1)` means the top-right.
+Let's revisit the recession period line plot (assigned to `plt_prop_unemployed_over_time`).
+
+**Steps**
+
+1. Update the plot to remove the legend.
+2. *Look at the changes in the plot.*
+
+```{r}
+#| include: false
+recess <- data.frame(
+  begin = c("1969-12-01","1973-11-01","1980-01-01","1981-07-01","1990-07-01","2001-03-01", "2007-12-01"), 
+  end = c("1970-11-01","1975-03-01","1980-07-01","1982-11-01","1991-03-01","2001-11-01", "2009-07-30"),
+  event = c("Fiscal & Monetary\ntightening", "1973 Oil crisis", "Double dip I","Double dip II", "Oil price shock", "Dot-com bubble", "Sub-prime\nmortgage crisis"),
+  y =  c(.01415981, 0.02067402, 0.02951190,  0.03419201,  0.02767339, 0.02159662,0.02520715),
+  stringsAsFactors = F
+  )
+
+library(lubridate)
+recess$begin <- ymd (recess$begin)
+recess$end <- ymd (recess$end)
+
+plt_prop_unemployed_over_time = ggplot(economics, aes(x = date, y = unemploy/pop)) +
+  ggtitle(c("The percentage of unemployed Americans \n increases sharply during recessions")) +
+  geom_line() +
+  geom_rect(data = recess, 
+            aes(xmin = begin, xmax = end, ymin = -Inf, ymax = +Inf, fill = "Recession"), 
+            inherit.aes = FALSE, alpha = 0.2) +
+  geom_label(data = recess, aes(x = end, y = y, label=event), size = 3) + 
+    scale_fill_manual(name = "", values="red", label="Recessions")
+```
+
+
+```{r}
+# View the default plot
+plt_prop_unemployed_over_time
+
+# Remove legend entirely
+plt_prop_unemployed_over_time +
+  theme(legend.position = "none")
+```
+
+3. Update the plot to position the legend at the bottom of the plot.
+4. *Look at the changes in the plot.*
+
+```{r}
+# Position the legend at the bottom of the plot
+plt_prop_unemployed_over_time +
+  theme(legend.position = "bottom")
+```
+
+5. Position the legend inside the plot, with x-position `0.6` and y-position `0.1`.
+6. *Look at the changes in the plot.*
+
+```{r}
+# Position the legend inside the plot at (0.6, 0.1)
+plt_prop_unemployed_over_time +
+  theme(legend.position = c(0.6, 0.1))
+```
+
+Nice! But be careful when placing a legend inside your plotting space. You could end up obscuring data.
+
+## Modifying theme elements
+
+Many plot elements have multiple properties that can be set. For example, line elements in the plot such as axes and gridlines have a color, a thickness (`size`), and a line type (solid line, dashed, or dotted). To set the style of a line, you use <a href="https://www.rdocumentation.org/packages/ggplot2/topics/margin">`element_line()`</a>. For example, to make the axis lines into red, dashed lines, you would use the following.
+
+```{r}
+p + theme(axis.line = element_line(color = "red", linetype = "dashed"))
+```
+
+Similarly, `element_rect()` changes rectangles and `element_text()` changes text. You can remove a plot element using `element_blank()`.
+
+`plt_prop_unemployed_over_time` is available.
+
+**Steps**
+
+1. Give all rectangles in the plot, (the `rect` element) a `fill` color of `"grey92"` (very pale grey).
+2. Remove the `legend.key`'s outline by setting its `color` to be missing.
+3. *Look at the changes in the plot.*
+
+```{r}
+plt_prop_unemployed_over_time +
+  theme(
+    # For all rectangles, set the fill color to grey92
+    rect = element_rect(fill = "grey92"),
+    # For the legend key, turn off the outline
+    legend.key = element_rect(color = NA)
+  )
+
+```
+
+4. Remove the axis ticks, `axis.ticks` by making them a blank element.
+5. Remove the panel gridlines, `panel.grid` in the same way.
+6. *Look at the changes in the plot.*
+
+```{r}
+plt_prop_unemployed_over_time +
+  theme(
+    rect = element_rect(fill = "grey92"),
+    legend.key = element_rect(color = NA),
+    # Turn off axis ticks
+    axis.ticks = element_blank(),
+    # Turn off the panel grid
+    panel.grid = element_blank()
+  )
+```
+
+7. Add the major horizontal grid lines back to the plot using `panel.grid.major.y`.\nSet the line `color` to `"white"`, `size` to `0.5`, and `linetype` to `"dotted"`.
+8. Set the line `color` to `"white"`, `size` to `0.5`, and `linetype` to `"dotted"`.
+9. *Look at the changes in the plot.*
+
+```{r}
+plt_prop_unemployed_over_time +
+  theme(
+    rect = element_rect(fill = "grey92"),
+    legend.key = element_rect(color = NA),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank(),
+    # Add major y-axis panel grid lines back
+    panel.grid.major.y = element_line(
+      # Set the color to white
+      color = "white",
+      # Set the size to 0.5
+      size = 0.5,
+      # Set the line type to dotted
+      linetype = "dotted"
+    )
+  )
+```
+
+10. Make the axis tick labels' text, `axis.text`, less prominent by changing the `color` to `"grey25"`.
+11. Increase the `plot.title`'s, `size` to `16` and change its font `face` to `"italic"`.
+12. *Look at the changes in the plot.*
+
+```{r}
+plt_prop_unemployed_over_time +
+  theme(
+    rect = element_rect(fill = "grey92"),
+    legend.key = element_rect(color = NA),
+    axis.ticks = element_blank(),
+    panel.grid = element_blank(),
+    panel.grid.major.y = element_line(
+      color = "white",
+      size = 0.5,
+      linetype = "dotted"
+    ),
+    # Set the axis text color to grey25
+    axis.text = element_text(color = "grey25"),
+    # Set the plot title font face to italic and font size to 16
+    plot.title = element_text(face = "italic", size = 16)
+  )
+```
+
+Excellent Explanatory Plot! This plot is ready for prime time -- it's pretty AND informative. Make sure that all your text is legible for the context in which it will be viewed.
+
+### Modifying whitespace
+
+**Whitespace** means all the non-visible margins and spacing in the plot.
+
+To set a single whitespace value, use <a href="https://www.rdocumentation.org/packages/grid/topics/unit">`unit(x, unit)`</a>, where `x` is the amount and `unit` is the unit of measure.
+
+Borders require you to set 4 positions, so use <a href="https://www.rdocumentation.org/packages/ggplot2/topics/margin">`margin(top, right, bottom, left, unit)`</a>. To remember the margin order, think **TRouBLe**.
+
+The default unit is `"pt"` (points), which scales well with text. Other options include  "cm", "in" (inches) and "lines" (of text).
+
+`plt_mpg_vs_wt_by_cyl` is available. The panel and legend are wrapped in blue boxes so you can see how they change.
+
+**Steps**
+
+1. Give the axis tick length, `axis.ticks.length`, a unit of `2` `"lines"`.
+
+```{r}
+plt_mpg_vs_wt_by_cyl <- ggplot(mtcars, aes(wt, mpg, color = fcyl)) +
+  ylab("Miels per gallon") + 
+  xlab("weight (1000/lbs)") +
+  geom_point()
+```
+
+```{r}
+# View the original plot
+plt_mpg_vs_wt_by_cyl
+
+plt_mpg_vs_wt_by_cyl +
+  theme(
+    # Set the axis tick length to 2 lines
+    axis.ticks.length = unit(2, "lines")
+  )
+```
+
+2. Give the legend key size, `legend.key.size`, a unit of `3` centimeters (`"cm"`).
+
+```{r}
+plt_mpg_vs_wt_by_cyl +
+  theme(
+    # Set the legend key size to 3 centimeters
+    legend.key.size = unit(3, "cm")
+  )
+```
+
+3. Set the `legend.margin` to `20` points (`"pt"`) on the top, `30` pts on the right, `40` pts on the bottom, and `50` pts on the left.
+
+```{r}
+plt_mpg_vs_wt_by_cyl +
+  theme(
+    # Set the legend margin to (20, 30, 40, 50) points
+    legend.margin = margin(20, 30, 40, 50, "pt")
+  )
+```
+
+4. Set the plot margin, `plot.margin`, to `10`, `30`, `50`, and `70` millimeters (`"mm"`).
+
+```{r}
+plt_mpg_vs_wt_by_cyl +
+  theme(
+    # Set the plot margin to (10, 30, 50, 70) millimeters
+    plot.margin = margin(10, 30, 50, 70, "mm")
+  )
+```
+
+Wonderful whitespace widening! Changing the whitespace can be useful if you need to make your plot more compact, or if you want to create more space to reduce "business".
+
+### Theme flexibility
+
+Theory. Coming soon ...
+
+**1. Theme flexibility**
+
+In the last video and exercises
+
+**2. Ways to use themes**
+
+we saw how to fine-tune every part of our plot using the theme layer.
+
+**3. Ways to use themes**
+
+There are a few other ways of changing theme elements, so let's take a look. We'll begin with defining our own theme layer object.
+
+**4. Defining theme objects**
+
+If you're using many plots within a presentation or publication, you'll want to have consistency in your style. So, once you settle on a a specific theme, you'll want to apply it to all plots of the same type.Creating a theme from scratch is a detailed process, that we don't want to repeat for every plot we make. That's where defining a theme layer object comes into play.
+
+**5. Defining theme objects**
+
+To see how this works let's return to a plot we've already seen in the last video.For convenience, we're going to save this plot as an object called Z.
+
+**6. Defining theme objects**
+
+We can adjust specific theme arguments to get the desired plot style. Here, I've changed the font family, size and title color.
+
+**7. Defining theme objects**
+
+The first method in automating this process is to save our layer as an object. Here we're just going to call it theme iris.
+
+**8. Reusing theme objects**
+
+Just as we've seen throughout the course, we can add individual layers to any ggplot object.This means we can reuse this style over and over. Let's see what happens when we try to apply our new theme object on another plot.
+
+**9. Reusing theme objects**
+
+Remember this histogram of the iris Sepal widths?
+
+**10. Reusing theme objects**
+
+Now it has the same style as our scatter plot, without having to retype the whole theme layer.
+
+**11. Reusing theme objects**
+
+But let's say that on occasion I wanted to modify some other specific elements of a plot. Not a problem, we can just add a another theme layer which will override any previous settings. In this example, I've removed the x axis line.
+
+**12. Ways to use themes**
+
+So far we just used our theme as an object itself. This is a pretty flexible way of working with theme, but a third way of working with themes is accessing the built-in theme templates.
+
+**13. Using built-in themes**
+
+Built-in theme functions begin with theme_*. theme classic is my go-to template for great publication-quality plots.
+
+**14. Using built-in themes**
+
+Of course we can always modify any specific element, as we've already seen.
+
+**15. Ways to use themes**
+
+There are also packages with pre-defined themes, like the ggthemes package.
+
+**16. The ggthemes package**
+
+The tufte theme mimics Tufte's classic style, which removes all non-data ink and sets the font to a serif typeface.
+
+**17. Ways to use themes**
+
+Finally, we can update and set the default theme
+
+**18. Updating themes**
+
+Updating is done with the theme_update function.This function behaves differently from a typical function. This command updates the default theme and saves the current default to the object "original".
+
+**19. Updating themes**
+
+Now, all plots will automatically have the same theme.
+
+**20. Setting themes**
+
+We can set a complete theme object, like original, using the theme_set function.
+
+**21. Let's practice!**
+
+Alright, let's try out these concepts in the exercises. In the next video will bring everything together in a simple case study.
+
+## Built-in themes
+
+In addition to making your own themes, there are several <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">out-of-the-box solutions</a> that may save you lots of time.
+
+
+* <a href="http://www.rdocumentation.org/packages/ggplot2/functions/ggtheme">`theme_gray()`</a> is the default.
+* <a href="http://www.rdocumentation.org/packages/ggplot2/functions/ggtheme">`theme_bw()`</a> is useful when you use transparency.
+* <a href="http://www.rdocumentation.org/packages/ggplot2/functions/ggtheme">`theme_classic()`</a> is more traditional.
+* <a href="http://www.rdocumentation.org/packages/ggplot2/functions/ggtheme">`theme_void()`</a> removes everything but the data. 
+`plt_prop_unemployed_over_time` is available.
+
+**Steps**
+
+1. Add a black and white theme, `theme_bw()`, to the plot.
+2. *What changed in the plot?*
+
+```{r}
+# Add a black and white theme
+plt_prop_unemployed_over_time +
+  theme_bw()
+```
+
+3. Add a classic theme, `theme_classic()`, to the plot.
+4. *What changed in the plot?*
+
+```{r}
+# Add a classic theme
+plt_prop_unemployed_over_time +
+  theme_classic()
+```
+
+5. Add a void theme, `theme_void()`, to the plot.
+6. *What changed in the plot?*
+
+```{r}
+# Add a void theme
+plt_prop_unemployed_over_time +
+  theme_void()
+```
+
+Thrilling theming! the black and white theme works really well if you use transparency in your plot.
+
+## Exploring ggthemes
+
+Outside of `ggplot2`, another source of built-in themes is the `ggthemes` package. The workspace already contains the `plt_prop_unemployed_over_time`, the line plot from before. Let's explore some of the ready-made `ggthemes` themes.
+
+`plt_prop_unemployed_over_time` is available.
+
+**Steps**
+
+1. Add a fivethirtyeight.com theme, `theme_fivethirtyeight()`, to the plot.
+2. *What changed in the plot?*
+
+```{r}
+# Package
+library(ggthemes)
+
+# Use the fivethirtyeight theme
+plt_prop_unemployed_over_time +
+  theme_fivethirtyeight()
+```
+
+3. Add an Edward Tufte theme, `theme_tufte()`, to the plot.
+4. *What changed in the plot?*
+
+```{r}
+# Use Tufte's theme
+plt_prop_unemployed_over_time +
+  theme_tufte()
+```
+
+5. Add a Wall Street Journal theme, `theme_wsj()`, to the plot.
+6. *What changed in the plot?*
+
+```{r}
+# Use the Wall Street Journal theme
+plt_prop_unemployed_over_time +
+  theme_wsj()
+```
+
+Excellent use of extra themes! `ggthemes` has over 20 themes for you to try.
+
+### Setting themes
+
+Reusing a theme across many plots helps to provide a consistent style. You have several options for this.
+
+1. Assign the theme to a variable, and add it to each plot.
+2. Set your theme as the default using theme_set().
+
+A good strategy that you'll use here is to begin with a built-in theme then modify it.
+
+`plt_prop_unemployed_over_time` is available. The theme you made earlier is shown in the sample code.
+
+**Steps**
+
+1. Assign the theme to `theme_recession`.
+2. Add the Tufte theme and `theme_recession` together.
+3. Use the Tufte recession theme by adding it to the plot.
+
+```{r}
+# Theme layer saved as an object, theme_recession
+theme_recession <- theme(
+  rect = element_rect(fill = "grey92"),
+  legend.key = element_rect(color = NA),
+  axis.ticks = element_blank(),
+  panel.grid = element_blank(),
+  panel.grid.major.y = element_line(color = "white", size = 0.5, linetype = "dotted"),
+  axis.text = element_text(color = "grey25"),
+  plot.title = element_text(face = "italic", size = 16),
+  legend.position = c(0.6, 0.1)
+)
+
+# Combine the Tufte theme with theme_recession
+theme_tufte_recession <- theme_tufte() + theme_recession
+
+# Add the recession theme to the plot
+plt_prop_unemployed_over_time + theme_tufte_recession
+```
+
+4. Use `theme_set()` to set `theme_tufte_recession` as the default theme.
+5. Draw the plot, `plt_prop_unemployed_over_time`, without explicitly adding a theme.
+6. *Look at the plot. Was it styled with the default theme or the new theme?**
+
+```{r}
+theme_recession <- theme(
+  rect = element_rect(fill = "grey92"),
+  legend.key = element_rect(color = NA),
+  axis.ticks = element_blank(),
+  panel.grid = element_blank(),
+  panel.grid.major.y = element_line(color = "white", size = 0.5, linetype = "dotted"),
+  axis.text = element_text(color = "grey25"),
+  plot.title = element_text(face = "italic", size = 16),
+  legend.position = c(0.6, 0.1)
+)
+theme_tufte_recession <- theme_tufte() + theme_recession
+
+# Set theme_tufte_recession as the default theme
+theme_set(theme_tufte_recession)
+
+# Draw the plot (without explicitly adding a theme)
+plt_prop_unemployed_over_time
+```
+
+NA
+
+### Publication-quality plots
+
+We've seen many examples of beautiful, publication-quality plots. Let's take a final look and put all the pieces together.
+
+`plt_prop_unemployed_over_time` is available.
+
+**Steps**
+
+1. Add Tufte's theme.
+
+
+```{r}
+plt_prop_unemployed_over_time +
+  # Add Tufte's theme
+  theme_tufte()
+```
+
+2. Call the function to add individual theme elements. Turn off the legend and the axis ticks.
+
+
+```{r}
+plt_prop_unemployed_over_time +
+  theme_tufte() +
+  # Add individual theme elements
+  theme(
+    # Turn off the legend
+    legend.position = "none",
+    # Turn off the axis ticks
+    axis.ticks = element_blank()
+  )
+```
+
+3. Set the axis title and axis text's text color to `grey60`.
+
+
+```{r}
+plt_prop_unemployed_over_time +
+  theme_tufte() +
+  theme(
+    legend.position = "none",
+    axis.ticks = element_blank(),
+    # Set the axis title's text color to grey60
+    axis.title = element_text(color = "grey60"),
+    # Set the axis text's text color to grey60
+    axis.text = element_text(color = "grey60")
+  )
+```
+
+4. Set the panel gridlines major y values. Set the color to `grey60`, the size to `0.25`, and the line type to `dotted`.
+
+
+```{r}
+plt_prop_unemployed_over_time +
+  theme_tufte() +
+  theme(
+    legend.position = "none",
+    axis.ticks = element_blank(),
+    axis.title = element_text(color = "grey60"),
+    axis.text = element_text(color = "grey60"),
+    # Set the panel gridlines major y values
+    panel.grid.major.y = element_line(
+      # Set the color to grey60
+      color = "grey60",
+      # Set the size to 0.25
+      size = 0.25,
+      # Set the linetype to dotted
+      linetype = "dotted"
+    )
+  )
+```
+
+Perfect plotting! That will look great in a publication!
+
+## Effective explanatory plots
+
+Theory. Coming soon ...
+
+**1. Effective explanatory plots**
+
+For our last exercises, I want to go through an example of producing explanatory plots in an info viz style, something that you'd see in a magazine or website for a mostly lay audience.
+
+**2. Our goal, an effective explanatory plot**
+
+These plots tend to have both a small number of observations and variables, have embellishments and typically make a clear or dramatic statement.Our example comes from the gapminder data set and plots the countries with the highest and lowest life expectancies in 2007. The global mean is plotted for comparison. Here we focus on the large gap between the highest and lowest life expectancies, which is about 40 years!
+
+**3. Complete data**
+
+
+
+**4. First exploratory plots - distributions**
+
+Our first exploratory plot would probably be a histogram, which isn't a bad choice. Recall that we have already applied a binning statistic here.
+
+**5. First exploratory plots - distributions**
+
+An alternative would be to arrange the data according life expectancy and plot that as an index, which allows us to see each point individually, without first binning the variable.
+
+**6. First exploratory plots - distributions**
+
+This has the advantage that we can color each point according to continent. This is already a quite informative plot. We can see differences in the distribution between continents. After getting familiar with our data, we need to reduce it to a compact and understandable format for a lay audience.
+
+**7. Our data**
+
+In this form we only have 20 observations, the top 10 and bottom 10 observations.
+
+**8. life expectancy plot**
+
+Here, I'd map the country to the y axis, so that it's easy to read, I mapped life expectancy onto both color and the x axis, which is redundant, but helps a lay audience.
+
+**9. Use intuitive and attractive geoms**
+
+The line segments add some perspective and is sometimes referred to as a lollipop plot when used with points.
+
+**10. Add text labels to your plot**
+
+Typically, we're happy to just read a value from the axis, but adding the actual value using a geom_text layer makes it immediately more intuitive for unexperienced viewers. You can already see that there are many things happening that we wouldn't typically do for a scientific audience.
+
+**11. Use appropriate scales**
+
+Next, I'd clean up the scales, using an intuitive color palette, removing unnecessary buffering, and changing the x axis location to the top of the plot.
+
+**12. Add useful titles and citations**
+
+Titles and captions help to make the plot complete, if it will be viewed alone.
+
+**13. Remove non-data ink**
+
+And of course, removing non-data ink makes for a great looking plot. Notice that I removed the x and y axis labels as well as the legend. None of them are actually necessary.
+
+**14. Add threshold lines**
+
+Adding a threshold line helps to orientate the viewer. Here, it's the global mean from 2007.
+
+**15. Add informative text**
+
+Of course, it's also helpful to label the threshold line. We'll do this with the annotate function, which allows us to access any geom and place it manually on a plot.
+
+**16. Add embellishments**
+
+For example, another geom we haven't seen yet is geom_curve, for drawing curved lines. This is really great for adding handy little arrows anywhere on our plot.
+
+**17. Let's practice!**
+
+By now you have the ggplot2 core competencies that will allow you to make beautiful and effective exploratory plots, but there is a lot more to data visualization and ggplot2. After you're finished the exercises, head over to the next course to learn about the remaining layers and round out your knowledge.
+
+### Using geoms for explanatory plots
+
+Let's focus on producing beautiful and effective explanatory plots. In the next couple of exercises, you'll create a plot that is similar to the one shown in the video using `gm2007`, a filtered subset of the `gapminder` dataset.
+
+This type of plot will be in an info-viz style, meaning that it would be similar to something you'd see in a magazine or website for a mostly lay audience.
+
+A scatterplot of `lifeExp` by `country`, colored by `lifeExp`, with points of size `4`, is provided.
+
+**Steps**
+
+1. `geom_segment()` adds line segments and requires two additional aesthetics: `xend` and `yend`. To draw a horizontal line for each point, map `30` onto `xend` and `country` onto `yend`.
+
+
+```{r}
+# data
+library(gapminder)
+library(dplyr)
+gm2007 <- gapminder |> 
+  filter(year == 2007) |> 
+  select(country, lifeExp, continent) |> 
+filter(lifeExp > 80.6 | lifeExp < 46) |> 
+  arrange(lifeExp)
+
+# Add a geom_segment() layer
+ggplot(gm2007, aes(x = lifeExp, y = country, color = lifeExp)) +
+  geom_point(size = 4) +
+  geom_segment(aes(xend = 30, yend = country), linewidth = 2)
+```
+
+2. `geom_text` also needs an additional aesthetic: `label`. Map `lifeExp` onto `label`, and set the attributes `color` to `"white"` and `size` to `1.5`.
+
+
+```{r}
+# Add a geom_text() layer
+ggplot(gm2007, aes(x = lifeExp, y = country, color = lifeExp)) +
+  geom_point(size = 4) +
+  geom_segment(aes(xend = 30, yend = country), size = 2) +
+  geom_text(aes(label = lifeExp), color = "white", size = 1.5)
+```
+
+3. The color scale has been set for you, but you need to clean up the scales. For the x scale:\nSet `expand` to `c(0, 0)` and  `limits` to `c(30, 90)`.\nPlace the axis on the top of the plot with the `position` argument.
+4. Set `expand` to `c(0, 0)` and  `limits` to `c(30, 90)`.
+5. Place the axis on the top of the plot with the `position` argument.
+
+```{r}
+# Package
+library(RColorBrewer)
+
+# Set the color scale
+palette <- brewer.pal(5, "RdYlBu")[-(2:4)]
+
+# Modify the scales
+ggplot(gm2007, aes(x = lifeExp, y = country, color = lifeExp)) +
+  geom_point(size = 4) +
+  geom_segment(aes(xend = 30, yend = country), size = 2) +
+  geom_text(aes(label = round(lifeExp,1)), color = "white", size = 1.5) +
+  scale_x_continuous("", expand = c(0,0), limits = c(30,90), position = "top") +
+  scale_color_gradientn(colors = palette)
+```
+
+6. Make sure to label the plot appropriately using `labs()`:
+
+    * Make the title `"Highest and lowest life expectancies, 2007"`.
+    * Add a reference by setting `caption` to `"Source: gapminder"`.
+
+```{r}
+# Set the color scale
+palette <- brewer.pal(5, "RdYlBu")[-(2:4)]
+
+# Add a title and caption
+plt_country_vs_lifeExp <- ggplot(gm2007, aes(x = lifeExp, y = country, color = lifeExp)) +
+  geom_point(size = 4) +
+  geom_segment(aes(xend = 30, yend = country), size = 2) +
+  geom_text(aes(label = round(lifeExp,1)), color = "white", size = 1.5) +
+  scale_x_continuous("", expand = c(0,0), limits = c(30,90), position = "top") +
+  scale_color_gradientn(colors = palette) +
+  labs(title = "Highest and lowest life expectancies, 2007", caption = "Source: gapminder")
+plt_country_vs_lifeExp
+```
+
+Great job! Let's continue adding to this plot in the next exercise.
+
+### Using annotate() for embellishments
+
+In the previous exercise, we completed our basic plot. Now let's polish it by playing with the theme and adding annotations. In this exercise, you'll use `annotate()` to add text and a curve to the plot. 
+
+The following values have been calculated for you to assist with adding embellishments to the plot:
+
+```{r}
+gm2007_full <- gapminder %>% 
+  filter(year == 2007) %>% 
+  select(country, lifeExp, continent)
+```
+
+```{r}
+global_mean <- mean(gm2007_full$lifeExp)
+x_start <- global_mean + 4
+y_start <- 5.5
+x_end <- global_mean
+y_end <- 7.5
+```
+
+Our previous plot has been assigned to `plt_country_vs_lifeExp`.
+
+**Steps**
+
+1. Clean up the theme:
+
+    * Add a classic theme to the plot with `theme_classic()`.
+    * Set `axis.line.y`, `axis.ticks.y`, and `axis.title` to `element_blank()`.
+    * Set the `axis.text` color to `"black"`.
+    * Remove the legend by setting `legend.position` to `"none"`.
+
+```{r}
+# Define the theme
+plt_country_vs_lifeExp +
+  theme_classic() +
+  theme(axis.line.y = element_blank(),
+        axis.ticks.y = element_blank(),
+        axis.text = element_text(color = "black"),
+        axis.title = element_blank(),
+        legend.position = "none")
+```
+
+2. Use `geom_vline()` to add a vertical line. Set `xintercept` to `global_mean`, specify the color to be `"grey40"`, and set `linetype` to `3`.
+
+
+```{r}
+# Add a vertical line
+plt_country_vs_lifeExp <- plt_country_vs_lifeExp +
+  geom_vline(xintercept = global_mean, color = "grey40", linetype = 3)
+plt_country_vs_lifeExp
+```
+
+3. `x_start` and `y_start` will be used as positions to place text and have been calculated for you.
+
+    * Add a `"text"` geom as an annotation.
+    * For the annotation, set `x` to `x_start`, `y` to `y_start`, and `label` to `"The\\nglobal\\naverage"`.
+
+```{r}
+# Add text
+plt_country_vs_lifeExp <- plt_country_vs_lifeExp  +
+  annotate(
+    "text",
+    x = x_start, y = y_start,
+    label = "The\nglobal\naverage",
+    vjust = 1, size = 3, color = "grey40"
+  )
+plt_country_vs_lifeExp
+```
+
+4. Annotate the plot with an arrow connecting your text to the line.
+
+    * Use a `"curve"` geom.
+    * Set the arrow ends `xend` to `x_end` and `yend` to `y_end`.
+    * Set the `length` of the arrowhead to 0.2 cm and the `type` to `"closed"`.
+
+```{r}
+# Add a curve
+plt_country_vs_lifeExp <- plt_country_vs_lifeExp  +
+  annotate(
+    "curve",
+    x = x_start, y = y_start,
+    xend = x_end, yend = y_end,
+    arrow = arrow(length = unit(0.2, "cm"), type = "closed"),
+    color = "grey40"
+  )
+plt_country_vs_lifeExp
+```
+
+Awesome! Your explanatory plot clearly shows the countries with the highest and lowest life expectancy and would be great for a lay audience.\n<br/>\n<br/>\nCongratulations on finishing the course! Continue learning more in Intermediate Data Visualization with ggplot2!
+

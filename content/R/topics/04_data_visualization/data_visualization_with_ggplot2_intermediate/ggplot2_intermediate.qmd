@@ -281,15 +281,15 @@ ggplot(Vocab, aes(x = education, y = vocabulary, color = year_group)) +
 
     * Update the smooth stat.
       - Map the fill color to `year_group`.
-      - Set the line linewidth to `2`.
+      - Set the line linewidth to `1`.
 
 ```{r}
 #| message: false
 # Amend the plot
 ggplot(Vocab, aes(x = education, y = vocabulary, color = year_group)) +
   geom_jitter(alpha = 0.25) +
-  # Map the fill color to year_group, set the linewidth size to 2
-  stat_smooth(aes(fill = year_group), method = "lm", linewidth = 2)
+  # Map the fill color to year_group, set the linewidth size to 1
+  stat_smooth(aes(fill = year_group), method = "lm", linewidth = 1)
 ```
 
 You have a vast plotting vocabulary! Notice that since 1995, education has relatively smaller effect on increasing vocabulary.
@@ -367,7 +367,8 @@ Specifying many quantiles *and* color your models according to year can make plo
 
 1. Update the plot to add a quantile regression stat, at `quantiles` `0.05`, `0.5`, and `0.95`.
 
-```{r,eval=TRUE}
+```{r}
+#| message: false
 ggplot(Vocab, aes(x = education, y = vocabulary)) +
   geom_jitter(alpha = 0.25) +
   # Add a quantile stat, at 0.05, 0.5, and 0.95
@@ -376,7 +377,8 @@ ggplot(Vocab, aes(x = education, y = vocabulary)) +
 
 2. Amend the plot to color according to `year_group`.
 
-```{r,eval=TRUE}
+```{r}
+#| message: false
 # Amend the plot to color by year_group
 ggplot(Vocab, aes(x = education, y = vocabulary, color = year_group)) +
   geom_jitter(alpha = 0.25) +
@@ -597,7 +599,10 @@ The position object, `posn_d`, and the plot with jittered points, `p_wt_vs_fcyl_
     * Draw 1 standard deviation each side of the mean, pass arguments to the `mean_sdl()` function by assigning them to `fun.args` in the form of a list.
     * Use `posn_d` to set the position.
 
-```{r,eval=TRUE}
+```{r}
+# packages
+library(Hmisc)
+
 # data
 p_wt_vs_fcyl_by_fam_jit <- p_wt_vs_fcyl_by_fam +
                             geom_jitter(width = 0.2)
