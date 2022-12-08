@@ -1335,6 +1335,7 @@ Faceting splits the data up into groups, according to a categorical variable, th
 Given categorical variables `A` and `B`, the code pattern is
 
 ```{r}
+#| eval: false
 facet_grid(rows = vars(A), cols = vars(B))
 ```
 
@@ -2276,9 +2277,13 @@ ggplot(barley, aes(x = year, y = variety, fill = yield)) +
 2. Add a line layer.
 3. Facet, wrapping by `site`, with 1 row.
 
-```{r,eval=TRUE}
+```{r}
 # Using barley, plot yield vs. year, colored and grouped by variety
 ggplot(barley, aes(year, yield, color = variety, group = variety)) +
+  
+  # tie theme only allows for a max of 8 colors
+  scale_color_hue() +
+  
   # Add a line layer
   geom_line() +
   # Facet, wrapping by site, with 1 row

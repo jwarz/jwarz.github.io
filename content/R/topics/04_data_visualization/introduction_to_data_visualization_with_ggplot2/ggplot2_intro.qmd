@@ -11,7 +11,7 @@ options(dplyr.summarise.inform = FALSE)
 
 The ability to produce meaningful and beautiful data visualizations is an essential part of your skill set as a data scientist. This course, the first R data visualization tutorial in the series, introduces you to the principles of good visualizations and the grammar of graphics plotting concepts implemented in the ggplot2 package. ggplot2 has become the go-to tool for flexible and professional plots in R. Here, we’ll examine the first three essential layers for making a plot - Data, Aesthetics and Geometries. By the end of the course you will be able to make complex exploratory plots.
 
-# 1. Introduction
+# Introduction
 
 In this chapter we’ll get you into the right frame of mind for developing meaningful visualizations with R. You’ll understand that as a communications tool, visualizations require you to think about your audience first. You’ll also be introduced to the basics of ggplot2 - the 7 different grammatical elements (layers) and aesthetic mappings.
 
@@ -441,7 +441,7 @@ plt_price_vs_carat_by_clarity
 
 Super saving of plotting steps! By assigning parts of plots to a variable then reusing that variable in other plots, it makes it really clear how much those plots have in common.
 
-# 2. Aesthetics
+# Aesthetics
 
 Aesthetic mappings are the cornerstone of the grammar of graphics plotting concept. This is where the magic happens - converting continuous and categorical data into visual scales that provide access to a large amount of information in a very short time. In this chapter you’ll understand how to choose the best aesthetic mappings for your data.
 
@@ -914,7 +914,7 @@ palette <- c(automatic = "#377EB8", manual = "#E41A1C")
 
 ggplot(mtcars, aes(fcyl, fill = fam)) +
   geom_bar() +
-  labs(x = "Number of Cylinders", y = "Count")
+  labs(x = "Number of Cylinders", y = "Count") +
   # Set the fill color scale
   scale_fill_manual("Transmission", values = palette)
 ```
@@ -1083,7 +1083,7 @@ From the six possible ways to map three variables, one solution is shown in the 
 
 That's correct!
 
-# 3. Geometries
+# Geometries
 
 A plot’s geometry dictates what visual elements will be used. In this chapter, we’ll familiarize you with the geometries used in the three most common plot types you’ll encounter - scatter plots, bar charts and line plots. We’ll look at a variety of different ways to construct these plots.
 
@@ -1762,8 +1762,7 @@ We already saw how the form of your data affects how you can plot it. Let's expl
 
 **Steps**
 
-1. Use `str()` in the console to examine the structure of both `fish.species` and `fish.tidy`.
-2. Plot only the `Rainbow` salmon time series with `geom_line()`.
+1. Plot only the `Rainbow` salmon time series with `geom_line()`.
 
 ```{r}
 # data
@@ -1775,13 +1774,9 @@ ggplot(fish.species, aes(x = Year, y = Rainbow)) +
   geom_line()
 ```
 
-3. Plot only the `Pink` salmon time series with `geom_line()`.
+2. Plot only the `Pink` salmon time series with `geom_line()`.
 
 ```{r}
-# Plot the Rainbow Salmon time series
-ggplot(fish.species, aes(x = Year, y = Rainbow)) +
-  geom_line()
-
 # Plot the Pink Salmon time series
 ggplot(fish.species, aes(x = Year, y = Pink)) +
   geom_line()
@@ -1793,14 +1788,6 @@ ggplot(fish.species, aes(x = Year, y = Pink)) +
     * `group` by fish species within the aesthetics of `geom_line()`.
 
 ```{r}
-# Plot the Rainbow Salmon time series
-ggplot(fish.species, aes(x = Year, y = Rainbow)) +
-  geom_line()
-
-# Plot the Pink Salmon time series
-ggplot(fish.species, aes(x = Year, y = Pink)) +
-  geom_line()
-
 # Plot multiple time-series by grouping by species
 ggplot(fish.tidy, aes(Year, Capture)) +
   geom_line(aes(group = Species))
@@ -1811,18 +1798,6 @@ ggplot(fish.tidy, aes(Year, Capture)) +
     * Plot the `fish.tidy` dataset again, this time making sure to `color` by `Species`.
 
 ```{r}
-# Plot the Rainbow Salmon time series
-ggplot(fish.species, aes(x = Year, y = Rainbow)) +
-  geom_line()
-
-# Plot the Pink Salmon time series
-ggplot(fish.species, aes(x = Year, y = Pink)) +
-  geom_line()
-
-# Plot multiple time-series by grouping by species
-ggplot(fish.tidy, aes(Year, Capture)) +
-  geom_line(aes(group = Species))
-
 # Plot multiple time-series by coloring by species
 ggplot(fish.tidy, aes(Year, Capture, color = Species)) +
   geom_line()
@@ -1830,7 +1805,7 @@ ggplot(fish.tidy, aes(Year, Capture, color = Species)) +
 
 Good job! As you can see in the the last couple of plots, a grouping aesthetic was vital here. If you don't specify `color = Species`, you'll get a mess of lines.
 
-# 4. Themes
+# Themes
 
 In this chapter, we’ll explore how understanding the structure of your data makes data visualization much easier. Plus, it’s time to make our plots pretty. This is the last step in the data viz process. The Themes layer will enable you to make publication quality plots directly in R. In the next course we'll look at some extra layers to add more variables to your plots.
 

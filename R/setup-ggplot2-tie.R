@@ -309,7 +309,7 @@ scale_color_gradientn <- function(...,
 }
 scale_colour_gradientn <- scale_color_gradientn
 
-# Continuous fill scale that aligns with the Urban Institute style
+# Continuous fill scale that aligns with the TIE style
 scale_fill_gradientn <- function(...,
                                  colours = palette_tie$sequential[[8]],
                                  colors = palette_tie$sequential[[8]],
