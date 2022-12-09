@@ -1,16 +1,17 @@
 ---
 title: "Hyperparameter Tuning in R"
 author: "Joschka Schwarz"
-toc-depth: 2
 ---
-  
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = T)
+
+```{r}
+#| include: false
+source(here::here("R/setup-ggplot2-tie.R"))
+options(dplyr.summarise.inform = FALSE)
 ```
 
 For many machine learning problems, simply running a model out-of-the-box and getting a prediction is not enough; you want the best model with the most accurate prediction. One way to perfect your model is with hyperparameter tuning, which means optimizing the settings for that specific model. In this course, you will work with the caret, mlr and h2o packages to find the optimal combination of hyperparameters in an efficient manner using grid search, random search, adaptive resampling and automatic machine learning (AutoML). Furthermore, you will work with different datasets and tune different supervised learning models, such as random forests, gradient boosting machines, support vector machines, and even neural nets. Get ready to tune!
 
-# 1. Introduction to hyperparameters
+# Introduction to hyperparameters
 
 Why do we use the strange word "hyperparameter"? What makes it hyper? Here, you will understand what model parameters are, and why they are different from hyperparameters in machine learning. You will then see why we would want to tune them and how the default setting of caret automatically includes hyperparameter tuning.
 

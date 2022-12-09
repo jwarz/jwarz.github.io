@@ -1,11 +1,12 @@
 ---
 title: "Intermediate Importing Data in R"
 author: "Joschka Schwarz"
-toc-depth: 2
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = F)
+```{r}
+#| include: false
+source(here::here("R/setup-ggplot2-tie.R"))
+options(dplyr.summarise.inform = FALSE)
 ```
 
 In this course, you will take a deeper dive into the wide range of data formats out there. More specifically, you'll learn how to import data from relational databases and how to import and work with data coming from the web. Finally, you'll get hands-on experience with importing data from statistical software packages such as SAS, STATA, and SPSS.
@@ -87,7 +88,7 @@ If the MySQL database is a remote database hosted on a server, you'll also have 
 1. Load the `DBI` library, which is already installed on DataCamp's servers.
 2. Edit the <a href="http://www.rdocumentation.org/packages/DBI/functions/dbConnect" target="_blank" rel="noopener noreferrer">`dbConnect()`</a> call to connect to the MySQL database. Change the `port` argument (`3306`) and `user` argument (`"student"`).
 
-```{r,eval=TRUE}
+```{r}
 # Load the DBI package
 library(DBI)
 
@@ -159,7 +160,7 @@ Let's start by importing the data on the users into your R session. You do this 
 1 Add code that imports the `"users"` table from the tweater database and store the resulting data frame as `users`.
 2. Print the `users` data frame.
 
-```{r,eval=TRUE}
+```{r}
 # Import the users table from tweater: users
 users <- dbReadTable(con, "users")
 
@@ -177,7 +178,7 @@ Next to the `users`, we're also interested in the `tweats` and `comments` tables
 1. Finish the `lapply()` function to import the `users`, `tweats` and `comments` tables in a single call. The result, a list of data frames, will be stored in the variable `tables`.
 2. Print `tables` to check if you got it right.
 
-```{r,eval=TRUE}
+```{r}
 # Get table names
 table_names <- dbListTables(con)
 
@@ -306,6 +307,7 @@ In your life as a data scientist, you'll often be working with huge databases th
 <a href="http://www.rdocumentation.org/packages/DBI/functions/dbGetQuery" target="_blank" rel="noopener noreferrer">`dbGetQuery()`</a> is what you need. As usual, you first pass the connection object to it. The second argument is an SQL query in the form of a character string. This example selects the `age` variable from the `people` dataset where `gender` equals `"male"`:
 
 ```{r}
+#| eval: false
 dbGetQuery(con, "SELECT age FROM people WHERE gender = 'male'")
 ```
 
@@ -314,7 +316,16 @@ dbGetQuery(con, "SELECT age FROM people WHERE gender = 'male'")
 1. Use <a href="http://www.rdocumentation.org/packages/DBI/functions/dbGetQuery" target="_blank" rel="noopener noreferrer">`dbGetQuery()`</a> to create a data frame, `elisabeth`, that **selects** the `tweat_id` column **from** the `comments` table **where** elisabeth is the commenter, her `user_id` is 1
 2. Print out `elisabeth` so you can see if you queried the database correctly.
 
-```{r,eval=TRUE}
+```{r}
+# Connect to the database
+library(DBI)
+con <- dbConnect(RMySQL::MySQL(),
+                 dbname = "tweater",
+                 host = "courses.csrrinzqubik.us-east-1.rds.amazonaws.com",
+                 port = 3306,
+                 user = "student",
+                 password = "datacamp")
+
 # Import tweat_id column of comments where user_id is 1: elisabeth
 elisabeth <- dbGetQuery(con, "SELECT tweat_id FROM comments WHERE user_id = 1")
 
@@ -1438,6 +1449,7 @@ If you're familiar with statistics, you'll have heard about Pearson's Correlatio
 You can calculate the correlation between two vectors with the <a href="http://www.rdocumentation.org/packages/stats/functions/cor">`cor()`</a> function. Take this code for example, that computes the correlation between the columns `height` and `width` of a fictional data frame `size`:
 
 ```{r}
+#| eval: false
 cor(size$height, size$width)
 ```
 

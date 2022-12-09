@@ -1099,7 +1099,8 @@ Because factors and visualization are beyond the scope of this course, we've don
 ```{r}
 colors_joined <- batman_colors %>%
   full_join(star_wars_colors, by = "color_id", suffix = c("_batman", "_star_wars")) %>%
-  replace_na(list(total_batman = 0, total_star_wars = 0)) %>%
+  # replace_na(list(total_batman = 0, total_star_wars = 0)) %>%
+  mutate(across(ends_with("batman|star_wars"), ~replace_na(., 0))) %>%
   inner_join(colors, by = c("color_id" = "id")) %>%
   mutate(difference = fraction_batman - fraction_star_wars,
          total = total_batman + total_star_wars) %>%

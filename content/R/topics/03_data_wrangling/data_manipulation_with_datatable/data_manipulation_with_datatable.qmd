@@ -1,11 +1,12 @@
 ---
 title: "Data Manipulation with data.table in R"
 author: "Joschka Schwarz"
-toc-depth: 2
 ---
-  
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = T)
+
+```{r}
+#| include: false
+source(here::here("R/setup-ggplot2-tie.R"))
+options(dplyr.summarise.inform = FALSE)
 ```
 
 The data.table package provides a high-performance version of base R's data.frame with syntax and feature enhancements for ease of use, convenience and programming speed. This course shows you how to create, subset, and manipulate data.tables. You'll also learn about the database-inspired features of data.tables, including built-in groupwise operations. The course concludes with fast methods of importing and exporting tabular text data such as CSV files. Upon completion of the course, you will be able to use data.table in R for a more efficient manipulation and analysis process. Throughout the course you'll explore the San Francisco Bay Area bike share trip dataset from 2014.

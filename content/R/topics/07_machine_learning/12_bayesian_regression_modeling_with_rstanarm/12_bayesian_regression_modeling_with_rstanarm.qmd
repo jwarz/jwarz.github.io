@@ -1,16 +1,17 @@
 ---
 title: "Bayesian Regression Modeling with rstanarm"
 author: "Joschka Schwarz"
-toc-depth: 2
 ---
-  
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = T)
+
+```{r}
+#| include: false
+source(here::here("R/setup-ggplot2-tie.R"))
+options(dplyr.summarise.inform = FALSE)
 ```
 
 Bayesian estimation offers a flexible alternative to modeling techniques where the inferences depend on p-values. In this course, you’ll learn how to estimate linear regression models using Bayesian methods and the rstanarm package. You’ll be introduced to prior distributions, posterior predictive model checking, and model comparisons within the Bayesian framework. You’ll also learn how to use your estimated model to make predictions for new data.
 
-# 1. Introduction to Bayesian Linear Models
+# Introduction to Bayesian Linear Models
 
 A review of frequentist regression using lm(), an introduction to Bayesian regression using stan_glm(), and a comparison of the respective outputs.
 

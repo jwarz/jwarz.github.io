@@ -1,16 +1,17 @@
 ---
 title: "Introduction to Spark with sparklyr in R"
 author: "Joschka Schwarz"
-toc-depth: 2
 ---
-  
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = T)
+
+```{r}
+#| include: false
+source(here::here("R/setup-ggplot2-tie.R"))
+options(dplyr.summarise.inform = FALSE)
 ```
 
 R is mostly optimized to help you write data analysis code quickly and readably. Apache Spark is designed to analyze huge datasets quickly. The <code>sparklyr</code> package lets you write <code>dplyr</code> R code that runs on a Spark cluster, giving you the best of both worlds. This course teaches you how to manipulate Spark DataFrames using both the <code>dplyr</code> interface and the native interface to Spark, as well as trying machine learning techniques. Throughout the course, you'll explore the Million Song Dataset.
 
-# 1. Light My Fire: Starting To Use Spark With dplyr Syntax
+# Light My Fire: Starting To Use Spark With dplyr Syntax
 
 In which you learn how Spark and R complement each other, how to get data to and from Spark, and how to manipulate Spark data frames using dplyr syntax.
 

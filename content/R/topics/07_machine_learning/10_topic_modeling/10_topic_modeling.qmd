@@ -1,11 +1,12 @@
 ---
 title: "Topic Modeling in R"
 author: "Joschka Schwarz"
-toc-depth: 2
 ---
-  
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = T)
+
+```{r}
+#| include: false
+source(here::here("R/setup-ggplot2-tie.R"))
+options(dplyr.summarise.inform = FALSE)
 ```
 
 
@@ -21,7 +22,7 @@ Mac - Configuring C++ Toolchain
 
 This course introduces students to the areas involved in topic modeling: preparation of corpus, fitting of topic models using Latent Dirichlet Allocation algorithm (in package topicmodels), and visualizing the results using ggplot2 and wordclouds.
 
-# 1. Quick introduction to the workflow
+# Quick introduction to the workflow
 
 This chapter introduces the workflow used in topic modeling: preparation of a document-term matrix, model fitting, and visualization of results with ggplot2.
 

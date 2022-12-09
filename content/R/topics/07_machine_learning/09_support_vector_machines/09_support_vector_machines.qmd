@@ -1,16 +1,17 @@
 ---
 title: "Support Vector Machines in R"
 author: "Joschka Schwarz"
-toc-depth: 2
 ---
-  
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = T)
+
+```{r}
+#| include: false
+source(here::here("R/setup-ggplot2-tie.R"))
+options(dplyr.summarise.inform = FALSE)
 ```
 
 This course will introduce a powerful classifier, the support vector machine (SVM) using an intuitive, visual approach. Support Vector Machines in R will help students develop an understanding of the SVM model as a classifier and gain practical experience using R’s libsvm implementation from the e1071 package. Along the way, students will gain an intuitive understanding of important concepts, such as hard and soft margins, the kernel trick, different types of kernels, and how to tune SVM parameters. Get ready to classify data with this impressive model.
 
-# 1. Introduction
+# Introduction
 
 This chapter introduces some key concepts of support vector machines through a simple 1-dimensional example. Students are also walked through the  creation of a linearly separable dataset that is used in the subsequent chapter.
 

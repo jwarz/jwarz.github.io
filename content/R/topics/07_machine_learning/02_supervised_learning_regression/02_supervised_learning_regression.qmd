@@ -1,16 +1,17 @@
 ---
 title: "Supervised Learning in R: Regression"
 author: "Joschka Schwarz"
-toc-depth: 2
 ---
-  
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = T)
+
+```{r}
+#| include: false
+source(here::here("R/setup-ggplot2-tie.R"))
+options(dplyr.summarise.inform = FALSE)
 ```
 
 From a machine learning perspective, regression is the task of predicting numerical outcomes from various inputs. In this course, you'll learn about different regression models, how to train these models in R, how to evaluate the models you train and use them to make predictions.
 
-# 1. What is Regression?
+# What is Regression?
 
 In this chapter we introduce the concept of regression from a machine learning point of view. We will present the fundamental regression method: linear regression. We will show how to fit a linear regression model and to make predictions from the model.
 

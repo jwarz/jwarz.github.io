@@ -1,16 +1,17 @@
 ---
 title: "Unsupervised Learning in R"
 author: "Joschka Schwarz"
-toc-depth: 2
 ---
-  
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = T)
+
+```{r}
+#| include: false
+source(here::here("R/setup-ggplot2-tie.R"))
+options(dplyr.summarise.inform = FALSE)
 ```
 
 Many times in machine learning, the goal is to find patterns in data without trying to make predictions. This is called unsupervised learning. One common use case of unsupervised learning is grouping consumers based on demographics and purchasing history to deploy targeted marketing campaigns. Another example is wanting to describe the unmeasured factors that most influence crime differences between cities. This course provides a basic introduction to clustering and dimensionality reduction in R from a machine learning perspective, so that you can get from data to insights as quickly as possible.\n
 
-# 1. Unsupervised learning in R
+# Unsupervised learning in R
 
 The k-means algorithm is one common approach to clustering. Learn how the algorithm works under the hood, implement k-means clustering in R, visualize and interpret the results, and select the number of clusters when it's not known ahead of time. By the end of the chapter, you'll have applied k-means clustering to a fun "real-world" dataset!
 

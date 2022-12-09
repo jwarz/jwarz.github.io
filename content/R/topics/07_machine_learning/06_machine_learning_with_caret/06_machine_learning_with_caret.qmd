@@ -1,16 +1,17 @@
 ---
 title: "Machine Learning with caret in R"
 author: "Joschka Schwarz"
-toc-depth: 2
 ---
-  
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = T)
+
+```{r}
+#| include: false
+source(here::here("R/setup-ggplot2-tie.R"))
+options(dplyr.summarise.inform = FALSE)
 ```
 
 Machine learning is the study and application of algorithms that learn from and make predictions on data. From search results to self-driving cars, it has manifested itself in all areas of our lives and is one of the most exciting and fast growing fields of research in the world of data science. This course teaches the big ideas in machine learning: how to build and evaluate predictive models, how to tune them for optimal performance, how to preprocess data for better results, and much more. The popular <code>caret</code> R package, which provides a consistent interface to all of R's most powerful machine learning facilities, is used throughout the course.
 
-# 1. Regression models: fitting them and evaluating their performance
+# Regression models: fitting them and evaluating their performance
 
 In the first chapter of this course, you'll fit regression models with <code>train()</code> and evaluate their out-of-sample performance using cross-validation and root-mean-square error (RMSE).
 

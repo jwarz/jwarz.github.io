@@ -1,16 +1,17 @@
 ---
 title: "Machine Learning in the Tidyverse"
 author: "Joschka Schwarz"
-toc-depth: 2
 ---
-  
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = T)
+
+```{r}
+#| include: false
+source(here::here("R/setup-ggplot2-tie.R"))
+options(dplyr.summarise.inform = FALSE)
 ```
 
 This course will teach you to leverage the tools in the "tidyverse" to generate, explore, and evaluate machine learning models. Using a combination of tidyr and purrr packages, you will build a foundation for how to work with complex model objects in a "tidy" way. You will also learn how to leverage the broom package to explore your resulting models. You will then be introduced to the tools in the test-train-validate workflow, which will empower you evaluate the performance of both classification and regression models as well as provide the necessary information to optimize model performance via hyperparameter tuning.
 
-# 1. Foundations of "tidy" Machine learning
+# Foundations of "tidy" Machine learning
 
 This chapter will introduce you to the backbone of machine learning in the tidyverse, the List Column Workflow (LCW). The LCW will empower you to work with many models in one dataframe. <br> This chapter will also introduce you to the fundamentals of the broom package for exploring your models.
 

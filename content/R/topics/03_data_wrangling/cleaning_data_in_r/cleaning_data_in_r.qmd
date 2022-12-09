@@ -1,13 +1,12 @@
 ---
 title: "Cleaning data in R"
 author: "Joschka Schwarz"
-toc-depth: 2
-execute: 
-  eval: false
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, eval = T)
+```{r}
+#| include: false
+source(here::here("R/setup-ggplot2-tie.R"))
+options(dplyr.summarise.inform = FALSE)
 ```
 
 It's commonly said that data scientists spend 80% of their time cleaning and manipulating data and only 20% of their time analyzing it. The time spent cleaning is vital since analyzing dirty data can lead you to draw inaccurate conclusions. 
@@ -2138,8 +2137,11 @@ zagat  <- readRDS("data/zagat.rds")
 fodors <- readRDS("data/fodors.rds")
 
 # Load reclin
-library(reclin)
+# library(reclin)
+```
 
+```{r}
+#| eval: false
 # 1. Generate all possible pairs
 reclin::pair_blocking(zagat, fodors)
 ```
@@ -2148,7 +2150,7 @@ reclin::pair_blocking(zagat, fodors)
 
 ```{r}
 # 2. Generate pairs with same city
-pair_blocking(zagat, fodors, blocking_var = "city")
+reclin::pair_blocking(zagat, fodors, blocking_var = "city")
 ```
 
 Perfect pairings! By using `city` as a blocking variable, you were able to reduce the number of pairs you'll need to compare from 165,230 pairs to 40,532.
@@ -2163,20 +2165,20 @@ Now that you've generated the pairs of restaurants, it's time to compare them. Y
 
 ```{r}
 # Generate pairs
-pair_blocking(zagat, fodors, blocking_var = "city") %>%
+reclin::pair_blocking(zagat, fodors, blocking_var = "city") %>%
   # 1. Compare pairs by name using lcs()
-  compare_pairs(by = "name",
-      default_comparator = lcs())
+  reclin::compare_pairs(by = "name",
+      default_comparator = reclin::lcs())
 ```
 
 2. Compare pairs by `name`, `phone`, and `addr` using `jaro_winkler()`.
 
 ```{r}
 # Generate pairs
-pair_blocking(zagat, fodors, blocking_var = "city") %>%
+reclin::pair_blocking(zagat, fodors, blocking_var = "city") %>%
   # 2. Compare pairs by name, phone, addr
-  compare_pairs(by = c("name", "phone", "addr"),
-      default_comparator = jaro_winkler())
+  reclin::compare_pairs(by = c("name", "phone", "addr"),
+      default_comparator = reclin::jaro_winkler())
 ```
 
 Crafty comparisons! Choosing a comparator and the columns to compare is highly dataset-dependent, so it's best to try out different combinations to see which works best on the dataset you're working with. Next, you'll build on your string comparison skills and learn about record linkage!
@@ -2270,16 +2272,19 @@ Above, you've cleaned up the `city` column of `zagat` using string similarity, a
 Note: comparing pairs by just one column only works with `reclin` 0.1.1. Current version is 0.1.2.
 
 ```{r}
+#| eval: false
+
+#### score_problink creates errors while rendering. Chunk is not being evaluated.
 # Create pairs
-pair_blocking(zagat, fodors, blocking_var = "city") %>%
+reclin::pair_blocking(zagat, fodors, blocking_var = "city") %>%
   # Compare pairs
-  compare_pairs(by = "name", default_comparator = jaro_winkler()) %>%
+  reclin::compare_pairs(by = "name", default_comparator = reclin::jaro_winkler()) %>%
   # 1. Score pairs
-  score_problink() %>%
+  reclin::score_problink() %>%
   # 2. Select pairs
-  select_n_to_m() %>%
+  reclin::select_n_to_m() %>%
   # 3. Link data 
-  link() %>%
+  reclin::link() %>%
   # Convert to tibble
   as_tibble() %>%
   select(id.x, name.x, city.x, id.y, name.y, city.y)
