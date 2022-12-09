@@ -484,7 +484,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#regression-models-fitting-them-and-evaluating-their-performance" id="toc-regression-models-fitting-them-and-evaluating-their-performance" class="nav-link active" data-scroll-target="#regression-models-fitting-them-and-evaluating-their-performance"><span class="toc-section-number">1</span>  1. Regression models: fitting them and evaluating their performance</a>
+  <li><a href="#regression-models-fitting-them-and-evaluating-their-performance" id="toc-regression-models-fitting-them-and-evaluating-their-performance" class="nav-link active" data-scroll-target="#regression-models-fitting-them-and-evaluating-their-performance"><span class="toc-section-number">1</span>  Regression models: fitting them and evaluating their performance</a>
   <ul class="collapse">
   <li><a href="#welcome-to-the-toolbox" id="toc-welcome-to-the-toolbox" class="nav-link" data-scroll-target="#welcome-to-the-toolbox"><span class="toc-section-number">1.1</span>  Welcome to the Toolbox</a></li>
   <li><a href="#in-sample-rmse-for-linear-regression" id="toc-in-sample-rmse-for-linear-regression" class="nav-link" data-scroll-target="#in-sample-rmse-for-linear-regression"><span class="toc-section-number">1.2</span>  In-sample RMSE for linear regression</a></li>
@@ -618,7 +618,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>Machine learning is the study and application of algorithms that learn from and make predictions on data. From search results to self-driving cars, it has manifested itself in all areas of our lives and is one of the most exciting and fast growing fields of research in the world of data science. This course teaches the big ideas in machine learning: how to build and evaluate predictive models, how to tune them for optimal performance, how to preprocess data for better results, and much more. The popular <code>caret</code> R package, which provides a consistent interface to all of R’s most powerful machine learning facilities, is used throughout the course.</p>
 <section id="regression-models-fitting-them-and-evaluating-their-performance" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 1. Regression models: fitting them and evaluating their performance</h1>
+<h1 data-number="1"><span class="header-section-number">1</span> Regression models: fitting them and evaluating their performance</h1>
 <p>In the first chapter of this course, you’ll fit regression models with <code>train()</code> and evaluate their out-of-sample performance using cross-validation and root-mean-square error (RMSE).</p>
 <section id="welcome-to-the-toolbox" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="welcome-to-the-toolbox"><span class="header-section-number">1.1</span> Welcome to the Toolbox</h2>
@@ -648,11 +648,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="1.4" class="anchored" data-anchor-id="in-sample-rmse-for-linear-regression-on-diamonds"><span class="header-section-number">1.4</span> In-sample RMSE for linear regression on diamonds</h2>
 <p>As you saw in the video, included in the course is the <code>diamonds</code> dataset, which is a classic dataset from the <code>ggplot2</code> package. The dataset contains physical attributes of diamonds as well as the price they sold for. One interesting modeling challenge is predicting diamond price based on their attributes using something like a linear regression.</p>
 <p>Recall that to fit a linear regression, you use the <code>lm()</code> function in the following format:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, my_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To make predictions using <code>mod</code> on the original data, you call the <code>predict()</code> function:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(mod, my_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Steps</strong></p>
@@ -662,7 +662,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Compute errors using the formula \(errors = predicted - actual\). Save the result to <code>error</code>.</li>
 <li>Compute RMSE using the formula you learned in the video and print it to the console.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Load data</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="fu">data</span>(diamonds, <span class="at">package =</span> <span class="st">"ggplot2"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3"></a></span>
@@ -709,15 +709,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="1.8" class="anchored" data-anchor-id="randomly-order-the-data-frame"><span class="header-section-number">1.8</span> Randomly order the data frame</h2>
 <p>One way you can take a train/test split of a dataset is to order the dataset randomly, then divide it into the two sets. This ensures that the training set and test set are both random samples and that any biases in the ordering of the dataset (e.g.&nbsp;if it had originally been ordered by price or size) are not retained in the samples we take for training and testing your models. You can think of this like shuffling a brand new deck of playing cards before dealing hands.</p>
 <p>First, you set a random seed so that your work is reproducible and you get the same random split each time you run your script:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next, you use the <code>sample()</code> function to shuffle the row indices of the <code>diamonds</code> dataset. You can later use these indices to reorder the dataset.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>rows <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(diamonds))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Finally, you can use this random vector to reorder the diamonds dataset:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>diamonds <span class="ot">&lt;-</span> diamonds[rows, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Steps</strong></p>
@@ -726,7 +726,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Make a vector of row indices called <code>rows</code>.</li>
 <li>Randomly reorder the <code>diamonds</code> data frame, assigning to <code>shuffled_diamonds</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Set seed</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb8-3"><a href="#cb8-3"></a></span>
@@ -741,15 +741,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="try-an-8020-split" class="level2" data-number="1.9">
 <h2 data-number="1.9" class="anchored" data-anchor-id="try-an-8020-split"><span class="header-section-number">1.9</span> Try an 80/20 split</h2>
 <p>Now that your dataset is randomly ordered, you can split the first 80% of it into a training set, and the last 20% into a test set. You can do this by choosing a split point approximately 80% of the way through your data:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>split <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">nrow</span>(mydata) <span class="sc">*</span> <span class="fl">0.80</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can then use this point to break off the first 80% of the dataset as a training set:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>mydata[<span class="dv">1</span><span class="sc">:</span>split, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And then you can use that same point to determine the test set:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>mydata[(split <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span><span class="fu">nrow</span>(mydata), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Steps</strong></p>
@@ -758,7 +758,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a training set called <code>train</code> using that index.</li>
 <li>Create a test set called <code>test</code> using that index.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Determine row to split on: split</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>split <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">nrow</span>(diamonds) <span class="sc">*</span> <span class="fl">0.80</span>)</span>
 <span id="cb12-3"><a href="#cb12-3"></a></span>
@@ -773,11 +773,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="predict-on-test-set" class="level2" data-number="1.10">
 <h2 data-number="1.10" class="anchored" data-anchor-id="predict-on-test-set"><span class="header-section-number">1.10</span> Predict on test set</h2>
 <p>Now that you have a randomly split training set and test set, you can use the <code>lm()</code> function as you did in the first exercise to fit a model to your training set, rather than the entire dataset. Recall that you can use the formula interface to the linear regression function to fit a model with a specified target variable using all other variables in the dataset as predictors:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> ., training_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can use the <code>predict()</code> function to make predictions from that model on new data. The new dataset must have all of the columns from the training data, but they can be in a different order with different values. Here, rather than re-predicting on the training set, you can predict on the test set, which you did not use for training the model. This will allow you to determine the out-of-sample error for the model in the next exercise:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>p <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, new_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Steps</strong></p>
@@ -785,7 +785,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Fit an <code>lm()</code> model called <code>model</code> to predict <code>price</code> using all other variables as covariates. Be sure to use the training set, <code>train</code>.</li>
 <li>Predict on the test set, <code>test</code>, using <code>predict()</code>. Store these values in a vector called <code>p</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Fit lm model on train: model</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(price <span class="sc">~</span> ., train)</span>
 <span id="cb15-3"><a href="#cb15-3"></a></span>
@@ -798,7 +798,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="1.11" class="anchored" data-anchor-id="calculate-test-set-rmse-by-hand"><span class="header-section-number">1.11</span> Calculate test set RMSE by hand</h2>
 <p>Now that you have predictions on the test set, you can use these predictions to calculate an error metric (in this case RMSE) on the test set and see how the model performs out-of-sample, rather than in-sample as you did in the first exercise. You first do this by calculating the errors between the predicted diamond prices and the actual diamond prices by subtracting the predictions from the actual values.</p>
 <p>Once you have an error vector, calculating RMSE is as simple as squaring it, taking the mean, then taking the square root:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">sqrt</span>(<span class="fu">mean</span>(error<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Steps</strong></p>
@@ -806,7 +806,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the error between the predictions on the test set and the actual diamond prices in the test set. Call this <code>error</code>.</li>
 <li>Calculate RMSE using this error vector, just printing the result to the console.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Compute errors: error</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a>error <span class="ot">&lt;-</span> p <span class="sc">-</span> test[[<span class="st">"price"</span>]]</span>
 <span id="cb17-3"><a href="#cb17-3"></a></span>
@@ -859,11 +859,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="fold-cross-validation" class="level2" data-number="1.17">
 <h2 data-number="1.17" class="anchored" data-anchor-id="fold-cross-validation"><span class="header-section-number">1.17</span> 10-fold cross-validation</h2>
 <p>As you saw in the video, a better approach to validating models is to use multiple systematic test sets, rather than a single random train/test split. Fortunately, the <code>caret</code> package makes this very easy to do:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(y <span class="sc">~</span> ., my_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>caret</code> supports many types of cross-validation, and you can specify which type of cross-validation and the number of cross-validation folds with the <code>trainControl()</code> function, which you pass to the <code>trControl</code> argument in <code>train()</code>:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
 <span id="cb20-2"><a href="#cb20-2"></a>  y <span class="sc">~</span> ., </span>
 <span id="cb20-3"><a href="#cb20-3"></a>  my_data,</span>
@@ -881,26 +881,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Fit a linear regression to model <code>price</code> using all other variables in the <code>diamonds</code> dataset as predictors. Use the <code>train()</code> function and 10-fold cross-validation. (Note that we’ve taken a subset of the full <code>diamonds</code> dataset to speed up this operation, but it’s still named <code>diamonds</code>.)</li>
 <li>Print the model to the console and examine the results.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Load package</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="fu">library</span>(caret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Loading required package: ggplot2</code></pre>
+<pre><code>#&gt; Lade nötiges Paket: lattice</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Loading required package: lattice</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Fit lm model using 10-fold CV: model</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb24-3"><a href="#cb24-3"></a>  price <span class="sc">~</span> ., </span>
-<span id="cb24-4"><a href="#cb24-4"></a>  diamonds,</span>
-<span id="cb24-5"><a href="#cb24-5"></a>  <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb24-6"><a href="#cb24-6"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(</span>
-<span id="cb24-7"><a href="#cb24-7"></a>    <span class="at">method =</span> <span class="st">"cv"</span>, </span>
-<span id="cb24-8"><a href="#cb24-8"></a>    <span class="at">number =</span> <span class="dv">10</span>,</span>
-<span id="cb24-9"><a href="#cb24-9"></a>    <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
-<span id="cb24-10"><a href="#cb24-10"></a>  )</span>
-<span id="cb24-11"><a href="#cb24-11"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Fit lm model using 10-fold CV: model</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb23-3"><a href="#cb23-3"></a>  price <span class="sc">~</span> ., </span>
+<span id="cb23-4"><a href="#cb23-4"></a>  diamonds,</span>
+<span id="cb23-5"><a href="#cb23-5"></a>  <span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb23-6"><a href="#cb23-6"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(</span>
+<span id="cb23-7"><a href="#cb23-7"></a>    <span class="at">method =</span> <span class="st">"cv"</span>, </span>
+<span id="cb23-8"><a href="#cb23-8"></a>    <span class="at">number =</span> <span class="dv">10</span>,</span>
+<span id="cb23-9"><a href="#cb23-9"></a>    <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
+<span id="cb23-10"><a href="#cb23-10"></a>  )</span>
+<span id="cb23-11"><a href="#cb23-11"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; + Fold01: intercept=TRUE 
 #&gt; - Fold01: intercept=TRUE 
@@ -925,8 +922,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Aggregating results
 #&gt; Fitting final model on full training set</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Print model to console</span></span>
-<span id="cb26-2"><a href="#cb26-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Print model to console</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Linear Regression 
 #&gt; 
@@ -950,25 +947,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="1.18" class="anchored" data-anchor-id="fold-cross-validation-1"><span class="header-section-number">1.18</span> 5-fold cross-validation</h2>
 <p>In this course, you will use a wide variety of datasets to explore the full flexibility of the <code>caret</code> package. Here, you will use the famous Boston housing dataset, where the goal is to predict median home values in various Boston suburbs.</p>
 <p>You can use exactly the same code as in the previous exercise, but change the dataset used by the model:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb28-2"><a href="#cb28-2"></a>  medv <span class="sc">~</span> ., </span>
-<span id="cb28-3"><a href="#cb28-3"></a>  BostonHousing, </span>
-<span id="cb28-4"><a href="#cb28-4"></a>  <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb28-5"><a href="#cb28-5"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(</span>
-<span id="cb28-6"><a href="#cb28-6"></a>    <span class="at">method =</span> <span class="st">"cv"</span>, </span>
-<span id="cb28-7"><a href="#cb28-7"></a>    <span class="at">number =</span> <span class="dv">10</span>,</span>
-<span id="cb28-8"><a href="#cb28-8"></a>    <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
-<span id="cb28-9"><a href="#cb28-9"></a>  )</span>
-<span id="cb28-10"><a href="#cb28-10"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb27-2"><a href="#cb27-2"></a>  medv <span class="sc">~</span> ., </span>
+<span id="cb27-3"><a href="#cb27-3"></a>  BostonHousing, </span>
+<span id="cb27-4"><a href="#cb27-4"></a>  <span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb27-5"><a href="#cb27-5"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(</span>
+<span id="cb27-6"><a href="#cb27-6"></a>    <span class="at">method =</span> <span class="st">"cv"</span>, </span>
+<span id="cb27-7"><a href="#cb27-7"></a>    <span class="at">number =</span> <span class="dv">10</span>,</span>
+<span id="cb27-8"><a href="#cb27-8"></a>    <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
+<span id="cb27-9"><a href="#cb27-9"></a>  )</span>
+<span id="cb27-10"><a href="#cb27-10"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Next, you can reduce the number of cross-validation folds from 10 to 5 using the <code>number</code> argument to the <code>trainControl()</code> argument:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>trControl <span class="ot">=</span> <span class="fu">trainControl</span>(</span>
-<span id="cb29-2"><a href="#cb29-2"></a>  <span class="at">method =</span> <span class="st">"cv"</span>, </span>
-<span id="cb29-3"><a href="#cb29-3"></a>  <span class="at">number =</span> <span class="dv">5</span>,</span>
-<span id="cb29-4"><a href="#cb29-4"></a>  <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
-<span id="cb29-5"><a href="#cb29-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>trControl <span class="ot">=</span> <span class="fu">trainControl</span>(</span>
+<span id="cb28-2"><a href="#cb28-2"></a>  <span class="at">method =</span> <span class="st">"cv"</span>, </span>
+<span id="cb28-3"><a href="#cb28-3"></a>  <span class="at">number =</span> <span class="dv">5</span>,</span>
+<span id="cb28-4"><a href="#cb28-4"></a>  <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -976,22 +973,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use 5-fold cross-validation rather than 10-fold cross-validation.</li>
 <li>Print the model to the console and inspect the results.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Load package (for the dataset)</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a><span class="fu">library</span>(mlbench)</span>
-<span id="cb30-3"><a href="#cb30-3"></a><span class="fu">data</span>(BostonHousing)</span>
-<span id="cb30-4"><a href="#cb30-4"></a></span>
-<span id="cb30-5"><a href="#cb30-5"></a><span class="co"># Fit lm model using 5-fold CV: model</span></span>
-<span id="cb30-6"><a href="#cb30-6"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb30-7"><a href="#cb30-7"></a>  medv <span class="sc">~</span> ., </span>
-<span id="cb30-8"><a href="#cb30-8"></a>  BostonHousing,</span>
-<span id="cb30-9"><a href="#cb30-9"></a>  <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb30-10"><a href="#cb30-10"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(</span>
-<span id="cb30-11"><a href="#cb30-11"></a>    <span class="at">method =</span> <span class="st">"cv"</span>, </span>
-<span id="cb30-12"><a href="#cb30-12"></a>    <span class="at">number =</span> <span class="dv">5</span>,</span>
-<span id="cb30-13"><a href="#cb30-13"></a>    <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
-<span id="cb30-14"><a href="#cb30-14"></a>  )</span>
-<span id="cb30-15"><a href="#cb30-15"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Load package (for the dataset)</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">library</span>(mlbench)</span>
+<span id="cb29-3"><a href="#cb29-3"></a><span class="fu">data</span>(BostonHousing)</span>
+<span id="cb29-4"><a href="#cb29-4"></a></span>
+<span id="cb29-5"><a href="#cb29-5"></a><span class="co"># Fit lm model using 5-fold CV: model</span></span>
+<span id="cb29-6"><a href="#cb29-6"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb29-7"><a href="#cb29-7"></a>  medv <span class="sc">~</span> ., </span>
+<span id="cb29-8"><a href="#cb29-8"></a>  BostonHousing,</span>
+<span id="cb29-9"><a href="#cb29-9"></a>  <span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb29-10"><a href="#cb29-10"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(</span>
+<span id="cb29-11"><a href="#cb29-11"></a>    <span class="at">method =</span> <span class="st">"cv"</span>, </span>
+<span id="cb29-12"><a href="#cb29-12"></a>    <span class="at">number =</span> <span class="dv">5</span>,</span>
+<span id="cb29-13"><a href="#cb29-13"></a>    <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
+<span id="cb29-14"><a href="#cb29-14"></a>  )</span>
+<span id="cb29-15"><a href="#cb29-15"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; + Fold1: intercept=TRUE 
 #&gt; - Fold1: intercept=TRUE 
@@ -1006,8 +1003,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Aggregating results
 #&gt; Fitting final model on full training set</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Print model to console</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Print model to console</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Linear Regression 
 #&gt; 
@@ -1031,13 +1028,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="1.19" class="anchored" data-anchor-id="x-5-fold-cross-validation"><span class="header-section-number">1.19</span> 5 x 5-fold cross-validation</h2>
 <p>You can do more than just one iteration of cross-validation. Repeated cross-validation gives you a better estimate of the test-set error. You can also repeat the entire cross-validation procedure. This takes longer, but gives you many more out-of-sample datasets to look at and much more precise assessments of how well the model performs.</p>
 <p>One of the awesome things about the <code>train()</code> function in <code>caret</code> is how easy it is to run very different models or methods of cross-validation just by tweaking a few simple arguments to the function call. For example, you could repeat your entire cross-validation procedure 5 times for greater confidence in your estimates of the model’s out-of-sample accuracy, e.g.:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>trControl <span class="ot">=</span> <span class="fu">trainControl</span>(</span>
-<span id="cb34-2"><a href="#cb34-2"></a>  <span class="at">method =</span> <span class="st">"repeatedcv"</span>, </span>
-<span id="cb34-3"><a href="#cb34-3"></a>  <span class="at">number =</span> <span class="dv">5</span>,</span>
-<span id="cb34-4"><a href="#cb34-4"></a>  <span class="at">repeats =</span> <span class="dv">5</span>, </span>
-<span id="cb34-5"><a href="#cb34-5"></a>  <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
-<span id="cb34-6"><a href="#cb34-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>trControl <span class="ot">=</span> <span class="fu">trainControl</span>(</span>
+<span id="cb33-2"><a href="#cb33-2"></a>  <span class="at">method =</span> <span class="st">"repeatedcv"</span>, </span>
+<span id="cb33-3"><a href="#cb33-3"></a>  <span class="at">number =</span> <span class="dv">5</span>,</span>
+<span id="cb33-4"><a href="#cb33-4"></a>  <span class="at">repeats =</span> <span class="dv">5</span>, </span>
+<span id="cb33-5"><a href="#cb33-5"></a>  <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
+<span id="cb33-6"><a href="#cb33-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -1045,19 +1042,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use 5 repeats of 5-fold cross-validation.</li>
 <li>Print the model to the console.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Fit lm model using 5 x 5-fold CV: model</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb35-3"><a href="#cb35-3"></a>  medv <span class="sc">~</span> ., </span>
-<span id="cb35-4"><a href="#cb35-4"></a>  BostonHousing,</span>
-<span id="cb35-5"><a href="#cb35-5"></a>  <span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb35-6"><a href="#cb35-6"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(</span>
-<span id="cb35-7"><a href="#cb35-7"></a>    <span class="at">method =</span> <span class="st">"repeatedcv"</span>, </span>
-<span id="cb35-8"><a href="#cb35-8"></a>    <span class="at">number =</span> <span class="dv">5</span>,</span>
-<span id="cb35-9"><a href="#cb35-9"></a>    <span class="at">repeats =</span> <span class="dv">5</span>, </span>
-<span id="cb35-10"><a href="#cb35-10"></a>    <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
-<span id="cb35-11"><a href="#cb35-11"></a>  )</span>
-<span id="cb35-12"><a href="#cb35-12"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Fit lm model using 5 x 5-fold CV: model</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb34-3"><a href="#cb34-3"></a>  medv <span class="sc">~</span> ., </span>
+<span id="cb34-4"><a href="#cb34-4"></a>  BostonHousing,</span>
+<span id="cb34-5"><a href="#cb34-5"></a>  <span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb34-6"><a href="#cb34-6"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(</span>
+<span id="cb34-7"><a href="#cb34-7"></a>    <span class="at">method =</span> <span class="st">"repeatedcv"</span>, </span>
+<span id="cb34-8"><a href="#cb34-8"></a>    <span class="at">number =</span> <span class="dv">5</span>,</span>
+<span id="cb34-9"><a href="#cb34-9"></a>    <span class="at">repeats =</span> <span class="dv">5</span>, </span>
+<span id="cb34-10"><a href="#cb34-10"></a>    <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
+<span id="cb34-11"><a href="#cb34-11"></a>  )</span>
+<span id="cb34-12"><a href="#cb34-12"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; + Fold1.Rep1: intercept=TRUE 
 #&gt; - Fold1.Rep1: intercept=TRUE 
@@ -1112,8 +1109,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Aggregating results
 #&gt; Fitting final model on full training set</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Print model to console</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Print model to console</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Linear Regression 
 #&gt; 
@@ -1137,16 +1134,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="1.20" class="anchored" data-anchor-id="making-predictions-on-new-data"><span class="header-section-number">1.20</span> Making predictions on new data</h2>
 <p>Finally, the model you fit with the <code>train()</code> function has the exact same <code>predict()</code> interface as the linear regression models you fit earlier in this chapter.</p>
 <p>After fitting a model with <code>train()</code>, you can simply call <code>predict()</code> with new data, e.g:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">predict</span>(my_model, new_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">predict</span>(my_model, new_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Steps</strong></p>
 <ol type="1">
 <li>Use the <code>predict()</code> function to make predictions with <code>model</code> on the full <code>Boston</code> housing dataset. Print the result to the console.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># Predict on full Boston dataset</span></span>
-<span id="cb40-2"><a href="#cb40-2"></a><span class="fu">predict</span>(model, BostonHousing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Predict on full Boston dataset</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="fu">predict</span>(model, BostonHousing)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;          1          2          3          4          5          6          7 
 #&gt; 30.0038434 25.0255624 30.5675967 28.6070365 27.9435242 25.2562845 23.0018083 
@@ -1329,13 +1326,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="try-a-6040-split" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="try-a-6040-split"><span class="header-section-number">2.4</span> Try a 60/40 split</h2>
 <p>As you saw in the video, you’ll be working with the <code>Sonar</code> dataset in this chapter, using a 60% training set and a 40% test set. We’ll practice making a train/test split one more time, just to be sure you have the hang of it. Recall that you can use the <code>sample()</code> function to get a random permutation of the row indices in a dataset, to use when making train/test splits, e.g.:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>n_obs <span class="ot">&lt;-</span> <span class="fu">nrow</span>(my_data)</span>
-<span id="cb42-2"><a href="#cb42-2"></a>permuted_rows <span class="ot">&lt;-</span> <span class="fu">sample</span>(n_obs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>n_obs <span class="ot">&lt;-</span> <span class="fu">nrow</span>(my_data)</span>
+<span id="cb41-2"><a href="#cb41-2"></a>permuted_rows <span class="ot">&lt;-</span> <span class="fu">sample</span>(n_obs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And then use those row indices to randomly reorder the dataset, e.g.:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>my_data <span class="ot">&lt;-</span> my_data[permuted_rows, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>my_data <span class="ot">&lt;-</span> my_data[permuted_rows, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Once your dataset is randomly ordered, you can split off the first 60% as a training set and the last 40% as a test set.</p>
 <p><strong>Steps</strong></p>
@@ -1347,29 +1344,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Save the first 60% of <code>Sonar_shuffled</code> as a training set.</li>
 <li>Save the last 40% of <code>Sonar_shuffled</code> as the test set.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Load data (from mlbench package)</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a><span class="co"># sonar_train &lt;- readRDS("data/sonar_train.rds")</span></span>
-<span id="cb44-3"><a href="#cb44-3"></a><span class="co"># sonar_test  &lt;- readRDS("data/sonar_test.rds")</span></span>
-<span id="cb44-4"><a href="#cb44-4"></a><span class="fu">data</span>(Sonar)</span>
-<span id="cb44-5"><a href="#cb44-5"></a></span>
-<span id="cb44-6"><a href="#cb44-6"></a><span class="co"># Get the number of observations</span></span>
-<span id="cb44-7"><a href="#cb44-7"></a>n_obs <span class="ot">&lt;-</span> <span class="fu">nrow</span>(Sonar)</span>
-<span id="cb44-8"><a href="#cb44-8"></a></span>
-<span id="cb44-9"><a href="#cb44-9"></a><span class="co"># Shuffle row indices: permuted_rows</span></span>
-<span id="cb44-10"><a href="#cb44-10"></a>permuted_rows <span class="ot">&lt;-</span> <span class="fu">sample</span>(n_obs)</span>
-<span id="cb44-11"><a href="#cb44-11"></a></span>
-<span id="cb44-12"><a href="#cb44-12"></a><span class="co"># Randomly order data: Sonar</span></span>
-<span id="cb44-13"><a href="#cb44-13"></a>Sonar_shuffled <span class="ot">&lt;-</span> Sonar[permuted_rows, ]</span>
-<span id="cb44-14"><a href="#cb44-14"></a></span>
-<span id="cb44-15"><a href="#cb44-15"></a><span class="co"># Identify row to split on: split</span></span>
-<span id="cb44-16"><a href="#cb44-16"></a>split <span class="ot">&lt;-</span> <span class="fu">round</span>(n_obs <span class="sc">*</span> <span class="fl">0.6</span>)</span>
-<span id="cb44-17"><a href="#cb44-17"></a></span>
-<span id="cb44-18"><a href="#cb44-18"></a><span class="co"># Create train</span></span>
-<span id="cb44-19"><a href="#cb44-19"></a>train <span class="ot">&lt;-</span> Sonar_shuffled[<span class="dv">1</span><span class="sc">:</span>split, ]</span>
-<span id="cb44-20"><a href="#cb44-20"></a></span>
-<span id="cb44-21"><a href="#cb44-21"></a><span class="co"># Create test</span></span>
-<span id="cb44-22"><a href="#cb44-22"></a>test <span class="ot">&lt;-</span> Sonar_shuffled[(split <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span>n_obs, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Load data (from mlbench package)</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="co"># sonar_train &lt;- readRDS("data/sonar_train.rds")</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="co"># sonar_test  &lt;- readRDS("data/sonar_test.rds")</span></span>
+<span id="cb43-4"><a href="#cb43-4"></a><span class="fu">data</span>(Sonar)</span>
+<span id="cb43-5"><a href="#cb43-5"></a></span>
+<span id="cb43-6"><a href="#cb43-6"></a><span class="co"># Get the number of observations</span></span>
+<span id="cb43-7"><a href="#cb43-7"></a>n_obs <span class="ot">&lt;-</span> <span class="fu">nrow</span>(Sonar)</span>
+<span id="cb43-8"><a href="#cb43-8"></a></span>
+<span id="cb43-9"><a href="#cb43-9"></a><span class="co"># Shuffle row indices: permuted_rows</span></span>
+<span id="cb43-10"><a href="#cb43-10"></a>permuted_rows <span class="ot">&lt;-</span> <span class="fu">sample</span>(n_obs)</span>
+<span id="cb43-11"><a href="#cb43-11"></a></span>
+<span id="cb43-12"><a href="#cb43-12"></a><span class="co"># Randomly order data: Sonar</span></span>
+<span id="cb43-13"><a href="#cb43-13"></a>Sonar_shuffled <span class="ot">&lt;-</span> Sonar[permuted_rows, ]</span>
+<span id="cb43-14"><a href="#cb43-14"></a></span>
+<span id="cb43-15"><a href="#cb43-15"></a><span class="co"># Identify row to split on: split</span></span>
+<span id="cb43-16"><a href="#cb43-16"></a>split <span class="ot">&lt;-</span> <span class="fu">round</span>(n_obs <span class="sc">*</span> <span class="fl">0.6</span>)</span>
+<span id="cb43-17"><a href="#cb43-17"></a></span>
+<span id="cb43-18"><a href="#cb43-18"></a><span class="co"># Create train</span></span>
+<span id="cb43-19"><a href="#cb43-19"></a>train <span class="ot">&lt;-</span> Sonar_shuffled[<span class="dv">1</span><span class="sc">:</span>split, ]</span>
+<span id="cb43-20"><a href="#cb43-20"></a></span>
+<span id="cb43-21"><a href="#cb43-21"></a><span class="co"># Create test</span></span>
+<span id="cb43-22"><a href="#cb43-22"></a>test <span class="ot">&lt;-</span> Sonar_shuffled[(split <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span>n_obs, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Excellent work! Randomly shuffling your data makes it easy to manually create a train/test split.</p>
 </section>
@@ -1377,60 +1374,61 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="2.5" class="anchored" data-anchor-id="fit-a-logistic-regression-model"><span class="header-section-number">2.5</span> Fit a logistic regression model</h2>
 <p>Once you have your random training and test sets you can fit a logistic regression model to your training set using the <code>glm()</code> function. <code>glm()</code> is a more advanced version of <code>lm()</code> that allows for more varied types of regression models, aside from plain vanilla ordinary least squares regression.</p>
 <p>Be sure to pass the argument <code>family = "binomial"</code> to <code>glm()</code> to specify that you want to do logistic (rather than linear) regression. For example:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">glm</span>(Target <span class="sc">~</span> ., <span class="at">family =</span> <span class="st">"binomial"</span>, dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">glm</span>(Target <span class="sc">~</span> ., <span class="at">family =</span> <span class="st">"binomial"</span>, dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Don’t worry about warnings like <code>glm.fit: algorithm did not converge</code> or <code>glm.fit: fitted probabilities numerically 0 or 1 occurred</code>. These are common on smaller datasets and usually don’t cause any issues. They typically mean your dataset is <em>perfectly separable</em>, which can cause problems for the math behind the model, but R’s <code>glm()</code> function is almost always robust enough to handle this case with no problems.</p>
 <p>Once you have a <code>glm()</code> model fit to your dataset, you can predict the outcome (e.g.&nbsp;rock or mine) on the <code>test</code> set using the <code>predict()</code> function with the argument <code>type = "response"</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">predict</span>(my_model, test, <span class="at">type =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">predict</span>(my_model, test, <span class="at">type =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Steps</strong></p>
 <ol type="1">
 <li>Fit a logistic regression called <code>model</code> to predict <code>Class</code> using all other variables as predictors. Use the training set for <code>Sonar</code>.</li>
 <li>Predict on the <code>test</code> set using that model. Call the result <code>p</code> like you’ve done before.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Load package</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Load package</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; 
-#&gt; Attaching package: 'dplyr'</code></pre>
+#&gt; Attache Paket: 'dplyr'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; The following objects are masked from 'package:stats':
+<pre><code>#&gt; Die folgenden Objekte sind maskiert von 'package:stats':
 #&gt; 
 #&gt;     filter, lag</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; The following objects are masked from 'package:base':
+<pre><code>#&gt; Die folgenden Objekte sind maskiert von 'package:base':
 #&gt; 
 #&gt;     intersect, setdiff, setequal, union</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Load data</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a>train <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/sonar_train.rds"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb51-3"><a href="#cb51-3"></a>  </span>
-<span id="cb51-4"><a href="#cb51-4"></a>                  <span class="co"># Create numeric target</span></span>
-<span id="cb51-5"><a href="#cb51-5"></a>                  <span class="fu">mutate</span>(<span class="at">Class_num =</span> <span class="fu">as.numeric</span>(Class <span class="sc">==</span> <span class="st">"M"</span>))</span>
-<span id="cb51-6"><a href="#cb51-6"></a>                  </span>
-<span id="cb51-7"><a href="#cb51-7"></a>                  <span class="co"># mutate(Class = case_when(Class == "M" ~ 1, </span></span>
-<span id="cb51-8"><a href="#cb51-8"></a>                  <span class="co">#                          Class == "R" ~ 0))</span></span>
-<span id="cb51-9"><a href="#cb51-9"></a></span>
-<span id="cb51-10"><a href="#cb51-10"></a>test  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/sonar_test.rds"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb51-11"><a href="#cb51-11"></a>  </span>
-<span id="cb51-12"><a href="#cb51-12"></a>                  <span class="co"># Create numeric target</span></span>
-<span id="cb51-13"><a href="#cb51-13"></a>                  <span class="fu">mutate</span>(<span class="at">Class_num =</span> <span class="fu">as.numeric</span>(Class <span class="sc">==</span> <span class="st">"M"</span>))</span>
-<span id="cb51-14"><a href="#cb51-14"></a></span>
-<span id="cb51-15"><a href="#cb51-15"></a><span class="co"># Fit glm model: model</span></span>
-<span id="cb51-16"><a href="#cb51-16"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(Class_num <span class="sc">~</span> ., train <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>Class), <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Load data</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>train <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/sonar_train.rds"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb50-3"><a href="#cb50-3"></a>  </span>
+<span id="cb50-4"><a href="#cb50-4"></a>                  <span class="co"># Create numeric target</span></span>
+<span id="cb50-5"><a href="#cb50-5"></a>                  <span class="fu">mutate</span>(<span class="at">Class_num =</span> <span class="fu">as.numeric</span>(Class <span class="sc">==</span> <span class="st">"M"</span>))</span>
+<span id="cb50-6"><a href="#cb50-6"></a>                  </span>
+<span id="cb50-7"><a href="#cb50-7"></a>                  <span class="co"># mutate(Class = case_when(Class == "M" ~ 1, </span></span>
+<span id="cb50-8"><a href="#cb50-8"></a>                  <span class="co">#                          Class == "R" ~ 0))</span></span>
+<span id="cb50-9"><a href="#cb50-9"></a></span>
+<span id="cb50-10"><a href="#cb50-10"></a>test  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/sonar_test.rds"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb50-11"><a href="#cb50-11"></a>  </span>
+<span id="cb50-12"><a href="#cb50-12"></a>                  <span class="co"># Create numeric target</span></span>
+<span id="cb50-13"><a href="#cb50-13"></a>                  <span class="fu">mutate</span>(<span class="at">Class_num =</span> <span class="fu">as.numeric</span>(Class <span class="sc">==</span> <span class="st">"M"</span>))</span>
+<span id="cb50-14"><a href="#cb50-14"></a></span>
+<span id="cb50-15"><a href="#cb50-15"></a><span class="co"># Fit glm model: model</span></span>
+<span id="cb50-16"><a href="#cb50-16"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(Class_num <span class="sc">~</span> ., train <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>Class), <span class="at">family =</span> <span class="st">"binomial"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning: glm.fit: algorithm did not converge</code></pre>
+<pre><code>#&gt; Warning: glm.fit: Algorithmus konvergierte nicht</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+<pre><code>#&gt; Warning: glm.fit: Angepasste Wahrscheinlichkeiten mit numerischem Wert 0 oder 1
+#&gt; aufgetreten</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># Predict on test: p</span></span>
-<span id="cb54-2"><a href="#cb54-2"></a>p <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, test <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>Class), <span class="at">type =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># Predict on test: p</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a>p <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, test <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="sc">-</span>Class), <span class="at">type =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great work! Manually fitting a glm model in R is very similar to fitting an lm model.</p>
 </section>
@@ -1462,13 +1460,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="2.9" class="anchored" data-anchor-id="calculate-a-confusion-matrix"><span class="header-section-number">2.9</span> Calculate a confusion matrix</h2>
 <p>As you saw in the video, a confusion matrix is a very useful tool for calibrating the output of a model and examining all possible outcomes of your predictions (true positive, true negative, false positive, false negative).</p>
 <p>Before you make your confusion matrix, you need to “cut” your predicted probabilities at a given threshold to turn probabilities into a factor of class predictions. Combine <code>ifelse()</code> with <code>factor()</code> as follows:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>pos_or_neg <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(probability_prediction <span class="sc">&gt;</span> threshold, positive_class, negative_class)</span>
-<span id="cb55-2"><a href="#cb55-2"></a>p_class    <span class="ot">&lt;-</span> <span class="fu">factor</span>(pos_or_neg, <span class="at">levels =</span> <span class="fu">levels</span>(test_values))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a>pos_or_neg <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(probability_prediction <span class="sc">&gt;</span> threshold, positive_class, negative_class)</span>
+<span id="cb54-2"><a href="#cb54-2"></a>p_class    <span class="ot">&lt;-</span> <span class="fu">factor</span>(pos_or_neg, <span class="at">levels =</span> <span class="fu">levels</span>(test_values))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>confusionMatrix()</code> in <code>caret</code> improves on <code>table()</code> from base R by adding lots of useful ancillary statistics in addition to the base rates in the table. You can calculate the confusion matrix (and the associated statistics) using the predicted outcomes as well as the actual outcomes, e.g.:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="fu">confusionMatrix</span>(p_class, test_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="fu">confusionMatrix</span>(p_class, test_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -1476,15 +1474,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Convert <code>m_or_r</code> to be a factor, <code>p_class</code>, with levels the same as those of <code>test[["Class"]]</code>.</li>
 <li>Make a confusion matrix with <code>confusionMatrix()</code>, passing <code>p_class</code> and the <code>"Class"</code> column from the <code>test</code> dataset.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># If p exceeds threshold of 0.5, M else R: m_or_r</span></span>
-<span id="cb57-2"><a href="#cb57-2"></a>m_or_r <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">"M"</span>, <span class="st">"R"</span>)</span>
-<span id="cb57-3"><a href="#cb57-3"></a></span>
-<span id="cb57-4"><a href="#cb57-4"></a><span class="co"># Convert to factor: p_class</span></span>
-<span id="cb57-5"><a href="#cb57-5"></a>p_class <span class="ot">&lt;-</span> <span class="fu">factor</span>(m_or_r, <span class="at">levels =</span> <span class="fu">levels</span>(test[[<span class="st">"Class"</span>]]))</span>
-<span id="cb57-6"><a href="#cb57-6"></a></span>
-<span id="cb57-7"><a href="#cb57-7"></a><span class="co"># Create confusion matrix</span></span>
-<span id="cb57-8"><a href="#cb57-8"></a><span class="fu">confusionMatrix</span>(p_class, test[[<span class="st">"Class"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># If p exceeds threshold of 0.5, M else R: m_or_r</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>m_or_r <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">"M"</span>, <span class="st">"R"</span>)</span>
+<span id="cb56-3"><a href="#cb56-3"></a></span>
+<span id="cb56-4"><a href="#cb56-4"></a><span class="co"># Convert to factor: p_class</span></span>
+<span id="cb56-5"><a href="#cb56-5"></a>p_class <span class="ot">&lt;-</span> <span class="fu">factor</span>(m_or_r, <span class="at">levels =</span> <span class="fu">levels</span>(test[[<span class="st">"Class"</span>]]))</span>
+<span id="cb56-6"><a href="#cb56-6"></a></span>
+<span id="cb56-7"><a href="#cb56-7"></a><span class="co"># Create confusion matrix</span></span>
+<span id="cb56-8"><a href="#cb56-8"></a><span class="fu">confusionMatrix</span>(p_class, test[[<span class="st">"Class"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Confusion Matrix and Statistics
 #&gt; 
@@ -1577,15 +1575,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Convert <code>m_or_r</code> to be a factor, <code>p_class</code>, with levels the same as those of <code>test[["Class"]]</code>.</li>
 <li>Make a confusion matrix with <code>confusionMatrix()</code>, passing <code>p_class</code> and the <code>"Class"</code> column from the <code>test</code> dataset.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># If p exceeds threshold of 0.9, M else R: m_or_r</span></span>
-<span id="cb59-2"><a href="#cb59-2"></a>m_or_r <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p <span class="sc">&gt;</span> <span class="fl">0.9</span>, <span class="st">"M"</span>, <span class="st">"R"</span>)</span>
-<span id="cb59-3"><a href="#cb59-3"></a></span>
-<span id="cb59-4"><a href="#cb59-4"></a><span class="co"># Convert to factor: p_class</span></span>
-<span id="cb59-5"><a href="#cb59-5"></a>p_class <span class="ot">&lt;-</span> <span class="fu">factor</span>(m_or_r, <span class="at">levels =</span> <span class="fu">levels</span>(test[[<span class="st">"Class"</span>]]))</span>
-<span id="cb59-6"><a href="#cb59-6"></a></span>
-<span id="cb59-7"><a href="#cb59-7"></a><span class="co"># Create confusion matrix</span></span>
-<span id="cb59-8"><a href="#cb59-8"></a><span class="fu">confusionMatrix</span>(p_class, test[[<span class="st">"Class"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># If p exceeds threshold of 0.9, M else R: m_or_r</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a>m_or_r <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p <span class="sc">&gt;</span> <span class="fl">0.9</span>, <span class="st">"M"</span>, <span class="st">"R"</span>)</span>
+<span id="cb58-3"><a href="#cb58-3"></a></span>
+<span id="cb58-4"><a href="#cb58-4"></a><span class="co"># Convert to factor: p_class</span></span>
+<span id="cb58-5"><a href="#cb58-5"></a>p_class <span class="ot">&lt;-</span> <span class="fu">factor</span>(m_or_r, <span class="at">levels =</span> <span class="fu">levels</span>(test[[<span class="st">"Class"</span>]]))</span>
+<span id="cb58-6"><a href="#cb58-6"></a></span>
+<span id="cb58-7"><a href="#cb58-7"></a><span class="co"># Create confusion matrix</span></span>
+<span id="cb58-8"><a href="#cb58-8"></a><span class="fu">confusionMatrix</span>(p_class, test[[<span class="st">"Class"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Confusion Matrix and Statistics
 #&gt; 
@@ -1628,15 +1626,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Convert <code>m_or_r</code> to be a factor, <code>p_class</code>, with levels the same as those of <code>test[["Class"]]</code>.</li>
 <li>Make a confusion matrix with <code>confusionMatrix()</code>, passing <code>p_class</code> and the <code>"Class"</code> column from the <code>test</code> dataset.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># If p exceeds threshold of 0.1, M else R: m_or_r</span></span>
-<span id="cb61-2"><a href="#cb61-2"></a>m_or_r <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p <span class="sc">&gt;</span> <span class="fl">0.1</span>, <span class="st">"M"</span>, <span class="st">"R"</span>)</span>
-<span id="cb61-3"><a href="#cb61-3"></a></span>
-<span id="cb61-4"><a href="#cb61-4"></a><span class="co"># Convert to factor: p_class</span></span>
-<span id="cb61-5"><a href="#cb61-5"></a>p_class <span class="ot">&lt;-</span> <span class="fu">factor</span>(m_or_r, <span class="at">levels =</span> <span class="fu">levels</span>(test[[<span class="st">"Class"</span>]]))</span>
-<span id="cb61-6"><a href="#cb61-6"></a></span>
-<span id="cb61-7"><a href="#cb61-7"></a><span class="co"># Create confusion matrix</span></span>
-<span id="cb61-8"><a href="#cb61-8"></a><span class="fu">confusionMatrix</span>(p_class, test[[<span class="st">"Class"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># If p exceeds threshold of 0.1, M else R: m_or_r</span></span>
+<span id="cb60-2"><a href="#cb60-2"></a>m_or_r <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p <span class="sc">&gt;</span> <span class="fl">0.1</span>, <span class="st">"M"</span>, <span class="st">"R"</span>)</span>
+<span id="cb60-3"><a href="#cb60-3"></a></span>
+<span id="cb60-4"><a href="#cb60-4"></a><span class="co"># Convert to factor: p_class</span></span>
+<span id="cb60-5"><a href="#cb60-5"></a>p_class <span class="ot">&lt;-</span> <span class="fu">factor</span>(m_or_r, <span class="at">levels =</span> <span class="fu">levels</span>(test[[<span class="st">"Class"</span>]]))</span>
+<span id="cb60-6"><a href="#cb60-6"></a></span>
+<span id="cb60-7"><a href="#cb60-7"></a><span class="co"># Create confusion matrix</span></span>
+<span id="cb60-8"><a href="#cb60-8"></a><span class="fu">confusionMatrix</span>(p_class, test[[<span class="st">"Class"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Confusion Matrix and Statistics
 #&gt; 
@@ -1695,8 +1693,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="2.24" class="anchored" data-anchor-id="plot-an-roc-curve"><span class="header-section-number">2.24</span> Plot an ROC curve</h2>
 <p>As you saw in the video, an ROC curve is a really useful shortcut for summarizing the performance of a classifier over all possible thresholds. This saves you a lot of tedious work computing class predictions for many different thresholds and examining the confusion matrix for each.</p>
 <p>My favorite package for computing ROC curves is <code>caTools</code>, which contains a function called <code>colAUC()</code>. This function is very user-friendly and can actually calculate ROC curves for multiple predictors at once. In this case, you only need to calculate the ROC curve for one predictor, e.g.:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="fu">colAUC</span>(predicted_probabilities, actual, <span class="at">plotROC =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="fu">colAUC</span>(predicted_probabilities, actual, <span class="at">plotROC =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The function will return a score called AUC (more on that later) and the <code>plotROC = TRUE</code> argument will return the plot of the ROC curve for visual inspection.</p>
 <p><strong>Steps</strong></p>
@@ -1704,19 +1702,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Predict probabilities (i.e.&nbsp;<code>type = "response"</code>) on the test set, then store the result as <code>p</code>.</li>
 <li>Make an ROC curve using the predicted test set probabilities.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># Load package</span></span>
-<span id="cb64-2"><a href="#cb64-2"></a><span class="fu">library</span>(caTools)</span>
-<span id="cb64-3"><a href="#cb64-3"></a></span>
-<span id="cb64-4"><a href="#cb64-4"></a><span class="co"># Predict on test: p</span></span>
-<span id="cb64-5"><a href="#cb64-5"></a>p <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, test, <span class="at">type =</span> <span class="st">"response"</span>)</span>
-<span id="cb64-6"><a href="#cb64-6"></a></span>
-<span id="cb64-7"><a href="#cb64-7"></a><span class="co"># Make ROC curve</span></span>
-<span id="cb64-8"><a href="#cb64-8"></a><span class="fu">colAUC</span>(p, test[[<span class="st">"Class"</span>]], <span class="at">plotROC =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Load package</span></span>
+<span id="cb63-2"><a href="#cb63-2"></a><span class="fu">library</span>(caTools)</span>
+<span id="cb63-3"><a href="#cb63-3"></a></span>
+<span id="cb63-4"><a href="#cb63-4"></a><span class="co"># Predict on test: p</span></span>
+<span id="cb63-5"><a href="#cb63-5"></a>p <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, test, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<span id="cb63-6"><a href="#cb63-6"></a></span>
+<span id="cb63-7"><a href="#cb63-7"></a><span class="co"># Make ROC curve</span></span>
+<span id="cb63-8"><a href="#cb63-8"></a><span class="fu">colAUC</span>(p, test[[<span class="st">"Class"</span>]], <span class="at">plotROC =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-39-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-40-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1761,23 +1759,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use 10-fold cross-validation.</li>
 <li>Be sure to tell <code>trainControl()</code> to return class probabilities.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Create trainControl object: myControl</span></span>
-<span id="cb66-2"><a href="#cb66-2"></a>myControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(</span>
-<span id="cb66-3"><a href="#cb66-3"></a>  <span class="at">method =</span> <span class="st">"cv"</span>,</span>
-<span id="cb66-4"><a href="#cb66-4"></a>  <span class="at">number =</span> <span class="dv">10</span>,</span>
-<span id="cb66-5"><a href="#cb66-5"></a>  <span class="at">summaryFunction =</span> twoClassSummary,</span>
-<span id="cb66-6"><a href="#cb66-6"></a>  <span class="at">classProbs =</span> <span class="cn">TRUE</span>, <span class="co"># IMPORTANT!</span></span>
-<span id="cb66-7"><a href="#cb66-7"></a>  <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
-<span id="cb66-8"><a href="#cb66-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># Create trainControl object: myControl</span></span>
+<span id="cb65-2"><a href="#cb65-2"></a>myControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(</span>
+<span id="cb65-3"><a href="#cb65-3"></a>  <span class="at">method =</span> <span class="st">"cv"</span>,</span>
+<span id="cb65-4"><a href="#cb65-4"></a>  <span class="at">number =</span> <span class="dv">10</span>,</span>
+<span id="cb65-5"><a href="#cb65-5"></a>  <span class="at">summaryFunction =</span> twoClassSummary,</span>
+<span id="cb65-6"><a href="#cb65-6"></a>  <span class="at">classProbs =</span> <span class="cn">TRUE</span>, <span class="co"># IMPORTANT!</span></span>
+<span id="cb65-7"><a href="#cb65-7"></a>  <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
+<span id="cb65-8"><a href="#cb65-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great work! Don’t forget the classProbs argument to train control, especially if you’re going to calculate AUC or logloss.</p>
 </section>
 <section id="using-custom-traincontrol" class="level2" data-number="2.29">
 <h2 data-number="2.29" class="anchored" data-anchor-id="using-custom-traincontrol"><span class="header-section-number">2.29</span> Using custom trainControl</h2>
 <p>Now that you have a custom <code>trainControl</code> object, it’s easy to fit <code>caret</code> models that use AUC rather than accuracy to tune and evaluate the model. You can just pass your custom <code>trainControl</code> object to the <code>train()</code> function via the <code>trControl</code> argument, e.g.:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="fu">train</span>(<span class="sc">&lt;</span>standard arguments here<span class="sc">&gt;</span>, <span class="at">trControl =</span> myControl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">train</span>(<span class="sc">&lt;</span>standard arguments here<span class="sc">&gt;</span>, <span class="at">trControl =</span> myControl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This syntax gives you a convenient way to store a lot of custom modeling parameters and then use them across multiple different calls to <code>train()</code>. You will make extensive use of this trick in Chapter 5.</p>
 <p><strong>Steps</strong></p>
@@ -1785,14 +1783,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>train()</code> to predict <code>Class</code> from all other variables in the <code>Sonar</code> data (that is, <code>Class ~ .</code>). It should be a <code>glm</code> model (that is, set <code>method</code> to <code>"glm"</code>) using your custom <code>trainControl</code> object, <code>myControl</code>. Save the result to <code>model</code>.</li>
 <li>Print the model to the console and examine its output.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># Train glm with custom trainControl: model</span></span>
-<span id="cb68-2"><a href="#cb68-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb68-3"><a href="#cb68-3"></a>  Class <span class="sc">~</span> ., </span>
-<span id="cb68-4"><a href="#cb68-4"></a>  Sonar, </span>
-<span id="cb68-5"><a href="#cb68-5"></a>  <span class="at">method =</span> <span class="st">"glm"</span>,</span>
-<span id="cb68-6"><a href="#cb68-6"></a>  <span class="at">trControl =</span> myControl</span>
-<span id="cb68-7"><a href="#cb68-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Train glm with custom trainControl: model</span></span>
+<span id="cb67-2"><a href="#cb67-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb67-3"><a href="#cb67-3"></a>  Class <span class="sc">~</span> ., </span>
+<span id="cb67-4"><a href="#cb67-4"></a>  Sonar, </span>
+<span id="cb67-5"><a href="#cb67-5"></a>  <span class="at">method =</span> <span class="st">"glm"</span>,</span>
+<span id="cb67-6"><a href="#cb67-6"></a>  <span class="at">trControl =</span> myControl</span>
+<span id="cb67-7"><a href="#cb67-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in train.default(x, y, weights = w, ...): The metric "Accuracy" was not
 #&gt; in the result set. ROC will be used instead.</code></pre>
@@ -1801,91 +1799,101 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>#&gt; + Fold01: parameter=none</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning: glm.fit: algorithm did not converge</code></pre>
+<pre><code>#&gt; Warning: glm.fit: Algorithmus konvergierte nicht</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+<pre><code>#&gt; Warning: glm.fit: Angepasste Wahrscheinlichkeiten mit numerischem Wert 0 oder 1
+#&gt; aufgetreten</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; - Fold01: parameter=none 
 #&gt; + Fold02: parameter=none</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning: glm.fit: algorithm did not converge
+<pre><code>#&gt; Warning: glm.fit: Algorithmus konvergierte nicht
 
-#&gt; Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+#&gt; Warning: glm.fit: Angepasste Wahrscheinlichkeiten mit numerischem Wert 0 oder 1
+#&gt; aufgetreten</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; - Fold02: parameter=none 
 #&gt; + Fold03: parameter=none</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning: glm.fit: algorithm did not converge
+<pre><code>#&gt; Warning: glm.fit: Algorithmus konvergierte nicht
 
-#&gt; Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+#&gt; Warning: glm.fit: Angepasste Wahrscheinlichkeiten mit numerischem Wert 0 oder 1
+#&gt; aufgetreten</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; - Fold03: parameter=none 
 #&gt; + Fold04: parameter=none</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning: glm.fit: algorithm did not converge
+<pre><code>#&gt; Warning: glm.fit: Algorithmus konvergierte nicht
 
-#&gt; Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+#&gt; Warning: glm.fit: Angepasste Wahrscheinlichkeiten mit numerischem Wert 0 oder 1
+#&gt; aufgetreten</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; - Fold04: parameter=none 
 #&gt; + Fold05: parameter=none</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning: glm.fit: algorithm did not converge
+<pre><code>#&gt; Warning: glm.fit: Algorithmus konvergierte nicht
 
-#&gt; Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+#&gt; Warning: glm.fit: Angepasste Wahrscheinlichkeiten mit numerischem Wert 0 oder 1
+#&gt; aufgetreten</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; - Fold05: parameter=none 
 #&gt; + Fold06: parameter=none</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning: glm.fit: algorithm did not converge
+<pre><code>#&gt; Warning: glm.fit: Algorithmus konvergierte nicht
 
-#&gt; Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+#&gt; Warning: glm.fit: Angepasste Wahrscheinlichkeiten mit numerischem Wert 0 oder 1
+#&gt; aufgetreten</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; - Fold06: parameter=none 
 #&gt; + Fold07: parameter=none</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning: glm.fit: algorithm did not converge
+<pre><code>#&gt; Warning: glm.fit: Algorithmus konvergierte nicht
 
-#&gt; Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+#&gt; Warning: glm.fit: Angepasste Wahrscheinlichkeiten mit numerischem Wert 0 oder 1
+#&gt; aufgetreten</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; - Fold07: parameter=none 
 #&gt; + Fold08: parameter=none</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning: glm.fit: algorithm did not converge
+<pre><code>#&gt; Warning: glm.fit: Algorithmus konvergierte nicht
 
-#&gt; Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+#&gt; Warning: glm.fit: Angepasste Wahrscheinlichkeiten mit numerischem Wert 0 oder 1
+#&gt; aufgetreten</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; - Fold08: parameter=none 
 #&gt; + Fold09: parameter=none</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning: glm.fit: algorithm did not converge
+<pre><code>#&gt; Warning: glm.fit: Algorithmus konvergierte nicht
 
-#&gt; Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+#&gt; Warning: glm.fit: Angepasste Wahrscheinlichkeiten mit numerischem Wert 0 oder 1
+#&gt; aufgetreten</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; - Fold09: parameter=none 
 #&gt; + Fold10: parameter=none</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning: glm.fit: algorithm did not converge
+<pre><code>#&gt; Warning: glm.fit: Algorithmus konvergierte nicht
 
-#&gt; Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+#&gt; Warning: glm.fit: Angepasste Wahrscheinlichkeiten mit numerischem Wert 0 oder 1
+#&gt; aufgetreten</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; - Fold10: parameter=none 
@@ -1893,12 +1901,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Fitting final model on full training set</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning: glm.fit: algorithm did not converge
+<pre><code>#&gt; Warning: glm.fit: Algorithmus konvergierte nicht
 
-#&gt; Warning: glm.fit: fitted probabilities numerically 0 or 1 occurred</code></pre>
+#&gt; Warning: glm.fit: Angepasste Wahrscheinlichkeiten mit numerischem Wert 0 oder 1
+#&gt; aufgetreten</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="co"># Print model to console</span></span>
-<span id="cb93-2"><a href="#cb93-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="co"># Print model to console</span></span>
+<span id="cb92-2"><a href="#cb92-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Generalized Linear Model 
 #&gt; 
@@ -1961,22 +1970,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use 5 CV folds.</li>
 <li>Print <code>model</code> to the console.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a><span class="co"># Load data</span></span>
-<span id="cb95-2"><a href="#cb95-2"></a>wine <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/wine_100.rds"</span>)</span>
-<span id="cb95-3"><a href="#cb95-3"></a></span>
-<span id="cb95-4"><a href="#cb95-4"></a><span class="co"># Fit random forest: model</span></span>
-<span id="cb95-5"><a href="#cb95-5"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb95-6"><a href="#cb95-6"></a>  quality <span class="sc">~</span> .,</span>
-<span id="cb95-7"><a href="#cb95-7"></a>  <span class="at">tuneLength =</span> <span class="dv">1</span>,</span>
-<span id="cb95-8"><a href="#cb95-8"></a>  <span class="at">data =</span> wine, </span>
-<span id="cb95-9"><a href="#cb95-9"></a>  <span class="at">method =</span> <span class="st">"ranger"</span>,</span>
-<span id="cb95-10"><a href="#cb95-10"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(</span>
-<span id="cb95-11"><a href="#cb95-11"></a>    <span class="at">method =</span> <span class="st">"cv"</span>, </span>
-<span id="cb95-12"><a href="#cb95-12"></a>    <span class="at">number =</span> <span class="dv">5</span>, </span>
-<span id="cb95-13"><a href="#cb95-13"></a>    <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
-<span id="cb95-14"><a href="#cb95-14"></a>  )</span>
-<span id="cb95-15"><a href="#cb95-15"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="co"># Load data</span></span>
+<span id="cb94-2"><a href="#cb94-2"></a>wine <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/wine_100.rds"</span>)</span>
+<span id="cb94-3"><a href="#cb94-3"></a></span>
+<span id="cb94-4"><a href="#cb94-4"></a><span class="co"># Fit random forest: model</span></span>
+<span id="cb94-5"><a href="#cb94-5"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb94-6"><a href="#cb94-6"></a>  quality <span class="sc">~</span> .,</span>
+<span id="cb94-7"><a href="#cb94-7"></a>  <span class="at">tuneLength =</span> <span class="dv">1</span>,</span>
+<span id="cb94-8"><a href="#cb94-8"></a>  <span class="at">data =</span> wine, </span>
+<span id="cb94-9"><a href="#cb94-9"></a>  <span class="at">method =</span> <span class="st">"ranger"</span>,</span>
+<span id="cb94-10"><a href="#cb94-10"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(</span>
+<span id="cb94-11"><a href="#cb94-11"></a>    <span class="at">method =</span> <span class="st">"cv"</span>, </span>
+<span id="cb94-12"><a href="#cb94-12"></a>    <span class="at">number =</span> <span class="dv">5</span>, </span>
+<span id="cb94-13"><a href="#cb94-13"></a>    <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
+<span id="cb94-14"><a href="#cb94-14"></a>  )</span>
+<span id="cb94-15"><a href="#cb94-15"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; + Fold1: mtry=4, min.node.size=5, splitrule=variance 
 #&gt; - Fold1: mtry=4, min.node.size=5, splitrule=variance 
@@ -2002,8 +2011,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Selecting tuning parameters
 #&gt; Fitting mtry = 4, splitrule = variance, min.node.size = 5 on full training set</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a><span class="co"># Print model to console</span></span>
-<span id="cb97-2"><a href="#cb97-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="co"># Print model to console</span></span>
+<span id="cb96-2"><a href="#cb96-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Random Forest 
 #&gt; 
@@ -2064,19 +2073,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print <code>model</code> to the console.</li>
 <li>Plot the model after fitting it.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1"></a><span class="co"># Fit random forest: model</span></span>
-<span id="cb99-2"><a href="#cb99-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb99-3"><a href="#cb99-3"></a>  quality <span class="sc">~</span> .,</span>
-<span id="cb99-4"><a href="#cb99-4"></a>  <span class="at">tuneLength =</span> <span class="dv">3</span>,</span>
-<span id="cb99-5"><a href="#cb99-5"></a>  <span class="at">data =</span> wine, </span>
-<span id="cb99-6"><a href="#cb99-6"></a>  <span class="at">method =</span> <span class="st">"ranger"</span>,</span>
-<span id="cb99-7"><a href="#cb99-7"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(</span>
-<span id="cb99-8"><a href="#cb99-8"></a>    <span class="at">method =</span> <span class="st">"cv"</span>, </span>
-<span id="cb99-9"><a href="#cb99-9"></a>    <span class="at">number =</span> <span class="dv">5</span>, </span>
-<span id="cb99-10"><a href="#cb99-10"></a>    <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
-<span id="cb99-11"><a href="#cb99-11"></a>  )</span>
-<span id="cb99-12"><a href="#cb99-12"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a><span class="co"># Fit random forest: model</span></span>
+<span id="cb98-2"><a href="#cb98-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb98-3"><a href="#cb98-3"></a>  quality <span class="sc">~</span> .,</span>
+<span id="cb98-4"><a href="#cb98-4"></a>  <span class="at">tuneLength =</span> <span class="dv">3</span>,</span>
+<span id="cb98-5"><a href="#cb98-5"></a>  <span class="at">data =</span> wine, </span>
+<span id="cb98-6"><a href="#cb98-6"></a>  <span class="at">method =</span> <span class="st">"ranger"</span>,</span>
+<span id="cb98-7"><a href="#cb98-7"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(</span>
+<span id="cb98-8"><a href="#cb98-8"></a>    <span class="at">method =</span> <span class="st">"cv"</span>, </span>
+<span id="cb98-9"><a href="#cb98-9"></a>    <span class="at">number =</span> <span class="dv">5</span>, </span>
+<span id="cb98-10"><a href="#cb98-10"></a>    <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
+<span id="cb98-11"><a href="#cb98-11"></a>  )</span>
+<span id="cb98-12"><a href="#cb98-12"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; + Fold1: mtry= 2, min.node.size=5, splitrule=variance 
 #&gt; - Fold1: mtry= 2, min.node.size=5, splitrule=variance 
@@ -2142,8 +2151,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Selecting tuning parameters
 #&gt; Fitting mtry = 7, splitrule = variance, min.node.size = 5 on full training set</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1"></a><span class="co"># Print model to console</span></span>
-<span id="cb101-2"><a href="#cb101-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1"></a><span class="co"># Print model to console</span></span>
+<span id="cb100-2"><a href="#cb100-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Random Forest 
 #&gt; 
@@ -2168,12 +2177,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; The final values used for the model were mtry = 7, splitrule = variance
 #&gt;  and min.node.size = 5.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1"></a><span class="co"># Plot model</span></span>
-<span id="cb103-2"><a href="#cb103-2"></a><span class="fu">plot</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1"></a><span class="co"># Plot model</span></span>
+<span id="cb102-2"><a href="#cb102-2"></a><span class="fu">plot</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-44-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-45-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2213,13 +2222,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Set the rule to split on, <code>.splitrule</code>, to <code>"variance"</code>.</li>
 <li>Set the minimum node size, <code>.min.node.size</code>, to <code>5</code>.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a><span class="co"># Define the tuning grid: tuneGrid</span></span>
-<span id="cb104-2"><a href="#cb104-2"></a>tuneGrid <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb104-3"><a href="#cb104-3"></a>  <span class="at">.mtry =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>),</span>
-<span id="cb104-4"><a href="#cb104-4"></a>  <span class="at">.splitrule =</span> <span class="st">"variance"</span>,</span>
-<span id="cb104-5"><a href="#cb104-5"></a>  <span class="at">.min.node.size =</span> <span class="dv">5</span></span>
-<span id="cb104-6"><a href="#cb104-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1"></a><span class="co"># Define the tuning grid: tuneGrid</span></span>
+<span id="cb103-2"><a href="#cb103-2"></a>tuneGrid <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb103-3"><a href="#cb103-3"></a>  <span class="at">.mtry =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>),</span>
+<span id="cb103-4"><a href="#cb103-4"></a>  <span class="at">.splitrule =</span> <span class="st">"variance"</span>,</span>
+<span id="cb103-5"><a href="#cb103-5"></a>  <span class="at">.min.node.size =</span> <span class="dv">5</span></span>
+<span id="cb103-6"><a href="#cb103-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="5" type="1">
 <li>Train another random forest model, <code>model</code>, using the <code>wine</code> dataset on the <code>quality</code> variable with all other variables as explanatory variables.<code>method = "ranger"</code>.the custom <code>tuneGrid</code>. CV folds.</li>
@@ -2229,26 +2238,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print <code>model</code> to the console.</li>
 <li>Plot the model after fitting it using <code>plot()</code>.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1"></a><span class="co"># From previous step</span></span>
-<span id="cb105-2"><a href="#cb105-2"></a>tuneGrid <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb105-3"><a href="#cb105-3"></a>  <span class="at">.mtry =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>),</span>
-<span id="cb105-4"><a href="#cb105-4"></a>  <span class="at">.splitrule =</span> <span class="st">"variance"</span>,</span>
-<span id="cb105-5"><a href="#cb105-5"></a>  <span class="at">.min.node.size =</span> <span class="dv">5</span></span>
-<span id="cb105-6"><a href="#cb105-6"></a>)</span>
-<span id="cb105-7"><a href="#cb105-7"></a></span>
-<span id="cb105-8"><a href="#cb105-8"></a><span class="co"># Fit random forest: model</span></span>
-<span id="cb105-9"><a href="#cb105-9"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb105-10"><a href="#cb105-10"></a>  quality <span class="sc">~</span> .,</span>
-<span id="cb105-11"><a href="#cb105-11"></a>  <span class="at">tuneGrid =</span> tuneGrid,</span>
-<span id="cb105-12"><a href="#cb105-12"></a>  <span class="at">data =</span> wine, </span>
-<span id="cb105-13"><a href="#cb105-13"></a>  <span class="at">method =</span> <span class="st">"ranger"</span>,</span>
-<span id="cb105-14"><a href="#cb105-14"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(</span>
-<span id="cb105-15"><a href="#cb105-15"></a>    <span class="at">method =</span> <span class="st">"cv"</span>, </span>
-<span id="cb105-16"><a href="#cb105-16"></a>    <span class="at">number =</span> <span class="dv">5</span>, </span>
-<span id="cb105-17"><a href="#cb105-17"></a>    <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
-<span id="cb105-18"><a href="#cb105-18"></a>  )</span>
-<span id="cb105-19"><a href="#cb105-19"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a><span class="co"># From previous step</span></span>
+<span id="cb104-2"><a href="#cb104-2"></a>tuneGrid <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb104-3"><a href="#cb104-3"></a>  <span class="at">.mtry =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">7</span>),</span>
+<span id="cb104-4"><a href="#cb104-4"></a>  <span class="at">.splitrule =</span> <span class="st">"variance"</span>,</span>
+<span id="cb104-5"><a href="#cb104-5"></a>  <span class="at">.min.node.size =</span> <span class="dv">5</span></span>
+<span id="cb104-6"><a href="#cb104-6"></a>)</span>
+<span id="cb104-7"><a href="#cb104-7"></a></span>
+<span id="cb104-8"><a href="#cb104-8"></a><span class="co"># Fit random forest: model</span></span>
+<span id="cb104-9"><a href="#cb104-9"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb104-10"><a href="#cb104-10"></a>  quality <span class="sc">~</span> .,</span>
+<span id="cb104-11"><a href="#cb104-11"></a>  <span class="at">tuneGrid =</span> tuneGrid,</span>
+<span id="cb104-12"><a href="#cb104-12"></a>  <span class="at">data =</span> wine, </span>
+<span id="cb104-13"><a href="#cb104-13"></a>  <span class="at">method =</span> <span class="st">"ranger"</span>,</span>
+<span id="cb104-14"><a href="#cb104-14"></a>  <span class="at">trControl =</span> <span class="fu">trainControl</span>(</span>
+<span id="cb104-15"><a href="#cb104-15"></a>    <span class="at">method =</span> <span class="st">"cv"</span>, </span>
+<span id="cb104-16"><a href="#cb104-16"></a>    <span class="at">number =</span> <span class="dv">5</span>, </span>
+<span id="cb104-17"><a href="#cb104-17"></a>    <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
+<span id="cb104-18"><a href="#cb104-18"></a>  )</span>
+<span id="cb104-19"><a href="#cb104-19"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; + Fold1: mtry=2, splitrule=variance, min.node.size=5 
 #&gt; - Fold1: mtry=2, splitrule=variance, min.node.size=5 
@@ -2284,8 +2293,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Selecting tuning parameters
 #&gt; Fitting mtry = 7, splitrule = variance, min.node.size = 5 on full training set</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1"></a><span class="co"># Print model to console</span></span>
-<span id="cb107-2"><a href="#cb107-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a><span class="co"># Print model to console</span></span>
+<span id="cb106-2"><a href="#cb106-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Random Forest 
 #&gt; 
@@ -2309,12 +2318,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; The final values used for the model were mtry = 7, splitrule = variance
 #&gt;  and min.node.size = 5.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1"></a><span class="co"># Plot model</span></span>
-<span id="cb109-2"><a href="#cb109-2"></a><span class="fu">plot</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1"></a><span class="co"># Plot model</span></span>
+<span id="cb108-2"><a href="#cb108-2"></a><span class="fu">plot</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-46-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-47-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2360,15 +2369,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Be sure to set <code>classProbs = TRUE</code>.</li>
 </ul></li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a><span class="co"># Create custom trainControl: myControl</span></span>
-<span id="cb110-2"><a href="#cb110-2"></a>myControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(</span>
-<span id="cb110-3"><a href="#cb110-3"></a>  <span class="at">method =</span> <span class="st">"cv"</span>, </span>
-<span id="cb110-4"><a href="#cb110-4"></a>  <span class="at">number =</span> <span class="dv">10</span>,</span>
-<span id="cb110-5"><a href="#cb110-5"></a>  <span class="at">summaryFunction =</span> twoClassSummary,</span>
-<span id="cb110-6"><a href="#cb110-6"></a>  <span class="at">classProbs =</span> <span class="cn">TRUE</span>, <span class="co"># IMPORTANT!</span></span>
-<span id="cb110-7"><a href="#cb110-7"></a>  <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
-<span id="cb110-8"><a href="#cb110-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1"></a><span class="co"># Create custom trainControl: myControl</span></span>
+<span id="cb109-2"><a href="#cb109-2"></a>myControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(</span>
+<span id="cb109-3"><a href="#cb109-3"></a>  <span class="at">method =</span> <span class="st">"cv"</span>, </span>
+<span id="cb109-4"><a href="#cb109-4"></a>  <span class="at">number =</span> <span class="dv">10</span>,</span>
+<span id="cb109-5"><a href="#cb109-5"></a>  <span class="at">summaryFunction =</span> twoClassSummary,</span>
+<span id="cb109-6"><a href="#cb109-6"></a>  <span class="at">classProbs =</span> <span class="cn">TRUE</span>, <span class="co"># IMPORTANT!</span></span>
+<span id="cb109-7"><a href="#cb109-7"></a>  <span class="at">verboseIter =</span> <span class="cn">TRUE</span></span>
+<span id="cb109-8"><a href="#cb109-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great work! Creating a custome trainControl gives you much finer control over how caret searches for models.</p>
 </section>
@@ -2386,12 +2395,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print the model to the console.</li>
 <li>Use the <code>max()</code> function to find the maximum of the ROC statistic contained somewhere in <code>model[["results"]]</code>.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1"></a><span class="co"># Load package</span></span>
-<span id="cb111-2"><a href="#cb111-2"></a><span class="fu">library</span>(readr)</span>
-<span id="cb111-3"><a href="#cb111-3"></a></span>
-<span id="cb111-4"><a href="#cb111-4"></a><span class="co"># Load data</span></span>
-<span id="cb111-5"><a href="#cb111-5"></a>overfit <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/overfit.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a><span class="co"># Load package</span></span>
+<span id="cb110-2"><a href="#cb110-2"></a><span class="fu">library</span>(readr)</span>
+<span id="cb110-3"><a href="#cb110-3"></a></span>
+<span id="cb110-4"><a href="#cb110-4"></a><span class="co"># Load data</span></span>
+<span id="cb110-5"><a href="#cb110-5"></a>overfit <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/overfit.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Rows: 250 Columns: 201
 #&gt; ── Column specification ────────────────────────────────────────────────────────
@@ -2402,13 +2411,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; ℹ Use `spec()` to retrieve the full column specification for this data.
 #&gt; ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1"></a><span class="co"># Fit glmnet model: model</span></span>
-<span id="cb113-2"><a href="#cb113-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb113-3"><a href="#cb113-3"></a>  y <span class="sc">~</span> ., </span>
-<span id="cb113-4"><a href="#cb113-4"></a>  overfit,</span>
-<span id="cb113-5"><a href="#cb113-5"></a>  <span class="at">method =</span> <span class="st">"glmnet"</span>,</span>
-<span id="cb113-6"><a href="#cb113-6"></a>  <span class="at">trControl =</span> myControl</span>
-<span id="cb113-7"><a href="#cb113-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a><span class="co"># Fit glmnet model: model</span></span>
+<span id="cb112-2"><a href="#cb112-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb112-3"><a href="#cb112-3"></a>  y <span class="sc">~</span> ., </span>
+<span id="cb112-4"><a href="#cb112-4"></a>  overfit,</span>
+<span id="cb112-5"><a href="#cb112-5"></a>  <span class="at">method =</span> <span class="st">"glmnet"</span>,</span>
+<span id="cb112-6"><a href="#cb112-6"></a>  <span class="at">trControl =</span> myControl</span>
+<span id="cb112-7"><a href="#cb112-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in train.default(x, y, weights = w, ...): The metric "Accuracy" was not
 #&gt; in the result set. ROC will be used instead.</code></pre>
@@ -2478,8 +2487,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Selecting tuning parameters
 #&gt; Fitting alpha = 0.1, lambda = 0.0101 on full training set</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a><span class="co"># Print model to console</span></span>
-<span id="cb116-2"><a href="#cb116-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1"></a><span class="co"># Print model to console</span></span>
+<span id="cb115-2"><a href="#cb115-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; glmnet 
 #&gt; 
@@ -2506,8 +2515,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; ROC was used to select the optimal model using the largest value.
 #&gt; The final values used for the model were alpha = 0.1 and lambda = 0.01012745.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1"></a><span class="co"># Print maximum ROC statistic</span></span>
-<span id="cb118-2"><a href="#cb118-2"></a><span class="fu">max</span>(model[[<span class="st">"results"</span>]][[<span class="st">"ROC"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1"></a><span class="co"># Print maximum ROC statistic</span></span>
+<span id="cb117-2"><a href="#cb117-2"></a><span class="fu">max</span>(model[[<span class="st">"results"</span>]][[<span class="st">"ROC"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] 0.4677536</code></pre>
 </div>
@@ -2542,11 +2551,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="3.21" class="anchored" data-anchor-id="glmnet-with-custom-traincontrol-and-tuning"><span class="header-section-number">3.21</span> glmnet with custom trainControl and tuning</h2>
 <p>As you saw in the video, the <code>glmnet</code> model actually fits many models at once (one of the great things about the package). You can exploit this by passing a large number of <code>lambda</code> values, which control the amount of penalization in the model. <code>train()</code> is smart enough to only fit one model per <code>alpha</code> value and pass all of the <code>lambda</code> values at once for simultaneous fitting.</p>
 <p>My favorite tuning grid for <code>glmnet</code> models is:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1"></a><span class="fu">expand.grid</span>(</span>
-<span id="cb120-2"><a href="#cb120-2"></a>  <span class="at">alpha =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,</span>
-<span id="cb120-3"><a href="#cb120-3"></a>  <span class="at">lambda =</span> <span class="fu">seq</span>(<span class="fl">0.0001</span>, <span class="dv">1</span>, <span class="at">length =</span> <span class="dv">100</span>)</span>
-<span id="cb120-4"><a href="#cb120-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1"></a><span class="fu">expand.grid</span>(</span>
+<span id="cb119-2"><a href="#cb119-2"></a>  <span class="at">alpha =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,</span>
+<span id="cb119-3"><a href="#cb119-3"></a>  <span class="at">lambda =</span> <span class="fu">seq</span>(<span class="fl">0.0001</span>, <span class="dv">1</span>, <span class="at">length =</span> <span class="dv">100</span>)</span>
+<span id="cb119-4"><a href="#cb119-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This grid explores a large number of <code>lambda</code> values (100, in fact), from a very small one to a very large one. (You could increase the maximum <code>lambda</code> to 10, but in this exercise 1 is a good upper bound.)</p>
 <p>If you want to explore fewer models, you can use a shorter lambda sequence. For example, <code>lambda = seq(0.0001, 1, length = 10)</code> would fit 10 models per value of alpha.</p>
@@ -2558,18 +2567,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print <code>model</code> to the console.</li>
 <li>Print the <code>max()</code> of the ROC statistic in <code>model[["results"]]</code>. You can access it using <code>model[["results"]][["ROC"]]</code>.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1"></a><span class="co"># Train glmnet with custom trainControl and tuning: model</span></span>
-<span id="cb121-2"><a href="#cb121-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb121-3"><a href="#cb121-3"></a>  y <span class="sc">~</span> ., </span>
-<span id="cb121-4"><a href="#cb121-4"></a>  overfit,</span>
-<span id="cb121-5"><a href="#cb121-5"></a>  <span class="at">tuneGrid =</span> <span class="fu">expand.grid</span>(</span>
-<span id="cb121-6"><a href="#cb121-6"></a>    <span class="at">alpha =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,</span>
-<span id="cb121-7"><a href="#cb121-7"></a>    <span class="at">lambda =</span> <span class="fu">seq</span>(<span class="fl">0.0001</span>, <span class="dv">1</span>, <span class="at">length =</span> <span class="dv">20</span>)</span>
-<span id="cb121-8"><a href="#cb121-8"></a>  ),</span>
-<span id="cb121-9"><a href="#cb121-9"></a>  <span class="at">method =</span> <span class="st">"glmnet"</span>,</span>
-<span id="cb121-10"><a href="#cb121-10"></a>  <span class="at">trControl =</span> myControl</span>
-<span id="cb121-11"><a href="#cb121-11"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1"></a><span class="co"># Train glmnet with custom trainControl and tuning: model</span></span>
+<span id="cb120-2"><a href="#cb120-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb120-3"><a href="#cb120-3"></a>  y <span class="sc">~</span> ., </span>
+<span id="cb120-4"><a href="#cb120-4"></a>  overfit,</span>
+<span id="cb120-5"><a href="#cb120-5"></a>  <span class="at">tuneGrid =</span> <span class="fu">expand.grid</span>(</span>
+<span id="cb120-6"><a href="#cb120-6"></a>    <span class="at">alpha =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>,</span>
+<span id="cb120-7"><a href="#cb120-7"></a>    <span class="at">lambda =</span> <span class="fu">seq</span>(<span class="fl">0.0001</span>, <span class="dv">1</span>, <span class="at">length =</span> <span class="dv">20</span>)</span>
+<span id="cb120-8"><a href="#cb120-8"></a>  ),</span>
+<span id="cb120-9"><a href="#cb120-9"></a>  <span class="at">method =</span> <span class="st">"glmnet"</span>,</span>
+<span id="cb120-10"><a href="#cb120-10"></a>  <span class="at">trControl =</span> myControl</span>
+<span id="cb120-11"><a href="#cb120-11"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in train.default(x, y, weights = w, ...): The metric "Accuracy" was not
 #&gt; in the result set. ROC will be used instead.</code></pre>
@@ -2619,8 +2628,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Selecting tuning parameters
 #&gt; Fitting alpha = 1, lambda = 0.0527 on full training set</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1"></a><span class="co"># Print model to console</span></span>
-<span id="cb124-2"><a href="#cb124-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1"></a><span class="co"># Print model to console</span></span>
+<span id="cb123-2"><a href="#cb123-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; glmnet 
 #&gt; 
@@ -2678,8 +2687,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; ROC was used to select the optimal model using the largest value.
 #&gt; The final values used for the model were alpha = 1 and lambda = 0.05272632.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1"></a><span class="co"># Print maximum ROC statistic</span></span>
-<span id="cb126-2"><a href="#cb126-2"></a><span class="fu">max</span>(model[[<span class="st">"results"</span>]][[<span class="st">"ROC"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1"></a><span class="co"># Print maximum ROC statistic</span></span>
+<span id="cb125-2"><a href="#cb125-2"></a><span class="fu">max</span>(model[[<span class="st">"results"</span>]][[<span class="st">"ROC"</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] 0.5086957</code></pre>
 </div>
@@ -2733,19 +2742,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the <code>train()</code> function to fit a <code>glm</code> model called <code>median_model</code> to the breast cancer dataset. Use <code>preProcess = "medianImpute"</code> to handle the missing values.</li>
 <li>Print <code>median_model</code> to the console.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1"></a><span class="co"># Load data</span></span>
-<span id="cb128-2"><a href="#cb128-2"></a>breast_cancer_x <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/breast_cancer_x.rds"</span>)</span>
-<span id="cb128-3"><a href="#cb128-3"></a>breast_cancer_y <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/breast_cancer_y.rds"</span>)</span>
-<span id="cb128-4"><a href="#cb128-4"></a></span>
-<span id="cb128-5"><a href="#cb128-5"></a><span class="co"># Apply median imputation: median_model</span></span>
-<span id="cb128-6"><a href="#cb128-6"></a>median_model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb128-7"><a href="#cb128-7"></a>  <span class="at">x =</span> breast_cancer_x, </span>
-<span id="cb128-8"><a href="#cb128-8"></a>  <span class="at">y =</span> breast_cancer_y,</span>
-<span id="cb128-9"><a href="#cb128-9"></a>  <span class="at">method =</span> <span class="st">"glm"</span>,</span>
-<span id="cb128-10"><a href="#cb128-10"></a>  <span class="at">trControl =</span> myControl,</span>
-<span id="cb128-11"><a href="#cb128-11"></a>  <span class="at">preProcess =</span> <span class="st">"medianImpute"</span></span>
-<span id="cb128-12"><a href="#cb128-12"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1"></a><span class="co"># Load data</span></span>
+<span id="cb127-2"><a href="#cb127-2"></a>breast_cancer_x <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/breast_cancer_x.rds"</span>)</span>
+<span id="cb127-3"><a href="#cb127-3"></a>breast_cancer_y <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/breast_cancer_y.rds"</span>)</span>
+<span id="cb127-4"><a href="#cb127-4"></a></span>
+<span id="cb127-5"><a href="#cb127-5"></a><span class="co"># Apply median imputation: median_model</span></span>
+<span id="cb127-6"><a href="#cb127-6"></a>median_model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb127-7"><a href="#cb127-7"></a>  <span class="at">x =</span> breast_cancer_x, </span>
+<span id="cb127-8"><a href="#cb127-8"></a>  <span class="at">y =</span> breast_cancer_y,</span>
+<span id="cb127-9"><a href="#cb127-9"></a>  <span class="at">method =</span> <span class="st">"glm"</span>,</span>
+<span id="cb127-10"><a href="#cb127-10"></a>  <span class="at">trControl =</span> myControl,</span>
+<span id="cb127-11"><a href="#cb127-11"></a>  <span class="at">preProcess =</span> <span class="st">"medianImpute"</span></span>
+<span id="cb127-12"><a href="#cb127-12"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in train.default(x = breast_cancer_x, y = breast_cancer_y, method =
 #&gt; "glm", : The metric "Accuracy" was not in the result set. ROC will be used
@@ -2775,8 +2784,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Aggregating results
 #&gt; Fitting final model on full training set</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1"></a><span class="co"># Print median_model to console</span></span>
-<span id="cb131-2"><a href="#cb131-2"></a>median_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1"></a><span class="co"># Print median_model to console</span></span>
+<span id="cb130-2"><a href="#cb130-2"></a>median_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Generalized Linear Model 
 #&gt; 
@@ -2827,15 +2836,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the <code>train()</code> function to fit a <code>glm</code> model called <code>knn_model</code> to the breast cancer dataset.</li>
 <li>Use KNN imputation to handle missing values.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1"></a><span class="co"># Apply KNN imputation: knn_model</span></span>
-<span id="cb133-2"><a href="#cb133-2"></a>knn_model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb133-3"><a href="#cb133-3"></a>  <span class="at">x =</span> breast_cancer_x, </span>
-<span id="cb133-4"><a href="#cb133-4"></a>  <span class="at">y =</span> breast_cancer_y,</span>
-<span id="cb133-5"><a href="#cb133-5"></a>  <span class="at">method =</span> <span class="st">"glm"</span>,</span>
-<span id="cb133-6"><a href="#cb133-6"></a>  <span class="at">trControl =</span> myControl,</span>
-<span id="cb133-7"><a href="#cb133-7"></a>  <span class="at">preProcess =</span> <span class="st">"knnImpute"</span></span>
-<span id="cb133-8"><a href="#cb133-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1"></a><span class="co"># Apply KNN imputation: knn_model</span></span>
+<span id="cb132-2"><a href="#cb132-2"></a>knn_model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb132-3"><a href="#cb132-3"></a>  <span class="at">x =</span> breast_cancer_x, </span>
+<span id="cb132-4"><a href="#cb132-4"></a>  <span class="at">y =</span> breast_cancer_y,</span>
+<span id="cb132-5"><a href="#cb132-5"></a>  <span class="at">method =</span> <span class="st">"glm"</span>,</span>
+<span id="cb132-6"><a href="#cb132-6"></a>  <span class="at">trControl =</span> myControl,</span>
+<span id="cb132-7"><a href="#cb132-7"></a>  <span class="at">preProcess =</span> <span class="st">"knnImpute"</span></span>
+<span id="cb132-8"><a href="#cb132-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in train.default(x = breast_cancer_x, y = breast_cancer_y, method =
 #&gt; "glm", : The metric "Accuracy" was not in the result set. ROC will be used
@@ -2865,8 +2874,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Aggregating results
 #&gt; Fitting final model on full training set</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1"></a><span class="co"># Print knn_model to console</span></span>
-<span id="cb136-2"><a href="#cb136-2"></a>knn_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1"></a><span class="co"># Print knn_model to console</span></span>
+<span id="cb135-2"><a href="#cb135-2"></a>knn_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Generalized Linear Model 
 #&gt; 
@@ -2890,8 +2899,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>All of the preprocessing steps in the <code>train()</code> function happen in the training set of each cross-validation fold, so the error metrics reported include the effects of the preprocessing.</p>
 <p>This includes the imputation method used (e.g.&nbsp;<code>knnImpute</code> or <code>medianImpute</code>). This is useful because it allows you to compare different methods of imputation and choose the one that performs the best out-of-sample.</p>
 <p><code>median_model</code> and <code>knn_model</code> are available in your workspace, as is <code>resamples</code>, which contains the resampled results of both models. Look at the results of the models by calling</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1"></a><span class="fu">dotplot</span>(resamples, <span class="at">metric =</span> <span class="st">"ROC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1"></a><span class="fu">dotplot</span>(resamples, <span class="at">metric =</span> <span class="st">"ROC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and choose the one that performs the best out-of-sample.</p>
 <blockquote class="blockquote">
@@ -2935,15 +2944,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Fit a logistic regression model using median imputation called <code>model</code> to the breast cancer data, then print it to the console.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1"></a><span class="co"># Fit glm with median imputation</span></span>
-<span id="cb139-2"><a href="#cb139-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb139-3"><a href="#cb139-3"></a>  <span class="at">x =</span> breast_cancer_x, </span>
-<span id="cb139-4"><a href="#cb139-4"></a>  <span class="at">y =</span> breast_cancer_y,</span>
-<span id="cb139-5"><a href="#cb139-5"></a>  <span class="at">method =</span> <span class="st">"glm"</span>,</span>
-<span id="cb139-6"><a href="#cb139-6"></a>  <span class="at">trControl =</span> myControl,</span>
-<span id="cb139-7"><a href="#cb139-7"></a>  <span class="at">preProcess =</span> <span class="st">"medianImpute"</span></span>
-<span id="cb139-8"><a href="#cb139-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1"></a><span class="co"># Fit glm with median imputation</span></span>
+<span id="cb138-2"><a href="#cb138-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb138-3"><a href="#cb138-3"></a>  <span class="at">x =</span> breast_cancer_x, </span>
+<span id="cb138-4"><a href="#cb138-4"></a>  <span class="at">y =</span> breast_cancer_y,</span>
+<span id="cb138-5"><a href="#cb138-5"></a>  <span class="at">method =</span> <span class="st">"glm"</span>,</span>
+<span id="cb138-6"><a href="#cb138-6"></a>  <span class="at">trControl =</span> myControl,</span>
+<span id="cb138-7"><a href="#cb138-7"></a>  <span class="at">preProcess =</span> <span class="st">"medianImpute"</span></span>
+<span id="cb138-8"><a href="#cb138-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in train.default(x = breast_cancer_x, y = breast_cancer_y, method =
 #&gt; "glm", : The metric "Accuracy" was not in the result set. ROC will be used
@@ -2973,8 +2982,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Aggregating results
 #&gt; Fitting final model on full training set</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1"></a><span class="co"># Print model</span></span>
-<span id="cb142-2"><a href="#cb142-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1"></a><span class="co"># Print model</span></span>
+<span id="cb141-2"><a href="#cb141-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Generalized Linear Model 
 #&gt; 
@@ -2994,15 +3003,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Update the model to include two more pre-processing steps: centering and scaling.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1"></a><span class="co"># Update model with standardization</span></span>
-<span id="cb144-2"><a href="#cb144-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb144-3"><a href="#cb144-3"></a>  <span class="at">x =</span> breast_cancer_x, </span>
-<span id="cb144-4"><a href="#cb144-4"></a>  <span class="at">y =</span> breast_cancer_y,</span>
-<span id="cb144-5"><a href="#cb144-5"></a>  <span class="at">method =</span> <span class="st">"glm"</span>,</span>
-<span id="cb144-6"><a href="#cb144-6"></a>  <span class="at">trControl =</span> myControl,</span>
-<span id="cb144-7"><a href="#cb144-7"></a>  <span class="at">preProcess =</span> <span class="fu">c</span>(<span class="st">"medianImpute"</span>, <span class="st">"center"</span>, <span class="st">"scale"</span>)</span>
-<span id="cb144-8"><a href="#cb144-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1"></a><span class="co"># Update model with standardization</span></span>
+<span id="cb143-2"><a href="#cb143-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb143-3"><a href="#cb143-3"></a>  <span class="at">x =</span> breast_cancer_x, </span>
+<span id="cb143-4"><a href="#cb143-4"></a>  <span class="at">y =</span> breast_cancer_y,</span>
+<span id="cb143-5"><a href="#cb143-5"></a>  <span class="at">method =</span> <span class="st">"glm"</span>,</span>
+<span id="cb143-6"><a href="#cb143-6"></a>  <span class="at">trControl =</span> myControl,</span>
+<span id="cb143-7"><a href="#cb143-7"></a>  <span class="at">preProcess =</span> <span class="fu">c</span>(<span class="st">"medianImpute"</span>, <span class="st">"center"</span>, <span class="st">"scale"</span>)</span>
+<span id="cb143-8"><a href="#cb143-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in train.default(x = breast_cancer_x, y = breast_cancer_y, method =
 #&gt; "glm", : The metric "Accuracy" was not in the result set. ROC will be used
@@ -3032,8 +3041,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Aggregating results
 #&gt; Fitting final model on full training set</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1"></a><span class="co"># Print updated model</span></span>
-<span id="cb147-2"><a href="#cb147-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1"></a><span class="co"># Print updated model</span></span>
+<span id="cb146-2"><a href="#cb146-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Generalized Linear Model 
 #&gt; 
@@ -3079,9 +3088,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="remove-near-zero-variance-predictors" class="level2" data-number="4.18">
 <h2 data-number="4.18" class="anchored" data-anchor-id="remove-near-zero-variance-predictors"><span class="header-section-number">4.18</span> Remove near zero variance predictors</h2>
 <p>As you saw in the video, for the next set of exercises, you’ll be using the blood-brain dataset. This is a biochemical dataset in which the task is to predict the following value for a set of biochemical compounds:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1"></a><span class="fu">log</span>((concentration of compound <span class="cf">in</span> brain) <span class="sc">/</span></span>
-<span id="cb149-2"><a href="#cb149-2"></a>      (concentration of compound <span class="cf">in</span> blood))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1"></a><span class="fu">log</span>((concentration of compound <span class="cf">in</span> brain) <span class="sc">/</span></span>
+<span id="cb148-2"><a href="#cb148-2"></a>      (concentration of compound <span class="cf">in</span> blood))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This gives a quantitative metric of the compound’s ability to cross the blood-brain barrier, and is useful for understanding the biological properties of that barrier.</p>
 <p>One interesting aspect of this dataset is that it contains many variables and many of these variables have extremely low variances. This means that there is very little information in these variables because they mostly consist of a single value (e.g.&nbsp;zero).</p>
@@ -3096,20 +3105,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Make a new data frame called <code>bloodbrain_x_small</code> with the near-zero variance variables removed. Use <code>setdiff()</code> to isolate the column names that you wish to keep (i.e.&nbsp;that you don’t want to remove.)</li>
 </ul></li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1"></a><span class="co"># Load data</span></span>
-<span id="cb150-2"><a href="#cb150-2"></a>bloodbrain_x <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/bloodbrain_x.rds"</span>)</span>
-<span id="cb150-3"><a href="#cb150-3"></a>bloodbrain_y <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/bloodbrain_y.rds"</span>)</span>
-<span id="cb150-4"><a href="#cb150-4"></a></span>
-<span id="cb150-5"><a href="#cb150-5"></a><span class="co"># Identify near zero variance predictors: remove_cols</span></span>
-<span id="cb150-6"><a href="#cb150-6"></a>remove_cols <span class="ot">&lt;-</span> <span class="fu">nearZeroVar</span>(bloodbrain_x, <span class="at">names =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb150-7"><a href="#cb150-7"></a>                           <span class="at">freqCut =</span> <span class="dv">2</span>, <span class="at">uniqueCut =</span> <span class="dv">20</span>)</span>
-<span id="cb150-8"><a href="#cb150-8"></a></span>
-<span id="cb150-9"><a href="#cb150-9"></a><span class="co"># Get all column names from bloodbrain_x: all_cols</span></span>
-<span id="cb150-10"><a href="#cb150-10"></a>all_cols <span class="ot">&lt;-</span> <span class="fu">names</span>(bloodbrain_x)</span>
-<span id="cb150-11"><a href="#cb150-11"></a></span>
-<span id="cb150-12"><a href="#cb150-12"></a><span class="co"># Remove from data: bloodbrain_x_small</span></span>
-<span id="cb150-13"><a href="#cb150-13"></a>bloodbrain_x_small <span class="ot">&lt;-</span> bloodbrain_x[ , <span class="fu">setdiff</span>(all_cols, remove_cols)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1"></a><span class="co"># Load data</span></span>
+<span id="cb149-2"><a href="#cb149-2"></a>bloodbrain_x <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/bloodbrain_x.rds"</span>)</span>
+<span id="cb149-3"><a href="#cb149-3"></a>bloodbrain_y <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/bloodbrain_y.rds"</span>)</span>
+<span id="cb149-4"><a href="#cb149-4"></a></span>
+<span id="cb149-5"><a href="#cb149-5"></a><span class="co"># Identify near zero variance predictors: remove_cols</span></span>
+<span id="cb149-6"><a href="#cb149-6"></a>remove_cols <span class="ot">&lt;-</span> <span class="fu">nearZeroVar</span>(bloodbrain_x, <span class="at">names =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb149-7"><a href="#cb149-7"></a>                           <span class="at">freqCut =</span> <span class="dv">2</span>, <span class="at">uniqueCut =</span> <span class="dv">20</span>)</span>
+<span id="cb149-8"><a href="#cb149-8"></a></span>
+<span id="cb149-9"><a href="#cb149-9"></a><span class="co"># Get all column names from bloodbrain_x: all_cols</span></span>
+<span id="cb149-10"><a href="#cb149-10"></a>all_cols <span class="ot">&lt;-</span> <span class="fu">names</span>(bloodbrain_x)</span>
+<span id="cb149-11"><a href="#cb149-11"></a></span>
+<span id="cb149-12"><a href="#cb149-12"></a><span class="co"># Remove from data: bloodbrain_x_small</span></span>
+<span id="cb149-13"><a href="#cb149-13"></a>bloodbrain_x_small <span class="ot">&lt;-</span> bloodbrain_x[ , <span class="fu">setdiff</span>(all_cols, remove_cols)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great work! Near zero variance variables can cause issues during cross-validation.</p>
 </section>
@@ -3130,91 +3139,91 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Fit a <code>glm</code> model using the <code>train()</code> function and the reduced blood-brain dataset you created in the previous exercise.</li>
 <li>Print the result to the console.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1"></a><span class="co"># Fit model on reduced data: model</span></span>
-<span id="cb151-2"><a href="#cb151-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb151-3"><a href="#cb151-3"></a>  <span class="at">x =</span> bloodbrain_x_small, </span>
-<span id="cb151-4"><a href="#cb151-4"></a>  <span class="at">y =</span> bloodbrain_y, </span>
-<span id="cb151-5"><a href="#cb151-5"></a>  <span class="at">method =</span> <span class="st">"glm"</span></span>
-<span id="cb151-6"><a href="#cb151-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1"></a><span class="co"># Fit model on reduced data: model</span></span>
+<span id="cb150-2"><a href="#cb150-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb150-3"><a href="#cb150-3"></a>  <span class="at">x =</span> bloodbrain_x_small, </span>
+<span id="cb150-4"><a href="#cb150-4"></a>  <span class="at">y =</span> bloodbrain_y, </span>
+<span id="cb150-5"><a href="#cb150-5"></a>  <span class="at">method =</span> <span class="st">"glm"</span></span>
+<span id="cb150-6"><a href="#cb150-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen
 
 #&gt; Warning in predict.lm(object, newdata, se.fit, scale = 1, type = if (type == :
-#&gt; prediction from a rank-deficient fit may be misleading</code></pre>
+#&gt; Vorhersage durch Fit ohne vollen Rang mag täuschen</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1"></a><span class="co"># Print model to console</span></span>
-<span id="cb153-2"><a href="#cb153-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb152"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1"></a><span class="co"># Print model to console</span></span>
+<span id="cb152-2"><a href="#cb152-2"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Generalized Linear Model 
 #&gt; 
@@ -3261,17 +3270,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Fit a <code>glm</code> model to the full blood-brain dataset using the <code>"pca"</code> option to <code>preProcess</code>.</li>
 <li>Print the model to the console and inspect the result.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb155"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1"></a><span class="co"># Fit glm model using PCA: model</span></span>
-<span id="cb155-2"><a href="#cb155-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb155-3"><a href="#cb155-3"></a>  <span class="at">x =</span> bloodbrain_x, </span>
-<span id="cb155-4"><a href="#cb155-4"></a>  <span class="at">y =</span> bloodbrain_y,</span>
-<span id="cb155-5"><a href="#cb155-5"></a>  <span class="at">method =</span> <span class="st">"glm"</span>, </span>
-<span id="cb155-6"><a href="#cb155-6"></a>  <span class="at">preProcess =</span> <span class="st">"pca"</span></span>
-<span id="cb155-7"><a href="#cb155-7"></a>)</span>
-<span id="cb155-8"><a href="#cb155-8"></a></span>
-<span id="cb155-9"><a href="#cb155-9"></a><span class="co"># Print model to console</span></span>
-<span id="cb155-10"><a href="#cb155-10"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb154"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1"></a><span class="co"># Fit glm model using PCA: model</span></span>
+<span id="cb154-2"><a href="#cb154-2"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb154-3"><a href="#cb154-3"></a>  <span class="at">x =</span> bloodbrain_x, </span>
+<span id="cb154-4"><a href="#cb154-4"></a>  <span class="at">y =</span> bloodbrain_y,</span>
+<span id="cb154-5"><a href="#cb154-5"></a>  <span class="at">method =</span> <span class="st">"glm"</span>, </span>
+<span id="cb154-6"><a href="#cb154-6"></a>  <span class="at">preProcess =</span> <span class="st">"pca"</span></span>
+<span id="cb154-7"><a href="#cb154-7"></a>)</span>
+<span id="cb154-8"><a href="#cb154-8"></a></span>
+<span id="cb154-9"><a href="#cb154-9"></a><span class="co"># Print model to console</span></span>
+<span id="cb154-10"><a href="#cb154-10"></a>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Generalized Linear Model 
 #&gt; 
@@ -3331,22 +3340,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Pass them to <code>trainControl()</code> to create a reusable <code>trainControl</code> for comparing models.</li>
 </ul></li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1"></a><span class="co"># Load data</span></span>
-<span id="cb157-2"><a href="#cb157-2"></a>churn_x <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/churn_x.rds"</span>)</span>
-<span id="cb157-3"><a href="#cb157-3"></a>churn_y <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/churn_y.rds"</span>)</span>
-<span id="cb157-4"><a href="#cb157-4"></a></span>
-<span id="cb157-5"><a href="#cb157-5"></a><span class="co"># Create custom indices: myFolds</span></span>
-<span id="cb157-6"><a href="#cb157-6"></a>myFolds <span class="ot">&lt;-</span> <span class="fu">createFolds</span>(churn_y, <span class="at">k =</span> <span class="dv">5</span>)</span>
-<span id="cb157-7"><a href="#cb157-7"></a></span>
-<span id="cb157-8"><a href="#cb157-8"></a><span class="co"># Create reusable trainControl object: myControl</span></span>
-<span id="cb157-9"><a href="#cb157-9"></a>myControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(</span>
-<span id="cb157-10"><a href="#cb157-10"></a>  <span class="at">summaryFunction =</span> twoClassSummary,</span>
-<span id="cb157-11"><a href="#cb157-11"></a>  <span class="at">classProbs =</span> <span class="cn">TRUE</span>, <span class="co"># IMPORTANT!</span></span>
-<span id="cb157-12"><a href="#cb157-12"></a>  <span class="at">verboseIter =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb157-13"><a href="#cb157-13"></a>  <span class="at">savePredictions =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb157-14"><a href="#cb157-14"></a>  <span class="at">index =</span> myFolds</span>
-<span id="cb157-15"><a href="#cb157-15"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb156"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1"></a><span class="co"># Load data</span></span>
+<span id="cb156-2"><a href="#cb156-2"></a>churn_x <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/churn_x.rds"</span>)</span>
+<span id="cb156-3"><a href="#cb156-3"></a>churn_y <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/churn_y.rds"</span>)</span>
+<span id="cb156-4"><a href="#cb156-4"></a></span>
+<span id="cb156-5"><a href="#cb156-5"></a><span class="co"># Create custom indices: myFolds</span></span>
+<span id="cb156-6"><a href="#cb156-6"></a>myFolds <span class="ot">&lt;-</span> <span class="fu">createFolds</span>(churn_y, <span class="at">k =</span> <span class="dv">5</span>)</span>
+<span id="cb156-7"><a href="#cb156-7"></a></span>
+<span id="cb156-8"><a href="#cb156-8"></a><span class="co"># Create reusable trainControl object: myControl</span></span>
+<span id="cb156-9"><a href="#cb156-9"></a>myControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(</span>
+<span id="cb156-10"><a href="#cb156-10"></a>  <span class="at">summaryFunction =</span> twoClassSummary,</span>
+<span id="cb156-11"><a href="#cb156-11"></a>  <span class="at">classProbs =</span> <span class="cn">TRUE</span>, <span class="co"># IMPORTANT!</span></span>
+<span id="cb156-12"><a href="#cb156-12"></a>  <span class="at">verboseIter =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb156-13"><a href="#cb156-13"></a>  <span class="at">savePredictions =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb156-14"><a href="#cb156-14"></a>  <span class="at">index =</span> myFolds</span>
+<span id="cb156-15"><a href="#cb156-15"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great work! By saving the indexes in the train control, we can fit many models using the same CV folds.</p>
 </section>
@@ -3381,15 +3390,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Fit a <code>glmnet</code> model to the churn dataset called <code>model_glmnet</code>. Make sure to use <code>myControl</code>, which you created in the first exercise and is available in your workspace, as the <code>trainControl</code> object.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb158"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1"></a><span class="co"># Fit glmnet model: model_glmnet</span></span>
-<span id="cb158-2"><a href="#cb158-2"></a>model_glmnet <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb158-3"><a href="#cb158-3"></a>  <span class="at">x =</span> churn_x, </span>
-<span id="cb158-4"><a href="#cb158-4"></a>  <span class="at">y =</span> churn_y,</span>
-<span id="cb158-5"><a href="#cb158-5"></a>  <span class="at">metric =</span> <span class="st">"ROC"</span>,</span>
-<span id="cb158-6"><a href="#cb158-6"></a>  <span class="at">method =</span> <span class="st">"glmnet"</span>,</span>
-<span id="cb158-7"><a href="#cb158-7"></a>  <span class="at">trControl =</span> myControl</span>
-<span id="cb158-8"><a href="#cb158-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1"></a><span class="co"># Fit glmnet model: model_glmnet</span></span>
+<span id="cb157-2"><a href="#cb157-2"></a>model_glmnet <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb157-3"><a href="#cb157-3"></a>  <span class="at">x =</span> churn_x, </span>
+<span id="cb157-4"><a href="#cb157-4"></a>  <span class="at">y =</span> churn_y,</span>
+<span id="cb157-5"><a href="#cb157-5"></a>  <span class="at">metric =</span> <span class="st">"ROC"</span>,</span>
+<span id="cb157-6"><a href="#cb157-6"></a>  <span class="at">method =</span> <span class="st">"glmnet"</span>,</span>
+<span id="cb157-7"><a href="#cb157-7"></a>  <span class="at">trControl =</span> myControl</span>
+<span id="cb157-8"><a href="#cb157-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; + Fold1: alpha=0.10, lambda=0.01821</code></pre>
 </div>
@@ -3547,15 +3556,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Fit a random forest model to the churn dataset. Be sure to use <code>myControl</code> as the <code>trainControl</code> like you’ve done before and implement the <code>"ranger"</code> method.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb190"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb190-1"><a href="#cb190-1"></a><span class="co"># Fit random forest: model_rf</span></span>
-<span id="cb190-2"><a href="#cb190-2"></a>model_rf <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
-<span id="cb190-3"><a href="#cb190-3"></a>  <span class="at">x =</span> churn_x, </span>
-<span id="cb190-4"><a href="#cb190-4"></a>  <span class="at">y =</span> churn_y,</span>
-<span id="cb190-5"><a href="#cb190-5"></a>  <span class="at">metric =</span> <span class="st">"ROC"</span>,</span>
-<span id="cb190-6"><a href="#cb190-6"></a>  <span class="at">method =</span> <span class="st">"ranger"</span>,</span>
-<span id="cb190-7"><a href="#cb190-7"></a>  <span class="at">trControl =</span> myControl</span>
-<span id="cb190-8"><a href="#cb190-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb189"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb189-1"><a href="#cb189-1"></a><span class="co"># Fit random forest: model_rf</span></span>
+<span id="cb189-2"><a href="#cb189-2"></a>model_rf <span class="ot">&lt;-</span> <span class="fu">train</span>(</span>
+<span id="cb189-3"><a href="#cb189-3"></a>  <span class="at">x =</span> churn_x, </span>
+<span id="cb189-4"><a href="#cb189-4"></a>  <span class="at">y =</span> churn_y,</span>
+<span id="cb189-5"><a href="#cb189-5"></a>  <span class="at">metric =</span> <span class="st">"ROC"</span>,</span>
+<span id="cb189-6"><a href="#cb189-6"></a>  <span class="at">method =</span> <span class="st">"ranger"</span>,</span>
+<span id="cb189-7"><a href="#cb189-7"></a>  <span class="at">trControl =</span> myControl</span>
+<span id="cb189-8"><a href="#cb189-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; + Fold1: mtry= 2, min.node.size=1, splitrule=gini 
 #&gt; - Fold1: mtry= 2, min.node.size=1, splitrule=gini 
@@ -3659,15 +3668,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Summarize the results by calling <code>summary()</code> on <code>resamples</code>.</li>
 </ul></li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb192"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb192-1"><a href="#cb192-1"></a><span class="co"># Create model_list</span></span>
-<span id="cb192-2"><a href="#cb192-2"></a>model_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">item1 =</span> model_glmnet, <span class="at">item2 =</span> model_rf)</span>
-<span id="cb192-3"><a href="#cb192-3"></a></span>
-<span id="cb192-4"><a href="#cb192-4"></a><span class="co"># Pass model_list to resamples(): resamples</span></span>
-<span id="cb192-5"><a href="#cb192-5"></a>resamples <span class="ot">&lt;-</span> <span class="fu">resamples</span>(model_list)</span>
-<span id="cb192-6"><a href="#cb192-6"></a></span>
-<span id="cb192-7"><a href="#cb192-7"></a><span class="co"># Summarize the results</span></span>
-<span id="cb192-8"><a href="#cb192-8"></a><span class="fu">summary</span>(resamples)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb191"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href="#cb191-1"></a><span class="co"># Create model_list</span></span>
+<span id="cb191-2"><a href="#cb191-2"></a>model_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">item1 =</span> model_glmnet, <span class="at">item2 =</span> model_rf)</span>
+<span id="cb191-3"><a href="#cb191-3"></a></span>
+<span id="cb191-4"><a href="#cb191-4"></a><span class="co"># Pass model_list to resamples(): resamples</span></span>
+<span id="cb191-5"><a href="#cb191-5"></a>resamples <span class="ot">&lt;-</span> <span class="fu">resamples</span>(model_list)</span>
+<span id="cb191-6"><a href="#cb191-6"></a></span>
+<span id="cb191-7"><a href="#cb191-7"></a><span class="co"># Summarize the results</span></span>
+<span id="cb191-8"><a href="#cb191-8"></a><span class="fu">summary</span>(resamples)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 
 #&gt; Call:
@@ -3724,13 +3733,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Pass the <code>resamples</code> object to the <code>bwplot()</code> function to make a box-and-whisker plot. Look at the resulting plot and note which model has the higher median ROC statistic. Be sure to specify which metric you want to plot.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb194"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb194-1"><a href="#cb194-1"></a><span class="co"># Create bwplot</span></span>
-<span id="cb194-2"><a href="#cb194-2"></a><span class="fu">bwplot</span>(resamples, <span class="at">metric =</span> <span class="st">"ROC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb193"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href="#cb193-1"></a><span class="co"># Create bwplot</span></span>
+<span id="cb193-2"><a href="#cb193-2"></a><span class="fu">bwplot</span>(resamples, <span class="at">metric =</span> <span class="st">"ROC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-64-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-64-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-65-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3745,13 +3754,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Pass the <code>resamples</code> object to the <code>xyplot()</code> function. Look at the resulting plot and note how similar the two models’ predictions are (or are not) on the different folds. Be sure to specify which metric you want to plot.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb195"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1"></a><span class="co"># Create xyplot</span></span>
-<span id="cb195-2"><a href="#cb195-2"></a><span class="fu">xyplot</span>(resamples, <span class="at">metric =</span> <span class="st">"ROC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb194"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb194-1"><a href="#cb194-1"></a><span class="co"># Create xyplot</span></span>
+<span id="cb194-2"><a href="#cb194-2"></a><span class="fu">xyplot</span>(resamples, <span class="at">metric =</span> <span class="st">"ROC"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-65-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-66-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="06_machine_learning_with_caret_files/figure-html/unnamed-chunk-66-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3768,24 +3777,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Call the <code>caretStack()</code> function with two arguments, <code>model_list</code> and <code>method = "glm"</code>, to ensemble the two models using a logistic regression. Store the result as <code>stack</code>.</li>
 <li>Summarize the resulting model with the <code>summary()</code> function.</li>
 </ol>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb196"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb196-1"><a href="#cb196-1"></a><span class="co"># Load package</span></span>
-<span id="cb196-2"><a href="#cb196-2"></a><span class="fu">library</span>(caretEnsemble)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb195"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1"></a><span class="co"># Load package</span></span>
+<span id="cb195-2"><a href="#cb195-2"></a><span class="fu">library</span>(caretEnsemble)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; 
-#&gt; Attaching package: 'caretEnsemble'</code></pre>
+#&gt; Attache Paket: 'caretEnsemble'</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; The following object is masked from 'package:ggplot2':
+<pre><code>#&gt; Das folgende Objekt ist maskiert 'package:ggplot2':
 #&gt; 
 #&gt;     autoplot</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb199"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb199-1"><a href="#cb199-1"></a>model_list <span class="ot">&lt;-</span> <span class="fu">caretList</span>(</span>
-<span id="cb199-2"><a href="#cb199-2"></a>  <span class="at">x          =</span> churn_x, </span>
-<span id="cb199-3"><a href="#cb199-3"></a>  <span class="at">y          =</span> churn_y,</span>
-<span id="cb199-4"><a href="#cb199-4"></a>  <span class="at">methodList =</span> <span class="fu">c</span>(<span class="at">item1 =</span> <span class="st">"glmnet"</span>, <span class="at">item2 =</span> <span class="st">"ranger"</span>),</span>
-<span id="cb199-5"><a href="#cb199-5"></a>  <span class="at">trControl  =</span> myControl</span>
-<span id="cb199-6"><a href="#cb199-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb198"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1"></a>model_list <span class="ot">&lt;-</span> <span class="fu">caretList</span>(</span>
+<span id="cb198-2"><a href="#cb198-2"></a>  <span class="at">x          =</span> churn_x, </span>
+<span id="cb198-3"><a href="#cb198-3"></a>  <span class="at">y          =</span> churn_y,</span>
+<span id="cb198-4"><a href="#cb198-4"></a>  <span class="at">methodList =</span> <span class="fu">c</span>(<span class="at">item1 =</span> <span class="st">"glmnet"</span>, <span class="at">item2 =</span> <span class="st">"ranger"</span>),</span>
+<span id="cb198-5"><a href="#cb198-5"></a>  <span class="at">trControl  =</span> myControl</span>
+<span id="cb198-6"><a href="#cb198-6"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in train.default(x = structure(list(stateAK = c(0L, 0L, 0L, 0L, : The
 #&gt; metric "Accuracy" was not in the result set. ROC will be used instead.</code></pre>
@@ -3984,11 +3993,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Selecting tuning parameters
 #&gt; Fitting mtry = 36, splitrule = extratrees, min.node.size = 1 on full training set</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb234"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb234-1"><a href="#cb234-1"></a><span class="co"># Create ensemble model: stack</span></span>
-<span id="cb234-2"><a href="#cb234-2"></a>stack <span class="ot">&lt;-</span> <span class="fu">caretStack</span>(model_list, <span class="at">method =</span> <span class="st">"glm"</span>)</span>
-<span id="cb234-3"><a href="#cb234-3"></a></span>
-<span id="cb234-4"><a href="#cb234-4"></a><span class="co"># Look at summary</span></span>
-<span id="cb234-5"><a href="#cb234-5"></a><span class="fu">summary</span>(stack)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb233"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb233-1"><a href="#cb233-1"></a><span class="co"># Create ensemble model: stack</span></span>
+<span id="cb233-2"><a href="#cb233-2"></a>stack <span class="ot">&lt;-</span> <span class="fu">caretStack</span>(model_list, <span class="at">method =</span> <span class="st">"glm"</span>)</span>
+<span id="cb233-3"><a href="#cb233-3"></a></span>
+<span id="cb233-4"><a href="#cb233-4"></a><span class="co"># Look at summary</span></span>
+<span id="cb233-5"><a href="#cb233-5"></a><span class="fu">summary</span>(stack)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 
 #&gt; Call:
@@ -4301,7 +4310,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":true,"openEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","loop":true,"openEffect":"zoom","closeEffect":"zoom"});</script>
 
 
 

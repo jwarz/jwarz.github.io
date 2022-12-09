@@ -485,7 +485,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#calculating-distance-between-observations" id="toc-calculating-distance-between-observations" class="nav-link active" data-scroll-target="#calculating-distance-between-observations"><span class="toc-section-number">1</span>  1. Calculating distance between observations</a>
+  <li><a href="#calculating-distance-between-observations" id="toc-calculating-distance-between-observations" class="nav-link active" data-scroll-target="#calculating-distance-between-observations"><span class="toc-section-number">1</span>  Calculating distance between observations</a>
   <ul class="collapse">
   <li><a href="#what-is-cluster-analysis" id="toc-what-is-cluster-analysis" class="nav-link" data-scroll-target="#what-is-cluster-analysis"><span class="toc-section-number">1.1</span>  What is cluster analysis?</a></li>
   <li><a href="#when-to-cluster" id="toc-when-to-cluster" class="nav-link" data-scroll-target="#when-to-cluster"><span class="toc-section-number">1.2</span>  When to cluster?</a></li>
@@ -580,7 +580,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>Cluster analysis is a powerful toolkit in the data science workbench. It is used to find groups of observations (clusters) that share similar characteristics. These similarities can inform all kinds of business decisions; for example, in marketing, it is used to identify distinct groups of customers for which advertisements can be tailored. In this course, you will learn about two commonly used clustering methods - hierarchical clustering and k-means clustering. You won’t just learn how to use these methods, you’ll build a <strong> strong intuition</strong> for how they work and how to interpret their results. You’ll develop this intuition by exploring three different datasets: soccer player positions, wholesale customer spending data, and longitudinal occupational wage data.</p>
 <section id="calculating-distance-between-observations" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 1. Calculating distance between observations</h1>
+<h1 data-number="1"><span class="header-section-number">1</span> Calculating distance between observations</h1>
 <p>Cluster analysis seeks to find groups of observations that are similar to one another, but the identified groups are different from each other. This similarity/difference is captured by the metric called distance. In this chapter, you will learn how to calculate the distance between observations for both continuous and categorical features. You will also develop an intuition for how the scales of your features can affect distance.</p>
 <section id="what-is-cluster-analysis" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="what-is-cluster-analysis"><span class="header-section-number">1.1</span> What is cluster analysis?</h2>
@@ -677,7 +677,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the distance between player1 and player2 by using the Euclidean distance formula</li>
 </ol>
 <p><span class="math display">\[\\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}\]</span>.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load package</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tibble)</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(ggplot2)</span>
@@ -695,7 +695,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -722,7 +722,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the distance between two players using the <code>dist()</code> function for the data frame <code>two_players</code></li>
 <li>Calculate the distance between three players for the data frame <code>three_players</code></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Calculate the Distance Between two_players</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>dist_two_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(two_players)</span>
 <span id="cb4-3"><a href="#cb4-3"></a>dist_two_players</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -829,7 +829,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate and print the distance matrix for <code>scaled_three_trees</code> and store this as <code>dist_scaled_trees</code></li>
 <li>Output both <code>dist_trees</code> and <code>dist_scaled_trees</code> matrices and observe the change of which observations have the smallest distance between the two matrices <em>(hint: they have changed)</em></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>three_trees <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">Girth  =</span> <span class="fu">c</span>(<span class="fl">8.3</span>, <span class="fl">8.6</span>, <span class="fl">10.5</span>),</span>
 <span id="cb8-2"><a href="#cb8-2"></a>                      <span class="at">Height =</span> <span class="fu">c</span>(<span class="dv">840</span>, <span class="dv">780</span>, <span class="dv">864</span>))</span>
 <span id="cb8-3"><a href="#cb8-3"></a>                  </span>
@@ -909,7 +909,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print the original data and the distance matrixthe observations with a distance of 0 in the original data (1, 2, and 4)</li>
 <li>Note the observations with a distance of 0 in the original data (1, 2, and 4)</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Data</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>job_survey <span class="ot">&lt;-</span> <span class="fu">data.frame</span>( <span class="co"># Does not work with tibble</span></span>
 <span id="cb16-3"><a href="#cb16-3"></a>  </span>
@@ -1081,7 +1081,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Average:</strong> the resulting distance is based on the average.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>dist_players <span class="ot">&lt;-</span> dist_three_players</span>
 <span id="cb26-2"><a href="#cb26-2"></a></span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="co"># Extract the pair distances</span></span>
@@ -1201,7 +1201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build the cluster assignment vector <code>clusters_k2</code> using <code>cutree()</code> with a <code>k = 2</code></li>
 <li>Append the cluster assignments as a column <code>cluster</code> to the <code>lineup</code> data frame and save the results to a new data frame called <code>lineup_k2_complete</code></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Load package</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1250,7 +1250,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Using <code>count()</code> from dplyr, count the number of players assigned to each cluster.</li>
 <li>Using <code>ggplot()</code>, plot the positions of the players and color them by cluster assignment.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Count the cluster assignments</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="fu">count</span>(lineup_k2_complete, cluster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1268,7 +1268,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1325,7 +1325,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Perform the linkage calculation for hierarchical clustering using the linkages: complete, single and average</li>
 <li>Plot the three dendrograms side by side and review the changes</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Prepare the Distance Matrix</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup)</span>
 <span id="cb39-3"><a href="#cb39-3"></a></span>
@@ -1343,7 +1343,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1354,7 +1354,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="2.12" class="anchored" data-anchor-id="height-of-the-tree"><span class="header-section-number">2.12</span> Height of the tree</h2>
 <p>An advantage of working with a clustering method like hierarchical clustering is that you can describe the relationships between your observations based on both the <strong>distance metric</strong> and the <strong>linkage metric</strong> selected (the combination of which defines the height of the tree).</p>
 <p><strong>Based on the code below what can you concretely say about the height of a branch in the resulting dendrogram?</strong></p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
 <span id="cb40-2"><a href="#cb40-2"></a>hc_players <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">'single'</span>)</span>
 <span id="cb40-3"><a href="#cb40-3"></a><span class="fu">plot</span>(hc_players)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1402,7 +1402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Using the <code>color_branches()</code> function create &amp; plot a new dendrogram with clusters colored by a cut height of 20</li>
 <li>Repeat the above step with a height of 40</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">library</span>(dendextend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; 
@@ -1440,7 +1440,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-10-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-11-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1452,7 +1452,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-10-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-11-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1464,7 +1464,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-10-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-10-3.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-11-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-11-3.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1481,7 +1481,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Repeat the above two steps for a height of <strong>40</strong>, generating the variables <code>clusters_h40</code> and <code>lineup_h40_complete</code></li>
 <li>Use ggplot2 to create a scatter plot, colored by the cluster assignment for both heights</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
 <span id="cb48-2"><a href="#cb48-2"></a>hc_players   <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">"complete"</span>)</span>
 <span id="cb48-3"><a href="#cb48-3"></a></span>
@@ -1504,7 +1504,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-11-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-12-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1515,7 +1515,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-11-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-12-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-12-2.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1525,7 +1525,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="what-do-we-know-about-our-clusters" class="level2" data-number="2.17">
 <h2 data-number="2.17" class="anchored" data-anchor-id="what-do-we-know-about-our-clusters"><span class="header-section-number">2.17</span> What do we know about our clusters?</h2>
 <p><strong>Based on the code below, what can you concretely say about the relationships of the members within each cluster?</strong></p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>dist_players <span class="ot">&lt;-</span> <span class="fu">dist</span>(lineup, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
 <span id="cb50-2"><a href="#cb50-2"></a>hc_players   <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_players, <span class="at">method =</span> <span class="st">'complete'</span>)</span>
 <span id="cb50-3"><a href="#cb50-3"></a>clusters     <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_players, <span class="at">h =</span> <span class="dv">40</span>)  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1563,7 +1563,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a cluster assignment vector using a height of 15,000 and store it as <code>clust_customers</code></li>
 <li>Generate a new data frame <code>segment_customers</code> by appending the cluster assignment as the column <code>cluster</code> to the original <code>customers_spend</code> data frame</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Load data</span></span>
 <span id="cb51-2"><a href="#cb51-2"></a>customers_spend <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/ws_customers.rds"</span>)</span>
 <span id="cb51-3"><a href="#cb51-3"></a></span>
@@ -1578,7 +1578,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-13-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-14-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1600,7 +1600,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Color &amp; plot the dendrogram using the height of 15,000.</li>
 <li>Calculate the average spending for each category within each cluster using the <code>summarise_all()</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>dist_customers <span class="ot">&lt;-</span> <span class="fu">dist</span>(customers_spend)</span>
 <span id="cb53-2"><a href="#cb53-2"></a>hc_customers <span class="ot">&lt;-</span> <span class="fu">hclust</span>(dist_customers)</span>
 <span id="cb53-3"><a href="#cb53-3"></a>clust_customers <span class="ot">&lt;-</span> <span class="fu">cutree</span>(hc_customers, <span class="at">h =</span> <span class="dv">15000</span>)</span>
@@ -1625,7 +1625,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-14-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1741,7 +1741,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Append the cluster assignments as a column <code>cluster</code> to the <code>lineup</code> data frame and save the results to a new data frame called <code>lineup_km2</code></li>
 <li>Use ggplot to plot the positions of each player on the field and color them by their cluster</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># Build a kmeans model</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a>model_km2 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(lineup, <span class="at">centers =</span> <span class="dv">2</span>)</span>
 <span id="cb56-3"><a href="#cb56-3"></a></span>
@@ -1758,7 +1758,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1776,7 +1776,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Append the cluster assignments as a column <code>cluster</code> to the <code>lineup</code> data frame and save the results to a new data frame called <code>lineup_km3</code></li>
 <li>Use ggplot to plot the positions of each player on the field and color them by their cluster</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># Build a kmeans model</span></span>
 <span id="cb57-2"><a href="#cb57-2"></a>model_km3 <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(lineup, <span class="at">centers =</span> <span class="dv">3</span>)</span>
 <span id="cb57-3"><a href="#cb57-3"></a></span>
@@ -1793,7 +1793,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-17-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1835,7 +1835,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Build a new data frame <code>elbow_df</code> containing the values of k and the vector of <strong>total within-cluster sum of squares</strong></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="fu">library</span>(purrr)</span>
 <span id="cb58-2"><a href="#cb58-2"></a></span>
 <span id="cb58-3"><a href="#cb58-3"></a><span class="co"># Use map_dbl to run many models with varying value of k (centers)</span></span>
@@ -1860,7 +1860,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Continuing your work from the previous exercise, use the values in <code>elbow_df</code> to plot a line plot showing the relationship between <strong>k</strong> and <strong>total within-cluster sum of squares</strong></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># Use map_dbl to run many models with varying value of k (centers)</span></span>
 <span id="cb59-2"><a href="#cb59-2"></a>tot_withinss <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,  <span class="cf">function</span>(k){</span>
 <span id="cb59-3"><a href="#cb59-3"></a>  model <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(<span class="at">x =</span> lineup, <span class="at">centers =</span> k)</span>
@@ -1881,7 +1881,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-18-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-19-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1954,7 +1954,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Repeat the first two steps for <code>k = 3</code>, saving the model as <code>pam_k3</code>.</li>
 <li>Make sure to review the differences between the plots before proceeding (especially observation <strong>3</strong>) for <code>pam_k3</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="fu">library</span>(cluster)</span>
 <span id="cb60-2"><a href="#cb60-2"></a></span>
 <span id="cb60-3"><a href="#cb60-3"></a><span class="co"># Generate a k-means model using the pam() function with a k = 2</span></span>
@@ -1965,7 +1965,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-19-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-20-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1977,7 +1977,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-19-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-20-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-20-2.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2013,7 +2013,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Use the values in <code>sil_df</code> to plot a line plot showing the relationship between <strong>k</strong> and <strong>average silhouette width</strong></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># Use map_dbl to run many models with varying value of k</span></span>
 <span id="cb62-2"><a href="#cb62-2"></a>sil_width <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>,  <span class="cf">function</span>(k){</span>
 <span id="cb62-3"><a href="#cb62-3"></a>  model <span class="ot">&lt;-</span> <span class="fu">pam</span>(<span class="at">x =</span> customers_spend, <span class="at">k =</span> k)</span>
@@ -2034,7 +2034,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-20-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-21-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2051,7 +2051,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Append the cluster assignments as a column <code>cluster</code> to the <code>customers_spend</code> data frame and save the results to a new data frame called <code>segment_customers</code>.</li>
 <li>Calculate the size of each cluster using <code>count()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb63-2"><a href="#cb63-2"></a></span>
 <span id="cb63-3"><a href="#cb63-3"></a><span class="co"># Build a k-means model for the customers_spend with a k of 2</span></span>
@@ -2112,7 +2112,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="4.2" class="anchored" data-anchor-id="initial-exploration-of-the-data"><span class="header-section-number">4.2</span> Initial exploration of the data</h2>
 <p>You are presented with data from the Occupational Employment Statistics (OES) program which produces employment and wage estimates annually. This data contains the yearly average income from <strong>2001</strong> to <strong>2016</strong> for <strong>22</strong> occupation groups. You would like to use this data to identify clusters of occupations that maintained similar income trends.</p>
 <p>The data is stored in your environment as the data.matrix <code>oes</code>.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a>oes <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/oes.rds"</span>)</span>
 <span id="cb65-2"><a href="#cb65-2"></a>oes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2182,7 +2182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Plot the dendrogram</li>
 <li>Using the <code>color_branches()</code> function create &amp; plot a new dendrogram with clusters colored by a cut height of 100,000</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Calculate Euclidean distance between the occupations</span></span>
 <span id="cb67-2"><a href="#cb67-2"></a>dist_oes <span class="ot">&lt;-</span> <span class="fu">dist</span>(oes, <span class="at">method =</span> <span class="st">'euclidean'</span>)</span>
 <span id="cb67-3"><a href="#cb67-3"></a></span>
@@ -2197,7 +2197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-23-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-24-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2209,7 +2209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-23-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-23-2.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-24-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-24-2.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2226,7 +2226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Append the cluster assignments as a column <code>cluster</code> to the <code>df_oes</code> data frame and save the results to a new data frame called <code>clust_oes</code></li>
 <li>Use the <code>gather()</code> function from the <code>tidyr()</code> library to reshape the data into a format amenable for ggplot2 analysis and save the tidied data frame as <code>gather_oes</code></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># Load package</span></span>
 <span id="cb69-2"><a href="#cb69-2"></a><span class="fu">library</span>(tidyr)</span>
 <span id="cb69-3"><a href="#cb69-3"></a></span>
@@ -2258,7 +2258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>View the assignments of each occupation to their clustering by sorting the <code>cut_oes</code> vector using <code>sort()</code></li>
 <li>Use ggplot2 to plot each occupation’s average income by year and color the lines by the occupation’s assigned cluster.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># View the clustering assignments by sorting the cluster assignment vector</span></span>
 <span id="cb70-2"><a href="#cb70-2"></a><span class="fu">sort</span>(cut_oes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2292,7 +2292,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-25-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-26-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2326,7 +2326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Use the values in <code>elbow_df</code> to plot a line plot showing the relationship between <strong>k</strong> and <strong>total within-cluster sum of squares</strong></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># Use map_dbl to run many models with varying value of k (centers)</span></span>
 <span id="cb73-2"><a href="#cb73-2"></a>tot_withinss <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,  <span class="cf">function</span>(k){</span>
 <span id="cb73-3"><a href="#cb73-3"></a>  model <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(<span class="at">x =</span> oes, <span class="at">centers =</span> k)</span>
@@ -2347,7 +2347,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-26-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-27-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2365,7 +2365,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Use the values in <code>sil_df</code> to plot a line plot showing the relationship between <strong>k</strong> and <strong>average silhouette width</strong></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="co"># Use map_dbl to run many models with varying value of k</span></span>
 <span id="cb74-2"><a href="#cb74-2"></a>sil_width <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">10</span>,  <span class="cf">function</span>(k){</span>
 <span id="cb74-3"><a href="#cb74-3"></a>  model <span class="ot">&lt;-</span> <span class="fu">pam</span>(oes, <span class="at">k =</span> k)</span>
@@ -2386,7 +2386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-27-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="05_cluster_analysis_files/figure-html/unnamed-chunk-28-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="05_cluster_analysis_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2692,7 +2692,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":true,"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","openEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":true,"openEffect":"zoom","descPosition":"bottom"});</script>
 
 
 

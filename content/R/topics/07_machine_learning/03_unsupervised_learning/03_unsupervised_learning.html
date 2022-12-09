@@ -484,7 +484,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#unsupervised-learning-in-r" id="toc-unsupervised-learning-in-r" class="nav-link active" data-scroll-target="#unsupervised-learning-in-r"><span class="toc-section-number">1</span>  1. Unsupervised learning in R</a>
+  <li><a href="#unsupervised-learning-in-r" id="toc-unsupervised-learning-in-r" class="nav-link active" data-scroll-target="#unsupervised-learning-in-r"><span class="toc-section-number">1</span>  Unsupervised learning in R</a>
   <ul class="collapse">
   <li><a href="#welcome-to-the-course" id="toc-welcome-to-the-course" class="nav-link" data-scroll-target="#welcome-to-the-course"><span class="toc-section-number">1.1</span>  Welcome to the course!</a></li>
   <li><a href="#identify-clustering-problems" id="toc-identify-clustering-problems" class="nav-link" data-scroll-target="#identify-clustering-problems"><span class="toc-section-number">1.2</span>  Identify clustering problems</a></li>
@@ -576,7 +576,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>Many times in machine learning, the goal is to find patterns in data without trying to make predictions. This is called unsupervised learning. One common use case of unsupervised learning is grouping consumers based on demographics and purchasing history to deploy targeted marketing campaigns. Another example is wanting to describe the unmeasured factors that most influence crime differences between cities. This course provides a basic introduction to clustering and dimensionality reduction in R from a machine learning perspective, so that you can get from data to insights as quickly as possible.</p>
 <section id="unsupervised-learning-in-r" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 1. Unsupervised learning in R</h1>
+<h1 data-number="1"><span class="header-section-number">1</span> Unsupervised learning in R</h1>
 <p>The k-means algorithm is one common approach to clustering. Learn how the algorithm works under the hood, implement k-means clustering in R, visualize and interpret the results, and select the number of clusters when it’s not known ahead of time. By the end of the chapter, you’ll have applied k-means clustering to a fun “real-world” dataset!</p>
 <section id="welcome-to-the-course" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="welcome-to-the-course"><span class="header-section-number">1.1</span> Welcome to the course!</h2>
@@ -647,14 +647,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Fit a k-means model to <code>x</code> using 3 centers and run the k-means algorithm 20 times. Store the result in <code>km.out</code>.</li>
 <li>Inspect the result with the <code>summary()</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># load data</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>x <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/x.rds"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">plot</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -688,44 +688,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print a list of the cluster membership to the console.</li>
 <li>Use a print method to print out the <code>km.out</code> model.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Print the cluster membership component of the model</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>km.out<span class="sc">$</span>cluster</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;   [1] 3 3 3 3 3 3 3 3 3 3 3 3 2 3 3 3 3 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2
-#&gt;  [38] 2 2 3 3 3 3 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2
-#&gt;  [75] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 1 1 1 1 1 1 1 1 1 1 1
-#&gt; [112] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#&gt; [149] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#&gt; [186] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#&gt; [223] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 3 2 2 2 2
-#&gt; [260] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 2 2 3 2 2 2 2 2 2 3 2 2 2 2 2 2 3 2 2
-#&gt; [297] 2 3 2 2</code></pre>
+<pre><code>#&gt;   [1] 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2
+#&gt;  [38] 2 2 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2
+#&gt;  [75] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3 3 3 3 3 3 3 3 3 3 3
+#&gt; [112] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+#&gt; [149] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+#&gt; [186] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+#&gt; [223] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2 2 2 2 1 2 2 2 2
+#&gt; [260] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 1 2 2 1 2 2 2 2 2 2 1 2 2 2 2 2 2 1 2 2
+#&gt; [297] 2 1 2 2</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Print the km.out object</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a>km.out</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; K-means clustering with 3 clusters of sizes 150, 52, 98
+<pre><code>#&gt; K-means clustering with 3 clusters of sizes 98, 52, 150
 #&gt; 
 #&gt; Cluster means:
 #&gt;         [,1]        [,2]
-#&gt; 1 -5.0556758  1.96991743
+#&gt; 1  2.2171113  2.05110690
 #&gt; 2  0.6642455 -0.09132968
-#&gt; 3  2.2171113  2.05110690
+#&gt; 3 -5.0556758  1.96991743
 #&gt; 
 #&gt; Clustering vector:
-#&gt;   [1] 3 3 3 3 3 3 3 3 3 3 3 3 2 3 3 3 3 2 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2
-#&gt;  [38] 2 2 3 3 3 3 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2
-#&gt;  [75] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 1 1 1 1 1 1 1 1 1 1 1
-#&gt; [112] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#&gt; [149] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#&gt; [186] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-#&gt; [223] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 2 2 2 3 2 2 2 2
-#&gt; [260] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 3 3 2 2 3 2 2 2 2 2 2 3 2 2 2 2 2 2 3 2 2
-#&gt; [297] 2 3 2 2
+#&gt;   [1] 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 2 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2
+#&gt;  [38] 2 2 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2
+#&gt;  [75] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 3 3 3 3 3 3 3 3 3 3 3
+#&gt; [112] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+#&gt; [149] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+#&gt; [186] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3
+#&gt; [223] 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 2 2 2 2 1 2 2 2 2
+#&gt; [260] 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 2 1 1 2 2 1 2 2 2 2 2 2 1 2 2 2 2 2 2 1 2 2
+#&gt; [297] 2 1 2 2
 #&gt; 
 #&gt; Within cluster sum of squares by cluster:
-#&gt; [1] 295.16925  95.50625 148.64781
+#&gt; [1] 148.64781  95.50625 295.16925
 #&gt;  (between_SS / total_SS =  87.2 %)
 #&gt; 
 #&gt; Available components:
@@ -749,7 +749,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Ensure there are no axis labels by specifying <code>""</code> for both the <code>xlab</code> and <code>ylab</code> arguments to <code>plot()</code>.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Scatter plot of x</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="fu">plot</span>(x, <span class="at">col =</span> km.out<span class="sc">$</span>cluster,</span>
 <span id="cb8-3"><a href="#cb8-3"></a>     <span class="at">main =</span> <span class="st">"k-means with 3 clusters"</span>, </span>
@@ -757,7 +757,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -810,7 +810,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>* Set the random number seed to 1 with `set.seed()`.
 * For each iteration of the `for` loop, run `kmeans()` on `x`. Assume the number of clusters is 3 and number of starts (`nstart`) is 1.
 * Visualize the cluster memberships using the `col` argument to `plot()`. Observe how the measure of quality and cluster assignments vary among the six model runs.</code></pre>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Set up 2 x 3 plotting grid</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>))</span>
 <span id="cb10-3"><a href="#cb10-3"></a></span>
@@ -829,7 +829,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -847,7 +847,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Run the code provided to create a scree plot of the <code>wss</code> for all 15 models.</li>
 <li>Take a look at your scree plot. How many clusters are inherent in the data? Set <code>k</code> equal to the number of clusters at the location of the elbow.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Initialize total within sum of squares error: wss</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>wss <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb11-3"><a href="#cb11-3"></a></span>
@@ -865,7 +865,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -902,7 +902,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a k-means model using <code>k</code> clusters and assign it to the <code>km.out</code> variable.</li>
 <li>Create a scatter plot of <code>Defense</code> vs.&nbsp;<code>Speed</code>, showing cluster membership for each observation.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Load package</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="fu">library</span>(readr)</span>
 <span id="cb13-3"><a href="#cb13-3"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -955,7 +955,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1017,7 +1017,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-6-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-7-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1078,7 +1078,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Fit a hierarchical clustering model to <code>x</code> using the <code>hclust()</code> function. Store the result in <code>hclust.out</code>.</li>
 <li>Inspect the result with the <code>summary()</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># load data</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a>x2 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/x2.rds"</span>)</span>
 <span id="cb24-3"><a href="#cb24-3"></a></span>
@@ -1142,7 +1142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Cut the <code>hclust.out</code> model at height 7.</li>
 <li>Cut the <code>hclust.out</code> model to create 3 clusters.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Cut by height</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="fu">cutree</span>(hclust.out, <span class="at">h =</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1191,7 +1191,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Produce three hierarchical clustering models on <code>x</code> using the <code>"complete"</code>, <code>"average"</code>, and <code>"single"</code> linkage methods, respectively.</li>
 <li>Plot a dendrogram for each model, using titles of <code>"Complete"</code>, <code>"Average"</code>, and <code>"Single"</code>, respectively.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Cluster using complete linkage: hclust.complete</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a>hclust.complete <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">dist</span>(x2), <span class="at">method =</span> <span class="st">"complete"</span>)</span>
 <span id="cb30-3"><a href="#cb30-3"></a></span>
@@ -1206,7 +1206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-10-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1215,7 +1215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-9-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-10-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1224,7 +1224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-9-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-9-3.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-10-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-10-3.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1251,7 +1251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Scale the <code>pokemon</code> data using the <code>scale()</code> function and store the result in <code>pokemon.scaled</code>.</li>
 <li>Create a hierarchical clustering model of the <code>pokemon.scaled</code> data using the complete linkage method. Manually specify the <code>method</code> argument and store the result in <code>hclust.pokemon</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># View column means</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a><span class="fu">colMeans</span>(pokemon)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1286,7 +1286,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Using <code>cutree()</code> on <code>hclust.pokemon</code>, assign cluster membership to each observation. Assume three clusters and assign the result to a vector called <code>cut.pokemon</code>.</li>
 <li>Using <code>table()</code>, compare cluster membership between the two clustering methods. Recall that the different components of k-means model objects can be accessed with the <code>$</code> operator.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Load data</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a><span class="co"># km.pokemon &lt;- kmeans(scale(pokemon), centers = k)</span></span>
 <span id="cb38-3"><a href="#cb38-3"></a>km.pokemon <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/km.pokemon.rds"</span>)</span>
@@ -1364,7 +1364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a PCA model of the data in <code>pokemon</code>, setting <code>scale</code> to <code>TRUE</code>. Store the result in <code>pr.out</code>.</li>
 <li>Inspect the result with the <code>summary()</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># Load data</span></span>
 <span id="cb40-2"><a href="#cb40-2"></a>pokemon <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/pokemon50.rds"</span>)</span>
 <span id="cb40-3"><a href="#cb40-3"></a></span>
@@ -1429,12 +1429,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="interpreting-biplots-1" class="level2" data-number="3.8">
 <h2 data-number="3.8" class="anchored" data-anchor-id="interpreting-biplots-1"><span class="header-section-number">3.8</span> Interpreting biplots (1)</h2>
 <p>As stated in the video, the <a href="https://www.rdocumentation.org/packages/stats/topics/biplot"><code>biplot()</code></a> function plots both the principal components loadings and the mapping of the observations to their first two principal component values. The next couple of exercises will check your interpretation of the <code>biplot()</code> visualization.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">biplot</span>(pr.out)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-13-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-14-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1463,7 +1463,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Assign to the variable <code>pr.var</code> the square of the standard deviations of the principal components (i.e.&nbsp;the variance). The standard deviation of the principal components is available in the <code>sdev</code> component of the PCA model object.</li>
 <li>Assign to the variable <code>pve</code> the proportion of the variance explained, calculated by dividing <code>pr.var</code> by the total variance explained by all principal components.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Variability of each principal component: pr.var</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a>pr.var <span class="ot">&lt;-</span> pr.out<span class="sc">$</span>sdev<span class="sc">^</span><span class="dv">2</span></span>
 <span id="cb43-3"><a href="#cb43-3"></a></span>
@@ -1482,7 +1482,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>plot()</code> to plot the proportion of variance explained by each principal component.</li>
 <li>Use <code>plot()</code> and <code>cumsum()</code> (cumulative sum) to plot the cumulative proportion of variance explained as a function of the number principal components.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Plot variance explained for each principal component</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a><span class="fu">plot</span>(pve, <span class="at">xlab =</span> <span class="st">"Principal Component"</span>,</span>
 <span id="cb44-3"><a href="#cb44-3"></a>     <span class="at">ylab =</span> <span class="st">"Proportion of Variance Explained"</span>,</span>
@@ -1490,7 +1490,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1501,7 +1501,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-15-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-15-2.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-16-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-16-2.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1538,7 +1538,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a PCA model of <code>pokemon</code> without scaling, assigning the result to <code>pr.without.scaling</code>.</li>
 <li>Use <code>biplot()</code> to plot both models (one at a time) and compare their outputs.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Load data</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a>pokemon <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/pokemon50_total.rds"</span>)</span>
 <span id="cb46-3"><a href="#cb46-3"></a></span>
@@ -1565,7 +1565,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-17-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1573,7 +1573,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-16-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-16-2.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-17-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-17-2.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1631,7 +1631,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Assign the row names of <code>wisc.data</code> the values currently contained in the <code>id</code> column of <code>wisc.df</code>. While not strictly required, this will help you keep track of the different observations throughout the modeling process.</li>
 <li>Finally, set a vector called <code>diagnosis</code> to be <code>1</code> if a diagnosis is malignant (<code>"M"</code>) and <code>0</code> otherwise. Note that R coerces <code>TRUE</code> to 1 and <code>FALSE</code> to 0.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Download the data: wisc.df</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>wisc_df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/WisconsinCancer.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1693,7 +1693,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Execute PCA on the <code>wisc.data</code>, scaling if appropriate, and assign the model to <code>wisc.pr</code>.</li>
 <li>Inspect a summary of the results with the <code>summary()</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># Check column means and standard deviations</span></span>
 <span id="cb57-2"><a href="#cb57-2"></a><span class="fu">colMeans</span>(wisc_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1781,13 +1781,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Execute the code to scatter plot each observation by principal components 1 and 2, coloring the points by the diagnosis.</li>
 <li>Repeat the same for principal components 1 and 3. <em>What do you notice about these plots?</em></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Create a biplot of wisc.pr</span></span>
 <span id="cb63-2"><a href="#cb63-2"></a><span class="fu">biplot</span>(wisc_pr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-19-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-20-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1797,7 +1797,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-19-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-20-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-20-2.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1807,7 +1807,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-19-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-19-3.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-20-3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-20-3.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1825,7 +1825,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a plot of variance explained for each principal component.</li>
 <li>Using the <code>cumsum()</code> function, create a plot of cumulative proportion of variance explained.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Set up 1 x 2 plotting grid</span></span>
 <span id="cb66-2"><a href="#cb66-2"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
 <span id="cb66-3"><a href="#cb66-3"></a></span>
@@ -1847,7 +1847,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-20-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="03_unsupervised_learning_files/figure-html/unnamed-chunk-21-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="03_unsupervised_learning_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1889,7 +1889,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the (Euclidean) distances between all pairs of observations in the new scaled dataset and assign the result to <code>data.dist</code>.</li>
 <li>Create a hierarchical clustering model using complete linkage. Manually specify the <code>method</code> argument to <code>hclust()</code> and assign the results to <code>wisc.hclust</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Scale the wisc.data data: data.scaled</span></span>
 <span id="cb67-2"><a href="#cb67-2"></a>data_scaled <span class="ot">&lt;-</span> <span class="fu">scale</span>(wisc_data)</span>
 <span id="cb67-3"><a href="#cb67-3"></a></span>
@@ -1917,7 +1917,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>cutree()</code> to cut the tree so that it has 4 clusters. Assign the output to the variable <code>wisc_hclust_clusters</code>.</li>
 <li>Use the <code>table()</code> function to compare the cluster membership to the actual diagnoses.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># Cut tree so that it has 4 clusters: wisc.hclust.clusters</span></span>
 <span id="cb68-2"><a href="#cb68-2"></a>wisc_hclust_clusters <span class="ot">&lt;-</span> <span class="fu">cutree</span>(wisc_hclust, <span class="at">k =</span> <span class="dv">4</span>)</span>
 <span id="cb68-3"><a href="#cb68-3"></a></span>
@@ -1947,7 +1947,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the <code>table()</code> function to compare the cluster membership of the k-means model to the hierarchical clustering model. Recall the cluster membership of the hierarchical clustering model is contained in <code>wisc.hclust.clusters</code>.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># Create a k-means model on wisc.data: wisc.km</span></span>
 <span id="cb70-2"><a href="#cb70-2"></a>wisc_km <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(<span class="fu">scale</span>(wisc_data), <span class="at">centers =</span> <span class="dv">2</span>, <span class="at">nstart =</span> <span class="dv">20</span>)</span>
 <span id="cb70-3"><a href="#cb70-3"></a></span>
@@ -1982,7 +1982,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Using <code>table()</code>, compare the results from your new hierarchical clustering model with the actual diagnoses. How well does the newly created model with four clusters separate out the two diagnoses?</li>
 <li>How well do the k-means and hierarchical clustering models you created in previous exercises do in terms of separating the diagnoses? Again, use the <code>table()</code> function to compare the output of each model with the vector containing the actual diagnoses.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="co"># Create a hierarchical clustering model: wisc.pr.hclust</span></span>
 <span id="cb74-2"><a href="#cb74-2"></a>wisc_pr_hclust <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">dist</span>(wisc_pr<span class="sc">$</span>x[, <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>]), <span class="at">method =</span> <span class="st">"complete"</span>)</span>
 <span id="cb74-3"><a href="#cb74-3"></a></span>
@@ -2318,7 +2318,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":true,"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom","selector":".lightbox","loop":true});</script>
 
 
 

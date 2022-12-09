@@ -483,7 +483,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#simple-linear-regression" id="toc-simple-linear-regression" class="nav-link active" data-scroll-target="#simple-linear-regression"><span class="toc-section-number">1</span>  1. Simple Linear Regression</a>
+  <li><a href="#simple-linear-regression" id="toc-simple-linear-regression" class="nav-link active" data-scroll-target="#simple-linear-regression"><span class="toc-section-number">1</span>  Simple Linear Regression</a>
   <ul class="collapse">
   <li><a href="#a-tale-of-two-variables" id="toc-a-tale-of-two-variables" class="nav-link" data-scroll-target="#a-tale-of-two-variables"><span class="toc-section-number">1.1</span>  A tale of two variables</a></li>
   <li><a href="#which-one-is-the-response-variable" id="toc-which-one-is-the-response-variable" class="nav-link" data-scroll-target="#which-one-is-the-response-variable"><span class="toc-section-number">1.2</span>  Which one is the response variable?</a></li>
@@ -578,7 +578,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>Linear regression and logistic regression are the two most widely used statistical models and act like master keys, unlocking the secrets hidden in datasets. In this course, you’ll gain the skills you need to fit simple linear and logistic regressions. Through hands-on exercises, you’ll explore the relationships between variables in real-world datasets, including motor insurance claims, Taiwan house prices, fish sizes, and more. By the end of this course, you’ll know how to make predictions from your data, quantify model performance, and diagnose problems with model fit.</p>
 <section id="simple-linear-regression" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 1. Simple Linear Regression</h1>
+<h1 data-number="1"><span class="header-section-number">1</span> Simple Linear Regression</h1>
 <p>You’ll learn the basics of this popular statistical model, what regression is, and how linear and logistic regressions differ. You’ll then learn how to fit simple linear regression models with numeric and categorical explanatory variables, and how to describe the relationship between the response and explanatory variables using model coefficients.</p>
 <section id="a-tale-of-two-variables" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="a-tale-of-two-variables"><span class="header-section-number">1.1</span> A tale of two variables</h2>
@@ -658,7 +658,7 @@ LO: Can visualize the relationship between two numeric variables using a scatter
 <ol type="1">
 <li>Using <code>taiwan_real_estate</code>, draw a scatter plot of <code>price_twd_msq</code> (y-axis) versus <code>n_convenience</code> (x-axis).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load packages</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(fst)</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(tibble)</span>
@@ -673,7 +673,7 @@ LO: Can visualize the relationship between two numeric variables using a scatter
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -681,14 +681,14 @@ LO: Can visualize the relationship between two numeric variables using a scatter
 <ol start="2" type="1">
 <li>Update the plot to make the points 50% transparent by setting <code>alpha</code> to <code>0.5</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Make points 50% transparent</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">ggplot</span>(taiwan_real_estate, <span class="fu">aes</span>(n_convenience, price_twd_msq)) <span class="sc">+</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -696,7 +696,7 @@ LO: Can visualize the relationship between two numeric variables using a scatter
 <ol start="3" type="1">
 <li>Update the plot by adding a trend line, calculated using a linear regression. You can omit the confidence ribbon.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Add a linear trend line without a confidence ribbon</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="fu">ggplot</span>(taiwan_real_estate, <span class="fu">aes</span>(n_convenience, price_twd_msq)) <span class="sc">+</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
@@ -707,7 +707,7 @@ LO: Can visualize the relationship between two numeric variables using a scatter
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -784,7 +784,7 @@ LO: Can run a linear regression using lm()
 <ol type="1">
 <li>Run a linear regression with <code>price_twd_msq</code> as the response variable, <code>n_convenience</code> as the explanatory variable, and <code>taiwan_real_estate</code> as the dataset.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Run a linear regression of price_twd_msq vs. n_convenience</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="fu">lm</span>(price_twd_msq <span class="sc">~</span> n_convenience, <span class="at">data =</span> taiwan_real_estate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -838,7 +838,7 @@ LO: Can visualize a numeric variable splitby a categorical variable using a face
 <li>Using <code>taiwan_real_estate</code>, plot a histogram of <code>price_twd_msq</code> with <code>10</code> bins.</li>
 <li>Facet the plot by <code>house_age_years</code> to give 3 panels.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Using taiwan_real_estate, plot price_twd_msq</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="fu">ggplot</span>(taiwan_real_estate, <span class="fu">aes</span>(price_twd_msq)) <span class="sc">+</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a>  <span class="co"># Make it a histogram with 10 bins</span></span>
@@ -848,7 +848,7 @@ LO: Can visualize a numeric variable splitby a categorical variable using a face
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -867,7 +867,7 @@ LO: Can calculate grouped means.
 <li>Summarize to calculate the mean <code>price_twd_msq</code> for each group, naming the column <code>mean_by_group</code>.</li>
 <li>Assign the result to <code>summary_stats</code> and <em>look at the numbers</em>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Load package</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -914,7 +914,7 @@ LO: Can run a simple linear regression with a categorical explanatory variable. 
 <ol type="1">
 <li>Run a linear regression with <code>price_twd_msq</code> as the response variable, <code>house_age_years</code> as the explanatory variable, and <code>taiwan_real_estate</code> as the dataset. Assign to <code>mdl_price_vs_age</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Run a linear regression of price_twd_msq vs. house_age_years</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>mdl_price_vs_age <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
 <span id="cb13-3"><a href="#cb13-3"></a>  price_twd_msq <span class="sc">~</span> house_age_years, </span>
@@ -936,7 +936,7 @@ LO: Can run a simple linear regression with a categorical explanatory variable. 
 <ol start="2" type="1">
 <li>Update the model formula so that no intercept is included in the model. Assign to <code>mdl_price_vs_age_no_intercept</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Update the model formula to remove the intercept</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>mdl_price_vs_age_no_intercept <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
 <span id="cb15-3"><a href="#cb15-3"></a>  price_twd_msq <span class="sc">~</span> house_age_years <span class="sc">+</span> <span class="dv">0</span>, </span>
@@ -991,7 +991,7 @@ LO: Can run a simple linear regression with a categorical explanatory variable. 
 LO: Can make predictions from linear models using predict() and stroe them in a data frame.
 -->
 <p>Perhaps the most useful feature of statistical models like linear regression is that you can make predictions. That is, you specify values for each of the explanatory variables, feed them to the model, and you get a prediction for the corresponding response variable. The code flow is as follows.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>explanatory_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb17-2"><a href="#cb17-2"></a>  <span class="at">explanatory_var =</span> some_values</span>
 <span id="cb17-3"><a href="#cb17-3"></a>)</span>
@@ -1006,7 +1006,7 @@ LO: Can make predictions from linear models using predict() and stroe them in a 
 <li>Create a tibble of explanatory data, where the number of convenience stores, <code>n_convenience</code>, takes the integer values from zero to ten.</li>
 <li>Use the model <code>mdl_price_vs_conv</code> to make predictions from <code>explanatory_data</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Linear regression model of house price versus number of convenience stores</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>mdl_price_vs_conv <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> price_twd_msq <span class="sc">~</span> n_convenience, <span class="at">data =</span> taiwan_real_estate)</span>
 <span id="cb18-3"><a href="#cb18-3"></a></span>
@@ -1031,7 +1031,7 @@ LO: Can make predictions from linear models using predict() and stroe them in a 
 <li>Add an extra column, <code>price_twd_msq</code>, containing the predictions.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Edit this, so predictions are stored in prediction_data</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a>prediction_data <span class="ot">&lt;-</span> explanatory_data <span class="sc">%&gt;%</span> </span>
 <span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">mutate</span>(</span>
@@ -1062,7 +1062,7 @@ LO: Can annotate a scatter plot of response vs. explanatory variables with predi
 <ol type="1">
 <li>Extend the plotting code to include the point predictions in <code>prediction_data</code>. Color the points yellow.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Add to the plot</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="fu">ggplot</span>(taiwan_real_estate, <span class="fu">aes</span>(n_convenience, price_twd_msq)) <span class="sc">+</span></span>
 <span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
@@ -1075,7 +1075,7 @@ LO: Can annotate a scatter plot of response vs. explanatory variables with predi
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-12-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-13-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1094,7 +1094,7 @@ LO: Understand that predict() will let you make predictions about situations tha
 <ol type="1">
 <li>Create some impossible explanatory data. Define a tibble with one column, <code>n_convenience</code>, set to minus one, assigning to <code>minus_one</code>. Create another with <code>n_convenience</code> set to two point five, assigning to <code>two_pt_five</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Define a tibble where n_convenience is -1</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a>minus_one <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">n_convenience =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
 <span id="cb23-3"><a href="#cb23-3"></a></span>
@@ -1147,7 +1147,7 @@ LO: Can extract coefficients, fitted values, residuals, and a summary from a lin
 <ol type="1">
 <li>Print the coefficients of <code>mdl_price_vs_conv</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Get the model coefficients of mdl_price_vs_conv</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="fu">coefficients</span>(mdl_price_vs_conv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1158,7 +1158,7 @@ LO: Can extract coefficients, fitted values, residuals, and a summary from a lin
 <ol start="2" type="1">
 <li>Print the fitted values of <code>mdl_price_vs_conv</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Get the fitted values of mdl_price_vs_conv</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="fu">fitted</span>(mdl_price_vs_conv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1271,7 +1271,7 @@ LO: Can extract coefficients, fitted values, residuals, and a summary from a lin
 <ol start="3" type="1">
 <li>Print the residuals of <code>mdl_price_vs_conv</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Get the residuals of mdl_price_vs_conv</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a><span class="fu">residuals</span>(mdl_price_vs_conv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1446,7 +1446,7 @@ LO: Can extract coefficients, fitted values, residuals, and a summary from a lin
 <ol start="4" type="1">
 <li>Print a summary of <code>mdl_price_vs_conv</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Print a summary of mdl_price_vs_conv</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a><span class="fu">summary</span>(mdl_price_vs_conv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1488,7 +1488,7 @@ LO: Can calculate simple linear regression predictions manually.
 <li>Get the slope, which is the second element of <code>coeffs</code>, assigning to <code>slope</code>.</li>
 <li>Manually predict <code>price_twd_msq</code> using the intercept, slope, and <code>n_convenience</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Get the coefficients of mdl_price_vs_conv</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a>coeffs <span class="ot">&lt;-</span> <span class="fu">coefficients</span>(mdl_price_vs_conv)</span>
 <span id="cb32-3"><a href="#cb32-3"></a></span>
@@ -1512,7 +1512,7 @@ LO: Can calculate simple linear regression predictions manually.
 </div>
 </div>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Compare to the results from predict()</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a><span class="fu">predict</span>(mdl_price_vs_conv, explanatory_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1535,7 +1535,7 @@ LO: Can extract coefficient-/observation-/model-level data from a linear regress
 <ol type="1">
 <li>Tidy the model to print the coefficient-level elements of <code>mdl_price_vs_conv</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Load package</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a><span class="fu">library</span>(broom)</span>
 <span id="cb35-3"><a href="#cb35-3"></a></span>
@@ -1553,7 +1553,7 @@ LO: Can extract coefficient-/observation-/model-level data from a linear regress
 <ol start="2" type="1">
 <li>Augment the model to print the observation-level elements of <code>mdl_price_vs_conv</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Get the observation-level elements of the model</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a><span class="fu">augment</span>(mdl_price_vs_conv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1568,7 +1568,7 @@ LO: Can extract coefficient-/observation-/model-level data from a linear regress
 <ol start="3" type="1">
 <li>Glance at the model to print the model-level elements of <code>mdl_price_vs_conv</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Get the model-level elements of the model</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="fu">glance</span>(mdl_price_vs_conv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1654,7 +1654,7 @@ LO: Understands regression to the mean, and its application to investing.
 <li>Add a smooth trend line made with the linear regression method, and no standard error ribbon.</li>
 <li>Fix the coordinates so distances along the x and y axes appear the same.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Load data</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>sp500_yearly_returns <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/sp500_yearly_returns.rds"</span>)</span>
 <span id="cb38-3"><a href="#cb38-3"></a></span>
@@ -1678,7 +1678,7 @@ LO: Understands regression to the mean, and its application to investing.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-23-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-24-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1695,7 +1695,7 @@ LO: Can quantify regression to the mean using linear regression.
 <ol type="1">
 <li>Run a linear regression on <code>return_2019</code> versus <code>return_2018</code> using <code>sp500_yearly_returns</code>. Assign to <code>mdl_returns</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Run a linear regression on return_2019 vs. return_2018</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a><span class="co"># using sp500_yearly_returns</span></span>
 <span id="cb41-3"><a href="#cb41-3"></a>mdl_returns <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
@@ -1719,7 +1719,7 @@ LO: Can quantify regression to the mean using linear regression.
 <li>Create a data frame (or tibble) named <code>explanatory_data</code>. Give it one column with 2018 returns set to a vector containing <code>-1</code>, <code>0</code>, and <code>1</code>.</li>
 <li>Use <code>mdl_returns</code> to predict with <code>explanatory_data</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># From previous step</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a>mdl_returns <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
 <span id="cb43-3"><a href="#cb43-3"></a>  return_2019 <span class="sc">~</span> return_2018, </span>
@@ -1783,7 +1783,7 @@ LO: Can fit a linear regression with a transformed explanatory variable and make
 <li>Edit the plot so the x aesthetic is square root transformed.</li>
 <li><em>Look at the new plot. Notice how the numbers on the x-axis have changed. This is a different line to what was shown before. Do the points track the line more closely?</em></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># Run the code to see the plot</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a><span class="co"># Edit so x-axis is square root of dist_to_mrt_m</span></span>
 <span id="cb45-3"><a href="#cb45-3"></a><span class="fu">ggplot</span>(taiwan_real_estate, <span class="fu">aes</span>(<span class="fu">sqrt</span>(dist_to_mrt_m), price_twd_msq)) <span class="sc">+</span></span>
@@ -1795,7 +1795,7 @@ LO: Can fit a linear regression with a transformed explanatory variable and make
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-26-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-27-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1803,7 +1803,7 @@ LO: Can fit a linear regression with a transformed explanatory variable and make
 <ol start="4" type="1">
 <li>Run a linear regression of <code>price_twd_msq</code> versus the square root of <code>dist_to_mrt_m</code> using <code>taiwan_real_estate</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Run a linear regression of price_twd_msq vs. </span></span>
 <span id="cb47-2"><a href="#cb47-2"></a><span class="co"># square root of dist_to_mrt_m using taiwan_real_estate</span></span>
 <span id="cb47-3"><a href="#cb47-3"></a>mdl_price_vs_dist <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
@@ -1826,7 +1826,7 @@ LO: Can fit a linear regression with a transformed explanatory variable and make
 <ol start="5" type="1">
 <li>Create a data frame of prediction data named <code>prediction_data</code>. Start with <code>explanatory_data</code>, and add a column named after the response variable. Predict values using <code>mdl_price_vs_dist</code> and <code>explanatory_data</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># From previous step</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a>mdl_price_vs_dist <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
 <span id="cb49-3"><a href="#cb49-3"></a>  price_twd_msq <span class="sc">~</span> <span class="fu">sqrt</span>(dist_to_mrt_m), </span>
@@ -1858,7 +1858,7 @@ LO: Can fit a linear regression with a transformed explanatory variable and make
 <ol start="6" type="1">
 <li>Edit the plot to add a layer of points from <code>prediction_data</code>, colored <code>"green"</code>, size <code>5</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># From previous steps</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a>mdl_price_vs_dist <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
 <span id="cb50-3"><a href="#cb50-3"></a>  price_twd_msq <span class="sc">~</span> <span class="fu">sqrt</span>(dist_to_mrt_m), </span>
@@ -1883,7 +1883,7 @@ LO: Can fit a linear regression with a transformed explanatory variable and make
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-29-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-30-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1904,7 +1904,7 @@ LO: Can fit a model with a transformed response variable, and use backtransforma
 <li>Edit the plot so the x and y aesthetics are transformed by raising them to the power <code>0.25</code>.</li>
 <li><em>Look at the new plot. Do the points track the line more closely?</em></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Load data</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>ad_conversion <span class="ot">&lt;-</span> <span class="fu">read_fst</span>(<span class="st">"data/ad_conversion.fst"</span>)</span>
 <span id="cb52-3"><a href="#cb52-3"></a></span>
@@ -1919,7 +1919,7 @@ LO: Can fit a model with a transformed response variable, and use backtransforma
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-30-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-31-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1927,7 +1927,7 @@ LO: Can fit a model with a transformed response variable, and use backtransforma
 <ol start="4" type="1">
 <li>Run a linear regression of <code>n_clicks</code> to the power <code>0.25</code> versus <code>n_impressions</code> to the power <code>0.25</code> using <code>ad_conversion</code>. <em>Each variable in the formula needs to be specified “as is”, using <code>I()</code>.</em></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># Run a linear regression of n_clicks to the power 0.25 vs. </span></span>
 <span id="cb54-2"><a href="#cb54-2"></a><span class="co"># n_impressions to the power 0.25 using ad_conversion</span></span>
 <span id="cb54-3"><a href="#cb54-3"></a>mdl_click_vs_impression <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
@@ -1939,7 +1939,7 @@ LO: Can fit a model with a transformed response variable, and use backtransforma
 <li>Complete the code for the prediction data. Use <code>mdl_click_vs_impression</code> to predict <code>n_clicks</code> to the power <code>0.25</code> from <code>explanatory_data</code>.</li>
 <li>Back transform by raising <code>n_clicks_025</code> to the power <code>4</code> to get <code>n_clicks</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># From previous step</span></span>
 <span id="cb55-2"><a href="#cb55-2"></a>mdl_click_vs_impression <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
 <span id="cb55-3"><a href="#cb55-3"></a>  <span class="fu">I</span>(n_clicks <span class="sc">^</span> <span class="fl">0.25</span>) <span class="sc">~</span> <span class="fu">I</span>(n_impressions <span class="sc">^</span> <span class="fl">0.25</span>),</span>
@@ -1962,7 +1962,7 @@ LO: Can fit a model with a transformed response variable, and use backtransforma
 <ol start="7" type="1">
 <li>Edit the plot to add a layer of points from <code>prediction_data</code>, colored <code>"green"</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># From previous steps</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a>mdl_click_vs_impression <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
 <span id="cb56-3"><a href="#cb56-3"></a>  <span class="fu">I</span>(n_clicks <span class="sc">^</span> <span class="fl">0.25</span>) <span class="sc">~</span> <span class="fu">I</span>(n_impressions <span class="sc">^</span> <span class="fl">0.25</span>),</span>
@@ -1988,7 +1988,7 @@ LO: Can fit a model with a transformed response variable, and use backtransforma
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-33-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-34-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2046,7 +2046,7 @@ LO: Understands and can calculate the coefficient of determination (r-squared) o
 <ol type="1">
 <li>Print a summary of <code>mdl_click_vs_impression_orig</code>. Do the same for <code>mdl_click_vs_impression_trans</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># Models</span></span>
 <span id="cb58-2"><a href="#cb58-2"></a>mdl_click_vs_impression_orig  <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> n_clicks <span class="sc">~</span> n_impressions, <span class="at">data =</span> ad_conversion)</span>
 <span id="cb58-3"><a href="#cb58-3"></a>mdl_click_vs_impression_trans <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> <span class="fu">I</span>(n_clicks<span class="sc">^</span><span class="fl">0.25</span>) <span class="sc">~</span> <span class="fu">I</span>(n_impressions<span class="sc">^</span><span class="fl">0.25</span>), <span class="at">data =</span> ad_conversion)</span>
@@ -2099,7 +2099,7 @@ LO: Understands and can calculate the coefficient of determination (r-squared) o
 <ol start="2" type="1">
 <li>Get the coefficient of determination for <code>mdl_click_vs_impression_orig</code> by glancing at the model, then pulling the <code>r.squared</code> value.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># Get coeff of determination for mdl_click_vs_impression_orig</span></span>
 <span id="cb62-2"><a href="#cb62-2"></a>mdl_click_vs_impression_orig <span class="sc">%&gt;%</span> </span>
 <span id="cb62-3"><a href="#cb62-3"></a>  <span class="co"># Get the model-level details</span></span>
@@ -2113,7 +2113,7 @@ LO: Understands and can calculate the coefficient of determination (r-squared) o
 <ol start="3" type="1">
 <li>Do the same for <code>mdl_click_vs_impression_trans</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># Do the same for the transformed model</span></span>
 <span id="cb64-2"><a href="#cb64-2"></a>mdl_click_vs_impression_trans <span class="sc">%&gt;%</span> </span>
 <span id="cb64-3"><a href="#cb64-3"></a>  <span class="fu">glance</span>() <span class="sc">%&gt;%</span> </span>
@@ -2144,7 +2144,7 @@ LO: Understand and can calculate the residual standard error of a linear regress
 <li>Get the residual standard error for <code>mdl_click_vs_impression_orig</code> by glancing at the model, then pulling the <code>sigma</code> value.</li>
 <li>Do the same for <code>mdl_click_vs_impression_trans</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Get RSE for mdl_click_vs_impression_orig</span></span>
 <span id="cb66-2"><a href="#cb66-2"></a>mdl_click_vs_impression_orig <span class="sc">%&gt;%</span> </span>
 <span id="cb66-3"><a href="#cb66-3"></a>  <span class="co"># Get the model-level details</span></span>
@@ -2258,7 +2258,7 @@ LO: Can draw linear regression model diagnostic plots using autoplot().
 <ol type="1">
 <li>Plot the three diagnostic plots (numbered <code>1</code> to <code>3</code>) for <code>mdl_price_vs_conv</code>. Use a layout of three rows and one column.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># Load package</span></span>
 <span id="cb70-2"><a href="#cb70-2"></a><span class="fu">library</span>(ggfortify)</span>
 <span id="cb70-3"><a href="#cb70-3"></a></span>
@@ -2269,7 +2269,7 @@ LO: Can draw linear regression model diagnostic plots using autoplot().
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-38-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-39-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2349,7 +2349,7 @@ LO: Can calculate and visualize observations with high leverage and influence.
 <ol type="1">
 <li>Augment <code>mdl_price_vs_dist</code>, then arrange observations by descending influence (<code>.hat</code>), and get the head of the results.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a>mdl_price_vs_dist <span class="sc">%&gt;%</span> </span>
 <span id="cb71-2"><a href="#cb71-2"></a>  <span class="co"># Augment the model</span></span>
 <span id="cb71-3"><a href="#cb71-3"></a>  <span class="fu">augment</span>() <span class="sc">%&gt;%</span> </span>
@@ -2369,7 +2369,7 @@ LO: Can calculate and visualize observations with high leverage and influence.
 <ol start="2" type="1">
 <li>Augment <code>mdl_price_vs_dist</code>, then arrange observations by descending influence (<code>.cooksd</code>), and get the head of the results.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a>mdl_price_vs_dist <span class="sc">%&gt;%</span> </span>
 <span id="cb72-2"><a href="#cb72-2"></a>  <span class="co"># Augment the model</span></span>
 <span id="cb72-3"><a href="#cb72-3"></a>  <span class="fu">augment</span>() <span class="sc">%&gt;%</span> </span>
@@ -2389,13 +2389,13 @@ LO: Can calculate and visualize observations with high leverage and influence.
 <ol start="3" type="1">
 <li>Plot the three outlier diagnostic plots (numbered <code>4</code> to <code>6</code>) for <code>mdl_price_vs_dist</code>. Use a layout of three rows and one column.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># Plot the three outlier diagnostics for mdl_price_vs_conv</span></span>
 <span id="cb73-2"><a href="#cb73-2"></a><span class="fu">autoplot</span>(mdl_price_vs_dist, <span class="at">which =</span> <span class="dv">4</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-41-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-42-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2443,7 +2443,7 @@ LO: Visualize data for a simple logistic regression using a faceted histogram.
 <ol type="1">
 <li>Using <code>churn</code>, plot <code>time_since_last_purchase</code> as a histogram with binwidth <code>0.25</code> faceted in a grid with <code>has_churned</code> on each row.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="co"># Load data</span></span>
 <span id="cb74-2"><a href="#cb74-2"></a>churn <span class="ot">&lt;-</span> <span class="fu">read_fst</span>(<span class="st">"data/churn.fst"</span>)</span>
 <span id="cb74-3"><a href="#cb74-3"></a></span>
@@ -2456,7 +2456,7 @@ LO: Visualize data for a simple logistic regression using a faceted histogram.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-42-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-43-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2464,7 +2464,7 @@ LO: Visualize data for a simple logistic regression using a faceted histogram.
 <ol start="2" type="1">
 <li>Redraw the plot with <code>time_since_first_purchase</code>. That is, using <code>churn</code>, plot <code>time_since_first_purchase</code> as a histogram with binwidth <code>0.25</code> faceted in a grid with <code>has_churned</code> on each row.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a><span class="co"># Redraw the plot with time_since_first_purchase</span></span>
 <span id="cb75-2"><a href="#cb75-2"></a><span class="fu">ggplot</span>(churn, <span class="fu">aes</span>(time_since_first_purchase)) <span class="sc">+</span></span>
 <span id="cb75-3"><a href="#cb75-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
@@ -2472,7 +2472,7 @@ LO: Visualize data for a simple logistic regression using a faceted histogram.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-43-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-44-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2489,7 +2489,7 @@ LO: Can visualize linear and logistic regression model predictions using geom_sm
 <ol type="1">
 <li>Using <code>churn</code> plot <code>has_churned</code> vs.&nbsp;<code>time_since_first_purchase</code> as a scatter plot, adding a red linear regression trend line (without a standard error ribbon).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a><span class="co"># Using churn plot has_churned vs. time_since_first_purchase</span></span>
 <span id="cb76-2"><a href="#cb76-2"></a><span class="fu">ggplot</span>(churn, <span class="fu">aes</span>(time_since_first_purchase, has_churned)) <span class="sc">+</span></span>
 <span id="cb76-3"><a href="#cb76-3"></a>  <span class="co"># Make it a scatter plot</span></span>
@@ -2502,7 +2502,7 @@ LO: Can visualize linear and logistic regression model predictions using geom_sm
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-44-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-45-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2510,7 +2510,7 @@ LO: Can visualize linear and logistic regression model predictions using geom_sm
 <ol start="2" type="1">
 <li>Update the plot by adding a second trend line from logistic regression. (No standard error ribbon again).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a><span class="fu">ggplot</span>(churn, <span class="fu">aes</span>(time_since_first_purchase, has_churned)) <span class="sc">+</span></span>
 <span id="cb78-2"><a href="#cb78-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb78-3"><a href="#cb78-3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
@@ -2527,7 +2527,7 @@ LO: Can visualize linear and logistic regression model predictions using geom_sm
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-45-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-46-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2545,7 +2545,7 @@ LO: Can fit a logistic regression model with glm().
 <ol type="1">
 <li>Fit a logistic regression of <code>has_churned</code> versus <code>time_since_first_purchase</code> using the <code>churn</code> dataset. Assign to <code>mdl_churn_vs_relationship</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a><span class="co"># Fit a logistic regression of churn vs. </span></span>
 <span id="cb80-2"><a href="#cb80-2"></a><span class="co"># length of relationship using the churn dataset</span></span>
 <span id="cb80-3"><a href="#cb80-3"></a>mdl_churn_vs_relationship <span class="ot">&lt;-</span> <span class="fu">glm</span>(</span>
@@ -2620,7 +2620,7 @@ LO: Can calculate logistic regression model predictions as probabilities of succ
 <ol type="1">
 <li>Use the model, <code>mdl_churn_vs_relationship</code>, and the explanatory data, <code>explanatory_data</code>, to predict the probability of churning. Assign the predictions to the <code>has_churned</code> column of a data frame, <code>prediction_data</code>. <em>Remember to set the prediction</em> <code>type</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a><span class="co"># Create data</span></span>
 <span id="cb82-2"><a href="#cb82-2"></a>explanatory_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">time_since_first_purchase =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">1.5</span>, <span class="dv">4</span>, <span class="fl">0.25</span>))</span>
 <span id="cb82-3"><a href="#cb82-3"></a></span>
@@ -2649,7 +2649,7 @@ LO: Can calculate logistic regression model predictions as probabilities of succ
 <ol start="2" type="1">
 <li>Update the <code>plt_churn_vs_relationship</code> plot to add points from <code>prediction_data</code>, colored yellow.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a>plt_churn_vs_relationship <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(churn, <span class="fu">aes</span>(time_since_first_purchase, has_churned)) <span class="sc">+</span></span>
 <span id="cb83-2"><a href="#cb83-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb83-3"><a href="#cb83-3"></a>  <span class="fu">geom_smooth</span>(</span>
@@ -2658,7 +2658,7 @@ LO: Can calculate logistic regression model predictions as probabilities of succ
 <span id="cb83-6"><a href="#cb83-6"></a>    <span class="at">method.args =</span> <span class="fu">list</span>(<span class="at">family =</span> binomial)</span>
 <span id="cb83-7"><a href="#cb83-7"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="co"># From previous step</span></span>
 <span id="cb84-2"><a href="#cb84-2"></a>prediction_data <span class="ot">&lt;-</span> explanatory_data <span class="sc">%&gt;%</span> </span>
 <span id="cb84-3"><a href="#cb84-3"></a>  <span class="fu">mutate</span>(   </span>
@@ -2675,7 +2675,7 @@ LO: Can calculate logistic regression model predictions as probabilities of succ
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-49-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-50-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2692,7 +2692,7 @@ LO: Can calculate logistic regression model predictions as most likely outcome.
 <ol type="1">
 <li>Update <code>prediction_data</code> to add a column of the most likely churn outcome, <code>most_likely_outcome</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="co"># Update the data frame</span></span>
 <span id="cb86-2"><a href="#cb86-2"></a>prediction_data <span class="ot">&lt;-</span> explanatory_data <span class="sc">%&gt;%</span> </span>
 <span id="cb86-3"><a href="#cb86-3"></a>  <span class="fu">mutate</span>(   </span>
@@ -2715,7 +2715,7 @@ LO: Can calculate logistic regression model predictions as most likely outcome.
 <ol start="2" type="1">
 <li>Update <code>plt_churn_vs_relationship</code>, adding yellow points of size 2 with <code>most_likely_outcome</code> as the y aesthetic, using <code>prediction_data</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a><span class="co"># From previous step</span></span>
 <span id="cb87-2"><a href="#cb87-2"></a>prediction_data <span class="ot">&lt;-</span> explanatory_data <span class="sc">%&gt;%</span> </span>
 <span id="cb87-3"><a href="#cb87-3"></a>  <span class="fu">mutate</span>(   </span>
@@ -2739,7 +2739,7 @@ LO: Can calculate logistic regression model predictions as most likely outcome.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-51-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-52-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2756,7 +2756,7 @@ LO: Can calculate logistic regression model predictions as odds ratios.
 <ol type="1">
 <li>Update <code>prediction_data</code> to add a column, <code>odds_ratio</code>, of the odds ratios.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1"></a><span class="co"># Update the data frame</span></span>
 <span id="cb89-2"><a href="#cb89-2"></a>prediction_data <span class="ot">&lt;-</span> explanatory_data <span class="sc">%&gt;%</span> </span>
 <span id="cb89-3"><a href="#cb89-3"></a>  <span class="fu">mutate</span>(   </span>
@@ -2782,7 +2782,7 @@ LO: Can calculate logistic regression model predictions as odds ratios.
 <ol start="2" type="1">
 <li>Using <code>prediction_data</code>, draw a line plot of <code>odds_ratio</code> versus <code>time_since_first_purchase</code>. Add a dotted horizontal line at <code>odds_ratio</code> equal to <code>1</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="co"># From previous step</span></span>
 <span id="cb90-2"><a href="#cb90-2"></a>prediction_data <span class="ot">&lt;-</span> explanatory_data <span class="sc">%&gt;%</span> </span>
 <span id="cb90-3"><a href="#cb90-3"></a>  <span class="fu">mutate</span>(   </span>
@@ -2799,7 +2799,7 @@ LO: Can calculate logistic regression model predictions as odds ratios.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-53-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-53-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-54-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2817,7 +2817,7 @@ LO: Can calculate logistic regression model predictions as log-odds ratios.
 <ol type="1">
 <li>Update <code>prediction_data</code> to add the log odds ratio calculated two ways. Calculate it from the <code>odds_ratio</code>, then directly using <code>predict()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a><span class="co"># Update the data frame</span></span>
 <span id="cb91-2"><a href="#cb91-2"></a>prediction_data <span class="ot">&lt;-</span> explanatory_data <span class="sc">%&gt;%</span> </span>
 <span id="cb91-3"><a href="#cb91-3"></a>  <span class="fu">mutate</span>(   </span>
@@ -2843,7 +2843,7 @@ LO: Can calculate logistic regression model predictions as log-odds ratios.
 <ol start="2" type="1">
 <li>Update the plot to use a logarithmic y-scale.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="co"># From previous step</span></span>
 <span id="cb92-2"><a href="#cb92-2"></a>prediction_data <span class="ot">&lt;-</span> explanatory_data <span class="sc">%&gt;%</span> </span>
 <span id="cb92-3"><a href="#cb92-3"></a>  <span class="fu">mutate</span>(   </span>
@@ -2861,7 +2861,7 @@ LO: Can calculate logistic regression model predictions as log-odds ratios.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-55-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-56-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-56-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2908,7 +2908,7 @@ LO: Can calculate a confusion matrix form a logistic regression model.
 <li>Get the “most likely” predicted responses from the model. Assign to <code>predicted_response</code>.</li>
 <li>Create a table of counts from the actual and predicted response vectors. Assign to <code>outcomes</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="co"># Get the actual responses from the dataset</span></span>
 <span id="cb93-2"><a href="#cb93-2"></a>actual_response <span class="ot">&lt;-</span> churn<span class="sc">$</span>has_churned</span>
 <span id="cb93-3"><a href="#cb93-3"></a></span>
@@ -2936,7 +2936,7 @@ LO: Can visualize a confusion matrix as a mosaic plot.
 -->
 <p>Having the confusion matrix as a table object is OK, but a little hard to program with. By converting this to a <code>yardstick</code> confusion matrix object, you get methods for plotting and extracting performance metrics.</p>
 <p>The <code>yardstick.event_first</code> option is set to <code>FALSE</code>. (The global option, yardstick.event_first, has been deprecated in favor of the new explicit argument, <code>event_level</code>.)</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a><span class="fu">options</span>(<span class="at">yardstick.event_first =</span> <span class="cn">TRUE</span>)  <span class="ot">-&gt;</span> event_level <span class="ot">=</span> <span class="st">"first"</span> <span class="co"># (the default)</span></span>
 <span id="cb95-2"><a href="#cb95-2"></a><span class="fu">options</span>(<span class="at">yardstick.event_first =</span> <span class="cn">FALSE</span>) <span class="ot">-&gt;</span> event_level <span class="ot">=</span> <span class="st">"second"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -2946,7 +2946,7 @@ LO: Can visualize a confusion matrix as a mosaic plot.
 <li>Automatically plot <code>confusion</code>.</li>
 <li>Get performance metrics from <code>confusion</code>, remembering that the positive response is in the second column.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="co"># Load package</span></span>
 <span id="cb96-2"><a href="#cb96-2"></a><span class="fu">library</span>(yardstick)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -2961,7 +2961,7 @@ LO: Can visualize a confusion matrix as a mosaic plot.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-58-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-58-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_regression_beginner_files/figure-html/unnamed-chunk-59-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="01_regression_beginner_files/figure-html/unnamed-chunk-59-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3290,7 +3290,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","openEffect":"zoom","loop":true});</script>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":true,"descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom"});</script>
 
 
 

@@ -716,7 +716,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Create two data frames: one that holds the rows of <code>food_consumption</code> for <code>"Belgium"</code> and the another that holds rows for <code>"USA"</code>. Call these <code>belgium_consumption</code> and <code>usa_consumption</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load packages</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -746,7 +746,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Calculate the mean and median of kilograms of food consumed per person per year for both countries.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># 2.1 Calculate mean and median consumption in Belgium</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="fu">mean</span>(belgium_consumption<span class="sc">$</span>consumption)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -757,7 +757,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>#&gt; [1] 12.59</code></pre>
 </div>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># 2.2 Calculate mean and median consumption in USA</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="fu">mean</span>(usa_consumption<span class="sc">$</span>consumption)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -773,7 +773,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Group the filtered data by <code>country</code>.</li>
 <li>Calculate the mean and median of the kilograms of food consumed per person per year in each country. Call these columns <code>mean_consumption</code> and <code>median_consumption</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>food_consumption  <span class="sc">|&gt;</span> </span>
 <span id="cb14-2"><a href="#cb14-2"></a>  <span class="co"># 3. Filter for Belgium and USA</span></span>
 <span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">filter</span>(country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Belgium"</span>, <span class="st">"USA"</span>))  <span class="sc">|&gt;</span> </span>
@@ -801,7 +801,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Filter <code>food_consumption</code> to get the rows where <code>food_category</code> is <code>"rice"</code>.</li>
 <li>Create a histogram using <code>ggplot2</code> of <code>co2_emission</code> for rice.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Load packages</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb15-3"><a href="#cb15-3"></a></span>
@@ -817,7 +817,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -829,7 +829,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Filter <code>food_consumption</code> to get the rows where <code>food_category</code> is <code>"rice"</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>food_consumption <span class="sc">%&gt;%</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a>  <span class="co"># Filter for rice food category</span></span>
 <span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">filter</span>(food_category <span class="sc">==</span> <span class="st">"rice"</span>)  <span class="sc">|&gt;</span> </span>
@@ -842,7 +842,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -850,7 +850,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Summarize the data to get the mean and median of <code>co2_emission</code>, calling them <code>mean_co2</code> and <code>median_co2</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>food_consumption  <span class="sc">|&gt;</span> </span>
 <span id="cb19-2"><a href="#cb19-2"></a>  <span class="co"># Filter for rice food category</span></span>
 <span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">filter</span>(food_category <span class="sc">==</span> <span class="st">"rice"</span>) <span class="sc">|&gt;</span> </span>
@@ -914,7 +914,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Calculate the quartiles of the <code>co2_emission</code> column of <code>food_consumption</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Calculate the quartiles of co2_emission</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a><span class="fu">quantile</span>(food_consumption<span class="sc">$</span>co2_emission)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -925,7 +925,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Calculate the six quantiles that split up the data into 5 pieces (quintiles) of the <code>co2_emission</code> column of <code>food_consumption</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Calculate the quintiles of co2_emission</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a><span class="fu">quantile</span>(food_consumption<span class="sc">$</span>co2_emission, <span class="at">probs =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -936,7 +936,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Calculate the eleven quantiles of <code>co2_emission</code> that split up the data into ten pieces (deciles).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Calculate the deciles of co2_emission</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="fu">quantile</span>(food_consumption<span class="sc">$</span>co2_emission, <span class="at">probs =</span> <span class="fu">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -956,7 +956,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Calculate the variance and standard deviation of <code>co2_emission</code> for each <code>food_category</code> by grouping by and summarizing variance as <code>var_co2</code> and standard deviation as <code>sd_co2</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># 1. Calculate variance and sd of co2_emission for each food_category</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a>food_consumption <span class="sc">%&gt;%</span> </span>
 <span id="cb26-3"><a href="#cb26-3"></a>  <span class="fu">group_by</span>(food_category) <span class="sc">%&gt;%</span> </span>
@@ -974,7 +974,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Create a histogram of <code>co2_emission</code> for each <code>food_category</code> using <code>facet_wrap()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># 2. Plot food_consumption with co2_emission on x-axis</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a><span class="fu">ggplot</span>(food_consumption, <span class="fu">aes</span>(co2_emission)) <span class="sc">+</span></span>
 <span id="cb27-3"><a href="#cb27-3"></a>  <span class="co"># Create a histogram</span></span>
@@ -987,7 +987,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-12-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-13-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1003,7 +1003,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Calculate the total <code>co2_emission</code> per country by grouping by country and taking the sum of <code>co2_emission</code>. Call the sum <code>total_emission</code> and store the resulting data frame as <code>emissions_by_country</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Calculate total co2_emission per country: emissions_by_country</span></span>
 <span id="cb29-2"><a href="#cb29-2"></a>emissions_by_country <span class="ot">&lt;-</span> food_consumption <span class="sc">%&gt;%</span></span>
 <span id="cb29-3"><a href="#cb29-3"></a>  <span class="fu">group_by</span>(country) <span class="sc">%&gt;%</span></span>
@@ -1024,7 +1024,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the interquartile range of <code>total_emission</code> and store it as <code>iqr</code>.</li>
 <li>Calculate the lower and upper cutoffs for outliers of <code>total_emission</code>, and store these as <code>lower</code> and <code>upper</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># 2. / 3. Compute the first and third quantiles and IQR of total_emission</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a>q1  <span class="ot">&lt;-</span> <span class="fu">quantile</span>(emissions_by_country<span class="sc">$</span>total_emission, <span class="at">probs =</span> <span class="fl">0.25</span>)</span>
 <span id="cb30-3"><a href="#cb30-3"></a>q3  <span class="ot">&lt;-</span> <span class="fu">quantile</span>(emissions_by_country<span class="sc">$</span>total_emission, <span class="at">probs =</span> <span class="fl">0.75</span>)</span>
@@ -1037,7 +1037,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="5" type="1">
 <li>Use <code>filter()</code> to get countries with a <code>total_emission</code> greater than the <code>upper</code> cutoff <strong>or</strong> a <code>total_emission</code> less than the <code>lower</code> cutoff.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># 5. Filter emissions_by_country to find outliers</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a>emissions_by_country <span class="sc">%&gt;%</span></span>
 <span id="cb31-3"><a href="#cb31-3"></a>  <span class="fu">filter</span>(total_emission <span class="sc">&gt;</span> upper <span class="sc">|</span> total_emission <span class="sc">&lt;</span> lower)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1136,7 +1136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Count the number of deals Amir worked on for each <code>product</code> type.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>amir_deals <span class="ot">&lt;-</span>  <span class="fu">readRDS</span>(<span class="st">"data/amir_deals.rds"</span>)</span>
 <span id="cb32-2"><a href="#cb32-2"></a></span>
 <span id="cb32-3"><a href="#cb32-3"></a><span class="co"># Count the deals for each product</span></span>
@@ -1154,7 +1154,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Create a new column called prob by dividing n by the total number of deals Amir worked on.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Calculate probability of picking a deal with each product</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a>amir_deals <span class="sc">%&gt;%</span></span>
 <span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">count</span>(product, <span class="at">sort =</span> T) <span class="sc">%&gt;%</span></span>
@@ -1183,7 +1183,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Set the random seed to <code>31</code>.</li>
 <li>Take a sample of 5 deals <strong>without</strong> replacement.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Set random seed to 31</span></span>
 <span id="cb34-2"><a href="#cb34-2"></a><span class="fu">set.seed</span>(<span class="dv">31</span>)</span>
 <span id="cb34-3"><a href="#cb34-3"></a></span>
@@ -1202,7 +1202,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Take a sample of 5 deals <strong>with</strong> replacement.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Set random seed to 31</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a><span class="fu">set.seed</span>(<span class="dv">31</span>)</span>
 <span id="cb35-3"><a href="#cb35-3"></a></span>
@@ -1276,7 +1276,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Create a histogram of the <code>group_size</code> column of <code>restaurant_groups</code>, setting the number of bins to <code>5</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># restaurant groups</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a>restaurant_groups <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb36-3"><a href="#cb36-3"></a>  <span class="at">group_id   =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>),</span>
@@ -1290,7 +1290,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-20-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-21-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1298,7 +1298,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Count the number of each <code>group_size</code> in <code>restaurant_groups</code>, then add a column called <code>probability</code> that contains the probability of randomly selecting a group of each size. Store this in a new data frame called <code>size_distribution</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># 2. Create probability distribution</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a>size_distribution <span class="ot">&lt;-</span> restaurant_groups <span class="sc">%&gt;%</span></span>
 <span id="cb37-3"><a href="#cb37-3"></a>  <span class="co"># Count number of each group size</span></span>
@@ -1319,7 +1319,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Calculate the expected value of the <code>size_distribution</code>, which represents the expected group size.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># 3. Calculate expected group size</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>expected_val <span class="ot">&lt;-</span> <span class="fu">sum</span>(size_distribution<span class="sc">$</span>probability <span class="sc">*</span></span>
 <span id="cb38-3"><a href="#cb38-3"></a>                    size_distribution<span class="sc">$</span>group_size)</span>
@@ -1331,7 +1331,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Calculate the probability of randomly picking a group of 4 or more people by filtering and summarizing.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># 4. Calculate probability of picking group of 4 or more</span></span>
 <span id="cb40-2"><a href="#cb40-2"></a>size_distribution <span class="sc">%&gt;%</span></span>
 <span id="cb40-3"><a href="#cb40-3"></a>  <span class="co"># Filter for groups of 4 or larger</span></span>
@@ -1351,14 +1351,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="identifying-distributions" class="level2" data-number="2.9">
 <h2 data-number="2.9" class="anchored" data-anchor-id="identifying-distributions"><span class="header-section-number">2.9</span> Identifying distributions</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">library</span>(patchwork)</span>
 <span id="cb41-2"><a href="#cb41-2"></a>p1 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/p1.rds"</span>); p2 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/p2.rds"</span>); p3 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/p3.rds"</span>)</span>
 <span id="cb41-3"><a href="#cb41-3"></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-24-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-25-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1371,7 +1371,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="expected-value-vs.-sample-mean" class="level2" data-number="2.11">
 <h2 data-number="2.11" class="anchored" data-anchor-id="expected-value-vs.-sample-mean"><span class="header-section-number">2.11</span> Expected value vs.&nbsp;sample mean</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">library</span>(purrr)</span>
 <span id="cb42-2"><a href="#cb42-2"></a></span>
 <span id="cb42-3"><a href="#cb42-3"></a>sample_sizes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">100</span>,<span class="dv">1000</span>,<span class="dv">5000</span>, <span class="dv">10000</span>)</span>
@@ -1394,7 +1394,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-25-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-26-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" style="width:100.0%"></a></p>
 </figure>
 </div>
 </div>
@@ -1487,7 +1487,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>To model how long Amir will wait for a back-up using a continuous uniform distribution, save his lowest possible wait time as <code>min</code> and his longest possible wait time as <code>max</code>. Remember that back-ups happen every 30 minutes.</li>
 <li>Calculate the probability that Amir has to wait less than 5 minutes, and store in a variable called <code>prob_less_than_5</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># 1. Min and max wait times for back-up that happens every 30 min</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a>min <span class="ot">&lt;-</span> <span class="dv">0</span></span>
 <span id="cb43-3"><a href="#cb43-3"></a>max <span class="ot">&lt;-</span> <span class="dv">30</span></span>
@@ -1502,7 +1502,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Calculate the probability that Amir has to wait more than 5 minutes, and store in a variable called <code>prob_greater_than_5</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># 3. Calculate probability of waiting more than 5 mins</span></span>
 <span id="cb45-2"><a href="#cb45-2"></a>prob_greater_than_5 <span class="ot">&lt;-</span> <span class="fu">punif</span>(<span class="dv">5</span>, <span class="at">min =</span> min, <span class="at">max =</span> max, <span class="at">lower.tail =</span> F)</span>
 <span id="cb45-3"><a href="#cb45-3"></a>prob_greater_than_5</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1513,7 +1513,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Calculate the probability that Amir has to wait between 10 and 20 minutes, and store in a variable called <code>prob_between_10_and_20</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># 4. Calculate probability of waiting 10-20 mins</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a>prob_between_10_and_20 <span class="ot">&lt;-</span> <span class="fu">punif</span>(<span class="dv">20</span>, <span class="at">min =</span> min, <span class="at">max =</span> max) <span class="sc">-</span> <span class="fu">punif</span>(<span class="dv">10</span>, <span class="at">min =</span> min, <span class="at">max =</span> max)</span>
 <span id="cb47-3"><a href="#cb47-3"></a>prob_between_10_and_20</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1531,7 +1531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Set the random seed to <code>334</code>.</li>
 <li>Generate 1000 wait times from the continuous uniform distribution that models Amir’s wait time. Add this as a new column called <code>time</code> in the <code>wait_times</code> data frame.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a>wait_times <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">simulation_nb=</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>))</span>
 <span id="cb49-2"><a href="#cb49-2"></a></span>
 <span id="cb49-3"><a href="#cb49-3"></a><span class="co"># 1. Set random seed to 334</span></span>
@@ -1554,7 +1554,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a histogram of the simulated wait times with 30 bins.</li>
 </ol></li>
 </ul>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># 1. Set random seed to 334</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a><span class="fu">set.seed</span>(<span class="dv">334</span>)</span>
 <span id="cb50-3"><a href="#cb50-3"></a></span>
@@ -1570,7 +1570,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-30-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-31-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1620,7 +1620,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Set the random seed to 10 and simulate a single deal.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># 1. Set random seed to 10</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
 <span id="cb52-3"><a href="#cb52-3"></a></span>
@@ -1633,7 +1633,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Simulate a typical week of Amir’s deals, or one week of 3 deals.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># 1. Set random seed to 10</span></span>
 <span id="cb54-2"><a href="#cb54-2"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
 <span id="cb54-3"><a href="#cb54-3"></a></span>
@@ -1647,7 +1647,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Simulate a year’s worth of Amir’s deals, or 52 weeks of 3 deals each, and store in <code>deals</code>.</li>
 <li>Calculate the mean number of deals he won per week.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># Set random seed to 10</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a><span class="fu">set.seed</span>(<span class="dv">10</span>)</span>
 <span id="cb56-3"><a href="#cb56-3"></a></span>
@@ -1669,7 +1669,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>What’s the probability that Amir closes all 3 deals in a week?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># Probability of closing 3 out of 3 deals</span></span>
 <span id="cb58-2"><a href="#cb58-2"></a><span class="fu">dbinom</span>(<span class="dv">3</span>,<span class="dv">3</span>,<span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1679,7 +1679,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>What’s the probability that Amir closes 1 or fewer deals in a week?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># Probability of closing &lt;= 1 deal out of 3 deals</span></span>
 <span id="cb60-2"><a href="#cb60-2"></a><span class="fu">pbinom</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1689,7 +1689,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>What’s the probability that Amir closes more than 1 deal?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># Probability of closing &gt; 1 deal out of 3 deals</span></span>
 <span id="cb62-2"><a href="#cb62-2"></a><span class="fu">pbinom</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="fl">0.3</span>,<span class="at">lower.tail=</span>F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1705,7 +1705,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Calculate the expected number of sales out of the <strong>3</strong> he works on that Amir will win each week if he maintains his 30% win rate.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># Expected number won with 30% win rate</span></span>
 <span id="cb64-2"><a href="#cb64-2"></a>won_30pct <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">*</span> <span class="fl">0.30</span></span>
 <span id="cb64-3"><a href="#cb64-3"></a>won_30pct</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1716,7 +1716,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Calculate the expected number of sales out of the 3 he works on that he’ll win if his win rate drops to 25%.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Expected number won with 25% win rate</span></span>
 <span id="cb66-2"><a href="#cb66-2"></a>won_25pct <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">*</span> <span class="fl">0.25</span></span>
 <span id="cb66-3"><a href="#cb66-3"></a>won_25pct</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1727,7 +1727,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Calculate the expected number of sales out of the 3 he works on that he’ll win if his win rate rises to 35%.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># Expected number won with 35% win rate</span></span>
 <span id="cb68-2"><a href="#cb68-2"></a>won_35pct <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="sc">*</span> <span class="fl">0.35</span></span>
 <span id="cb68-3"><a href="#cb68-3"></a>won_35pct</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1792,14 +1792,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Create a histogram with 10 bins to visualize the distribution of the <code>amount</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># Histogram of amount with 10 bins</span></span>
 <span id="cb70-2"><a href="#cb70-2"></a><span class="fu">ggplot</span>(amir_deals, <span class="fu">aes</span>(amount)) <span class="sc">+</span></span>
 <span id="cb70-3"><a href="#cb70-3"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-40-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-41-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1817,7 +1817,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>What’s the probability of Amir closing a deal worth less than $7500?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a><span class="co"># Probability of deal &lt; 7500</span></span>
 <span id="cb71-2"><a href="#cb71-2"></a><span class="fu">pnorm</span>(<span class="dv">7500</span>, <span class="dv">5000</span>, <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1827,7 +1827,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>What’s the probability of Amir closing a deal worth more than $1000?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># Probability of deal &gt; 1000</span></span>
 <span id="cb73-2"><a href="#cb73-2"></a><span class="fu">pnorm</span>(<span class="dv">1000</span>, <span class="dv">5000</span>, <span class="dv">2000</span>, <span class="at">lower.tail=</span>F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1837,7 +1837,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>What’s the probability of Amir closing a deal worth between $3000 and $7000?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a><span class="co"># Probability of deal between 3000 and 7000</span></span>
 <span id="cb75-2"><a href="#cb75-2"></a><span class="fu">pnorm</span>(<span class="dv">7000</span>, <span class="dv">5000</span>, <span class="dv">2000</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">3000</span>, <span class="dv">5000</span>, <span class="dv">2000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1847,7 +1847,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>What amount will 75% of Amir’s sales be <em>more than</em>?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># Calculate amount that 75% of deals will be more than</span></span>
 <span id="cb77-2"><a href="#cb77-2"></a><span class="fu">qnorm</span>(<span class="fl">0.75</span>, <span class="dv">5000</span>, <span class="dv">2000</span>, <span class="at">lower.tail =</span>F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1865,7 +1865,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Amir’s current standard deviation is $2000. Calculate what his new standard deviation will be if it increases by 30% and store this in <code>new_sd</code>.</li>
 <li>Add a new column called <code>amount</code> to the data frame <code>new_sales</code>, which contains 36 simulated amounts from a normal distribution with a mean of <code>new_mean</code> and a standard deviation of <code>new_sd</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a>new_sales <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">sale_num =</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">36</span>))</span>
 <span id="cb79-2"><a href="#cb79-2"></a></span>
 <span id="cb79-3"><a href="#cb79-3"></a><span class="co"># Calculate new average amount</span></span>
@@ -1881,14 +1881,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Plot the distribution of the <code>new_sales</code> <code>amount</code>s using a histogram with 10 bins.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a><span class="co"># 4. Create histogram with 10 bins</span></span>
 <span id="cb80-2"><a href="#cb80-2"></a><span class="fu">ggplot</span>(new_sales, <span class="fu">aes</span>(amount)) <span class="sc">+</span></span>
 <span id="cb80-3"><a href="#cb80-3"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-46-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-47-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1937,7 +1937,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="visualizing-sampling-distributions" class="level2" data-number="3.9">
 <h2 data-number="3.9" class="anchored" data-anchor-id="visualizing-sampling-distributions"><span class="header-section-number">3.9</span> Visualizing sampling distributions</h2>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a><span class="co"># Function to resample distributions</span></span>
 <span id="cb81-2"><a href="#cb81-2"></a>resample_dist <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">sample_mean =</span> <span class="dv">100000</span>, <span class="at">sample_size =</span> <span class="dv">20</span>) {</span>
 <span id="cb81-3"><a href="#cb81-3"></a>  <span class="fu">replicate</span>(<span class="at">n    =</span> sample_mean,</span>
@@ -2001,7 +2001,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-47-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-48-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2021,14 +2021,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Create a histogram of the <code>num_users</code> column of <code>amir_deals</code>. Use 10 bins.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a><span class="co"># 1. Create a histogram of num_users</span></span>
 <span id="cb83-2"><a href="#cb83-2"></a><span class="fu">ggplot</span>(amir_deals, <span class="fu">aes</span>(num_users)) <span class="sc">+</span></span>
 <span id="cb83-3"><a href="#cb83-3"></a>    <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-48-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-49-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2037,7 +2037,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Set the seed to <code>104</code>.</li>
 <li>Take a sample of size <code>20</code> with replacement from the <code>num_users</code> column of <code>amir_deals</code>, and take the mean.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="co"># 2. Set seed to 104</span></span>
 <span id="cb84-2"><a href="#cb84-2"></a><span class="fu">set.seed</span>(<span class="dv">104</span>)</span>
 <span id="cb84-3"><a href="#cb84-3"></a></span>
@@ -2052,7 +2052,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Repeat this 100 times and store as <code>sample_means</code>. This will take 100 different samples and calculate the mean of each.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="fu">set.seed</span>(<span class="dv">104</span>)</span>
 <span id="cb86-2"><a href="#cb86-2"></a><span class="co"># 4. Repeat the above 100 times</span></span>
 <span id="cb86-3"><a href="#cb86-3"></a>sample_means <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">100</span>, <span class="fu">sample</span>(amir_deals<span class="sc">$</span>num_users, <span class="at">size =</span> <span class="dv">20</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> <span class="fu">mean</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2060,7 +2060,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="5" type="1">
 <li>A data frame called <code>samples</code> has been created for you with a column <code>mean</code>, which contains the values from <code>sample_means</code>. Create a histogram of the <code>mean</code> column with 10 bins.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a><span class="co"># Set seed to 104</span></span>
 <span id="cb87-2"><a href="#cb87-2"></a><span class="fu">set.seed</span>(<span class="dv">104</span>)</span>
 <span id="cb87-3"><a href="#cb87-3"></a></span>
@@ -2074,7 +2074,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-51-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-52-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2091,7 +2091,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Take 30 samples of size 20 from <code>all_deals$num_users</code> and take the mean of each sample. Store the sample means in <code>sample_means</code>.</li>
 <li>Take the mean of <code>sample_means</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a>all_deals <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/all_deals.rds"</span>)</span>
 <span id="cb88-2"><a href="#cb88-2"></a></span>
 <span id="cb88-3"><a href="#cb88-3"></a><span class="co"># 1. Set seed to 321</span></span>
@@ -2109,7 +2109,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Take the mean of the <code>num_users</code> column of <code>amir_deals</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="co"># 4. Calculate mean of num_users in amir_deals</span></span>
 <span id="cb90-2"><a href="#cb90-2"></a><span class="fu">mean</span>(amir_deals<span class="sc">$</span>num_users)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2147,7 +2147,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="identifying-lambda" class="level2" data-number="3.14">
 <h2 data-number="3.14" class="anchored" data-anchor-id="identifying-lambda"><span class="header-section-number">3.14</span> Identifying lambda</h2>
 <p>Now that you’ve learned about the Poisson distribution, you know that its shape is described by a value called lambda. In this exercise, you’ll match histograms to lambda values.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">20</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb92-2"><a href="#cb92-2"></a>  <span class="fu">set_names</span>() <span class="sc">|&gt;</span></span>
 <span id="cb92-3"><a href="#cb92-3"></a>  <span class="fu">map</span>(rpois, <span class="at">n =</span> <span class="dv">10000</span>) <span class="sc">|&gt;</span> </span>
@@ -2162,7 +2162,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-54-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-55-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2176,7 +2176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>What’s the probability that Amir responds to 5 leads in a day, given that he responds to an average of 4?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="co"># 1. Probability of 5 responses</span></span>
 <span id="cb93-2"><a href="#cb93-2"></a><span class="fu">dpois</span>(<span class="dv">5</span>, <span class="at">lambda =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2186,7 +2186,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Amir’s coworker responds to an average of 5.5 leads per day. What is the probability that she answers 5 leads in a day?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a><span class="co"># 2. Probability of 5 responses from coworker</span></span>
 <span id="cb95-2"><a href="#cb95-2"></a><span class="fu">dpois</span>(<span class="dv">5</span>, <span class="fl">5.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2196,7 +2196,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>What’s the probability that Amir responds to 2 or fewer leads in a day?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a><span class="co"># Probability of 2 or fewer responses</span></span>
 <span id="cb97-2"><a href="#cb97-2"></a><span class="fu">ppois</span>(<span class="dv">2</span>, <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2206,7 +2206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>What’s the probability that Amir responds to more than 10 leads in a day?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1"></a><span class="co"># Probability of &gt; 10 responses</span></span>
 <span id="cb99-2"><a href="#cb99-2"></a><span class="fu">ppois</span>(<span class="dv">10</span>, <span class="dv">4</span>, <span class="at">lower.tail =</span>F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2277,7 +2277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>What’s the probability it takes Amir less than an hour to respond to a lead?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1"></a><span class="co"># Probability response takes &lt; 1 hour</span></span>
 <span id="cb101-2"><a href="#cb101-2"></a><span class="fu">pexp</span>(<span class="dv">1</span>, <span class="at">rate =</span> <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2287,7 +2287,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>What’s the probability it takes Amir more than 4 hours to respond to a lead?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1"></a><span class="co"># Probability response takes &gt; 4 hours</span></span>
 <span id="cb103-2"><a href="#cb103-2"></a><span class="fu">pexp</span>(<span class="dv">4</span>, <span class="at">rate =</span> <span class="fl">0.4</span>, <span class="at">lower.tail =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2297,7 +2297,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>What’s the probability it takes Amir 3-4 hours to respond to a lead?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1"></a><span class="co"># Probability response takes 3-4 hours</span></span>
 <span id="cb105-2"><a href="#cb105-2"></a><span class="fu">pexp</span>(<span class="dv">4</span>, <span class="fl">0.4</span>) <span class="sc">-</span> <span class="fu">pexp</span>(<span class="dv">3</span>, <span class="fl">0.4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2368,7 +2368,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Create a scatterplot of <code>happiness_score</code> vs.&nbsp;<code>life_exp</code> using <code>ggplot2</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1"></a>world_happiness <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/world_happiness_sugar.rds"</span>)</span>
 <span id="cb107-2"><a href="#cb107-2"></a></span>
 <span id="cb107-3"><a href="#cb107-3"></a><span class="co"># 1. Create a scatterplot of happiness_score vs. life_exp</span></span>
@@ -2377,7 +2377,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-62-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-62-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-63-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-63-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2385,7 +2385,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Add a linear trendline to the scatterplot, setting <code>se</code> to <code>FALSE</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1"></a><span class="co"># 2. Add a linear trendline to scatterplot</span></span>
 <span id="cb108-2"><a href="#cb108-2"></a><span class="fu">ggplot</span>(world_happiness, <span class="fu">aes</span>(life_exp, happiness_score)) <span class="sc">+</span></span>
 <span id="cb108-3"><a href="#cb108-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
@@ -2396,7 +2396,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-63-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-63-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-64-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-64-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2408,7 +2408,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Calculate the correlation between <code>life_exp</code> and <code>happiness_score</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a><span class="co"># 3. Correlation between life_exp and happiness_score</span></span>
 <span id="cb110-2"><a href="#cb110-2"></a><span class="fu">cor</span>(world_happiness<span class="sc">$</span>life_exp, world_happiness<span class="sc">$</span>happiness_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2462,14 +2462,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Create a scatterplot showing the relationship between <code>gdp_per_cap</code> (on the x-axis) and <code>life_exp</code> (on the y-axis).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a><span class="co"># 1. Scatterplot of gdp_per_cap and life_exp</span></span>
 <span id="cb112-2"><a href="#cb112-2"></a><span class="fu">ggplot</span>(world_happiness, <span class="fu">aes</span>(<span class="at">x =</span> gdp_per_cap, <span class="at">y =</span> life_exp)) <span class="sc">+</span></span>
 <span id="cb112-3"><a href="#cb112-3"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-65-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-66-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-66-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2477,7 +2477,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Calculate the correlation between <code>gdp_per_cap</code> and <code>life_exp</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1"></a><span class="co"># Correlation between gdp_per_cap and life_exp</span></span>
 <span id="cb113-2"><a href="#cb113-2"></a><span class="fu">cor</span>(world_happiness<span class="sc">$</span>gdp_per_cap, world_happiness<span class="sc">$</span>life_exp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2497,14 +2497,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Create a scatterplot of <code>happiness_score</code> versus <code>gdp_per_cap</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1"></a><span class="co"># 1. Scatterplot of happiness_score vs. gdp_per_cap</span></span>
 <span id="cb115-2"><a href="#cb115-2"></a><span class="fu">ggplot</span>(world_happiness, <span class="fu">aes</span>(<span class="at">x=</span>gdp_per_cap, <span class="at">y =</span> happiness_score)) <span class="sc">+</span></span>
 <span id="cb115-3"><a href="#cb115-3"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-67-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-67-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-68-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-68-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2512,7 +2512,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Calculate the correlation between <code>happiness_score</code> and <code>gdp_per_cap</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a><span class="co"># 2. Calculate correlation</span></span>
 <span id="cb116-2"><a href="#cb116-2"></a><span class="fu">cor</span>(world_happiness<span class="sc">$</span>happiness_score, world_happiness<span class="sc">$</span>gdp_per_cap)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2523,7 +2523,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add a new column to <code>world_happiness</code> called <code>log_gdp_per_cap</code> that contains the log of <code>gdp_per_cap</code>.</li>
 <li>Create a scatterplot of <code>happiness_score</code> versus <code>log_gdp_per_cap</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1"></a><span class="co"># 3. Create log_gdp_per_cap column</span></span>
 <span id="cb118-2"><a href="#cb118-2"></a>world_happiness <span class="ot">&lt;-</span> world_happiness <span class="sc">%&gt;%</span></span>
 <span id="cb118-3"><a href="#cb118-3"></a>  <span class="fu">mutate</span>(<span class="at">log_gdp_per_cap =</span> <span class="fu">log</span>(gdp_per_cap))</span>
@@ -2534,7 +2534,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-69-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-69-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-70-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-70-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2542,7 +2542,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="5" type="1">
 <li>Calculate the correlation between <code>happiness_score</code> and <code>log_gdp_per_cap</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1"></a><span class="co"># 5. Calculate correlation</span></span>
 <span id="cb119-2"><a href="#cb119-2"></a><span class="fu">cor</span>(world_happiness<span class="sc">$</span>log_gdp_per_cap, world_happiness<span class="sc">$</span>happiness_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2558,14 +2558,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Create a scatterplot showing the relationship between <code>grams_sugar_per_day</code> (on the x-axis) and <code>happiness_score</code> (on the y-axis).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1"></a><span class="co"># Scatterplot of grams_sugar_per_day and happiness_score</span></span>
 <span id="cb121-2"><a href="#cb121-2"></a><span class="fu">ggplot</span>(world_happiness, <span class="fu">aes</span>(<span class="at">x=</span>grams_sugar_per_day, <span class="at">y =</span> happiness_score)) <span class="sc">+</span></span>
 <span id="cb121-3"><a href="#cb121-3"></a>    <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-71-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-71-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_statistics_beginner_files/figure-html/unnamed-chunk-72-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="01_statistics_beginner_files/figure-html/unnamed-chunk-72-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2573,7 +2573,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Calculate the correlation between <code>grams_sugar_per_day</code> and <code>happiness_score</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1"></a><span class="co"># Correlation between grams_sugar_per_day and happiness_score</span></span>
 <span id="cb122-2"><a href="#cb122-2"></a><span class="fu">cor</span>(world_happiness<span class="sc">$</span>grams_sugar_per_day, world_happiness<span class="sc">$</span>happiness_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2938,7 +2938,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom","loop":true});</script>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":true});</script>
 
 
 

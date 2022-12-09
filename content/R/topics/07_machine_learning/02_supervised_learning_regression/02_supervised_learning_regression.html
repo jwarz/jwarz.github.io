@@ -485,7 +485,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#what-is-regression" id="toc-what-is-regression" class="nav-link active" data-scroll-target="#what-is-regression"><span class="toc-section-number">1</span>  1. What is Regression?</a>
+  <li><a href="#what-is-regression" id="toc-what-is-regression" class="nav-link active" data-scroll-target="#what-is-regression"><span class="toc-section-number">1</span>  What is Regression?</a>
   <ul class="collapse">
   <li><a href="#welcome-and-introduction" id="toc-welcome-and-introduction" class="nav-link" data-scroll-target="#welcome-and-introduction"><span class="toc-section-number">1.1</span>  Welcome and Introduction</a></li>
   <li><a href="#identify-the-regression-tasks" id="toc-identify-the-regression-tasks" class="nav-link" data-scroll-target="#identify-the-regression-tasks"><span class="toc-section-number">1.2</span>  Identify the regression tasks</a></li>
@@ -596,7 +596,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>From a machine learning perspective, regression is the task of predicting numerical outcomes from various inputs. In this course, you’ll learn about different regression models, how to train these models in R, how to evaluate the models you train and use them to make predictions.</p>
 <section id="what-is-regression" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 1. What is Regression?</h1>
+<h1 data-number="1"><span class="header-section-number">1</span> What is Regression?</h1>
 <p>In this chapter we introduce the concept of regression from a machine learning point of view. We will present the fundamental regression method: linear regression. We will show how to fit a linear regression model and to make predictions from the model.</p>
 <section id="welcome-and-introduction" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="welcome-and-introduction"><span class="header-section-number">1.1</span> Welcome and Introduction</h2>
@@ -661,7 +661,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Then use <code>lm()</code> and <code>fmla</code> to fit a linear model to predict female unemployment from male unemployment using the data set <code>unemployment</code>.</li>
 <li>Print the model. Is the coefficent for male unemployment consistent with what you would expect? Does female unemployment increase as male unemployment does?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load data</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>unemployment <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/unemployment.rds"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
@@ -708,7 +708,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Call <code>glance()</code> on the model to see the performance metrics in an orderly data frame. Can you match the information from <code>summary()</code> to the columns of <code>glance()</code>?</li>
 <li>Now call <code>wrapFTest()</code> on the model to see the R-squared again.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># Load packages</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(broom)</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(sigr)</span>
@@ -777,12 +777,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="1.8" class="anchored" data-anchor-id="predicting-from-the-unemployment-model"><span class="header-section-number">1.8</span> Predicting from the unemployment model</h2>
 <p>In this exercise, you will use your unemployment model <code>unemployment_model</code> to make predictions from the <code>unemployment</code> data, and compare predicted female unemployment rates to the actual observed female unemployment rates on the training data, <code>unemployment</code>. You will also use your model to predict on the new data in <code>newrates</code>, which consists of only one observation, where male unemployment is 5%.</p>
 <p>The <a href="https://www.rdocumentation.org/packages/stats/topics/predict.lm"><code>predict()</code></a> interface for <code>lm</code> models takes the form</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">predict</span>(model, newdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You will use the <code>ggplot2</code> package to make the plots, so you will add the prediction column to the <code>unemployment</code> data frame. You will plot outcome versus prediction, and compare them to the line that represents perfect predictions (that is when the outcome is equal to the predicted value).</p>
 <p>The <code>ggplot2</code> command to plot a scatterplot of <code>dframe$outcome</code> versus <code>dframe$pred</code> (<code>pred</code> on the <em>x</em> axis, <code>outcome</code> on the <em>y</em> axis), along with a blue line where <em><code>outcome == pred</code></em> is as follows:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggplot</span>(dframe, <span class="fu">aes</span>(<span class="at">x =</span> pred, <span class="at">y =</span> outcome)) <span class="sc">+</span> </span>
 <span id="cb4-2"><a href="#cb4-2"></a>       <span class="fu">geom_point</span>() <span class="sc">+</span>  </span>
 <span id="cb4-3"><a href="#cb4-3"></a>       <span class="fu">geom_abline</span>(<span class="at">color =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -794,7 +794,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>ggplot()</code> to compare the predictions to actual unemployment rates. Put the predictions on the <em>x</em> axis. How close are the results to the line of perfect prediction?</li>
 <li>Use the data frame <code>newrates</code> to predict expected female unemployment rate when male unemployment is 5%. Assign the answer to the variable <code>pred</code> and print it.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Predict female unemployment in the unemployment data set</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>unemployment<span class="sc">$</span>predictions <span class="ot">&lt;-</span>  <span class="fu">predict</span>(unemployment_model)</span>
 <span id="cb5-3"><a href="#cb5-3"></a></span>
@@ -809,7 +809,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -829,7 +829,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="multivariate-linear-regression-part-1" class="level2" data-number="1.9">
 <h2 data-number="1.9" class="anchored" data-anchor-id="multivariate-linear-regression-part-1"><span class="header-section-number">1.9</span> Multivariate linear regression (Part 1)</h2>
 <p>In this exercise, you will work with the blood pressure dataset (<a href="https://college.cengage.com/mathematics/brase/understandable_statistics/7e/students/datasets/mlr/frames/frame.html">Source</a>), and model <code>blood_pressure</code> as a function of <code>weight</code> and <code>age</code>.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Load data</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>bloodpressure <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/bloodpressure.rds"</span>)</span>
 <span id="cb8-3"><a href="#cb8-3"></a></span>
@@ -851,7 +851,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>fmla</code> to fit a linear model to predict <code>blood_pressure</code> from <code>age</code> and <code>weight</code> in the data set <code>bloodpressure</code>. Call the model <code>bloodpressure_model</code>.</li>
 <li>Print the model and call <code>summary()</code> on it. Does blood pressure increase or decrease with age? With weight?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Create the formula and print it</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>fmla <span class="ot">&lt;-</span> blood_pressure <span class="sc">~</span> age <span class="sc">+</span> weight</span>
 <span id="cb10-3"><a href="#cb10-3"></a></span>
@@ -898,7 +898,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="1.10" class="anchored" data-anchor-id="multivariate-linear-regression-part-2"><span class="header-section-number">1.10</span> Multivariate linear regression (Part 2)</h2>
 <p>Now you will make predictions using the blood pressure model <code>bloodpressure_model</code> that you fit in the previous exercise.</p>
 <p>You will also compare the predictions to outcomes graphically. <code>ggplot2</code> is already loaded in your workspace. Recall the plot command takes the form:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(dframe, <span class="fu">aes</span>(<span class="at">x =</span> pred, <span class="at">y =</span> outcome)) <span class="sc">+</span> </span>
 <span id="cb14-2"><a href="#cb14-2"></a>     <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
 <span id="cb14-3"><a href="#cb14-3"></a>     <span class="fu">geom_abline</span>(<span class="at">color =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -908,7 +908,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>predict()</code> to predict blood pressure in the <code>bloodpressure</code> dataset. Assign the predictions to the column <code>prediction</code>.</li>
 <li>Graphically compare the predictions to actual blood pressures. Put predictions on the x axis. How close are the results to the line of perfect prediction?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># predict blood pressure using bloodpressure_model :prediction</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>bloodpressure<span class="sc">$</span>prediction <span class="ot">&lt;-</span> <span class="fu">predict</span>(bloodpressure_model)</span>
 <span id="cb15-3"><a href="#cb15-3"></a></span>
@@ -919,7 +919,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-10-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-11-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -971,13 +971,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="2.2" class="anchored" data-anchor-id="graphically-evaluate-the-unemployment-model"><span class="header-section-number">2.2</span> Graphically evaluate the unemployment model</h2>
 <p>In this exercise you will graphically evaluate the unemployment model, <code>unemployment_model</code>, that you fit to the <code>unemployment</code> data in the previous chapter. Recall that the model predicts <code>female_unemployment</code> from <code>male_unemployment</code>.</p>
 <p>You will plot the model’s predictions against the actual <code>female_unemployment</code>; recall the command is of the form</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ggplot</span>(dframe, <span class="fu">aes</span>(<span class="at">x =</span> pred, <span class="at">y =</span> outcome)) <span class="sc">+</span> </span>
 <span id="cb16-2"><a href="#cb16-2"></a>       <span class="fu">geom_point</span>() <span class="sc">+</span>  </span>
 <span id="cb16-3"><a href="#cb16-3"></a>       <span class="fu">geom_abline</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Then you will calculate the residuals:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>residuals <span class="ot">&lt;-</span> actual outcome <span class="sc">-</span> predicted outcome</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>and plot predictions against residuals. The residual graph will take a slightly different form: you compare the residuals to the horizontal line x=0 (using <code>geom_hline()</code>) rather than to the line x=y. The command will be provided.</p>
@@ -987,7 +987,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>predict()</code> to get the model predictions and add them to <code>unemployment</code> as the column <code>predictions</code>.</li>
 <li>Plot predictions (on the x-axis) versus actual female unemployment rates. Are the predictions near the \(x=y\) line?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>unemployment<span class="sc">$</span>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(unemployment_model)</span>
 <span id="cb18-2"><a href="#cb18-2"></a></span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="co"># Fill in the blanks to plot predictions (on x-axis) versus the female_unemployment rates</span></span>
@@ -997,7 +997,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-13-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-14-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1006,7 +1006,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the residuals between the predictions and actual unemployment rates. Add these residuals to <code>unemployment</code> as the column <code>residuals</code>.</li>
 <li>Fill in the blanks to plot predictions (on the x-axis) versus residuals (on the y-axis). <em>This gives you a different view of the model’s predictions as compared to ground truth.</em></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Calculate residuals</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a>unemployment<span class="sc">$</span>residuals <span class="ot">&lt;-</span> unemployment<span class="sc">$</span>female_unemployment <span class="sc">-</span> unemployment<span class="sc">$</span>predictions</span>
 <span id="cb19-3"><a href="#cb19-3"></a></span>
@@ -1018,7 +1018,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-14-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1030,7 +1030,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In the previous exercise you made predictions about <code>female_unemployment</code> and visualized the predictions and the residuals. Now, you will also plot the gain curve of the <code>unemployment_model</code>’s predictions against actual <code>female_unemployment</code> using the <a href="https://www.rdocumentation.org/packages/WVPlots/topics/GainCurvePlot"><code>WVPlots::GainCurvePlot()</code></a> function.</p>
 <p>For situations where order is more important than exact values, the gain curve helps you check if the model’s predictions sort in the same order as the true outcome.</p>
 <p>Calls to the function <code>GainCurvePlot()</code> look like:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">GainCurvePlot</span>(frame, xvar, truthvar, title)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>where</p>
@@ -1045,7 +1045,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Load the package <code>WVPlots</code> using <code>library()</code>.</li>
 <li>Plot the gain curve. Give the plot the title “Unemployment model”. Do the model’s predictions sort correctly?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Load the package WVPlots</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="fu">library</span>(WVPlots)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1065,7 +1065,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-17-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1109,7 +1109,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><p>Calculate the standard deviation of <code>female_unemployment</code> and assign it to the variable <code>sd_unemployment</code>. Print it.How does the rmse of the model compare to the standard deviation of the data?*</p></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># For convenience put the residuals in the variable res</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a>res <span class="ot">&lt;-</span> unemployment<span class="sc">$</span>residuals</span>
 <span id="cb26-3"><a href="#cb26-3"></a></span>
@@ -1171,7 +1171,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate \(R^2\). Is it a good fit (\(R^2\) near 1)?</li>
 <li>Use <code>glance()</code> to get \(R^2\) from the model. <em>Is it the same as what you calculated?</em></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Calculate mean female_unemployment: fe_mean. Print it</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a>(fe_mean <span class="ot">&lt;-</span> <span class="fu">mean</span>(unemployment<span class="sc">$</span>female_unemployment))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1213,7 +1213,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Square <code>rho</code> and assign it to <code>rho2</code>. Print it.</li>
 <li>Compare <code>rho2</code> to \(R^2\) from the model (using <code>glance()</code>). Is it the same?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># Get the correlation between the prediction and true outcome: rho and print it</span></span>
 <span id="cb40-2"><a href="#cb40-2"></a>(rho <span class="ot">&lt;-</span> <span class="fu">cor</span>(unemployment<span class="sc">$</span>predictions, unemployment<span class="sc">$</span>female_unemployment))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1282,7 +1282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>gp</code> to split <code>mpg</code> into <code>mpg_train</code> and <code>mpg_test</code> (with <code>mpg_train</code> containing approximately 75% of the data).</li>
 <li>Use <code>nrow()</code> to check the size of <code>mpg_train</code> and <code>mpg_test</code>. Are they about the right size?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Use nrow to get the number of rows in mpg (N) and print it</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a>(N <span class="ot">&lt;-</span> <span class="fu">nrow</span>(mpg))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1304,11 +1304,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb50-8"><a href="#cb50-8"></a><span class="co"># Use nrow() to examine mpg_train and mpg_test</span></span>
 <span id="cb50-9"><a href="#cb50-9"></a><span class="fu">nrow</span>(mpg_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 181</code></pre>
+<pre><code>#&gt; [1] 175</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">nrow</span>(mpg_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 53</code></pre>
+<pre><code>#&gt; [1] 59</code></pre>
 </div>
 </div>
 <p>Great job! A random split won’t always produce sets of exactly X% and (100-X)% of the data, but it should be close.</p>
@@ -1322,7 +1322,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Train a model <code>mpg_model</code> on <code>mpg_train</code> to predict <code>cty</code> from <code>hwy</code> using <code>fmla</code> and <code>lm()</code>.</li>
 <li>Use <code>summary()</code> to examine the model.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># create a formula to express cty as a function of hwy: fmla and print it.</span></span>
 <span id="cb54-2"><a href="#cb54-2"></a>(fmla <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(<span class="st">"cty ~ hwy"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1340,18 +1340,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; 
 #&gt; Residuals:
 #&gt;     Min      1Q  Median      3Q     Max 
-#&gt; -2.8242 -0.8208 -0.1519  0.5153  2.8396 
+#&gt; -2.9972 -0.7239 -0.0179  0.6214  4.4772 
 #&gt; 
 #&gt; Coefficients:
 #&gt;             Estimate Std. Error t value Pr(&gt;|t|)    
-#&gt; (Intercept)  1.14347    0.35558   3.216  0.00154 ** 
-#&gt; hwy          0.66723    0.01483  44.982  &lt; 2e-16 ***
+#&gt; (Intercept)  0.72942    0.37791    1.93   0.0552 .  
+#&gt; hwy          0.69071    0.01576   43.82   &lt;2e-16 ***
 #&gt; ---
 #&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #&gt; 
-#&gt; Residual standard error: 1.184 on 179 degrees of freedom
-#&gt; Multiple R-squared:  0.9187, Adjusted R-squared:  0.9183 
-#&gt; F-statistic:  2023 on 1 and 179 DF,  p-value: &lt; 2.2e-16</code></pre>
+#&gt; Residual standard error: 1.247 on 173 degrees of freedom
+#&gt; Multiple R-squared:  0.9173, Adjusted R-squared:  0.9169 
+#&gt; F-statistic:  1920 on 1 and 173 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>Great! Now it’s time to apply the model.</p>
@@ -1359,7 +1359,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="evaluate-a-model-using-testtrain-split" class="level2" data-number="2.12">
 <h2 data-number="2.12" class="anchored" data-anchor-id="evaluate-a-model-using-testtrain-split"><span class="header-section-number">2.12</span> Evaluate a model using test/train split</h2>
 <p>Now you will test the model <code>mpg_model</code> on the test data, <code>mpg_test</code>. Functions <code>rmse()</code> and <code>r_squared()</code> to calculate RMSE and R-squared have been provided for convenience:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="fu">rmse</span>(predcol, ycol)</span>
 <span id="cb58-2"><a href="#cb58-2"></a><span class="fu">r_squared</span>(predcol, ycol)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1377,7 +1377,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Do the same with <code>r_squared()</code>. Are the performances similar?</li>
 <li>Use <code>ggplot2</code> to plot the predictions against <code>cty</code> on the <code>test</code> data.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># rmse &amp; r_squared function</span></span>
 <span id="cb59-2"><a href="#cb59-2"></a>rmse <span class="ot">&lt;-</span> <span class="cf">function</span>(predcol, ycol) {</span>
 <span id="cb59-3"><a href="#cb59-3"></a>  res <span class="ot">=</span> predcol<span class="sc">-</span>ycol</span>
@@ -1399,20 +1399,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb59-19"><a href="#cb59-19"></a><span class="co"># Evaluate the rmse on both training and test data and print them</span></span>
 <span id="cb59-20"><a href="#cb59-20"></a>(rmse_train <span class="ot">&lt;-</span> <span class="fu">rmse</span>(mpg_train<span class="sc">$</span>pred, mpg_train<span class="sc">$</span>cty))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 1.177095</code></pre>
+<pre><code>#&gt; [1] 1.239602</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>(rmse_test  <span class="ot">&lt;-</span> <span class="fu">rmse</span>(mpg_test<span class="sc">$</span>pred, mpg_test<span class="sc">$</span>cty))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 1.482991</code></pre>
+<pre><code>#&gt; [1] 1.277706</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Evaluate the r-squared on both training and test data.and print them</span></span>
 <span id="cb63-2"><a href="#cb63-2"></a>(rsq_train <span class="ot">&lt;-</span> <span class="fu">r_squared</span>(mpg_train<span class="sc">$</span>pred, mpg_train<span class="sc">$</span>cty))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.9187256</code></pre>
+<pre><code>#&gt; [1] 0.9173457</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a>(rsq_test <span class="ot">&lt;-</span> <span class="fu">r_squared</span>(mpg_test<span class="sc">$</span>pred, mpg_test<span class="sc">$</span>cty))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.8937147</code></pre>
+<pre><code>#&gt; [1] 0.8997628</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Plot the predictions (on the x-axis) against the outcome (cty) on the test data</span></span>
 <span id="cb67-2"><a href="#cb67-2"></a><span class="fu">ggplot</span>(mpg_test, <span class="fu">aes</span>(<span class="at">x =</span> pred, <span class="at">y =</span> cty)) <span class="sc">+</span> </span>
@@ -1421,7 +1421,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-23-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-24-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1432,7 +1432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="2.13" class="anchored" data-anchor-id="create-a-cross-validation-plan"><span class="header-section-number">2.13</span> Create a cross validation plan</h2>
 <p>There are several ways to implement an n-fold cross validation plan. In this exercise you will create such a plan using <code>vtreat::kWayCrossValidation()</code>, and examine it.</p>
 <p><code>kWayCrossValidation()</code> creates a cross validation plan with the following call:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>splitPlan <span class="ot">&lt;-</span> <span class="fu">kWayCrossValidation</span>(nRows, nSplits, dframe, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>where <code>nRows</code> is the number of rows of data to be split, and <code>nSplits</code> is the desired number of cross-validation folds.</p>
@@ -1453,7 +1453,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><p>Call <code>str()</code> to examine the structure of <code>splitPlan</code>.</p></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># Load the package vtreat</span></span>
 <span id="cb69-2"><a href="#cb69-2"></a><span class="fu">library</span>(vtreat)</span>
 <span id="cb69-3"><a href="#cb69-3"></a></span>
@@ -1493,14 +1493,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; List of 3
 #&gt;  $ :List of 2
-#&gt;   ..$ train: int [1:156] 1 2 3 4 5 6 7 9 11 12 ...
-#&gt;   ..$ app  : int [1:78] 142 187 18 169 79 189 227 154 133 130 ...
+#&gt;   ..$ train: int [1:156] 1 2 3 5 9 10 11 12 13 14 ...
+#&gt;   ..$ app  : int [1:78] 133 179 229 148 59 197 91 92 155 22 ...
 #&gt;  $ :List of 2
-#&gt;   ..$ train: int [1:156] 2 5 6 7 8 10 11 12 13 14 ...
-#&gt;   ..$ app  : int [1:78] 73 88 56 86 150 104 138 50 181 109 ...
+#&gt;   ..$ train: int [1:156] 1 2 3 4 5 6 7 8 9 12 ...
+#&gt;   ..$ app  : int [1:78] 175 51 125 121 137 171 120 93 40 70 ...
 #&gt;  $ :List of 2
-#&gt;   ..$ train: int [1:156] 1 3 4 8 9 10 14 15 18 20 ...
-#&gt;   ..$ app  : int [1:78] 234 122 71 196 53 23 6 199 158 13 ...
+#&gt;   ..$ train: int [1:156] 4 6 7 8 10 11 15 16 17 19 ...
+#&gt;   ..$ app  : int [1:78] 207 14 3 50 199 49 68 191 62 100 ...
 #&gt;  - attr(*, "splitmethod")= chr "kwaycross"</code></pre>
 </div>
 </div>
@@ -1510,7 +1510,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="2.14" class="anchored" data-anchor-id="evaluate-a-modeling-procedure-using-n-fold-cross-validation"><span class="header-section-number">2.14</span> Evaluate a modeling procedure using n-fold cross-validation</h2>
 <p>In this exercise you will use <code>splitPlan</code>, the 3-fold cross validation plan from the previous exercise, to make predictions from a model that predicts <code>mpg$cty</code> from <code>mpg$hwy</code>.</p>
 <p>If <code>dframe</code> is the training data, then one way to add a column of cross-validation predictions to the frame is as follows:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># Initialize a column of the appropriate length</span></span>
 <span id="cb73-2"><a href="#cb73-2"></a>dframe<span class="sc">$</span>pred.cv <span class="ot">&lt;-</span> <span class="dv">0</span> </span>
 <span id="cb73-3"><a href="#cb73-3"></a></span>
@@ -1540,7 +1540,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>rmse()</code> to get the root mean squared error of the predictions from the full model (<code>mpg$pred</code>). <em>Recall that <code>rmse()</code> takes two arguments, the predicted values, and the actual outcome.</em></li>
 <li>Get the root mean squared error of the cross-validation predictions. Are the two values about the same?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="co"># Run the 3-fold cross validation plan from splitPlan</span></span>
 <span id="cb74-2"><a href="#cb74-2"></a>k <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="co"># Number of folds</span></span>
 <span id="cb74-3"><a href="#cb74-3"></a>mpg<span class="sc">$</span>pred.cv <span class="ot">&lt;-</span> <span class="dv">0</span> </span>
@@ -1561,7 +1561,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a><span class="co"># Get the rmse of the cross-validation predictions</span></span>
 <span id="cb76-2"><a href="#cb76-2"></a><span class="fu">rmse</span>(mpg<span class="sc">$</span>pred.cv, mpg<span class="sc">$</span>cty)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 1.258596</code></pre>
+<pre><code>#&gt; [1] 1.256771</code></pre>
 </div>
 </div>
 <p>Congratulations! You have successfully estimated a model’s out-of-sample error via cross-validation. Remember, cross-validation validates the <em>modeling process</em>, not an actual model.</p>
@@ -1611,7 +1611,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>How is <code>Time == 'Early'</code> represented? And <code>Time == 'Late'</code>?</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a><span class="co"># Load packages</span></span>
 <span id="cb78-2"><a href="#cb78-2"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1710,7 +1710,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>flower_model</code> to predict the number of flowers. Add the predictions to <code>flowers</code> as the column <code>predictions</code>.</li>
 <li>Fill in the blanks to plot predictions vs.&nbsp;actual flowers (predictions on the x-axis).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="co"># Fit a model to predict Flowers from Intensity and Time : flower_model</span></span>
 <span id="cb92-2"><a href="#cb92-2"></a>flower_model <span class="ot">&lt;-</span>  <span class="fu">lm</span>(fmla, <span class="at">data =</span> flowers)</span>
 <span id="cb92-3"><a href="#cb92-3"></a></span>
@@ -1758,7 +1758,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-29-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-30-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1803,7 +1803,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>We saw that one of the models with interaction terms had a better R-squared than the additive model, suggesting that using interaction terms gives a better fit. In this exercise we will compare the R-squared of one of the interaction models to the main-effects-only model.</p>
 <p>Recall that the operator <code>:</code> designates the interaction between two variables. The operator <code>*</code> designates the interaction between the two variables, plus the main effects.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a>x<span class="sc">*</span>y <span class="ot">=</span> x <span class="sc">+</span> y <span class="sc">+</span> x<span class="sc">:</span>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Steps</strong></p>
@@ -1821,7 +1821,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Fit a linear model with the interaction: <code>model_interaction</code> to the data.</p></li>
 <li><p>Call <code>summary()</code> on both models. Which has a better R-squared?</p></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a><span class="co"># Load data</span></span>
 <span id="cb98-2"><a href="#cb98-2"></a>alcohol <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/alcohol.rds"</span>)</span>
 <span id="cb98-3"><a href="#cb98-3"></a><span class="fu">summary</span>(alcohol)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1936,7 +1936,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><p>Compare the RMSEs. Based on these results, which model should you use?</p></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1"></a><span class="co"># load package</span></span>
 <span id="cb108-2"><a href="#cb108-2"></a><span class="fu">library</span>(tidyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -2080,7 +2080,7 @@ rmse_{rel} = \\sqrt(\\overline{rel^2})
 <li>In your opinion, which model does “better”?</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1"></a><span class="co"># Load data</span></span>
 <span id="cb118-2"><a href="#cb118-2"></a>fdata <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/fdata.rds"</span>)</span>
 <span id="cb118-3"><a href="#cb118-3"></a><span class="fu">summary</span>(fdata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2135,7 +2135,7 @@ rmse_{rel} = \\sqrt(\\overline{rel^2})
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-33-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-34-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2168,7 +2168,7 @@ rmse_{rel} = \\sqrt(\\overline{rel^2})
 </ul></li>
 <li><p>Fill in the blanks to plot a scatter plot of predicted income vs income on the test set.</p></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1"></a><span class="co"># Load data</span></span>
 <span id="cb123-2"><a href="#cb123-2"></a>income_train <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/income_train.rds"</span>) </span>
 <span id="cb123-3"><a href="#cb123-3"></a>income_test  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/income_test.rds"</span>)</span>
@@ -2208,7 +2208,7 @@ rmse_{rel} = \\sqrt(\\overline{rel^2})
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-34-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-35-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2231,7 +2231,7 @@ rmse_{rel} = \\sqrt(\\overline{rel^2})
 <li>Fill in the blanks to calculate the RMSE and relative RMSE for predictions.model has larger absolute error? Larger relative error?</li>
 <li>Which model has larger absolute error? Larger relative error?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1"></a><span class="co"># fmla.abs is in the workspace</span></span>
 <span id="cb132-2"><a href="#cb132-2"></a>fmla.abs <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(<span class="st">"Income2005 ~ Arith + Word + Parag + Math + AFQT"</span>)</span>
 <span id="cb132-3"><a href="#cb132-3"></a></span>
@@ -2324,7 +2324,7 @@ rmse_{rel} = \\sqrt(\\overline{rel^2})
 <p><img src="https://assets.datacamp.com/production/course_3851/datasets/Ch3_V4_houseprice.png" alt="scatterplot"></p>
 <p>You will fit a model to predict price as a function of the squared size, and look at its fit on the training data.</p>
 <p>Because <code>^</code> is also a symbol to express interactions, use the function <a href="https://www.rdocumentation.org/packages/base/topics/AsIs"><code>I()</code></a> to treat the expression <code>x^2</code> “as is”: that is, as the square of x rather than the interaction of <code>x</code> with itself.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1"></a>exampleFormula <span class="ot">=</span> y <span class="sc">~</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Steps</strong></p>
@@ -2339,7 +2339,7 @@ rmse_{rel} = \\sqrt(\\overline{rel^2})
 <li>graphically compare the predictions of the two models to the data. Which fits better?</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1"></a><span class="co"># houseprice is in the workspace</span></span>
 <span id="cb136-2"><a href="#cb136-2"></a>houseprice <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/houseprice.rds"</span>)</span>
 <span id="cb136-3"><a href="#cb136-3"></a><span class="fu">summary</span>(houseprice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2375,7 +2375,7 @@ rmse_{rel} = \\sqrt(\\overline{rel^2})
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-37-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-38-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2401,7 +2401,7 @@ rmse_{rel} = \\sqrt(\\overline{rel^2})
 <li><p>Fill in the blanks to gather the predictions and calculate the residuals.</p></li>
 <li><p>Fill in the blanks to compare the RMSE for the two models. Which one fits better?</p></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1"></a><span class="co"># houseprice is in the workspace</span></span>
 <span id="cb141-2"><a href="#cb141-2"></a><span class="fu">summary</span>(houseprice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2501,7 +2501,7 @@ rmse_{rel} = \\sqrt(\\overline{rel^2})
 <li><code>humerus</code> : length of humerus (“upper arm bone” that connects the wing to the body) (inches)</li>
 </ul>
 <p>Remember that when using <a href="https://www.rdocumentation.org/packages/stats/topics/glm"><code>glm()</code></a> to create a logistic regression model, you must explicitly specify that <code>family = binomial</code>:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1"></a><span class="fu">glm</span>(formula, <span class="at">data =</span> data, <span class="at">family =</span> binomial)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You will call <code>summary()</code>, <code>broom::glance()</code> to see different functions for examining a logistic regression model. One of the diagnostics that you will look at is the analog to \(R^2\), called pseudo-\(R^2\).</p>
@@ -2518,7 +2518,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <li>Call <code>glance()</code> on the model to see the deviances and other diagnostics in a data frame. Assign the output from <code>glance()</code> to the variable <code>perf</code>.</li>
 <li>Calculate the pseudo-\(R^2\).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1"></a><span class="co"># Load data</span></span>
 <span id="cb145-2"><a href="#cb145-2"></a>sparrow <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/sparrow.rds"</span>)</span>
 <span id="cb145-3"><a href="#cb145-3"></a><span class="fu">summary</span>(sparrow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2606,7 +2606,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <h2 data-number="4.3" class="anchored" data-anchor-id="predict-sparrow-survival"><span class="header-section-number">4.3</span> Predict sparrow survival</h2>
 <p>In this exercise you will predict the probability of survival using the sparrow survival model from the previous exercise.</p>
 <p>Recall that when calling <a href="https://www.rdocumentation.org/packages/stats/topics/predict.glm"><code>predict()</code></a> to get the predicted probabilities from a <code>glm()</code> model, you must specify that you want the response:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb154"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1"></a><span class="fu">predict</span>(model, <span class="at">type =</span> <span class="st">"response"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Otherwise, <code>predict()</code> on a logistic regression model returns the predicted log-odds of the event, not the probability.</p>
@@ -2623,7 +2623,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <li>Create a new column in <code>sparrow</code> called <code>pred</code> that contains the predictions on the training data.</li>
 <li>Call <code>GainCurvePlot()</code> to create the gain curve of predictions. Does the model do a good job of sorting the sparrows by whether or not they actually survived?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb155"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1"></a><span class="co"># sparrow is in the workspace</span></span>
 <span id="cb155-2"><a href="#cb155-2"></a><span class="fu">summary</span>(sparrow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2685,7 +2685,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-42-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-43-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2762,7 +2762,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <li>Calculate the pseudo-R-squared of the model.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb160"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1"></a><span class="co"># bikesJuly is in the workspace</span></span>
 <span id="cb160-2"><a href="#cb160-2"></a>bikesJuly <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/bikesJuly.rds"</span>)</span>
 <span id="cb160-3"><a href="#cb160-3"></a><span class="fu">str</span>(bikesJuly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2835,7 +2835,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <li>Do any of the predictions appear negative?</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb171"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1"></a><span class="co"># bikesAugust is in the workspace</span></span>
 <span id="cb171-2"><a href="#cb171-2"></a>bikesAugust <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/bikesAugust.rds"</span>)</span>
 <span id="cb171-3"><a href="#cb171-3"></a><span class="fu">str</span>(bikesAugust)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2932,7 +2932,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-44-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-45-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2961,7 +2961,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 </ul></li>
 <li><p>Does the model see the general time patterns in bike rentals?</p></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb177"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1"></a><span class="co"># Plot predictions and cnt by date/time</span></span>
 <span id="cb177-2"><a href="#cb177-2"></a>bikesAugust <span class="sc">%&gt;%</span> </span>
 <span id="cb177-3"><a href="#cb177-3"></a>  <span class="co"># set start to 0, convert unit to days</span></span>
@@ -2979,7 +2979,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-45-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-46-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3049,11 +3049,11 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <h2 data-number="4.15" class="anchored" data-anchor-id="model-soybean-growth-with-gam"><span class="header-section-number">4.15</span> Model soybean growth with GAM</h2>
 <p>In this exercise you will model the average leaf weight on a soybean plant as a function of time (after planting). As you will see, the soybean plant doesn’t grow at a steady rate, but rather has a “growth spurt” that eventually tapers off. Hence, leaf weight is not well described by a linear model.</p>
 <p>Recall that you can designate which variable you want to model non-linearly in a formula with the <a href="https://www.rdocumentation.org/packages/mgcv/topics/s"><code>s()</code></a> function:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb178"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb178-1"><a href="#cb178-1"></a>y <span class="sc">~</span> <span class="fu">s</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Also remember that <a href="https://www.rdocumentation.org/packages/mgcv/topics/gam"><code>gam()</code></a> from the package <code>mgcv</code> has the calling interface</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb179"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1"></a><span class="fu">gam</span>(formula, family, data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For standard regression, use <code>family = gaussian</code> (the default).</p>
@@ -3062,7 +3062,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <ol type="1">
 <li>Fill in the blanks to plot <code>weight</code> versus <code>Time</code> (<code>Time</code> on x-axis). <em>Does the relationship look linear?</em></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb180"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb180-1"><a href="#cb180-1"></a><span class="co"># load data</span></span>
 <span id="cb180-2"><a href="#cb180-2"></a>soybean_train <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/soybean_train.rds"</span>)</span>
 <span id="cb180-3"><a href="#cb180-3"></a><span class="fu">summary</span>(soybean_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3082,7 +3082,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-48-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-49-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3092,7 +3092,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <li>Create the formula <code>fmla.gam</code> to express <code>weight</code> as a non-linear function of <code>Time</code>. Print it.</li>
 <li>Fit a generalized additive model on <code>soybean_train</code> using <code>fmla.gam</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb183"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1"></a><span class="co"># Load the package mgcv</span></span>
 <span id="cb183-2"><a href="#cb183-2"></a><span class="fu">library</span>(mgcv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -3132,7 +3132,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <li>Call <code>summary()</code> on <code>'model.gam</code>. <em>The “deviance explained” reports the model’s unadjusted \(R^2\). What is the \(R^2\)? Which model appears to be a better fit to the training data?</em></li>
 <li>Call <code>plot()</code> on <code>model.gam</code> to see the derived relationship between <code>Time</code> and <code>weight</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb193"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href="#cb193-1"></a><span class="co"># Call summary() on model.lin and look for R-squared</span></span>
 <span id="cb193-2"><a href="#cb193-2"></a>model.lin <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> weight <span class="sc">~</span> Time, <span class="at">data =</span> soybean_train)</span>
 <span id="cb193-3"><a href="#cb193-3"></a><span class="fu">summary</span>(model.lin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3186,7 +3186,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-50-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-51-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3215,7 +3215,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <li>Notice that the linear model sometimes predicts negative weights! Does the gam model?</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb198"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1"></a><span class="co"># Load soybean_test</span></span>
 <span id="cb198-2"><a href="#cb198-2"></a>soybean_test <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/soybean_test.rds"</span>)</span>
 <span id="cb198-3"><a href="#cb198-3"></a><span class="fu">summary</span>(soybean_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3262,7 +3262,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-51-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-52-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3363,7 +3363,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <li>Print the model. What is the R-squared?</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb202"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb202-1"><a href="#cb202-1"></a><span class="co"># bikesJuly is in the workspace</span></span>
 <span id="cb202-2"><a href="#cb202-2"></a><span class="fu">str</span>(bikesJuly)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -3443,7 +3443,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 </ul></li>
 <li><p>Fill in the blanks to plot actual bike rental counts (<code>cnt</code>) versus the predictions (<code>pred</code> on x-axis).</p></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb212"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb212-1"><a href="#cb212-1"></a><span class="co"># Make predictions on the August data</span></span>
 <span id="cb212-2"><a href="#cb212-2"></a>bikesAugust<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(bike_model_rf, bikesAugust)<span class="sc">$</span>predictions</span>
 <span id="cb212-3"><a href="#cb212-3"></a></span>
@@ -3466,7 +3466,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-53-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-53-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-54-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3488,7 +3488,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 </ul></li>
 </ol>
 <p><em>How does the random forest model compare?</em></p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb214"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb214-1"><a href="#cb214-1"></a>first_two_weeks <span class="ot">&lt;-</span> bikesAugust <span class="sc">%&gt;%</span> </span>
 <span id="cb214-2"><a href="#cb214-2"></a>  <span class="co"># Set start to 0, convert unit to days</span></span>
 <span id="cb214-3"><a href="#cb214-3"></a>  <span class="fu">mutate</span>(<span class="at">instant =</span> (instant <span class="sc">-</span> <span class="fu">min</span>(instant)) <span class="sc">/</span> <span class="dv">24</span>) <span class="sc">%&gt;%</span> </span>
@@ -3507,7 +3507,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-54-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-55-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3543,7 +3543,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <h2 data-number="5.9" class="anchored" data-anchor-id="vtreat-on-a-small-example"><span class="header-section-number">5.9</span> vtreat on a small example</h2>
 <p>In this exercise you will use <code>vtreat</code> to one-hot-encode a categorical variable on a small example. <code>vtreat</code> creates a <em>treatment plan</em> to transform categorical variables into indicator variables (coded <code>"lev"</code>), and to clean bad values out of numerical variables (coded <code>"clean"</code>).</p>
 <p>To design a treatment plan use the function <a href="https://www.rdocumentation.org/packages/vtreat/topics/designTreatmentsZ"><code>designTreatmentsZ()</code></a></p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb215"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb215-1"><a href="#cb215-1"></a>treatplan <span class="ot">&lt;-</span> <span class="fu">designTreatmentsZ</span>(data, varlist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
@@ -3551,7 +3551,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <li><code>varlist</code>: a vector of input variables to be treated (as strings).</li>
 </ul>
 <p><code>designTreatmentsZ()</code> returns a list with an element <code>scoreFrame</code>: a data frame that includes the names and types of the new variables:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb216"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb216-1"><a href="#cb216-1"></a>scoreFrame <span class="ot">&lt;-</span> treatplan <span class="sc">%&gt;%</span> </span>
 <span id="cb216-2"><a href="#cb216-2"></a>            magrittr<span class="sc">::</span><span class="fu">use_series</span>(scoreFrame) <span class="sc">%&gt;%</span> </span>
 <span id="cb216-3"><a href="#cb216-3"></a>            <span class="fu">select</span>(varName, origName, code)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3567,13 +3567,13 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 </ul>
 <p>(<a href="https://www.rdocumentation.org/packages/magrittr/topics/extract"><code>magrittr::use_series()</code></a> is an alias for <code>$</code> that you can use in pipes.)</p>
 <p>For these exercises, we want <code>varName</code> where <code>code</code> is either <code>"clean"</code> or <code>"lev"</code>:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb217"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb217-1"><a href="#cb217-1"></a>newvarlist <span class="ot">&lt;-</span> scoreFrame <span class="sc">%&gt;%</span> </span>
 <span id="cb217-2"><a href="#cb217-2"></a>             <span class="fu">filter</span>(code <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"clean"</span>, <span class="st">"lev"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb217-3"><a href="#cb217-3"></a>             magrittr<span class="sc">::</span><span class="fu">use_series</span>(varName)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To transform the data set into all numerical and one-hot-encoded variables, use <a href="https://www.rdocumentation.org/packages/vtreat/topics/prepare"><code>prepare()</code></a>:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb218"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb218-1"><a href="#cb218-1"></a>data.treat <span class="ot">&lt;-</span> <span class="fu">prepare</span>(treatplan, data, <span class="at">varRestrictions =</span> newvarlist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
@@ -3598,7 +3598,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <li>Print it and compare to <code>dframe</code>.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb219"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb219-1"><a href="#cb219-1"></a><span class="co"># Load package</span></span>
 <span id="cb219-2"><a href="#cb219-2"></a><span class="fu">library</span>(magrittr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -3624,11 +3624,11 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <span id="cb224-4"><a href="#cb224-4"></a><span class="co"># Create the treatment plan</span></span>
 <span id="cb224-5"><a href="#cb224-5"></a>treatplan <span class="ot">&lt;-</span> <span class="fu">designTreatmentsZ</span>(dframe, vars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] "vtreat 1.6.3 inspecting inputs Mon Dec  5 17:51:41 2022"
-#&gt; [1] "designing treatments Mon Dec  5 17:51:41 2022"
-#&gt; [1] " have initial level statistics Mon Dec  5 17:51:41 2022"
-#&gt; [1] " scoring treatments Mon Dec  5 17:51:41 2022"
-#&gt; [1] "have treatment plan Mon Dec  5 17:51:41 2022"</code></pre>
+<pre><code>#&gt; [1] "vtreat 1.6.3 inspecting inputs Fri Dec  9 11:06:06 2022"
+#&gt; [1] "designing treatments Fri Dec  9 11:06:06 2022"
+#&gt; [1] " have initial level statistics Fri Dec  9 11:06:06 2022"
+#&gt; [1] " scoring treatments Fri Dec  9 11:06:06 2022"
+#&gt; [1] "have treatment plan Fri Dec  9 11:06:06 2022"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb226"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb226-1"><a href="#cb226-1"></a><span class="co"># Examine the scoreFrame</span></span>
 <span id="cb226-2"><a href="#cb226-2"></a>(scoreFrame <span class="ot">&lt;-</span> treatplan <span class="sc">%&gt;%</span></span>
@@ -3679,7 +3679,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <li>How are the yellow rows encoded?</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb230"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb230-1"><a href="#cb230-1"></a><span class="co"># treatplan is in the workspace</span></span>
 <span id="cb230-2"><a href="#cb230-2"></a><span class="fu">summary</span>(treatplan)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -3751,7 +3751,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <li><p>Use <code>prepare()</code> to create a one-hot-encoded test frame <code>bikesAugust.treat</code> from <code>bikesAugust</code> in the same way.</p></li>
 <li><p>Call <code>str()</code> on both prepared test frames to see the structure.</p></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb237"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb237-1"><a href="#cb237-1"></a><span class="co"># The outcome column</span></span>
 <span id="cb237-2"><a href="#cb237-2"></a>(outcome <span class="ot">&lt;-</span> <span class="st">"cnt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -3963,39 +3963,44 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <li>How many trees do you need?</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb247"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb247-1"><a href="#cb247-1"></a><span class="co"># The July data is in the workspace</span></span>
 <span id="cb247-2"><a href="#cb247-2"></a><span class="fu">ls</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;  [1] "N"                   "alcohol"             "bike_model"         
-#&gt;  [4] "bike_model_rf"       "bikesAugust"         "bikesAugust.treat"  
-#&gt;  [7] "bikesJuly"           "bikesJuly.treat"     "bloodpressure"      
-#&gt; [10] "bloodpressure_model" "dframe"              "dframe.treat"       
-#&gt; [13] "fdata"               "fdata2"              "fe_mean"            
-#&gt; [16] "first_two_weeks"     "flower_model"        "flowers"            
-#&gt; [19] "fmla"                "fmla.abs"            "fmla.gam"           
-#&gt; [22] "fmla.log"            "fmla_add"            "fmla_interaction"   
-#&gt; [25] "fmla_sqr"            "gp"                  "houseprice"         
-#&gt; [28] "houseprice_long"     "i"                   "income_long"        
-#&gt; [31] "income_test"         "income_train"        "k"                  
-#&gt; [34] "mean_bikes"          "mmat"                "model"              
-#&gt; [37] "model.abs"           "model.gam"           "model.lin"          
-#&gt; [40] "model.log"           "model_add"           "model_interaction"  
-#&gt; [43] "model_lin"           "model_sqr"           "mpg"                
-#&gt; [46] "mpg_model"           "mpg_test"            "mpg_train"          
-#&gt; [49] "nRows"               "newrates"            "newvars"            
-#&gt; [52] "outcome"             "perf"                "pred"               
-#&gt; [55] "pseudoR2"            "r_squared"           "res"                
-#&gt; [58] "rho"                 "rho2"                "rmse"               
-#&gt; [61] "rmse_test"           "rmse_train"          "rsq"                
-#&gt; [64] "rsq_glance"          "rsq_test"            "rsq_train"          
-#&gt; [67] "rss"                 "scoreFrame"          "sd_unemployment"    
-#&gt; [70] "seed"                "soybean_long"        "soybean_test"       
-#&gt; [73] "soybean_train"       "sparrow"             "sparrow_model"      
-#&gt; [76] "split"               "splitPlan"           "target"             
-#&gt; [79] "testframe"           "testframe.treat"     "treatplan"          
-#&gt; [82] "tss"                 "unemployment"        "unemployment_model" 
-#&gt; [85] "var_bikes"           "vars"</code></pre>
+<pre><code>#&gt;   [1] "N"                      "alcohol"                "bike_model"            
+#&gt;   [4] "bike_model_rf"          "bikesAugust"            "bikesAugust.treat"     
+#&gt;   [7] "bikesJuly"              "bikesJuly.treat"        "bloodpressure"         
+#&gt;  [10] "bloodpressure_model"    "dframe"                 "dframe.treat"          
+#&gt;  [13] "fdata"                  "fdata2"                 "fe_mean"               
+#&gt;  [16] "first_two_weeks"        "flower_model"           "flowers"               
+#&gt;  [19] "fmla"                   "fmla.abs"               "fmla.gam"              
+#&gt;  [22] "fmla.log"               "fmla_add"               "fmla_interaction"      
+#&gt;  [25] "fmla_sqr"               "geom_colors"            "gp"                    
+#&gt;  [28] "houseprice"             "houseprice_long"        "i"                     
+#&gt;  [31] "income_long"            "income_test"            "income_train"          
+#&gt;  [34] "k"                      "mean_bikes"             "mmat"                  
+#&gt;  [37] "model"                  "model.abs"              "model.gam"             
+#&gt;  [40] "model.lin"              "model.log"              "model_add"             
+#&gt;  [43] "model_interaction"      "model_lin"              "model_sqr"             
+#&gt;  [46] "mpg"                    "mpg_model"              "mpg_test"              
+#&gt;  [49] "mpg_train"              "nRows"                  "newrates"              
+#&gt;  [52] "newvars"                "outcome"                "palette"               
+#&gt;  [55] "palette_tie"            "perf"                   "pred"                  
+#&gt;  [58] "pseudoR2"               "r_squared"              "res"                   
+#&gt;  [61] "rho"                    "rho2"                   "rmse"                  
+#&gt;  [64] "rmse_test"              "rmse_train"             "rsq"                   
+#&gt;  [67] "rsq_glance"             "rsq_test"               "rsq_train"             
+#&gt;  [70] "rss"                    "scale_color_discrete"   "scale_color_gradientn" 
+#&gt;  [73] "scale_color_ordinal"    "scale_colour_discrete"  "scale_colour_gradientn"
+#&gt;  [76] "scale_colour_ordinal"   "scale_fill_discrete"    "scale_fill_gradientn"  
+#&gt;  [79] "scale_fill_ordinal"     "scoreFrame"             "sd_unemployment"       
+#&gt;  [82] "seed"                   "soybean_long"           "soybean_test"          
+#&gt;  [85] "soybean_train"          "sparrow"                "sparrow_model"         
+#&gt;  [88] "split"                  "splitPlan"              "stat_colors"           
+#&gt;  [91] "target"                 "testframe"              "testframe.treat"       
+#&gt;  [94] "theme_tie"              "tie_color_pal"          "treatplan"             
+#&gt;  [97] "tss"                    "unemployment"           "unemployment_model"    
+#&gt; [100] "var_bikes"              "vars"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb249"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb249-1"><a href="#cb249-1"></a><span class="co"># Load the package xgboost</span></span>
 <span id="cb249-2"><a href="#cb249-2"></a><span class="fu">library</span>(xgboost)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -4020,11 +4025,11 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <span id="cb252-10"><a href="#cb252-10"></a>            <span class="at">verbose =</span> <span class="dv">0</span>   <span class="co"># silent</span></span>
 <span id="cb252-11"><a href="#cb252-11"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [17:51:41] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.
-#&gt; [17:51:41] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.
-#&gt; [17:51:41] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.
-#&gt; [17:51:41] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.
-#&gt; [17:51:41] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.</code></pre>
+<pre><code>#&gt; [11:06:06] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.
+#&gt; [11:06:06] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.
+#&gt; [11:06:06] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.
+#&gt; [11:06:06] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.
+#&gt; [11:06:06] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb254"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb254-1"><a href="#cb254-1"></a><span class="co"># Get the evaluation log</span></span>
 <span id="cb254-2"><a href="#cb254-2"></a>elog <span class="ot">&lt;-</span> cv<span class="sc">$</span>evaluation_log</span>
@@ -4069,7 +4074,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <li>Do you see a possible problem with the predictions?</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb255"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb255-1"><a href="#cb255-1"></a><span class="co"># The number of trees to use, as determined by xgb.cv</span></span>
 <span id="cb255-2"><a href="#cb255-2"></a>ntrees <span class="ot">&lt;-</span> <span class="dv">76</span></span>
 <span id="cb255-3"><a href="#cb255-3"></a></span>
@@ -4083,8 +4088,8 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <span id="cb255-11"><a href="#cb255-11"></a>                   <span class="at">verbose =</span> <span class="dv">0</span>  <span class="co"># silent</span></span>
 <span id="cb255-12"><a href="#cb255-12"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [17:51:42] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.
-#&gt; [17:51:42] WARNING: amalgamation/../src/learner.cc:627: 
+<pre><code>#&gt; [11:06:06] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.
+#&gt; [11:06:06] WARNING: amalgamation/../src/learner.cc:627: 
 #&gt; Parameters: { "depth" } might not be used.
 #&gt; 
 #&gt;   This could be a false alarm, with some parameters getting used by language bindings but
@@ -4101,7 +4106,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-63-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-63-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-64-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-64-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -4119,7 +4124,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <li>How does it compare to the RMSE from the poisson model (approx. 112.6) and the random forest model (approx. 96.7)?</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb258"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb258-1"><a href="#cb258-1"></a><span class="co"># bikesAugust is in the workspace</span></span>
 <span id="cb258-2"><a href="#cb258-2"></a><span class="fu">str</span>(bikesAugust)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -4168,7 +4173,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 </ul></li>
 </ol>
 <p>How does the gradient boosting model compare to the previous models?</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb261"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb261-1"><a href="#cb261-1"></a><span class="co"># Print quasipoisson_plot</span></span>
 <span id="cb261-2"><a href="#cb261-2"></a><span class="co"># quasipoisson_plot</span></span>
 <span id="cb261-3"><a href="#cb261-3"></a></span>
@@ -4189,7 +4194,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-65-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_supervised_learning_regression_files/figure-html/unnamed-chunk-66-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="02_supervised_learning_regression_files/figure-html/unnamed-chunk-66-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -4468,7 +4473,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":true,"selector":".lightbox"});</script>
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":true,"selector":".lightbox"});</script>
 
 
 

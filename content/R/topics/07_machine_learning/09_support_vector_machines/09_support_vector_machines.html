@@ -484,7 +484,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="toc-section-number">1</span>  1. Introduction</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="toc-section-number">1</span>  Introduction</a>
   <ul class="collapse">
   <li><a href="#sugar-content-of-soft-drinks" id="toc-sugar-content-of-soft-drinks" class="nav-link" data-scroll-target="#sugar-content-of-soft-drinks"><span class="toc-section-number">1.1</span>  Sugar content of soft drinks</a></li>
   <li><a href="#visualizing-a-sugar-content-dataset" id="toc-visualizing-a-sugar-content-dataset" class="nav-link" data-scroll-target="#visualizing-a-sugar-content-dataset"><span class="toc-section-number">1.2</span>  Visualizing a sugar content dataset</a></li>
@@ -574,7 +574,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>This course will introduce a powerful classifier, the support vector machine (SVM) using an intuitive, visual approach. Support Vector Machines in R will help students develop an understanding of the SVM model as a classifier and gain practical experience using R’s libsvm implementation from the e1071 package. Along the way, students will gain an intuitive understanding of important concepts, such as hard and soft margins, the kernel trick, different types of kernels, and how to tune SVM parameters. Get ready to classify data with this impressive model.</p>
 <section id="introduction" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 1. Introduction</h1>
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
 <p>This chapter introduces some key concepts of support vector machines through a simple 1-dimensional example. Students are also walked through the creation of a linearly separable dataset that is used in the subsequent chapter.</p>
 <section id="sugar-content-of-soft-drinks" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="sugar-content-of-soft-drinks"><span class="header-section-number">1.1</span> Sugar content of soft drinks</h2>
@@ -615,7 +615,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Complete the scatter plot code. Using the <code>df</code> dataset, plot the sugar content of samples along the x-axis (at y equal to zero).</li>
 <li>Write <code>ggplot()</code> code to display sugar content in <code>df</code> as a scatter plot. <em>Can you spot two distinct clusters corresponding to high and low sugar content samples?</em></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load ggplot2</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
@@ -637,7 +637,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-1-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -660,7 +660,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Find the maximal margin separator and assign it to the variable <code>mm_separator</code>.</li>
 <li>Use the displayed plot to find the sugar content values of the relevant extremal data points in each class.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co">#The maximal margin separator is at the midpoint of the two extreme points in each cluster.</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>mm_separator <span class="ot">&lt;-</span> (<span class="fl">8.9</span><span class="sc">+</span><span class="dv">10</span>)<span class="sc">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -674,7 +674,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a data frame called <code>separator</code> containing the maximal margin separator. This is available in the variable <code>mm_separator</code>(enter <code>mm_separator</code> to see it)</li>
 <li>Use the data frame created to add the maximal margin separator to the sugar content scatterplot created in the earlier exercise and display the result.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co">#create data frame containing the maximum margin separator</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>separator <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">sep =</span> mm_separator)</span>
 <span id="cb5-3"><a href="#cb5-3"></a></span>
@@ -686,7 +686,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -727,7 +727,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Set the number of data points, <code>n</code>.</li>
 <li>Generate a dataframe <code>df</code> with two uniformly distributed variables, <code>x1</code> and <code>x2</code> lying in (0, 1).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#set seed</span></span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb6-3"><a href="#cb6-3"></a></span>
@@ -751,7 +751,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>y = 1</code> if x2 &gt; 1.4*x1</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">#classify data points depending on location</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>df<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">ifelse</span>(df<span class="sc">$</span>x2<span class="fl">-1.4</span><span class="sc">*</span>df<span class="sc">$</span>x1 <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), </span>
 <span id="cb7-3"><a href="#cb7-3"></a>    <span class="at">levels =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -766,7 +766,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Introduce a margin <code>delta</code> of 0.07 units in your dataset.</li>
 <li>Replot the dataset, displaying the margin boundaries as dashed lines and the decision boundary as a solid line.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">#set margin</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>delta <span class="ot">&lt;-</span> <span class="fl">0.07</span></span>
 <span id="cb8-3"><a href="#cb8-3"></a></span>
@@ -785,7 +785,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -828,7 +828,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Assign the rows with <code>train == 1</code> to the dataframe <code>trainset</code> and those with <code>train == 0</code> to the dataframe <code>testset</code>.</li>
 <li>Remove <code>train</code> column from training and test datasets by index.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">#split train and test data in an 80/20 proportion</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>df[, <span class="st">"train"</span>] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">runif</span>(<span class="fu">nrow</span>(df))<span class="sc">&lt;</span><span class="fl">0.8</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
 <span id="cb9-3"><a href="#cb9-3"></a></span>
@@ -855,7 +855,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build an SVM model using a linear kernel.</li>
 <li>Do not scale the variables (this is to allow comparison with the original dataset later).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">library</span>(e1071)</span>
 <span id="cb10-2"><a href="#cb10-2"></a></span>
 <span id="cb10-3"><a href="#cb10-3"></a><span class="co">#build svm model, setting required parameters</span></span>
@@ -874,7 +874,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>List the components of your SVM model.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co">#list components of model</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="fu">names</span>(svm_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -891,7 +891,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>List the contents of <code>SV</code>, <code>index</code>, and <code>rho</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co">#list values of the SV, index and rho</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a>svm_model<span class="sc">$</span>SV</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1014,7 +1014,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Calculate the training accuracy of the model.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co">#compute training accuracy</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
 <span id="cb19-3"><a href="#cb19-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1025,7 +1025,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Calculate the test accuracy of the model.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co">#compute test accuracy</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
 <span id="cb21-3"><a href="#cb21-3"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1067,7 +1067,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Plot the training dataset.</li>
 <li>Mark out the support vectors on the plot using their indices from the SVM model.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co">#build scatter plot of training dataset</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> trainset, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> </span>
 <span id="cb23-3"><a href="#cb23-3"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
@@ -1082,7 +1082,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-14-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1098,7 +1098,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add the decision boundary to the plot.</li>
 <li>Add the margin boundaries to the plot.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># calculate w</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a>w <span class="ot">&lt;-</span> <span class="fu">t</span>(svm_model<span class="sc">$</span>coefs) <span class="sc">%*%</span> svm_model<span class="sc">$</span>SV</span>
 <span id="cb24-3"><a href="#cb24-3"></a></span>
@@ -1120,7 +1120,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1135,7 +1135,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build a linear SVM model using the training data.</li>
 <li>Plot the decision regions and support vectors.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co">#build svm model</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a>svm_model<span class="ot">&lt;-</span> </span>
 <span id="cb25-3"><a href="#cb25-3"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
@@ -1146,7 +1146,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-17-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1189,7 +1189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build a linear SVM with cost = 1 (default setting).</li>
 <li>Print the model to find the number of support vectors.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co">#build svm model, cost = 1</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a>svm_model_1 <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> .,</span>
 <span id="cb26-3"><a href="#cb26-3"></a>                   <span class="at">data =</span> trainset,</span>
@@ -1219,7 +1219,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build the model again with cost = 100.</li>
 <li>Print the model.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co">#build svm model, cost = 100</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a>svm_model_100 <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> .,</span>
 <span id="cb28-3"><a href="#cb28-3"></a>                   <span class="at">data =</span> trainset,</span>
@@ -1263,7 +1263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add the decision boundary and margins for the cost = 1 classifier to the training data plot.</li>
 <li>Display the resulting plot.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Create train plot and weights</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a>train_plot <span class="ot">&lt;-</span> trainset <span class="sc">|&gt;</span> <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> <span class="fu">geom_point</span>()</span>
 <span id="cb30-3"><a href="#cb30-3"></a></span>
@@ -1282,7 +1282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-19-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-20-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1291,7 +1291,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add the decision boundary and margins for the cost = 100 classifier to the plot you created in the first step.</li>
 <li>Display the final plot showing decision boundaries and margins for both classifiers.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>train_plot_100 <span class="ot">&lt;-</span> train_plot_with_margins</span>
 <span id="cb31-2"><a href="#cb31-2"></a>w_100          <span class="ot">&lt;-</span> <span class="fu">t</span>(svm_model_100<span class="sc">$</span>coefs) <span class="sc">%*%</span> svm_model_100<span class="sc">$</span>SV</span>
 <span id="cb31-3"><a href="#cb31-3"></a>slope_100      <span class="ot">&lt;-</span> <span class="sc">-</span>w_100[<span class="dv">1</span>]<span class="sc">/</span>w_100[<span class="dv">2</span>]</span>
@@ -1308,7 +1308,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-20-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-21-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1349,7 +1349,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Build a default cost linear SVM.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Load data</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset2.rds"</span>)</span>
 <span id="cb32-3"><a href="#cb32-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset2.rds"</span>)</span>
@@ -1362,7 +1362,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Calculate training accuracy.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co">#compute training accuracy</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
 <span id="cb33-3"><a href="#cb33-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1373,7 +1373,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Calculate test accuracy.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co">#compute test accuracy</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
 <span id="cb35-3"><a href="#cb35-3"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1384,13 +1384,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Plot classifier against training data.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co">#plot</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="fu">plot</span>(svm_model, trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-24-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-25-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1409,7 +1409,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Evaluate the accuracy of your model.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
 <span id="cb38-2"><a href="#cb38-2"></a></span>
 <span id="cb38-3"><a href="#cb38-3"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>){ </span>
@@ -1473,7 +1473,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Introduce a circular boundary of radius 0.8, centred at the origin.</li>
 <li>Create <code>df$y</code>, which takes value -1 or 1 depending on whether a point lies within or outside the circle.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co">#set number of variables and seed</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a>n <span class="ot">&lt;-</span> <span class="dv">400</span></span>
 <span id="cb42-3"><a href="#cb42-3"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
@@ -1499,7 +1499,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Create 2d scatter plot and color the two classes (y = -1 and y = 1) red and blue.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co">#build scatter plot, distinguish class by color</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2, <span class="at">color =</span> y)) <span class="sc">+</span> </span>
 <span id="cb43-3"><a href="#cb43-3"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
@@ -1510,7 +1510,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-27-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-28-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1547,7 +1547,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build a linear SVM using the default cost.</li>
 <li>Calculate training and test accuracies.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Load data</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset3.rds"</span>)</span>
 <span id="cb44-3"><a href="#cb44-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset3.rds"</span>) </span>
@@ -1571,7 +1571,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Set cost = 100 and repeat.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="co">#cost = 100 model</span></span>
 <span id="cb48-2"><a href="#cb48-2"></a>svm_model_2 <span class="ot">&lt;-</span> <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">cost =</span> <span class="dv">100</span>, <span class="at">kernel =</span> <span class="st">"linear"</span>)</span>
 <span id="cb48-3"><a href="#cb48-3"></a></span>
@@ -1596,7 +1596,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Create a vector to hold accuracies for each step.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Print average accuracy and standard deviation</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
 <span id="cb52-3"><a href="#cb52-3"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1604,7 +1604,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Create training / test datasets, build default cost SVMs and calculate the test accuracy for each iteration.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
 <span id="cb53-2"><a href="#cb53-2"></a></span>
 <span id="cb53-3"><a href="#cb53-3"></a><span class="co"># Calculate accuracies for 100 training/test partitions</span></span>
@@ -1623,7 +1623,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Compute the average accuracy and standard deviation over all iterations.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># Print average accuracy and its standard deviation</span></span>
 <span id="cb54-2"><a href="#cb54-2"></a><span class="fu">mean</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1671,7 +1671,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Visualize data in terms of transformed coordinates.</li>
 <li>Add a boundary that is linear in terms of transformed coordinates.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="co">#transform data</span></span>
 <span id="cb58-2"><a href="#cb58-2"></a>df1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x1sq =</span> df<span class="sc">$</span>x1<span class="sc">^</span><span class="dv">2</span>, <span class="at">x2sq =</span> df<span class="sc">$</span>x2<span class="sc">^</span><span class="dv">2</span>, <span class="at">y =</span> df<span class="sc">$</span>y)</span>
 <span id="cb58-3"><a href="#cb58-3"></a></span>
@@ -1689,7 +1689,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-33-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-34-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1705,7 +1705,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate training and test accuracy for the given training/test partition.</li>
 <li>Plot the model against the training data.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>svm_model<span class="ot">&lt;-</span> </span>
 <span id="cb61-2"><a href="#cb61-2"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
 <span id="cb61-3"><a href="#cb61-3"></a>        <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>)</span>
@@ -1726,7 +1726,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-34-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-35-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1761,7 +1761,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>cost</code> - from 0.1 (<code>10^(-1)</code>) to 100 (<code>10^2</code>) in multiples of 10.</li>
 <li><code>gamma</code> and <code>coef0</code> - one of the following values: 0.1, 1 and 10.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Load data</span></span>
 <span id="cb66-2"><a href="#cb66-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset4.rds"</span>)</span>
 <span id="cb66-3"><a href="#cb66-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset4.rds"</span>)</span>
@@ -1799,7 +1799,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Obtain training and test accuracies.</li>
 <li>Plot the decision boundary against the training data.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="co">#Build tuned model</span></span>
 <span id="cb72-2"><a href="#cb72-2"></a>svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(y<span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
 <span id="cb72-3"><a href="#cb72-3"></a>                 <span class="at">kernel =</span> <span class="st">"polynomial"</span>, <span class="at">degree =</span> <span class="dv">2</span>, </span>
@@ -1823,7 +1823,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-36-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-37-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1865,7 +1865,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>x1</code> - normally distributed with mean = -0.5 and std deviation 1.</li>
 <li><code>x2</code> uniformly distributed in (-1, 1).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="co">#number of data points</span></span>
 <span id="cb77-2"><a href="#cb77-2"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
 <span id="cb77-3"><a href="#cb77-3"></a></span>
@@ -1887,7 +1887,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Set radii and centers of circles.</li>
 <li>Add a column to <code>df</code> containing the binary classification variable <code>y</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a><span class="co">#set radius and centers </span></span>
 <span id="cb78-2"><a href="#cb78-2"></a>radius <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
 <span id="cb78-3"><a href="#cb78-3"></a>center_1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.8</span>, <span class="dv">0</span>)</span>
@@ -1911,7 +1911,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Set the appropriate <code>geom_</code> function for a scatter plot.</li>
 <li>Specify equal coordinates by adding <code>coord_equal()</code> without arguments.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># Plot x2 vs. x1, colored by y</span></span>
 <span id="cb79-2"><a href="#cb79-2"></a>scatter_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> df, <span class="fu">aes</span>(<span class="at">x =</span> x1, <span class="at">y =</span> x2 , <span class="at">color =</span> y)) <span class="sc">+</span> </span>
 <span id="cb79-3"><a href="#cb79-3"></a>    <span class="co"># Add a point layer</span></span>
@@ -1924,7 +1924,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-39-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-40-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1960,7 +1960,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Build a linear SVM using the default value of cost.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a><span class="co"># Load data</span></span>
 <span id="cb80-2"><a href="#cb80-2"></a>trainset <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/trainset5.rds"</span>)</span>
 <span id="cb80-3"><a href="#cb80-3"></a>testset  <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/testset5.rds"</span>) </span>
@@ -1973,7 +1973,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Calculate training and test accuracies.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a><span class="co">#accuracy</span></span>
 <span id="cb81-2"><a href="#cb81-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
 <span id="cb81-3"><a href="#cb81-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1989,13 +1989,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Plot decision boundary against the test data.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a><span class="co">#plot model against testset</span></span>
 <span id="cb85-2"><a href="#cb85-2"></a><span class="fu">plot</span>(svm_model, testset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-42-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-43-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2009,7 +2009,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Build a polynomial SVM of degree 2 using the default parameters.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="co">#build model</span></span>
 <span id="cb86-2"><a href="#cb86-2"></a>svm_model<span class="ot">&lt;-</span> </span>
 <span id="cb86-3"><a href="#cb86-3"></a>    <span class="fu">svm</span>(y <span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, </span>
@@ -2018,7 +2018,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Calculate training and test accuracies.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a><span class="co">#accuracy</span></span>
 <span id="cb87-2"><a href="#cb87-2"></a>pred_train <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, trainset)</span>
 <span id="cb87-3"><a href="#cb87-3"></a><span class="fu">mean</span>(pred_train <span class="sc">==</span> trainset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2034,13 +2034,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Plot decision boundary against the training data.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a><span class="co">#plot model</span></span>
 <span id="cb91-2"><a href="#cb91-2"></a><span class="fu">plot</span>(svm_model, trainset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-45-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-46-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2077,7 +2077,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a vector to hold accuracies for each step.</li>
 <li>Create training/test datasets, build default cost polynomial SVMs of degree 2, and calculate the test accuracy for each iteration.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="co">#create vector to store accuracies and set random number seed</span></span>
 <span id="cb92-2"><a href="#cb92-2"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
 <span id="cb92-3"><a href="#cb92-3"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
@@ -2098,7 +2098,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Compute the average accuracy and standard deviation over all iterations.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="co">#print average accuracy and standard deviation</span></span>
 <span id="cb93-2"><a href="#cb93-2"></a><span class="fu">mean</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2119,7 +2119,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a vector of length 100 to hold accuracies for each step.</li>
 <li>Create training/test datasets, build RBF SVMs with default settings for all parameters and calculate the test accuracy for each iteration.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a><span class="co">#create vector to store accuracies and set random number seed</span></span>
 <span id="cb97-2"><a href="#cb97-2"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="dv">100</span>)</span>
 <span id="cb97-3"><a href="#cb97-3"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
@@ -2140,7 +2140,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Compute the average accuracy and standard deviation over all iterations.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a><span class="co">#print average accuracy and standard deviation</span></span>
 <span id="cb98-2"><a href="#cb98-2"></a><span class="fu">mean</span>(accuracy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2160,7 +2160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Use <code>tune.svm()</code> to build a tuned RBF kernel SVM.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1"></a><span class="co">#tune model</span></span>
 <span id="cb102-2"><a href="#cb102-2"></a>tune_out <span class="ot">&lt;-</span> <span class="fu">tune.svm</span>(<span class="at">x =</span> trainset[, <span class="sc">-</span><span class="dv">3</span>], <span class="at">y =</span> trainset<span class="sc">$</span>y, </span>
 <span id="cb102-3"><a href="#cb102-3"></a>                     <span class="at">gamma =</span> <span class="dv">5</span><span class="sc">*</span><span class="dv">10</span><span class="sc">^</span>(<span class="sc">-</span><span class="dv">2</span><span class="sc">:</span><span class="dv">2</span>), </span>
@@ -2170,7 +2170,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Rebuild SVM using optimal values of <code>cost</code> and <code>gamma</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1"></a><span class="co">#build tuned model</span></span>
 <span id="cb103-2"><a href="#cb103-2"></a>svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(y<span class="sc">~</span> ., <span class="at">data =</span> trainset, <span class="at">type =</span> <span class="st">"C-classification"</span>, <span class="at">kernel =</span> <span class="st">"radial"</span>, </span>
 <span id="cb103-3"><a href="#cb103-3"></a>                 <span class="at">cost =</span> tune_out<span class="sc">$</span>best.parameters<span class="sc">$</span>cost, </span>
@@ -2179,7 +2179,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Calculate the accuracy of your model using the test dataset.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a><span class="co">#calculate test accuracy</span></span>
 <span id="cb104-2"><a href="#cb104-2"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, testset)</span>
 <span id="cb104-3"><a href="#cb104-3"></a><span class="fu">mean</span>(pred_test <span class="sc">==</span> testset<span class="sc">$</span>y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2190,13 +2190,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Plot the decision boundary against <code>testset</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a><span class="co">#Plot decision boundary against test data</span></span>
 <span id="cb106-2"><a href="#cb106-2"></a><span class="fu">plot</span>(svm_model, testset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-53-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-53-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="09_support_vector_machines_files/figure-html/unnamed-chunk-54-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img src="09_support_vector_machines_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2474,7 +2474,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":true,"openEffect":"zoom","descPosition":"bottom"});</script>
+<script>var lightboxQuarto = GLightbox({"loop":true,"descPosition":"bottom","selector":".lightbox","openEffect":"zoom","closeEffect":"zoom"});</script>
 
 
 

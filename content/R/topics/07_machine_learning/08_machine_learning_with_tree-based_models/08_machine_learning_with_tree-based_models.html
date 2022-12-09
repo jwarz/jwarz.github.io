@@ -485,7 +485,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#classification-trees" id="toc-classification-trees" class="nav-link active" data-scroll-target="#classification-trees"><span class="toc-section-number">1</span>  1. Classification Trees</a>
+  <li><a href="#classification-trees" id="toc-classification-trees" class="nav-link active" data-scroll-target="#classification-trees"><span class="toc-section-number">1</span>  Classification Trees</a>
   <ul class="collapse">
   <li><a href="#welcome-to-the-course" id="toc-welcome-to-the-course" class="nav-link" data-scroll-target="#welcome-to-the-course"><span class="toc-section-number">1.1</span>  Welcome to the course!</a></li>
   <li><a href="#why-tree-based-methods" id="toc-why-tree-based-methods" class="nav-link" data-scroll-target="#why-tree-based-methods"><span class="toc-section-number">1.2</span>  Why tree-based methods?</a></li>
@@ -586,7 +586,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>Tree-based machine learning models can reveal complex non-linear relationships in data and often dominate machine learning competitions. In this course, you’ll use the tidymodels package to explore and build different tree-based models—from simple decision trees to complex random forests. You’ll also learn to use boosted trees, a powerful machine learning technique that uses ensemble learning to build high-performing predictive models. Along the way, you’ll work with health and credit risk data to predict the incidence of diabetes and customer churn.</p>
 <section id="classification-trees" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 1. Classification Trees</h1>
+<h1 data-number="1"><span class="header-section-number">1</span> Classification Trees</h1>
 <p>Ready to build a real machine learning pipeline? Complete step-by-step exercises to learn how to create decision trees, split your data, and predict which patients are most likely to suffer from diabetes. Last but not least, you’ll build performance measures to assess your models and judge your predictions.</p>
 <section id="welcome-to-the-course" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="welcome-to-the-course"><span class="header-section-number">1.1</span> Welcome to the course!</h2>
@@ -654,7 +654,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Load the <code>tidymodels</code> package.</li>
 <li>Pick a model class for decision trees, save it as <code>tree_spec</code>, and print it.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load the package</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -662,23 +662,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>#&gt; ── Attaching packages ────────────────────────────────────── tidymodels 1.0.0 ──</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; ✔ broom        1.0.1      ✔ recipes      1.0.3 
-#&gt; ✔ dials        1.1.0      ✔ rsample      1.1.0 
-#&gt; ✔ dplyr        1.0.10     ✔ tibble       3.1.8 
-#&gt; ✔ ggplot2      3.4.0      ✔ tidyr        1.2.1 
+<pre><code>#&gt; ✔ broom        1.0.1      ✔ rsample      1.1.0 
+#&gt; ✔ dials        1.1.0      ✔ tibble       3.1.8 
+#&gt; ✔ dplyr        1.0.10     ✔ tidyr        1.2.1 
 #&gt; ✔ infer        1.0.3      ✔ tune         1.0.1 
 #&gt; ✔ modeldata    1.0.1      ✔ workflows    1.1.2 
 #&gt; ✔ parsnip      1.0.3      ✔ workflowsets 1.0.0 
-#&gt; ✔ purrr        0.3.5      ✔ yardstick    1.1.0</code></pre>
+#&gt; ✔ purrr        0.3.5      ✔ yardstick    1.1.0 
+#&gt; ✔ recipes      1.0.3</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; ── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
-#&gt; ✖ purrr::discard()  masks scales::discard()
-#&gt; ✖ dplyr::filter()   masks stats::filter()
-#&gt; ✖ dplyr::lag()      masks stats::lag()
-#&gt; ✖ yardstick::spec() masks readr::spec()
-#&gt; ✖ recipes::step()   masks stats::step()
-#&gt; • Search for functions across packages at https://www.tidymodels.org/find/</code></pre>
+#&gt; ✖ purrr::discard()                     masks scales::discard()
+#&gt; ✖ dplyr::filter()                      masks stats::filter()
+#&gt; ✖ dplyr::lag()                         masks stats::lag()
+#&gt; ✖ .GlobalEnv::scale_color_discrete()   masks ggplot2::scale_color_discrete()
+#&gt; ✖ .GlobalEnv::scale_color_gradientn()  masks ggplot2::scale_color_gradientn()
+#&gt; ✖ .GlobalEnv::scale_color_ordinal()    masks ggplot2::scale_color_ordinal()
+#&gt; ✖ .GlobalEnv::scale_colour_discrete()  masks ggplot2::scale_colour_discrete()
+#&gt; ✖ .GlobalEnv::scale_colour_gradientn() masks ggplot2::scale_colour_gradientn()
+#&gt; ✖ .GlobalEnv::scale_colour_ordinal()   masks ggplot2::scale_colour_ordinal()
+#&gt; ✖ .GlobalEnv::scale_fill_discrete()    masks ggplot2::scale_fill_discrete()
+#&gt; ✖ .GlobalEnv::scale_fill_gradientn()   masks ggplot2::scale_fill_gradientn()
+#&gt; ✖ .GlobalEnv::scale_fill_ordinal()     masks ggplot2::scale_fill_ordinal()
+#&gt; ✖ yardstick::spec()                    masks readr::spec()
+#&gt; ✖ recipes::step()                      masks stats::step()
+#&gt; • Learn how to get started at https://www.tidymodels.org/start/</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Pick a model class</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>tree_spec <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>() </span>
@@ -694,7 +703,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Set the engine to <code>"rpart"</code> and print the result.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Pick a model class</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>tree_spec <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb7-3"><a href="#cb7-3"></a>  <span class="co"># Set the engine</span></span>
@@ -711,7 +720,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Set the mode to <code>"classification"</code> and print the result.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Pick a model class</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>tree_spec <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb9-3"><a href="#cb9-3"></a>  <span class="co"># Set the engine</span></span>
@@ -742,7 +751,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Train a model <code>tree_model_bmi</code>, where the <code>outcome</code> depends only on the <code>bmi</code> predictor by fitting the <code>diabetes</code> dataset to the specification.</li>
 <li>Print the model to the console.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Load library</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="fu">library</span>(readr)</span>
 <span id="cb11-3"><a href="#cb11-3"></a></span>
@@ -824,7 +833,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Split the <code>diabetes</code> tibble into <code>diabetes_split</code>, a split of 80% training and 20% test data.</li>
 <li>Print the resulting object.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Create the split</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>diabetes_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(diabetes, <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
 <span id="cb15-3"><a href="#cb15-3"></a></span>
@@ -838,7 +847,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Extract the training and test sets and save them as <code>diabetes_train</code> and <code>diabetes_test</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Extract the training and test set</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a>diabetes_train <span class="ot">&lt;-</span> <span class="fu">training</span>(diabetes_split)</span>
 <span id="cb17-3"><a href="#cb17-3"></a>diabetes_test  <span class="ot">&lt;-</span> <span class="fu">testing</span>(diabetes_split)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -846,7 +855,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Verify the correct row proportion in both datasets compared to the <code>diabetes</code> tibble.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Create the split</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>diabetes_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(diabetes, <span class="at">prop =</span> <span class="fl">0.8</span>)</span>
 <span id="cb18-3"><a href="#cb18-3"></a></span>
@@ -876,7 +885,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Count the proportion of <code>"yes"</code> outcomes in the training and test sets of <code>diabetes_split</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Proportion of 'yes' outcomes in the training data</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a>counts_train <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="fu">training</span>(diabetes_split)<span class="sc">$</span>outcome)</span>
 <span id="cb22-3"><a href="#cb22-3"></a>prop_yes_train <span class="ot">&lt;-</span> counts_train[<span class="st">"yes"</span>] <span class="sc">/</span> <span class="fu">sum</span>(counts_train)</span>
@@ -898,7 +907,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Redesign <code>diabetes_split</code> using the same training/testing proportion, but the <code>outcome</code> variable being equally distributed in both sets.</li>
 <li>Count the proportion of <code>yes</code> outcomes in both datasets.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Create a split with a constant outcome distribution</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a>diabetes_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(diabetes, <span class="at">strata =</span> outcome)</span>
 <span id="cb26-3"><a href="#cb26-3"></a></span>
@@ -932,7 +941,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build a decision tree specification for your model using the <code>rpart</code> engine and save it as <code>tree_spec</code>.</li>
 <li>Fit a model <code>model_trained</code> using the training data of <code>diabetes_split</code> with <code>outcome</code> as the target variable and <code>bmi</code> and <code>skin_thickness</code> as the predictors.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">set.seed</span>(<span class="dv">9</span>)</span>
 <span id="cb30-2"><a href="#cb30-2"></a></span>
 <span id="cb30-3"><a href="#cb30-3"></a><span class="co"># Create the balanced data split</span></span>
@@ -1020,7 +1029,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Making predictions with data is one of the fundamental goals of machine learning. Now that you know how to split the data and fit a model, it’s time to make predictions about unseen samples with your models.</p>
 <p>You are going to make predictions about your test set using a model obtained by fitting the training data to a tree specification.</p>
 <p>Available in your workspace are the datasets that you generated previously (<code>diabetes_train</code> and <code>diabetes_test</code>) and a decision tree specification <code>tree_spec</code>, which was generated using the following code:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>tree_spec <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a>  <span class="fu">set_engine</span>(<span class="st">"rpart"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1032,7 +1041,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add the true test set outcome to <code>predictions</code> as a column named <code>true_class</code> and save the result as <code>predictions_combined</code>.</li>
 <li>Use the <code>head()</code> function to print the first rows of the result.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Train your model</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a>model <span class="ot">&lt;-</span> tree_spec <span class="sc">%&gt;%</span> </span>
 <span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">fit</span>(<span class="at">formula =</span> outcome <span class="sc">~</span> ., <span class="at">data =</span> diabetes_train)</span>
@@ -1051,7 +1060,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[".pred_class"],"name":[1],"type":["fct"],"align":["left"]},{"label":["true_class"],"name":[2],"type":["fct"],"align":["left"]}],"data":[{"1":"no","2":"no"},{"1":"no","2":"no"},{"1":"no","2":"yes"},{"1":"no","2":"yes"},{"1":"yes","2":"yes"},{"1":"no","2":"yes"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[".pred_class"],"name":[1],"type":["fct"],"align":["left"]},{"label":["true_class"],"name":[2],"type":["fct"],"align":["left"]}],"data":[{"1":"yes","2":"yes"},{"1":"no","2":"no"},{"1":"yes","2":"yes"},{"1":"no","2":"yes"},{"1":"no","2":"yes"},{"1":"yes","2":"yes"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1067,7 +1076,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the confusion matrix of the <code>predictions_combined</code> tibble and save it as <code>diabetes_matrix</code>.</li>
 <li>Print the result to the console.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># The confusion matrix</span></span>
 <span id="cb34-2"><a href="#cb34-2"></a>diabetes_matrix <span class="ot">&lt;-</span> <span class="fu">conf_mat</span>(<span class="at">data =</span> predictions_combined,</span>
 <span id="cb34-3"><a href="#cb34-3"></a>                            <span class="at">estimate =</span> .pred_class,</span>
@@ -1078,8 +1087,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;           Truth
 #&gt; Prediction no yes
-#&gt;        no  81  22
-#&gt;        yes 18  33</code></pre>
+#&gt;        no  79  22
+#&gt;        yes 20  33</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -1099,7 +1108,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Save the <strong>total number</strong> of predictions to <code>all_predictions</code>.</li>
 <li>Calculate and the accuracy, save it to <code>acc_manual</code>, and print it.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Calculate the number of correctly predicted classes</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a>correct_predictions <span class="ot">&lt;-</span> <span class="dv">84</span> <span class="sc">+</span> <span class="dv">24</span></span>
 <span id="cb36-3"><a href="#cb36-3"></a></span>
@@ -1117,7 +1126,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the accuracy using a <code>yardstick</code> function and store the result in <code>acc_auto</code>.</li>
 <li>Print the accuracy estimate.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># The number of correctly predicted classes</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>correct_predictions <span class="ot">&lt;-</span> <span class="dv">84</span> <span class="sc">+</span> <span class="dv">24</span></span>
 <span id="cb38-3"><a href="#cb38-3"></a></span>
@@ -1136,7 +1145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb40-4"><a href="#cb40-4"></a>                     <span class="at">truth =</span> true_class)</span>
 <span id="cb40-5"><a href="#cb40-5"></a>acc_auto<span class="sc">$</span>.estimate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.7402597</code></pre>
+<pre><code>#&gt; [1] 0.7272727</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -1180,7 +1189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build <code>model_spec</code>, a regression tree specification.</li>
 <li>Using the <code>chocolate_train</code> data frame, use <code>model_spec</code> to train a regression tree that predicts <code>final_grade</code> using only the <strong>numerical predictors</strong> in the data.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Load data</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a>chocolate <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/chocolate_tibble.csv"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb42-3"><a href="#cb42-3"></a>                <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), as.factor))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1243,7 +1252,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Predict <code>final_grade</code> values using the <code>chocolate_test</code> tibble.</li>
 <li>Add the results to the <code>chocolate_test</code> tibble.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Train the model</span></span>
 <span id="cb46-2"><a href="#cb46-2"></a>chocolate_model <span class="ot">&lt;-</span> model_spec <span class="sc">%&gt;%</span></span>
 <span id="cb46-3"><a href="#cb46-3"></a>  <span class="fu">fit</span>(<span class="at">formula =</span> final_grade <span class="sc">~</span> .,</span>
@@ -1270,7 +1279,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="inspect-model-output" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="inspect-model-output"><span class="header-section-number">2.4</span> Inspect model output</h2>
 <p>A hyperparameter is a value that influences the training process and can have a great impact on model performance. Available in your workspace is a regression tree model that was created using the following code:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>model <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>(<span class="at">tree_depth =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">set_mode</span>(<span class="st">"regression"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb47-3"><a href="#cb47-3"></a>  <span class="fu">set_engine</span>(<span class="st">"rpart"</span>) <span class="sc">%&gt;%</span></span>
@@ -1329,7 +1338,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate a vector <code>abs_diffs</code> that contains the absolute differences between the in-sample-predictions and the true grades.</li>
 <li>Calculate the mean absolute error according to the formula above.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># Predict using the training set</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a>in_sample_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model,</span>
 <span id="cb49-3"><a href="#cb49-3"></a>                                 <span class="at">new_data =</span> chocolate_train)</span>
@@ -1355,7 +1364,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>model</code> to predict the out-of-sample <code>final_grade</code> and add your predictions to <code>chocolate_test</code> using <code>bind_cols()</code>.</li>
 <li>Calculate the mean absolute error using a <code>yardstick</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Predict ratings on test set and add true grades</span></span>
 <span id="cb51-2"><a href="#cb51-2"></a>test_enriched <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">new_data =</span> chocolate_test) <span class="sc">%&gt;%</span></span>
 <span id="cb51-3"><a href="#cb51-3"></a>    <span class="fu">bind_cols</span>(chocolate_test)</span>
@@ -1390,7 +1399,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the <code>rmse()</code> function to calculate the error and save as <code>rmse_auto</code>.</li>
 <li>Print <code>rmse_manual</code> and <code>rmse_auto</code> to verify that they are the same.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Calculate the squared differences</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>squared_diffs <span class="ot">&lt;-</span> (test_enriched<span class="sc">$</span>final_grade <span class="sc">-</span> test_enriched<span class="sc">$</span>.pred)<span class="sc">^</span><span class="dv">2</span></span>
 <span id="cb52-3"><a href="#cb52-3"></a></span>
@@ -1460,7 +1469,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Set a seed of 20 for reproducibility.</li>
 <li>Create 10 folds of <code>chocolate_train</code> and save the result as <code>chocolate_folds</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># Set seed for reproducibility</span></span>
 <span id="cb55-2"><a href="#cb55-2"></a><span class="fu">set.seed</span>(<span class="dv">20</span>)</span>
 <span id="cb55-3"><a href="#cb55-3"></a></span>
@@ -1488,7 +1497,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Show that you can still do it: create <code>tree_spec</code>, a regression tree specification using an <code>"rpart"</code> engine.</li>
 <li>Use <code>fit_resamples()</code> to fit your folds to <code>tree_spec</code>, modeling <code>final_grade</code> using all other predictors and evaluating with both MAE and RMSE.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># Create a specification</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a>tree_spec <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb56-3"><a href="#cb56-3"></a>                <span class="fu">set_mode</span>(<span class="st">"regression"</span>) <span class="sc">%&gt;%</span></span>
@@ -1522,7 +1531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Collect the out-of-sample errors of all models of <code>fits_cv</code> using a single <code>yardstick</code> function and save them as <code>all_errors</code>.</li>
 <li>Create a <code>ggplot2</code> histogram using the <code>.estimate</code> as the <code>x</code> aesthetic and <code>fill</code> the bars by <code>.metric</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb57-2"><a href="#cb57-2"></a></span>
 <span id="cb57-3"><a href="#cb57-3"></a><span class="co"># Collect the errors</span></span>
@@ -1537,7 +1546,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-24-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-25-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1545,7 +1554,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Use the same function as in the first instruction with <code>summarize = TRUE</code> to display summary statistics of <code>fits_cv</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># Collect and print error statistics</span></span>
 <span id="cb59-2"><a href="#cb59-2"></a><span class="fu">collect_metrics</span>(fits_cv, <span class="at">summarize =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1621,7 +1630,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Grow a <em>decision stump</em>, a regression tree with only one split.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># Create a model having only one split</span></span>
 <span id="cb60-2"><a href="#cb60-2"></a>chocolate_model <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>(<span class="at">tree_depth =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb60-3"><a href="#cb60-3"></a>  <span class="fu">set_mode</span>(<span class="st">"regression"</span>) <span class="sc">%&gt;%</span></span>
@@ -1644,7 +1653,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Grow a regression tree with a complexity cost of <code>0.1</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># Create a model with high cost for complexity</span></span>
 <span id="cb62-2"><a href="#cb62-2"></a>chocolate_model <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>(<span class="at">cost_complexity =</span> <span class="fl">0.1</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb62-3"><a href="#cb62-3"></a>  <span class="fu">set_mode</span>(<span class="st">"regression"</span>) <span class="sc">%&gt;%</span></span>
@@ -1665,7 +1674,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Create a model that has <strong>no penalty</strong> for complexity, <strong>and</strong> a minimum sample size of <strong>2</strong>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># Create a model that can grow arbitrarily complex</span></span>
 <span id="cb64-2"><a href="#cb64-2"></a>chocolate_model <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>(<span class="at">cost_complexity =</span> <span class="dv">0</span>,</span>
 <span id="cb64-3"><a href="#cb64-3"></a>                                 <span class="at">min_n =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span> </span>
@@ -3533,7 +3542,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Use <code>complex_model</code> to predict the training set grades, add these predictions to the original training data, and calculate their mean absolute error.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Assign chocolate_model to complex</span></span>
 <span id="cb66-2"><a href="#cb66-2"></a>complex_model <span class="ot">&lt;-</span> chocolate_model</span>
 <span id="cb66-3"><a href="#cb66-3"></a></span>
@@ -3554,7 +3563,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Adapt your code to predict test set grades, add these predictions to the original test data, and calculate the mean absolute error.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Predict on and combine with test data and calculate the error</span></span>
 <span id="cb67-2"><a href="#cb67-2"></a><span class="fu">predict</span>(complex_model, <span class="at">new_data =</span> chocolate_test) <span class="sc">%&gt;%</span></span>
 <span id="cb67-3"><a href="#cb67-3"></a>  <span class="fu">bind_cols</span>(chocolate_test) <span class="sc">%&gt;%</span> </span>
@@ -3613,7 +3622,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Create an <code>rpart</code> powered classification tree specification, flagging the <code>tree_depth</code> and <code>cost_complexity</code> parameters for tuning.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># Create a specification with tuning placeholders</span></span>
 <span id="cb68-2"><a href="#cb68-2"></a>tune_spec <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>(<span class="at">tree_depth =</span> <span class="fu">tune</span>(),</span>
 <span id="cb68-3"><a href="#cb68-3"></a>                           <span class="at">cost_complexity =</span> <span class="fu">tune</span>()) <span class="sc">%&gt;%</span> </span>
@@ -3636,7 +3645,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Create a regular grid of <code>tune_spec</code>’s hyperparameters that contains two levels for each one.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># Create a regular grid</span></span>
 <span id="cb70-2"><a href="#cb70-2"></a>tree_grid <span class="ot">&lt;-</span> <span class="fu">grid_regular</span>(<span class="fu">parameters</span>(tune_spec),</span>
 <span id="cb70-3"><a href="#cb70-3"></a>                          <span class="at">levels =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3674,7 +3683,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create <code>tune_results</code> by tuning the specification along the grid using all predictors to predict <code>still_customer</code>, your CV folds as resamples, and <code>metric_set(accuracy)</code>.</li>
 <li>Use <code>autoplot()</code> to plot the tuning results.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># Load data</span></span>
 <span id="cb73-2"><a href="#cb73-2"></a>customers <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/bank_churners.csv"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb73-3"><a href="#cb73-3"></a>              <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), as.factor))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3705,7 +3714,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-33-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-34-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3721,7 +3730,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Extract the best-performing parameters of <code>tune_results</code> and save them as <code>final_params</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a><span class="co"># Select the parameters that perform best</span></span>
 <span id="cb76-2"><a href="#cb76-2"></a>final_params <span class="ot">&lt;-</span> <span class="fu">select_best</span>(tune_results)</span>
 <span id="cb76-3"><a href="#cb76-3"></a></span>
@@ -3738,7 +3747,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Update your untuned tree specification with <code>final_params</code> and save this as <code>best_spec</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># Finalize the specification</span></span>
 <span id="cb77-2"><a href="#cb77-2"></a>best_spec <span class="ot">&lt;-</span> <span class="fu">finalize_model</span>(tune_spec, final_params)</span>
 <span id="cb77-3"><a href="#cb77-3"></a></span>
@@ -3756,7 +3765,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Create your final model by fitting the tuned specification <code>best_spec</code> to the <code>customers</code> tibble.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># Build the final model</span></span>
 <span id="cb79-2"><a href="#cb79-2"></a>final_model <span class="ot">&lt;-</span> <span class="fu">fit</span>(best_spec,</span>
 <span id="cb79-3"><a href="#cb79-3"></a>                   still_customer <span class="sc">~</span> .,</span>
@@ -3957,7 +3966,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This formula implies that with specificity approaching 100%, the number of false positives (FP) <em>approaches 0</em>.</p>
 <p>In this exercise, you are going to investigate the out-of-sample specificity of your model with cross-validation.</p>
 <p>Pre-loaded is the training data of the credit card customers dataset, <code>customers_train</code>, and a decision tree specification, <code>tree_spec</code>, which was generated using the following code:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a>tree_spec <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb81-2"><a href="#cb81-2"></a>                <span class="fu">set_engine</span>(<span class="st">"rpart"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb81-3"><a href="#cb81-3"></a>                <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3968,7 +3977,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate cross-validated <code>specificity</code> using the <code>fit_resamples()</code> function that takes your specification <code>tree_spec</code>, a model formula, the CV folds, and an appropriate metric set. Use all predictors to predict <code>still_customer</code>, saving the results to <code>specificities</code>.</li>
 <li>Aggregate the results using a single function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a><span class="do">##  !!! Create customer train</span></span>
 <span id="cb82-2"><a href="#cb82-2"></a><span class="co"># Create the split</span></span>
 <span id="cb82-3"><a href="#cb82-3"></a>customers_split <span class="ot">&lt;-</span> <span class="fu">initial_split</span>(customers, <span class="at">prop =</span> <span class="fl">0.7</span>)</span>
@@ -4016,7 +4025,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the ROC curve of the result.</li>
 <li>Plot the ROC curve using <code>autoplot()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a><span class="do">## Assign model</span></span>
 <span id="cb83-2"><a href="#cb83-2"></a>model <span class="ot">&lt;-</span> tree_spec <span class="sc">|&gt;</span> <span class="fu">fit</span>(still_customer <span class="sc">~</span> ., customers_train)</span>
 <span id="cb83-3"><a href="#cb83-3"></a></span>
@@ -4037,7 +4046,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-39-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-40-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -4083,7 +4092,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Calculate the area under the ROC curve using the <code>roc_auc()</code> function and the <code>predictions</code> tibble.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="co"># Calculate area under the curve</span></span>
 <span id="cb84-2"><a href="#cb84-2"></a>auc_result <span class="ot">&lt;-</span> <span class="fu">roc_auc</span>(predictions,</span>
 <span id="cb84-3"><a href="#cb84-3"></a>                      <span class="at">estimate =</span> .pred_yes, </span>
@@ -4125,7 +4134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Use <code>bag_tree()</code> to create a bagged tree classification model with an <code>"rpart"</code> engine that builds 20 bagged trees.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="co"># Create the specification</span></span>
 <span id="cb86-2"><a href="#cb86-2"></a><span class="fu">library</span>(baguette)</span>
 <span id="cb86-3"><a href="#cb86-3"></a></span>
@@ -4151,7 +4160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Train a model on the training data using <code>still_customer</code> as the outcome and <code>total_trans_amt</code>, <code>customer_age</code>, and <code>education_level</code>as predictor variables.</li>
 <li>Print the model to see the importance of variables.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a><span class="co"># Fit to the training data</span></span>
 <span id="cb88-2"><a href="#cb88-2"></a>model_bagged <span class="ot">&lt;-</span> <span class="fu">fit</span>(spec_bagged,</span>
 <span id="cb88-3"><a href="#cb88-3"></a>                    <span class="at">formula =</span> still_customer <span class="sc">~</span> total_trans_amt <span class="sc">+</span> customer_age <span class="sc">+</span> education_level, </span>
@@ -4189,7 +4198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Use <code>model_bagged</code> to generate <strong>probability</strong> predictions with your training set and add them to the training set tibble, saving the result as <code>predictions</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="co"># Predict on training set and add to training set</span></span>
 <span id="cb90-2"><a href="#cb90-2"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model_bagged,</span>
 <span id="cb90-3"><a href="#cb90-3"></a>                       <span class="at">new_data =</span> customers_train, </span>
@@ -4199,7 +4208,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Generate the ROC curve of the <code>predictions</code> tibble and plot the result.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a><span class="co"># Create and plot the ROC curve</span></span>
 <span id="cb91-2"><a href="#cb91-2"></a><span class="fu">roc_curve</span>(predictions, </span>
 <span id="cb91-3"><a href="#cb91-3"></a>          <span class="at">estimate =</span> .pred_yes, </span>
@@ -4207,7 +4216,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-44-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-45-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -4215,7 +4224,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Calculate the AUC of the <code>predictions</code> tibble.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="co"># Calculate the AUC</span></span>
 <span id="cb92-2"><a href="#cb92-2"></a><span class="fu">roc_auc</span>(predictions,</span>
 <span id="cb92-3"><a href="#cb92-3"></a>        <span class="at">estimate =</span> .pred_yes, </span>
@@ -4241,7 +4250,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Using <code>fit_resamples()</code>, estimate your <code>roc_auc</code> metric using <strong>three</strong> CV folds of your training set and the model formula <code>still_customer ~ total_trans_amt + customer_age + education_level</code>.</li>
 <li>Collect the metrics of the result to display the AUC.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="fu">set.seed</span>(<span class="dv">55</span>)</span>
 <span id="cb93-2"><a href="#cb93-2"></a></span>
 <span id="cb93-3"><a href="#cb93-3"></a><span class="co"># Estimate AUC using cross-validation</span></span>
@@ -4303,7 +4312,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create <code>model</code> by fitting the tibble <code>customers_train</code> to <code>spec</code> using <code>still_customer</code> as the outcome and all other columns as the predictor variables.</li>
 <li>Plot the variable importance using the <code>vip()</code> function from the <code>vip</code> package (which is not pre-loaded).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="co"># Specify a random forest</span></span>
 <span id="cb94-2"><a href="#cb94-2"></a>spec <span class="ot">&lt;-</span> <span class="fu">rand_forest</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb94-3"><a href="#cb94-3"></a>    <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span></span>
@@ -4319,7 +4328,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-47-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-48-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -4377,7 +4386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Use the appropriate <code>parsnip</code> function to specify a boosted tree model.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a><span class="co"># Specify the model class</span></span>
 <span id="cb95-2"><a href="#cb95-2"></a>boost_spec <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>()</span>
 <span id="cb95-3"><a href="#cb95-3"></a></span>
@@ -4391,7 +4400,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Set the mode to <code>"classification"</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a><span class="co"># Specify the model class</span></span>
 <span id="cb97-2"><a href="#cb97-2"></a>boost_spec <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb97-3"><a href="#cb97-3"></a>    <span class="co"># Set the mode</span></span>
@@ -4407,7 +4416,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Use the <code>"xgboost"</code> package to power your model.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1"></a><span class="co"># Specify the model class</span></span>
 <span id="cb99-2"><a href="#cb99-2"></a>boost_spec <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>() <span class="sc">%&gt;%</span></span>
 <span id="cb99-3"><a href="#cb99-3"></a>    <span class="co"># Set the mode</span></span>
@@ -4450,7 +4459,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Train a boosted classification model on the <code>customers_train</code> tibble using <code>still_customer</code> as the response variable and all other columns as the predictor variables.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1"></a><span class="co"># Train the model on the training set</span></span>
 <span id="cb101-2"><a href="#cb101-2"></a>boost_model <span class="ot">&lt;-</span> <span class="fu">fit</span>(boost_spec,</span>
 <span id="cb101-3"><a href="#cb101-3"></a>                   <span class="at">formula =</span> still_customer <span class="sc">~</span> ., </span>
@@ -4501,7 +4510,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Fit and evaluate a model that predicts <code>still_customer</code> for every fold, using your specification, all predictor variables, and the AUC metric.</li>
 <li>Collect the metrics of <code>cv_results</code> and check the mean AUC.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1"></a><span class="fu">set.seed</span>(<span class="dv">99</span>)</span>
 <span id="cb103-2"><a href="#cb103-2"></a></span>
 <span id="cb103-3"><a href="#cb103-3"></a><span class="co"># Create CV folds</span></span>
@@ -4536,7 +4545,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Specify, fit, and predict probabilities of a boosted model on the training data using the given formula and add the results to the data.</li>
 <li>Calculate the in-sample AUC of your predictions.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a><span class="fu">set.seed</span>(<span class="dv">100</span>)</span>
 <span id="cb104-2"><a href="#cb104-2"></a></span>
 <span id="cb104-3"><a href="#cb104-3"></a><span class="co"># Specify, fit, predict, and combine with training data</span></span>
@@ -4563,7 +4572,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Change your code so that the same is done using a simple decision tree classifier.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1"></a><span class="fu">set.seed</span>(<span class="dv">100</span>)</span>
 <span id="cb105-2"><a href="#cb105-2"></a></span>
 <span id="cb105-3"><a href="#cb105-3"></a><span class="co"># Specify, fit, predict and combine with training data</span></span>
@@ -4634,7 +4643,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a boosting specification with an <code>"xgboost"</code> engine for a classification model using 500 trees and mark the following parameters as tuning parameters: <code>learn_rate</code>, <code>tree_depth</code>, and <code>sample_size</code>. Save the result as <code>boost_spec</code>.</li>
 <li>Build a regular tuning grid for the tuning parameters of <code>boost_spec</code> with three levels for each parameter.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a><span class="co"># Create the specification with placeholders</span></span>
 <span id="cb106-2"><a href="#cb106-2"></a>boost_spec <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>(</span>
 <span id="cb106-3"><a href="#cb106-3"></a>                <span class="at">trees =</span> <span class="dv">500</span>,</span>
@@ -4665,7 +4674,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The best hyperparameters make the best model for your data. Once you decided on a tuning grid, you need to train and evaluate models on every grid point to see which grid point gives the best model performance.</p>
 <p>This can take some time, given that using k-fold cross-validation, an ensemble size of <code>n</code> trees, and a tuning grid of <code>t</code> combinations makes <code>k * n * t</code> models to be trained in total.</p>
 <p>It’s your turn to perform the actual tuning! Pre-loaded are <code>customers_train</code> and the results of the last exercise, <code>boost_spec</code> and <code>tunegrid_boost</code>:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1"></a><span class="co"># A tibble: 27 x 3</span></span>
 <span id="cb107-2"><a href="#cb107-2"></a>   tree_depth   learn_rate sample_size</span>
 <span id="cb107-3"><a href="#cb107-3"></a>        <span class="sc">&lt;</span>int<span class="sc">&gt;</span>        <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
@@ -4681,7 +4690,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>tune_grid()</code> to tune <code>boost_spec</code> using your folds, your tuning grid, and the <code>roc_auc</code> metric. Save the results as <code>tune_results</code>.</li>
 <li>Plot the results to visualize the result of the tuning process.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1"></a><span class="co"># Create CV folds of training data</span></span>
 <span id="cb108-2"><a href="#cb108-2"></a>folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(customers_train, <span class="at">v =</span> <span class="dv">6</span>)</span>
 <span id="cb108-3"><a href="#cb108-3"></a></span>
@@ -4697,7 +4706,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-57-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-57-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-58-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-58-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -4713,7 +4722,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Select the best-performing hyperparameters of <code>tune_results</code> and save them as <code>best_params</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1"></a><span class="co"># Select the final hyperparameters</span></span>
 <span id="cb109-2"><a href="#cb109-2"></a>best_params <span class="ot">&lt;-</span> <span class="fu">select_best</span>(tune_results)</span>
 <span id="cb109-3"><a href="#cb109-3"></a></span>
@@ -4730,7 +4739,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Create <code>final_spec</code> by plugging the best parameters into the untuned specification.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a><span class="co"># Finalize the specification</span></span>
 <span id="cb110-2"><a href="#cb110-2"></a>final_spec <span class="ot">&lt;-</span> <span class="fu">finalize_model</span>(boost_spec, best_params)</span>
 <span id="cb110-3"><a href="#cb110-3"></a></span>
@@ -4750,7 +4759,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Create <code>final_model</code>, the final model trained on the whole training set, using all predictor variables.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a><span class="co"># Train the final model on the full training data</span></span>
 <span id="cb112-2"><a href="#cb112-2"></a>final_model <span class="ot">&lt;-</span> final_spec <span class="sc">%&gt;%</span> <span class="fu">fit</span>(<span class="at">formula =</span> still_customer <span class="sc">~</span> ., </span>
 <span id="cb112-3"><a href="#cb112-3"></a>                                  <span class="at">data =</span> customers_train)</span>
@@ -4828,7 +4837,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="4.15" class="anchored" data-anchor-id="compare-auc"><span class="header-section-number">4.15</span> Compare AUC</h2>
 <p>Comparing different models is the core of model selection. In the final two exercises, you’ll perform a model comparison across all types of models in this course: decision trees, bagged trees, random forests, and gradient boosting.</p>
 <p>The models were all tuned to perfection and trained on the same training set, <code>customers_train</code>, and predictions were made for the <code>customers_test</code> dataset. The results are numeric probabilities and are available as <code>preds_combined</code> in your session:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a>tibble [<span class="dv">1</span>,<span class="dv">011</span> × <span class="dv">5</span>]</span>
 <span id="cb114-2"><a href="#cb114-2"></a> <span class="sc">$</span> preds_tree    <span class="sc">:</span> <span class="fl">0.144</span> <span class="fl">0.441</span> ...</span>
 <span id="cb114-3"><a href="#cb114-3"></a> <span class="sc">$</span> preds_bagging <span class="sc">:</span> <span class="fl">0.115</span> <span class="fl">0.326</span> ...</span>
@@ -4840,7 +4849,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Calculate the AUC for each prediction column in <code>preds_combined</code>, always using <code>still_customer</code> as the truth column.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1"></a><span class="co"># load data</span></span>
 <span id="cb115-2"><a href="#cb115-2"></a>preds_combined <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/preds_combined.rds"</span>)</span>
 <span id="cb115-3"><a href="#cb115-3"></a></span>
@@ -4891,7 +4900,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Combine the results into one single tibble.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1"></a><span class="co"># Combine AUCs into one tibble</span></span>
 <span id="cb119-2"><a href="#cb119-2"></a>combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(auc_tree,</span>
 <span id="cb119-3"><a href="#cb119-3"></a>                      auc_bagged,</span>
@@ -4911,7 +4920,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Change the code so that the arguments to <code>bind_rows()</code> are named <code>decision_tree</code>, <code>bagged_tree</code>, <code>random_forest</code>, and <code>boosted_tree</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1"></a><span class="co"># Combine AUCs into one tibble</span></span>
 <span id="cb120-2"><a href="#cb120-2"></a>combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(<span class="at">decision_tree =</span> auc_tree,</span>
 <span id="cb120-3"><a href="#cb120-3"></a>                      <span class="at">bagged_tree   =</span> auc_bagged,</span>
@@ -4943,7 +4952,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the ROC values for all cutoffs.</li>
 <li>Produce a graphical plot of the curves.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1"></a><span class="co"># Reshape the predictions into long format</span></span>
 <span id="cb121-2"><a href="#cb121-2"></a>predictions_long <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(preds_combined,</span>
 <span id="cb121-3"><a href="#cb121-3"></a>                                        <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"preds_"</span>),</span>
@@ -4961,7 +4970,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-65-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-66-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-66-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -5256,7 +5265,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","loop":true,"closeEffect":"zoom","selector":".lightbox"});</script>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":true,"openEffect":"zoom"});</script>
 
 
 

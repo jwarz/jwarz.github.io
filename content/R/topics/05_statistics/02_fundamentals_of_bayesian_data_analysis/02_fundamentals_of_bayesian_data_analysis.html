@@ -483,7 +483,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#what-is-bayesian-data-analysis" id="toc-what-is-bayesian-data-analysis" class="nav-link active" data-scroll-target="#what-is-bayesian-data-analysis"><span class="toc-section-number">1</span>  1. What is Bayesian Data Analysis?</a>
+  <li><a href="#what-is-bayesian-data-analysis" id="toc-what-is-bayesian-data-analysis" class="nav-link active" data-scroll-target="#what-is-bayesian-data-analysis"><span class="toc-section-number">1</span>  What is Bayesian Data Analysis?</a>
   <ul class="collapse">
   <li><a href="#bayesian-inference-in-a-nutshell" id="toc-bayesian-inference-in-a-nutshell" class="nav-link" data-scroll-target="#bayesian-inference-in-a-nutshell"><span class="toc-section-number">1.1</span>  Bayesian Inference in a Nutshell</a></li>
   <li><a href="#simple-bayesian-model" id="toc-simple-bayesian-model" class="nav-link" data-scroll-target="#simple-bayesian-model"><span class="toc-section-number">1.3</span>  Simple Bayesian model</a></li>
@@ -571,7 +571,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>Bayesian data analysis is an approach to statistical modeling and machine learning that is becoming more and more popular. It provides a uniform framework to build problem specific models that can be used for both statistical inference and for prediction. This course will introduce you to Bayesian data analysis: What it is, how it works, and why it is a useful tool to have in your data science toolbox.</p>
 <section id="what-is-bayesian-data-analysis" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 1. What is Bayesian Data Analysis?</h1>
+<h1 data-number="1"><span class="header-section-number">1</span> What is Bayesian Data Analysis?</h1>
 <section id="bayesian-inference-in-a-nutshell" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="bayesian-inference-in-a-nutshell"><span class="header-section-number">1.1</span> Bayesian Inference in a Nutshell</h2>
 <p>A method for figuring out unobservable quantities given known facts that uses probability to describe the uncertainty over what the values of the unknown quantities could be. Bayesian inferece == Probabilistic inference.</p>
@@ -611,14 +611,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>I’ve implemented a Bayesian model in R that estimates this and given it the name <code>prop_model.</code> <code>prop_model</code> takes data as its first argument and assumes that: the data is a vector of successes and failures represented by 1s and 0s, that there is an unknown underlying proportion of success and whether a data point is a success or not is only affected by this proportion, and prior to seeing any data any underlying proportion of success is equally likely. The result of <code>prop_model</code> is a probability distribution that represents what the model knows about the underlying proportion of success after having observed the data.</p>
 <p>The output of prop_model is a plot showing what the model learns about the underlying proportion of success from each data point in the order you entered them. At n=0 there is no data, and all the model knows is that it’s equally probable that the proportion of success is anything from 0% to 100%. At n=4 all data has been added, and the model knows a little bit more.</p>
 <p>We will build toward implementing <code>prop_model()</code> during the following content.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-#&gt; ✔ ggplot2 3.4.0      ✔ purrr   0.3.5 
 #&gt; ✔ tibble  3.1.8      ✔ dplyr   1.0.10
 #&gt; ✔ tidyr   1.2.1      ✔ stringr 1.4.1 
 #&gt; ✔ readr   2.1.3      ✔ forcats 0.5.2 
+#&gt; ✔ purrr   0.3.5      
 #&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 #&gt; ✖ dplyr::filter() masks stats::filter()
 #&gt; ✖ dplyr::lag()    masks stats::lag()</code></pre>
@@ -694,7 +694,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="prop_model-1-drug-effectiveness-with" class="level3">
 <h3 class="anchored" data-anchor-id="prop_model-1-drug-effectiveness-with">prop_model 1: Drug Effectiveness with</h3>
 <p>Let’s start by seeing what happens when we run the model with no data. We get a big blue square:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">prop_model</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -704,56 +704,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>The x-axis in this graph shows different values for the proportion of success and the y-axis shows the probabilities of the different values. The blue square is a uniform probability distribution saying that any proportion of success has equal probability. It’s labeled “Prior” because one assumption of the model was that prior to seeing any data any underlying proportion of success was equally likely. Now, let’s add a datapoint, let’s say this is from an experiment on whether patients got cured by a new drug.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>)</span>
 <span id="cb6-2"><a href="#cb6-2"></a><span class="fu">prop_model</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Unfortunately, the first patient didn’t get cured, marked red here for failure. The model now knows that a high proportion of success is improbable because if it would have been high, we should have cured this first patient too.</p>
 <p>The second patient got cured. Now the model knows that the proportion of success is improbable to be close to 0 or close to 1.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="fu">prop_model</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>The next three patients didn’t get cured, and for each failure, it becomes more and more probable that the underlying proportion of success is low.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="fu">prop_model</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-5-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>A final cured patient and what we know at the end of the experiment, after six data points, is that the underlying proportion of success is probably around 0.4, but with this little data there is a large uncertainty and it could be as low as 0.10 or as high as 0.75. That was a quick little example of a simple Bayesian model. <em><code>prop_model</code> isn’t part of any R package.</em></p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">1</span>)</span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="fu">prop_model</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-6-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -769,13 +769,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Prior to being updated with data any underlying proportion of success is equally likely.</li>
 </ul>
 <p>Assume you just flipped a coin four times and the result was <em>heads</em>, <em>tails</em>, <em>tails</em>, <em>heads</em>. If you code <em>heads</em> as a success and <em>tails</em> as a failure then the following R codes runs <code>prop_model</code> with this data</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="fu">prop_model</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-7-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -795,7 +795,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Change the <code>data</code> argument to <code>prop_model</code> to estimate the underlying proportion of success of curing a zombie.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Update the data and rerun prop_model</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>data <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
 <span id="cb11-3"><a href="#cb11-3"></a>         <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
@@ -803,7 +803,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -822,7 +822,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Often people drop the “probability distribution”-part and just call these priors and posteriors. So, a prior is a probability distribution that represents what the model knows before seeing the data. A posterior is a probability distribution that represents what the model knows after having seen the data. When fitting a Bayesian model, the end result is always a posterior over some quantity or parameter of interest. The posterior represents how uncertain the model is of the underlying value, and in the zombie example, the posterior was displayed as a density plot showing the location of the probability. This could be a good way of communicating the result, but we might also want to summarize it further, for example, we might want to calculate a “best guess” for what the proportion of cured zombies would be. This calculation is easier to do if the posterior is represented as a vector of samples rather than as a plot.</p>
 <p><strong>The probability distribution over the number of 6’s when rolling 5 dice</strong></p>
 <p>What do I mean by this? Well, take, for example, the probability distribution over the number of sixes you would get when rolling 5 dice. You can represent that distribution as a plot,</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>pd <span class="ot">&lt;-</span> <span class="cf">function</span>(n){</span>
 <span id="cb12-2"><a href="#cb12-2"></a>  df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb12-3"><a href="#cb12-3"></a>    <span class="at">prob =</span> <span class="fu">dbinom</span>(<span class="dv">0</span><span class="sc">:</span>n, n, <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>),</span>
@@ -835,7 +835,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-10-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -849,20 +849,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>p(x) = (5 x)(1/6)<sup>x(1-(1/6))</sup>(5-x)</p>
 <p>()<sup>x(1-())</sup>{5-x}</p>
 <p>But you can also represent it as a long vector of samples where a value occurs proportionally often to how probable it is. Having such a vector makes it easy to calculate new measures from the probability distribution. Say we want to know the average number of sixes we would expect to roll. This is hard to read from the plot, but easy to calculate using the vector of samples as we can directly use the mean function in R.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="do">### rbinom(number of experiments, number of observations per experiment, probability of success)</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a>number_of_sixes <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10000</span>, <span class="dv">5</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="fu">head</span>(number_of_sixes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 3 0 1 2 0 0</code></pre>
+<pre><code>#&gt; [1] 0 3 0 2 1 1</code></pre>
 </div>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="do">### rbinom(number of experiments, number of observations per experiment, probability of success)</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>number_of_sixes_mean <span class="ot">&lt;-</span> number_of_sixes <span class="sc">|&gt;</span> <span class="fu">mean</span>()</span>
 <span id="cb16-3"><a href="#cb16-3"></a>number_of_sixes_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.8405</code></pre>
+<pre><code>#&gt; [1] 0.8369</code></pre>
 </div>
 </div>
 <p>Turns out the average number of sixes is 0.822 (Inline code execution does not work at the moment. Value might vary.). The easiest way of generating samples is by drawing a random sample from the probability distribution, and if this sample is large enough, each value will occur roughly proportionally often to how probable it is.</p>
@@ -872,7 +872,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Assign the return value of <code>prop_model</code> to a variable called <code>posterior</code> and take a look at the first number of samples.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>data <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>,</span>
 <span id="cb18-2"><a href="#cb18-2"></a>         <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">0</span>)</span>
 <span id="cb18-3"><a href="#cb18-3"></a></span>
@@ -881,26 +881,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-12-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-13-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">head</span>(posterior)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.17609655 0.23850322 0.08774325 0.14497115 0.32151121 0.31189517</code></pre>
+<pre><code>#&gt; [1] 0.16687111 0.06781098 0.22938048 0.12618049 0.10285771 0.31347219</code></pre>
 </div>
 </div>
 <p>Looking at these first few samples confirms what is already shown in the plot: That the underlying proportion of cured zombies is likely somewhere between 5% and 50%. But these were just the first six samples in <code>posterior</code> which currently contain 10,000 samples (the default of <code>prop_model</code>).</p>
 <ol start="2" type="1">
 <li>Take a look at the distribution of <em>all</em> the samples in <code>posterior</code> by plotting it as a histogram.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Plot the histogram of the posterior</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a><span class="fu">hist</span>(posterior, <span class="at">breaks =</span> <span class="dv">30</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">col =</span> <span class="st">"palegreen4"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-13-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-14-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -915,11 +915,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Calculate the median of <code>posterior</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Calculate the median</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a><span class="fu">median</span>(posterior)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.1869904</code></pre>
+<pre><code>#&gt; [1] 0.1859216</code></pre>
 </div>
 </div>
 <p>So, a best guess is that the drug would cure around 18% of all zombies. Another common summary is to report an interval that includes the parameter of interest with a certain probability. This is called a <em>credible interval</em> (CI). With a posterior represented as a vector of samples you can calculate a CI using the <code>quantile()</code> function.</p>
@@ -927,12 +927,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Calculate a 90% credible interval of posterior.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Calculate the credible interval</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="fu">quantile</span>(posterior, <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.95</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;         5%        95% 
-#&gt; 0.06008872 0.38740933</code></pre>
+#&gt; 0.06083344 0.38579995</code></pre>
 </div>
 </div>
 <p>According to the credible interval, there is a 90% probability that the proportion of zombies the drug would cure is between 6% and 38%. (Here we have to be careful to remember that the percentage of cured zombies and the percentage of probability are two different things.)</p>
@@ -940,22 +940,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>First, use <code>sum</code> to count how many samples in posterior that are larger than 7%. Do this by giving <code>posterior &gt; 0.07</code> as the argument to sum.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Calculate the sum</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="fu">sum</span>(posterior <span class="sc">&gt;</span> <span class="fl">0.07</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 9280</code></pre>
+<pre><code>#&gt; [1] 9291</code></pre>
 </div>
 </div>
 <p>To turn this count into a probability we now need to <em>normalize</em> it, that is, divide it by the total number of samples in <code>posterior</code>.</p>
 <ol start="4" type="1">
 <li>Divide the result of <code>sum</code> by the number of samples in <code>posterior</code>. You can get the number of samples in <code>posterior</code> using the <code>length</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Calculate the probability</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a><span class="fu">sum</span>(posterior <span class="sc">&gt;</span> <span class="fl">0.07</span>) <span class="sc">/</span> <span class="fu">length</span>(posterior)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.928</code></pre>
+<pre><code>#&gt; [1] 0.9291</code></pre>
 </div>
 </div>
 <p>It seems there is a large probability (93%) that our zombie drug is better!</p>
@@ -979,13 +979,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="generative-model" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="generative-model"><span class="header-section-number">2.1</span> Generative model</h2>
 <p>What is a generative model? Well, it’s a very general concept, it’s any kind of computer program, mathematical expression, or set of rules that you can feed fixed parameter values and that you can use to generate simulated data. As an example, let’s whip up a generative model for the zombie drug experiment, and let’s define it as a small program in R. There are many ways we could do this, but let’s go with something simple. First, as before, let’s assume that there is an underlying proportion of zombies that will be cured by the drug and that the drug is given to a number of zombies. These are the parameters of the model, and we could set them to anything, but for now, let’s just set <code>prop_success</code> to 0.15 and <code>n_zombies</code> to 13.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a> <span class="co"># Parameters</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a>prop_success <span class="ot">&lt;-</span> <span class="fl">0.15</span></span>
 <span id="cb30-3"><a href="#cb30-3"></a>n_zombies    <span class="ot">&lt;-</span> <span class="dv">13</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Now we’re going to simulate data, so we’ll start by creating an empty data vector, and for each zombie we’re going to simulate a <code>1</code> if cured and a <code>0</code> if not cured. But how do we do this? The simple assumption I’m going to make is that whether a zombie gets cured only depends on the underlying proportion of success, and nothing else. Here that means we want to simulate a <code>1</code>, a success, 15% of the time. We can do that by sampling a single number from a uniform probability distribution between 0 and 1, and if that is less than 0.15 we’ll call it a success.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Simulating data</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a>data <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
 <span id="cb31-3"><a href="#cb31-3"></a><span class="cf">for</span>(zombie <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_zombies) {</span>
@@ -994,7 +994,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb31-6"><a href="#cb31-6"></a>data <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data)</span>
 <span id="cb31-7"><a href="#cb31-7"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;  [1] 0 0 0 0 1 0 0 0 0 0 0 0 0</code></pre>
+<pre><code>#&gt;  [1] 0 0 0 0 0 0 0 0 1 0 0 0 0</code></pre>
 </div>
 </div>
 <p>This gives us almost what we want, except that the simulated data is a vector of TRUEs and FALSEs, so the last step is to turn this into numbers instead. Alright, we have a generative model for curing zombies; every time we run it, it generates some simulated data for us.</p>
@@ -1003,7 +1003,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Generate a simulated dataset. Assume the underlying proportion of success of curing a zombie is 42% and that you administer the drug to 100 zombies.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># The generative zombie drug model</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a></span>
 <span id="cb33-3"><a href="#cb33-3"></a><span class="co"># set parameters</span></span>
@@ -1018,16 +1018,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb33-12"><a href="#cb33-12"></a>data <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data)</span>
 <span id="cb33-13"><a href="#cb33-13"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;   [1] 1 0 1 0 0 0 1 1 1 0 0 1 1 0 1 0 0 0 0 1 0 0 0 1 0 1 1 0 1 0 1 1 0 1 0 0 0
-#&gt;  [38] 0 0 1 0 1 0 1 1 0 0 0 1 0 1 0 1 1 0 0 0 1 1 1 0 0 0 1 0 1 1 0 0 0 0 1 0 0
-#&gt;  [75] 1 0 0 0 1 0 0 1 0 1 0 0 1 0 1 0 1 0 0 1 0 0 0 0 1 0</code></pre>
+<pre><code>#&gt;   [1] 1 1 1 0 0 0 0 0 0 1 0 0 1 0 1 0 1 0 0 1 0 1 0 1 0 0 0 0 1 0 0 0 1 0 0 0 0
+#&gt;  [38] 0 0 0 1 0 0 0 0 0 1 1 0 0 1 0 1 0 1 0 0 1 0 0 1 1 0 0 1 0 1 1 1 0 1 0 0 0
+#&gt;  [75] 0 1 1 1 1 0 1 0 1 0 0 0 0 0 1 0 1 1 1 1 0 1 1 1 1 0</code></pre>
 </div>
 </div>
 <p>Instead of representing cured zombies as a vector of <code>1</code>s and <code>0</code>s it could be represented as a <em>count</em> of the number of cured out of the total number of treated.</p>
 <ol start="2" type="1">
 <li>Change the code to count how many zombies in <code>data</code> were cured. Use the <code>sum</code> function for this and assign this count to <code>data</code> instead of the vector of <code>1</code>s and <code>0</code>s.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># The generative zombie drug model</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a></span>
 <span id="cb35-3"><a href="#cb35-3"></a><span class="co"># Parameters</span></span>
@@ -1061,29 +1061,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Replicate the result from the last step using the <code>rbinom</code> function: Simulate one count of the number of cured zombies out of a 100 treated, where the underlying proportion of success is 42%.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Try out rbinom</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">prob =</span> <span class="fl">0.42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 52</code></pre>
+<pre><code>#&gt; [1] 44</code></pre>
 </div>
 </div>
 <p>A nice thing with <code>rbinom</code> is that it makes it easy to rerun the generative model many times.</p>
 <ol start="2" type="1">
 <li>Now, change the code to run the simulation 200 times, rather than just one time.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Try out rbinom</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">200</span>, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">prob =</span> <span class="fl">0.42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;   [1] 36 36 51 40 54 44 42 42 41 50 38 45 40 44 45 42 44 37 42 42 40 40 43 41 35
-#&gt;  [26] 37 51 34 45 41 41 47 53 42 43 41 37 52 45 39 35 41 39 47 42 34 44 51 44 43
-#&gt;  [51] 43 35 29 38 44 39 36 50 46 37 40 43 45 38 39 34 44 43 51 37 47 45 32 34 39
-#&gt;  [76] 47 35 41 39 54 36 39 49 46 46 40 41 39 39 43 41 54 36 45 50 41 36 41 38 42
-#&gt; [101] 46 44 44 43 38 33 42 46 34 49 39 47 37 47 45 40 45 38 35 44 49 40 42 36 46
-#&gt; [126] 45 46 42 37 60 41 42 50 41 43 39 45 38 41 43 38 41 45 45 35 35 43 41 45 35
-#&gt; [151] 40 37 42 40 38 43 49 45 35 45 42 49 33 46 37 43 42 41 36 43 42 34 49 44 36
-#&gt; [176] 42 42 38 42 48 36 38 43 32 41 39 49 35 44 39 37 37 44 39 41 54 41 43 28 40</code></pre>
+<pre><code>#&gt;   [1] 45 36 38 44 43 43 48 41 43 42 41 34 40 42 35 46 45 42 38 38 52 39 41 40 38
+#&gt;  [26] 44 43 45 37 35 43 40 38 51 39 45 37 41 43 45 48 44 41 46 43 45 43 39 38 47
+#&gt;  [51] 44 44 39 35 55 46 45 44 40 57 47 38 43 46 42 39 46 37 41 38 41 41 46 47 49
+#&gt;  [76] 46 34 49 41 36 38 41 46 42 45 44 42 40 37 47 37 44 36 43 35 37 41 49 50 38
+#&gt; [101] 43 33 39 38 40 28 39 45 34 46 45 39 33 46 48 49 56 40 40 43 46 52 46 46 41
+#&gt; [126] 42 51 48 38 42 45 42 50 47 38 49 43 42 41 39 42 44 44 43 36 34 33 48 44 47
+#&gt; [151] 44 37 42 45 45 38 45 45 42 31 43 48 37 42 42 44 43 42 47 39 43 50 47 45 43
+#&gt; [176] 46 49 54 47 41 41 40 39 47 42 28 49 40 41 40 43 46 40 35 40 46 43 41 40 46</code></pre>
 </div>
 </div>
 <p>Nice! That’s a lot of simulated zombies right there.</p>
@@ -1093,7 +1093,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Earlier we implemented a generative model from scratch, but in the last exercise you realized that that was unnecessary work as this generative model was the same as the binomial distribution function. And it’s actually the case that all probability distributions, like the normal distribution or the Poisson distribution, can be seen as small generative models, and there are many more that are implemented in R. But for now, we’ll stick with the binomial distribution.</p>
 <p>So, now we have a generative model, where we can plug in fixed parameter values and it will generate simulated data for us. This could be useful if we know exactly what parameter values we want, and we want to predict what future unknown data might be. Say we are completely sure that our drug cures 7% of all zombies, but we want to know how many we’ll likely cure when we give the drug to the 100 zombies we have in our zombie pit.</p>
 <p>We could then plug in 100 and 0.07 as parameters to rbinom and then run this generative model a large number of times by setting n to, say, 100000.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>cured_zombies <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">100000</span>, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">prob =</span> <span class="fl">0.07</span>)</span>
 <span id="cb41-2"><a href="#cb41-2"></a><span class="fu">head</span>(cured_zombies)</span>
 <span id="cb41-3"><a href="#cb41-3"></a><span class="fu">hist</span>(cured_zombies, <span class="at">col =</span> <span class="st">"palegreen4"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1113,7 +1113,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Fill in the missing parameters and use the <code>rbinom</code> function to generate a sample that represents the probability distribution over what the number of visitors to your site is going to be.</li>
 <li>Visualize this distribution using <code>hist</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Fill in the parameters</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a>n_samples   <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
 <span id="cb42-3"><a href="#cb42-3"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
@@ -1125,7 +1125,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-25-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-26-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1141,19 +1141,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now, we know we’re going to run 100 ads, so that’s not uncertain, but that an ad gets clicked on 10% of the time, as the social media site claims, that is a curiously precise number. Especially when taking into account that not all ads are the same. Surely some ads perform better than others, and we don’t know how good our ad is. You are still interested in how many site visits the ad is going to generate, but since we really are uncertain about the underlying proportion of clicks we now want to include some of that uncertainty into the binomial model. There are many different probability distributions we could use to represent that uncertainty. For now, we’re going to assume that it’s equally likely that the underlying proportion of clicks could be as low as 0%, like, it’s a horrible ad, and nobody will ever click it, or as high as 20%, twice as good as the 10% claimed by the social media site.</p>
 <p>These assumptions translate into a uniform distribution from 0 to 0.2 over the underlying proportion of clicks. Now we need to change the R code that implements the model. Instead of assigning <code>proportion_clicks</code> a single value we are now going to assign it a large number of random samples from a <em>uniform probability distribution</em>. In R you can do that using the <code>runif</code> function, standing for random uniform.</p>
 <p>For example, this would sample just 6 values from 0 to 1.0 and put them into <code>proportion_clicks</code>.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>proportion_clicks <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">6</span>, <span class="at">min =</span> <span class="fl">0.0</span>, <span class="at">max =</span> <span class="fl">1.0</span>)</span>
 <span id="cb43-2"><a href="#cb43-2"></a>proportion_clicks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.3430092 0.9025463 0.8257051 0.7499695 0.2960740 0.3270677</code></pre>
+<pre><code>#&gt; [1] 0.09686972 0.01330234 0.24563810 0.68967731 0.49594516 0.37273251</code></pre>
 </div>
 </div>
 <p>A neat thing is that because most random number functions are vectorized it’s very easy to chain probability distributions together in R. For example if we now use <code>proportion_clicks</code> as the argument to rbinom, then rbinom will automatically loop over the values in <code>proportion_clicks</code>.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>n_clicks <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">6</span>, <span class="at">size =</span> <span class="dv">100</span>, proportion_clicks)</span>
 <span id="cb45-2"><a href="#cb45-2"></a>n_clicks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 44 95 81 66 31 31</code></pre>
+<pre><code>#&gt; [1]  5  1 27 70 44 44</code></pre>
 </div>
 </div>
 <p>If we look at the resulting values in <code>n_clicks</code>, we can see this. The first value in <code>proportion_clicks</code> is used to sample the first value in <code>n_clicks.</code> As it’s just an 0.05 proportion of success the number of successes in <code>n_clicks</code> becomes only 7 out of a 100. The second value in <code>proportion_clicks</code> is used to sample the second in <code>n_clicks</code>, and so on. This means that the variability from <code>runif()</code> gets combined with the variability of <code>rbinom()</code>. The result is that the samples in <code>n_clicks</code> now also incorporates the uncertainty in <code>proportion_clicks</code>.</p>
@@ -1166,7 +1166,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Replace the single value that is assigned to <code>proportion_clicks</code> with <code>n_samples</code> samples produced by <code>runif</code> as above.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>n_samples   <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb47-3"><a href="#cb47-3"></a></span>
@@ -1179,7 +1179,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>First, visualize the uncertainty in <code>proportion_clicks</code> using the <code>hist</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>n_samples <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
 <span id="cb48-2"><a href="#cb48-2"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb48-3"><a href="#cb48-3"></a>proportion_clicks <span class="ot">&lt;-</span> <span class="fu">runif</span>(n_samples, <span class="at">min =</span> <span class="fl">0.0</span>, <span class="at">max =</span> <span class="fl">0.2</span>)</span>
@@ -1190,7 +1190,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-29-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-30-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1199,13 +1199,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Now, visualize the uncertainty in <code>n_visitors</code> again using the <code>hist</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># Visualize n_visitors</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a><span class="fu">hist</span>(n_visitors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-30-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-31-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1221,7 +1221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now we have a generative model and priors, and together these form a Bayesian model.</p>
 <p>So if some statistician is talking about that she’s developed a Bayesian model of something, that just means she has specified a generative model for the data plus priors over what is uncertain in the model. The only thing we need now to do Bayesian inference is some data. You just decided to run your ad campaign. And it went better than expected!When the ad was shown a 100 times, 13 people clicked and visited your site. So now we have data, and we are ready to do some Bayesian inference, we are ready to use this data to learn about how likely people are to click on your ad.</p>
 <p>How could we do that? Let’s take a look at the model we have so far and see if we can figure that out. The prior over <code>proportion_clicks</code> and the generative model for <code>n_visitors</code> together define a prior probability distribution over both parameters and future, unknown data. Let’s put these together in a data frame and call it just <code>prior.</code></p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a>n_samples   <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb50-3"><a href="#cb50-3"></a>proportion_clicks <span class="ot">&lt;-</span> <span class="fu">runif</span>(n_samples, <span class="at">min =</span> <span class="fl">0.0</span>, <span class="at">max =</span> <span class="fl">0.2</span>)</span>
@@ -1231,19 +1231,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <p>Now the data frame <code>prior</code> represents the joint probability distribution of <code>proportion_clicks</code> and <code>n_visitors</code> together.</p>
 <p>We could have a look at the first couple of samples in this data frame.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">head</span>(prior)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["proportion_clicks"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n_visitors"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"0.037612300","2":"4","_rn_":"1"},{"1":"0.006680965","2":"1","_rn_":"2"},{"1":"0.024434770","2":"2","_rn_":"3"},{"1":"0.150955834","2":"17","_rn_":"4"},{"1":"0.092534790","2":"8","_rn_":"5"},{"1":"0.038918569","2":"2","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["proportion_clicks"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n_visitors"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"0.12425439","2":"15","_rn_":"1"},{"1":"0.15962052","2":"19","_rn_":"2"},{"1":"0.13845873","2":"16","_rn_":"3"},{"1":"0.14647549","2":"16","_rn_":"4"},{"1":"0.01482284","2":"0","_rn_":"5"},{"1":"0.16175472","2":"11","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 </div>
 <p>But it’s easier to see what going on if we plot this data frame as a scatter plot.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>prior_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>( prior, <span class="fu">aes</span>( <span class="at">x =</span> n_visitors, <span class="at">y =</span> proportion_clicks ) ) <span class="sc">+</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>  <span class="fu">geom_point</span>( <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">10</span> , <span class="at">color =</span> <span class="st">"deepskyblue4"</span>) <span class="sc">+</span></span>
 <span id="cb52-3"><a href="#cb52-3"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent) <span class="sc">+</span></span>
@@ -1267,14 +1267,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-33-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-34-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>On the x-axis we have the number of visitors, and on the y-axis we have the underlying proportion of clicks. The histograms show the marginal distributions, and you should recognize them both, the one for the proportion of clicks is uniform between 0% and 20%, just as we defined it to be, and the one for <code>n_visitors</code> is the one we looked at last step. We clearly see a pattern in the plot, the higher the underlying proportion of clicks, the more visitors we’ll probably get. But we also see that the more visitors we get, the higher the underlying proportion of clicks probably is.</p>
 <p>If we knew that <code>proportion_clicks</code> was exactly 10%, we could condition on this, that is, remove all samples that don’t fulfill the condition of proportion_clicks being 10%.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">library</span>(ggExtra)</span>
 <span id="cb53-2"><a href="#cb53-2"></a>plot_prior <span class="ot">&lt;-</span> <span class="cf">function</span>(x, filter_var) {</span>
 <span id="cb53-3"><a href="#cb53-3"></a>  </span>
@@ -1319,14 +1319,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-34-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-35-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>This would also reduce the uncertainty in how many visitors we would get. If we knew the proportion of clicks was 10%, we would be pretty certain we would end up with between 2 and 15 visitors.</p>
 <p>If we condition on other values the probability distribution over the number of visitors shifts accordingly.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.2</span> )) {</span>
 <span id="cb55-2"><a href="#cb55-2"></a>  <span class="fu">plot_prior</span>(<span class="at">x =</span> i, <span class="fu">round</span>(proportion_clicks,<span class="dv">2</span>))</span>
 <span id="cb55-3"><a href="#cb55-3"></a>  <span class="fu">ggsave</span>(<span class="at">plot =</span> p, <span class="at">filename =</span> <span class="fu">paste0</span>(<span class="st">"img"</span>,i, <span class="st">".png"</span>), <span class="at">device =</span> <span class="st">"png"</span>)</span>
@@ -1347,25 +1347,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="readme_files/figure-gfm/marg_hist1.gif" class="lightbox" title="marg_hist" data-gallery="quarto-lightbox-gallery-17"><img src="readme_files/figure-gfm/marg_hist1.gif" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p><a href="readme_files/figure-gfm/marg_hist1.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="marg_hist"><img src="readme_files/figure-gfm/marg_hist1.gif" class="img-fluid figure-img" style="width:50.0%"></a></p>
 <p></p><figcaption class="figure-caption">marg_hist</figcaption><p></p>
 </figure>
 </div>
 <p>However, there is no point to this, because the problem was that we didn’t know what the underlying proportions of clicks could be. But what we can know is the data, and we can condition on the data too. Say that 5 out of a 100 clicked when we ran the ad campaign. If we remove all samples that doesn’t fulfill this condition, we also reduce the uncertainty in what the underlying proportion of clicks could be.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># Set n_visitors to 5</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a><span class="fu">plot_prior</span>(<span class="at">x =</span> <span class="dv">5</span>, n_visitors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-36-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-37-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>We end up with a distribution that doesn’t look at all like the uniform distribution between 0% and 20% we defined before. And if we actually would have gotten 5 visitors we could have concluded that proportion_clicks probably would be between 3% and 10%.</p>
 <p>And similarly we could condition on other values for the data.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>)) {</span>
 <span id="cb57-2"><a href="#cb57-2"></a>  p <span class="ot">&lt;-</span> <span class="fu">plot_prior</span>(<span class="at">x =</span> i, n_visitors)</span>
 <span id="cb57-3"><a href="#cb57-3"></a>  <span class="fu">ggsave</span>(<span class="at">plot =</span> p, <span class="at">filename =</span> <span class="fu">paste0</span>(<span class="st">"img"</span>,i, <span class="st">".png"</span>), <span class="at">device =</span> <span class="st">"png"</span>)</span>
@@ -1386,7 +1386,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="readme_files/figure-gfm/marg_hist2.gif" class="lightbox" title="marg_hist" data-gallery="quarto-lightbox-gallery-19"><img src="readme_files/figure-gfm/marg_hist2.gif" class="img-fluid figure-img" style="width:50.0%"></a></p>
+<p><a href="readme_files/figure-gfm/marg_hist2.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="marg_hist"><img src="readme_files/figure-gfm/marg_hist2.gif" class="img-fluid figure-img" style="width:50.0%"></a></p>
 <p></p><figcaption class="figure-caption">marg_hist</figcaption><p></p>
 </figure>
 </div>
@@ -1404,7 +1404,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Put these vectors into a data frame called <code>prior</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># Create the prior data frame</span></span>
 <span id="cb58-2"><a href="#cb58-2"></a>prior <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(proportion_clicks, n_visitors)</span>
 <span id="cb58-3"><a href="#cb58-3"></a></span>
@@ -1414,7 +1414,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["proportion_clicks"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n_visitors"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"0.037612300","2":"4","_rn_":"1"},{"1":"0.006680965","2":"1","_rn_":"2"},{"1":"0.024434770","2":"2","_rn_":"3"},{"1":"0.150955834","2":"17","_rn_":"4"},{"1":"0.092534790","2":"8","_rn_":"5"},{"1":"0.038918569","2":"2","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["proportion_clicks"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n_visitors"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"0.12425439","2":"15","_rn_":"1"},{"1":"0.15962052","2":"19","_rn_":"2"},{"1":"0.13845873","2":"16","_rn_":"3"},{"1":"0.14647549","2":"16","_rn_":"4"},{"1":"0.01482284","2":"0","_rn_":"5"},{"1":"0.16175472","2":"11","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1423,7 +1423,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Update prior to include this information by conditioning on this data. That is, filtering away all rows where <code>prior$n_visitors</code> isn’t equal to 13. Store the resulting data frame in posterior.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># Create the posterior data frame</span></span>
 <span id="cb59-2"><a href="#cb59-2"></a>posterior <span class="ot">&lt;-</span> prior[prior<span class="sc">$</span>n_visitors <span class="sc">==</span> <span class="dv">13</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1431,13 +1431,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>But take a look at <code>posterior$proportion_clicks</code> using the <code>hist</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># Visualize posterior proportion clicks</span></span>
 <span id="cb60-2"><a href="#cb60-2"></a><span class="fu">hist</span>(posterior<span class="sc">$</span>proportion_clicks)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-40-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-41-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1457,7 +1457,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Assign <code>posterior</code> to a new variable called <code>prior</code> which will represent the uncertainty regarding the new ad campaign you haven’t run yet.</li>
 <li>Take a look at the first rows in <code>prior</code></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># Assign posterior to a new variable called prior</span></span>
 <span id="cb61-2"><a href="#cb61-2"></a>prior <span class="ot">&lt;-</span> posterior</span>
 <span id="cb61-3"><a href="#cb61-3"></a></span>
@@ -1467,7 +1467,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["proportion_clicks"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n_visitors"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"0.08972346","2":"13","_rn_":"33"},{"1":"0.16168575","2":"13","_rn_":"50"},{"1":"0.12884263","2":"13","_rn_":"66"},{"1":"0.14906765","2":"13","_rn_":"78"},{"1":"0.14644750","2":"13","_rn_":"86"},{"1":"0.16529292","2":"13","_rn_":"89"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["proportion_clicks"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n_visitors"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"0.09542867","2":"13","_rn_":"20"},{"1":"0.07095629","2":"13","_rn_":"61"},{"1":"0.12418434","2":"13","_rn_":"62"},{"1":"0.14141285","2":"13","_rn_":"63"},{"1":"0.18417709","2":"13","_rn_":"99"},{"1":"0.09579128","2":"13","_rn_":"173"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1477,7 +1477,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Replace <code>prior$n_visitors</code> with a new sample drawn using <code>rbinom</code> with <code>prior$proportion_clicks</code> as an argument.</li>
 <li>Plot the resulting <code>prior$n_visitors</code> using <code>hist</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># Replace prior$n_visitors with a new sample and visualize the result</span></span>
 <span id="cb62-2"><a href="#cb62-2"></a>n_samples   <span class="ot">&lt;-</span>  <span class="fu">nrow</span>(prior)</span>
 <span id="cb62-3"><a href="#cb62-3"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
@@ -1486,7 +1486,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-42-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-43-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1495,11 +1495,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="5" type="1">
 <li>Calculate the probability that you will get 5 or more visitors next time you run your ad campaign (do this by summing up the number of draws with more than five visitors and divide by the total number of draws).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Calculate the probability that you will get 5 or more visitors</span></span>
 <span id="cb63-2"><a href="#cb63-2"></a><span class="fu">sum</span>(prior<span class="sc">$</span>n_visitors <span class="sc">&gt;=</span> <span class="dv">5</span>) <span class="sc">/</span> <span class="fu">length</span>(prior<span class="sc">$</span>n_visitors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.9835105</code></pre>
+<pre><code>#&gt; [1] 0.9883114</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -1574,7 +1574,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Generate 1,000,000 draws from a Beta(1, 1) distribution: A Beta distribution with both shape parameters set to 1.</li>
 <li>Visualize these draws using the <code>hist</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># Explore using the rbeta function</span></span>
 <span id="cb65-2"><a href="#cb65-2"></a>beta_sample <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n =</span> <span class="dv">1000000</span>, <span class="at">shape1 =</span> <span class="dv">1</span>, <span class="at">shape2 =</span> <span class="dv">1</span>)</span>
 <span id="cb65-3"><a href="#cb65-3"></a></span>
@@ -1583,7 +1583,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-44-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-45-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-22"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1592,7 +1592,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Set one of the shape parameters to a negative number.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Explore using the rbeta function</span></span>
 <span id="cb66-2"><a href="#cb66-2"></a>beta_sample <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n =</span> <span class="dv">1000000</span>, <span class="at">shape1 =</span> <span class="sc">-</span><span class="dv">1</span>, <span class="at">shape2 =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1609,7 +1609,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Instead, set both shape parameters to a large number. Let’s set both <code>shape1</code> and <code>shape2</code> to <code>100</code>.</li>
 <li>Visualize the result using <code>hist()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># Explore using the rbeta function</span></span>
 <span id="cb70-2"><a href="#cb70-2"></a>beta_sample <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n =</span> <span class="dv">1000000</span>, <span class="at">shape1 =</span> <span class="dv">100</span>, <span class="at">shape2 =</span> <span class="dv">100</span>)</span>
 <span id="cb70-3"><a href="#cb70-3"></a></span>
@@ -1618,7 +1618,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-46-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-47-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-23"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1627,7 +1627,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="5" type="1">
 <li>See what happens if you set <code>shape2</code> to something smaller than <code>shape1</code>. Let’s set <code>shape2 = 20</code> while keeping <code>shape1 = 100</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a><span class="co"># Explore using the rbeta function</span></span>
 <span id="cb71-2"><a href="#cb71-2"></a>beta_sample <span class="ot">&lt;-</span> <span class="fu">rbeta</span>(<span class="at">n =</span> <span class="dv">1000000</span>, <span class="at">shape1 =</span> <span class="dv">100</span>, <span class="at">shape2 =</span> <span class="dv">20</span>)</span>
 <span id="cb71-3"><a href="#cb71-3"></a></span>
@@ -1636,7 +1636,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-47-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-48-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-24"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1654,7 +1654,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 id="question-7" data-number="3.3" class="anchored"><span class="header-section-number">3.3</span> <em>Question</em></h2>
 <p>Out of the four Beta distribution shown below, which captures this information the best?<br> <br> ⬜ A. rbeta(shape1 = 3, shape2 = 12)<br> ⬜ B. rbeta(shape1 = 15, shape2 = 75)<br> ✅ C. rbeta(shape1 = 5, shape2 = 95)<br> ⬜ D. rbeta(shape1 = 30, shape2 = 10)<br></p>
 </blockquote>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="co"># 1. Data for each distribution</span></span>
 <span id="cb72-2"><a href="#cb72-2"></a>rbeta_data_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb72-3"><a href="#cb72-3"></a>  <span class="at">idx    =</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>],</span>
@@ -1687,7 +1687,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-48-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-49-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-25"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1699,7 +1699,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Change the model to use the new informative prior for <code>proportion_clicks</code> that you just selected:</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a>n_draws     <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
 <span id="cb73-2"><a href="#cb73-2"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb73-3"><a href="#cb73-3"></a></span>
@@ -1716,7 +1716,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-49-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-50-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-26"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1726,7 +1726,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="contrasts-and-comparisons" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="contrasts-and-comparisons"><span class="header-section-number">3.5</span> Contrasts and comparisons</h2>
 <p>You’ve now changed the prior to include the information you got from the social media company. What effect did that have? Well, here is the old uniform prior and posterior. And here is the new informed prior.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a>data_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb74-2"><a href="#cb74-2"></a>  </span>
 <span id="cb74-3"><a href="#cb74-3"></a>  <span class="at">proportion_clicks =</span> <span class="fu">list</span>(<span class="fu">runif</span>( <span class="at">n =</span> n_samples, <span class="at">min =</span> <span class="fl">0.0</span>, <span class="at">max =</span> <span class="fl">0.2</span>),</span>
@@ -1764,7 +1764,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-50-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-51-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-27"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1774,7 +1774,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="comparison-between-gruops-or-datasets" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="comparison-between-gruops-or-datasets"><span class="header-section-number">3.6</span> 2. Comparison between gruops or datasets</h2>
 <p>Next up on reasons to use Bayesian data analysis is that it is easy to compare and contrast any outcomes from Bayesian models. A typical example of when you want to make comparisons is when you have two different experimental groups, like two different treatments or two different methods, and you want to compare these and see which seems the best. For example, say that the ads you’ve been running so far have been video ads, but you’ve been thinking that text ads could be more effective. To try this out you also paid for 100 text ads to be shown on the social media site, and that resulted in 6 clicks and visits to your site. But as the video ads resulted in 13 clicks it seems like they are more effective, but how sure should you be of this? We could run the same model on the data from the video ads and the text ads, and take a look at the corresponding posteriors over the underlying proportions of clicks.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a>data_tbl <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb75-2"><a href="#cb75-2"></a>  </span>
 <span id="cb75-3"><a href="#cb75-3"></a>  <span class="at">proportion_clicks =</span> <span class="fu">list</span>(<span class="fu">runif</span>( <span class="at">n =</span> n_samples, <span class="at">min =</span> <span class="fl">0.0</span>, <span class="at">max =</span> <span class="fl">0.2</span>),</span>
@@ -1812,14 +1812,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-51-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-52-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-28"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 </div>
 <p>It looks like it’s more probable that the proportion of clicks is lower for the text ad, but there is some overlap between the probability distributions. What we would want is to compare the performance of the text and video ads in such a way that we got out a new probability distribution showing the probable difference. And this is easy to get, especially since these two distributions are represented by long vectors of samples.</p>
 <p>Here I’ve taken the samples that make up these two probability distributions, given them the names <code>video_prop</code> and <code>text_prop</code>, prop as in proportion, and put them into a data frame called posterior.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a>min_length <span class="ot">&lt;-</span> data_tbl <span class="sc">|&gt;</span> </span>
 <span id="cb76-2"><a href="#cb76-2"></a>                <span class="fu">filter</span>(distribution <span class="sc">|&gt;</span> <span class="fu">str_detect</span>(<span class="st">"posterior"</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb76-3"><a href="#cb76-3"></a>                <span class="fu">pull</span>(data) <span class="sc">|&gt;</span> <span class="fu">map</span>(nrow) <span class="sc">|&gt;</span> <span class="fu">unlist</span>() <span class="sc">|&gt;</span> <span class="fu">min</span>()</span>
@@ -1840,20 +1840,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["video_prop"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["text_prop"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.12","2":"0.09"},{"1":"0.15","2":"0.07"},{"1":"0.15","2":"0.09"},{"1":"0.13","2":"0.06"},{"1":"0.15","2":"0.05"},{"1":"0.11","2":"0.03"},{"1":"0.13","2":"0.04"},{"1":"0.12","2":"0.07"},{"1":"0.10","2":"0.08"},{"1":"0.09","2":"0.06"},{"1":"0.15","2":"0.05"},{"1":"0.17","2":"0.06"},{"1":"0.15","2":"0.06"},{"1":"0.20","2":"0.05"},{"1":"0.10","2":"0.10"},{"1":"0.12","2":"0.09"},{"1":"0.12","2":"0.09"},{"1":"0.10","2":"0.05"},{"1":"0.17","2":"0.05"},{"1":"0.16","2":"0.05"},{"1":"0.16","2":"0.03"},{"1":"0.13","2":"0.10"},{"1":"0.15","2":"0.07"},{"1":"0.14","2":"0.08"},{"1":"0.12","2":"0.09"},{"1":"0.15","2":"0.03"},{"1":"0.11","2":"0.05"},{"1":"0.13","2":"0.05"},{"1":"0.09","2":"0.02"},{"1":"0.16","2":"0.07"},{"1":"0.09","2":"0.05"},{"1":"0.13","2":"0.05"},{"1":"0.14","2":"0.06"},{"1":"0.14","2":"0.08"},{"1":"0.11","2":"0.04"},{"1":"0.13","2":"0.07"},{"1":"0.17","2":"0.06"},{"1":"0.11","2":"0.08"},{"1":"0.16","2":"0.07"},{"1":"0.12","2":"0.08"},{"1":"0.09","2":"0.08"},{"1":"0.15","2":"0.03"},{"1":"0.10","2":"0.13"},{"1":"0.11","2":"0.07"},{"1":"0.15","2":"0.11"},{"1":"0.15","2":"0.12"},{"1":"0.15","2":"0.05"},{"1":"0.14","2":"0.13"},{"1":"0.16","2":"0.08"},{"1":"0.15","2":"0.07"},{"1":"0.10","2":"0.08"},{"1":"0.10","2":"0.07"},{"1":"0.20","2":"0.04"},{"1":"0.14","2":"0.08"},{"1":"0.12","2":"0.12"},{"1":"0.14","2":"0.08"},{"1":"0.13","2":"0.08"},{"1":"0.12","2":"0.11"},{"1":"0.10","2":"0.05"},{"1":"0.08","2":"0.10"},{"1":"0.14","2":"0.05"},{"1":"0.13","2":"0.07"},{"1":"0.14","2":"0.08"},{"1":"0.15","2":"0.08"},{"1":"0.15","2":"0.06"},{"1":"0.11","2":"0.05"},{"1":"0.13","2":"0.09"},{"1":"0.12","2":"0.04"},{"1":"0.15","2":"0.11"},{"1":"0.14","2":"0.06"},{"1":"0.11","2":"0.09"},{"1":"0.16","2":"0.07"},{"1":"0.10","2":"0.07"},{"1":"0.12","2":"0.07"},{"1":"0.12","2":"0.04"},{"1":"0.11","2":"0.06"},{"1":"0.14","2":"0.06"},{"1":"0.17","2":"0.03"},{"1":"0.14","2":"0.11"},{"1":"0.14","2":"0.09"},{"1":"0.20","2":"0.08"},{"1":"0.17","2":"0.06"},{"1":"0.15","2":"0.06"},{"1":"0.09","2":"0.06"},{"1":"0.13","2":"0.08"},{"1":"0.14","2":"0.05"},{"1":"0.15","2":"0.05"},{"1":"0.13","2":"0.07"},{"1":"0.13","2":"0.13"},{"1":"0.17","2":"0.08"},{"1":"0.14","2":"0.06"},{"1":"0.14","2":"0.08"},{"1":"0.07","2":"0.04"},{"1":"0.13","2":"0.06"},{"1":"0.17","2":"0.12"},{"1":"0.09","2":"0.08"},{"1":"0.14","2":"0.05"},{"1":"0.15","2":"0.09"},{"1":"0.17","2":"0.10"},{"1":"0.13","2":"0.07"},{"1":"0.10","2":"0.04"},{"1":"0.11","2":"0.05"},{"1":"0.16","2":"0.07"},{"1":"0.09","2":"0.10"},{"1":"0.14","2":"0.04"},{"1":"0.18","2":"0.07"},{"1":"0.12","2":"0.09"},{"1":"0.13","2":"0.06"},{"1":"0.13","2":"0.06"},{"1":"0.12","2":"0.06"},{"1":"0.13","2":"0.08"},{"1":"0.15","2":"0.07"},{"1":"0.15","2":"0.10"},{"1":"0.10","2":"0.04"},{"1":"0.13","2":"0.05"},{"1":"0.15","2":"0.10"},{"1":"0.08","2":"0.05"},{"1":"0.13","2":"0.05"},{"1":"0.15","2":"0.08"},{"1":"0.14","2":"0.05"},{"1":"0.12","2":"0.04"},{"1":"0.17","2":"0.06"},{"1":"0.15","2":"0.08"},{"1":"0.12","2":"0.07"},{"1":"0.12","2":"0.05"},{"1":"0.09","2":"0.03"},{"1":"0.15","2":"0.04"},{"1":"0.15","2":"0.09"},{"1":"0.14","2":"0.08"},{"1":"0.10","2":"0.08"},{"1":"0.07","2":"0.05"},{"1":"0.15","2":"0.06"},{"1":"0.14","2":"0.09"},{"1":"0.14","2":"0.08"},{"1":"0.11","2":"0.10"},{"1":"0.13","2":"0.09"},{"1":"0.11","2":"0.05"},{"1":"0.14","2":"0.04"},{"1":"0.18","2":"0.07"},{"1":"0.13","2":"0.06"},{"1":"0.18","2":"0.04"},{"1":"0.09","2":"0.05"},{"1":"0.14","2":"0.02"},{"1":"0.08","2":"0.05"},{"1":"0.11","2":"0.08"},{"1":"0.11","2":"0.04"},{"1":"0.11","2":"0.07"},{"1":"0.12","2":"0.06"},{"1":"0.08","2":"0.05"},{"1":"0.10","2":"0.07"},{"1":"0.09","2":"0.04"},{"1":"0.15","2":"0.07"},{"1":"0.10","2":"0.06"},{"1":"0.13","2":"0.09"},{"1":"0.12","2":"0.05"},{"1":"0.08","2":"0.07"},{"1":"0.15","2":"0.04"},{"1":"0.11","2":"0.03"},{"1":"0.16","2":"0.04"},{"1":"0.14","2":"0.04"},{"1":"0.11","2":"0.03"},{"1":"0.12","2":"0.15"},{"1":"0.12","2":"0.05"},{"1":"0.11","2":"0.04"},{"1":"0.09","2":"0.03"},{"1":"0.15","2":"0.09"},{"1":"0.14","2":"0.09"},{"1":"0.11","2":"0.10"},{"1":"0.09","2":"0.10"},{"1":"0.12","2":"0.10"},{"1":"0.10","2":"0.06"},{"1":"0.19","2":"0.07"},{"1":"0.12","2":"0.08"},{"1":"0.11","2":"0.06"},{"1":"0.15","2":"0.06"},{"1":"0.09","2":"0.12"},{"1":"0.15","2":"0.07"},{"1":"0.17","2":"0.06"},{"1":"0.13","2":"0.05"},{"1":"0.15","2":"0.07"},{"1":"0.15","2":"0.12"},{"1":"0.06","2":"0.09"},{"1":"0.17","2":"0.10"},{"1":"0.16","2":"0.05"},{"1":"0.17","2":"0.06"},{"1":"0.18","2":"0.07"},{"1":"0.14","2":"0.10"},{"1":"0.16","2":"0.08"},{"1":"0.15","2":"0.09"},{"1":"0.12","2":"0.04"},{"1":"0.10","2":"0.06"},{"1":"0.11","2":"0.07"},{"1":"0.15","2":"0.06"},{"1":"0.20","2":"0.14"},{"1":"0.19","2":"0.07"},{"1":"0.13","2":"0.06"},{"1":"0.16","2":"0.06"},{"1":"0.12","2":"0.06"},{"1":"0.13","2":"0.09"},{"1":"0.10","2":"0.04"},{"1":"0.10","2":"0.03"},{"1":"0.13","2":"0.04"},{"1":"0.15","2":"0.04"},{"1":"0.19","2":"0.06"},{"1":"0.15","2":"0.06"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["video_prop"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["text_prop"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.14","2":"0.04"},{"1":"0.12","2":"0.08"},{"1":"0.18","2":"0.09"},{"1":"0.15","2":"0.05"},{"1":"0.09","2":"0.06"},{"1":"0.15","2":"0.07"},{"1":"0.18","2":"0.04"},{"1":"0.17","2":"0.04"},{"1":"0.09","2":"0.05"},{"1":"0.09","2":"0.08"},{"1":"0.09","2":"0.07"},{"1":"0.10","2":"0.07"},{"1":"0.13","2":"0.04"},{"1":"0.15","2":"0.05"},{"1":"0.14","2":"0.06"},{"1":"0.15","2":"0.08"},{"1":"0.15","2":"0.03"},{"1":"0.14","2":"0.05"},{"1":"0.10","2":"0.07"},{"1":"0.13","2":"0.08"},{"1":"0.14","2":"0.04"},{"1":"0.14","2":"0.10"},{"1":"0.10","2":"0.06"},{"1":"0.08","2":"0.06"},{"1":"0.11","2":"0.09"},{"1":"0.09","2":"0.05"},{"1":"0.08","2":"0.07"},{"1":"0.13","2":"0.07"},{"1":"0.10","2":"0.07"},{"1":"0.18","2":"0.08"},{"1":"0.13","2":"0.06"},{"1":"0.19","2":"0.05"},{"1":"0.15","2":"0.08"},{"1":"0.16","2":"0.10"},{"1":"0.07","2":"0.04"},{"1":"0.11","2":"0.06"},{"1":"0.12","2":"0.09"},{"1":"0.15","2":"0.10"},{"1":"0.18","2":"0.09"},{"1":"0.09","2":"0.04"},{"1":"0.12","2":"0.10"},{"1":"0.09","2":"0.08"},{"1":"0.13","2":"0.03"},{"1":"0.08","2":"0.07"},{"1":"0.13","2":"0.09"},{"1":"0.15","2":"0.06"},{"1":"0.17","2":"0.06"},{"1":"0.09","2":"0.08"},{"1":"0.14","2":"0.07"},{"1":"0.14","2":"0.06"},{"1":"0.20","2":"0.04"},{"1":"0.10","2":"0.10"},{"1":"0.16","2":"0.06"},{"1":"0.16","2":"0.05"},{"1":"0.16","2":"0.09"},{"1":"0.15","2":"0.08"},{"1":"0.14","2":"0.08"},{"1":"0.14","2":"0.08"},{"1":"0.18","2":"0.07"},{"1":"0.14","2":"0.05"},{"1":"0.15","2":"0.04"},{"1":"0.12","2":"0.09"},{"1":"0.13","2":"0.07"},{"1":"0.15","2":"0.07"},{"1":"0.10","2":"0.05"},{"1":"0.08","2":"0.12"},{"1":"0.11","2":"0.06"},{"1":"0.15","2":"0.04"},{"1":"0.13","2":"0.06"},{"1":"0.12","2":"0.05"},{"1":"0.18","2":"0.04"},{"1":"0.12","2":"0.07"},{"1":"0.11","2":"0.07"},{"1":"0.10","2":"0.04"},{"1":"0.16","2":"0.07"},{"1":"0.14","2":"0.08"},{"1":"0.14","2":"0.06"},{"1":"0.15","2":"0.03"},{"1":"0.14","2":"0.04"},{"1":"0.14","2":"0.07"},{"1":"0.16","2":"0.11"},{"1":"0.11","2":"0.07"},{"1":"0.10","2":"0.04"},{"1":"0.11","2":"0.04"},{"1":"0.16","2":"0.09"},{"1":"0.07","2":"0.08"},{"1":"0.10","2":"0.08"},{"1":"0.10","2":"0.11"},{"1":"0.13","2":"0.10"},{"1":"0.07","2":"0.04"},{"1":"0.14","2":"0.10"},{"1":"0.17","2":"0.04"},{"1":"0.12","2":"0.07"},{"1":"0.19","2":"0.07"},{"1":"0.20","2":"0.03"},{"1":"0.17","2":"0.09"},{"1":"0.12","2":"0.06"},{"1":"0.18","2":"0.12"},{"1":"0.13","2":"0.10"},{"1":"0.15","2":"0.07"},{"1":"0.11","2":"0.05"},{"1":"0.11","2":"0.04"},{"1":"0.19","2":"0.04"},{"1":"0.14","2":"0.07"},{"1":"0.17","2":"0.06"},{"1":"0.13","2":"0.06"},{"1":"0.12","2":"0.05"},{"1":"0.09","2":"0.05"},{"1":"0.09","2":"0.04"},{"1":"0.17","2":"0.06"},{"1":"0.17","2":"0.09"},{"1":"0.19","2":"0.06"},{"1":"0.13","2":"0.06"},{"1":"0.11","2":"0.05"},{"1":"0.12","2":"0.06"},{"1":"0.17","2":"0.07"},{"1":"0.12","2":"0.06"},{"1":"0.08","2":"0.04"},{"1":"0.18","2":"0.07"},{"1":"0.17","2":"0.11"},{"1":"0.15","2":"0.07"},{"1":"0.18","2":"0.05"},{"1":"0.11","2":"0.10"},{"1":"0.12","2":"0.08"},{"1":"0.15","2":"0.07"},{"1":"0.19","2":"0.03"},{"1":"0.14","2":"0.06"},{"1":"0.11","2":"0.06"},{"1":"0.14","2":"0.10"},{"1":"0.13","2":"0.06"},{"1":"0.12","2":"0.05"},{"1":"0.07","2":"0.07"},{"1":"0.13","2":"0.06"},{"1":"0.14","2":"0.07"},{"1":"0.17","2":"0.06"},{"1":"0.11","2":"0.09"},{"1":"0.19","2":"0.09"},{"1":"0.13","2":"0.04"},{"1":"0.07","2":"0.06"},{"1":"0.19","2":"0.13"},{"1":"0.11","2":"0.03"},{"1":"0.12","2":"0.05"},{"1":"0.08","2":"0.03"},{"1":"0.10","2":"0.07"},{"1":"0.09","2":"0.08"},{"1":"0.09","2":"0.08"},{"1":"0.10","2":"0.09"},{"1":"0.10","2":"0.09"},{"1":"0.10","2":"0.08"},{"1":"0.18","2":"0.12"},{"1":"0.11","2":"0.06"},{"1":"0.12","2":"0.04"},{"1":"0.10","2":"0.12"},{"1":"0.10","2":"0.08"},{"1":"0.16","2":"0.05"},{"1":"0.13","2":"0.06"},{"1":"0.13","2":"0.08"},{"1":"0.16","2":"0.10"},{"1":"0.17","2":"0.08"},{"1":"0.15","2":"0.08"},{"1":"0.08","2":"0.06"},{"1":"0.08","2":"0.05"},{"1":"0.14","2":"0.03"},{"1":"0.12","2":"0.04"},{"1":"0.14","2":"0.02"},{"1":"0.16","2":"0.08"},{"1":"0.09","2":"0.09"},{"1":"0.16","2":"0.06"},{"1":"0.10","2":"0.12"},{"1":"0.17","2":"0.07"},{"1":"0.17","2":"0.08"},{"1":"0.13","2":"0.04"},{"1":"0.10","2":"0.08"},{"1":"0.18","2":"0.06"},{"1":"0.18","2":"0.09"},{"1":"0.12","2":"0.04"},{"1":"0.15","2":"0.06"},{"1":"0.14","2":"0.06"},{"1":"0.11","2":"0.04"},{"1":"0.11","2":"0.08"},{"1":"0.13","2":"0.05"},{"1":"0.14","2":"0.09"},{"1":"0.12","2":"0.08"},{"1":"0.17","2":"0.08"},{"1":"0.12","2":"0.07"},{"1":"0.10","2":"0.04"},{"1":"0.07","2":"0.10"},{"1":"0.16","2":"0.11"},{"1":"0.17","2":"0.07"},{"1":"0.17","2":"0.03"},{"1":"0.11","2":"0.06"},{"1":"0.15","2":"0.03"},{"1":"0.15","2":"0.06"},{"1":"0.17","2":"0.06"},{"1":"0.12","2":"0.06"},{"1":"0.16","2":"0.03"},{"1":"0.13","2":"0.03"},{"1":"0.13","2":"0.06"},{"1":"0.14","2":"0.05"},{"1":"0.18","2":"0.02"},{"1":"0.13","2":"0.12"},{"1":"0.11","2":"0.08"},{"1":"0.14","2":"0.05"},{"1":"0.16","2":"0.06"},{"1":"0.14","2":"0.08"},{"1":"0.16","2":"0.10"},{"1":"0.14","2":"0.07"},{"1":"0.10","2":"0.04"},{"1":"0.14","2":"0.06"},{"1":"0.16","2":"0.04"},{"1":"0.12","2":"0.05"},{"1":"0.08","2":"0.10"},{"1":"0.11","2":"0.07"},{"1":"0.19","2":"0.07"},{"1":"0.11","2":"0.14"},{"1":"0.11","2":"0.08"},{"1":"0.16","2":"0.03"},{"1":"0.14","2":"0.03"},{"1":"0.14","2":"0.04"},{"1":"0.20","2":"0.06"},{"1":"0.17","2":"0.10"},{"1":"0.09","2":"0.03"},{"1":"0.11","2":"0.07"},{"1":"0.11","2":"0.03"},{"1":"0.13","2":"0.06"},{"1":"0.20","2":"0.03"},{"1":"0.09","2":"0.08"},{"1":"0.19","2":"0.05"},{"1":"0.11","2":"0.08"},{"1":"0.14","2":"0.09"},{"1":"0.18","2":"0.07"},{"1":"0.12","2":"0.05"},{"1":"0.16","2":"0.08"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 </div>
 <p>As long as these samples are in a random order, and as long as I do it row by row, I can now calculate any type of derivative quantity and the resulting new distribution of samples will correctly retain the uncertainty of these original two distributions. Now, we were interested in the difference, so for each row let’s subtract text_prop from video_prop and put it into the column prop_diff.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a>posterior<span class="sc">$</span>prop_diff <span class="ot">&lt;-</span> posterior<span class="sc">$</span>video_prop <span class="sc">-</span> posterior<span class="sc">$</span>text_prop</span>
 <span id="cb79-2"><a href="#cb79-2"></a>posterior</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["video_prop"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["text_prop"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["prop_diff"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.12","2":"0.09","3":"0.03"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.15","2":"0.09","3":"0.06"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.15","2":"0.05","3":"0.10"},{"1":"0.11","2":"0.03","3":"0.08"},{"1":"0.13","2":"0.04","3":"0.09"},{"1":"0.12","2":"0.07","3":"0.05"},{"1":"0.10","2":"0.08","3":"0.02"},{"1":"0.09","2":"0.06","3":"0.03"},{"1":"0.15","2":"0.05","3":"0.10"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.20","2":"0.05","3":"0.15"},{"1":"0.10","2":"0.10","3":"0.00"},{"1":"0.12","2":"0.09","3":"0.03"},{"1":"0.12","2":"0.09","3":"0.03"},{"1":"0.10","2":"0.05","3":"0.05"},{"1":"0.17","2":"0.05","3":"0.12"},{"1":"0.16","2":"0.05","3":"0.11"},{"1":"0.16","2":"0.03","3":"0.13"},{"1":"0.13","2":"0.10","3":"0.03"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.14","2":"0.08","3":"0.06"},{"1":"0.12","2":"0.09","3":"0.03"},{"1":"0.15","2":"0.03","3":"0.12"},{"1":"0.11","2":"0.05","3":"0.06"},{"1":"0.13","2":"0.05","3":"0.08"},{"1":"0.09","2":"0.02","3":"0.07"},{"1":"0.16","2":"0.07","3":"0.09"},{"1":"0.09","2":"0.05","3":"0.04"},{"1":"0.13","2":"0.05","3":"0.08"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.14","2":"0.08","3":"0.06"},{"1":"0.11","2":"0.04","3":"0.07"},{"1":"0.13","2":"0.07","3":"0.06"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.11","2":"0.08","3":"0.03"},{"1":"0.16","2":"0.07","3":"0.09"},{"1":"0.12","2":"0.08","3":"0.04"},{"1":"0.09","2":"0.08","3":"0.01"},{"1":"0.15","2":"0.03","3":"0.12"},{"1":"0.10","2":"0.13","3":"-0.03"},{"1":"0.11","2":"0.07","3":"0.04"},{"1":"0.15","2":"0.11","3":"0.04"},{"1":"0.15","2":"0.12","3":"0.03"},{"1":"0.15","2":"0.05","3":"0.10"},{"1":"0.14","2":"0.13","3":"0.01"},{"1":"0.16","2":"0.08","3":"0.08"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.10","2":"0.08","3":"0.02"},{"1":"0.10","2":"0.07","3":"0.03"},{"1":"0.20","2":"0.04","3":"0.16"},{"1":"0.14","2":"0.08","3":"0.06"},{"1":"0.12","2":"0.12","3":"0.00"},{"1":"0.14","2":"0.08","3":"0.06"},{"1":"0.13","2":"0.08","3":"0.05"},{"1":"0.12","2":"0.11","3":"0.01"},{"1":"0.10","2":"0.05","3":"0.05"},{"1":"0.08","2":"0.10","3":"-0.02"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.13","2":"0.07","3":"0.06"},{"1":"0.14","2":"0.08","3":"0.06"},{"1":"0.15","2":"0.08","3":"0.07"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.11","2":"0.05","3":"0.06"},{"1":"0.13","2":"0.09","3":"0.04"},{"1":"0.12","2":"0.04","3":"0.08"},{"1":"0.15","2":"0.11","3":"0.04"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.11","2":"0.09","3":"0.02"},{"1":"0.16","2":"0.07","3":"0.09"},{"1":"0.10","2":"0.07","3":"0.03"},{"1":"0.12","2":"0.07","3":"0.05"},{"1":"0.12","2":"0.04","3":"0.08"},{"1":"0.11","2":"0.06","3":"0.05"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.17","2":"0.03","3":"0.14"},{"1":"0.14","2":"0.11","3":"0.03"},{"1":"0.14","2":"0.09","3":"0.05"},{"1":"0.20","2":"0.08","3":"0.12"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.09","2":"0.06","3":"0.03"},{"1":"0.13","2":"0.08","3":"0.05"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.15","2":"0.05","3":"0.10"},{"1":"0.13","2":"0.07","3":"0.06"},{"1":"0.13","2":"0.13","3":"0.00"},{"1":"0.17","2":"0.08","3":"0.09"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.14","2":"0.08","3":"0.06"},{"1":"0.07","2":"0.04","3":"0.03"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.17","2":"0.12","3":"0.05"},{"1":"0.09","2":"0.08","3":"0.01"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.15","2":"0.09","3":"0.06"},{"1":"0.17","2":"0.10","3":"0.07"},{"1":"0.13","2":"0.07","3":"0.06"},{"1":"0.10","2":"0.04","3":"0.06"},{"1":"0.11","2":"0.05","3":"0.06"},{"1":"0.16","2":"0.07","3":"0.09"},{"1":"0.09","2":"0.10","3":"-0.01"},{"1":"0.14","2":"0.04","3":"0.10"},{"1":"0.18","2":"0.07","3":"0.11"},{"1":"0.12","2":"0.09","3":"0.03"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.12","2":"0.06","3":"0.06"},{"1":"0.13","2":"0.08","3":"0.05"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.15","2":"0.10","3":"0.05"},{"1":"0.10","2":"0.04","3":"0.06"},{"1":"0.13","2":"0.05","3":"0.08"},{"1":"0.15","2":"0.10","3":"0.05"},{"1":"0.08","2":"0.05","3":"0.03"},{"1":"0.13","2":"0.05","3":"0.08"},{"1":"0.15","2":"0.08","3":"0.07"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.12","2":"0.04","3":"0.08"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.15","2":"0.08","3":"0.07"},{"1":"0.12","2":"0.07","3":"0.05"},{"1":"0.12","2":"0.05","3":"0.07"},{"1":"0.09","2":"0.03","3":"0.06"},{"1":"0.15","2":"0.04","3":"0.11"},{"1":"0.15","2":"0.09","3":"0.06"},{"1":"0.14","2":"0.08","3":"0.06"},{"1":"0.10","2":"0.08","3":"0.02"},{"1":"0.07","2":"0.05","3":"0.02"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.14","2":"0.09","3":"0.05"},{"1":"0.14","2":"0.08","3":"0.06"},{"1":"0.11","2":"0.10","3":"0.01"},{"1":"0.13","2":"0.09","3":"0.04"},{"1":"0.11","2":"0.05","3":"0.06"},{"1":"0.14","2":"0.04","3":"0.10"},{"1":"0.18","2":"0.07","3":"0.11"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.18","2":"0.04","3":"0.14"},{"1":"0.09","2":"0.05","3":"0.04"},{"1":"0.14","2":"0.02","3":"0.12"},{"1":"0.08","2":"0.05","3":"0.03"},{"1":"0.11","2":"0.08","3":"0.03"},{"1":"0.11","2":"0.04","3":"0.07"},{"1":"0.11","2":"0.07","3":"0.04"},{"1":"0.12","2":"0.06","3":"0.06"},{"1":"0.08","2":"0.05","3":"0.03"},{"1":"0.10","2":"0.07","3":"0.03"},{"1":"0.09","2":"0.04","3":"0.05"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.10","2":"0.06","3":"0.04"},{"1":"0.13","2":"0.09","3":"0.04"},{"1":"0.12","2":"0.05","3":"0.07"},{"1":"0.08","2":"0.07","3":"0.01"},{"1":"0.15","2":"0.04","3":"0.11"},{"1":"0.11","2":"0.03","3":"0.08"},{"1":"0.16","2":"0.04","3":"0.12"},{"1":"0.14","2":"0.04","3":"0.10"},{"1":"0.11","2":"0.03","3":"0.08"},{"1":"0.12","2":"0.15","3":"-0.03"},{"1":"0.12","2":"0.05","3":"0.07"},{"1":"0.11","2":"0.04","3":"0.07"},{"1":"0.09","2":"0.03","3":"0.06"},{"1":"0.15","2":"0.09","3":"0.06"},{"1":"0.14","2":"0.09","3":"0.05"},{"1":"0.11","2":"0.10","3":"0.01"},{"1":"0.09","2":"0.10","3":"-0.01"},{"1":"0.12","2":"0.10","3":"0.02"},{"1":"0.10","2":"0.06","3":"0.04"},{"1":"0.19","2":"0.07","3":"0.12"},{"1":"0.12","2":"0.08","3":"0.04"},{"1":"0.11","2":"0.06","3":"0.05"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.09","2":"0.12","3":"-0.03"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.13","2":"0.05","3":"0.08"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.15","2":"0.12","3":"0.03"},{"1":"0.06","2":"0.09","3":"-0.03"},{"1":"0.17","2":"0.10","3":"0.07"},{"1":"0.16","2":"0.05","3":"0.11"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.18","2":"0.07","3":"0.11"},{"1":"0.14","2":"0.10","3":"0.04"},{"1":"0.16","2":"0.08","3":"0.08"},{"1":"0.15","2":"0.09","3":"0.06"},{"1":"0.12","2":"0.04","3":"0.08"},{"1":"0.10","2":"0.06","3":"0.04"},{"1":"0.11","2":"0.07","3":"0.04"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.20","2":"0.14","3":"0.06"},{"1":"0.19","2":"0.07","3":"0.12"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.16","2":"0.06","3":"0.10"},{"1":"0.12","2":"0.06","3":"0.06"},{"1":"0.13","2":"0.09","3":"0.04"},{"1":"0.10","2":"0.04","3":"0.06"},{"1":"0.10","2":"0.03","3":"0.07"},{"1":"0.13","2":"0.04","3":"0.09"},{"1":"0.15","2":"0.04","3":"0.11"},{"1":"0.19","2":"0.06","3":"0.13"},{"1":"0.15","2":"0.06","3":"0.09"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["video_prop"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["text_prop"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["prop_diff"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.14","2":"0.04","3":"0.10"},{"1":"0.12","2":"0.08","3":"0.04"},{"1":"0.18","2":"0.09","3":"0.09"},{"1":"0.15","2":"0.05","3":"0.10"},{"1":"0.09","2":"0.06","3":"0.03"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.18","2":"0.04","3":"0.14"},{"1":"0.17","2":"0.04","3":"0.13"},{"1":"0.09","2":"0.05","3":"0.04"},{"1":"0.09","2":"0.08","3":"0.01"},{"1":"0.09","2":"0.07","3":"0.02"},{"1":"0.10","2":"0.07","3":"0.03"},{"1":"0.13","2":"0.04","3":"0.09"},{"1":"0.15","2":"0.05","3":"0.10"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.15","2":"0.08","3":"0.07"},{"1":"0.15","2":"0.03","3":"0.12"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.10","2":"0.07","3":"0.03"},{"1":"0.13","2":"0.08","3":"0.05"},{"1":"0.14","2":"0.04","3":"0.10"},{"1":"0.14","2":"0.10","3":"0.04"},{"1":"0.10","2":"0.06","3":"0.04"},{"1":"0.08","2":"0.06","3":"0.02"},{"1":"0.11","2":"0.09","3":"0.02"},{"1":"0.09","2":"0.05","3":"0.04"},{"1":"0.08","2":"0.07","3":"0.01"},{"1":"0.13","2":"0.07","3":"0.06"},{"1":"0.10","2":"0.07","3":"0.03"},{"1":"0.18","2":"0.08","3":"0.10"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.19","2":"0.05","3":"0.14"},{"1":"0.15","2":"0.08","3":"0.07"},{"1":"0.16","2":"0.10","3":"0.06"},{"1":"0.07","2":"0.04","3":"0.03"},{"1":"0.11","2":"0.06","3":"0.05"},{"1":"0.12","2":"0.09","3":"0.03"},{"1":"0.15","2":"0.10","3":"0.05"},{"1":"0.18","2":"0.09","3":"0.09"},{"1":"0.09","2":"0.04","3":"0.05"},{"1":"0.12","2":"0.10","3":"0.02"},{"1":"0.09","2":"0.08","3":"0.01"},{"1":"0.13","2":"0.03","3":"0.10"},{"1":"0.08","2":"0.07","3":"0.01"},{"1":"0.13","2":"0.09","3":"0.04"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.09","2":"0.08","3":"0.01"},{"1":"0.14","2":"0.07","3":"0.07"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.20","2":"0.04","3":"0.16"},{"1":"0.10","2":"0.10","3":"0.00"},{"1":"0.16","2":"0.06","3":"0.10"},{"1":"0.16","2":"0.05","3":"0.11"},{"1":"0.16","2":"0.09","3":"0.07"},{"1":"0.15","2":"0.08","3":"0.07"},{"1":"0.14","2":"0.08","3":"0.06"},{"1":"0.14","2":"0.08","3":"0.06"},{"1":"0.18","2":"0.07","3":"0.11"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.15","2":"0.04","3":"0.11"},{"1":"0.12","2":"0.09","3":"0.03"},{"1":"0.13","2":"0.07","3":"0.06"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.10","2":"0.05","3":"0.05"},{"1":"0.08","2":"0.12","3":"-0.04"},{"1":"0.11","2":"0.06","3":"0.05"},{"1":"0.15","2":"0.04","3":"0.11"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.12","2":"0.05","3":"0.07"},{"1":"0.18","2":"0.04","3":"0.14"},{"1":"0.12","2":"0.07","3":"0.05"},{"1":"0.11","2":"0.07","3":"0.04"},{"1":"0.10","2":"0.04","3":"0.06"},{"1":"0.16","2":"0.07","3":"0.09"},{"1":"0.14","2":"0.08","3":"0.06"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.15","2":"0.03","3":"0.12"},{"1":"0.14","2":"0.04","3":"0.10"},{"1":"0.14","2":"0.07","3":"0.07"},{"1":"0.16","2":"0.11","3":"0.05"},{"1":"0.11","2":"0.07","3":"0.04"},{"1":"0.10","2":"0.04","3":"0.06"},{"1":"0.11","2":"0.04","3":"0.07"},{"1":"0.16","2":"0.09","3":"0.07"},{"1":"0.07","2":"0.08","3":"-0.01"},{"1":"0.10","2":"0.08","3":"0.02"},{"1":"0.10","2":"0.11","3":"-0.01"},{"1":"0.13","2":"0.10","3":"0.03"},{"1":"0.07","2":"0.04","3":"0.03"},{"1":"0.14","2":"0.10","3":"0.04"},{"1":"0.17","2":"0.04","3":"0.13"},{"1":"0.12","2":"0.07","3":"0.05"},{"1":"0.19","2":"0.07","3":"0.12"},{"1":"0.20","2":"0.03","3":"0.17"},{"1":"0.17","2":"0.09","3":"0.08"},{"1":"0.12","2":"0.06","3":"0.06"},{"1":"0.18","2":"0.12","3":"0.06"},{"1":"0.13","2":"0.10","3":"0.03"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.11","2":"0.05","3":"0.06"},{"1":"0.11","2":"0.04","3":"0.07"},{"1":"0.19","2":"0.04","3":"0.15"},{"1":"0.14","2":"0.07","3":"0.07"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.12","2":"0.05","3":"0.07"},{"1":"0.09","2":"0.05","3":"0.04"},{"1":"0.09","2":"0.04","3":"0.05"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.17","2":"0.09","3":"0.08"},{"1":"0.19","2":"0.06","3":"0.13"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.11","2":"0.05","3":"0.06"},{"1":"0.12","2":"0.06","3":"0.06"},{"1":"0.17","2":"0.07","3":"0.10"},{"1":"0.12","2":"0.06","3":"0.06"},{"1":"0.08","2":"0.04","3":"0.04"},{"1":"0.18","2":"0.07","3":"0.11"},{"1":"0.17","2":"0.11","3":"0.06"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.18","2":"0.05","3":"0.13"},{"1":"0.11","2":"0.10","3":"0.01"},{"1":"0.12","2":"0.08","3":"0.04"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.19","2":"0.03","3":"0.16"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.11","2":"0.06","3":"0.05"},{"1":"0.14","2":"0.10","3":"0.04"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.12","2":"0.05","3":"0.07"},{"1":"0.07","2":"0.07","3":"0.00"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.14","2":"0.07","3":"0.07"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.11","2":"0.09","3":"0.02"},{"1":"0.19","2":"0.09","3":"0.10"},{"1":"0.13","2":"0.04","3":"0.09"},{"1":"0.07","2":"0.06","3":"0.01"},{"1":"0.19","2":"0.13","3":"0.06"},{"1":"0.11","2":"0.03","3":"0.08"},{"1":"0.12","2":"0.05","3":"0.07"},{"1":"0.08","2":"0.03","3":"0.05"},{"1":"0.10","2":"0.07","3":"0.03"},{"1":"0.09","2":"0.08","3":"0.01"},{"1":"0.09","2":"0.08","3":"0.01"},{"1":"0.10","2":"0.09","3":"0.01"},{"1":"0.10","2":"0.09","3":"0.01"},{"1":"0.10","2":"0.08","3":"0.02"},{"1":"0.18","2":"0.12","3":"0.06"},{"1":"0.11","2":"0.06","3":"0.05"},{"1":"0.12","2":"0.04","3":"0.08"},{"1":"0.10","2":"0.12","3":"-0.02"},{"1":"0.10","2":"0.08","3":"0.02"},{"1":"0.16","2":"0.05","3":"0.11"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.13","2":"0.08","3":"0.05"},{"1":"0.16","2":"0.10","3":"0.06"},{"1":"0.17","2":"0.08","3":"0.09"},{"1":"0.15","2":"0.08","3":"0.07"},{"1":"0.08","2":"0.06","3":"0.02"},{"1":"0.08","2":"0.05","3":"0.03"},{"1":"0.14","2":"0.03","3":"0.11"},{"1":"0.12","2":"0.04","3":"0.08"},{"1":"0.14","2":"0.02","3":"0.12"},{"1":"0.16","2":"0.08","3":"0.08"},{"1":"0.09","2":"0.09","3":"0.00"},{"1":"0.16","2":"0.06","3":"0.10"},{"1":"0.10","2":"0.12","3":"-0.02"},{"1":"0.17","2":"0.07","3":"0.10"},{"1":"0.17","2":"0.08","3":"0.09"},{"1":"0.13","2":"0.04","3":"0.09"},{"1":"0.10","2":"0.08","3":"0.02"},{"1":"0.18","2":"0.06","3":"0.12"},{"1":"0.18","2":"0.09","3":"0.09"},{"1":"0.12","2":"0.04","3":"0.08"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.11","2":"0.04","3":"0.07"},{"1":"0.11","2":"0.08","3":"0.03"},{"1":"0.13","2":"0.05","3":"0.08"},{"1":"0.14","2":"0.09","3":"0.05"},{"1":"0.12","2":"0.08","3":"0.04"},{"1":"0.17","2":"0.08","3":"0.09"},{"1":"0.12","2":"0.07","3":"0.05"},{"1":"0.10","2":"0.04","3":"0.06"},{"1":"0.07","2":"0.10","3":"-0.03"},{"1":"0.16","2":"0.11","3":"0.05"},{"1":"0.17","2":"0.07","3":"0.10"},{"1":"0.17","2":"0.03","3":"0.14"},{"1":"0.11","2":"0.06","3":"0.05"},{"1":"0.15","2":"0.03","3":"0.12"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.12","2":"0.06","3":"0.06"},{"1":"0.16","2":"0.03","3":"0.13"},{"1":"0.13","2":"0.03","3":"0.10"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.18","2":"0.02","3":"0.16"},{"1":"0.13","2":"0.12","3":"0.01"},{"1":"0.11","2":"0.08","3":"0.03"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.16","2":"0.06","3":"0.10"},{"1":"0.14","2":"0.08","3":"0.06"},{"1":"0.16","2":"0.10","3":"0.06"},{"1":"0.14","2":"0.07","3":"0.07"},{"1":"0.10","2":"0.04","3":"0.06"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.16","2":"0.04","3":"0.12"},{"1":"0.12","2":"0.05","3":"0.07"},{"1":"0.08","2":"0.10","3":"-0.02"},{"1":"0.11","2":"0.07","3":"0.04"},{"1":"0.19","2":"0.07","3":"0.12"},{"1":"0.11","2":"0.14","3":"-0.03"},{"1":"0.11","2":"0.08","3":"0.03"},{"1":"0.16","2":"0.03","3":"0.13"},{"1":"0.14","2":"0.03","3":"0.11"},{"1":"0.14","2":"0.04","3":"0.10"},{"1":"0.20","2":"0.06","3":"0.14"},{"1":"0.17","2":"0.10","3":"0.07"},{"1":"0.09","2":"0.03","3":"0.06"},{"1":"0.11","2":"0.07","3":"0.04"},{"1":"0.11","2":"0.03","3":"0.08"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.20","2":"0.03","3":"0.17"},{"1":"0.09","2":"0.08","3":"0.01"},{"1":"0.19","2":"0.05","3":"0.14"},{"1":"0.11","2":"0.08","3":"0.03"},{"1":"0.14","2":"0.09","3":"0.05"},{"1":"0.18","2":"0.07","3":"0.11"},{"1":"0.12","2":"0.05","3":"0.07"},{"1":"0.16","2":"0.08","3":"0.08"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1869,7 +1869,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate <code>posterior_video</code> (the posterior proportion of clicks for the video ad data) and <code>posterior_text</code> in the same way (using the text ad data instead).</li>
 <li>Plot <code>posterior_text</code> as a histogram just as <code>posterior_video</code> is plotted.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a><span class="co"># Define parameters</span></span>
 <span id="cb80-2"><a href="#cb80-2"></a>n_draws <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
 <span id="cb80-3"><a href="#cb80-3"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
@@ -1889,7 +1889,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-54-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-55-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-29"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1909,7 +1909,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add a new column <code>posterior$prop_diff</code> that should be the posterior difference between <code>video_prop</code> and <code>text_prop</code> (that is, <code>video_prop</code> <em>minus</em> <code>text_prop</code>).</li>
 <li>Plot <code>posterior$prop_diff</code> as a histogram using <code>hist()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a>posterior <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">video_prop =</span> posterior_video<span class="sc">$</span>proportion_clicks[<span class="dv">1</span><span class="sc">:</span><span class="dv">4000</span>],</span>
 <span id="cb81-2"><a href="#cb81-2"></a>                        <span class="at">text_prop  =</span> posterior_text<span class="sc">$</span>proportion_click[<span class="dv">1</span><span class="sc">:</span><span class="dv">4000</span>])</span>
 <span id="cb81-3"><a href="#cb81-3"></a></span>
@@ -1921,7 +1921,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-55-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-56-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-30"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-56-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1929,21 +1929,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Calculate “a most likely” difference by taking the <code>median</code> of <code>posterior$prop_diff</code></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a><span class="co"># Calculate the median of prop_diff</span></span>
 <span id="cb82-2"><a href="#cb82-2"></a><span class="fu">median</span>(posterior<span class="sc">$</span>prop_diff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.06656379</code></pre>
+<pre><code>#&gt; [1] 0.06594881</code></pre>
 </div>
 </div>
 <ol start="4" type="1">
 <li>Finally, calculate the probability that proportion of clicks is larger for the video ad than for the text ad.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="co"># Calculate the proportion</span></span>
 <span id="cb84-2"><a href="#cb84-2"></a><span class="fu">mean</span>(posterior<span class="sc">$</span>prop_diff <span class="sc">&gt;</span> <span class="fl">0.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.955</code></pre>
+<pre><code>#&gt; [1] 0.948</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -1956,7 +1956,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="3.11" class="anchored" data-anchor-id="decision-analysis"><span class="header-section-number">3.11</span> Decision analysis</h2>
 <p>We’ve now seen that Bayesian Data Analysis makes it easy to compare and contrast parameter estimates. And it’s generally the case that it’s easy to calculate any derivative quantities once we’ve fitted a Bayesian model and gotten out posteriors.</p>
 <p>Given a probability distribution over some interesting parameter you calculated a point estimate: A single value summarizing the whole distribution. You did the posterior median, but could also have calculated, say, the posterior mean. It’s important to remember that the posterior median or mean are not the same as the median or mean of the data. The posterior median is a summary of a probability distribution over some parameter, while the median of the data is a summary of a data set. Two different things. You calculated the amount of probability favoring a positive value.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="do">### TO DO</span></span>
 <span id="cb86-2"><a href="#cb86-2"></a><span class="co"># ADD legend</span></span>
 <span id="cb86-3"><a href="#cb86-3"></a><span class="co"># ADD CIs</span></span>
@@ -1998,7 +1998,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-58-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-58-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-59-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-31"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-59-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2036,7 +2036,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add the column <code>posterior$video_profit</code> which should be the probability distribution over the average profit you’ll make on showing a video ad. That is, the underlying proportion of clicks <strong>times</strong> the average spend <strong>minus</strong> the cost of showing the video.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1"></a>visitor_spend <span class="ot">&lt;-</span> <span class="fl">2.53</span></span>
 <span id="cb89-2"><a href="#cb89-2"></a>video_cost <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
 <span id="cb89-3"><a href="#cb89-3"></a>text_cost <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
@@ -2048,7 +2048,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add the column <code>posterior$text_profit</code>: The probability distribution over the average profit you’ll make on showing a text ad.</li>
 <li>(<em>optional</em>) Take a look at the first rows of the final <code>posterior</code> using <code>head()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a>visitor_spend <span class="ot">&lt;-</span> <span class="fl">2.53</span></span>
 <span id="cb90-2"><a href="#cb90-2"></a>video_cost <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
 <span id="cb90-3"><a href="#cb90-3"></a>text_cost <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
@@ -2064,7 +2064,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["video_prop"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["text_prop"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["prop_diff"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["video_profit"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["text_profit"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.09195441","2":"0.05191721","3":"0.04003721","4":"-0.01735533","5":"0.08135053","_rn_":"1"},{"1":"0.13721145","2":"0.08205806","3":"0.05515339","4":"0.09714497","5":"0.15760688","_rn_":"2"},{"1":"0.10967782","2":"0.05379583","3":"0.05588199","4":"0.02748488","5":"0.08610344","_rn_":"3"},{"1":"0.08812075","2":"0.04856025","3":"0.03956050","4":"-0.02705450","5":"0.07285744","_rn_":"4"},{"1":"0.14910903","2":"0.06237468","3":"0.08673435","4":"0.12724585","5":"0.10780795","_rn_":"5"},{"1":"0.08669201","2":"0.03921552","3":"0.04747649","4":"-0.03066921","5":"0.04921527","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["video_prop"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["text_prop"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["prop_diff"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["video_profit"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["text_profit"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.09892482","2":"0.11282119","3":"-0.01389637","4":"0.0002797863","5":"0.23543761","_rn_":"1"},{"1":"0.13009510","2":"0.07415294","3":"0.05594216","4":"0.0791406040","5":"0.13760694","_rn_":"2"},{"1":"0.15821623","2":"0.10218102","3":"0.05603521","4":"0.1502870613","5":"0.20851799","_rn_":"3"},{"1":"0.15491944","2":"0.03890298","3":"0.11601646","4":"0.1419461840","5":"0.04842454","_rn_":"4"},{"1":"0.10937680","2":"0.12636933","3":"-0.01699253","4":"0.0267232935","5":"0.26971440","_rn_":"5"},{"1":"0.12732448","2":"0.05432643","3":"0.07299805","4":"0.0721309239","5":"0.08744586","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2072,7 +2072,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Finally, take a look at the probability distributions of <code>posterior$video_profit</code> and <code>posterior$text_profit</code> by plotting them as two separate histograms using the <code>hist()</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a>visitor_spend <span class="ot">&lt;-</span> <span class="fl">2.53</span></span>
 <span id="cb91-2"><a href="#cb91-2"></a>video_cost <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
 <span id="cb91-3"><a href="#cb91-3"></a>text_cost <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
@@ -2088,7 +2088,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-61-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-61-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-62-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-32"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-62-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2096,7 +2096,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-61-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-33"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-61-2.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-62-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-33"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-62-2.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2111,7 +2111,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add the new column <code>posterior$profit_diff</code>: The probability distribution over the difference in profits between video ads and text ads. That is, the profit from video ads <strong>minus</strong> the profit from text ads.</li>
 <li>Take a look at <code>posterior$profit_diff</code> by plotting it using <code>hist()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="co"># Add the column posterior$profit_diff</span></span>
 <span id="cb93-2"><a href="#cb93-2"></a>posterior<span class="sc">$</span>profit_diff <span class="ot">&lt;-</span> posterior<span class="sc">$</span>video_profit <span class="sc">-</span> posterior<span class="sc">$</span>text_profit</span>
 <span id="cb93-3"><a href="#cb93-3"></a></span>
@@ -2120,7 +2120,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-62-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-34"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-62-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-63-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-34"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-63-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2131,7 +2131,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the <code>median</code> of <code>posterior$profit_diff</code>.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="co"># Add the column posterior$profit_diff</span></span>
 <span id="cb94-2"><a href="#cb94-2"></a>posterior<span class="sc">$</span>profit_diff <span class="ot">&lt;-</span> posterior<span class="sc">$</span>video_profit <span class="sc">-</span> posterior<span class="sc">$</span>text_profit</span>
 <span id="cb94-3"><a href="#cb94-3"></a></span>
@@ -2140,14 +2140,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-63-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-63-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-64-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-35"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-64-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a><span class="co"># Calculate a "best guess" for the difference in profits</span></span>
 <span id="cb95-2"><a href="#cb95-2"></a><span class="fu">median</span>(posterior<span class="sc">$</span>profit_diff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] -0.0315936</code></pre>
+<pre><code>#&gt; [1] -0.0331495</code></pre>
 </div>
 </div>
 <ol start="4" type="1">
@@ -2156,7 +2156,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the <em>proportion</em> of samples in <code>posterior$profit_diff</code> that is lower than <code>0</code>, in favor of text ads.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a><span class="co"># Add the column posterior$profit_diff</span></span>
 <span id="cb97-2"><a href="#cb97-2"></a>posterior<span class="sc">$</span>profit_diff <span class="ot">&lt;-</span> posterior<span class="sc">$</span>video_profit <span class="sc">-</span> posterior<span class="sc">$</span>text_profit</span>
 <span id="cb97-3"><a href="#cb97-3"></a></span>
@@ -2165,19 +2165,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-64-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-64-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-65-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-36"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a><span class="co"># Calculate a "best guess" for the difference in profits</span></span>
 <span id="cb98-2"><a href="#cb98-2"></a><span class="fu">median</span>(posterior<span class="sc">$</span>profit_diff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] -0.0315936</code></pre>
+<pre><code>#&gt; [1] -0.0331495</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1"></a><span class="co"># Calculate the probability that text ads are better than video ads</span></span>
 <span id="cb100-2"><a href="#cb100-2"></a><span class="fu">mean</span>(posterior<span class="sc">$</span>profit_diff <span class="sc">&lt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.61225</code></pre>
+<pre><code>#&gt; [1] 0.6365</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -2228,14 +2228,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Visualize <code>x</code> using a histogram (<code>hist()</code>).</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1"></a><span class="co"># Simulate from a Poisson distribution and visualize the result</span></span>
 <span id="cb102-2"><a href="#cb102-2"></a>x <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="at">n =</span> <span class="dv">10000</span>, <span class="at">lambda =</span> <span class="dv">3</span>)</span>
 <span id="cb102-3"><a href="#cb102-3"></a><span class="fu">hist</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-65-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-37"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-66-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-37"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-66-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2246,14 +2246,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Change the <code>rpois</code> call to visualize the probability distribution over how many ice creams you’ll sell.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1"></a><span class="co"># Simulate from a Poisson distribution and visualize the result</span></span>
 <span id="cb103-2"><a href="#cb103-2"></a>x <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="at">n =</span> <span class="dv">10000</span>, <span class="at">lambda =</span> <span class="fl">11.5</span>)</span>
 <span id="cb103-3"><a href="#cb103-3"></a><span class="fu">hist</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-66-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-38"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-66-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-67-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-38"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-67-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2265,21 +2265,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><p><em>Tip</em>: For this, you need to calculate what proportion of samples in <code>x</code> are <code>&gt;= 15</code>.</p></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a><span class="co"># Simulate from a Poisson distribution and visualize the result</span></span>
 <span id="cb104-2"><a href="#cb104-2"></a>x <span class="ot">&lt;-</span> <span class="fu">rpois</span>(<span class="at">n =</span> <span class="dv">10000</span>, <span class="at">lambda =</span> <span class="fl">11.5</span>)</span>
 <span id="cb104-3"><a href="#cb104-3"></a><span class="fu">hist</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-67-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-39"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-67-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-68-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-39"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-68-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1"></a><span class="co"># Calculate the probability of break-even</span></span>
 <span id="cb105-2"><a href="#cb105-2"></a><span class="fu">mean</span>(x <span class="sc">&gt;=</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.1814</code></pre>
+<pre><code>#&gt; [1] 0.1815</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -2298,7 +2298,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Start by replacing the prior distribution over <code>proportion_clicks</code> by a prior over <code>mean_clicks</code>. Make the prior a uniform (<code>runif</code>) distribution from <code>0</code> to <code>80</code> clicks per day.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1"></a><span class="co"># Replace proportion_clicks with mean_clicks and change the parameters</span></span>
 <span id="cb107-2"><a href="#cb107-2"></a>n_draws <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
 <span id="cb107-3"><a href="#cb107-3"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
@@ -2316,7 +2316,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Replace <code>proportion_clicks</code> everywhere by <code>mean_clicks</code> and remove <code>n_ads_shown</code>.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1"></a><span class="co"># Change this model so that it uses a Poisson distribution</span></span>
 <span id="cb108-2"><a href="#cb108-2"></a>n_draws <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
 <span id="cb108-3"><a href="#cb108-3"></a>mean_clicks <span class="ot">&lt;-</span> <span class="fu">runif</span>(n_draws, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">80</span>)</span>
@@ -2332,7 +2332,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Plot histograms of <code>prior$mean_clicks</code> and <code>posterior$mean_clicks</code>.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1"></a><span class="co"># Change the model according to instructions</span></span>
 <span id="cb109-2"><a href="#cb109-2"></a>n_draws <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
 <span id="cb109-3"><a href="#cb109-3"></a>mean_clicks <span class="ot">&lt;-</span> <span class="fu">runif</span>(n_draws, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">80</span>)</span>
@@ -2345,7 +2345,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-70-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-40"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-70-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-71-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-40"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-71-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2353,7 +2353,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-70-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-41"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-70-2.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-71-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-41"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-71-2.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2428,7 +2428,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Calculate the probability of drawing any of the four aces! That is, calculate the probability of drawing 🂡 or 🂱 or 🃁 or 🃑 using the sum rule and assign it to <code>prob_to_draw_ace</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1"></a><span class="co"># Calculate the probability of drawing any of the four aces</span></span>
 <span id="cb111-2"><a href="#cb111-2"></a>prob_to_draw_ace <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">52</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">52</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">52</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">52</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -2441,7 +2441,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Use the product rule to calculate the probability of picking the four aces in a row from the top of a well-shuffled deck and assign it to <code>prob_to_draw_four_aces</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a><span class="co"># Calculate the probability of picking four aces in a row</span></span>
 <span id="cb112-2"><a href="#cb112-2"></a>prob_to_draw_four_aces <span class="ot">&lt;-</span> <span class="dv">4</span><span class="sc">/</span><span class="dv">52</span> <span class="sc">*</span> <span class="dv">3</span><span class="sc">/</span><span class="dv">51</span> <span class="sc">*</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">50</span> <span class="sc">*</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">49</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -2478,7 +2478,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>First, try running this code.</li>
 <li>Then, rewrite this code so that it calculates <code>prob_13_visitors</code> using <code>dbinom</code> instead.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1"></a><span class="co"># Rewrite this code so that it uses dbinom instead of rbinom</span></span>
 <span id="cb113-2"><a href="#cb113-2"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb113-3"><a href="#cb113-3"></a>proportion_clicks <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
@@ -2502,7 +2502,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li><p><em>Tip</em>: As <code>dbinom</code> is vectorized it suffices to change the value of <code>n_visitors</code> into a vector with the numbers 0, 1, 2, …, 100. Try using the <code>seq</code> function!</p></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1"></a><span class="co"># Explore using dbinom to calculate probability distributions</span></span>
 <span id="cb115-2"><a href="#cb115-2"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb115-3"><a href="#cb115-3"></a>proportion_clicks <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
@@ -2537,7 +2537,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Plot the probability distribution P(<code>n_visitors</code> | <code>proportion_clicks</code> = 10%).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1"></a><span class="co"># Explore using dbinom to calculate probability distributions</span></span>
 <span id="cb117-2"><a href="#cb117-2"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb117-3"><a href="#cb117-3"></a>proportion_clicks <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
@@ -2573,7 +2573,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-75-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-42"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-75-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-76-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-42"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-76-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2587,7 +2587,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Change the <code>plot</code> statement to have <code>proportion_clicks</code> on the x-axis instead.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1"></a><span class="co"># Explore using dbinom to calculate probability distributions</span></span>
 <span id="cb120-2"><a href="#cb120-2"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb120-3"><a href="#cb120-3"></a>proportion_clicks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
@@ -2622,7 +2622,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-76-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-43"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-76-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-77-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-43"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-77-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2700,7 +2700,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add the column <code>pars$probability</code>: The probability of each <code>proportion_clicks</code> and <code>n_visitors</code> combination. As in the video, this should be calculated by multiplying the <code>likelihood</code> by the <code>prior</code></li>
 <li>Make sure the column <code>pars$probability</code> sums to <code>1.0</code> by <em>normalizing</em> it, that is, by dividing <code>pars$probability</code> by the total sum of <code>pars$probability</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb123-2"><a href="#cb123-2"></a>proportion_clicks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
 <span id="cb123-3"><a href="#cb123-3"></a>n_visitors <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
@@ -2726,7 +2726,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Normalize <code>pars$probability</code> again, to make sure it sums to <code>1.0</code>.</li>
 <li>Plot the posterior <code>pars$probability</code> using <code>plot(x = , y = , type = "h")</code> with <code>pars$proportion_clicks</code> on the x-axis and <code>pars$probability</code> on the y-axis.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb124-2"><a href="#cb124-2"></a>proportion_clicks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
 <span id="cb124-3"><a href="#cb124-3"></a>n_visitors <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">1</span>)</span>
@@ -2746,7 +2746,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-78-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-44"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-78-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-79-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-44"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-79-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2763,7 +2763,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Now you can remove the line that conditions on the data, and the line after that, that normalizes <code>pars$probability</code>.</li>
 <li>Take an extra look at the final code and convince yourself that the result of this modified code will be the same as before. :)</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1"></a><span class="co"># Simplify the code below by directly conditioning on the data</span></span>
 <span id="cb125-2"><a href="#cb125-2"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb125-3"><a href="#cb125-3"></a>proportion_clicks <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> <span class="fl">0.01</span>)</span>
@@ -2778,7 +2778,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-79-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-45"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-79-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-80-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-45"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-80-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2855,7 +2855,7 @@ Here is a small data set with the birth weights of six newborn babies in grams.
 </ul></li>
 <li><p>No need to do anything fancy here, just eyeball the data and try to come up with something reasonable.</p></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1"></a><span class="co"># Assign mu and sigma</span></span>
 <span id="cb127-2"><a href="#cb127-2"></a>mu <span class="ot">&lt;-</span> <span class="dv">3500</span></span>
 <span id="cb127-3"><a href="#cb127-3"></a>sigma <span class="ot">&lt;-</span> <span class="dv">600</span></span>
@@ -2865,7 +2865,7 @@ Here is a small data set with the birth weights of six newborn babies in grams.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-80-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-46"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-80-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-81-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-46"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-81-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2877,7 +2877,7 @@ Here is a small data set with the birth weights of six newborn babies in grams.
 </ul></li>
 <li><p><em>Tip</em>: use <code>seq(from = , to = , by = )</code></p></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1"></a><span class="co"># Assign mu and sigma</span></span>
 <span id="cb128-2"><a href="#cb128-2"></a>mu <span class="ot">&lt;-</span> <span class="dv">3500</span></span>
 <span id="cb128-3"><a href="#cb128-3"></a>sigma <span class="ot">&lt;-</span> <span class="dv">600</span></span>
@@ -2887,7 +2887,7 @@ Here is a small data set with the birth weights of six newborn babies in grams.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-81-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-47"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-81-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-82-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-47"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-82-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2898,7 +2898,7 @@ Here is a small data set with the birth weights of six newborn babies in grams.
 <li>Use <code>dnorm</code> to calculate the likelihood of all the values in <code>weight</code> given the mean <code>mu</code> and standard deviation <code>sigma</code>.</li>
 <li>Assign the result to <code>likelihood</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1"></a><span class="co"># Assign mu and sigma</span></span>
 <span id="cb130-2"><a href="#cb130-2"></a>mu <span class="ot">&lt;-</span> <span class="dv">3500</span></span>
 <span id="cb130-3"><a href="#cb130-3"></a>sigma <span class="ot">&lt;-</span> <span class="dv">600</span></span>
@@ -2908,7 +2908,7 @@ Here is a small data set with the birth weights of six newborn babies in grams.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-82-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-48"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-82-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-83-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-48"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-83-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2922,7 +2922,7 @@ Here is a small data set with the birth weights of six newborn babies in grams.
 <li>Finally, let’s use <code>plot</code> to plot the resulting distribution with <code>weight</code> on the x-axis and <code>likelihood</code> on the y-axis.</li>
 <li>Also, set <code>type="h"</code> in <code>plot</code> to make the plot look nicer.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1"></a><span class="co"># Assign mu and sigma</span></span>
 <span id="cb132-2"><a href="#cb132-2"></a>mu <span class="ot">&lt;-</span> <span class="dv">3500</span></span>
 <span id="cb132-3"><a href="#cb132-3"></a>sigma <span class="ot">&lt;-</span> <span class="dv">600</span></span>
@@ -2932,7 +2932,7 @@ Here is a small data set with the birth weights of six newborn babies in grams.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-83-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-49"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-83-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-84-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-49"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-84-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2947,7 +2947,7 @@ Here is a small data set with the birth weights of six newborn babies in grams.
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-83-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-50"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-83-2.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-84-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-50"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-84-2.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3010,7 +3010,7 @@ Here is a small data set with the birth weights of six newborn babies in grams.
 <li>\(P(\theta)\) is the prior</li>
 <li>\(P(\theta|D)\) is the probability of different parameter values given the data. This is what we want!</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1"></a><span class="co"># The IQ of a bunch of zombies</span></span>
 <span id="cb134-2"><a href="#cb134-2"></a>iq <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">44</span>, <span class="dv">34</span>, <span class="dv">18</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">49</span>, <span class="dv">48</span>, <span class="dv">46</span>)</span>
 <span id="cb134-3"><a href="#cb134-3"></a><span class="co"># Defining the parameter grid</span></span>
@@ -3113,7 +3113,7 @@ Again `pars` contains the data frame representing the posterior zombie IQ distri
 
 1. Use `sample_indices` to create a new data frame `pars_sample` from `pars` with the columns `mu` and `sigma` drawn from the rows indicated by `sample_indices`.
 
-::: {.cell}
+::: {.cell layout-align="center"}
 
 ```{.r .cell-code}
 head(pars)</code></pre>
@@ -3129,7 +3129,7 @@ head(pars)</code></pre>
 <span id="cb136-2"><a href="#cb136-2"></a>    <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> pars<span class="sc">$</span>probability)</span>
 <span id="cb136-3"><a href="#cb136-3"></a><span class="fu">head</span>(sample_indices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 2525 2230 2930 2429 2928 3027</code></pre>
+<pre><code>#&gt; [1] 1935 2927 1929 2029 2529 2825</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1"></a><span class="co"># Sample from pars to calculate some new measures</span></span>
 <span id="cb138-2"><a href="#cb138-2"></a>pars_sample <span class="ot">&lt;-</span> pars[sample_indices, <span class="fu">c</span>(<span class="st">"mu"</span>, <span class="st">"sigma"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -3140,7 +3140,7 @@ head(pars)</code></pre>
 <li>Plot <code>pars_sample$mu</code> using <code>hist()</code>.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1"></a><span class="fu">head</span>(pars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
@@ -3154,7 +3154,7 @@ head(pars)</code></pre>
 <span id="cb140-2"><a href="#cb140-2"></a>    <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> pars<span class="sc">$</span>probability)</span>
 <span id="cb140-3"><a href="#cb140-3"></a><span class="fu">head</span>(sample_indices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 2528 1929 2128 2025 2327 1930</code></pre>
+<pre><code>#&gt; [1] 2730 2126 1729 2636 2330 3029</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1"></a><span class="co"># Sample from pars to calculate some new measures</span></span>
 <span id="cb142-2"><a href="#cb142-2"></a>pars_sample <span class="ot">&lt;-</span> pars[sample_indices, <span class="fu">c</span>(<span class="st">"mu"</span>, <span class="st">"sigma"</span>)]</span>
@@ -3164,7 +3164,7 @@ head(pars)</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-86-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-51"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-86-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-87-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-51"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-87-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3172,7 +3172,7 @@ head(pars)</code></pre>
 <ol start="3" type="1">
 <li>Finally, use the <code>quantile</code> function to calculate the 0.025, 0.5 and 0.975 quantiles of <code>pars_sample$mu</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1"></a><span class="fu">head</span>(pars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
@@ -3186,7 +3186,7 @@ head(pars)</code></pre>
 <span id="cb144-2"><a href="#cb144-2"></a>    <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> pars<span class="sc">$</span>probability)</span>
 <span id="cb144-3"><a href="#cb144-3"></a><span class="fu">head</span>(sample_indices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 2927 2233 1729 2428 1330 2525</code></pre>
+<pre><code>#&gt; [1] 2232 1828 1430 2330 2329 2224</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1"></a><span class="co"># Sample from pars to calculate some new measures</span></span>
 <span id="cb146-2"><a href="#cb146-2"></a>pars_sample <span class="ot">&lt;-</span> pars[sample_indices, <span class="fu">c</span>(<span class="st">"mu"</span>, <span class="st">"sigma"</span>)]</span>
@@ -3196,7 +3196,7 @@ head(pars)</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-87-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-52"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-87-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-88-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-52"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-88-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3226,13 +3226,13 @@ head(pars)</code></pre>
 <li>Take a look at the resulting probability distribution <code>pred_iq</code> using <code>hist()</code>.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb149"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1"></a><span class="fu">head</span>(pars_sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mu"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"39.39394","2":"14.717172","_rn_":"2927"},{"1":"48.48485","2":"11.188889","_rn_":"2233"},{"1":"42.42424","2":"8.668687","_rn_":"1729"},{"1":"40.90909","2":"12.196970","_rn_":"2428"},{"1":"43.93939","2":"6.652525","_rn_":"1330"},{"1":"36.36364","2":"12.701010","_rn_":"2525"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mu"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"46.96970","2":"11.188889","_rn_":"2232"},{"1":"40.90909","2":"9.172727","_rn_":"1828"},{"1":"43.93939","2":"7.156566","_rn_":"1430"},{"1":"43.93939","2":"11.692929","_rn_":"2330"},{"1":"42.42424","2":"11.692929","_rn_":"2329"},{"1":"34.84848","2":"11.188889","_rn_":"2224"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -3244,7 +3244,7 @@ head(pars)</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-88-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-53"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-88-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-89-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-53"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-89-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3255,13 +3255,13 @@ head(pars)</code></pre>
 <li>Calculate the probability that the next zombie you’ll meet will have an IQ of 60 <em>or more</em> by calculating the proportion of samples where <code>pred_iq &gt;= 60</code>.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb151"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1"></a><span class="fu">head</span>(pars_sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mu"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"39.39394","2":"14.717172","_rn_":"2927"},{"1":"48.48485","2":"11.188889","_rn_":"2233"},{"1":"42.42424","2":"8.668687","_rn_":"1729"},{"1":"40.90909","2":"12.196970","_rn_":"2428"},{"1":"43.93939","2":"6.652525","_rn_":"1330"},{"1":"36.36364","2":"12.701010","_rn_":"2525"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mu"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"46.96970","2":"11.188889","_rn_":"2232"},{"1":"40.90909","2":"9.172727","_rn_":"1828"},{"1":"43.93939","2":"7.156566","_rn_":"1430"},{"1":"43.93939","2":"11.692929","_rn_":"2330"},{"1":"42.42424","2":"11.692929","_rn_":"2329"},{"1":"34.84848","2":"11.188889","_rn_":"2224"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -3273,14 +3273,14 @@ head(pars)</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-89-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-54"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-89-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-90-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-54"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-90-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb153"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1"></a><span class="co"># Calculate the probability of a zombie being "smart" (+60 IQ)</span></span>
 <span id="cb153-2"><a href="#cb153-2"></a><span class="fu">sum</span>(pred_iq <span class="sc">&gt;=</span> <span class="dv">60</span>) <span class="sc">/</span> <span class="fu">length</span>(pred_iq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.0901</code></pre>
+<pre><code>#&gt; [1] 0.0816</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -3306,7 +3306,7 @@ head(pars)</code></pre>
 <li>Calculate the mean difference in IQ between the two groups by taking the mean of <code>iq_brains</code> minus the mean of <code>iq_regular</code>. Remember that <code>mean(iq_brains)</code> calculates the sample mean of <code>iq_brains</code>.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb155"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1"></a><span class="co"># The IQ of zombies on a regular diet and a brain based diet.</span></span>
 <span id="cb155-2"><a href="#cb155-2"></a>iq_brains <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">44</span>, <span class="dv">52</span>, <span class="dv">42</span>, <span class="dv">66</span>, <span class="dv">53</span>, <span class="dv">42</span>, <span class="dv">55</span>, <span class="dv">57</span>, <span class="dv">56</span>, <span class="dv">51</span>)</span>
 <span id="cb155-3"><a href="#cb155-3"></a>iq_regular <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">44</span>, <span class="dv">34</span>, <span class="dv">18</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">49</span>, <span class="dv">48</span>, <span class="dv">46</span>)</span>
@@ -3324,7 +3324,7 @@ head(pars)</code></pre>
 <li>Fit the BEST model using the <code>BESTmcmc</code> function, like this: <code>BESTmcmc(iq_brains, iq_regular)</code>. Assign the output of <code>BESTmcmc</code> to the variable <code>best_posterior</code>.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb157"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1"></a><span class="co"># The IQ of zombies on a regular diet and a brain based diet.</span></span>
 <span id="cb157-2"><a href="#cb157-2"></a>iq_brains <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">44</span>, <span class="dv">52</span>, <span class="dv">42</span>, <span class="dv">66</span>, <span class="dv">53</span>, <span class="dv">42</span>, <span class="dv">55</span>, <span class="dv">57</span>, <span class="dv">56</span>, <span class="dv">51</span>)</span>
 <span id="cb157-3"><a href="#cb157-3"></a>iq_regular <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">44</span>, <span class="dv">34</span>, <span class="dv">18</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">49</span>, <span class="dv">48</span>, <span class="dv">46</span>)</span>
@@ -3353,7 +3353,7 @@ head(pars)</code></pre>
 <li>Take a look at the posterior estimate of the difference in IQ between the normal and brain-diet zombies by running <code>plot(best_posterior)</code>.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb164"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1"></a><span class="co"># The IQ of zombies on a regular diet and a brain based diet.</span></span>
 <span id="cb164-2"><a href="#cb164-2"></a>iq_brains <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">44</span>, <span class="dv">52</span>, <span class="dv">42</span>, <span class="dv">66</span>, <span class="dv">53</span>, <span class="dv">42</span>, <span class="dv">55</span>, <span class="dv">57</span>, <span class="dv">56</span>, <span class="dv">51</span>)</span>
 <span id="cb164-3"><a href="#cb164-3"></a>iq_regular <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">44</span>, <span class="dv">34</span>, <span class="dv">18</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">49</span>, <span class="dv">48</span>, <span class="dv">46</span>)</span>
@@ -3374,7 +3374,7 @@ head(pars)</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-92-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-55"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-92-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-93-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-55"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-93-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3404,7 +3404,7 @@ head(pars)</code></pre>
 <li>Again, calculate the difference in means between the two groups using the <code>mean()</code> function, that is, the mean of <code>iq_brains</code> minus the mean of <code>iq_regular</code>.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb169"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1"></a><span class="co"># The IQ of zombies given a regular diet and a brain based diet.</span></span>
 <span id="cb169-2"><a href="#cb169-2"></a>iq_brains <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">44</span>, <span class="dv">52</span>, <span class="dv">42</span>, <span class="dv">66</span>, <span class="dv">53</span>, <span class="dv">42</span>, <span class="dv">55</span>, <span class="dv">57</span>, <span class="dv">56</span>, <span class="dv">51</span>)</span>
 <span id="cb169-3"><a href="#cb169-3"></a>iq_regular <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">44</span>, <span class="dv">34</span>, <span class="dv">18</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">49</span>, <span class="dv">48</span>, <span class="dv">150</span>)</span>
@@ -3423,7 +3423,7 @@ head(pars)</code></pre>
 <li>Plot <code>best_posterior</code> using the <code>plot()</code> function.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb171"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1"></a><span class="co"># The IQ of zombies given a regular diet and a brain based diet.</span></span>
 <span id="cb171-2"><a href="#cb171-2"></a>iq_brains <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">44</span>, <span class="dv">52</span>, <span class="dv">42</span>, <span class="dv">66</span>, <span class="dv">53</span>, <span class="dv">42</span>, <span class="dv">55</span>, <span class="dv">57</span>, <span class="dv">56</span>, <span class="dv">51</span>)</span>
 <span id="cb171-3"><a href="#cb171-3"></a>iq_regular <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">44</span>, <span class="dv">34</span>, <span class="dv">18</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">49</span>, <span class="dv">48</span>, <span class="dv">150</span>) <span class="co"># &lt;- Mutant zombie</span></span>
@@ -3443,7 +3443,7 @@ head(pars)</code></pre>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-94-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-56"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-94-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-95-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-56"><img src="02_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-95-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -3755,7 +3755,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":true,"descPosition":"bottom","openEffect":"zoom","selector":".lightbox","closeEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","loop":true,"openEffect":"zoom","selector":".lightbox"});</script>
 
 
 

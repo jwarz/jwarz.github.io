@@ -606,7 +606,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the <code>head()</code> function to print the first 6 rows of <code>netflix</code> and <code>imdb</code>.</li>
 <li>Print the <code>str()</code>ucture of <code>netflix</code> and <code>imdb</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load package</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(data.table)</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
@@ -705,7 +705,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Remind yourself of the contents of both <code>data.table</code>s by printing them.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Print the data.tables in your R session</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>netflix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -729,7 +729,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Use the correct column to inner join <code>netflix</code> and <code>imdb</code> using the <code>merge()</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Inner join netflix and imdb</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="fu">merge</span>(netflix, imdb, <span class="at">by =</span> <span class="st">"title"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -750,7 +750,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Use the <code>merge()</code> function to full join the <code>netflix</code> and <code>imdb</code> <code>data.table</code>s.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Full join netflix and imdb</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a><span class="fu">merge</span>(netflix, imdb, <span class="at">by =</span> <span class="st">"title"</span>, <span class="at">all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -765,7 +765,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Try swapping the order of the <code>netflix</code> and <code>imdb</code> <code>data.table</code>s in the merge function to see what changes!</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Full join imdb and netflix</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="fu">merge</span>(imdb, netflix, <span class="at">by =</span> <span class="st">"title"</span>, <span class="at">all =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -805,7 +805,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Use the <code>merge()</code> function to left join <code>imdb</code> <em>to</em> <code>netflix</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Left join imdb to netflix</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a><span class="fu">merge</span>(netflix, imdb, <span class="at">by =</span> <span class="st">"title"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -826,7 +826,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Use the <code>merge()</code> function to right join <code>imdb</code> <em>to</em> <code>netflix</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Right join imdb to netflix</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="fu">merge</span>(netflix, imdb, <span class="at">by =</span> <span class="st">"title"</span>, <span class="at">all.y =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -841,7 +841,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Compare the right join you performed in the previous step to the left join of <code>netflix</code> <em>to</em> <code>imdb</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Compare to a left join of netflix to imdb</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="fu">merge</span>(imdb, netflix, <span class="at">by =</span> <span class="st">"title"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -863,7 +863,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Identify the key column so you can join <code>capitals</code> and <code>population</code>. Assign the column name as a string to <code>capitals_population_key</code>.</li>
 <li>Using this key, left join <code>population</code> to <code>capitals</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Load data</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a>capitals   <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/australia_population/australia_capitals.csv"</span>)</span>
 <span id="cb17-3"><a href="#cb17-3"></a>population <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/australia_population/australia_cities_top20.csv"</span>, <span class="at">drop =</span> <span class="st">"percentage"</span>) </span>
@@ -891,7 +891,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Identify the key column so you can join <code>capital_pop</code> and <code>area</code>. Assign the column name as a string to <code>capital_pop_area_key</code>.</li>
 <li>Using this key, inner join <code>area</code> to <code>capital_pop</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Identify the key for joining capital_pop and area</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a>capital_pop_area_key <span class="ot">&lt;-</span> <span class="st">"state"</span></span>
 <span id="cb20-3"><a href="#cb20-3"></a></span>
@@ -946,7 +946,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Right join <code>population</code> to <code>capitals</code> using the <code>data.table</code> syntax.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Right join population to capitals using data.table syntax</span></span>
 <span id="cb21-2"><a href="#cb21-2"></a>capitals[population, on <span class="ot">=</span> .(city)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -961,7 +961,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>To compare the output, right join <code>population</code> to <code>capitals</code> using the <code>merge()</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Right join using merge</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a><span class="fu">merge</span>(capitals, population, <span class="at">by =</span> <span class="st">"city"</span>, <span class="at">all.y =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -982,7 +982,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Inner join <code>population</code> to <code>capitals</code> using the <code>data.table</code> syntax.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Inner join with the data.table syntax</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a>capitals[population, on <span class="ot">=</span> .(city), nomatch <span class="ot">=</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1003,7 +1003,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Filter <code>population</code> so the result doesn’t contain any rows from <code>capitals</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Anti-join capitals to population</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a>population[<span class="sc">!</span>capitals, on <span class="ot">=</span> .(city)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1018,7 +1018,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Filter <code>area</code> so the result doesn’t contain any rows from <code>capitals</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Anti-join capitals to area</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a>area[<span class="sc">!</span>capitals, on <span class="ot">=</span> .(state)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1062,7 +1062,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Set <code>title</code> as the key of both <code>netflix</code> and <code>imdb</code> using <code>setkey()</code>.</li>
 <li>Inner join <code>imdb</code> to <code>netflix</code> without specifying the <code>on</code> argument.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Set the keys</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="fu">setkey</span>(netflix, <span class="st">"title"</span>)</span>
 <span id="cb26-3"><a href="#cb26-3"></a><span class="fu">setkey</span>(imdb, <span class="st">"title"</span>)</span>
@@ -1089,7 +1089,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Assign the key of the <code>data.table</code> which has a key to <code>the_key</code>.</li>
 <li>Set the key of the other <code>data.table</code> using <code>the_key</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Check for keys</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a><span class="fu">haskey</span>(netflix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1142,7 +1142,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>First, inner join <code>capitals</code> to <code>population</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># read data</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a>population <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/australia_population/australia_cities_top20.csv"</span>)</span>
 <span id="cb32-3"><a href="#cb32-3"></a></span>
@@ -1160,7 +1160,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>In the same <code>data.table</code> expression, <a href="https://www.rdocumentation.org/packages/base/topics/sum"><code>sum()</code></a> the <code>"percentage"</code> column to calculate the total percentage of people living in major Australian cities.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Join and sum</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a>population[capitals, on <span class="ot">=</span> .(city), nomatch <span class="ot">=</span> <span class="dv">0</span>,</span>
 <span id="cb33-3"><a href="#cb33-3"></a>           j <span class="ot">=</span> <span class="fu">sum</span>(percentage)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1181,7 +1181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Complete the code to build a <code>data.table</code> containing the <em>number of matches</em> in <code>continents</code> for each row in <code>life_exp</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Load data</span></span>
 <span id="cb35-2"><a href="#cb35-2"></a>life_exp   <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/life_expectancy/gapminder_life_expectancy_2010.csv"</span>)</span>
 <span id="cb35-3"><a href="#cb35-3"></a>continents <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/life_expectancy/continents.csv"</span>) </span>
@@ -1201,7 +1201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Chain a second <code>data.table[]</code> expression to the first to filter the result of the previous step to contain just countries with more than one match between <code>life_exp</code> and <code>continents</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># What countries are listed in multiple continents?</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a>continents[life_exp, on <span class="ot">=</span> .(country), .N, </span>
 <span id="cb36-3"><a href="#cb36-3"></a>           by <span class="ot">=</span> .EACHI][N <span class="sc">&gt;</span> <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1226,7 +1226,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Inner join <code>life_exp</code> to <code>continents</code> and calculate the <a href="https://www.rdocumentation.org/packages/base/topics/mean"><code>mean()</code></a> <code>"years"</code> of life expectancy grouped by the <code>"continent"</code> column.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Change names</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="fu">setnames</span>(life_exp, <span class="at">old =</span> <span class="st">"life_expectancy"</span>, <span class="at">new =</span> <span class="st">"years"</span>)</span>
 <span id="cb37-3"><a href="#cb37-3"></a></span>
@@ -1295,7 +1295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Use the <code>merge()</code> function to full join <code>guardians</code> to <code>students</code> using the <code>"name"</code> column as the join key. Do the results look correct?</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Load data</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>students  <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/school_db/school_db_students.tsv"</span>)</span>
 <span id="cb38-3"><a href="#cb38-3"></a>guardians <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/school_db/school_db_guardians.tsv"</span>)</span>
@@ -1314,7 +1314,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Now see what happens when you left join <code>guardians</code> to <code>students</code> with the <code>merge()</code> function using <code>"name"</code> as the join key.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Left join</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a><span class="fu">merge</span>(students, guardians, <span class="at">by =</span> <span class="st">"name"</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1329,7 +1329,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Perform an inner join using the <code>data.table</code> syntax.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># Inner join</span></span>
 <span id="cb40-2"><a href="#cb40-2"></a>students[guardians, on <span class="ot">=</span> .(name), nomatch <span class="ot">=</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1344,7 +1344,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Explore the <code>data.table</code>s in your console to find the column in each of <code>students</code> and <code>guardians</code> that matches rows between them, then modify the code to use these column names to perform an inner join.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># What are the correct join key columns?</span></span>
 <span id="cb41-2"><a href="#cb41-2"></a>students[guardians, on <span class="ot">=</span> .(<span class="at">guardian =</span> name), nomatch <span class="ot">=</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1369,7 +1369,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Right join <code>locations</code> to <code>subjects</code> using the <code>"subject"</code> and <code>"semester"</code> columns in both <code>data.tables</code> as two separate join key columns. You should get an error.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Load data</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a>subjects  <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/school_db/school_db_subjects.tsv"</span>)</span>
 <span id="cb42-3"><a href="#cb42-3"></a><span class="fu">setnames</span>(subjects, <span class="at">old =</span> <span class="st">"class"</span>, <span class="at">new =</span> <span class="st">"subject"</span>)</span>
@@ -1388,7 +1388,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print the <code>str()</code>ucture of <code>subjects</code> and <code>locations</code>.</li>
 <li>Is the class of the <code>semester</code> column same in both? If yes, assign <code>TRUE</code> to <code>same_class</code>, else assign <code>FALSE</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Structure </span></span>
 <span id="cb44-2"><a href="#cb44-2"></a><span class="fu">str</span>(subjects)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1414,7 +1414,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the <code>as.integer()</code> function to change the class of the <code>"semester"</code> column in <code>locations</code>.</li>
 <li>Right join <code>locations</code> to <code>subjects</code> again, using the <code>data.table</code> syntax.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># Fix the column class</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a>locations[, semester <span class="sc">:</span><span class="er">=</span> <span class="fu">as.integer</span>(semester)]</span>
 <span id="cb49-3"><a href="#cb49-3"></a></span>
@@ -1439,7 +1439,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Identify the key column(s) for joining <code>teachers</code> and <code>locations</code> and assign it as a character vector in the form <code>c("teachers_join_key" = "locations_join_key")</code> to the <code>join_key</code> variable.</li>
 <li>Using the <code>data.table</code> syntax, right join <code>locations</code> to <code>teachers</code> using the <code>join_key</code> variable.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Load data</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a>teachers <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/school_db/school_db_teachers.tsv"</span>)</span>
 <span id="cb50-3"><a href="#cb50-3"></a><span class="fu">setnames</span>(teachers, <span class="at">old =</span> <span class="st">"subject"</span>, <span class="at">new =</span> <span class="st">"topic"</span>)</span>
@@ -1488,7 +1488,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the <code>merge()</code> function to inner join <code>population</code> to <code>capitals</code> and save the result to <code>capital_pop</code>.</li>
 <li>Use the <code>merge()</code> function to left join <code>area</code> to <code>capital_pop</code> and view the result.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Inner join</span></span>
 <span id="cb51-2"><a href="#cb51-2"></a>capital_pop <span class="ot">&lt;-</span> <span class="fu">merge</span>(capitals, population, <span class="at">by =</span> <span class="st">"city"</span>)</span>
 <span id="cb51-3"><a href="#cb51-3"></a></span>
@@ -1506,7 +1506,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>This time, left join <code>area</code> to <code>capital_pop</code> changing the suffixes of the two <code>"percentage"</code> columns to <code>".pop"</code> and <code>".area"</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Inner join from step 1</span></span>
 <span id="cb52-2"><a href="#cb52-2"></a>capital_pop <span class="ot">&lt;-</span> <span class="fu">merge</span>(capitals, population, <span class="at">by =</span> <span class="st">"city"</span>)</span>
 <span id="cb52-3"><a href="#cb52-3"></a></span>
@@ -1531,7 +1531,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Convert <code>netflix</code> to a <code>data.table</code> using the <code>as.data.table()</code> function so that its rownames become a column named <code>"series"</code>.</li>
 <li>Right join the new <code>data.table</code> you’ve just created,<code>netflix_dt</code>, to <code>imdb</code> using the <code>data.table</code> join syntax.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># load data</span></span>
 <span id="cb53-2"><a href="#cb53-2"></a>netflix <span class="ot">&lt;-</span> netflix <span class="sc">|&gt;</span> tibble<span class="sc">::</span><span class="fu">column_to_rownames</span>(<span class="st">"title"</span>)</span>
 <span id="cb53-3"><a href="#cb53-3"></a></span>
@@ -1595,7 +1595,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Remove the probes from both <code>data.tables</code> with no gene annotation (i.e., remove rows with missing values in the <code>gene</code> column).</li>
 <li>Repeat the inner join with the new <code>data.tables</code> to get a <code>data.table</code> of reproducible associations between genes and heart disease.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># Load data</span></span>
 <span id="cb54-2"><a href="#cb54-2"></a>heart  <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/heart_data/illumina_chd_genes.csv"</span>,  <span class="at">na.strings  =</span> <span class="st">""</span>)</span>
 <span id="cb54-3"><a href="#cb54-3"></a>cardio <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/heart_data/affymetrix_chd_genes.csv"</span>, <span class="at">na.strings =</span> <span class="st">""</span>) </span>
@@ -1639,7 +1639,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Inner join <code>cardio_3</code> to <code>heart_3</code> using the <code>merge()</code> function. Append <code>".heart"</code> and <code>".cardio"</code> as suffixes to the <code>"change"</code> and <code>"pvalue"</code> columns.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># Keep only the last probe for each gene</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a>heart_3  <span class="ot">&lt;-</span> <span class="fu">unique</span>(heart_2,  <span class="at">by =</span> <span class="st">"gene"</span>, <span class="at">fromLast =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb56-3"><a href="#cb56-3"></a>cardio_3 <span class="ot">&lt;-</span> <span class="fu">unique</span>(cardio_2, <span class="at">by =</span> <span class="st">"gene"</span>, <span class="at">fromLast =</span> <span class="cn">TRUE</span>)</span>
@@ -1666,7 +1666,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Using the <code>data.table</code> syntax, right join <code>framingham</code> to <code>heart_2</code>, taking the first probe for each gene in <code>heart_2</code>.</li>
 <li>Anti-join <code>framingham</code> to <code>reproducible</code> to see whether you found any genes that have not previously been seen to have an association with heart disease.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># Load data</span></span>
 <span id="cb57-2"><a href="#cb57-2"></a>framingham <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/heart_data/framingham_chd_genes.csv"</span>, <span class="at">na.strings =</span> <span class="st">""</span>)</span>
 <span id="cb57-3"><a href="#cb57-3"></a></span>
@@ -1737,7 +1737,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 data-number="4.2" class="anchored" data-anchor-id="concatenating-data.table-variables"><span class="header-section-number">4.2</span> Concatenating data.table variables</h2>
 <p>Three <code>data.table</code>s containing Ebola case numbers <a href="http://apps.who.int/gho/data/node.ebola-sitrep">reported in Guinea to the World Health Organisation</a> for three weeks at the height of the 2014 Ebola outbreak have been loaded into your R session: <code>ebola_W50</code>, <code>ebola_W51</code>, and <code>ebola_W52</code>. Your goal is to create a single <code>data.table</code> containing the case numbers in each region of Guinea across all three weeks.</p>
 <p><strong>Steps</strong></p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># Load data</span></span>
 <span id="cb59-2"><a href="#cb59-2"></a>ebola_W50 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/ebola_cases/ebola_2014_W50.csv"</span>)</span>
 <span id="cb59-3"><a href="#cb59-3"></a>ebola_W51 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/ebola_cases/ebola_2014_W51.csv"</span>)</span>
@@ -1746,7 +1746,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Concatenate <code>ebola_W50</code> and <code>ebola_W51</code> (in that order) using the <a href="https://www.rdocumentation.org/packages/data.table/topics/rbindlist"><code>rbind()</code></a> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># Concatenate case numbers from weeks 50 and 51</span></span>
 <span id="cb60-2"><a href="#cb60-2"></a><span class="fu">rbind</span>(ebola_W50, ebola_W51)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1761,7 +1761,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Modify your call to <code>rbind()</code> to also concatenate <code>ebola_W52</code>. You should get an error.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># Concatenate case numbers from all three weeks</span></span>
 <span id="cb61-2"><a href="#cb61-2"></a><span class="fu">rbind</span>(ebola_W50, ebola_W51, ebola_W52)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
@@ -1771,7 +1771,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Fix your call to <code>rbind()</code> so that the three <code>data.tables</code> are successfully concatenated.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Modify the code</span></span>
 <span id="cb63-2"><a href="#cb63-2"></a><span class="fu">rbind</span>(ebola_W50, ebola_W51, ebola_W52, <span class="at">fill =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1793,7 +1793,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Concatenate all <code>data.table</code>s in the <code>gdp</code> <code>list</code>, saving the result to <code>gdp_all_1</code>.</li>
 </ol>
 <p><em>Column 2 [‘country’] of item 3 appears in position 1 in item 2. Set use.names=TRUE to match by column name, or use.names=FALSE to ignore column names. use.names=‘check’ (default from v1.12.2) emits this message and proceeds as if use.names=FALSE for backwards compatibility. See news item 5 in v1.12.2 for options to control this message.</em></p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># Load packages</span></span>
 <span id="cb64-2"><a href="#cb64-2"></a><span class="fu">library</span>(stringr)</span>
 <span id="cb64-3"><a href="#cb64-3"></a><span class="fu">library</span>(purrr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1819,7 +1819,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Modify the code so that a new column, <code>"continent"</code> is created in the result stored in <code>gdp_all_2</code>, which contains the continent(s) each country is located in.</li>
 <li>Inspect the result in your console.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># Concatenate its data.tables</span></span>
 <span id="cb68-2"><a href="#cb68-2"></a>gdp_all_2 <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(gdp, <span class="at">idcol =</span> <span class="st">"continent"</span>, <span class="at">use.names =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1827,7 +1827,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>In your console run the code to check the result of your previous call to <code>rbindlist()</code>. Can you see any problems?</li>
 <li>Modify your call to <code>rbindlist()</code> to fix any problems you have found, saving the result in <code>gdp_all_3</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># Run this code to inspect gdp_all_2</span></span>
 <span id="cb69-2"><a href="#cb69-2"></a>gdp_all_2 <span class="ot">&lt;-</span> <span class="fu">rbindlist</span>(gdp, <span class="at">idcol =</span> <span class="st">"continent"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1907,7 +1907,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Use the <code>duplicated()</code> function to filter <code>gdp_all</code> to rows that are duplicates to find all countries located in more than one continent.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a><span class="co"># Load proper data</span></span>
 <span id="cb75-2"><a href="#cb75-2"></a><span class="co"># Load data</span></span>
 <span id="cb75-3"><a href="#cb75-3"></a>gdp <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="st">"data/gdp/"</span>, <span class="at">full.names =</span> T, <span class="at">pattern =</span> <span class="st">".*_2000.csv"</span>) <span class="sc">%&gt;%</span></span>
@@ -1952,7 +1952,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Use the <code>unique()</code> function to remove duplicate rows from<code>gdp_all</code> so that each country occurs only once in the result.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># Get all countries in either Asia or Europe</span></span>
 <span id="cb77-2"><a href="#cb77-2"></a><span class="fu">funion</span>(gdp<span class="sc">$</span>asia, gdp<span class="sc">$</span>europe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1988,7 +1988,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print a new <code>data.table</code> containing rows from <code>gdp$asia</code> that are not present in <code>middle_east</code>.</li>
 <li>Print a new <code>data.table</code> containing rows from <code>gdp$europe</code> that are not present in <code>middle_east</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># Load data</span></span>
 <span id="cb79-2"><a href="#cb79-2"></a>middle_east <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/gdp/gdp_middle_east_2000.csv"</span>)</span>
 <span id="cb79-3"><a href="#cb79-3"></a></span>
@@ -2051,7 +2051,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print <code>gdp_per_capita</code> to learn about its contents.</li>
 <li>Use the <code>melt()</code> function to create a long format <code>data.table</code> stacking the values for each country’s column.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a><span class="co"># Load &amp; prepare data</span></span>
 <span id="cb82-2"><a href="#cb82-2"></a>gdp_per_capita <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/gdp/gdp_per_capita_oceania.csv"</span>, <span class="at">header =</span> T)</span>
 <span id="cb82-3"><a href="#cb82-3"></a>gdp_per_capita <span class="ot">&lt;-</span> data.table<span class="sc">::</span><span class="fu">transpose</span>(gdp_per_capita, <span class="at">keep.names =</span> <span class="st">"year"</span>, <span class="at">make.names =</span> <span class="st">"country"</span>)</span>
@@ -2080,7 +2080,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Within your call to <code>melt()</code>, name the new <code>"variable"</code> column as <code>"country"</code> and the new <code>"value"</code> column as <code>"gdp_pc"</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="co"># Rename the new columns</span></span>
 <span id="cb84-2"><a href="#cb84-2"></a><span class="fu">melt</span>(gdp_per_capita, <span class="at">id.vars =</span> <span class="st">"year"</span>, </span>
 <span id="cb84-3"><a href="#cb84-3"></a>     <span class="at">variable.name =</span> <span class="st">"country"</span>, <span class="at">value.name =</span> <span class="st">"gdp_pc"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2102,7 +2102,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Use the <code>measure.vars</code> argument to stack the columns <code>"Week_50"</code> and <code>"Week_51"</code>. The new column containing its values should be called <code>"cases"</code>, and the new column of variable labels should be called <code>"period"</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a><span class="co"># Load package</span></span>
 <span id="cb85-2"><a href="#cb85-2"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -2167,7 +2167,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Modify the call to <code>melt()</code> to also ask to keep only the <code>"Location"</code> column as row identifiers, dropping the <code>"period_start"</code> and <code>"period_end"</code> columns from the result.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="co"># Modify the code</span></span>
 <span id="cb92-2"><a href="#cb92-2"></a><span class="fu">melt</span>(ebola_wide, <span class="at">measure.vars =</span> <span class="fu">c</span>(<span class="st">"Week_50"</span>, <span class="st">"Week_51"</span>), </span>
 <span id="cb92-3"><a href="#cb92-3"></a>     <span class="at">variable.name =</span> <span class="st">"period"</span>, <span class="at">value.name =</span> <span class="st">"cases"</span>, </span>
@@ -2194,7 +2194,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Use <a href="https://www.rdocumentation.org/packages/data.table/topics/dcast.data.table"><code>dcast()</code></a> to build a wide <code>data.table</code> containing the population of each country, with each country as a row and each year as a column.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="co"># Load data</span></span>
 <span id="cb93-2"><a href="#cb93-2"></a>gdp_oceania <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/gdp/gdp_and_pop_oceania.csv"</span>)</span>
 <span id="cb93-3"><a href="#cb93-3"></a></span>
@@ -2212,7 +2212,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Create another wide format <code>data.table</code> containing the GDP of each country with each year as a row and each country as a column.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="co"># Split the gdp column by country</span></span>
 <span id="cb94-2"><a href="#cb94-2"></a><span class="fu">dcast</span>(gdp_oceania, <span class="at">formula =</span> year <span class="sc">~</span> country, <span class="at">value.var =</span> <span class="st">"gdp"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -2233,7 +2233,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Convert <code>gdp_oceania</code> to wide format with each country as a row, and splitting both the <code>"gdp"</code> and <code>"population"</code> columns into columns for each <code>"year"</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a><span class="co"># Modify data</span></span>
 <span id="cb95-2"><a href="#cb95-2"></a>gdp_oceania[,continent <span class="sc">:</span><span class="er">=</span> <span class="st">"Oceania"</span>]</span>
 <span id="cb95-3"><a href="#cb95-3"></a></span>
@@ -2251,7 +2251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Convert <code>wide</code> to a matrix using the <code>"country"</code> column as the matrix rownames.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="co"># Reshape from wide to long format</span></span>
 <span id="cb96-2"><a href="#cb96-2"></a>wide <span class="ot">&lt;-</span> <span class="fu">dcast</span>(gdp_oceania, <span class="at">formula =</span> country <span class="sc">~</span> year, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">"gdp"</span>, <span class="st">"population"</span>))</span>
 <span id="cb96-3"><a href="#cb96-3"></a></span>
@@ -2311,7 +2311,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Modify the call to <code>dcast()</code> so that the <code>"continent"</code> column is also kept aside as row identifiers.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a><span class="co"># Modify your previous code</span></span>
 <span id="cb98-2"><a href="#cb98-2"></a><span class="fu">dcast</span>(gdp_oceania, <span class="at">formula =</span> country <span class="sc">+</span> continent <span class="sc">~</span> year, <span class="at">value.var =</span> <span class="fu">c</span>(<span class="st">"gdp"</span>, <span class="st">"population"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -2333,7 +2333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print <code>gdp_by_industry_oceania</code>.</li>
 <li>Convert <code>gdp_by_industry_oceania</code> to a wide format with each country as a row, splitting the <code>"gdp"</code> column so that the result has columns containing the gdp for each industry and each year.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1"></a><span class="co"># Load data</span></span>
 <span id="cb99-2"><a href="#cb99-2"></a>gdp_by_industry_oceania <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"data/gdp/gdp_by_industry_oceania.tsv"</span>)</span>
 <span id="cb99-3"><a href="#cb99-3"></a></span>

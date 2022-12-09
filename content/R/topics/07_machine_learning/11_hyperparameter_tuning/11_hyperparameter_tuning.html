@@ -484,7 +484,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#introduction-to-hyperparameters" id="toc-introduction-to-hyperparameters" class="nav-link active" data-scroll-target="#introduction-to-hyperparameters"><span class="toc-section-number">1</span>  1. Introduction to hyperparameters</a>
+  <li><a href="#introduction-to-hyperparameters" id="toc-introduction-to-hyperparameters" class="nav-link active" data-scroll-target="#introduction-to-hyperparameters"><span class="toc-section-number">1</span>  Introduction to hyperparameters</a>
   <ul class="collapse">
   <li><a href="#parameters-vs-hyperparameters" id="toc-parameters-vs-hyperparameters" class="nav-link" data-scroll-target="#parameters-vs-hyperparameters"><span class="toc-section-number">1.1</span>  Parameters vs hyperparameters</a></li>
   <li><a href="#model-parameters-vs.-hyperparameters" id="toc-model-parameters-vs.-hyperparameters" class="nav-link" data-scroll-target="#model-parameters-vs.-hyperparameters"><span class="toc-section-number">1.2</span>  Model parameters vs.&nbsp;hyperparameters</a></li>
@@ -574,7 +574,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>For many machine learning problems, simply running a model out-of-the-box and getting a prediction is not enough; you want the best model with the most accurate prediction. One way to perfect your model is with hyperparameter tuning, which means optimizing the settings for that specific model. In this course, you will work with the caret, mlr and h2o packages to find the optimal combination of hyperparameters in an efficient manner using grid search, random search, adaptive resampling and automatic machine learning (AutoML). Furthermore, you will work with different datasets and tune different supervised learning models, such as random forests, gradient boosting machines, support vector machines, and even neural nets. Get ready to tune!</p>
 <section id="introduction-to-hyperparameters" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 1. Introduction to hyperparameters</h1>
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction to hyperparameters</h1>
 <p>Why do we use the strange word “hyperparameter”? What makes it hyper? Here, you will understand what model parameters are, and why they are different from hyperparameters in machine learning. You will then see why we would want to tune them and how the default setting of caret automatically includes hyperparameter tuning.</p>
 <section id="parameters-vs-hyperparameters" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="parameters-vs-hyperparameters"><span class="header-section-number">1.1</span> Parameters vs hyperparameters</h2>
@@ -613,7 +613,7 @@ LO: The student knows how to build a linear model and how to extract coefficient
 <li>Look at the <code>summary()</code> of this linear model.</li>
 <li>Extract the <strong>coefficients</strong>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load data</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(readr)</span>
 <span id="cb1-3"><a href="#cb1-3"></a>breast_cancer_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/breast_cancer_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -688,7 +688,7 @@ LO: The student knows the difference between model parameters and hyperparameter
 <li>Plot the regression line with <code>ggplot2</code>.</li>
 <li>Assign the correct coefficients to <code>slope</code> and <code>intercept</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb7-2"><a href="#cb7-2"></a></span>
 <span id="cb7-3"><a href="#cb7-3"></a><span class="co"># Plot linear relationship.</span></span>
@@ -700,7 +700,7 @@ LO: The student knows the difference between model parameters and hyperparameter
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-2-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -737,7 +737,7 @@ LO: The student knows how to train a machine learning model with caret
 <ol type="1">
 <li>Use the <code>caret</code> package to create an index with 70% of the <code>breast_cancer_data</code> to create a <strong>training set</strong> and <strong>stratify the partitions</strong> by the response variable <code>diagnosis</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Load package</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a><span class="fu">library</span>(caret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -749,7 +749,7 @@ LO: The student knows how to train a machine learning model with caret
 <ol start="2" type="1">
 <li>Use the index you created in the previous step to <strong>partition</strong> the <code>breast_cancer_data</code> in training and test sets.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Subset `breast_cancer_data` with index</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a>bc_train_data <span class="ot">&lt;-</span> breast_cancer_data[index, ]</span>
 <span id="cb11-3"><a href="#cb11-3"></a>bc_test_data  <span class="ot">&lt;-</span> breast_cancer_data[<span class="sc">-</span>index, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -757,14 +757,14 @@ LO: The student knows how to train a machine learning model with caret
 <ol start="3" type="1">
 <li>Define a <strong>repeated cross-validation</strong> scheme for <code>caret</code> with 5 folds and 3 repeats.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Define 3x5 folds repeated cross-validation</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>fitControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"repeatedcv"</span>, <span class="at">number =</span> <span class="dv">5</span>, <span class="at">repeats =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="1">
 <li>Use the <code>caret</code> package to <strong>train a Stochastic Gradient Boosting model</strong> and add the <strong>repeated cross-validation</strong> scheme that you defined in the last step to the <code>train</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Required package: gbm</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a></span>
 <span id="cb13-3"><a href="#cb13-3"></a><span class="co"># Run the train() function</span></span>
@@ -789,15 +789,15 @@ LO: The student knows how to train a machine learning model with caret
 #&gt; Resampling results across tuning parameters:
 #&gt; 
 #&gt;   interaction.depth  n.trees  Accuracy   Kappa    
-#&gt;   1                   50      0.9250000  0.8500000
+#&gt;   1                   50      0.9208333  0.8416667
 #&gt;   1                  100      0.9166667  0.8333333
-#&gt;   1                  150      0.9083333  0.8166667
+#&gt;   1                  150      0.9166667  0.8333333
 #&gt;   2                   50      0.9166667  0.8333333
-#&gt;   2                  100      0.9250000  0.8500000
-#&gt;   2                  150      0.9125000  0.8250000
-#&gt;   3                   50      0.9208333  0.8416667
-#&gt;   3                  100      0.9166667  0.8333333
-#&gt;   3                  150      0.9083333  0.8166667
+#&gt;   2                  100      0.9083333  0.8166667
+#&gt;   2                  150      0.9083333  0.8166667
+#&gt;   3                   50      0.9083333  0.8166667
+#&gt;   3                  100      0.9041667  0.8083333
+#&gt;   3                  150      0.9041667  0.8083333
 #&gt; 
 #&gt; Tuning parameter 'shrinkage' was held constant at a value of 0.1
 #&gt; 
@@ -812,7 +812,7 @@ LO: The student knows how to train a machine learning model with caret
 <section id="resampling-schemes" class="level2" data-number="1.8">
 <h2 data-number="1.8" class="anchored" data-anchor-id="resampling-schemes"><span class="header-section-number">1.8</span> Resampling schemes</h2>
 <p>In the previous exercise, you defined a 3x5 folds repeated cross-validation resampling scheme with the following code:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>fitControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method =</span> <span class="st">"repeatedcv"</span>, <span class="at">number =</span> <span class="dv">5</span>, <span class="at">repeats =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
@@ -865,7 +865,7 @@ LO: The student knows how to change the number of hyperparameters that are tuned
 <ol type="1">
 <li>Test <strong>four</strong> different values for each hyperparameter with automatic tuning in <code>caret</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Load package</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a><span class="fu">library</span>(tictoc)</span>
 <span id="cb16-3"><a href="#cb16-3"></a></span>
@@ -883,7 +883,7 @@ LO: The student knows how to change the number of hyperparameters that are tuned
 <span id="cb16-15"><a href="#cb16-15"></a><span class="co"># Stop timer.</span></span>
 <span id="cb16-16"><a href="#cb16-16"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; 0.7 sec elapsed</code></pre>
+<pre><code>#&gt; 0.705 sec elapsed</code></pre>
 </div>
 </div>
 <p>Great! You can now perform a simple hyperparameter-tuning with caret.</p>
@@ -899,7 +899,7 @@ LO: The student knows how to manually define hyperparameters in caret
 <li>Define the following <strong>hyperparameter grid</strong> for a Gradient Boosting Model: the number of trees as 200; the tree complexity as 1; the learning rate as 0.1 and the minimum number of training set samples in a node to commence splitting as 10.</li>
 <li>Apply the grid to the <code>train()</code> function of <code>caret</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Define hyperparameter grid.</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>hyperparams <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">n.trees           =</span> <span class="dv">200</span>, </span>
 <span id="cb18-3"><a href="#cb18-3"></a>                           <span class="at">interaction.depth =</span> <span class="dv">1</span>, </span>
@@ -957,7 +957,7 @@ LO: The student knows how to define a Cartesian grid of hyperparameters in caret
 -->
 <p>In chapter 1, you learned how to use the <code>expand.grid()</code> function to manually define hyperparameters. The same function can also be used to <strong>define a grid of hyperparameters</strong>.</p>
 <p>The <code>voters_train_data</code> dataset has already been preprocessed to make it a bit smaller so training will run faster; it has now 80 observations and balanced classes and has been loaded for you. And the <code>trainControl</code> object has been defined with repeated cross-validation:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># Load data</span></span>
 <span id="cb19-2"><a href="#cb19-2"></a>voters_train_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/voters_train_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -978,7 +978,7 @@ LO: The student knows how to define a Cartesian grid of hyperparameters in caret
 <ol type="1">
 <li>Define a <strong>Cartesian grid</strong> of Support Vector Machine hyperparameters with the following combinations: <code>degree</code> should be 1, 2, or 3, <code>scale</code> should be 0.1, 0.01 or 0.001 and <code>C</code> should be held constant at 0.5.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Define Cartesian grid</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a>man_grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">degree =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), </span>
 <span id="cb22-3"><a href="#cb22-3"></a>                        <span class="at">scale  =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.01</span>, <span class="fl">0.001</span>), </span>
@@ -987,7 +987,7 @@ LO: The student knows how to define a Cartesian grid of hyperparameters in caret
 <ol start="2" type="1">
 <li>Use the Cartesian grid you defined in the previous step to train a <strong>Support Vector Machines with Polynomial Kernel</strong> in <code>caret</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Required package: kernlab</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a></span>
 <span id="cb23-3"><a href="#cb23-3"></a><span class="co"># Start timer, set seed &amp; train model</span></span>
@@ -1001,7 +1001,7 @@ LO: The student knows how to define a Cartesian grid of hyperparameters in caret
 <span id="cb23-11"><a href="#cb23-11"></a>                   <span class="at">tuneGrid  =</span> man_grid)</span>
 <span id="cb23-12"><a href="#cb23-12"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; 2.129 sec elapsed</code></pre>
+<pre><code>#&gt; 1.743 sec elapsed</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -1020,13 +1020,13 @@ LO: The student knows how to plot the hyperparameter tuning results
 <ol type="1">
 <li><strong>Plot</strong> the model object with <strong>default arguments</strong>: Accuracy and line-plot.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Plot default</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a><span class="fu">plot</span>(svm_model_voters_grid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-14-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1034,13 +1034,13 @@ LO: The student knows how to plot the hyperparameter tuning results
 <ol start="2" type="1">
 <li>Add another plot where you <strong>plot Kappa values</strong> and use a <strong>level-plot</strong>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Plot Kappa level-plot</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="fu">plot</span>(svm_model_voters_grid, <span class="at">metric =</span> <span class="st">"Kappa"</span>, <span class="at">plotType =</span> <span class="st">"level"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-16-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1077,7 +1077,7 @@ LO: The student knows how to define a Cartesian grid with a range of hyperparame
 <ol type="1">
 <li>Define a <strong>grid</strong> with the neural network hyperparameter <strong>size ranging from 1 to 5</strong> with a <strong>step-size of 1</strong>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Define the grid with hyperparameter ranges</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a>big_grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">size =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">5</span>, <span class="at">by =</span> <span class="dv">1</span>),</span>
 <span id="cb27-3"><a href="#cb27-3"></a>                        <span class="at">decay =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
@@ -1094,7 +1094,7 @@ LO: The student knows how to define a Cartesian grid with a range of hyperparame
 <ol start="2" type="1">
 <li>Specifically define the <code>trainControl</code> function to perform <strong>grid search</strong>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Train control with grid search</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a>fitControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method  =</span> <span class="st">"repeatedcv"</span>,</span>
 <span id="cb28-3"><a href="#cb28-3"></a>                           <span class="at">number  =</span> <span class="dv">3</span>,</span>
@@ -1104,7 +1104,7 @@ LO: The student knows how to define a Cartesian grid with a range of hyperparame
 <ol start="3" type="1">
 <li>Train a <strong>regular Neural Network</strong> in caret.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Required package: nnet</span></span>
 <span id="cb29-2"><a href="#cb29-2"></a></span>
 <span id="cb29-3"><a href="#cb29-3"></a><span class="co"># Train neural net</span></span>
@@ -1118,13 +1118,13 @@ LO: The student knows how to define a Cartesian grid with a range of hyperparame
 <span id="cb29-11"><a href="#cb29-11"></a>                   <span class="at">trace =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb29-12"><a href="#cb29-12"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; 1.792 sec elapsed</code></pre>
+<pre><code>#&gt; 1.935 sec elapsed</code></pre>
 </div>
 </div>
 <ol start="4" type="1">
 <li>And finally: feed the <code>big_grid</code> to this Neural Network for tuning.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Define the grid with hyperparameter ranges</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a>big_grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">size =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">5</span>, <span class="at">by =</span> <span class="dv">1</span>), <span class="at">decay =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
 <span id="cb31-3"><a href="#cb31-3"></a></span>
@@ -1143,7 +1143,7 @@ LO: The student knows how to define a Cartesian grid with a range of hyperparame
 <span id="cb31-16"><a href="#cb31-16"></a>                   <span class="at">tuneGrid  =</span> big_grid)</span>
 <span id="cb31-17"><a href="#cb31-17"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; 1.772 sec elapsed</code></pre>
+<pre><code>#&gt; 1.862 sec elapsed</code></pre>
 </div>
 </div>
 <p>Great! You understood the complete workflow of defining a hyperparameter grid and using it in the caret <code>train()</code> function.</p>
@@ -1168,7 +1168,7 @@ LO: The student knows how to perform random hyperparameter search in caret
 <ol type="1">
 <li>Define a training control object with <strong>random search</strong>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Train control with random search</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a>fitControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method  =</span> <span class="st">"repeatedcv"</span>,</span>
 <span id="cb33-3"><a href="#cb33-3"></a>                           <span class="at">number  =</span> <span class="dv">3</span>,</span>
@@ -1178,7 +1178,7 @@ LO: The student knows how to perform random hyperparameter search in caret
 <ol start="2" type="1">
 <li>Compare <strong>six random hyperparameter combinations</strong> in the neural network below.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Test 6 random hyperparameter combinations</span></span>
 <span id="cb34-2"><a href="#cb34-2"></a><span class="fu">tic</span>()</span>
 <span id="cb34-3"><a href="#cb34-3"></a>nn_model_voters_big_grid <span class="ot">&lt;-</span> <span class="fu">train</span>(turnout16_2016 <span class="sc">~</span> ., </span>
@@ -1190,7 +1190,7 @@ LO: The student knows how to perform random hyperparameter search in caret
 <span id="cb34-9"><a href="#cb34-9"></a>                   <span class="at">tuneLength =</span> <span class="dv">6</span>)</span>
 <span id="cb34-10"><a href="#cb34-10"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; 2.942 sec elapsed</code></pre>
+<pre><code>#&gt; 3.076 sec elapsed</code></pre>
 </div>
 </div>
 <p>You just performed random search with hyperparameter values that were picked by <code>caret</code>.</p>
@@ -1230,7 +1230,7 @@ LO: The student knows how to perform Adaptive Resampling in caret
 <ol type="1">
 <li>Define a <code>trainControl()</code> function for <strong>performing Adaptive Resampling</strong> with 3x3 repeated cross-validation.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Define trainControl function</span></span>
 <span id="cb36-2"><a href="#cb36-2"></a>fitControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method  =</span> <span class="st">"adaptive_cv"</span>,</span>
 <span id="cb36-3"><a href="#cb36-3"></a>                           <span class="at">number  =</span> <span class="dv">3</span>, </span>
@@ -1239,7 +1239,7 @@ LO: The student knows how to perform Adaptive Resampling in caret
 <ol start="2" type="1">
 <li>Change the <strong>resampling scheme</strong> from the default grid method to random search for Adaptive Resampling.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Define trainControl function</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a>fitControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method  =</span> <span class="st">"adaptive_cv"</span>,</span>
 <span id="cb37-3"><a href="#cb37-3"></a>                           <span class="at">number  =</span> <span class="dv">3</span>, </span>
@@ -1249,7 +1249,7 @@ LO: The student knows how to perform Adaptive Resampling in caret
 <ol start="3" type="1">
 <li>Define the <strong>Adaptive Resampling options</strong> <em>minimum number of resamples</em> as 3 and use the <em>Bradley Terry</em> method.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Define trainControl function</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>fitControl <span class="ot">&lt;-</span> <span class="fu">trainControl</span>(<span class="at">method   =</span> <span class="st">"adaptive_cv"</span>,</span>
 <span id="cb38-3"><a href="#cb38-3"></a>                           <span class="at">number   =</span> <span class="dv">3</span>, </span>
@@ -1260,7 +1260,7 @@ LO: The student knows how to perform Adaptive Resampling in caret
 <ol start="4" type="1">
 <li>Change the <strong>maximum number of tuning parameter combinations</strong> that will be generated by random search from its default of 3 to 6 and train the <strong>Neural Network</strong>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Required package: BradleyTerry2</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a></span>
 <span id="cb39-3"><a href="#cb39-3"></a><span class="co"># Start timer &amp; train model</span></span>
@@ -1309,7 +1309,7 @@ LO: The student knows how to perform Adaptive Resampling in caret
 </div>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; 2.022 sec elapsed</code></pre>
+<pre><code>#&gt; 2.044 sec elapsed</code></pre>
 </div>
 </div>
 <p>Good job! You have mastered the final hyperparameter tuning method in caret: Adaptive Resampling!</p>
@@ -1356,7 +1356,7 @@ LO: The student knows how to train a machine learning model with mlr
 <ol type="1">
 <li>Create a <strong>regular classification task</strong> with the <code>knowledge_train_data</code> and target <code>UNS</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Load package</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a><span class="fu">library</span>(mlr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1403,7 +1403,7 @@ LO: The student knows how to train a machine learning model with mlr
 <ol start="2" type="1">
 <li>Ask for a <strong>list of all learners</strong> you can use with mlr. Note that you are converting the output to a data frame and selecting only the columns <code>class</code>, <code>short.name</code> and <code>package</code> so that the output fits the page.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># load package</span></span>
 <span id="cb60-2"><a href="#cb60-2"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1442,14 +1442,14 @@ LO: The student knows how to train a machine learning model with mlr
 <ol start="3" type="1">
 <li>Find the correct classifier for <strong>Random Forest</strong> in the previous output and <strong>build a learner</strong> with this <code>randomForest</code> classifier.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Create learner</span></span>
 <span id="cb66-2"><a href="#cb66-2"></a>lrn <span class="ot">&lt;-</span> <span class="fu">makeLearner</span>(<span class="st">"classif.randomForest"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="1">
 <li>In your learner, change the following settings from the default: have <strong>class probabilities</strong> as output and add a <strong>factor for missing data</strong>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Create learner</span></span>
 <span id="cb67-2"><a href="#cb67-2"></a>lrn <span class="ot">&lt;-</span> <span class="fu">makeLearner</span>(<span class="st">"classif.randomForest"</span>, </span>
 <span id="cb67-3"><a href="#cb67-3"></a>                   <span class="at">predict.type =</span> <span class="st">"prob"</span>, </span>
@@ -1488,7 +1488,7 @@ LO: The student knows how to prepare hyperparameter tuning with random search in
 <ol type="1">
 <li>Get the <strong>parameter set</strong> for neural networks of the <code>nnet</code> package.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># Get the parameter set for neural networks of the nnet package</span></span>
 <span id="cb68-2"><a href="#cb68-2"></a><span class="fu">getParamSet</span>(<span class="st">"classif.nnet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1508,7 +1508,7 @@ LO: The student knows how to prepare hyperparameter tuning with random search in
 <ol start="2" type="1">
 <li>Define a <strong>set of discrete parameters:</strong> start with defining <code>size</code> to be either 2, 3 or 5.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># Define set of parameters</span></span>
 <span id="cb70-2"><a href="#cb70-2"></a>param_set <span class="ot">&lt;-</span> <span class="fu">makeParamSet</span>(</span>
 <span id="cb70-3"><a href="#cb70-3"></a>  <span class="fu">makeDiscreteParam</span>(<span class="st">"size"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>))</span>
@@ -1517,7 +1517,7 @@ LO: The student knows how to prepare hyperparameter tuning with random search in
 <ol start="3" type="1">
 <li>Define a set of <strong>numeric parameters</strong>: add ranges for <code>decay</code> from 0.0001 to 0.1.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a><span class="co"># Define set of parameters</span></span>
 <span id="cb71-2"><a href="#cb71-2"></a>param_set <span class="ot">&lt;-</span> <span class="fu">makeParamSet</span>(</span>
 <span id="cb71-3"><a href="#cb71-3"></a>  <span class="fu">makeDiscreteParam</span>(<span class="st">"size"</span>, <span class="at">values =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>)),</span>
@@ -1535,7 +1535,7 @@ LO: The student knows how to prepare hyperparameter tuning with random search in
 <ol start="4" type="1">
 <li>Define a <strong>random search tuning method</strong> with default values.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># Define a random search tuning method.</span></span>
 <span id="cb73-2"><a href="#cb73-2"></a>ctrl_random <span class="ot">&lt;-</span> <span class="fu">makeTuneControlRandom</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1547,7 +1547,7 @@ LO: The student knows how to prepare hyperparameter tuning with random search in
 LO: The student knows how to do hyperparameter tuning with random search in mlr
 -->
 <p>Now, you can combine the prepared functions and objects from the previous exercise to actually perform <strong>hyperparameter tuning with random search</strong>. The <code>knowledge_train_data</code> dataset has already been loaded for you, as have the packages <code>mlr</code>, <code>tidyverse</code> and <code>tictoc</code>. And the following code has also been run already:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="co"># Define task</span></span>
 <span id="cb74-2"><a href="#cb74-2"></a>task <span class="ot">&lt;-</span> <span class="fu">makeClassifTask</span>(<span class="at">data =</span> knowledge_train_data, </span>
 <span id="cb74-3"><a href="#cb74-3"></a>                        <span class="at">target =</span> <span class="st">"UNS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1569,21 +1569,21 @@ LO: The student knows how to do hyperparameter tuning with random search in mlr
 <ol type="1">
 <li>Change the <strong>maximum number of iterations</strong> for random search to 6. Note, that 6 is a very low number; we use it so that calculation won’t take forever to complete here; usually, you would set the number much higher (the default is 100).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># Define a random search tuning method.</span></span>
 <span id="cb77-2"><a href="#cb77-2"></a>ctrl_random <span class="ot">&lt;-</span> <span class="fu">makeTuneControlRandom</span>(<span class="at">maxit =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Define a <strong>3 x 3 repeated cross-validation</strong> scheme. Note, that these are very low numbers that we only use to keep calculation time down, in reality you would want to use larger values.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a><span class="co"># Define a 3 x 3 repeated cross-validation scheme</span></span>
 <span id="cb78-2"><a href="#cb78-2"></a>cross_val <span class="ot">&lt;-</span> <span class="fu">makeResampleDesc</span>(<span class="st">"RepCV"</span>, <span class="at">folds =</span> <span class="dv">3</span> <span class="sc">*</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Fill in the missing information with the <strong>appropriate objects</strong> you defined in this and the previous exercise in order to run the hyperparameter tuning. Don’t be concerned if running the code will take a bit, hyperparameter tuning takes time!</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># Tune hyperparameters</span></span>
 <span id="cb79-2"><a href="#cb79-2"></a><span class="fu">tic</span>()</span>
 <span id="cb79-3"><a href="#cb79-3"></a>lrn_tune <span class="ot">&lt;-</span> <span class="fu">tuneParams</span>(lrn,</span>
@@ -1597,7 +1597,7 @@ LO: The student knows how to do hyperparameter tuning with random search in mlr
 <span id="cb79-11"><a href="#cb79-11"></a>                       <span class="fu">capture.output</span>()</span>
 <span id="cb79-12"><a href="#cb79-12"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; 4.303 sec elapsed</code></pre>
+<pre><code>#&gt; 4.657 sec elapsed</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -1636,7 +1636,7 @@ LO: The student knows how to do hyperparameter tuning with random search in mlr
 LO: The student knows how to do evaluate hyperparameter tuning results in mlr
 -->
 <p>Here, you will <strong>evaluate the results of a hyperparameter tuning run</strong> for a decision tree trained with the <code>rpart</code> package. And the following code has also been run:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a>task <span class="ot">&lt;-</span> <span class="fu">makeClassifTask</span>(<span class="at">data =</span> knowledge_train_data, </span>
 <span id="cb81-2"><a href="#cb81-2"></a>                        <span class="at">target =</span> <span class="st">"UNS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1658,7 +1658,7 @@ LO: The student knows how to do evaluate hyperparameter tuning results in mlr
 <ol type="1">
 <li>Create a <strong>holdout validation resampling scheme</strong> with the default proportion of 2/3 to use in the tuning process below.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="co"># Create holdout sampling</span></span>
 <span id="cb84-2"><a href="#cb84-2"></a>holdout <span class="ot">&lt;-</span> <span class="fu">makeResampleDesc</span>(<span class="st">"Holdout"</span>)</span>
 <span id="cb84-3"><a href="#cb84-3"></a></span>
@@ -1746,14 +1746,14 @@ LO: The student knows how to do evaluate hyperparameter tuning results in mlr
 <ol start="2" type="1">
 <li>Generate <strong>hyperparameter effect data</strong> for the <code>lrn_tune</code> object and use <strong>partial dependence</strong>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a><span class="co"># Generate hyperparameter effect data</span></span>
 <span id="cb110-2"><a href="#cb110-2"></a>hyperpar_effects <span class="ot">&lt;-</span> <span class="fu">generateHyperParsEffectData</span>(lrn_tune, <span class="at">partial.dep =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li><strong>Plot</strong> the hyperparameter effects with “regr.glm” to learn the partial dependence and plot <code>minsplit</code> on the x-axis against the <code>mmce</code> of the test data on the y-axis.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1"></a><span class="co"># Required package: mmpf</span></span>
 <span id="cb111-2"><a href="#cb111-2"></a></span>
 <span id="cb111-3"><a href="#cb111-3"></a><span class="co"># Plot hyperparameter effects</span></span>
@@ -1762,12 +1762,12 @@ LO: The student knows how to do evaluate hyperparameter tuning results in mlr
 <span id="cb111-6"><a href="#cb111-6"></a>                    <span class="at">x =</span> <span class="st">"minsplit"</span>, <span class="at">y =</span> <span class="st">"mmce.test.mean"</span>, <span class="at">z =</span> <span class="st">"maxdepth"</span>,</span>
 <span id="cb111-7"><a href="#cb111-7"></a>                    <span class="at">plot.type =</span> <span class="st">"line"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-43-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-44-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="11_hyperparameter_tuning_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1806,7 +1806,7 @@ LO: The student knows how to do evaluate hyperparameter tuning results in mlr
 LO: The student knows how to define aggregated measures for hyperparameter optimization
 -->
 <p>Now, you are going to define <strong>performance measures</strong>. And the following code has also been run:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1"></a>task <span class="ot">&lt;-</span> <span class="fu">makeClassifTask</span>(<span class="at">data =</span> knowledge_train_data, </span>
 <span id="cb113-2"><a href="#cb113-2"></a>                        <span class="at">target =</span> <span class="st">"UNS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1830,7 +1830,7 @@ LO: The student knows how to define aggregated measures for hyperparameter optim
 <li>Apply <code>setAggregation</code> to the <strong>mean misclassification error</strong> and <strong>accuracy after resampling</strong>.</li>
 <li><strong>Optimize</strong> your model by mean misclassification error. Remember that the <strong>first argument</strong> is used for optimization.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a><span class="co"># Create holdout sampling</span></span>
 <span id="cb116-2"><a href="#cb116-2"></a>holdout <span class="ot">&lt;-</span> <span class="fu">makeResampleDesc</span>(<span class="st">"Holdout"</span>, <span class="at">predict =</span> <span class="st">"both"</span>)</span>
 <span id="cb116-3"><a href="#cb116-3"></a></span>
@@ -2023,7 +2023,7 @@ LO: The student knows how to define aggregated measures for hyperparameter optim
 LO: The student knows how to set hyperparameters in mlr
 -->
 <p>And finally, you are going to set specific hyperparameters, which you might have found by examining your tuning results from before, The <code>knowledge_train_data</code> dataset has already been loaded for you, as have the packages <code>mlr</code> and <code>tidyverse</code>. And the following code has also been run:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb152"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1"></a>task <span class="ot">&lt;-</span> <span class="fu">makeClassifTask</span>(<span class="at">data =</span> knowledge_train_data, </span>
 <span id="cb152-2"><a href="#cb152-2"></a>                        <span class="at">target =</span> <span class="st">"UNS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -2037,7 +2037,7 @@ LO: The student knows how to set hyperparameters in mlr
 <ol type="1">
 <li>Set the following hyperparameters for a neural net: One <strong>hidden layer</strong>, <strong>maximum number of iterations</strong> of 150 and 0 <strong>decay</strong>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb155"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1"></a><span class="co"># Set hyperparameters</span></span>
 <span id="cb155-2"><a href="#cb155-2"></a>lrn_best <span class="ot">&lt;-</span> <span class="fu">setHyperPars</span>(lrn, <span class="at">par.vals =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">1</span>, </span>
 <span id="cb155-3"><a href="#cb155-3"></a>                                              <span class="at">maxit =</span> <span class="dv">150</span>, </span>
@@ -2107,7 +2107,7 @@ LO: The student knows how to prepare data for machine learning with h2o
 <ol type="1">
 <li>Convert the <code>seeds_train_data</code> object to an <strong>H2O frame</strong>. Note, that you only need to give arguments that don’t have a default value in the function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb157"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1"></a><span class="co"># Load data</span></span>
 <span id="cb157-2"><a href="#cb157-2"></a>seeds_train_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/seeds_train_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -2156,18 +2156,18 @@ LO: The student knows how to prepare data for machine learning with h2o
 #&gt; H2O is not running yet, starting it now...
 #&gt; 
 #&gt; Note:  In case of errors look at the following log files:
-#&gt;     /var/folders/_t/jtmqlfxs6lz2jk_9ndj50w1r0000gp/T//RtmpF4BdwG/file3fac304675d5/h2o_jschwarz_started_from_r.out
-#&gt;     /var/folders/_t/jtmqlfxs6lz2jk_9ndj50w1r0000gp/T//RtmpF4BdwG/file3fac61e20bb5/h2o_jschwarz_started_from_r.err
+#&gt;     /var/folders/_t/jtmqlfxs6lz2jk_9ndj50w1r0000gp/T//RtmpAL0Cle/file9b59699745ea/h2o_jschwarz_started_from_r.out
+#&gt;     /var/folders/_t/jtmqlfxs6lz2jk_9ndj50w1r0000gp/T//RtmpAL0Cle/file9b594a6f3bce/h2o_jschwarz_started_from_r.err
 #&gt; 
 #&gt; 
 #&gt; Starting H2O JVM and connecting: ... Connection successful!
 #&gt; 
 #&gt; R is connected to the H2O cluster: 
-#&gt;     H2O cluster uptime:         2 seconds 758 milliseconds 
+#&gt;     H2O cluster uptime:         2 seconds 730 milliseconds 
 #&gt;     H2O cluster timezone:       Europe/Berlin 
 #&gt;     H2O data parsing timezone:  UTC 
 #&gt;     H2O cluster version:        3.38.0.1 
-#&gt;     H2O cluster version age:    2 months and 16 days  
+#&gt;     H2O cluster version age:    2 months and 19 days  
 #&gt;     H2O cluster name:           H2O_started_from_R_jschwarz_gnh329 
 #&gt;     H2O cluster total nodes:    1 
 #&gt;     H2O cluster total memory:   16.00 GB 
@@ -2193,7 +2193,7 @@ LO: The student knows how to prepare data for machine learning with h2o
 <ol start="2" type="1">
 <li>Define <strong>vectors of target</strong> (<code>y</code>) and <strong>feature names</strong> (<code>x</code>).</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb165"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1"></a><span class="co"># Identify target and features</span></span>
 <span id="cb165-2"><a href="#cb165-2"></a>y <span class="ot">&lt;-</span> <span class="st">"seed_type"</span></span>
 <span id="cb165-3"><a href="#cb165-3"></a>x <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(<span class="fu">colnames</span>(seeds_train_data_hf), y)</span>
@@ -2203,7 +2203,7 @@ LO: The student knows how to prepare data for machine learning with h2o
 <ol start="3" type="1">
 <li>Split the <code>seeds_train_data_hf</code> into a <strong>training</strong> and <strong>validation</strong> set and use the default proportion of 75% instances in one set, 25% in the other.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb166"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1"></a><span class="co"># Split data into train &amp; validation sets</span></span>
 <span id="cb166-2"><a href="#cb166-2"></a>sframe <span class="ot">&lt;-</span> <span class="fu">h2o.splitFrame</span>(seeds_train_data_hf, <span class="at">seed =</span> <span class="dv">42</span>)</span>
 <span id="cb166-3"><a href="#cb166-3"></a>train <span class="ot">&lt;-</span> sframe[[<span class="dv">1</span>]]</span>
@@ -2212,7 +2212,7 @@ LO: The student knows how to prepare data for machine learning with h2o
 <ol start="4" type="1">
 <li>Calculate the <strong>ratio of the target variable</strong> in the training set using <strong>exact quantiles</strong>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb167"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1"></a><span class="co"># Calculate ratios of the target variable</span></span>
 <span id="cb167-2"><a href="#cb167-2"></a><span class="fu">summary</span>(train<span class="sc">$</span>seed_type, <span class="at">exact_quantiles =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2234,7 +2234,7 @@ LO: The student knows how to train machine learning models with h2o
 <ol type="1">
 <li>Train a <strong>Random Forest</strong> model with <code>h2o</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb169"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1"></a><span class="co"># Train random forest model</span></span>
 <span id="cb169-2"><a href="#cb169-2"></a>rf_model <span class="ot">&lt;-</span> <span class="fu">h2o.randomForest</span>(<span class="at">x =</span> x,</span>
 <span id="cb169-3"><a href="#cb169-3"></a>                             <span class="at">y =</span> y,</span>
@@ -2251,7 +2251,7 @@ LO: The student knows how to train machine learning models with h2o
 <ol start="2" type="1">
 <li>Calculate <strong>model performance</strong> of the Random Forest model on the <strong>validation</strong> data.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb171"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1"></a><span class="co"># Calculate model performance</span></span>
 <span id="cb171-2"><a href="#cb171-2"></a>perf <span class="ot">&lt;-</span> <span class="fu">h2o.performance</span>(rf_model, <span class="at">valid =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb171-3"><a href="#cb171-3"></a>perf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2262,28 +2262,28 @@ LO: The student knows how to train machine learning models with h2o
 #&gt; Validation Set Metrics: 
 #&gt; =====================
 #&gt; 
-#&gt; Extract validation frame with `h2o.getFrame("RTMP_sid_a186_9")`
-#&gt; MSE: (Extract with `h2o.mse`) 0.04923924
-#&gt; RMSE: (Extract with `h2o.rmse`) 0.2218992
-#&gt; Logloss: (Extract with `h2o.logloss`) 0.1685027
-#&gt; Mean Per-Class Error: 0.03703704
+#&gt; Extract validation frame with `h2o.getFrame("RTMP_sid_9c1e_9")`
+#&gt; MSE: (Extract with `h2o.mse`) 0.04930212
+#&gt; RMSE: (Extract with `h2o.rmse`) 0.2220408
+#&gt; Logloss: (Extract with `h2o.logloss`) 0.1522815
+#&gt; Mean Per-Class Error: 0.07407407
 #&gt; AUC: (Extract with `h2o.auc`) NaN
 #&gt; AUCPR: (Extract with `h2o.aucpr`) NaN
-#&gt; R^2: (Extract with `h2o.r2`) 0.9370832
+#&gt; R^2: (Extract with `h2o.r2`) 0.9370028
 #&gt; Confusion Matrix: Extract with `h2o.confusionMatrix(&lt;model&gt;,valid = TRUE)`)
 #&gt; =========================================================================
 #&gt; Confusion Matrix: Row labels: Actual class; Column labels: Predicted class
-#&gt;         1 2 3  Error     Rate
-#&gt; 1       9 0 0 0.0000 =  0 / 9
-#&gt; 2       0 5 0 0.0000 =  0 / 5
-#&gt; 3       1 0 8 0.1111 =  1 / 9
-#&gt; Totals 10 5 8 0.0435 = 1 / 23
+#&gt;        1 2 3  Error     Rate
+#&gt; 1      8 0 1 0.1111 =  1 / 9
+#&gt; 2      0 5 0 0.0000 =  0 / 5
+#&gt; 3      1 0 8 0.1111 =  1 / 9
+#&gt; Totals 9 5 9 0.0870 = 2 / 23
 #&gt; 
 #&gt; Hit Ratio Table: Extract with `h2o.hit_ratio_table(&lt;model&gt;,valid = TRUE)`
 #&gt; =======================================================================
 #&gt; Top-3 Hit Ratios: 
 #&gt;   k hit_ratio
-#&gt; 1 1  0.956522
+#&gt; 1 1  0.913044
 #&gt; 2 2  1.000000
 #&gt; 3 3  1.000000</code></pre>
 </div>
@@ -2291,14 +2291,14 @@ LO: The student knows how to train machine learning models with h2o
 <ol start="3" type="1">
 <li>Extract the <strong>confusion matrix</strong> from the model performance object.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb173"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1"></a><span class="co"># Extract confusion matrix</span></span>
 <span id="cb173-2"><a href="#cb173-2"></a><span class="fu">h2o.confusionMatrix</span>(perf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["2"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["3"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Error"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Rate"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"9","2":"0","3":"0","4":"0.00000000","5":"0 / 9","_rn_":"1"},{"1":"0","2":"5","3":"0","4":"0.00000000","5":"0 / 5","_rn_":"2"},{"1":"1","2":"0","3":"8","4":"0.11111111","5":"1 / 9","_rn_":"3"},{"1":"10","2":"5","3":"8","4":"0.04347826","5":"1 / 23","_rn_":"Totals"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["1"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["2"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["3"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Error"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Rate"],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"8","2":"0","3":"1","4":"0.11111111","5":"1 / 9","_rn_":"1"},{"1":"0","2":"5","3":"0","4":"0.00000000","5":"0 / 5","_rn_":"2"},{"1":"1","2":"0","3":"8","4":"0.11111111","5":"1 / 9","_rn_":"3"},{"1":"9","2":"5","3":"9","4":"0.08695652","5":"2 / 23","_rn_":"Totals"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2306,11 +2306,11 @@ LO: The student knows how to train machine learning models with h2o
 <ol start="4" type="1">
 <li>Extract the <code>logloss</code> of the model performance object.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb174"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb174-1"><a href="#cb174-1"></a><span class="co"># Extract logloss</span></span>
 <span id="cb174-2"><a href="#cb174-2"></a><span class="fu">h2o.logloss</span>(perf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.1685027</code></pre>
+<pre><code>#&gt; [1] 0.1522815</code></pre>
 </div>
 </div>
 <p>Great! You know how to train a random forest model with h2o.</p>
@@ -2349,14 +2349,14 @@ LO: The student knows how to use grid search for model tuning with h2o
 <ol type="1">
 <li>Start defining a <strong>grid of hyperparameters for deep learning</strong> with <code>h2o</code>: for <strong>learning rate</strong> use the values 0.001, 0.005 and 0.01. For an overview of all hyperparameters to use, go to the <strong>help</strong> for <code>h2o.deeplearning</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb176"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb176-1"><a href="#cb176-1"></a><span class="co"># Define hyperparameters</span></span>
 <span id="cb176-2"><a href="#cb176-2"></a>dl_params <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">rate =</span> <span class="fu">c</span>(<span class="fl">0.001</span>, <span class="fl">0.005</span>, <span class="fl">0.01</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Add values for the <strong>number of training iterations</strong> of 5, 10 and 15 to the tuning grid.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb177"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1"></a><span class="co"># Define hyperparameters</span></span>
 <span id="cb177-2"><a href="#cb177-2"></a>dl_params <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">epochs =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>),</span>
 <span id="cb177-3"><a href="#cb177-3"></a>                  <span class="at">rate =</span> <span class="fu">c</span>(<span class="fl">0.001</span>, <span class="fl">0.005</span>, <span class="fl">0.01</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2364,7 +2364,7 @@ LO: The student knows how to use grid search for model tuning with h2o
 <ol start="3" type="1">
 <li>And finally, add two options for the <strong>number nodes in two hidden layers</strong>: 50 &amp; 50 and 100 &amp; 100. Note that the argument takes <strong>two values</strong> here, so you need to create a <strong>list within the list</strong> for the two hidden layers of one option.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb178"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb178-1"><a href="#cb178-1"></a><span class="co"># Define hyperparameters</span></span>
 <span id="cb178-2"><a href="#cb178-2"></a>dl_params <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">hidden =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">50</span>), <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">100</span>)),</span>
 <span id="cb178-3"><a href="#cb178-3"></a>                  <span class="at">epochs =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>),</span>
@@ -2387,7 +2387,7 @@ LO: The student knows how to use random search for model tuning with h2o
 <li>Define a <strong>search criteria</strong> object that defines <strong>random search</strong> with a <strong>maximum runtime of 10 seconds</strong>.</li>
 <li>Add this search criteria object at the appropriate place in the <code>h2o.grid</code> function to <strong>train the random models</strong>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb179"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1"></a><span class="co"># Define search criteria</span></span>
 <span id="cb179-2"><a href="#cb179-2"></a>search_criteria <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">strategy =</span> <span class="st">"RandomDiscrete"</span>, </span>
 <span id="cb179-3"><a href="#cb179-3"></a>                        <span class="at">max_runtime_secs =</span> <span class="dv">10</span>, <span class="co"># this is way too short &amp; only used to keep runtime short!</span></span>
@@ -2414,7 +2414,7 @@ LO: The student knows how to use random search for model tuning with h2o
   |                                                                            
   |===================================                                   |  50%
   |                                                                            
-  |=================================================                     |  71%
+  |=================================================                     |  70%
   |                                                                            
   |===============================================================       |  91%
   |                                                                            
@@ -2433,7 +2433,7 @@ LO: The student knows how to use stopping criteria in random search for model tu
 <ol type="1">
 <li>Modify the hyperparameter search by <strong>adding misclassification rate</strong> as the <strong>stopping metric</strong>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb181"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1"></a><span class="co"># Define early stopping</span></span>
 <span id="cb181-2"><a href="#cb181-2"></a>stopping_params <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">strategy =</span> <span class="st">"RandomDiscrete"</span>, </span>
 <span id="cb181-3"><a href="#cb181-3"></a>                        <span class="at">stopping_metric =</span> <span class="st">"misclassification"</span>,</span>
@@ -2442,7 +2442,7 @@ LO: The student knows how to use stopping criteria in random search for model tu
 <ol start="2" type="1">
 <li>Add <strong>3 stopping rounds</strong> to the search criteria object.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb182"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb182-1"><a href="#cb182-1"></a><span class="co"># Define early stopping</span></span>
 <span id="cb182-2"><a href="#cb182-2"></a>stopping_params <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">strategy =</span> <span class="st">"RandomDiscrete"</span>, </span>
 <span id="cb182-3"><a href="#cb182-3"></a>                        <span class="at">stopping_metric =</span> <span class="st">"misclassification"</span>,</span>
@@ -2452,7 +2452,7 @@ LO: The student knows how to use stopping criteria in random search for model tu
 <ol start="3" type="1">
 <li>And finally, add a <strong>stopping tolerance</strong> of 0.1 to the search criteria..</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb183"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1"></a><span class="co"># Define early stopping</span></span>
 <span id="cb183-2"><a href="#cb183-2"></a>stopping_params <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">strategy =</span> <span class="st">"RandomDiscrete"</span>, </span>
 <span id="cb183-3"><a href="#cb183-3"></a>                        <span class="at">stopping_metric =</span> <span class="st">"misclassification"</span>,</span>
@@ -2496,7 +2496,7 @@ LO: The student knows how to perform automatic machine learning with h2o
 <ol type="1">
 <li>Define an <strong>automatic machine learning training</strong> with <strong>maximum runtime</strong> of 10 seconds. Note: 10 seconds is of course not enough for “real-life” but training for hours would take too long for the purpose of this exercise otherwise.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb184"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href="#cb184-1"></a><span class="co"># Run automatic machine learning</span></span>
 <span id="cb184-2"><a href="#cb184-2"></a>automl_model <span class="ot">&lt;-</span> <span class="fu">h2o.automl</span>(<span class="at">x =</span> x, </span>
 <span id="cb184-3"><a href="#cb184-3"></a>                           <span class="at">y =</span> y,</span>
@@ -2509,7 +2509,6 @@ LO: The student knows how to perform automatic machine learning with h2o
   |                                                                      |   0%
   |                                                                            
   |=========                                                             |  13%
-#&gt; 22:18:12.131: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
   |                                                                            
   |=======================                                               |  33%
   |                                                                            
@@ -2525,7 +2524,7 @@ LO: The student knows how to perform automatic machine learning with h2o
 <ol start="2" type="1">
 <li>Use <strong>mean per class error</strong> as the sorting metric in the leaderboard.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb186"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb186-1"><a href="#cb186-1"></a><span class="co"># Run automatic machine learning</span></span>
 <span id="cb186-2"><a href="#cb186-2"></a>automl_model <span class="ot">&lt;-</span> <span class="fu">h2o.automl</span>(<span class="at">x =</span> x, </span>
 <span id="cb186-3"><a href="#cb186-3"></a>                           <span class="at">y =</span> y,</span>
@@ -2539,7 +2538,7 @@ LO: The student knows how to perform automatic machine learning with h2o
   |                                                                      |   0%
   |                                                                            
   |=======                                                               |  10%
-#&gt; 22:18:25.626: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
+#&gt; 11:21:55.384: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
   |                                                                            
   |=====================                                                 |  30%
   |                                                                            
@@ -2555,7 +2554,7 @@ LO: The student knows how to perform automatic machine learning with h2o
 <ol start="3" type="1">
 <li>Have the leaderboard be calculated on <strong>3-fold cross-validated data</strong>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb188"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb188-1"><a href="#cb188-1"></a><span class="co"># Run automatic machine learning</span></span>
 <span id="cb188-2"><a href="#cb188-2"></a>automl_model <span class="ot">&lt;-</span> <span class="fu">h2o.automl</span>(<span class="at">x =</span> x, </span>
 <span id="cb188-3"><a href="#cb188-3"></a>                           <span class="at">y =</span> y,</span>
@@ -2570,7 +2569,7 @@ LO: The student knows how to perform automatic machine learning with h2o
   |                                                                      |   0%
   |                                                                            
   |=======                                                               |  10%
-#&gt; 22:18:40.908: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
+#&gt; 11:22:10.648: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
   |                                                                            
   |=====================                                                 |  30%
   |                                                                            
@@ -2586,7 +2585,7 @@ LO: The student knows how to perform automatic machine learning with h2o
 <ol start="4" type="1">
 <li>Have the <strong>leaderboard be calculated based on the validation data</strong> instead of on cross-validation results.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb190"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb190-1"><a href="#cb190-1"></a><span class="co"># Run automatic machine learning</span></span>
 <span id="cb190-2"><a href="#cb190-2"></a>automl_model <span class="ot">&lt;-</span> <span class="fu">h2o.automl</span>(<span class="at">x =</span> x, </span>
 <span id="cb190-3"><a href="#cb190-3"></a>                           <span class="at">y =</span> y,</span>
@@ -2601,7 +2600,7 @@ LO: The student knows how to perform automatic machine learning with h2o
   |                                                                      |   0%
   |                                                                            
   |=======                                                               |  10%
-#&gt; 22:18:56.333: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
+#&gt; 11:22:26.222: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
   |                                                                            
   |=====================                                                 |  30%
   |                                                                            
@@ -2630,7 +2629,7 @@ LO: The student knows how to perform automatic machine learning with h2o
 LO: Student knows how to extract the best model from AutoML
 -->
 <p>In this final exercise, you will extract the <strong>best model</strong> from the <strong>AutoML leaderboard</strong>. The <code>h2o</code> library and <code>test</code> (???) data has been loaded and the following code has been run:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb192"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb192-1"><a href="#cb192-1"></a>automl_model <span class="ot">&lt;-</span> <span class="fu">h2o.automl</span>(<span class="at">x =</span> x, </span>
 <span id="cb192-2"><a href="#cb192-2"></a>                           <span class="at">y =</span> y,</span>
 <span id="cb192-3"><a href="#cb192-3"></a>                           <span class="at">training_frame =</span> train,</span>
@@ -2644,7 +2643,7 @@ LO: Student knows how to extract the best model from AutoML
   |                                                                      |   0%
   |                                                                            
   |========                                                              |  11%
-#&gt; 22:19:11.33: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
+#&gt; 11:22:40.880: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
   |                                                                            
   |=================                                                     |  24%
   |                                                                            
@@ -2652,7 +2651,7 @@ LO: Student knows how to extract the best model from AutoML
   |                                                                            
   |===================                                                   |  27%
   |                                                                            
-  |===================                                                   |  28%
+  |====================                                                  |  28%
   |                                                                            
   |=====================                                                 |  30%
   |                                                                            
@@ -2709,7 +2708,7 @@ LO: Student knows how to extract the best model from AutoML
 <ol type="1">
 <li>Extract the <strong>leaderboard</strong> from the AutoML output. Note, that you can extract subsets of objects not only with <code>$</code> but also with <code>@</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb194"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb194-1"><a href="#cb194-1"></a><span class="co"># Extract the leaderboard</span></span>
 <span id="cb194-2"><a href="#cb194-2"></a>lb <span class="ot">&lt;-</span> automl_model<span class="sc">@</span>leaderboard</span>
 <span id="cb194-3"><a href="#cb194-3"></a><span class="fu">head</span>(lb)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2717,7 +2716,7 @@ LO: Student knows how to extract the best model from AutoML
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["model_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["mean_per_class_error"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["logloss"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["rmse"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["mse"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"StackedEnsemble_BestOfFamily_1_AutoML_5_20221205_221910","2":"0.02564103","3":"0.30295800","4":"0.2883768","5":"0.08316118","_rn_":"1"},{"1":"DeepLearning_grid_1_AutoML_5_20221205_221910_model_6","2":"0.02564103","3":"0.08514243","4":"0.1523916","5":"0.02322320","_rn_":"2"},{"1":"StackedEnsemble_AllModels_4_AutoML_5_20221205_221910","2":"0.02564103","3":"0.20889483","4":"0.2179042","5":"0.04748224","_rn_":"3"},{"1":"XGBoost_grid_1_AutoML_5_20221205_221910_model_205","2":"0.02564103","3":"0.13759012","4":"0.1799707","5":"0.03238944","_rn_":"4"},{"1":"XGBoost_grid_1_AutoML_5_20221205_221910_model_234","2":"0.02564103","3":"0.09955900","4":"0.1477110","5":"0.02181855","_rn_":"5"},{"1":"DeepLearning_grid_1_AutoML_5_20221205_221910_model_3","2":"0.02564103","3":"0.11459334","4":"0.1717637","5":"0.02950276","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["model_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["mean_per_class_error"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["logloss"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["rmse"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["mse"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"DeepLearning_grid_2_AutoML_5_20221209_112240_model_1","2":"0.02564103","3":"0.1528640","4":"0.1597345","5":"0.02551511","_rn_":"1"},{"1":"XGBoost_grid_1_AutoML_5_20221209_112240_model_234","2":"0.02564103","3":"0.0995590","4":"0.1477110","5":"0.02181855","_rn_":"2"},{"1":"XGBoost_grid_1_AutoML_5_20221209_112240_model_140","2":"0.02564103","3":"0.1931445","4":"0.2004725","5":"0.04018923","_rn_":"3"},{"1":"XGBoost_grid_1_AutoML_5_20221209_112240_model_108","2":"0.02564103","3":"0.2116388","4":"0.2193494","5":"0.04811416","_rn_":"4"},{"1":"GBM_grid_1_AutoML_5_20221209_112240_model_4","2":"0.02564103","3":"0.0760121","4":"0.1459501","5":"0.02130143","_rn_":"5"},{"1":"StackedEnsemble_BestOfFamily_5_AutoML_5_20221209_112240","2":"0.02564103","3":"0.2734855","4":"0.2646685","5":"0.07004942","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2725,7 +2724,7 @@ LO: Student knows how to extract the best model from AutoML
 <ol start="2" type="1">
 <li>Assign the <strong>best model</strong> from the leaderboard the name <code>aml_leader</code> and examine it with the <code>summary()</code> function. Remember, that you can also use the @ sign to access parts of the <code>automl_model</code> object.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb195"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1"></a><span class="co"># Assign best model new object name</span></span>
 <span id="cb195-2"><a href="#cb195-2"></a>aml_leader <span class="ot">&lt;-</span> automl_model<span class="sc">@</span>leader</span>
 <span id="cb195-3"><a href="#cb195-3"></a></span>
@@ -2735,40 +2734,34 @@ LO: Student knows how to extract the best model from AutoML
 <pre><code>#&gt; Model Details:
 #&gt; ==============
 #&gt; 
-#&gt; H2OMultinomialModel: stackedensemble
-#&gt; Model Key:  StackedEnsemble_BestOfFamily_1_AutoML_5_20221205_221910 
-#&gt; Number of Base Models: 2
+#&gt; H2OMultinomialModel: deeplearning
+#&gt; Model Key:  DeepLearning_grid_2_AutoML_5_20221209_112240_model_1 
+#&gt; Status of Neuron Layers: predicting seed_type, 3-class classification, multinomial distribution, CrossEntropy loss, 643 weights/biases, 12,2 KB, 597 training samples, mini-batch size 1
+#&gt;   layer units             type dropout       l1       l2 mean_rate rate_rms
+#&gt; 1     1     7            Input 15.00 %       NA       NA        NA       NA
+#&gt; 2     2    20 RectifierDropout  0.00 % 0.000000 0.000000  0.001876 0.001772
+#&gt; 3     3    20 RectifierDropout  0.00 % 0.000000 0.000000  0.001972 0.001963
+#&gt; 4     4     3          Softmax      NA 0.000000 0.000000  0.006924 0.028369
+#&gt;   momentum mean_weight weight_rms mean_bias bias_rms
+#&gt; 1       NA          NA         NA        NA       NA
+#&gt; 2 0.000000   -0.057683   0.272770  0.520670 0.077093
+#&gt; 3 0.000000   -0.003009   0.222437  0.987687 0.051666
+#&gt; 4 0.000000    0.003565   1.115716  0.011791 0.036845
 #&gt; 
-#&gt; Base Models (count by algorithm type):
-#&gt; 
-#&gt;     glm xgboost 
-#&gt;       1       1 
-#&gt; 
-#&gt; Metalearner:
-#&gt; 
-#&gt; Metalearner algorithm: glm
-#&gt; Metalearner cross-validation fold assignment:
-#&gt;   Fold assignment scheme: AUTO
-#&gt;   Number of folds: 3
-#&gt;   Fold column: NULL
-#&gt; Metalearner hyperparameters: 
-#&gt; 
-#&gt; H2OMultinomialMetrics: stackedensemble
+#&gt; H2OMultinomialMetrics: deeplearning
 #&gt; ** Reported on training data. **
+#&gt; ** Metrics reported on full training frame **
 #&gt; 
 #&gt; Training Set Metrics: 
 #&gt; =====================
 #&gt; 
-#&gt; Extract training frame with `h2o.getFrame("AutoML_5_20221205_221910_training_RTMP_sid_a186_6")`
-#&gt; MSE: (Extract with `h2o.mse`) 0.02949931
-#&gt; RMSE: (Extract with `h2o.rmse`) 0.1717536
-#&gt; Logloss: (Extract with `h2o.logloss`) 0.1521107
+#&gt; Extract training frame with `h2o.getFrame("AutoML_5_20221209_112240_training_RTMP_sid_9c1e_6")`
+#&gt; MSE: (Extract with `h2o.mse`) 0.01028865
+#&gt; RMSE: (Extract with `h2o.rmse`) 0.101433
+#&gt; Logloss: (Extract with `h2o.logloss`) 0.05975107
 #&gt; Mean Per-Class Error: 0
 #&gt; AUC: (Extract with `h2o.auc`) NaN
 #&gt; AUCPR: (Extract with `h2o.aucpr`) NaN
-#&gt; Null Deviance: (Extract with `h2o.nulldeviance`) 179.7881
-#&gt; Residual Deviance: (Extract with `h2o.residual_deviance`) 24.94615
-#&gt; AIC: (Extract with `h2o.aic`) NaN
 #&gt; Confusion Matrix: Extract with `h2o.confusionMatrix(&lt;model&gt;,train = TRUE)`)
 #&gt; =========================================================================
 #&gt; Confusion Matrix: Row labels: Actual class; Column labels: Predicted class
@@ -2790,23 +2783,20 @@ LO: Student knows how to extract the best model from AutoML
 #&gt; 
 #&gt; 
 #&gt; 
-#&gt; H2OMultinomialMetrics: stackedensemble
+#&gt; H2OMultinomialMetrics: deeplearning
 #&gt; ** Reported on cross-validation data. **
 #&gt; ** 3-fold cross-validation on training data (Metrics computed for combined holdout predictions) **
 #&gt; 
 #&gt; Cross-Validation Set Metrics: 
 #&gt; =====================
 #&gt; 
-#&gt; Extract cross-validation frame with `h2o.getFrame("levelone_training_StackedEnsemble_BestOfFamily_1_AutoML_5_20221205_221910")`
-#&gt; MSE: (Extract with `h2o.mse`) 0.08316118
-#&gt; RMSE: (Extract with `h2o.rmse`) 0.2883768
-#&gt; Logloss: (Extract with `h2o.logloss`) 0.302958
+#&gt; Extract cross-validation frame with `h2o.getFrame("AutoML_5_20221209_112240_training_RTMP_sid_9c1e_6")`
+#&gt; MSE: (Extract with `h2o.mse`) 0.02551511
+#&gt; RMSE: (Extract with `h2o.rmse`) 0.1597345
+#&gt; Logloss: (Extract with `h2o.logloss`) 0.152864
 #&gt; Mean Per-Class Error: 0.02564103
 #&gt; AUC: (Extract with `h2o.auc`) NaN
 #&gt; AUCPR: (Extract with `h2o.aucpr`) NaN
-#&gt; Null Deviance: (Extract with `h2o.nulldeviance`) 183.1529
-#&gt; Residual Deviance: (Extract with `h2o.residual_deviance`) 49.68511
-#&gt; AIC: (Extract with `h2o.aic`) NaN
 #&gt; Hit Ratio Table: Extract with `h2o.hit_ratio_table(&lt;model&gt;,xval = TRUE)`
 #&gt; =======================================================================
 #&gt; Top-3 Hit Ratios: 
@@ -2819,23 +2809,46 @@ LO: Student knows how to extract the best model from AutoML
 #&gt; 
 #&gt; 
 #&gt; Cross-Validation Metrics Summary: 
-#&gt;                              mean        sd cv_1_valid cv_2_valid cv_3_valid
-#&gt; accuracy                 0.978089  0.019044   0.968750   0.965517   1.000000
-#&gt; auc                            NA  0.000000         NA         NA         NA
-#&gt; err                      0.021911  0.019044   0.031250   0.034483   0.000000
-#&gt; err_count                0.666667  0.577350   1.000000   1.000000   0.000000
-#&gt; logloss                  0.297580  0.039114   0.325245   0.314665   0.252830
-#&gt; max_per_class_error      0.062678  0.056909   0.076923   0.111111   0.000000
-#&gt; mean_per_class_accuracy  0.979107  0.018970   0.974359   0.962963   1.000000
-#&gt; mean_per_class_error     0.020893  0.018970   0.025641   0.037037   0.000000
-#&gt; mse                      0.081050  0.015336   0.092019   0.087606   0.063526
-#&gt; null_deviance           61.050970 13.116764  72.768300  63.503593  46.881012
-#&gt; pr_auc                         NA  0.000000         NA         NA         NA
-#&gt; r2                       0.867731  0.011930   0.863041   0.858857   0.881293
-#&gt; residual_deviance       16.561705  5.304044  20.815687  18.250547  10.618877
-#&gt; rmse                     0.283791  0.027740   0.303346   0.295983   0.252043
+#&gt;                             mean       sd cv_1_valid cv_2_valid cv_3_valid
+#&gt; accuracy                0.817460 0.096588   0.785714   0.925926   0.740741
+#&gt; auc                           NA 0.000000         NA         NA         NA
+#&gt; err                     0.182540 0.096588   0.214286   0.074074   0.259259
+#&gt; err_count               5.000000 2.645751   6.000000   2.000000   7.000000
+#&gt; logloss                 0.320788 0.121066   0.254927   0.246932   0.460507
+#&gt; max_per_class_error     0.486111 0.312731   0.666667   0.125000   0.666667
+#&gt; mean_per_class_accuracy 0.815741 0.096078   0.777778   0.925000   0.744444
+#&gt; mean_per_class_error    0.184259 0.096078   0.222222   0.075000   0.255556
+#&gt; mse                     0.112201 0.046437   0.092753   0.078651   0.165200
+#&gt; pr_auc                        NA 0.000000         NA         NA         NA
+#&gt; r2                      0.822526 0.074637   0.855717   0.874811   0.737050
+#&gt; rmse                    0.330483 0.066883   0.304554   0.280447   0.406448
 #&gt; 
-#&gt; NULL</code></pre>
+#&gt; Scoring History: 
+#&gt;             timestamp   duration training_speed  epochs iterations    samples
+#&gt; 1 2022-12-09 11:23:38  0.000 sec             NA 0.00000          0   0.000000
+#&gt; 2 2022-12-09 11:23:38  0.552 sec  54000 obs/sec 0.65854          1  54.000000
+#&gt; 3 2022-12-09 11:23:38  0.558 sec  85285 obs/sec 7.28049         11 597.000000
+#&gt;   training_rmse training_logloss training_r2 training_classification_error
+#&gt; 1            NA               NA          NA                            NA
+#&gt; 2       0.64401          1.90182     0.34597                       0.47561
+#&gt; 3       0.10143          0.05975     0.98378                       0.00000
+#&gt;   training_auc training_pr_auc
+#&gt; 1           NA              NA
+#&gt; 2           NA              NA
+#&gt; 3           NA              NA
+#&gt; 
+#&gt; Variable Importances: (Extract with `h2o.varimp`) 
+#&gt; =================================================
+#&gt; 
+#&gt; Variable Importances: 
+#&gt;        variable relative_importance scaled_importance percentage
+#&gt; 1          area            1.000000          1.000000   0.171565
+#&gt; 2     perimeter            0.939022          0.939022   0.161104
+#&gt; 3     asymmetry            0.936690          0.936690   0.160703
+#&gt; 4 kernel_length            0.807065          0.807065   0.138464
+#&gt; 5 kernel_groove            0.778050          0.778050   0.133486
+#&gt; 6   compactness            0.713528          0.713528   0.122417
+#&gt; 7  kernel_width            0.654331          0.654331   0.112260</code></pre>
 </div>
 </div>
 <p>–&gt; NO VALIDATION DATA SET</p>
@@ -3125,7 +3138,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","loop":true,"selector":".lightbox","openEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":true,"descPosition":"bottom","openEffect":"zoom"});</script>
 
 
 

@@ -485,7 +485,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#foundations-of-tidy-machine-learning" id="toc-foundations-of-tidy-machine-learning" class="nav-link active" data-scroll-target="#foundations-of-tidy-machine-learning"><span class="toc-section-number">1</span>  1. Foundations of “tidy” Machine learning</a>
+  <li><a href="#foundations-of-tidy-machine-learning" id="toc-foundations-of-tidy-machine-learning" class="nav-link active" data-scroll-target="#foundations-of-tidy-machine-learning"><span class="toc-section-number">1</span>  Foundations of “tidy” Machine learning</a>
   <ul class="collapse">
   <li><a href="#foundations-of-tidy-machine-learning-1" id="toc-foundations-of-tidy-machine-learning-1" class="nav-link" data-scroll-target="#foundations-of-tidy-machine-learning-1"><span class="toc-section-number">1.1</span>  Foundations of “tidy” machine learning</a></li>
   <li><a href="#nesting-your-data" id="toc-nesting-your-data" class="nav-link" data-scroll-target="#nesting-your-data"><span class="toc-section-number">1.2</span>  Nesting your data</a></li>
@@ -580,7 +580,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>This course will teach you to leverage the tools in the “tidyverse” to generate, explore, and evaluate machine learning models. Using a combination of tidyr and purrr packages, you will build a foundation for how to work with complex model objects in a “tidy” way. You will also learn how to leverage the broom package to explore your resulting models. You will then be introduced to the tools in the test-train-validate workflow, which will empower you evaluate the performance of both classification and regression models as well as provide the necessary information to optimize model performance via hyperparameter tuning.</p>
 <section id="foundations-of-tidy-machine-learning" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 1. Foundations of “tidy” Machine learning</h1>
+<h1 data-number="1"><span class="header-section-number">1</span> Foundations of “tidy” Machine learning</h1>
 <p>This chapter will introduce you to the backbone of machine learning in the tidyverse, the List Column Workflow (LCW). The LCW will empower you to work with many models in one dataframe. <br> This chapter will also introduce you to the fundamentals of the broom package for exploring your models.</p>
 <section id="foundations-of-tidy-machine-learning-1" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="foundations-of-tidy-machine-learning-1"><span class="header-section-number">1.1</span> Foundations of “tidy” machine learning</h2>
@@ -626,7 +626,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Now leverage <code>group_by()</code> and <code>nest()</code> to nest your data frames by <code>country</code>, save this as <code>gap_nested</code>.</li>
 <li>Explore the first six rows of the newly created data frame <code>gap_nested</code>, note the new complex column <strong>data</strong> containing tibbles.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load data</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>gapminder <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/gapminder.rds"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3"></a></span>
@@ -636,7 +636,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["country"],"name":[1],"type":["fct"],"align":["left"]},{"label":["year"],"name":[2],"type":["int"],"align":["right"]},{"label":["infant_mortality"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["life_expectancy"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["fertility"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["population"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["gdpPercap"],"name":[7],"type":["int"],"align":["right"]}],"data":[{"1":"Algeria","2":"1960","3":"148.2","4":"47.50","5":"7.65","6":"11124892","7":"1242","_rn_":"1"},{"1":"Algeria","2":"1961","3":"148.1","4":"48.02","5":"7.65","6":"11404859","7":"1047","_rn_":"2"},{"1":"Algeria","2":"1962","3":"148.2","4":"48.55","5":"7.65","6":"11690152","7":"820","_rn_":"3"},{"1":"Algeria","2":"1963","3":"148.4","4":"49.07","5":"7.65","6":"11985130","7":"1075","_rn_":"4"},{"1":"Algeria","2":"1964","3":"148.7","4":"49.58","5":"7.65","6":"12295973","7":"1109","_rn_":"5"},{"1":"Algeria","2":"1965","3":"149.1","4":"50.09","5":"7.66","6":"12626953","7":"1147","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["country"],"name":[1],"type":["fct"],"align":["left"]},{"label":["year"],"name":[2],"type":["int"],"align":["right"]},{"label":["infant_mortality"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["life_expectancy"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["fertility"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["population"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["gdpPercap"],"name":[7],"type":["int"],"align":["right"]}],"data":[{"1":"Algeria","2":"1960","3":"148.2","4":"47.50","5":"7.65","6":"11124892","7":"1242"},{"1":"Algeria","2":"1961","3":"148.1","4":"48.02","5":"7.65","6":"11404859","7":"1047"},{"1":"Algeria","2":"1962","3":"148.2","4":"48.55","5":"7.65","6":"11690152","7":"820"},{"1":"Algeria","2":"1963","3":"148.4","4":"49.07","5":"7.65","6":"11985130","7":"1075"},{"1":"Algeria","2":"1964","3":"148.7","4":"49.58","5":"7.65","6":"12295973","7":"1109"},{"1":"Algeria","2":"1965","3":"149.1","4":"50.09","5":"7.66","6":"12626953","7":"1147"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -644,10 +644,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-#&gt; ✔ ggplot2 3.4.0      ✔ purrr   0.3.5 
 #&gt; ✔ tibble  3.1.8      ✔ dplyr   1.0.10
 #&gt; ✔ tidyr   1.2.1      ✔ stringr 1.4.1 
 #&gt; ✔ readr   2.1.3      ✔ forcats 0.5.2 
+#&gt; ✔ purrr   0.3.5      
 #&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 #&gt; ✖ dplyr::filter() masks stats::filter()
 #&gt; ✖ dplyr::lag()    masks stats::lag()</code></pre>
@@ -683,7 +683,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>unnest()</code> on the <code>gap_nested</code> data frame to take a nested column and expand it into a new data frame and save it as <code>gap_unnested</code>.</li>
 <li>Make sure that <code>gapminder</code> and <code>gap_unnested</code> are identical by using the <code>identical()</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Create the unnested data frame called gap_unnnested</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>gap_unnested <span class="ot">&lt;-</span> gap_nested <span class="sc">%&gt;%</span> </span>
 <span id="cb7-3"><a href="#cb7-3"></a>                  <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(data))</span>
@@ -704,7 +704,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Extract the nested data for Algeria and store this as <code>algeria_df</code>.</li>
 <li>Calculate the following summary stats for Algeria’s population: <code>min()</code>, <code>max()</code> and <code>mean()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Extract the data of Algeria</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a>algeria_df <span class="ot">&lt;-</span> gap_nested<span class="sc">$</span>data[[<span class="dv">1</span>]]</span>
 <span id="cb9-3"><a href="#cb9-3"></a></span>
@@ -770,7 +770,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>unnest()</code> to convert the <code>mean_pop</code> list into a numeric column and save this as the <code>pop_mean</code> data frame.</li>
 <li>Explore <code>pop_mean</code> using <code>head()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Calculate the mean population for each country</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>pop_nested <span class="ot">&lt;-</span> gap_nested <span class="sc">%&gt;%</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">mutate</span>(<span class="at">mean_pop =</span> <span class="fu">map</span>(data, <span class="sc">~</span><span class="fu">mean</span>(.x<span class="sc">$</span>population)))</span>
@@ -811,7 +811,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Generate the <code>pop_mean</code> data frame using the <code>map_dbl()</code> function to calculate the population mean for each nested data frame.</li>
 <li>Explore the <code>pop_mean</code> data frame using <code>head()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Calculate mean population and store result as a double</span></span>
 <span id="cb17-2"><a href="#cb17-2"></a>pop_mean <span class="ot">&lt;-</span> gap_nested <span class="sc">%&gt;%</span></span>
 <span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">mutate</span>(<span class="at">mean_pop =</span> <span class="fu">map_dbl</span>(data, <span class="sc">~</span><span class="fu">mean</span>(.x<span class="sc">$</span>population)))</span>
@@ -840,7 +840,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Extract the first model from this data frame and save this as <code>algeria_model</code>.</li>
 <li>View the information about the model using <code>summary()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Build a linear model for each country</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>gap_models <span class="ot">&lt;-</span> gap_nested <span class="sc">%&gt;%</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a>    <span class="fu">mutate</span>(<span class="at">model =</span> <span class="fu">map</span>(data, <span class="sc">~</span><span class="fu">lm</span>(<span class="at">formula =</span> life_expectancy<span class="sc">~</span>year, <span class="at">data =</span> .x)))</span>
@@ -918,7 +918,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Extract the coefficient information as a tidy data frame of the <code>algeria_model</code> using <code>tidy()</code>.</li>
 <li>Extract the model statistics of <code>algeria_model</code> using <code>glance()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">library</span>(broom)</span>
 <span id="cb20-2"><a href="#cb20-2"></a></span>
 <span id="cb20-3"><a href="#cb20-3"></a><span class="co"># Extract the coefficients of the algeria_model as a data frame</span></span>
@@ -953,7 +953,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build the augmented data frame <code>algeria_fitted</code> using <code>augment()</code>.</li>
 <li>Visualize the fit of the model with respect to <code>year</code> by plotting both <code>life_expectancy</code> as points and <code>.fitted</code> as a line.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Build the augmented data frame</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a>algeria_fitted <span class="ot">&lt;-</span> <span class="fu">augment</span>(algeria_model)</span>
 <span id="cb22-3"><a href="#cb22-3"></a></span>
@@ -965,7 +965,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-8-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1003,7 +1003,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Simplify this data frame using <code>unnest()</code> to extract these coefficients in your data frame.</li>
 <li>Explore the coefficient estimates for the year feature across your 77 models by plotting a histogram of their values.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Extract the coefficient statistics of each model into nested data frames</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a>model_coef_nested <span class="ot">&lt;-</span> gap_models <span class="sc">%&gt;%</span> </span>
 <span id="cb23-3"><a href="#cb23-3"></a>    <span class="fu">mutate</span>(<span class="at">coef =</span> <span class="fu">map</span>(model, <span class="sc">~</span><span class="fu">tidy</span>(.x)))</span>
@@ -1023,7 +1023,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-9-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-10-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1064,7 +1064,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Simplify this data frame using <code>unnest()</code> to extract these fit statistics of each model and save it as <code>model_perf</code>.</li>
 <li>Finally, use <code>head()</code> to take a peek at <code>model_perf</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Extract the fit statistics of each model into data frames</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a>model_perf_nested <span class="ot">&lt;-</span> gap_models <span class="sc">%&gt;%</span> </span>
 <span id="cb25-3"><a href="#cb25-3"></a>    <span class="fu">mutate</span>(<span class="at">fit =</span> <span class="fu">map</span>(model, <span class="sc">~</span><span class="fu">glance</span>(.x)))</span>
@@ -1100,7 +1100,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Extract the 4 best fitting models (based on \(R^2\)) and store this data frame as <code>best_fit</code></li>
 <li>Extract the 4 worst fitting models (based on \(R^2\)) and store this data frame as <code>worst_fit</code></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Plot a histogram of rsquared for the 77 models    </span></span>
 <span id="cb26-2"><a href="#cb26-2"></a>model_perf <span class="sc">%&gt;%</span> </span>
 <span id="cb26-3"><a href="#cb26-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> r.squared)) <span class="sc">+</span> </span>
@@ -1111,7 +1111,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-11-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-12-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1149,7 +1149,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build the <code>best_augmented</code> data frame by building augmented data frames and simplifying them with <code>unnest()</code> using the <code>best_fit</code> data frame.</li>
 <li>Build the <code>worst_augmented</code> data frame by building augmented data frames and simplifying them with <code>unnest()</code> using the <code>worst_fit</code> data frame.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>best_augmented <span class="ot">&lt;-</span> best_fit <span class="sc">%&gt;%</span> </span>
 <span id="cb29-2"><a href="#cb29-2"></a>  <span class="co"># Build the augmented data frame for each country model</span></span>
 <span id="cb29-3"><a href="#cb29-3"></a>  <span class="fu">mutate</span>(<span class="at">augmented =</span> <span class="fu">map</span>(model, <span class="sc">~</span><span class="fu">augment</span>(.x))) <span class="sc">%&gt;%</span> </span>
@@ -1171,7 +1171,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Visualize the fit of your four best fitting models with respect to <code>year</code> by plotting both <code>life_expectancy</code> as points and <code>.fitted</code> as a line.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Compare the predicted values with the actual values of life expectancy </span></span>
 <span id="cb30-2"><a href="#cb30-2"></a><span class="co"># for the top 4 best fitting models</span></span>
 <span id="cb30-3"><a href="#cb30-3"></a>best_augmented <span class="sc">%&gt;%</span> </span>
@@ -1182,7 +1182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-13-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-14-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1190,7 +1190,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Visualize the fit of your four worst fitting models with respect to <code>year</code> by plotting both <code>life_expectancy</code> as points and <code>.fitted</code> as a line.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Compare the predicted values with the actual values of life expectancy </span></span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="co"># for the top 4 worst fitting models</span></span>
 <span id="cb31-3"><a href="#cb31-3"></a>worst_augmented <span class="sc">%&gt;%</span> </span>
@@ -1201,7 +1201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-14-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-15-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="04_machine_learning_in_the_tidyverse_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1260,7 +1260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Append a column (<code>fit</code>) containing fit statistics for each model and simplify this data frame.</li>
 <li>Print the adjusted \(R^2\) in <code>fullmodel_perf</code> of the four countries from <code>worst_fit</code> data frame.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Build a linear model for each country using all features</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a>gap_fullmodel <span class="ot">&lt;-</span> gap_nested <span class="sc">%&gt;%</span> </span>
 <span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">mutate</span>(<span class="at">model =</span> <span class="fu">map</span>(data, <span class="sc">~</span><span class="fu">lm</span>(life_expectancy<span class="sc">~</span>., <span class="at">data =</span> .x)))</span>
@@ -1366,7 +1366,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Extract the testing data frame from <code>gap_split</code> using the <code>testing()</code> function.</li>
 <li>Ensure that the dimensions of your new data frames are what you expected by using the <code>dim()</code> function on <code>training_data</code> and <code>testing_data</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb33-2"><a href="#cb33-2"></a></span>
 <span id="cb33-3"><a href="#cb33-3"></a><span class="co"># Load package</span></span>
@@ -1407,7 +1407,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>validate</code>: containing the validate data frames by using mapping <code>testing()</code> across the <code>splits</code> column.</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb37-2"><a href="#cb37-2"></a></span>
 <span id="cb37-3"><a href="#cb37-3"></a><span class="co"># Prepare the data frame containing the cross validation partitions</span></span>
@@ -1478,7 +1478,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Build models predicting <code>life_expectancy</code> using all available features with the <code>train</code> data for each fold of the cross validation.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Build a model using the train data for each fold of the cross validation</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a>cv_models_lm <span class="ot">&lt;-</span> cv_data <span class="sc">%&gt;%</span> </span>
 <span id="cb38-3"><a href="#cb38-3"></a>  <span class="fu">mutate</span>(<span class="at">model =</span> <span class="fu">map</span>(train, <span class="sc">~</span><span class="fu">lm</span>(<span class="at">formula =</span> life_expectancy<span class="sc">~</span>., <span class="at">data =</span> .x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1493,7 +1493,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Predict the <code>life_expectancy</code> for each validate partition using the <code>map2()</code> and <code>predict()</code> functions in the column <code>validate_predicted</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>cv_prep_lm <span class="ot">&lt;-</span> cv_models_lm <span class="sc">%&gt;%</span> </span>
 <span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb39-3"><a href="#cb39-3"></a>    <span class="co"># Extract the recorded life expectancy for the records in the validate data frames</span></span>
@@ -1515,7 +1515,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print the <code>validate_mae</code> column (note how they vary).</li>
 <li>Calculate the mean of this column.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">library</span>(Metrics)</span>
 <span id="cb40-2"><a href="#cb40-2"></a><span class="co"># Calculate the mean absolute error for each validate fold       </span></span>
 <span id="cb40-3"><a href="#cb40-3"></a>cv_eval_lm <span class="ot">&lt;-</span> cv_prep_lm <span class="sc">%&gt;%</span> </span>
@@ -1575,7 +1575,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>ranger()</code> to build a random forest predicting <code>life_expectancy</code> using all features in <code>train</code> for each cross validation partition. <!-- 2. Extract the actual `life_expectancy` from the validate data frames and store these in the column `validate_actual`.  --></li>
 <li>Add a new column <code>validate_predicted</code> predicting the <code>life_expectancy</code> for the observations in <code>validate</code> using the random forest models you just created.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">library</span>(ranger)</span>
 <span id="cb44-2"><a href="#cb44-2"></a></span>
 <span id="cb44-3"><a href="#cb44-3"></a><span class="co"># Build a random forest model for each fold</span></span>
@@ -1604,7 +1604,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print the <code>validate_mae</code> column (note how they vary).</li>
 <li>Calculate the mean of this column.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">library</span>(ranger)</span>
 <span id="cb45-2"><a href="#cb45-2"></a></span>
 <span id="cb45-3"><a href="#cb45-3"></a><span class="co"># Calculate validate MAE for each fold</span></span>
@@ -1633,7 +1633,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>crossing()</code> to expand the cross validation data for values of <code>mtry</code> ranging from <strong>2</strong> through <strong>5</strong>.</li>
 <li>Build random forest models for each fold/mtry combination.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># Prepare for tuning your cross validation folds by varying mtry</span></span>
 <span id="cb49-2"><a href="#cb49-2"></a>cv_tune <span class="ot">&lt;-</span> cv_data <span class="sc">%&gt;%</span> </span>
 <span id="cb49-3"><a href="#cb49-3"></a>  <span class="fu">crossing</span>(<span class="at">mtry =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>) </span>
@@ -1656,7 +1656,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the <strong>MAE</strong> for each mtry/fold combination.</li>
 <li>Calculate the mean <strong>MAE</strong> for each value of <code>mtry</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Generate validate predictions for each model</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a>cv_prep_tunerf <span class="ot">&lt;-</span> cv_model_tunerf <span class="sc">%&gt;%</span> </span>
 <span id="cb50-3"><a href="#cb50-3"></a>  <span class="fu">mutate</span>(<span class="at">validate_predicted =</span> <span class="fu">map2</span>(<span class="at">.x =</span> model, <span class="at">.y =</span> validate, <span class="sc">~</span><span class="fu">predict</span>(.x, .y)<span class="sc">$</span>predictions))</span>
@@ -1717,7 +1717,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Predict <code>life_expectancy</code> using the <code>best_model</code> on the <code>testing</code> data and assign it to <code>test_predicted</code>.</li>
 <li>Calculate the MAE using <code>test_actual</code> and <code>test_predicted</code> vectors.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Build the model using all training data and the best performing parameter</span></span>
 <span id="cb51-2"><a href="#cb51-2"></a>best_model <span class="ot">&lt;-</span> <span class="fu">ranger</span>(<span class="at">formula =</span> life_expectancy<span class="sc">~</span>., <span class="at">data =</span> training_data,</span>
 <span id="cb51-3"><a href="#cb51-3"></a>                     <span class="at">mtry =</span> <span class="dv">4</span>, <span class="at">num.trees =</span> <span class="dv">100</span>, <span class="at">seed =</span> <span class="dv">42</span>)</span>
@@ -1766,7 +1766,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Split your data into 75% training and 25% testing using the <code>initial_split()</code> function.</li>
 <li>Extract the training and testing data frames from <code>data_split</code> using <code>training()</code> and <code>testing()</code>, respectively.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb53-2"><a href="#cb53-2"></a></span>
 <span id="cb53-3"><a href="#cb53-3"></a><span class="co"># Load data</span></span>
@@ -1785,7 +1785,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build a data frame for 5-fold cross validation from the <code>training_data</code> using <code>vfold_cv()</code>.</li>
 <li>Prepare the <code>cv_data</code> data frame by extracting the train and validate data frames for each fold.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb54-2"><a href="#cb54-2"></a>cv_split <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(training_data, <span class="at">v =</span> <span class="dv">5</span>)</span>
 <span id="cb54-3"><a href="#cb54-3"></a></span>
@@ -1807,7 +1807,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Build models predicting <code>Attrition</code> using all available features with the <code>train</code> data for each fold of the cross validation.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># Build a model using the train data for each fold of the cross validation</span></span>
 <span id="cb55-2"><a href="#cb55-2"></a>cv_models_lr <span class="ot">&lt;-</span> cv_data <span class="sc">%&gt;%</span> </span>
 <span id="cb55-3"><a href="#cb55-3"></a>  <span class="fu">mutate</span>(<span class="at">model =</span> <span class="fu">map</span>(train, <span class="sc">~</span><span class="fu">glm</span>(<span class="at">formula =</span> Attrition<span class="sc">~</span>., </span>
@@ -1848,7 +1848,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>model</code> to predict the probabilities of attrition for the <code>validate</code> data frame.</li>
 <li>Convert the predicted probabilities to a binary vector, assume all probabilities greater than <code>0.5</code> are TRUE.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># Extract the first model and validate </span></span>
 <span id="cb56-2"><a href="#cb56-2"></a>model <span class="ot">&lt;-</span> cv_models_lr<span class="sc">$</span>model[[<span class="dv">1</span>]]</span>
 <span id="cb56-3"><a href="#cb56-3"></a>validate <span class="ot">&lt;-</span> cv_models_lr<span class="sc">$</span>validate[[<span class="dv">1</span>]]</span>
@@ -1881,7 +1881,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Calculate the recall.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="fu">library</span>(Metrics)</span>
 <span id="cb57-2"><a href="#cb57-2"></a></span>
 <span id="cb57-3"><a href="#cb57-3"></a><span class="co"># Compare the actual &amp; predicted performance visually using a table</span></span>
@@ -1918,7 +1918,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add the <code>validate_actual</code> binary column for each cross-validation fold by converting all <code>"Yes"</code> values to <code>TRUE</code>.</li>
 <li>Use <code>model</code> to predict the probabilities of attrition for each cross-validation fold of <code>validate</code>. Convert the predicted probabilities to a binary vector, treating all probabilities greater than <strong>0.5</strong> as TRUE. Name this column <code>validate_predicted</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a>cv_prep_lr <span class="ot">&lt;-</span> cv_models_lr <span class="sc">%&gt;%</span> </span>
 <span id="cb65-2"><a href="#cb65-2"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb65-3"><a href="#cb65-3"></a>    <span class="co"># Prepare binary vector of actual Attrition values in validate</span></span>
@@ -1940,7 +1940,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Print the mean of this column.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Calculate the validate recall for each cross validation fold</span></span>
 <span id="cb66-2"><a href="#cb66-2"></a>cv_perf_recall <span class="ot">&lt;-</span> cv_prep_lr <span class="sc">%&gt;%</span> </span>
 <span id="cb66-3"><a href="#cb66-3"></a>  <span class="fu">mutate</span>(<span class="at">validate_recall =</span> <span class="fu">map2_dbl</span>(validate_actual, validate_predicted, </span>
@@ -1981,7 +1981,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>crossing()</code> to expand the cross-validation data for values of <code>mtry</code> using the values of 2, 4, 8, and 16.</li>
 <li>Build random forest models for each fold/mtry combination.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># Prepare for tuning your cross validation folds by varying mtry</span></span>
 <span id="cb70-2"><a href="#cb70-2"></a>cv_tune <span class="ot">&lt;-</span> cv_data <span class="sc">%&gt;%</span></span>
 <span id="cb70-3"><a href="#cb70-3"></a>  <span class="fu">crossing</span>(<span class="at">mtry =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">8</span>, <span class="dv">16</span>)) </span>
@@ -2004,7 +2004,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the <strong>recall</strong> for each mtry/fold combination.</li>
 <li>Calculate the mean <strong>recall</strong> for each value of <code>mtry</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a>cv_prep_rf <span class="ot">&lt;-</span> cv_models_rf <span class="sc">%&gt;%</span> </span>
 <span id="cb71-2"><a href="#cb71-2"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb71-3"><a href="#cb71-3"></a>    <span class="co"># Prepare binary vector of actual Attrition values in validate</span></span>
@@ -2042,7 +2042,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
 <li>Prepare the binary vector of predicted values where a probability greater than 0.5 indicates <code>TRUE</code> and store this as <code>test_predicted</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="co"># Build the logistic regression model using all training data</span></span>
 <span id="cb72-2"><a href="#cb72-2"></a>best_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="at">formula =</span> Attrition<span class="sc">~</span>., </span>
 <span id="cb72-3"><a href="#cb72-3"></a>                  <span class="at">data =</span> training_data, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
@@ -2067,7 +2067,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the test recall.</li>
 <li>After this exercise, you are done with the course! If you enjoyed the material, feel free to send Dmitriy a thank you via Twitter. He’ll appreciate it. Tweet to Dmitriy</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># Compare the actual &amp; predicted performance visually using a table</span></span>
 <span id="cb73-2"><a href="#cb73-2"></a><span class="fu">table</span>(test_actual, test_predicted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2382,7 +2382,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","loop":true,"closeEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","loop":true,"closeEffect":"zoom","openEffect":"zoom"});</script>
 
 
 

@@ -483,7 +483,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#chapter-1-k-nearest-neighbors-knn" id="toc-chapter-1-k-nearest-neighbors-knn" class="nav-link active" data-scroll-target="#chapter-1-k-nearest-neighbors-knn"><span class="toc-section-number">1</span>  1. Chapter 1: k-Nearest Neighbors (kNN)</a>
+  <li><a href="#chapter-1-k-nearest-neighbors-knn" id="toc-chapter-1-k-nearest-neighbors-knn" class="nav-link active" data-scroll-target="#chapter-1-k-nearest-neighbors-knn"><span class="toc-section-number">1</span>  Chapter 1: k-Nearest Neighbors (kNN)</a>
   <ul class="collapse">
   <li><a href="#classification-with-nearest-neighbors" id="toc-classification-with-nearest-neighbors" class="nav-link" data-scroll-target="#classification-with-nearest-neighbors"><span class="toc-section-number">1.1</span>  Classification with Nearest Neighbors</a></li>
   <li><a href="#recognizing-a-road-sign-with-knn" id="toc-recognizing-a-road-sign-with-knn" class="nav-link" data-scroll-target="#recognizing-a-road-sign-with-knn"><span class="toc-section-number">1.2</span>  Recognizing a road sign with kNN</a></li>
@@ -581,7 +581,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>This beginner-level introduction to machine learning covers four of the most common classification algorithms. You will come away with a basic understanding of how each algorithm approaches a learning task, as well as learn the R functions needed to apply these tools to your own work.</p>
 <section id="chapter-1-k-nearest-neighbors-knn" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> 1. Chapter 1: k-Nearest Neighbors (kNN)</h1>
+<h1 data-number="1"><span class="header-section-number">1</span> Chapter 1: k-Nearest Neighbors (kNN)</h1>
 <p>As the kNN algorithm literally “learns by example” it is a case in point for starting to understand supervised machine learning. This chapter will introduce classification while working through the application of kNN to self-driving vehicle road sign recognition.</p>
 <section id="classification-with-nearest-neighbors" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="classification-with-nearest-neighbors"><span class="header-section-number">1.1</span> Classification with Nearest Neighbors</h2>
@@ -615,7 +615,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Set the <code>test</code> argument equal to the data frame <code>next_sign</code>.</li>
 <li>Use the vector of labels you created as the <code>cl</code> argument.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load the 'class' package</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(class)</span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -684,7 +684,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>table()</code> to count the number of observations of each sign type by passing it the column containing the labels.</li>
 <li>Run the provided <code>aggregate()</code> command to see whether the average red level might vary by sign type.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Examine the structure of the signs dataset</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a><span class="fu">str</span>(signs[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>])</span>
 <span id="cb10-3"><a href="#cb10-3"></a><span class="co">#&gt; tibble [146 × 5] (S3: tbl_df/tbl/data.frame)</span></span>
@@ -728,7 +728,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>2.. Use <code>table()</code> to explore the classifier’s performance at identifying the three sign types (the confusion matrix).the vector <code>signs_actual</code> by extracting the labels from <code>test_signs</code>.the vector of predictions and the vector of actual signs to <code>table()</code> to cross tabulate them.</p>
 <pre><code>* Create the vector `signs_actual` by extracting the labels from `test_signs`.
 * Pass the vector of predictions and the vector of actual signs to `table()` to cross tabulate them.</code></pre>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Use kNN to identify the test road signs</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>sign_types <span class="ot">&lt;-</span> signs<span class="sc">$</span>sign_type</span>
 <span id="cb12-3"><a href="#cb12-3"></a>signs_pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types)</span>
@@ -747,7 +747,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Compute the overall accuracy of the kNN learner using the <code>mean()</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Compute the accuracy</span></span>
 <span id="cb14-2"><a href="#cb14-2"></a><span class="fu">mean</span>(signs_pred <span class="sc">==</span> signs_actual)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -789,7 +789,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Compute the accuracy of the default <code>k = 1</code> model using the given code, then find the accuracy of the model using <code>mean()</code> to compare <code>signs_actual</code> and the model’s predictions.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># Compute the accuracy of the baseline model (default k = 1)</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>k_1 <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types)</span>
 <span id="cb16-3"><a href="#cb16-3"></a><span class="fu">mean</span>(signs_actual <span class="sc">==</span> k_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -800,7 +800,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Modify the <code>knn()</code> function call by setting <code>k = 7</code> and again find accuracy value.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Modify the above to set k = 7</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>k_7 <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types, <span class="at">k =</span> <span class="dv">7</span>)</span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="fu">mean</span>(signs_actual <span class="sc">==</span> k_7)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -811,12 +811,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Revise the code once more by setting <code>k = 15</code>, plus find the accuracy value one more time.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Set k = 15 and compare to the above</span></span>
 <span id="cb20-2"><a href="#cb20-2"></a>k_15 <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types, <span class="at">k =</span> <span class="dv">15</span>)</span>
 <span id="cb20-3"><a href="#cb20-3"></a><span class="fu">mean</span>(signs_actual <span class="sc">==</span> k_15)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.8813559</code></pre>
+<pre><code>#&gt; [1] 0.8983051</code></pre>
 </div>
 </div>
 <p>You’re a kNN pro! Which value of k gave the highest accuracy?</p>
@@ -832,7 +832,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build a kNN model with the <code>prob = TRUE</code> parameter to compute the vote proportions. Set <code>k = 7</code>.</li>
 <li>Use the <code>attr()</code> function to obtain the vote proportions for the predicted class. These are stored in the attribute <code>"prob"</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Use the prob parameter to get the proportion of votes for the winning class</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a>sign_pred <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types, <span class="at">k =</span> <span class="dv">7</span>, <span class="at">prob =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb22-3"><a href="#cb22-3"></a></span>
@@ -849,7 +849,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Examine the first several vote outcomes and percentages using the <code>head()</code> function to see how the confidence varies from sign to sign.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Examine the proportion of votes for the winning class</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a><span class="fu">head</span>(sign_prob)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -915,7 +915,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Compute P(office | weekday) and save the result as <code>p_A_given_B</code>.</li>
 <li>Print the value of <code>p_A_given_B</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Load package</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="fu">library</span>(readr)</span>
 <span id="cb26-3"><a href="#cb26-3"></a></span>
@@ -973,7 +973,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Load the <code>naivebayes</code> package.</li>
 <li>Use <code>naive_bayes()</code> with a formula like <code>y ~ x</code> to build a model of <code>location</code> as a function of <code>daytype</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Load the naivebayes package</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a><span class="fu">library</span>(naivebayes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -989,7 +989,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Forecast the Thursday 9am location using <code>predict()</code> with the <code>thursday9am</code> object as the <code>newdata</code> argument.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>thursday9am <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">daytype =</span> <span class="fu">factor</span>(<span class="st">"weekday"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"weekday"</span>, <span class="st">"weekend"</span>)))</span>
 <span id="cb34-2"><a href="#cb34-2"></a></span>
 <span id="cb34-3"><a href="#cb34-3"></a><span class="co"># Predict Thursday's 9am location</span></span>
@@ -1002,7 +1002,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Do the same for predicting the <code>saturday9am</code> location.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>saturday9am <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">daytype =</span> <span class="fu">factor</span>(<span class="st">"weekend"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"weekday"</span>, <span class="st">"weekend"</span>)))</span>
 <span id="cb36-2"><a href="#cb36-2"></a></span>
 <span id="cb36-3"><a href="#cb36-3"></a><span class="co"># Predict Saturdays's 9am location</span></span>
@@ -1024,7 +1024,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Print the <code>locmodel</code> object to the console to view the computed <em>a priori</em> and conditional probabilities.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># The 'naivebayes' package is loaded into the workspace</span></span>
 <span id="cb38-2"><a href="#cb38-2"></a><span class="co"># and the Naive Bayes 'locmodel' has been built</span></span>
 <span id="cb38-3"><a href="#cb38-3"></a></span>
@@ -1066,7 +1066,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Use the <code>predict()</code> function similarly to the previous exercise, but with <code>type = "prob"</code> to see the predicted probabilities for Thursday at 9am.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># Obtain the predicted probabilities for Thursday at 9am</span></span>
 <span id="cb40-2"><a href="#cb40-2"></a><span class="fu">predict</span>(locmodel, thursday9am, <span class="at">type =</span> <span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1077,7 +1077,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Compare these to the predicted probabilities for Saturday at 9am.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Obtain the predicted probabilities for Saturday at 9am</span></span>
 <span id="cb42-2"><a href="#cb42-2"></a><span class="fu">predict</span>(locmodel, saturday9am, <span class="at">type =</span> <span class="st">"prob"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1130,7 +1130,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the R formula interface to build a model where location depends on both <code>daytype</code> and <code>hourtype</code>. Recall that the function <code>naive_bayes()</code> takes 2 arguments: <code>formula</code> and <code>data</code>.</li>
 <li>Predict Brett’s location on a weekday afternoon using the dataframe <code>weekday_afternoon</code> and the <code>predict()</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Build a NB model of location</span></span>
 <span id="cb44-2"><a href="#cb44-2"></a>locmodel <span class="ot">&lt;-</span> <span class="fu">naive_bayes</span>(location <span class="sc">~</span> daytype <span class="sc">+</span> hourtype, <span class="at">data =</span> locations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1161,7 +1161,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Do the same for a <code>weekday_evening</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Data</span></span>
 <span id="cb50-2"><a href="#cb50-2"></a>weekday_evening <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">daytype  =</span> <span class="fu">factor</span>(<span class="st">"weekday"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"weekday"</span>, <span class="st">"weekend"</span>)),</span>
 <span id="cb50-3"><a href="#cb50-3"></a>                          <span class="at">hourtype =</span> <span class="fu">factor</span>(<span class="st">"evening"</span>, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"afternoon"</span>, <span class="st">"evening"</span>, <span class="st">"morning"</span>, <span class="st">"night"</span>)),</span>
@@ -1190,7 +1190,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Use the <code>locmodel</code> to output predicted probabilities for a weekend afternoon by using the <code>predict()</code> function. Remember to set the <code>type</code> argument.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># The 'naivebayes' package is loaded into the workspace already</span></span>
 <span id="cb53-2"><a href="#cb53-2"></a><span class="co"># The Naive Bayes location model (locmodel) has already been built</span></span>
 <span id="cb53-3"><a href="#cb53-3"></a></span>
@@ -1217,7 +1217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a new naive Bayes model with the Laplace smoothing parameter set to <code>1</code>. You can do this by setting the <code>laplace</code> argument in your call to <code>naive_bayes()</code>. Save this as <code>locmodel2</code>.</li>
 <li>See how the new predicted probabilities compare by using the <code>predict()</code> function on your new model.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># Build a new model using the Laplace correction</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a>locmodel2 <span class="ot">&lt;-</span> <span class="fu">naive_bayes</span>(location <span class="sc">~</span> daytype <span class="sc">+</span> hourtype, <span class="at">data =</span> locations, <span class="at">laplace =</span> <span class="dv">1</span>)</span>
 <span id="cb56-3"><a href="#cb56-3"></a></span>
@@ -1298,7 +1298,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Examine <code>donors</code> using the <code>str()</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># Load data</span></span>
 <span id="cb59-2"><a href="#cb59-2"></a>donors <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/donors.csv"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb59-3"><a href="#cb59-3"></a>              <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), as.integer),</span>
@@ -1335,7 +1335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="2" type="1">
 <li>Count the number of occurrences of each level of the <code>donated</code> variable using the <code>table()</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Explore the dependent variable</span></span>
 <span id="cb63-2"><a href="#cb63-2"></a><span class="fu">table</span>(donors<span class="sc">$</span>donated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1350,7 +1350,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Save the result as <code>donation_model</code>.</li>
 <li>Summarize the model object with <code>summary()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># Build the donation model</span></span>
 <span id="cb65-2"><a href="#cb65-2"></a>donation_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(donated <span class="sc">~</span> bad_address <span class="sc">+</span> interest_religion <span class="sc">+</span> interest_veterans, </span>
 <span id="cb65-3"><a href="#cb65-3"></a>                      <span class="at">data =</span> donors, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
@@ -1397,7 +1397,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the <code>predict()</code> function to estimate each person’s donation probability. Use the <code>type</code> argument to get probabilities. Assign the predictions to a new column called <code>donation_prob</code>.</li>
 <li>Find the actual probability that an average person would donate by passing the <code>mean()</code> function the appropriate column of the <code>donors</code> dataframe.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Estimate the donation probability</span></span>
 <span id="cb67-2"><a href="#cb67-2"></a>donors<span class="sc">$</span>donation_prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(donation_model, <span class="at">type =</span> <span class="st">"response"</span>)</span>
 <span id="cb67-3"><a href="#cb67-3"></a></span>
@@ -1411,7 +1411,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>ifelse()</code> to predict a donation if their predicted donation probability is greater than average. Assign the predictions to a new column called <code>donation_pred</code>.</li>
 <li>Use the <code>mean()</code> function to calculate the model’s accuracy.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># Predict a donation if probability of donation is greater than average</span></span>
 <span id="cb69-2"><a href="#cb69-2"></a>donors<span class="sc">$</span>donation_pred <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(donors<span class="sc">$</span>donation_prob <span class="sc">&gt;</span> <span class="fl">0.0504</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
 <span id="cb69-3"><a href="#cb69-3"></a></span>
@@ -1456,7 +1456,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a ROC curve with <code>roc()</code> and the columns of actual and predicted donations. Store the result as <code>ROC</code>.</li>
 <li>Use <code>plot()</code> to draw the <code>ROC</code> object. Specify <code>col = "blue"</code> to color the curve blue.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a><span class="co"># Load the pROC package</span></span>
 <span id="cb71-2"><a href="#cb71-2"></a><span class="fu">library</span>(pROC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1484,7 +1484,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-26-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-27-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1492,7 +1492,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Compute the area under the curve with <code>auc()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># Calculate the area under the curve (AUC)</span></span>
 <span id="cb79-2"><a href="#cb79-2"></a><span class="fu">auc</span>(ROC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1542,7 +1542,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>relevel()</code> to change the reference category to <code>Medium</code>. The first argument should be your new <code>factor</code> column.</li>
 <li>Build a logistic regression model using the column <code>wealth_levels</code> to predict <code>donated</code> and display the result with <code>summary()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a><span class="co"># Convert the wealth rating to a factor</span></span>
 <span id="cb81-2"><a href="#cb81-2"></a>donors<span class="sc">$</span>wealth_levels <span class="ot">&lt;-</span> <span class="fu">factor</span>(donors<span class="sc">$</span>wealth_rating, <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Unknown"</span>, <span class="st">"Low"</span>, <span class="st">"Medium"</span>, <span class="st">"High"</span>))</span>
 <span id="cb81-3"><a href="#cb81-3"></a></span>
@@ -1589,7 +1589,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Use <code>summary()</code> on <code>donors$age</code> to find the average age of prospects with non-missing data.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a><span class="co"># Load data</span></span>
 <span id="cb83-2"><a href="#cb83-2"></a>donors <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/donors.csv"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb83-3"><a href="#cb83-3"></a>              <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.numeric), as.integer),</span>
@@ -1615,7 +1615,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>ifelse()</code> and the test <code>is.na(donors$age)</code> to impute the average (rounded to 2 decimal places) for cases with missing <code>age</code>. Be sure to also ignore <code>NA</code>s.</li>
 <li>Create a binary dummy variable named <code>missing_age</code> indicating the presence of missing data using another <code>ifelse()</code> call and the same test.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a><span class="co"># Impute missing age values with the mean age</span></span>
 <span id="cb87-2"><a href="#cb87-2"></a>donors<span class="sc">$</span>imputed_age <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(donors<span class="sc">$</span>age), <span class="fu">round</span>(<span class="fu">mean</span>(donors<span class="sc">$</span>age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">2</span>), donors<span class="sc">$</span>age)</span>
 <span id="cb87-3"><a href="#cb87-3"></a></span>
@@ -1648,7 +1648,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a logistic regression model of <code>donated</code> as a function of <code>money</code> plus the interaction of <code>recency</code> and <code>frequency</code>. Use <code>*</code> to add the interaction term.</li>
 <li>Examine the model’s <code>summary()</code> to confirm the interaction effect was added.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a><span class="co"># Build a recency, frequency, and money (RFM) model</span></span>
 <span id="cb88-2"><a href="#cb88-2"></a>rfm_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(donated <span class="sc">~</span> recency <span class="sc">*</span> frequency <span class="sc">+</span> money, <span class="at">data =</span> donors, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
 <span id="cb88-3"><a href="#cb88-3"></a></span>
@@ -1687,7 +1687,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Save the model’s predicted probabilities as <code>rfm_prob</code>. Use the <code>predict()</code> function, and remember to set the <code>type</code> argument.</li>
 <li>Plot a ROC curve by using the function <code>roc()</code>. Remember, this function takes the column of outcomes and the vector of predictions.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="co"># Compute predicted probabilities for the RFM model</span></span>
 <span id="cb90-2"><a href="#cb90-2"></a>rfm_prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(rfm_model, <span class="at">data =</span> donors, <span class="at">type =</span> <span class="st">"response"</span>)</span>
 <span id="cb90-3"><a href="#cb90-3"></a></span>
@@ -1703,7 +1703,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-32-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-33-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1711,7 +1711,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="5" type="1">
 <li>Compute the AUC for the new model with the function <code>auc()</code> and compare performance to the simpler model.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="fu">auc</span>(ROC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Area under the curve: 0.5785</code></pre>
@@ -1751,7 +1751,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a vector of predicted probabilities using the <code>predict()</code> function.</li>
 <li>Plot the ROC curve with <code>roc()</code> and <code>plot()</code> and compute the AUC of the stepwise model with <code>auc()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="co"># Specify a null model with no predictors</span></span>
 <span id="cb96-2"><a href="#cb96-2"></a>null_model <span class="ot">&lt;-</span> <span class="fu">glm</span>(donated <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> donors, <span class="at">family =</span> <span class="st">"binomial"</span>)</span>
 <span id="cb96-3"><a href="#cb96-3"></a></span>
@@ -1906,7 +1906,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-34-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-35-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -1958,7 +1958,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Leave the <code>control</code> argument alone for now. (You’ll learn more about that later!)</li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a><span class="co"># Load the rpart package</span></span>
 <span id="cb116-2"><a href="#cb116-2"></a><span class="fu">library</span>(rpart)</span>
 <span id="cb116-3"><a href="#cb116-3"></a><span class="fu">library</span>(forcats)</span>
@@ -1975,7 +1975,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="3" type="1">
 <li>Use <code>predict()</code> with the resulting loan model to predict the outcome for the <code>good_credit</code> applicant. Use the <code>type</code> argument to predict the <code>"class"</code> of the outcome.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1"></a><span class="co"># Create good_credit applicant</span></span>
 <span id="cb117-2"><a href="#cb117-2"></a>good_credit <span class="ot">&lt;-</span> loans <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">8</span>)</span>
 <span id="cb117-3"><a href="#cb117-3"></a></span>
@@ -1990,7 +1990,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>Do the same for the <code>bad_credit</code> applicant.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1"></a><span class="co"># Create bad_credit applicant</span></span>
 <span id="cb119-2"><a href="#cb119-2"></a>bad_credit <span class="ot">&lt;-</span> loans <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">3</span>)</span>
 <span id="cb119-3"><a href="#cb119-3"></a></span>
@@ -2014,7 +2014,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Load the <code>rpart.plot</code> package.</li>
 <li>Apply the <code>rpart.plot()</code> function to the loan model to visualize the tree.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1"></a><span class="co"># Examine the loan_model object</span></span>
 <span id="cb121-2"><a href="#cb121-2"></a>loan_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2041,7 +2041,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-38-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-39-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2049,13 +2049,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol start="4" type="1">
 <li>See how changing other plotting parameters impacts the visualization by running the supplied command.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1"></a><span class="co"># Plot the loan_model with customized settings</span></span>
 <span id="cb124-2"><a href="#cb124-2"></a><span class="fu">rpart.plot</span>(loan_model, <span class="at">type =</span> <span class="dv">3</span>, <span class="at">box.palette =</span> <span class="fu">c</span>(<span class="st">"red"</span>, <span class="st">"green"</span>), <span class="at">fallen.leaves =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-39-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-40-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2109,7 +2109,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Apply the <code>nrow()</code> function to determine how many observations are in the <code>loans</code> dataset, and the number needed for a 75% sample.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1"></a><span class="co"># Determine the number of rows for training</span></span>
 <span id="cb125-2"><a href="#cb125-2"></a><span class="fu">nrow</span>(loans) <span class="sc">*</span> <span class="fl">0.75</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -2121,7 +2121,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Subset the <code>loans</code> data using the row IDs to create the training dataset. Save this as <code>loans_train</code>.</li>
 <li>Subset <code>loans</code> again, but this time select all the rows that are <em>not</em> in <code>sample_rows</code>. Save this as <code>loans_test</code></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1"></a><span class="co"># Create a random sample of row IDs</span></span>
 <span id="cb127-2"><a href="#cb127-2"></a>sample_rows <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(loans), <span class="fu">nrow</span>(loans) <span class="sc">*</span> <span class="fl">0.75</span>)</span>
 <span id="cb127-3"><a href="#cb127-3"></a></span>
@@ -2145,7 +2145,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Applying the <code>predict()</code> function to the testing dataset, create a vector of predicted outcomes. Don’t forget the <code>type</code> argument.</li>
 <li>Create a <code>table()</code> to compare the predicted values to the actual <code>outcome</code> values.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1"></a><span class="co"># Grow a tree using all of the available applicant data</span></span>
 <span id="cb128-2"><a href="#cb128-2"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">rpart</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train, <span class="at">method =</span> <span class="st">"class"</span>, <span class="at">control =</span> <span class="fu">rpart.control</span>(<span class="at">cp =</span> <span class="dv">0</span>))</span>
 <span id="cb128-3"><a href="#cb128-3"></a></span>
@@ -2157,18 +2157,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;          
 #&gt;           default repaid
-#&gt;   default     738    630
-#&gt;   repaid      624    836</code></pre>
+#&gt;   default     786    645
+#&gt;   repaid      595    802</code></pre>
 </div>
 </div>
 <ol start="4" type="1">
 <li>Compute the accuracy of the predictions using the <code>mean()</code> function.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1"></a><span class="co"># Compute the accuracy on the test dataset</span></span>
 <span id="cb130-2"><a href="#cb130-2"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.5565771</code></pre>
+<pre><code>#&gt; [1] 0.5615276</code></pre>
 </div>
 </div>
 <p>Awesome! How did adding more predictors change the model’s performance?</p>
@@ -2211,7 +2211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Compare the predictions to the actual outcomes and use <code>mean()</code> to calculate the accuracy.</p></li>
 </ul></li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1"></a><span class="co"># Grow a tree with maxdepth of 6</span></span>
 <span id="cb132-2"><a href="#cb132-2"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">rpart</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train, <span class="at">method =</span> <span class="st">"class"</span>, <span class="at">control =</span> <span class="fu">rpart.control</span>(<span class="at">cp =</span> <span class="dv">0</span>, <span class="at">maxdepth =</span> <span class="dv">6</span>))</span>
 <span id="cb132-3"><a href="#cb132-3"></a></span>
@@ -2221,13 +2221,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb132-7"><a href="#cb132-7"></a><span class="co"># Compute the accuracy of the simpler tree</span></span>
 <span id="cb132-8"><a href="#cb132-8"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.5792079</code></pre>
+<pre><code>#&gt; [1] 0.6004243</code></pre>
 </div>
 </div>
 <ol start="3" type="1">
 <li>In the model controls, remove <code>maxdepth</code> and add a minimum split parameter, <code>minsplit</code>, set to <code>500</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1"></a><span class="co"># Swap maxdepth for a minimum split of 500 </span></span>
 <span id="cb134-2"><a href="#cb134-2"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">rpart</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train, <span class="at">method =</span> <span class="st">"class"</span>, <span class="at">control =</span> <span class="fu">rpart.control</span>(<span class="at">cp =</span> <span class="dv">0</span>, <span class="at">minsplit =</span> <span class="dv">500</span>))</span>
 <span id="cb134-3"><a href="#cb134-3"></a></span>
@@ -2235,7 +2235,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb134-5"><a href="#cb134-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model, loans_test, <span class="at">type =</span> <span class="st">"class"</span>)</span>
 <span id="cb134-6"><a href="#cb134-6"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.5770863</code></pre>
+<pre><code>#&gt; [1] 0.6067893</code></pre>
 </div>
 </div>
 <p>Nice work! It may seem surprising, but creating a simpler decision tree may actually result in greater performance on the test dataset.</p>
@@ -2251,7 +2251,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use all of the applicant variables and no pre-pruning to create an overly complex tree. Make sure to set <code>cp = 0</code> in <code>rpart.control()</code> to prevent pre-pruning.</li>
 <li>Create a complexity plot by using <code>plotcp()</code> on the model.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1"></a><span class="co"># Grow an overly complex tree</span></span>
 <span id="cb136-2"><a href="#cb136-2"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">rpart</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train, <span class="at">method =</span> <span class="st">"class"</span>, <span class="at">control =</span> <span class="fu">rpart.control</span>(<span class="at">cp =</span> <span class="dv">0</span>))</span>
 <span id="cb136-3"><a href="#cb136-3"></a></span>
@@ -2260,7 +2260,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-46-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="01_supervised_learning_classification_files/figure-html/unnamed-chunk-47-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="01_supervised_learning_classification_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -2269,7 +2269,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Based on the complexity plot, prune the tree to a complexity of 0.0014 using the <code>prune()</code> function with the tree and the complexity parameter.</li>
 <li>Compare the accuracy of the pruned tree to the original accuracy of 58.3%. To calculate the accuracy use the <code>predict()</code> and <code>mean()</code> functions.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1"></a><span class="co"># Prune the tree</span></span>
 <span id="cb137-2"><a href="#cb137-2"></a>loan_model_pruned <span class="ot">&lt;-</span> <span class="fu">prune</span>(loan_model, <span class="at">cp =</span> <span class="fl">0.0014</span>)</span>
 <span id="cb137-3"><a href="#cb137-3"></a></span>
@@ -2277,7 +2277,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb137-5"><a href="#cb137-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model_pruned, loans_test, <span class="at">type =</span> <span class="st">"class"</span>)</span>
 <span id="cb137-6"><a href="#cb137-6"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.5834512</code></pre>
+<pre><code>#&gt; [1] 0.606082</code></pre>
 </div>
 </div>
 <p>Great job! As with pre-pruning, creating a simpler tree actually improved the performance of the tree on the test dataset.</p>
@@ -2326,7 +2326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build a random forest model using all of the loan application variables. The <code>randomForest</code> function also uses the formula interface.</li>
 <li>Compute the accuracy of the random forest model to compare to the original tree’s accuracy of 58.3% using <code>predict()</code> and <code>mean()</code>.</li>
 </ol>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1"></a><span class="co"># Load the randomForest package</span></span>
 <span id="cb139-2"><a href="#cb139-2"></a><span class="fu">library</span>(randomForest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -2344,14 +2344,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; 
 #&gt;     combine</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1"></a><span class="co"># Build a random forest model</span></span>
-<span id="cb144-2"><a href="#cb144-2"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train)</span>
-<span id="cb144-3"><a href="#cb144-3"></a></span>
-<span id="cb144-4"><a href="#cb144-4"></a><span class="co"># Compute the accuracy of the random forest</span></span>
-<span id="cb144-5"><a href="#cb144-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model, loans_test)</span>
-<span id="cb144-6"><a href="#cb144-6"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Das folgende Objekt ist maskiert 'package:ggplot2':
+#&gt; 
+#&gt;     margin</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1"></a><span class="co"># Build a random forest model</span></span>
+<span id="cb145-2"><a href="#cb145-2"></a>loan_model <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(outcome <span class="sc">~</span> ., <span class="at">data =</span> loans_train)</span>
+<span id="cb145-3"><a href="#cb145-3"></a></span>
+<span id="cb145-4"><a href="#cb145-4"></a><span class="co"># Compute the accuracy of the random forest</span></span>
+<span id="cb145-5"><a href="#cb145-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model, loans_test)</span>
+<span id="cb145-6"><a href="#cb145-6"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.5795615</code></pre>
+<pre><code>#&gt; [1] 0.5983027</code></pre>
 </div>
 </div>
 <p>Wow! Great job! Now you’re really a classification pro! Classification is only one of the problems you’ll have to tackle as a data scientist. Check out some other machine learning courses to learn more about supervised and unsupervised learning.</p>
@@ -2625,7 +2630,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","loop":true,"openEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":true,"descPosition":"bottom","openEffect":"zoom"});</script>
 
 
 
