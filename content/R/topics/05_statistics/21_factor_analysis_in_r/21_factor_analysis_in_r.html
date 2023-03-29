@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.269">
+<meta name="generator" content="quarto-1.2.475">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -636,24 +636,16 @@ Theory. Coming soon …
 </ol>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Load the psych package</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(psych)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>#&gt; 
-#&gt; Attache Paket: 'psych'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Die folgenden Objekte sind maskiert von 'package:ggplot2':
-#&gt; 
-#&gt;     %+%, alpha</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Data</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>gcbs <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/GCBS_data.rds"</span>)</span>
-<span id="cb4-3"><a href="#cb4-3"></a> </span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># Conduct a single-factor EFA</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">fa</span>(gcbs)</span>
-<span id="cb4-6"><a href="#cb4-6"></a></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co"># View the results</span></span>
-<span id="cb4-8"><a href="#cb4-8"></a>EFA_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(psych)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co"># Data</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>gcbs <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/GCBS_data.rds"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a> </span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># Conduct a single-factor EFA</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">fa</span>(gcbs)</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># View the results</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>EFA_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Factor Analysis using method =  minres
 #&gt; Call: fa(r = gcbs)
@@ -714,11 +706,11 @@ Theory. Coming soon …
 <li>Then, visualize the EFA results in a path diagram.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Set up the single-factor EFA</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">fa</span>(gcbs)</span>
-<span id="cb6-3"><a href="#cb6-3"></a></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co"># View the factor loadings</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a>EFA_model<span class="sc">$</span>loadings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Set up the single-factor EFA</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">fa</span>(gcbs)</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co"># View the factor loadings</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>EFA_model<span class="sc">$</span>loadings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 
 #&gt; Loadings:
@@ -743,8 +735,8 @@ Theory. Coming soon …
 #&gt; SS loadings    7.267
 #&gt; Proportion Var 0.484</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Create a path diagram of the items' factor loadings</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">fa.diagram</span>(EFA_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Create a path diagram of the items' factor loadings</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">fa.diagram</span>(EFA_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -763,6 +755,26 @@ Theory. Coming soon …
 <li>Use <code>rowSums()</code> to see the total scores for the first six respondents. These values tell you how much of the construct they possess.</li>
 </ol>
 <div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Take a look at the first few lines of the response data and their corresponding sum scores</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="fu">head</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Q1"],"name":[1],"type":["int"],"align":["right"]},{"label":["Q2"],"name":[2],"type":["int"],"align":["right"]},{"label":["Q3"],"name":[3],"type":["int"],"align":["right"]},{"label":["Q4"],"name":[4],"type":["int"],"align":["right"]},{"label":["Q5"],"name":[5],"type":["int"],"align":["right"]},{"label":["Q6"],"name":[6],"type":["int"],"align":["right"]},{"label":["Q7"],"name":[7],"type":["int"],"align":["right"]},{"label":["Q8"],"name":[8],"type":["int"],"align":["right"]},{"label":["Q9"],"name":[9],"type":["int"],"align":["right"]},{"label":["Q10"],"name":[10],"type":["int"],"align":["right"]},{"label":["Q11"],"name":[11],"type":["int"],"align":["right"]},{"label":["Q12"],"name":[12],"type":["int"],"align":["right"]},{"label":["Q13"],"name":[13],"type":["int"],"align":["right"]},{"label":["Q14"],"name":[14],"type":["int"],"align":["right"]},{"label":["Q15"],"name":[15],"type":["int"],"align":["right"]}],"data":[{"1":"5","2":"5","3":"3","4":"5","5":"5","6":"5","7":"5","8":"3","9":"4","10":"5","11":"5","12":"5","13":"3","14":"5","15":"5","_rn_":"1"},{"1":"5","2":"5","3":"5","4":"5","5":"5","6":"3","7":"5","8":"5","9":"1","10":"4","11":"4","12":"5","13":"4","14":"4","15":"5","_rn_":"2"},{"1":"2","2":"4","3":"1","4":"2","5":"2","6":"2","7":"4","8":"2","9":"2","10":"4","11":"2","12":"4","13":"0","14":"2","15":"4","_rn_":"3"},{"1":"5","2":"4","3":"1","4":"2","5":"4","6":"5","7":"4","8":"1","9":"4","10":"5","11":"5","12":"5","13":"1","14":"4","15":"5","_rn_":"4"},{"1":"5","2":"4","3":"1","4":"4","5":"4","6":"5","7":"4","8":"3","9":"1","10":"5","11":"5","12":"5","13":"3","14":"5","15":"5","_rn_":"5"},{"1":"1","2":"1","3":"1","4":"1","5":"1","6":"1","7":"1","8":"1","9":"1","10":"1","11":"1","12":"1","13":"1","14":"1","15":"1","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">rowSums</span>(<span class="fu">head</span>(gcbs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;  1  2  3  4  5  6 
+#&gt; 68 65 37 55 59 15</code></pre>
+</div>
+</div>
+<ol start="2" type="1">
+<li>Use <code>head()</code> to look at the first few lines of the response data and their sum scores. Comparing these helps illustrate the relationship between responses and factor scores.</li>
+</ol>
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Take a look at the first few lines of the response data and their corresponding sum scores</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="fu">head</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -778,28 +790,8 @@ Theory. Coming soon …
 <pre><code>#&gt;  1  2  3  4  5  6 
 #&gt; 68 65 37 55 59 15</code></pre>
 </div>
-</div>
-<ol start="2" type="1">
-<li>Use <code>head()</code> to look at the first few lines of the response data and their sum scores. Comparing these helps illustrate the relationship between responses and factor scores.</li>
-</ol>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Take a look at the first few lines of the response data and their corresponding sum scores</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">head</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Q1"],"name":[1],"type":["int"],"align":["right"]},{"label":["Q2"],"name":[2],"type":["int"],"align":["right"]},{"label":["Q3"],"name":[3],"type":["int"],"align":["right"]},{"label":["Q4"],"name":[4],"type":["int"],"align":["right"]},{"label":["Q5"],"name":[5],"type":["int"],"align":["right"]},{"label":["Q6"],"name":[6],"type":["int"],"align":["right"]},{"label":["Q7"],"name":[7],"type":["int"],"align":["right"]},{"label":["Q8"],"name":[8],"type":["int"],"align":["right"]},{"label":["Q9"],"name":[9],"type":["int"],"align":["right"]},{"label":["Q10"],"name":[10],"type":["int"],"align":["right"]},{"label":["Q11"],"name":[11],"type":["int"],"align":["right"]},{"label":["Q12"],"name":[12],"type":["int"],"align":["right"]},{"label":["Q13"],"name":[13],"type":["int"],"align":["right"]},{"label":["Q14"],"name":[14],"type":["int"],"align":["right"]},{"label":["Q15"],"name":[15],"type":["int"],"align":["right"]}],"data":[{"1":"5","2":"5","3":"3","4":"5","5":"5","6":"5","7":"5","8":"3","9":"4","10":"5","11":"5","12":"5","13":"3","14":"5","15":"5","_rn_":"1"},{"1":"5","2":"5","3":"5","4":"5","5":"5","6":"3","7":"5","8":"5","9":"1","10":"4","11":"4","12":"5","13":"4","14":"4","15":"5","_rn_":"2"},{"1":"2","2":"4","3":"1","4":"2","5":"2","6":"2","7":"4","8":"2","9":"2","10":"4","11":"2","12":"4","13":"0","14":"2","15":"4","_rn_":"3"},{"1":"5","2":"4","3":"1","4":"2","5":"4","6":"5","7":"4","8":"1","9":"4","10":"5","11":"5","12":"5","13":"1","14":"4","15":"5","_rn_":"4"},{"1":"5","2":"4","3":"1","4":"4","5":"4","6":"5","7":"4","8":"3","9":"1","10":"5","11":"5","12":"5","13":"3","14":"5","15":"5","_rn_":"5"},{"1":"1","2":"1","3":"1","4":"1","5":"1","6":"1","7":"1","8":"1","9":"1","10":"1","11":"1","12":"1","13":"1","14":"1","15":"1","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">rowSums</span>(<span class="fu">head</span>(gcbs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>#&gt;  1  2  3  4  5  6 
-#&gt; 68 65 37 55 59 15</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Then look at the first few lines of individuals' factor scores</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="fu">head</span>(EFA_model<span class="sc">$</span>scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># Then look at the first few lines of individuals' factor scores</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">head</span>(EFA_model<span class="sc">$</span>scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;             MR1
 #&gt; [1,]  1.5614675
@@ -814,8 +806,8 @@ Theory. Coming soon …
 <li>To get a feel for how the factor scores are distributed, use <code>summary()</code> to look at summary statistics.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Take a look at the first few lines of the response data and their corresponding sum scores</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">head</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="co"># Take a look at the first few lines of the response data and their corresponding sum scores</span></span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="fu">head</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -824,13 +816,13 @@ Theory. Coming soon …
   </script>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">rowSums</span>(<span class="fu">head</span>(gcbs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">rowSums</span>(<span class="fu">head</span>(gcbs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;  1  2  3  4  5  6 
 #&gt; 68 65 37 55 59 15</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="co"># Then look at the first few lines of individuals' factor scores</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="fu">head</span>(EFA_model<span class="sc">$</span>scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Then look at the first few lines of individuals' factor scores</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a><span class="fu">head</span>(EFA_model<span class="sc">$</span>scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;             MR1
 #&gt; [1,]  1.5614675
@@ -840,8 +832,8 @@ Theory. Coming soon …
 #&gt; [5,]  1.0435203
 #&gt; [6,] -1.7290812</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># To get a feel for how the factor scores are distributed, look at their summary statistics and density plot.</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">summary</span>(EFA_model<span class="sc">$</span>scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="co"># To get a feel for how the factor scores are distributed, look at their summary statistics and density plot.</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a><span class="fu">summary</span>(EFA_model<span class="sc">$</span>scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;       MR1           
 #&gt;  Min.   :-1.854703  
@@ -856,8 +848,8 @@ Theory. Coming soon …
 <li>Use <code>plot()</code> and <code>density()</code> to create a density plot of the estimated factor scores for a visual representation. Density plots show the distribution of data over a continuous interval and can give you a sense of what your data look like.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Take a look at the first few lines of the response data and their corresponding sum scores</span></span>
-<span id="cb24-2"><a href="#cb24-2"></a><span class="fu">head</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Take a look at the first few lines of the response data and their corresponding sum scores</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a><span class="fu">head</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -866,13 +858,13 @@ Theory. Coming soon …
   </script>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">rowSums</span>(<span class="fu">head</span>(gcbs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">rowSums</span>(<span class="fu">head</span>(gcbs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;  1  2  3  4  5  6 
 #&gt; 68 65 37 55 59 15</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Then look at the first few lines of individuals' factor scores</span></span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="fu">head</span>(EFA_model<span class="sc">$</span>scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Then look at the first few lines of individuals' factor scores</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="fu">head</span>(EFA_model<span class="sc">$</span>scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;             MR1
 #&gt; [1,]  1.5614675
@@ -882,8 +874,8 @@ Theory. Coming soon …
 #&gt; [5,]  1.0435203
 #&gt; [6,] -1.7290812</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># To get a feel for how the factor scores are distributed, look at their summary statistics and density plot.</span></span>
-<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">summary</span>(EFA_model<span class="sc">$</span>scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># To get a feel for how the factor scores are distributed, look at their summary statistics and density plot.</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="fu">summary</span>(EFA_model<span class="sc">$</span>scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;       MR1           
 #&gt;  Min.   :-1.854703  
@@ -893,8 +885,8 @@ Theory. Coming soon …
 #&gt;  3rd Qu.: 0.728568  
 #&gt;  Max.   : 1.949580</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(EFA_model<span class="sc">$</span>scores, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb31-2"><a href="#cb31-2"></a>     <span class="at">main =</span> <span class="st">"Factor Scores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(EFA_model<span class="sc">$</span>scores, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb28-2"><a href="#cb28-2"></a>     <span class="at">main =</span> <span class="st">"Factor Scores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -940,8 +932,8 @@ Theory. Coming soon …
 <li>Check out the basic descriptive statistics provided by the <code>describe()</code> function.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Basic descriptive statistics</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a><span class="fu">describe</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Basic descriptive statistics</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="fu">describe</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -955,8 +947,8 @@ Theory. Coming soon …
 <li>Create a <strong>dot</strong> chart of the mean scores and confidence intervals for each variable in the dataset.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Graphical representation of error</span></span>
-<span id="cb33-2"><a href="#cb33-2"></a><span class="fu">error.dots</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># Graphical representation of error</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a><span class="fu">error.dots</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -969,8 +961,8 @@ Theory. Coming soon …
 <li>Create a <strong>bar</strong> chart of the mean scores and confidence intervals for each variable in the dataset.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Graphical representation of error</span></span>
-<span id="cb34-2"><a href="#cb34-2"></a><span class="fu">error.bars</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Graphical representation of error</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a><span class="fu">error.bars</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -990,15 +982,15 @@ Theory. Coming soon …
 <li>Use the first set of indices to create a dataset for your EFA, then use the second set for your CFA dataset.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Establish two sets of indices to split the dataset</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a>N <span class="ot">&lt;-</span> <span class="fu">nrow</span>(gcbs)</span>
-<span id="cb35-3"><a href="#cb35-3"></a>indices <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, N)</span>
-<span id="cb35-4"><a href="#cb35-4"></a>indices_EFA <span class="ot">&lt;-</span> <span class="fu">sample</span>(indices, <span class="fu">floor</span>((.<span class="dv">5</span><span class="sc">*</span>N)))</span>
-<span id="cb35-5"><a href="#cb35-5"></a>indices_CFA <span class="ot">&lt;-</span> indices[<span class="sc">!</span>(indices <span class="sc">%in%</span> indices_EFA)]</span>
-<span id="cb35-6"><a href="#cb35-6"></a></span>
-<span id="cb35-7"><a href="#cb35-7"></a><span class="co"># Use those indices to split the dataset into halves for your EFA and CFA</span></span>
-<span id="cb35-8"><a href="#cb35-8"></a>gcbs_EFA <span class="ot">&lt;-</span> gcbs[indices_EFA, ]</span>
-<span id="cb35-9"><a href="#cb35-9"></a>gcbs_CFA <span class="ot">&lt;-</span> gcbs[indices_CFA, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Establish two sets of indices to split the dataset</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>N <span class="ot">&lt;-</span> <span class="fu">nrow</span>(gcbs)</span>
+<span id="cb32-3"><a href="#cb32-3"></a>indices <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, N)</span>
+<span id="cb32-4"><a href="#cb32-4"></a>indices_EFA <span class="ot">&lt;-</span> <span class="fu">sample</span>(indices, <span class="fu">floor</span>((.<span class="dv">5</span><span class="sc">*</span>N)))</span>
+<span id="cb32-5"><a href="#cb32-5"></a>indices_CFA <span class="ot">&lt;-</span> indices[<span class="sc">!</span>(indices <span class="sc">%in%</span> indices_EFA)]</span>
+<span id="cb32-6"><a href="#cb32-6"></a></span>
+<span id="cb32-7"><a href="#cb32-7"></a><span class="co"># Use those indices to split the dataset into halves for your EFA and CFA</span></span>
+<span id="cb32-8"><a href="#cb32-8"></a>gcbs_EFA <span class="ot">&lt;-</span> gcbs[indices_EFA, ]</span>
+<span id="cb32-9"><a href="#cb32-9"></a>gcbs_CFA <span class="ot">&lt;-</span> gcbs[indices_CFA, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nice job splitting the dataset! Splitting your dataset is useful for creating train/test datasets for machine learning as well as for testing many other types of models.</p>
 </section>
@@ -1012,57 +1004,57 @@ Theory. Coming soon …
 <li>To better understand the halves, first create a dichotomous grouping variable from the indices you created in the last exercise (<code>indices_EFA</code> and <code>indices_CFA</code>).</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Use the indices from the previous exercise to create a grouping variable</span></span>
-<span id="cb36-2"><a href="#cb36-2"></a>group_var <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"numeric"</span>, <span class="fu">nrow</span>(gcbs))</span>
-<span id="cb36-3"><a href="#cb36-3"></a>group_var[indices_EFA] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb36-4"><a href="#cb36-4"></a>group_var[indices_CFA] <span class="ot">&lt;-</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Use the indices from the previous exercise to create a grouping variable</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>group_var <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"numeric"</span>, <span class="fu">nrow</span>(gcbs))</span>
+<span id="cb33-3"><a href="#cb33-3"></a>group_var[indices_EFA] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a>group_var[indices_CFA] <span class="ot">&lt;-</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Bind that variable onto the dataset.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Use the indices from the previous exercise to create a grouping variable</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a>group_var <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"numeric"</span>, <span class="fu">nrow</span>(gcbs))</span>
-<span id="cb37-3"><a href="#cb37-3"></a>group_var[indices_EFA] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb37-4"><a href="#cb37-4"></a>group_var[indices_CFA] <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb37-5"><a href="#cb37-5"></a></span>
-<span id="cb37-6"><a href="#cb37-6"></a><span class="co"># Bind that grouping variable onto the gcbs dataset</span></span>
-<span id="cb37-7"><a href="#cb37-7"></a>gcbs_grouped <span class="ot">&lt;-</span> <span class="fu">cbind</span>(gcbs, group_var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Use the indices from the previous exercise to create a grouping variable</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>group_var <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"numeric"</span>, <span class="fu">nrow</span>(gcbs))</span>
+<span id="cb34-3"><a href="#cb34-3"></a>group_var[indices_EFA] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb34-4"><a href="#cb34-4"></a>group_var[indices_CFA] <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb34-5"><a href="#cb34-5"></a></span>
+<span id="cb34-6"><a href="#cb34-6"></a><span class="co"># Bind that grouping variable onto the gcbs dataset</span></span>
+<span id="cb34-7"><a href="#cb34-7"></a>gcbs_grouped <span class="ot">&lt;-</span> <span class="fu">cbind</span>(gcbs, group_var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Use <code>describeBy()</code> and <code>statsBy()</code> to compare stats across groups.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># Use the indices from the previous exercise to create a grouping variable</span></span>
-<span id="cb38-2"><a href="#cb38-2"></a>group_var <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"numeric"</span>, <span class="fu">nrow</span>(gcbs))</span>
-<span id="cb38-3"><a href="#cb38-3"></a>group_var[indices_EFA] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb38-4"><a href="#cb38-4"></a>group_var[indices_CFA] <span class="ot">&lt;-</span> <span class="dv">2</span></span>
-<span id="cb38-5"><a href="#cb38-5"></a></span>
-<span id="cb38-6"><a href="#cb38-6"></a><span class="co"># Bind that grouping variable onto the gcbs dataset</span></span>
-<span id="cb38-7"><a href="#cb38-7"></a>gcbs_grouped <span class="ot">&lt;-</span> <span class="fu">cbind</span>(gcbs, group_var)</span>
-<span id="cb38-8"><a href="#cb38-8"></a></span>
-<span id="cb38-9"><a href="#cb38-9"></a><span class="co"># Compare stats across groups</span></span>
-<span id="cb38-10"><a href="#cb38-10"></a><span class="fu">describeBy</span>(gcbs_grouped, <span class="at">group =</span> group_var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Use the indices from the previous exercise to create a grouping variable</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a>group_var <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"numeric"</span>, <span class="fu">nrow</span>(gcbs))</span>
+<span id="cb35-3"><a href="#cb35-3"></a>group_var[indices_EFA] <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb35-4"><a href="#cb35-4"></a>group_var[indices_CFA] <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb35-5"><a href="#cb35-5"></a></span>
+<span id="cb35-6"><a href="#cb35-6"></a><span class="co"># Bind that grouping variable onto the gcbs dataset</span></span>
+<span id="cb35-7"><a href="#cb35-7"></a>gcbs_grouped <span class="ot">&lt;-</span> <span class="fu">cbind</span>(gcbs, group_var)</span>
+<span id="cb35-8"><a href="#cb35-8"></a></span>
+<span id="cb35-9"><a href="#cb35-9"></a><span class="co"># Compare stats across groups</span></span>
+<span id="cb35-10"><a href="#cb35-10"></a><span class="fu">describeBy</span>(gcbs_grouped, <span class="at">group =</span> group_var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 
 #&gt;  Descriptive statistics by group 
 #&gt; group: 1
 #&gt;           vars    n mean   sd median trimmed  mad min max range  skew kurtosis
-#&gt; Q1           1 1247 3.46 1.46      4    3.58 1.48   0   5     5 -0.56    -1.10
-#&gt; Q2           2 1247 2.97 1.48      3    2.96 1.48   0   5     5 -0.02    -1.40
-#&gt; Q3           3 1247 2.06 1.39      1    1.84 0.00   0   5     5  0.95    -0.50
-#&gt; Q4           4 1247 2.62 1.45      2    2.53 1.48   0   5     5  0.29    -1.32
-#&gt; Q5           5 1247 3.25 1.48      4    3.32 1.48   0   5     5 -0.34    -1.27
-#&gt; Q6           6 1247 3.11 1.49      3    3.14 1.48   0   5     5 -0.16    -1.40
-#&gt; Q7           7 1247 2.68 1.51      2    2.60 1.48   0   5     5  0.27    -1.41
-#&gt; Q8           8 1247 2.48 1.58      2    2.35 1.48   0   5     5  0.50    -1.32
-#&gt; Q9           9 1247 2.20 1.40      2    2.01 1.48   0   5     5  0.78    -0.75
-#&gt; Q10         10 1247 3.51 1.39      4    3.63 1.48   1   5     4 -0.59    -0.94
-#&gt; Q11         11 1247 3.25 1.41      3    3.32 1.48   0   5     5 -0.34    -1.11
-#&gt; Q12         12 1247 2.63 1.50      2    2.55 1.48   0   5     5  0.29    -1.35
-#&gt; Q13         13 1247 2.13 1.39      1    1.92 1.48   0   5     5  0.86    -0.61
-#&gt; Q14         14 1247 2.96 1.49      3    2.95 1.48   0   5     5 -0.03    -1.43
-#&gt; Q15         15 1247 4.22 1.10      5    4.46 0.00   0   5     5 -1.53     1.61
+#&gt; Q1           1 1247 3.47 1.46      4    3.59 1.48   0   5     5 -0.55    -1.11
+#&gt; Q2           2 1247 2.91 1.50      3    2.90 1.48   0   5     5  0.04    -1.40
+#&gt; Q3           3 1247 2.05 1.38      1    1.82 0.00   0   5     5  0.97    -0.43
+#&gt; Q4           4 1247 2.66 1.44      2    2.58 1.48   0   5     5  0.25    -1.33
+#&gt; Q5           5 1247 3.25 1.46      4    3.32 1.48   0   5     5 -0.35    -1.26
+#&gt; Q6           6 1247 3.11 1.52      3    3.14 1.48   0   5     5 -0.16    -1.44
+#&gt; Q7           7 1247 2.65 1.52      2    2.57 1.48   0   5     5  0.29    -1.40
+#&gt; Q8           8 1247 2.47 1.57      2    2.35 1.48   0   5     5  0.49    -1.31
+#&gt; Q9           9 1247 2.25 1.42      2    2.07 1.48   0   5     5  0.72    -0.88
+#&gt; Q10         10 1247 3.50 1.40      4    3.63 1.48   1   5     4 -0.61    -0.94
+#&gt; Q11         11 1247 3.23 1.42      3    3.29 1.48   0   5     5 -0.31    -1.17
+#&gt; Q12         12 1247 2.63 1.50      2    2.54 1.48   0   5     5  0.31    -1.35
+#&gt; Q13         13 1247 2.13 1.38      2    1.92 1.48   0   5     5  0.88    -0.59
+#&gt; Q14         14 1247 2.98 1.49      3    2.98 1.48   0   5     5 -0.04    -1.43
+#&gt; Q15         15 1247 4.22 1.13      5    4.47 0.00   0   5     5 -1.59     1.73
 #&gt; group_var   16 1247 1.00 0.00      1    1.00 0.00   1   1     0   NaN      NaN
 #&gt;             se
 #&gt; Q1        0.04
@@ -1084,21 +1076,21 @@ Theory. Coming soon …
 #&gt; ------------------------------------------------------------ 
 #&gt; group: 2
 #&gt;           vars    n mean   sd median trimmed  mad min max range  skew kurtosis
-#&gt; Q1           1 1248 3.48 1.46      4    3.60 1.48   0   5     5 -0.54    -1.11
-#&gt; Q2           2 1248 2.96 1.51      3    2.96 1.48   0   5     5  0.01    -1.41
-#&gt; Q3           3 1248 2.04 1.39      1    1.80 0.00   0   5     5  1.01    -0.40
-#&gt; Q4           4 1248 2.65 1.45      2    2.57 1.48   0   5     5  0.23    -1.35
-#&gt; Q5           5 1248 3.26 1.47      4    3.33 1.48   0   5     5 -0.35    -1.27
-#&gt; Q6           6 1248 3.11 1.52      3    3.14 1.48   0   5     5 -0.17    -1.44
-#&gt; Q7           7 1248 2.66 1.51      2    2.58 1.48   0   5     5  0.30    -1.38
-#&gt; Q8           8 1248 2.42 1.56      2    2.29 1.48   0   5     5  0.53    -1.27
-#&gt; Q9           9 1248 2.26 1.43      2    2.08 1.48   0   5     5  0.73    -0.89
-#&gt; Q10         10 1248 3.50 1.39      4    3.62 1.48   1   5     4 -0.58    -0.95
-#&gt; Q11         11 1248 3.28 1.39      4    3.36 1.48   0   5     5 -0.36    -1.12
-#&gt; Q12         12 1248 2.66 1.51      2    2.58 1.48   0   5     5  0.28    -1.38
-#&gt; Q13         13 1248 2.08 1.37      1    1.87 0.00   0   5     5  0.91    -0.52
-#&gt; Q14         14 1248 2.95 1.49      3    2.94 1.48   0   5     5  0.00    -1.43
-#&gt; Q15         15 1248 4.24 1.11      5    4.48 0.00   1   5     4 -1.60     1.80
+#&gt; Q1           1 1248 3.47 1.45      4    3.59 1.48   1   5     4 -0.55    -1.10
+#&gt; Q2           2 1248 3.01 1.49      3    3.02 1.48   0   5     5 -0.05    -1.40
+#&gt; Q3           3 1248 2.05 1.39      1    1.81 0.00   0   5     5  0.99    -0.46
+#&gt; Q4           4 1248 2.61 1.46      2    2.52 1.48   0   5     5  0.28    -1.35
+#&gt; Q5           5 1248 3.26 1.48      4    3.33 1.48   0   5     5 -0.34    -1.28
+#&gt; Q6           6 1248 3.11 1.50      3    3.14 1.48   0   5     5 -0.17    -1.40
+#&gt; Q7           7 1248 2.68 1.50      2    2.61 1.48   0   5     5  0.28    -1.38
+#&gt; Q8           8 1248 2.43 1.57      2    2.29 1.48   0   5     5  0.54    -1.29
+#&gt; Q9           9 1248 2.21 1.42      2    2.02 1.48   0   5     5  0.79    -0.76
+#&gt; Q10         10 1248 3.50 1.38      4    3.62 1.48   1   5     4 -0.56    -0.96
+#&gt; Q11         11 1248 3.30 1.38      4    3.38 1.48   0   5     5 -0.39    -1.05
+#&gt; Q12         12 1248 2.66 1.51      2    2.58 1.48   0   5     5  0.27    -1.38
+#&gt; Q13         13 1248 2.08 1.39      1    1.87 0.00   0   5     5  0.90    -0.54
+#&gt; Q14         14 1248 2.93 1.49      3    2.91 1.48   0   5     5  0.01    -1.43
+#&gt; Q15         15 1248 4.23 1.08      5    4.46 0.00   1   5     4 -1.53     1.65
 #&gt; group_var   16 1248 2.00 0.00      2    2.00 0.00   2   2     0   NaN      NaN
 #&gt;             se
 #&gt; Q1        0.04
@@ -1118,7 +1110,7 @@ Theory. Coming soon …
 #&gt; Q15       0.03
 #&gt; group_var 0.00</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">statsBy</span>(gcbs_grouped, <span class="at">group =</span> <span class="st">"group_var"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">statsBy</span>(gcbs_grouped, <span class="at">group =</span> <span class="st">"group_var"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Statistics within and between groups  
 #&gt; Call: statsBy(data = gcbs_grouped, group = "group_var")
@@ -1129,9 +1121,9 @@ Theory. Coming soon …
 #&gt;         0         0         0         0         0         0         0         1 
 #&gt; Intraclass Correlation 2 (Reliability of group differences) 
 #&gt;        Q1        Q2        Q3        Q4        Q5        Q6        Q7        Q8 
-#&gt;     -9.42   -113.99     -4.69     -3.45    -16.17   -235.82    -10.08     -0.48 
+#&gt; -19006.70      0.64   -516.40     -0.15    -55.93   -585.34     -3.08     -0.93 
 #&gt;        Q9       Q10       Q11       Q12       Q13       Q14       Q15 group_var 
-#&gt;      0.05    -35.38     -1.56     -5.13     -0.57    -20.74     -6.79      1.00 
+#&gt;     -1.07   -391.45      0.33     -3.28     -0.20     -0.13    -20.97      1.00 
 #&gt; eta^2 between groups  
 #&gt;  Q1.bg  Q2.bg  Q3.bg  Q4.bg  Q5.bg  Q6.bg  Q7.bg  Q8.bg  Q9.bg Q10.bg Q11.bg 
 #&gt;      0      0      0      0      0      0      0      0      0      0      0 
@@ -1176,8 +1168,8 @@ Theory. Coming soon …
 <li>View the lower triangle of the correlation matrix.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="co"># Take a look at some correlation data</span></span>
-<span id="cb42-2"><a href="#cb42-2"></a><span class="fu">lowerCor</span>(gcbs, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Take a look at some correlation data</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a><span class="fu">lowerCor</span>(gcbs, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;     Q1   Q2   Q3   Q4   Q5   Q6   Q7   Q8   Q9   Q10  Q11 
 #&gt; Q1  1.00                                                  
@@ -1206,8 +1198,8 @@ Theory. Coming soon …
 <li>Check out the p-values created when calculating correlations. Significant values mean items are meaningfully correlated.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Take a look at some correlation data</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">corr.test</span>(gcbs, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)<span class="sc">$</span>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Take a look at some correlation data</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="fu">corr.test</span>(gcbs, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)<span class="sc">$</span>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;                Q1            Q2            Q3            Q4            Q5
 #&gt; Q1   0.000000e+00 1.038105e-175  2.525793e-74 1.746323e-174 5.801103e-143
@@ -1263,8 +1255,8 @@ Theory. Coming soon …
 <li>View the confidence intervals created when calculating correlations.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Take a look at some correlation data</span></span>
-<span id="cb46-2"><a href="#cb46-2"></a><span class="fu">corr.test</span>(gcbs, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)<span class="sc">$</span>ci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Take a look at some correlation data</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="fu">corr.test</span>(gcbs, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)<span class="sc">$</span>ci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -1286,8 +1278,8 @@ Theory. Coming soon …
 <li>Use <code>alpha()</code> to get estimates of coefficient alpha and inspect the results. Be sure to check out the information about how reliability would change if items were dropped.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Estimate coefficient alpha</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a><span class="fu">alpha</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># Estimate coefficient alpha</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">alpha</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 
 #&gt; Reliability analysis   
@@ -1360,8 +1352,8 @@ Theory. Coming soon …
 <li>Use <code>splitHalf()</code> to estimate split-half reliability.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># Estimate coefficient alpha</span></span>
-<span id="cb49-2"><a href="#cb49-2"></a><span class="fu">alpha</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="co"># Estimate coefficient alpha</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="fu">alpha</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 
 #&gt; Reliability analysis   
@@ -1429,8 +1421,8 @@ Theory. Coming soon …
 #&gt; Q14 0.00 0.25 0.17 0.15 0.22 0.20    0
 #&gt; Q15 0.00 0.05 0.05 0.08 0.27 0.55    0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Calculate split-half reliability</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a><span class="fu">splitHalf</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="co"># Calculate split-half reliability</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a><span class="fu">splitHalf</span>(gcbs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Split half reliabilities  
 #&gt; Call: splitHalf(r = gcbs)
@@ -1504,18 +1496,18 @@ Theory. Coming soon …
 <li>Use the first set of indices to create a dataset for your EFA, then use the second set for your CFA dataset.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># Establish two sets of indices to split the dataset</span></span>
-<span id="cb53-2"><a href="#cb53-2"></a><span class="fu">data</span>(<span class="st">"bfi"</span>)</span>
-<span id="cb53-3"><a href="#cb53-3"></a>bfi <span class="ot">&lt;-</span> bfi <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(gender, education, age))</span>
-<span id="cb53-4"><a href="#cb53-4"></a></span>
-<span id="cb53-5"><a href="#cb53-5"></a>N <span class="ot">&lt;-</span> <span class="fu">nrow</span>(bfi)</span>
-<span id="cb53-6"><a href="#cb53-6"></a>indices <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, N)</span>
-<span id="cb53-7"><a href="#cb53-7"></a>indices_EFA <span class="ot">&lt;-</span> <span class="fu">sample</span>(indices, <span class="fu">floor</span>((.<span class="dv">5</span><span class="sc">*</span>N)))</span>
-<span id="cb53-8"><a href="#cb53-8"></a>indices_CFA <span class="ot">&lt;-</span> indices[<span class="sc">!</span>(indices <span class="sc">%in%</span> indices_EFA)]</span>
-<span id="cb53-9"><a href="#cb53-9"></a></span>
-<span id="cb53-10"><a href="#cb53-10"></a><span class="co"># Use those indices to split the dataset into halves for your EFA and CFA</span></span>
-<span id="cb53-11"><a href="#cb53-11"></a>bfi_EFA <span class="ot">&lt;-</span> bfi[indices_EFA, ]</span>
-<span id="cb53-12"><a href="#cb53-12"></a>bfi_CFA <span class="ot">&lt;-</span> bfi[indices_CFA, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Establish two sets of indices to split the dataset</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a><span class="fu">data</span>(<span class="st">"bfi"</span>)</span>
+<span id="cb50-3"><a href="#cb50-3"></a>bfi <span class="ot">&lt;-</span> bfi <span class="sc">|&gt;</span> dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span><span class="fu">c</span>(gender, education, age))</span>
+<span id="cb50-4"><a href="#cb50-4"></a></span>
+<span id="cb50-5"><a href="#cb50-5"></a>N <span class="ot">&lt;-</span> <span class="fu">nrow</span>(bfi)</span>
+<span id="cb50-6"><a href="#cb50-6"></a>indices <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">1</span>, N)</span>
+<span id="cb50-7"><a href="#cb50-7"></a>indices_EFA <span class="ot">&lt;-</span> <span class="fu">sample</span>(indices, <span class="fu">floor</span>((.<span class="dv">5</span><span class="sc">*</span>N)))</span>
+<span id="cb50-8"><a href="#cb50-8"></a>indices_CFA <span class="ot">&lt;-</span> indices[<span class="sc">!</span>(indices <span class="sc">%in%</span> indices_EFA)]</span>
+<span id="cb50-9"><a href="#cb50-9"></a></span>
+<span id="cb50-10"><a href="#cb50-10"></a><span class="co"># Use those indices to split the dataset into halves for your EFA and CFA</span></span>
+<span id="cb50-11"><a href="#cb50-11"></a>bfi_EFA <span class="ot">&lt;-</span> bfi[indices_EFA, ]</span>
+<span id="cb50-12"><a href="#cb50-12"></a>bfi_CFA <span class="ot">&lt;-</span> bfi[indices_CFA, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nice job remembering how to split your dataset! This is important for ensuring you have different data for your exploratory and confirmatory analyses.</p>
 </section>
@@ -1530,19 +1522,19 @@ Theory. Coming soon …
 <li>The eigenvalues are stored in the <code>values</code> element of the <code>eigenvals</code> list object. Take a look!</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># Calculate the correlation matrix first</span></span>
-<span id="cb54-2"><a href="#cb54-2"></a>bfi_EFA_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(bfi_EFA, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span>
-<span id="cb54-3"><a href="#cb54-3"></a></span>
-<span id="cb54-4"><a href="#cb54-4"></a><span class="co"># Then use that correlation matrix to calculate eigenvalues</span></span>
-<span id="cb54-5"><a href="#cb54-5"></a>eigenvals <span class="ot">&lt;-</span> <span class="fu">eigen</span>(bfi_EFA_cor)</span>
-<span id="cb54-6"><a href="#cb54-6"></a></span>
-<span id="cb54-7"><a href="#cb54-7"></a><span class="co"># Look at the eigenvalues returned</span></span>
-<span id="cb54-8"><a href="#cb54-8"></a>eigenvals<span class="sc">$</span>values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Calculate the correlation matrix first</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a>bfi_EFA_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(bfi_EFA, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span>
+<span id="cb51-3"><a href="#cb51-3"></a></span>
+<span id="cb51-4"><a href="#cb51-4"></a><span class="co"># Then use that correlation matrix to calculate eigenvalues</span></span>
+<span id="cb51-5"><a href="#cb51-5"></a>eigenvals <span class="ot">&lt;-</span> <span class="fu">eigen</span>(bfi_EFA_cor)</span>
+<span id="cb51-6"><a href="#cb51-6"></a></span>
+<span id="cb51-7"><a href="#cb51-7"></a><span class="co"># Look at the eigenvalues returned</span></span>
+<span id="cb51-8"><a href="#cb51-8"></a>eigenvals<span class="sc">$</span>values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;  [1] 4.9401152 2.8597094 2.0806298 1.7966100 1.5187438 1.1034479 0.8538986
-#&gt;  [8] 0.8150058 0.7601414 0.7415012 0.7145946 0.6654045 0.6198026 0.5776843
-#&gt; [15] 0.5642760 0.5421671 0.5214184 0.4931004 0.4822946 0.4610934 0.4550523
-#&gt; [22] 0.4115192 0.3892265 0.3662024 0.2663606</code></pre>
+<pre><code>#&gt;  [1] 5.1486238 2.6355023 2.1413056 1.8671895 1.5101598 1.0883551 0.8906895
+#&gt;  [8] 0.7949836 0.7260365 0.6994483 0.6927846 0.6597426 0.6276151 0.5960250
+#&gt; [15] 0.5590994 0.5470786 0.5147909 0.5108888 0.4743013 0.4473944 0.4227057
+#&gt; [22] 0.4169246 0.3952026 0.3692910 0.2638614</code></pre>
 </div>
 </div>
 <p>Great work! Now you know how to use the correlation matrix to calculate eigenvalues from a dataset.</p>
@@ -1556,11 +1548,11 @@ Theory. Coming soon …
 <li>Next, use that correlation matrix function to create a scree plot.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># Calculate the correlation matrix first</span></span>
-<span id="cb56-2"><a href="#cb56-2"></a>bfi_EFA_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(bfi_EFA, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span>
-<span id="cb56-3"><a href="#cb56-3"></a></span>
-<span id="cb56-4"><a href="#cb56-4"></a><span class="co"># Then use that correlation matrix to create the scree plot</span></span>
-<span id="cb56-5"><a href="#cb56-5"></a><span class="fu">scree</span>(bfi_EFA_cor, <span class="at">factors =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># Calculate the correlation matrix first</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a>bfi_EFA_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(bfi_EFA, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span>
+<span id="cb53-3"><a href="#cb53-3"></a></span>
+<span id="cb53-4"><a href="#cb53-4"></a><span class="co"># Then use that correlation matrix to create the scree plot</span></span>
+<span id="cb53-5"><a href="#cb53-5"></a><span class="fu">scree</span>(bfi_EFA_cor, <span class="at">factors =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1575,11 +1567,11 @@ Theory. Coming soon …
 <h2 data-number="2.5" class="anchored" data-anchor-id="interpreting-the-scree-plot"><span class="header-section-number">2.5</span> Interpreting the scree plot</h2>
 <p>A commonly used criterion for selecting the optimal number of factors is to only consider factors with eigenvalues greater than 1. <code>scree()</code> includes a solid horizontal line at 1 on the y-axis to help you quickly interpret your results. Run the code below to recreate the scree plot from the <code>bfi_EFA</code> data you created in the previous exercise. Based on the results, how many factors are recommended?</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># Calculate the correlation matrix</span></span>
-<span id="cb57-2"><a href="#cb57-2"></a>bfi_EFA_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(bfi_EFA, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span>
-<span id="cb57-3"><a href="#cb57-3"></a></span>
-<span id="cb57-4"><a href="#cb57-4"></a><span class="co"># Use the correlation matrix to create the scree plot</span></span>
-<span id="cb57-5"><a href="#cb57-5"></a><span class="fu">scree</span>(bfi_EFA_cor, <span class="at">factors =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># Calculate the correlation matrix</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a>bfi_EFA_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(bfi_EFA, <span class="at">use =</span> <span class="st">"pairwise.complete.obs"</span>)</span>
+<span id="cb54-3"><a href="#cb54-3"></a></span>
+<span id="cb54-4"><a href="#cb54-4"></a><span class="co"># Use the correlation matrix to create the scree plot</span></span>
+<span id="cb54-5"><a href="#cb54-5"></a><span class="fu">scree</span>(bfi_EFA_cor, <span class="at">factors =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1629,81 +1621,81 @@ Theory. Coming soon …
 <li>View your model object in the console.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># Run the EFA with six factors (as indicated by your scree plot)</span></span>
-<span id="cb58-2"><a href="#cb58-2"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">fa</span>(bfi_EFA, <span class="at">nfactors =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># Run the EFA with six factors (as indicated by your scree plot)</span></span>
+<span id="cb55-2"><a href="#cb55-2"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">fa</span>(bfi_EFA, <span class="at">nfactors =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Lade nötigen Namensraum: GPArotation</code></pre>
+<pre><code>#&gt; Loading required namespace: GPArotation</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># View results from the model object</span></span>
-<span id="cb60-2"><a href="#cb60-2"></a>EFA_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># View results from the model object</span></span>
+<span id="cb57-2"><a href="#cb57-2"></a>EFA_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Factor Analysis using method =  minres
 #&gt; Call: fa(r = bfi_EFA, nfactors = 6)
 #&gt; Standardized loadings (pattern matrix) based upon correlation matrix
 #&gt;      MR2   MR1   MR3   MR5   MR4   MR6   h2   u2 com
-#&gt; A1  0.10 -0.08  0.10 -0.53  0.05  0.32 0.33 0.67 1.9
-#&gt; A2  0.04 -0.03  0.06  0.71  0.02 -0.07 0.53 0.47 1.1
-#&gt; A3 -0.03 -0.13  0.02  0.60  0.05  0.14 0.50 0.50 1.2
-#&gt; A4 -0.05 -0.05  0.18  0.40 -0.14  0.13 0.26 0.74 2.0
-#&gt; A5 -0.18 -0.16  0.02  0.44  0.13  0.19 0.44 0.56 2.3
-#&gt; C1  0.03  0.04  0.59 -0.06  0.16  0.06 0.38 0.62 1.2
-#&gt; C2  0.09  0.14  0.65  0.03  0.08  0.16 0.45 0.55 1.3
-#&gt; C3  0.01  0.07  0.57  0.09 -0.05  0.05 0.33 0.67 1.1
-#&gt; C4  0.08  0.12 -0.60 -0.06  0.05  0.29 0.53 0.47 1.6
-#&gt; C5  0.16  0.18 -0.52  0.02  0.09  0.08 0.40 0.60 1.6
-#&gt; E1 -0.14  0.62  0.09 -0.12 -0.07  0.07 0.41 0.59 1.3
-#&gt; E2  0.06  0.69 -0.03 -0.06 -0.07  0.02 0.56 0.44 1.1
-#&gt; E3 -0.01 -0.31 -0.03  0.15  0.40  0.27 0.48 0.52 3.1
-#&gt; E4 -0.05 -0.54  0.07  0.18  0.01  0.31 0.57 0.43 1.9
-#&gt; E5  0.14 -0.36  0.28  0.08  0.23 -0.01 0.38 0.62 3.1
-#&gt; N1  0.86 -0.11  0.00 -0.07 -0.05 -0.04 0.70 0.30 1.1
-#&gt; N2  0.82 -0.05  0.03 -0.04  0.01 -0.05 0.65 0.35 1.0
-#&gt; N3  0.68  0.14 -0.02  0.05  0.05  0.09 0.56 0.44 1.1
-#&gt; N4  0.47  0.39 -0.12  0.10  0.07  0.09 0.51 0.49 2.3
-#&gt; N5  0.45  0.21  0.02  0.17 -0.12  0.14 0.34 0.66 2.1
-#&gt; O1 -0.05 -0.04  0.06 -0.02  0.54  0.04 0.32 0.68 1.1
-#&gt; O2  0.11 -0.05 -0.08  0.05 -0.37  0.33 0.28 0.72 2.4
-#&gt; O3 -0.01 -0.08  0.04  0.01  0.65  0.01 0.47 0.53 1.0
-#&gt; O4  0.12  0.32 -0.02  0.13  0.36  0.02 0.24 0.76 2.5
-#&gt; O5  0.02 -0.06 -0.02 -0.04 -0.47  0.38 0.36 0.64 2.0
+#&gt; A1  0.06 -0.13  0.06 -0.57  0.10  0.22 0.31 0.69 1.6
+#&gt; A2  0.02 -0.04  0.08  0.69 -0.02 -0.02 0.52 0.48 1.0
+#&gt; A3 -0.02 -0.12  0.03  0.66  0.05  0.05 0.55 0.45 1.1
+#&gt; A4 -0.05 -0.11  0.21  0.36 -0.09  0.15 0.28 0.72 2.4
+#&gt; A5 -0.17 -0.19 -0.01  0.47  0.14  0.17 0.48 0.52 2.2
+#&gt; C1  0.02  0.03  0.51 -0.03  0.19  0.02 0.31 0.69 1.3
+#&gt; C2  0.06  0.12  0.68  0.00  0.16  0.19 0.52 0.48 1.4
+#&gt; C3  0.01  0.05  0.57  0.06 -0.04  0.06 0.33 0.67 1.1
+#&gt; C4  0.06  0.03 -0.66 -0.07  0.12  0.27 0.56 0.44 1.5
+#&gt; C5  0.14  0.20 -0.54 -0.01  0.11  0.06 0.44 0.56 1.6
+#&gt; E1 -0.11  0.55  0.11 -0.15 -0.09  0.10 0.37 0.63 1.4
+#&gt; E2  0.04  0.66 -0.01 -0.11 -0.07  0.05 0.54 0.46 1.1
+#&gt; E3 -0.02 -0.33 -0.01  0.17  0.41  0.13 0.46 0.54 2.5
+#&gt; E4 -0.05 -0.56  0.04  0.20  0.08  0.27 0.58 0.42 1.8
+#&gt; E5  0.14 -0.41  0.26  0.06  0.26  0.00 0.41 0.59 2.8
+#&gt; N1  0.84 -0.11 -0.01 -0.09 -0.04  0.00 0.70 0.30 1.1
+#&gt; N2  0.84 -0.04  0.02 -0.01 -0.03 -0.07 0.66 0.34 1.0
+#&gt; N3  0.64  0.17 -0.03  0.08  0.06  0.09 0.51 0.49 1.2
+#&gt; N4  0.42  0.41 -0.11  0.06  0.11  0.07 0.47 0.53 2.4
+#&gt; N5  0.40  0.23 -0.04  0.15 -0.06  0.22 0.34 0.66 2.7
+#&gt; O1 -0.05 -0.07  0.07 -0.10  0.60 -0.01 0.38 0.62 1.1
+#&gt; O2  0.10  0.00 -0.06  0.08 -0.28  0.41 0.28 0.72 2.1
+#&gt; O3 -0.05 -0.06  0.01  0.07  0.63 -0.11 0.47 0.53 1.1
+#&gt; O4  0.08  0.38 -0.01  0.17  0.37 -0.09 0.27 0.73 2.6
+#&gt; O5 -0.02 -0.05 -0.02 -0.05 -0.35  0.49 0.37 0.63 1.9
 #&gt; 
 #&gt;                        MR2  MR1  MR3  MR5  MR4  MR6
-#&gt; SS loadings           2.58 2.09 2.01 1.84 1.64 0.82
-#&gt; Proportion Var        0.10 0.08 0.08 0.07 0.07 0.03
-#&gt; Cumulative Var        0.10 0.19 0.27 0.34 0.41 0.44
-#&gt; Proportion Explained  0.23 0.19 0.18 0.17 0.15 0.07
-#&gt; Cumulative Proportion 0.23 0.43 0.61 0.78 0.93 1.00
+#&gt; SS loadings           2.41 2.16 2.06 2.00 1.63 0.86
+#&gt; Proportion Var        0.10 0.09 0.08 0.08 0.07 0.03
+#&gt; Cumulative Var        0.10 0.18 0.27 0.34 0.41 0.44
+#&gt; Proportion Explained  0.22 0.19 0.19 0.18 0.15 0.08
+#&gt; Cumulative Proportion 0.22 0.41 0.60 0.78 0.92 1.00
 #&gt; 
 #&gt;  With factor correlations of 
 #&gt;       MR2   MR1   MR3   MR5   MR4   MR6
-#&gt; MR2  1.00  0.26 -0.16 -0.09  0.02  0.18
-#&gt; MR1  0.26  1.00 -0.23 -0.29 -0.19 -0.08
-#&gt; MR3 -0.16 -0.23  1.00  0.17  0.20 -0.01
-#&gt; MR5 -0.09 -0.29  0.17  1.00  0.26  0.16
-#&gt; MR4  0.02 -0.19  0.20  0.26  1.00  0.03
-#&gt; MR6  0.18 -0.08 -0.01  0.16  0.03  1.00
+#&gt; MR2  1.00  0.26 -0.19 -0.14  0.04  0.15
+#&gt; MR1  0.26  1.00 -0.19 -0.32 -0.19 -0.06
+#&gt; MR3 -0.19 -0.19  1.00  0.20  0.17 -0.04
+#&gt; MR5 -0.14 -0.32  0.20  1.00  0.26  0.11
+#&gt; MR4  0.04 -0.19  0.17  0.26  1.00 -0.02
+#&gt; MR6  0.15 -0.06 -0.04  0.11 -0.02  1.00
 #&gt; 
 #&gt; Mean item complexity =  1.7
 #&gt; Test of the hypothesis that 6 factors are sufficient.
 #&gt; 
-#&gt; The degrees of freedom for the null model are  300  and the objective function was  7.22 with Chi Square of  10028.5
+#&gt; The degrees of freedom for the null model are  300  and the objective function was  7.36 with Chi Square of  10231.57
 #&gt; The degrees of freedom for the model are 165  and the objective function was  0.43 
 #&gt; 
 #&gt; The root mean square of the residuals (RMSR) is  0.02 
 #&gt; The df corrected root mean square of the residuals is  0.03 
 #&gt; 
-#&gt; The harmonic number of observations is  1381 with the empirical chi square  369.43  with prob &lt;  1.1e-17 
-#&gt; The total number of observations was  1400  with Likelihood Chi Square =  592.4  with prob &lt;  1.6e-49 
+#&gt; The harmonic number of observations is  1380 with the empirical chi square  371.41  with prob &lt;  6.1e-18 
+#&gt; The total number of observations was  1400  with Likelihood Chi Square =  597.47  with prob &lt;  2.6e-50 
 #&gt; 
-#&gt; Tucker Lewis Index of factoring reliability =  0.92
-#&gt; RMSEA index =  0.043  and the 90 % confidence intervals are  0.039 0.047
-#&gt; BIC =  -602.9
+#&gt; Tucker Lewis Index of factoring reliability =  0.921
+#&gt; RMSEA index =  0.043  and the 90 % confidence intervals are  0.04 0.047
+#&gt; BIC =  -597.83
 #&gt; Fit based upon off diagonal values = 0.99
 #&gt; Measures of factor score adequacy             
 #&gt;                                                    MR2  MR1  MR3  MR5  MR4  MR6
-#&gt; Correlation of (regression) scores with factors   0.93 0.89 0.88 0.87 0.85 0.77
-#&gt; Multiple R square of scores with factors          0.87 0.79 0.77 0.76 0.73 0.59
-#&gt; Minimum correlation of possible factor scores     0.73 0.58 0.55 0.53 0.45 0.17</code></pre>
+#&gt; Correlation of (regression) scores with factors   0.93 0.89 0.89 0.88 0.85 0.77
+#&gt; Multiple R square of scores with factors          0.86 0.79 0.79 0.78 0.73 0.59
+#&gt; Minimum correlation of possible factor scores     0.72 0.58 0.57 0.56 0.45 0.19</code></pre>
 </div>
 </div>
 <p>Nice work! Now you can say you’ve run a multidimensional EFA!</p>
@@ -1718,108 +1710,108 @@ Theory. Coming soon …
 <li>Reinforce your learning from the previous exercise: run that multidimensional EFA again using <code>fa()</code>!</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># Run the EFA with six factors (as indicated by your scree plot)</span></span>
-<span id="cb62-2"><a href="#cb62-2"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">fa</span>(bfi_EFA, <span class="at">nfactors =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># Run the EFA with six factors (as indicated by your scree plot)</span></span>
+<span id="cb59-2"><a href="#cb59-2"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">fa</span>(bfi_EFA, <span class="at">nfactors =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Look at the items’ factor loadings, which are stored in the <code>loadings</code> list element of the result object.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Run the EFA with six factors (as indicated by your scree plot)</span></span>
-<span id="cb63-2"><a href="#cb63-2"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">fa</span>(bfi_EFA, <span class="at">nfactors =</span> <span class="dv">6</span>)</span>
-<span id="cb63-3"><a href="#cb63-3"></a></span>
-<span id="cb63-4"><a href="#cb63-4"></a><span class="co"># View items' factor loadings</span></span>
-<span id="cb63-5"><a href="#cb63-5"></a>EFA_model<span class="sc">$</span>loadings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># Run the EFA with six factors (as indicated by your scree plot)</span></span>
+<span id="cb60-2"><a href="#cb60-2"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">fa</span>(bfi_EFA, <span class="at">nfactors =</span> <span class="dv">6</span>)</span>
+<span id="cb60-3"><a href="#cb60-3"></a></span>
+<span id="cb60-4"><a href="#cb60-4"></a><span class="co"># View items' factor loadings</span></span>
+<span id="cb60-5"><a href="#cb60-5"></a>EFA_model<span class="sc">$</span>loadings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 
 #&gt; Loadings:
 #&gt;    MR2    MR1    MR3    MR5    MR4    MR6   
-#&gt; A1                      -0.535         0.323
-#&gt; A2                       0.708              
-#&gt; A3        -0.129         0.601         0.137
-#&gt; A4                0.182  0.402 -0.141  0.126
-#&gt; A5 -0.183 -0.156         0.442  0.125  0.190
-#&gt; C1                0.586         0.159       
-#&gt; C2         0.142  0.650                0.159
-#&gt; C3                0.573                     
-#&gt; C4         0.117 -0.605                0.286
-#&gt; C5  0.160  0.179 -0.519                     
-#&gt; E1 -0.139  0.622        -0.119              
-#&gt; E2         0.690                            
-#&gt; E3        -0.311         0.154  0.400  0.268
-#&gt; E4        -0.545         0.177         0.307
-#&gt; E5  0.139 -0.355  0.282         0.226       
-#&gt; N1  0.858 -0.115                            
-#&gt; N2  0.822                                   
-#&gt; N3  0.680  0.138                            
-#&gt; N4  0.468  0.385 -0.122  0.103              
-#&gt; N5  0.453  0.207         0.168 -0.116  0.140
-#&gt; O1                              0.543       
-#&gt; O2  0.113                      -0.372  0.330
-#&gt; O3                              0.654       
-#&gt; O4  0.120  0.317         0.134  0.355       
-#&gt; O5                             -0.472  0.378
+#&gt; A1        -0.133        -0.567  0.100  0.225
+#&gt; A2                       0.692              
+#&gt; A3        -0.119         0.656              
+#&gt; A4        -0.106  0.211  0.362         0.151
+#&gt; A5 -0.170 -0.187         0.468  0.139  0.173
+#&gt; C1                0.513         0.192       
+#&gt; C2         0.124  0.680         0.164  0.195
+#&gt; C3                0.575                     
+#&gt; C4               -0.657         0.120  0.273
+#&gt; C5  0.145  0.201 -0.543         0.109       
+#&gt; E1 -0.114  0.554  0.108 -0.148              
+#&gt; E2         0.663        -0.111              
+#&gt; E3        -0.330         0.169  0.414  0.128
+#&gt; E4        -0.556         0.202         0.269
+#&gt; E5  0.142 -0.406  0.264         0.257       
+#&gt; N1  0.842 -0.115                            
+#&gt; N2  0.836                                   
+#&gt; N3  0.636  0.168                            
+#&gt; N4  0.421  0.407 -0.114         0.115       
+#&gt; N5  0.403  0.233         0.150         0.225
+#&gt; O1                      -0.101  0.605       
+#&gt; O2  0.104                      -0.285  0.407
+#&gt; O3                              0.633 -0.113
+#&gt; O4         0.375         0.172  0.366       
+#&gt; O5                             -0.346  0.490
 #&gt; 
 #&gt;                  MR2   MR1   MR3   MR5   MR4   MR6
-#&gt; SS loadings    2.463 1.847 1.899 1.668 1.541 0.765
-#&gt; Proportion Var 0.099 0.074 0.076 0.067 0.062 0.031
-#&gt; Cumulative Var 0.099 0.172 0.248 0.315 0.377 0.407</code></pre>
+#&gt; SS loadings    2.277 1.885 1.946 1.791 1.511 0.821
+#&gt; Proportion Var 0.091 0.075 0.078 0.072 0.060 0.033
+#&gt; Cumulative Var 0.091 0.166 0.244 0.316 0.376 0.409</code></pre>
 </div>
 </div>
 <ol start="3" type="1">
 <li>Then, use the <code>head()</code> function to take a look at the first few rows of examinees’ factor scores, which are stored in the <code>scores</code> list element.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># Run the EFA with six factors (as indicated by your scree plot)</span></span>
-<span id="cb65-2"><a href="#cb65-2"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">fa</span>(bfi_EFA, <span class="at">nfactors =</span> <span class="dv">6</span>)</span>
-<span id="cb65-3"><a href="#cb65-3"></a></span>
-<span id="cb65-4"><a href="#cb65-4"></a><span class="co"># View items' factor loadings</span></span>
-<span id="cb65-5"><a href="#cb65-5"></a>EFA_model<span class="sc">$</span>loadings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># Run the EFA with six factors (as indicated by your scree plot)</span></span>
+<span id="cb62-2"><a href="#cb62-2"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">fa</span>(bfi_EFA, <span class="at">nfactors =</span> <span class="dv">6</span>)</span>
+<span id="cb62-3"><a href="#cb62-3"></a></span>
+<span id="cb62-4"><a href="#cb62-4"></a><span class="co"># View items' factor loadings</span></span>
+<span id="cb62-5"><a href="#cb62-5"></a>EFA_model<span class="sc">$</span>loadings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 
 #&gt; Loadings:
 #&gt;    MR2    MR1    MR3    MR5    MR4    MR6   
-#&gt; A1                      -0.535         0.323
-#&gt; A2                       0.708              
-#&gt; A3        -0.129         0.601         0.137
-#&gt; A4                0.182  0.402 -0.141  0.126
-#&gt; A5 -0.183 -0.156         0.442  0.125  0.190
-#&gt; C1                0.586         0.159       
-#&gt; C2         0.142  0.650                0.159
-#&gt; C3                0.573                     
-#&gt; C4         0.117 -0.605                0.286
-#&gt; C5  0.160  0.179 -0.519                     
-#&gt; E1 -0.139  0.622        -0.119              
-#&gt; E2         0.690                            
-#&gt; E3        -0.311         0.154  0.400  0.268
-#&gt; E4        -0.545         0.177         0.307
-#&gt; E5  0.139 -0.355  0.282         0.226       
-#&gt; N1  0.858 -0.115                            
-#&gt; N2  0.822                                   
-#&gt; N3  0.680  0.138                            
-#&gt; N4  0.468  0.385 -0.122  0.103              
-#&gt; N5  0.453  0.207         0.168 -0.116  0.140
-#&gt; O1                              0.543       
-#&gt; O2  0.113                      -0.372  0.330
-#&gt; O3                              0.654       
-#&gt; O4  0.120  0.317         0.134  0.355       
-#&gt; O5                             -0.472  0.378
+#&gt; A1        -0.133        -0.567  0.100  0.225
+#&gt; A2                       0.692              
+#&gt; A3        -0.119         0.656              
+#&gt; A4        -0.106  0.211  0.362         0.151
+#&gt; A5 -0.170 -0.187         0.468  0.139  0.173
+#&gt; C1                0.513         0.192       
+#&gt; C2         0.124  0.680         0.164  0.195
+#&gt; C3                0.575                     
+#&gt; C4               -0.657         0.120  0.273
+#&gt; C5  0.145  0.201 -0.543         0.109       
+#&gt; E1 -0.114  0.554  0.108 -0.148              
+#&gt; E2         0.663        -0.111              
+#&gt; E3        -0.330         0.169  0.414  0.128
+#&gt; E4        -0.556         0.202         0.269
+#&gt; E5  0.142 -0.406  0.264         0.257       
+#&gt; N1  0.842 -0.115                            
+#&gt; N2  0.836                                   
+#&gt; N3  0.636  0.168                            
+#&gt; N4  0.421  0.407 -0.114         0.115       
+#&gt; N5  0.403  0.233         0.150         0.225
+#&gt; O1                      -0.101  0.605       
+#&gt; O2  0.104                      -0.285  0.407
+#&gt; O3                              0.633 -0.113
+#&gt; O4         0.375         0.172  0.366       
+#&gt; O5                             -0.346  0.490
 #&gt; 
 #&gt;                  MR2   MR1   MR3   MR5   MR4   MR6
-#&gt; SS loadings    2.463 1.847 1.899 1.668 1.541 0.765
-#&gt; Proportion Var 0.099 0.074 0.076 0.067 0.062 0.031
-#&gt; Cumulative Var 0.099 0.172 0.248 0.315 0.377 0.407</code></pre>
+#&gt; SS loadings    2.277 1.885 1.946 1.791 1.511 0.821
+#&gt; Proportion Var 0.091 0.075 0.078 0.072 0.060 0.033
+#&gt; Cumulative Var 0.091 0.166 0.244 0.316 0.376 0.409</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># View the first few lines of examinees' factor scores</span></span>
-<span id="cb67-2"><a href="#cb67-2"></a><span class="fu">head</span>(EFA_model<span class="sc">$</span>scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># View the first few lines of examinees' factor scores</span></span>
+<span id="cb64-2"><a href="#cb64-2"></a><span class="fu">head</span>(EFA_model<span class="sc">$</span>scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;              MR2        MR1         MR3         MR5        MR4         MR6
-#&gt; 62307  2.1646409 -0.6111724 -0.81425037  0.67660920  1.7208064  1.50936150
-#&gt; 66306 -0.8440738 -0.4708296 -0.05314015  0.07873492 -0.8178713 -0.01387856
-#&gt; 64195 -0.7785505 -0.9190169  0.96456803  0.51051678  0.2819334 -0.03703470
-#&gt; 63877  0.1630665  0.8961915 -1.07442352 -0.61730162  0.9334680  0.64527044
-#&gt; 65557  1.1676412  1.2702758  0.33930486  0.80270459  0.6305306 -0.80574397
-#&gt; 63187  0.2965394 -0.3891545 -0.02648895 -0.85658911 -0.4396240  0.18853309</code></pre>
+<pre><code>#&gt;              MR2        MR1        MR3        MR5         MR4        MR6
+#&gt; 62954 -0.1315741  1.7265920 -0.6125628 -0.4476389 -0.38460657 -1.1975485
+#&gt; 63875 -1.2092441 -0.1470361  1.1737412  0.1172982  0.03492418 -0.3293493
+#&gt; 66077  0.7238701  0.7445423 -0.1674473 -0.0385460 -0.13334668  1.8248461
+#&gt; 67289  0.1561028 -0.4296978  0.1470074  0.9713202  0.64425958 -0.8175323
+#&gt; 66246 -0.9705320  1.3425642 -0.6612105 -0.4662768 -0.46847232 -1.0280654
+#&gt; 65018         NA         NA         NA         NA          NA         NA</code></pre>
 </div>
 </div>
 <p>You got the most important pieces of information from your EFA! Nicely done!</p>
@@ -1880,18 +1872,18 @@ Theory. Coming soon …
 <li>Take a look at the BIC value for each of the models. The BIC is stored in the <code>BIC</code> list element of the results object.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># Run each theorized EFA on your dataset</span></span>
-<span id="cb69-2"><a href="#cb69-2"></a>bfi_theory <span class="ot">&lt;-</span> <span class="fu">fa</span>(bfi_EFA, <span class="at">nfactors =</span> <span class="dv">5</span>)</span>
-<span id="cb69-3"><a href="#cb69-3"></a>bfi_eigen <span class="ot">&lt;-</span> <span class="fu">fa</span>(bfi_EFA, <span class="at">nfactors =</span> <span class="dv">6</span>)</span>
-<span id="cb69-4"><a href="#cb69-4"></a></span>
-<span id="cb69-5"><a href="#cb69-5"></a><span class="co"># Compare the BIC values</span></span>
-<span id="cb69-6"><a href="#cb69-6"></a>bfi_theory<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Run each theorized EFA on your dataset</span></span>
+<span id="cb66-2"><a href="#cb66-2"></a>bfi_theory <span class="ot">&lt;-</span> <span class="fu">fa</span>(bfi_EFA, <span class="at">nfactors =</span> <span class="dv">5</span>)</span>
+<span id="cb66-3"><a href="#cb66-3"></a>bfi_eigen <span class="ot">&lt;-</span> <span class="fu">fa</span>(bfi_EFA, <span class="at">nfactors =</span> <span class="dv">6</span>)</span>
+<span id="cb66-4"><a href="#cb66-4"></a></span>
+<span id="cb66-5"><a href="#cb66-5"></a><span class="co"># Compare the BIC values</span></span>
+<span id="cb66-6"><a href="#cb66-6"></a>bfi_theory<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] -367.6121</code></pre>
+<pre><code>#&gt; [1] -352.4317</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a>bfi_eigen<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>bfi_eigen<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] -602.897</code></pre>
+<pre><code>#&gt; [1] -597.8324</code></pre>
 </div>
 </div>
 <p>Nice work! You can see that the eigenvalue-driven model has a much lower BIC, so it is empirically preferred.</p>
@@ -1929,11 +1921,11 @@ Theory. Coming soon …
 <li>Then, use the resulting model object as an argument to the <code>structure.sem()</code> function to set up the syntax.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># Conduct a five-factor EFA on the EFA half of the dataset</span></span>
-<span id="cb73-2"><a href="#cb73-2"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">fa</span>(bfi_EFA, <span class="at">nfactors =</span> <span class="dv">5</span>)</span>
-<span id="cb73-3"><a href="#cb73-3"></a></span>
-<span id="cb73-4"><a href="#cb73-4"></a><span class="co"># Use the wrapper function to create syntax for use with the sem() function</span></span>
-<span id="cb73-5"><a href="#cb73-5"></a>EFA_syn <span class="ot">&lt;-</span> <span class="fu">structure.sem</span>(EFA_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># Conduct a five-factor EFA on the EFA half of the dataset</span></span>
+<span id="cb70-2"><a href="#cb70-2"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">fa</span>(bfi_EFA, <span class="at">nfactors =</span> <span class="dv">5</span>)</span>
+<span id="cb70-3"><a href="#cb70-3"></a></span>
+<span id="cb70-4"><a href="#cb70-4"></a><span class="co"># Use the wrapper function to create syntax for use with the sem() function</span></span>
+<span id="cb70-5"><a href="#cb70-5"></a>EFA_syn <span class="ot">&lt;-</span> <span class="fu">structure.sem</span>(EFA_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Nice! The EFA_syn object now contains syntax you can plug into the sem() function.</p>
 </section>
@@ -1945,34 +1937,34 @@ Theory. Coming soon …
 <li>Write a set of equations showing the five items that load onto each of the five factors: AGE, CON, EXT, NEU, OPE.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="co"># Set up syntax specifying which items load onto each factor</span></span>
-<span id="cb74-2"><a href="#cb74-2"></a>theory_syn_eq <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb74-3"><a href="#cb74-3"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
-<span id="cb74-4"><a href="#cb74-4"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
-<span id="cb74-5"><a href="#cb74-5"></a><span class="st">EXT: E1, E2, E3, E4, E5</span></span>
-<span id="cb74-6"><a href="#cb74-6"></a><span class="st">NEU: N1, N2, N3, N4, N5</span></span>
-<span id="cb74-7"><a href="#cb74-7"></a><span class="st">OPE: O1, O2, O3, O4, O5</span></span>
-<span id="cb74-8"><a href="#cb74-8"></a><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a><span class="co"># Set up syntax specifying which items load onto each factor</span></span>
+<span id="cb71-2"><a href="#cb71-2"></a>theory_syn_eq <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb71-3"><a href="#cb71-3"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
+<span id="cb71-4"><a href="#cb71-4"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
+<span id="cb71-5"><a href="#cb71-5"></a><span class="st">EXT: E1, E2, E3, E4, E5</span></span>
+<span id="cb71-6"><a href="#cb71-6"></a><span class="st">NEU: N1, N2, N3, N4, N5</span></span>
+<span id="cb71-7"><a href="#cb71-7"></a><span class="st">OPE: O1, O2, O3, O4, O5</span></span>
+<span id="cb71-8"><a href="#cb71-8"></a><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Use the <code>cfa()</code> function to have variances and covariances automatically added to the model.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a><span class="co"># Package</span></span>
-<span id="cb75-2"><a href="#cb75-2"></a><span class="fu">library</span>(sem)</span>
-<span id="cb75-3"><a href="#cb75-3"></a></span>
-<span id="cb75-4"><a href="#cb75-4"></a><span class="co"># Set up syntax specifying which items load onto each factor</span></span>
-<span id="cb75-5"><a href="#cb75-5"></a>theory_syn_eq <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb75-6"><a href="#cb75-6"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
-<span id="cb75-7"><a href="#cb75-7"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
-<span id="cb75-8"><a href="#cb75-8"></a><span class="st">EXT: E1, E2, E3, E4, E5</span></span>
-<span id="cb75-9"><a href="#cb75-9"></a><span class="st">NEU: N1, N2, N3, N4, N5</span></span>
-<span id="cb75-10"><a href="#cb75-10"></a><span class="st">OPE: O1, O2, O3, O4, O5</span></span>
-<span id="cb75-11"><a href="#cb75-11"></a><span class="st">"</span></span>
-<span id="cb75-12"><a href="#cb75-12"></a></span>
-<span id="cb75-13"><a href="#cb75-13"></a><span class="co"># Feed the syntax in to have variances and covariances automatically added</span></span>
-<span id="cb75-14"><a href="#cb75-14"></a>theory_syn <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">text =</span> theory_syn_eq, </span>
-<span id="cb75-15"><a href="#cb75-15"></a>                  <span class="at">reference.indicators =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="co"># Package</span></span>
+<span id="cb72-2"><a href="#cb72-2"></a><span class="fu">library</span>(sem)</span>
+<span id="cb72-3"><a href="#cb72-3"></a></span>
+<span id="cb72-4"><a href="#cb72-4"></a><span class="co"># Set up syntax specifying which items load onto each factor</span></span>
+<span id="cb72-5"><a href="#cb72-5"></a>theory_syn_eq <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb72-6"><a href="#cb72-6"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
+<span id="cb72-7"><a href="#cb72-7"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
+<span id="cb72-8"><a href="#cb72-8"></a><span class="st">EXT: E1, E2, E3, E4, E5</span></span>
+<span id="cb72-9"><a href="#cb72-9"></a><span class="st">NEU: N1, N2, N3, N4, N5</span></span>
+<span id="cb72-10"><a href="#cb72-10"></a><span class="st">OPE: O1, O2, O3, O4, O5</span></span>
+<span id="cb72-11"><a href="#cb72-11"></a><span class="st">"</span></span>
+<span id="cb72-12"><a href="#cb72-12"></a></span>
+<span id="cb72-13"><a href="#cb72-13"></a><span class="co"># Feed the syntax in to have variances and covariances automatically added</span></span>
+<span id="cb72-14"><a href="#cb72-14"></a>theory_syn <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">text =</span> theory_syn_eq, </span>
+<span id="cb72-15"><a href="#cb72-15"></a>                  <span class="at">reference.indicators =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; NOTE: adding 25 variances to the model</code></pre>
 </div>
@@ -2019,8 +2011,8 @@ Theory. Coming soon …
 <li>Use the theory-based syntax you created earlier in this chapter to run a confirmatory factor analysis using the <code>sem()</code> function.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># Use the sem() function to run a CFA</span></span>
-<span id="cb77-2"><a href="#cb77-2"></a>theory_CFA <span class="ot">&lt;-</span> <span class="fu">sem</span>(theory_syn, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="co"># Use the sem() function to run a CFA</span></span>
+<span id="cb74-2"><a href="#cb74-2"></a>theory_CFA <span class="ot">&lt;-</span> <span class="fu">sem</span>(theory_syn, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in sem.semmod(theory_syn, data = bfi_CFA): -177 observations removed due
 #&gt; to missingness</code></pre>
@@ -2030,96 +2022,96 @@ Theory. Coming soon …
 <li>Just like with the EFAs, you can use the <code>summary()</code> function to view the results of your CFA.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># Use the sem() function to run a CFA</span></span>
-<span id="cb79-2"><a href="#cb79-2"></a>theory_CFA <span class="ot">&lt;-</span> <span class="fu">sem</span>(theory_syn, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a><span class="co"># Use the sem() function to run a CFA</span></span>
+<span id="cb76-2"><a href="#cb76-2"></a>theory_CFA <span class="ot">&lt;-</span> <span class="fu">sem</span>(theory_syn, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in sem.semmod(theory_syn, data = bfi_CFA): -177 observations removed due
 #&gt; to missingness</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a><span class="co"># Use the summary function to view fit information and parameter estimates</span></span>
-<span id="cb81-2"><a href="#cb81-2"></a><span class="fu">summary</span>(theory_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a><span class="co"># Use the summary function to view fit information and parameter estimates</span></span>
+<span id="cb78-2"><a href="#cb78-2"></a><span class="fu">summary</span>(theory_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 
-#&gt;  Model Chisquare =  2391.083   Df =  265 Pr(&gt;Chisq) = 0
-#&gt;  AIC =  2511.083
-#&gt;  BIC =  507.1819
+#&gt;  Model Chisquare =  2404.963   Df =  265 Pr(&gt;Chisq) = 0
+#&gt;  AIC =  2524.963
+#&gt;  BIC =  521.0618
 #&gt; 
 #&gt;  Normalized Residuals
 #&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-#&gt; -8.1557 -0.6057  0.8319  0.9564  2.6449  9.9141 
+#&gt; -7.6924 -0.4771  1.0348  1.1622  2.7387 10.2111 
 #&gt; 
 #&gt;  R-square for Endogenous Variables
 #&gt;     A1     A2     A3     A4     A5     C1     C2     C3     C4     C5     E1 
-#&gt; 0.1197 0.4135 0.5594 0.2829 0.5135 0.2792 0.3958 0.2878 0.5087 0.3938 0.3036 
+#&gt; 0.0993 0.3718 0.5256 0.2410 0.4683 0.3203 0.3492 0.2631 0.4989 0.3683 0.3072 
 #&gt;     E2     E3     E4     E5     N1     N2     N3     N4     N5     O1     O2 
-#&gt; 0.4855 0.4257 0.4903 0.3363 0.6837 0.6526 0.4981 0.2709 0.2435 0.3277 0.1835 
+#&gt; 0.4606 0.4263 0.4534 0.3098 0.6697 0.6498 0.5655 0.3263 0.2659 0.3231 0.1953 
 #&gt;     O3     O4     O5 
-#&gt; 0.5130 0.0454 0.2182 
+#&gt; 0.5026 0.0414 0.2328 
 #&gt; 
 #&gt;  Parameter Estimates
 #&gt;             Estimate   Std Error  z value    Pr(&gt;|z|)                  
-#&gt; lam[A1:AGE] -0.4825029 0.04293209 -11.238749  2.630846e-29 A1 &lt;--- AGE 
-#&gt; lam[A2:AGE]  0.7582891 0.03341021  22.696327 4.870243e-114 A2 &lt;--- AGE 
-#&gt; lam[A3:AGE]  0.9924968 0.03621209  27.407886 2.208899e-165 A3 &lt;--- AGE 
-#&gt; lam[A4:AGE]  0.7775987 0.04299084  18.087542  3.995092e-73 A4 &lt;--- AGE 
-#&gt; lam[A5:AGE]  0.8982176 0.03458684  25.969925 1.083173e-148 A5 &lt;--- AGE 
-#&gt; lam[C1:CON] -0.6664318 0.03826671 -17.415447  6.299540e-68 C1 &lt;--- CON 
-#&gt; lam[C2:CON] -0.8326951 0.03906161 -21.317479 7.815677e-101 C2 &lt;--- CON 
-#&gt; lam[C3:CON] -0.6851429 0.03866277 -17.720997  2.887477e-70 C3 &lt;--- CON 
-#&gt; lam[C4:CON]  0.9829396 0.03980273  24.695281 1.201915e-134 C4 &lt;--- CON 
-#&gt; lam[C5:CON]  1.0315132 0.04852594  21.256944 2.843426e-100 C5 &lt;--- CON 
-#&gt; lam[E1:EXT]  0.8990871 0.04746295  18.942926  5.051055e-80 E1 &lt;--- EXT 
-#&gt; lam[E2:EXT]  1.1328097 0.04483628  25.265469 7.657998e-141 E2 &lt;--- EXT 
-#&gt; lam[E3:EXT] -0.8968687 0.03856679 -23.254947 1.267693e-119 E3 &lt;--- EXT 
-#&gt; lam[E4:EXT] -1.0348765 0.04070386 -25.424527 1.350880e-142 E4 &lt;--- EXT 
-#&gt; lam[E5:EXT] -0.7865663 0.03907063 -20.131907  3.877814e-90 E5 &lt;--- EXT 
-#&gt; lam[N1:NEU]  1.3039428 0.04004077  32.565380 1.268410e-232 N1 &lt;--- NEU 
-#&gt; lam[N2:NEU]  1.2478166 0.03954273  31.556156 1.476254e-218 N2 &lt;--- NEU 
-#&gt; lam[N3:NEU]  1.1378581 0.04308004  26.412652 9.805635e-154 N3 &lt;--- NEU 
-#&gt; lam[N4:NEU]  0.8135648 0.04482613  18.149341  1.299508e-73 N4 &lt;--- NEU 
-#&gt; lam[N5:NEU]  0.8009658 0.04693513  17.065378  2.686459e-65 N5 &lt;--- NEU 
-#&gt; lam[O1:OPE]  0.6401326 0.03640373  17.584257  3.252136e-69 O1 &lt;--- OPE 
-#&gt; lam[O2:OPE] -0.6559353 0.05049288 -12.990649  1.382496e-38 O2 &lt;--- OPE 
-#&gt; lam[O3:OPE]  0.8693944 0.03999120  21.739643 8.656899e-105 O3 &lt;--- OPE 
-#&gt; lam[O4:OPE]  0.2616802 0.04153888   6.299644  2.983309e-10 O4 &lt;--- OPE 
-#&gt; lam[O5:OPE] -0.6221695 0.04369320 -14.239506  5.209377e-46 O5 &lt;--- OPE 
-#&gt; C[AGE,CON]  -0.3654644 0.03356747 -10.887457  1.322825e-27 CON &lt;--&gt; AGE
-#&gt; C[AGE,EXT]  -0.6969921 0.02361785 -29.511239 2.065602e-191 EXT &lt;--&gt; AGE
-#&gt; C[AGE,NEU]  -0.2335232 0.03357907  -6.954426  3.539997e-12 NEU &lt;--&gt; AGE
-#&gt; C[AGE,OPE]   0.2945487 0.03712696   7.933554  2.129623e-15 OPE &lt;--&gt; AGE
-#&gt; C[CON,EXT]   0.3221808 0.03433023   9.384756  6.306240e-21 EXT &lt;--&gt; CON
-#&gt; C[CON,NEU]   0.2960668 0.03319748   8.918352  4.732785e-19 NEU &lt;--&gt; CON
-#&gt; C[CON,OPE]  -0.2970289 0.03768640  -7.881594  3.232312e-15 OPE &lt;--&gt; CON
-#&gt; C[EXT,NEU]   0.2294374 0.03359646   6.829214  8.538109e-12 NEU &lt;--&gt; EXT
-#&gt; C[EXT,OPE]  -0.4825269 0.03339778 -14.447876  2.585355e-47 OPE &lt;--&gt; EXT
-#&gt; C[NEU,OPE]  -0.1431668 0.03715428  -3.853307  1.165334e-04 OPE &lt;--&gt; NEU
-#&gt; V[A1]        1.7123576 0.07156649  23.926806 1.611506e-126 A1 &lt;--&gt; A1  
-#&gt; V[A2]        0.8156031 0.03974746  20.519627  1.438117e-93 A2 &lt;--&gt; A2  
-#&gt; V[A3]        0.7758974 0.04541210  17.085699  1.896577e-65 A3 &lt;--&gt; A3  
-#&gt; V[A4]        1.5328435 0.06843547  22.398378 4.081723e-111 A4 &lt;--&gt; A4  
-#&gt; V[A5]        0.7643811 0.04162681  18.362712  2.612305e-75 A5 &lt;--&gt; A5  
-#&gt; V[C1]        1.1464907 0.05256564  21.810649 1.838484e-105 C1 &lt;--&gt; C1  
-#&gt; V[C2]        1.0586507 0.05363299  19.738797  1.001345e-86 C2 &lt;--&gt; C2  
-#&gt; V[C3]        1.1613709 0.05356406  21.681905 3.040315e-104 C3 &lt;--&gt; C3  
-#&gt; V[C4]        0.9331673 0.05539706  16.845070  1.140345e-63 C4 &lt;--&gt; C4  
-#&gt; V[C5]        1.6376241 0.08279323  19.779685  4.454670e-87 C5 &lt;--&gt; C5  
-#&gt; V[E1]        1.8545801 0.08328615  22.267570 7.622448e-110 E1 &lt;--&gt; E1  
-#&gt; V[E2]        1.3597150 0.07027172  19.349391  2.062636e-83 E2 &lt;--&gt; E2  
-#&gt; V[E3]        1.0849589 0.05288335  20.516077  1.547049e-93 E3 &lt;--&gt; E3  
-#&gt; V[E4]        1.1131810 0.05784500  19.244205  1.578653e-82 E4 &lt;--&gt; E4  
-#&gt; V[E5]        1.2209042 0.05584225  21.863448 5.790127e-106 E5 &lt;--&gt; E5  
-#&gt; V[N1]        0.7864871 0.05298706  14.843002  7.722097e-50 N1 &lt;--&gt; N1  
-#&gt; V[N2]        0.8288397 0.05167822  16.038471  6.882760e-58 N2 &lt;--&gt; N2  
-#&gt; V[N3]        1.3045383 0.06422241  20.312819  9.905189e-92 N3 &lt;--&gt; N3  
-#&gt; V[N4]        1.7811414 0.07704679  23.117660 3.076156e-118 N4 &lt;--&gt; N4  
-#&gt; V[N5]        1.9931686 0.08541555  23.334963 1.958930e-120 N5 &lt;--&gt; N5  
-#&gt; V[O1]        0.8406101 0.04389003  19.152645  9.199426e-82 O1 &lt;--&gt; O1  
-#&gt; V[O2]        1.9147017 0.08595549  22.275502 6.385770e-110 O2 &lt;--&gt; O2  
-#&gt; V[O3]        0.7175180 0.05447597  13.171276  1.284090e-39 O3 &lt;--&gt; O3  
-#&gt; V[O4]        1.4393282 0.05943854  24.215402 1.531356e-129 O4 &lt;--&gt; O4  
-#&gt; V[O5]        1.3869030 0.06404338  21.655680 5.373241e-104 O5 &lt;--&gt; O5  
+#&gt; lam[A1:AGE] -0.4438064 0.04443225  -9.988384  1.713518e-23 A1 &lt;--- AGE 
+#&gt; lam[A2:AGE]  0.7035697 0.03389465  20.757545  1.047851e-95 A2 &lt;--- AGE 
+#&gt; lam[A3:AGE]  0.9486888 0.03721983  25.488801 2.623800e-143 A3 &lt;--- AGE 
+#&gt; lam[A4:AGE]  0.7201055 0.04456261  16.159410  9.749077e-59 A4 &lt;--- AGE 
+#&gt; lam[A5:AGE]  0.8520176 0.03579453  23.803014 3.108171e-125 A5 &lt;--- AGE 
+#&gt; lam[C1:CON] -0.6921399 0.03705695 -18.677735  7.514035e-78 C1 &lt;--- CON 
+#&gt; lam[C2:CON] -0.7650560 0.03897820 -19.627795  8.951653e-86 C2 &lt;--- CON 
+#&gt; lam[C3:CON] -0.6683610 0.04002245 -16.699654  1.318266e-62 C3 &lt;--- CON 
+#&gt; lam[C4:CON]  0.9831834 0.04077708  24.111177 1.908421e-128 C4 &lt;--- CON 
+#&gt; lam[C5:CON]  0.9938847 0.04910193  20.241255  4.242322e-91 C5 &lt;--- CON 
+#&gt; lam[E1:EXT]  0.9113864 0.04826322  18.883663  1.554241e-79 E1 &lt;--- EXT 
+#&gt; lam[E2:EXT]  1.0785501 0.04468752  24.135377 1.063420e-128 E2 &lt;--- EXT 
+#&gt; lam[E3:EXT] -0.8767566 0.03811531 -23.002744 4.375694e-117 E3 &lt;--- EXT 
+#&gt; lam[E4:EXT] -0.9809395 0.04104700 -23.897960 3.216008e-126 E4 &lt;--- EXT 
+#&gt; lam[E5:EXT] -0.7394457 0.03896134 -18.978963  2.545699e-80 E5 &lt;--- EXT 
+#&gt; lam[N1:NEU]  1.2865620 0.03966566  32.435158 8.770896e-231 N1 &lt;--- NEU 
+#&gt; lam[N2:NEU]  1.2133440 0.03819599  31.766264 1.893356e-221 N2 &lt;--- NEU 
+#&gt; lam[N3:NEU]  1.1914340 0.04122296  28.902195 1.120436e-183 N3 &lt;--- NEU 
+#&gt; lam[N4:NEU]  0.8837288 0.04345338  20.337400  6.002911e-92 N4 &lt;--- NEU 
+#&gt; lam[N5:NEU]  0.8374952 0.04647448  18.020538  1.344306e-72 N5 &lt;--- NEU 
+#&gt; lam[O1:OPE]  0.6390408 0.03658415  17.467696  2.524861e-68 O1 &lt;--- OPE 
+#&gt; lam[O2:OPE] -0.6922459 0.05157953 -13.420944  4.558718e-41 O2 &lt;--- OPE 
+#&gt; lam[O3:OPE]  0.8514957 0.03943545  21.592138 2.129294e-103 O3 &lt;--- OPE 
+#&gt; lam[O4:OPE]  0.2360223 0.03928797   6.007496  1.884108e-09 O4 &lt;--- OPE 
+#&gt; lam[O5:OPE] -0.6428650 0.04363941 -14.731294  4.058590e-49 O5 &lt;--- OPE 
+#&gt; C[AGE,CON]  -0.3177427 0.03551402  -8.946966  3.653861e-19 CON &lt;--&gt; AGE
+#&gt; C[AGE,EXT]  -0.6699934 0.02582028 -25.948338 1.898553e-148 EXT &lt;--&gt; AGE
+#&gt; C[AGE,NEU]  -0.1714326 0.03484440  -4.919948  8.656733e-07 NEU &lt;--&gt; AGE
+#&gt; C[AGE,OPE]   0.3168494 0.03762481   8.421290  3.723610e-17 OPE &lt;--&gt; AGE
+#&gt; C[CON,EXT]   0.3630429 0.03421501  10.610634  2.659391e-26 EXT &lt;--&gt; CON
+#&gt; C[CON,NEU]   0.2747992 0.03367306   8.160803  3.328033e-16 NEU &lt;--&gt; CON
+#&gt; C[CON,OPE]  -0.3381289 0.03737894  -9.045971  1.483402e-19 OPE &lt;--&gt; CON
+#&gt; C[EXT,NEU]   0.1996937 0.03412920   5.851109  4.883066e-09 NEU &lt;--&gt; EXT
+#&gt; C[EXT,OPE]  -0.4697150 0.03409431 -13.776929  3.508814e-43 OPE &lt;--&gt; EXT
+#&gt; C[NEU,OPE]  -0.1208130 0.03720849  -3.246919  1.166614e-03 OPE &lt;--&gt; NEU
+#&gt; V[A1]        1.7875322 0.07462586  23.953256 8.545892e-127 A1 &lt;--&gt; A1  
+#&gt; V[A2]        0.8365292 0.04078698  20.509712  1.763342e-93 A2 &lt;--&gt; A2  
+#&gt; V[A3]        0.8124692 0.04845909  16.766083  4.320708e-63 A3 &lt;--&gt; A3  
+#&gt; V[A4]        1.6329314 0.07260377  22.491000 5.084087e-112 A4 &lt;--&gt; A4  
+#&gt; V[A5]        0.8242236 0.04484687  18.378619  1.948682e-75 A5 &lt;--&gt; A5  
+#&gt; V[C1]        1.0164409 0.04850590  20.954994  1.689502e-97 C1 &lt;--&gt; C1  
+#&gt; V[C2]        1.0908679 0.05342245  20.419655  1.118505e-92 C2 &lt;--&gt; C2  
+#&gt; V[C3]        1.2509577 0.05716271  21.884157 3.677500e-106 C3 &lt;--&gt; C3  
+#&gt; V[C4]        0.9708560 0.05805742  16.722342  9.010771e-63 C4 &lt;--&gt; C4  
+#&gt; V[C5]        1.6940599 0.08455046  20.036083  2.669704e-89 C5 &lt;--&gt; C5  
+#&gt; V[E1]        1.8735699 0.08521203  21.987152 3.822393e-107 E1 &lt;--&gt; E1  
+#&gt; V[E2]        1.3621976 0.07019542  19.405792  6.894826e-84 E2 &lt;--&gt; E2  
+#&gt; V[E3]        1.0346996 0.05146450  20.105112  6.656966e-90 E3 &lt;--&gt; E3  
+#&gt; V[E4]        1.1602458 0.05931544  19.560601  3.351028e-85 E4 &lt;--&gt; E4  
+#&gt; V[E5]        1.2181420 0.05548950  21.952660 8.168004e-107 E5 &lt;--&gt; E5  
+#&gt; V[N1]        0.8162114 0.05100027  16.004061  1.197057e-57 N1 &lt;--&gt; N1  
+#&gt; V[N2]        0.7932693 0.04744753  16.718874  9.550599e-63 N2 &lt;--&gt; N2  
+#&gt; V[N3]        1.0906624 0.05683385  19.190364  4.455074e-82 N3 &lt;--&gt; N3  
+#&gt; V[N4]        1.6121854 0.07094259  22.725211 2.524141e-114 N4 &lt;--&gt; N4  
+#&gt; V[N5]        1.9363756 0.08334015  23.234607 2.035742e-119 N5 &lt;--&gt; N5  
+#&gt; V[O1]        0.8557401 0.04436142  19.290187  6.493828e-83 O1 &lt;--&gt; O1  
+#&gt; V[O2]        1.9740875 0.08947248  22.063629 7.067824e-108 O2 &lt;--&gt; O2  
+#&gt; V[O3]        0.7174355 0.05281637  13.583582  5.011443e-42 O3 &lt;--&gt; O3  
+#&gt; V[O4]        1.2884487 0.05311254  24.258842 5.333881e-130 O4 &lt;--&gt; O4  
+#&gt; V[O5]        1.3617160 0.06372859  21.367428 2.685218e-101 O5 &lt;--&gt; O5  
 #&gt; 
-#&gt;  Iterations =  26</code></pre>
+#&gt;  Iterations =  25</code></pre>
 </div>
 </div>
 <p>Congrats, now you know how to run a CFA and access the results!</p>
@@ -2164,95 +2156,95 @@ Theory. Coming soon …
 <li>View the summary output from the theory-based CFA and look for the likelihood ratio test.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a><span class="co"># Set the options to include various fit indices so they will print</span></span>
-<span id="cb83-2"><a href="#cb83-2"></a><span class="fu">options</span>(<span class="at">fit.indices =</span> <span class="fu">c</span>(<span class="st">"CFI"</span>, <span class="st">"GFI"</span>, <span class="st">"RMSEA"</span>, <span class="st">"BIC"</span>))</span>
-<span id="cb83-3"><a href="#cb83-3"></a></span>
-<span id="cb83-4"><a href="#cb83-4"></a><span class="co"># Use the summary function to view fit information and parameter estimates</span></span>
-<span id="cb83-5"><a href="#cb83-5"></a><span class="fu">summary</span>(theory_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a><span class="co"># Set the options to include various fit indices so they will print</span></span>
+<span id="cb80-2"><a href="#cb80-2"></a><span class="fu">options</span>(<span class="at">fit.indices =</span> <span class="fu">c</span>(<span class="st">"CFI"</span>, <span class="st">"GFI"</span>, <span class="st">"RMSEA"</span>, <span class="st">"BIC"</span>))</span>
+<span id="cb80-3"><a href="#cb80-3"></a></span>
+<span id="cb80-4"><a href="#cb80-4"></a><span class="co"># Use the summary function to view fit information and parameter estimates</span></span>
+<span id="cb80-5"><a href="#cb80-5"></a><span class="fu">summary</span>(theory_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 
-#&gt;  Model Chisquare =  2391.083   Df =  265 Pr(&gt;Chisq) = 0
-#&gt;  Goodness-of-fit index =  0.8463739
-#&gt;  RMSEA index =  0.08102735   90% CI: (NA, NA)
-#&gt;  Bentler CFI =  0.7705807
-#&gt;  BIC =  507.1819
+#&gt;  Model Chisquare =  2404.963   Df =  265 Pr(&gt;Chisq) = 0
+#&gt;  Goodness-of-fit index =  0.844214
+#&gt;  RMSEA index =  0.0812914   90% CI: (NA, NA)
+#&gt;  Bentler CFI =  0.7616661
+#&gt;  BIC =  521.0618
 #&gt; 
 #&gt;  Normalized Residuals
 #&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-#&gt; -8.1557 -0.6057  0.8319  0.9564  2.6449  9.9141 
+#&gt; -7.6924 -0.4771  1.0348  1.1622  2.7387 10.2111 
 #&gt; 
 #&gt;  R-square for Endogenous Variables
 #&gt;     A1     A2     A3     A4     A5     C1     C2     C3     C4     C5     E1 
-#&gt; 0.1197 0.4135 0.5594 0.2829 0.5135 0.2792 0.3958 0.2878 0.5087 0.3938 0.3036 
+#&gt; 0.0993 0.3718 0.5256 0.2410 0.4683 0.3203 0.3492 0.2631 0.4989 0.3683 0.3072 
 #&gt;     E2     E3     E4     E5     N1     N2     N3     N4     N5     O1     O2 
-#&gt; 0.4855 0.4257 0.4903 0.3363 0.6837 0.6526 0.4981 0.2709 0.2435 0.3277 0.1835 
+#&gt; 0.4606 0.4263 0.4534 0.3098 0.6697 0.6498 0.5655 0.3263 0.2659 0.3231 0.1953 
 #&gt;     O3     O4     O5 
-#&gt; 0.5130 0.0454 0.2182 
+#&gt; 0.5026 0.0414 0.2328 
 #&gt; 
 #&gt;  Parameter Estimates
 #&gt;             Estimate   Std Error  z value    Pr(&gt;|z|)                  
-#&gt; lam[A1:AGE] -0.4825029 0.04293209 -11.238749  2.630846e-29 A1 &lt;--- AGE 
-#&gt; lam[A2:AGE]  0.7582891 0.03341021  22.696327 4.870243e-114 A2 &lt;--- AGE 
-#&gt; lam[A3:AGE]  0.9924968 0.03621209  27.407886 2.208899e-165 A3 &lt;--- AGE 
-#&gt; lam[A4:AGE]  0.7775987 0.04299084  18.087542  3.995092e-73 A4 &lt;--- AGE 
-#&gt; lam[A5:AGE]  0.8982176 0.03458684  25.969925 1.083173e-148 A5 &lt;--- AGE 
-#&gt; lam[C1:CON] -0.6664318 0.03826671 -17.415447  6.299540e-68 C1 &lt;--- CON 
-#&gt; lam[C2:CON] -0.8326951 0.03906161 -21.317479 7.815677e-101 C2 &lt;--- CON 
-#&gt; lam[C3:CON] -0.6851429 0.03866277 -17.720997  2.887477e-70 C3 &lt;--- CON 
-#&gt; lam[C4:CON]  0.9829396 0.03980273  24.695281 1.201915e-134 C4 &lt;--- CON 
-#&gt; lam[C5:CON]  1.0315132 0.04852594  21.256944 2.843426e-100 C5 &lt;--- CON 
-#&gt; lam[E1:EXT]  0.8990871 0.04746295  18.942926  5.051055e-80 E1 &lt;--- EXT 
-#&gt; lam[E2:EXT]  1.1328097 0.04483628  25.265469 7.657998e-141 E2 &lt;--- EXT 
-#&gt; lam[E3:EXT] -0.8968687 0.03856679 -23.254947 1.267693e-119 E3 &lt;--- EXT 
-#&gt; lam[E4:EXT] -1.0348765 0.04070386 -25.424527 1.350880e-142 E4 &lt;--- EXT 
-#&gt; lam[E5:EXT] -0.7865663 0.03907063 -20.131907  3.877814e-90 E5 &lt;--- EXT 
-#&gt; lam[N1:NEU]  1.3039428 0.04004077  32.565380 1.268410e-232 N1 &lt;--- NEU 
-#&gt; lam[N2:NEU]  1.2478166 0.03954273  31.556156 1.476254e-218 N2 &lt;--- NEU 
-#&gt; lam[N3:NEU]  1.1378581 0.04308004  26.412652 9.805635e-154 N3 &lt;--- NEU 
-#&gt; lam[N4:NEU]  0.8135648 0.04482613  18.149341  1.299508e-73 N4 &lt;--- NEU 
-#&gt; lam[N5:NEU]  0.8009658 0.04693513  17.065378  2.686459e-65 N5 &lt;--- NEU 
-#&gt; lam[O1:OPE]  0.6401326 0.03640373  17.584257  3.252136e-69 O1 &lt;--- OPE 
-#&gt; lam[O2:OPE] -0.6559353 0.05049288 -12.990649  1.382496e-38 O2 &lt;--- OPE 
-#&gt; lam[O3:OPE]  0.8693944 0.03999120  21.739643 8.656899e-105 O3 &lt;--- OPE 
-#&gt; lam[O4:OPE]  0.2616802 0.04153888   6.299644  2.983309e-10 O4 &lt;--- OPE 
-#&gt; lam[O5:OPE] -0.6221695 0.04369320 -14.239506  5.209377e-46 O5 &lt;--- OPE 
-#&gt; C[AGE,CON]  -0.3654644 0.03356747 -10.887457  1.322825e-27 CON &lt;--&gt; AGE
-#&gt; C[AGE,EXT]  -0.6969921 0.02361785 -29.511239 2.065602e-191 EXT &lt;--&gt; AGE
-#&gt; C[AGE,NEU]  -0.2335232 0.03357907  -6.954426  3.539997e-12 NEU &lt;--&gt; AGE
-#&gt; C[AGE,OPE]   0.2945487 0.03712696   7.933554  2.129623e-15 OPE &lt;--&gt; AGE
-#&gt; C[CON,EXT]   0.3221808 0.03433023   9.384756  6.306240e-21 EXT &lt;--&gt; CON
-#&gt; C[CON,NEU]   0.2960668 0.03319748   8.918352  4.732785e-19 NEU &lt;--&gt; CON
-#&gt; C[CON,OPE]  -0.2970289 0.03768640  -7.881594  3.232312e-15 OPE &lt;--&gt; CON
-#&gt; C[EXT,NEU]   0.2294374 0.03359646   6.829214  8.538109e-12 NEU &lt;--&gt; EXT
-#&gt; C[EXT,OPE]  -0.4825269 0.03339778 -14.447876  2.585355e-47 OPE &lt;--&gt; EXT
-#&gt; C[NEU,OPE]  -0.1431668 0.03715428  -3.853307  1.165334e-04 OPE &lt;--&gt; NEU
-#&gt; V[A1]        1.7123576 0.07156649  23.926806 1.611506e-126 A1 &lt;--&gt; A1  
-#&gt; V[A2]        0.8156031 0.03974746  20.519627  1.438117e-93 A2 &lt;--&gt; A2  
-#&gt; V[A3]        0.7758974 0.04541210  17.085699  1.896577e-65 A3 &lt;--&gt; A3  
-#&gt; V[A4]        1.5328435 0.06843547  22.398378 4.081723e-111 A4 &lt;--&gt; A4  
-#&gt; V[A5]        0.7643811 0.04162681  18.362712  2.612305e-75 A5 &lt;--&gt; A5  
-#&gt; V[C1]        1.1464907 0.05256564  21.810649 1.838484e-105 C1 &lt;--&gt; C1  
-#&gt; V[C2]        1.0586507 0.05363299  19.738797  1.001345e-86 C2 &lt;--&gt; C2  
-#&gt; V[C3]        1.1613709 0.05356406  21.681905 3.040315e-104 C3 &lt;--&gt; C3  
-#&gt; V[C4]        0.9331673 0.05539706  16.845070  1.140345e-63 C4 &lt;--&gt; C4  
-#&gt; V[C5]        1.6376241 0.08279323  19.779685  4.454670e-87 C5 &lt;--&gt; C5  
-#&gt; V[E1]        1.8545801 0.08328615  22.267570 7.622448e-110 E1 &lt;--&gt; E1  
-#&gt; V[E2]        1.3597150 0.07027172  19.349391  2.062636e-83 E2 &lt;--&gt; E2  
-#&gt; V[E3]        1.0849589 0.05288335  20.516077  1.547049e-93 E3 &lt;--&gt; E3  
-#&gt; V[E4]        1.1131810 0.05784500  19.244205  1.578653e-82 E4 &lt;--&gt; E4  
-#&gt; V[E5]        1.2209042 0.05584225  21.863448 5.790127e-106 E5 &lt;--&gt; E5  
-#&gt; V[N1]        0.7864871 0.05298706  14.843002  7.722097e-50 N1 &lt;--&gt; N1  
-#&gt; V[N2]        0.8288397 0.05167822  16.038471  6.882760e-58 N2 &lt;--&gt; N2  
-#&gt; V[N3]        1.3045383 0.06422241  20.312819  9.905189e-92 N3 &lt;--&gt; N3  
-#&gt; V[N4]        1.7811414 0.07704679  23.117660 3.076156e-118 N4 &lt;--&gt; N4  
-#&gt; V[N5]        1.9931686 0.08541555  23.334963 1.958930e-120 N5 &lt;--&gt; N5  
-#&gt; V[O1]        0.8406101 0.04389003  19.152645  9.199426e-82 O1 &lt;--&gt; O1  
-#&gt; V[O2]        1.9147017 0.08595549  22.275502 6.385770e-110 O2 &lt;--&gt; O2  
-#&gt; V[O3]        0.7175180 0.05447597  13.171276  1.284090e-39 O3 &lt;--&gt; O3  
-#&gt; V[O4]        1.4393282 0.05943854  24.215402 1.531356e-129 O4 &lt;--&gt; O4  
-#&gt; V[O5]        1.3869030 0.06404338  21.655680 5.373241e-104 O5 &lt;--&gt; O5  
+#&gt; lam[A1:AGE] -0.4438064 0.04443225  -9.988384  1.713518e-23 A1 &lt;--- AGE 
+#&gt; lam[A2:AGE]  0.7035697 0.03389465  20.757545  1.047851e-95 A2 &lt;--- AGE 
+#&gt; lam[A3:AGE]  0.9486888 0.03721983  25.488801 2.623800e-143 A3 &lt;--- AGE 
+#&gt; lam[A4:AGE]  0.7201055 0.04456261  16.159410  9.749077e-59 A4 &lt;--- AGE 
+#&gt; lam[A5:AGE]  0.8520176 0.03579453  23.803014 3.108171e-125 A5 &lt;--- AGE 
+#&gt; lam[C1:CON] -0.6921399 0.03705695 -18.677735  7.514035e-78 C1 &lt;--- CON 
+#&gt; lam[C2:CON] -0.7650560 0.03897820 -19.627795  8.951653e-86 C2 &lt;--- CON 
+#&gt; lam[C3:CON] -0.6683610 0.04002245 -16.699654  1.318266e-62 C3 &lt;--- CON 
+#&gt; lam[C4:CON]  0.9831834 0.04077708  24.111177 1.908421e-128 C4 &lt;--- CON 
+#&gt; lam[C5:CON]  0.9938847 0.04910193  20.241255  4.242322e-91 C5 &lt;--- CON 
+#&gt; lam[E1:EXT]  0.9113864 0.04826322  18.883663  1.554241e-79 E1 &lt;--- EXT 
+#&gt; lam[E2:EXT]  1.0785501 0.04468752  24.135377 1.063420e-128 E2 &lt;--- EXT 
+#&gt; lam[E3:EXT] -0.8767566 0.03811531 -23.002744 4.375694e-117 E3 &lt;--- EXT 
+#&gt; lam[E4:EXT] -0.9809395 0.04104700 -23.897960 3.216008e-126 E4 &lt;--- EXT 
+#&gt; lam[E5:EXT] -0.7394457 0.03896134 -18.978963  2.545699e-80 E5 &lt;--- EXT 
+#&gt; lam[N1:NEU]  1.2865620 0.03966566  32.435158 8.770896e-231 N1 &lt;--- NEU 
+#&gt; lam[N2:NEU]  1.2133440 0.03819599  31.766264 1.893356e-221 N2 &lt;--- NEU 
+#&gt; lam[N3:NEU]  1.1914340 0.04122296  28.902195 1.120436e-183 N3 &lt;--- NEU 
+#&gt; lam[N4:NEU]  0.8837288 0.04345338  20.337400  6.002911e-92 N4 &lt;--- NEU 
+#&gt; lam[N5:NEU]  0.8374952 0.04647448  18.020538  1.344306e-72 N5 &lt;--- NEU 
+#&gt; lam[O1:OPE]  0.6390408 0.03658415  17.467696  2.524861e-68 O1 &lt;--- OPE 
+#&gt; lam[O2:OPE] -0.6922459 0.05157953 -13.420944  4.558718e-41 O2 &lt;--- OPE 
+#&gt; lam[O3:OPE]  0.8514957 0.03943545  21.592138 2.129294e-103 O3 &lt;--- OPE 
+#&gt; lam[O4:OPE]  0.2360223 0.03928797   6.007496  1.884108e-09 O4 &lt;--- OPE 
+#&gt; lam[O5:OPE] -0.6428650 0.04363941 -14.731294  4.058590e-49 O5 &lt;--- OPE 
+#&gt; C[AGE,CON]  -0.3177427 0.03551402  -8.946966  3.653861e-19 CON &lt;--&gt; AGE
+#&gt; C[AGE,EXT]  -0.6699934 0.02582028 -25.948338 1.898553e-148 EXT &lt;--&gt; AGE
+#&gt; C[AGE,NEU]  -0.1714326 0.03484440  -4.919948  8.656733e-07 NEU &lt;--&gt; AGE
+#&gt; C[AGE,OPE]   0.3168494 0.03762481   8.421290  3.723610e-17 OPE &lt;--&gt; AGE
+#&gt; C[CON,EXT]   0.3630429 0.03421501  10.610634  2.659391e-26 EXT &lt;--&gt; CON
+#&gt; C[CON,NEU]   0.2747992 0.03367306   8.160803  3.328033e-16 NEU &lt;--&gt; CON
+#&gt; C[CON,OPE]  -0.3381289 0.03737894  -9.045971  1.483402e-19 OPE &lt;--&gt; CON
+#&gt; C[EXT,NEU]   0.1996937 0.03412920   5.851109  4.883066e-09 NEU &lt;--&gt; EXT
+#&gt; C[EXT,OPE]  -0.4697150 0.03409431 -13.776929  3.508814e-43 OPE &lt;--&gt; EXT
+#&gt; C[NEU,OPE]  -0.1208130 0.03720849  -3.246919  1.166614e-03 OPE &lt;--&gt; NEU
+#&gt; V[A1]        1.7875322 0.07462586  23.953256 8.545892e-127 A1 &lt;--&gt; A1  
+#&gt; V[A2]        0.8365292 0.04078698  20.509712  1.763342e-93 A2 &lt;--&gt; A2  
+#&gt; V[A3]        0.8124692 0.04845909  16.766083  4.320708e-63 A3 &lt;--&gt; A3  
+#&gt; V[A4]        1.6329314 0.07260377  22.491000 5.084087e-112 A4 &lt;--&gt; A4  
+#&gt; V[A5]        0.8242236 0.04484687  18.378619  1.948682e-75 A5 &lt;--&gt; A5  
+#&gt; V[C1]        1.0164409 0.04850590  20.954994  1.689502e-97 C1 &lt;--&gt; C1  
+#&gt; V[C2]        1.0908679 0.05342245  20.419655  1.118505e-92 C2 &lt;--&gt; C2  
+#&gt; V[C3]        1.2509577 0.05716271  21.884157 3.677500e-106 C3 &lt;--&gt; C3  
+#&gt; V[C4]        0.9708560 0.05805742  16.722342  9.010771e-63 C4 &lt;--&gt; C4  
+#&gt; V[C5]        1.6940599 0.08455046  20.036083  2.669704e-89 C5 &lt;--&gt; C5  
+#&gt; V[E1]        1.8735699 0.08521203  21.987152 3.822393e-107 E1 &lt;--&gt; E1  
+#&gt; V[E2]        1.3621976 0.07019542  19.405792  6.894826e-84 E2 &lt;--&gt; E2  
+#&gt; V[E3]        1.0346996 0.05146450  20.105112  6.656966e-90 E3 &lt;--&gt; E3  
+#&gt; V[E4]        1.1602458 0.05931544  19.560601  3.351028e-85 E4 &lt;--&gt; E4  
+#&gt; V[E5]        1.2181420 0.05548950  21.952660 8.168004e-107 E5 &lt;--&gt; E5  
+#&gt; V[N1]        0.8162114 0.05100027  16.004061  1.197057e-57 N1 &lt;--&gt; N1  
+#&gt; V[N2]        0.7932693 0.04744753  16.718874  9.550599e-63 N2 &lt;--&gt; N2  
+#&gt; V[N3]        1.0906624 0.05683385  19.190364  4.455074e-82 N3 &lt;--&gt; N3  
+#&gt; V[N4]        1.6121854 0.07094259  22.725211 2.524141e-114 N4 &lt;--&gt; N4  
+#&gt; V[N5]        1.9363756 0.08334015  23.234607 2.035742e-119 N5 &lt;--&gt; N5  
+#&gt; V[O1]        0.8557401 0.04436142  19.290187  6.493828e-83 O1 &lt;--&gt; O1  
+#&gt; V[O2]        1.9740875 0.08947248  22.063629 7.067824e-108 O2 &lt;--&gt; O2  
+#&gt; V[O3]        0.7174355 0.05281637  13.583582  5.011443e-42 O3 &lt;--&gt; O3  
+#&gt; V[O4]        1.2884487 0.05311254  24.258842 5.333881e-130 O4 &lt;--&gt; O4  
+#&gt; V[O5]        1.3617160 0.06372859  21.367428 2.685218e-101 O5 &lt;--&gt; O5  
 #&gt; 
-#&gt;  Iterations =  26</code></pre>
+#&gt;  Iterations =  25</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -2270,8 +2262,8 @@ Theory. Coming soon …
 <li>First, let’s use the CFA syntax we created from the EFA results to run an EFA-based CFA.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a><span class="co"># Run a CFA using the EFA syntax you created earlier</span></span>
-<span id="cb85-2"><a href="#cb85-2"></a>EFA_CFA <span class="ot">&lt;-</span> sem<span class="sc">::</span><span class="fu">sem</span>(EFA_syn, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a><span class="co"># Run a CFA using the EFA syntax you created earlier</span></span>
+<span id="cb82-2"><a href="#cb82-2"></a>EFA_CFA <span class="ot">&lt;-</span> sem<span class="sc">::</span><span class="fu">sem</span>(EFA_syn, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in sem.semmod(EFA_syn, data = bfi_CFA): -177 observations removed due to
 #&gt; missingness</code></pre>
@@ -2281,37 +2273,37 @@ Theory. Coming soon …
 <li>Next, display the BIC by calling its list element within the summary output.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a><span class="co"># Run a CFA using the EFA syntax you created earlier</span></span>
-<span id="cb87-2"><a href="#cb87-2"></a>EFA_CFA <span class="ot">&lt;-</span> <span class="fu">sem</span>(EFA_syn, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="co"># Run a CFA using the EFA syntax you created earlier</span></span>
+<span id="cb84-2"><a href="#cb84-2"></a>EFA_CFA <span class="ot">&lt;-</span> <span class="fu">sem</span>(EFA_syn, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in sem.semmod(EFA_syn, data = bfi_CFA): -177 observations removed due to
 #&gt; missingness</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1"></a><span class="co"># Locate the BIC in the fit statistics of the summary output</span></span>
-<span id="cb89-2"><a href="#cb89-2"></a><span class="fu">summary</span>(EFA_CFA)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="co"># Locate the BIC in the fit statistics of the summary output</span></span>
+<span id="cb86-2"><a href="#cb86-2"></a><span class="fu">summary</span>(EFA_CFA)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 669.3751</code></pre>
+<pre><code>#&gt; [1] 628.7737</code></pre>
 </div>
 </div>
 <ol start="3" type="1">
 <li>Finally, look at both models’ BICs to see which model fits better.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a><span class="co"># Run a CFA using the EFA syntax you created earlier</span></span>
-<span id="cb91-2"><a href="#cb91-2"></a>EFA_CFA <span class="ot">&lt;-</span> <span class="fu">sem</span>(EFA_syn, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a><span class="co"># Run a CFA using the EFA syntax you created earlier</span></span>
+<span id="cb88-2"><a href="#cb88-2"></a>EFA_CFA <span class="ot">&lt;-</span> <span class="fu">sem</span>(EFA_syn, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in sem.semmod(EFA_syn, data = bfi_CFA): -177 observations removed due to
 #&gt; missingness</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="co"># Locate the BIC in the fit statistics of the summary output</span></span>
-<span id="cb93-2"><a href="#cb93-2"></a><span class="fu">summary</span>(EFA_CFA)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="co"># Locate the BIC in the fit statistics of the summary output</span></span>
+<span id="cb90-2"><a href="#cb90-2"></a><span class="fu">summary</span>(EFA_CFA)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 669.3751</code></pre>
+<pre><code>#&gt; [1] 628.7737</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a><span class="co"># Compare EFA_CFA BIC to the BIC from the CFA based on theory</span></span>
-<span id="cb95-2"><a href="#cb95-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="co"># Compare EFA_CFA BIC to the BIC from the CFA based on theory</span></span>
+<span id="cb92-2"><a href="#cb92-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 507.1819</code></pre>
+<pre><code>#&gt; [1] 521.0618</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -2354,23 +2346,23 @@ Theory. Coming soon …
 <li>Look at the first five loadings in <code>EFA_model</code>. This output only estimates specified item/factor relationships.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a><span class="co"># View the first five rows of the EFA loadings</span></span>
-<span id="cb97-2"><a href="#cb97-2"></a>EFA_model<span class="sc">$</span>loadings[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="co"># View the first five rows of the EFA loadings</span></span>
+<span id="cb94-2"><a href="#cb94-2"></a>EFA_model<span class="sc">$</span>loadings[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;            MR2          MR1         MR3        MR5         MR4
-#&gt; A1  0.23483308  0.163004958 0.075957546 -0.3929927 -0.06541652
-#&gt; A2 -0.02674372 -0.002298911 0.064990006  0.6571822  0.05597635
-#&gt; A3 -0.02018273  0.155309466 0.006921478  0.6474506  0.01080319
-#&gt; A4 -0.03928695  0.064542406 0.179438011  0.4297596 -0.17271862
-#&gt; A5 -0.13706210  0.210452962 0.012275593  0.5070930  0.06006827</code></pre>
+<pre><code>#&gt;            MR2        MR1          MR3        MR5          MR4
+#&gt; A1  0.15912833 0.19347830  0.055432853 -0.4686316 -0.045787212
+#&gt; A2 -0.01465335 0.03079566  0.083046397  0.6635713  0.008941085
+#&gt; A3 -0.02971015 0.13148678  0.030627963  0.6662833  0.031959916
+#&gt; A4 -0.02969164 0.12360025  0.215461713  0.3864048 -0.157174647
+#&gt; A5 -0.11441182 0.24808517 -0.009194763  0.5205276  0.036793031</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1"></a><span class="co"># View the first five loadings from the CFA estimated from the EFA results</span></span>
-<span id="cb99-2"><a href="#cb99-2"></a><span class="fu">summary</span>(EFA_CFA)<span class="sc">$</span>coeff[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="co"># View the first five loadings from the CFA estimated from the EFA results</span></span>
+<span id="cb96-2"><a href="#cb96-2"></a><span class="fu">summary</span>(EFA_CFA)<span class="sc">$</span>coeff[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Estimate"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Std Error"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["z value"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Pr(>|z|)"],"name":[4],"type":["dbl"],"align":["right"]},{"label":[" "],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"-0.4813815","2":"0.04302884","3":"-11.18742","4":"4.699324e-29","5":"A1 <--- MR5","_rn_":"F4A1"},{"1":"0.7585520","2":"0.03350832","3":"22.63772","4":"1.843228e-113","5":"A2 <--- MR5","_rn_":"F4A2"},{"1":"1.0008168","2":"0.03630217","3":"27.56906","4":"2.615406e-167","5":"A3 <--- MR5","_rn_":"F4A3"},{"1":"0.7636408","2":"0.04321813","3":"17.66946","4":"7.208696e-70","5":"A4 <--- MR5","_rn_":"F4A4"},{"1":"0.8983241","2":"0.03472542","3":"25.86935","4":"1.473987e-147","5":"A5 <--- MR5","_rn_":"F4A5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Estimate"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Std Error"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["z value"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Pr(>|z|)"],"name":[4],"type":["dbl"],"align":["right"]},{"label":[" "],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"-0.4443045","2":"0.04458129","3":"-9.966165","4":"2.143459e-23","5":"A1 <--- MR5","_rn_":"F4A1"},{"1":"0.7055546","2":"0.03404503","3":"20.724159","4":"2.097597e-95","5":"A2 <--- MR5","_rn_":"F4A2"},{"1":"0.9543554","2":"0.03745938","3":"25.477076","4":"3.539081e-143","5":"A3 <--- MR5","_rn_":"F4A3"},{"1":"0.7208679","2":"0.04473182","3":"16.115328","4":"1.991059e-58","5":"A4 <--- MR5","_rn_":"F4A4"},{"1":"0.8452544","2":"0.03607411","3":"23.431052","4":"2.062719e-121","5":"A5 <--- MR5","_rn_":"F4A5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2391,17 +2383,17 @@ Theory. Coming soon …
 <li>Finally, use the <code>plot()</code> and <code>lines()</code> functions to graph the densities of the individuals’ factor scores on the first factor.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1"></a><span class="co"># Extracting factor scores from the EFA model</span></span>
-<span id="cb100-2"><a href="#cb100-2"></a>EFA_scores <span class="ot">&lt;-</span> EFA_model<span class="sc">$</span>scores</span>
-<span id="cb100-3"><a href="#cb100-3"></a></span>
-<span id="cb100-4"><a href="#cb100-4"></a><span class="co"># Calculating factor scores by applying the CFA parameters to the EFA dataset</span></span>
-<span id="cb100-5"><a href="#cb100-5"></a>CFA_scores <span class="ot">&lt;-</span> <span class="fu">fscores</span>(EFA_CFA, <span class="at">data =</span> bfi_EFA)</span>
-<span id="cb100-6"><a href="#cb100-6"></a></span>
-<span id="cb100-7"><a href="#cb100-7"></a><span class="co"># Comparing factor scores from the EFA and CFA results from the bfi_EFA dataset</span></span>
-<span id="cb100-8"><a href="#cb100-8"></a><span class="fu">plot</span>(<span class="fu">density</span>(EFA_scores[,<span class="dv">1</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb100-9"><a href="#cb100-9"></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">col =</span> <span class="st">"blue"</span>)</span>
-<span id="cb100-10"><a href="#cb100-10"></a><span class="fu">lines</span>(<span class="fu">density</span>(CFA_scores[,<span class="dv">1</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb100-11"><a href="#cb100-11"></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a><span class="co"># Extracting factor scores from the EFA model</span></span>
+<span id="cb97-2"><a href="#cb97-2"></a>EFA_scores <span class="ot">&lt;-</span> EFA_model<span class="sc">$</span>scores</span>
+<span id="cb97-3"><a href="#cb97-3"></a></span>
+<span id="cb97-4"><a href="#cb97-4"></a><span class="co"># Calculating factor scores by applying the CFA parameters to the EFA dataset</span></span>
+<span id="cb97-5"><a href="#cb97-5"></a>CFA_scores <span class="ot">&lt;-</span> <span class="fu">fscores</span>(EFA_CFA, <span class="at">data =</span> bfi_EFA)</span>
+<span id="cb97-6"><a href="#cb97-6"></a></span>
+<span id="cb97-7"><a href="#cb97-7"></a><span class="co"># Comparing factor scores from the EFA and CFA results from the bfi_EFA dataset</span></span>
+<span id="cb97-8"><a href="#cb97-8"></a><span class="fu">plot</span>(<span class="fu">density</span>(EFA_scores[,<span class="dv">1</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb97-9"><a href="#cb97-9"></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">col =</span> <span class="st">"blue"</span>)</span>
+<span id="cb97-10"><a href="#cb97-10"></a><span class="fu">lines</span>(<span class="fu">density</span>(CFA_scores[,<span class="dv">1</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb97-11"><a href="#cb97-11"></a>    <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2444,30 +2436,30 @@ Theory. Coming soon …
 <li>First, let’s add some of the other strong factor loadings from the EFA. The fourth neuroticism item could load to Extraversion, and the third extraversion item could load to Neuroticism.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1"></a><span class="co"># Add some plausible item/factor loadings to the syntax</span></span>
-<span id="cb101-2"><a href="#cb101-2"></a>theory_syn_add <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb101-3"><a href="#cb101-3"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
-<span id="cb101-4"><a href="#cb101-4"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
-<span id="cb101-5"><a href="#cb101-5"></a><span class="st">EXT: E1, E2, E3, E4, E5, N4</span></span>
-<span id="cb101-6"><a href="#cb101-6"></a><span class="st">NEU: N1, N2, N3, N4, N5, E3</span></span>
-<span id="cb101-7"><a href="#cb101-7"></a><span class="st">OPE: O1, O2, O3, O4, O5</span></span>
-<span id="cb101-8"><a href="#cb101-8"></a><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a><span class="co"># Add some plausible item/factor loadings to the syntax</span></span>
+<span id="cb98-2"><a href="#cb98-2"></a>theory_syn_add <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb98-3"><a href="#cb98-3"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
+<span id="cb98-4"><a href="#cb98-4"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
+<span id="cb98-5"><a href="#cb98-5"></a><span class="st">EXT: E1, E2, E3, E4, E5, N4</span></span>
+<span id="cb98-6"><a href="#cb98-6"></a><span class="st">NEU: N1, N2, N3, N4, N5, E3</span></span>
+<span id="cb98-7"><a href="#cb98-7"></a><span class="st">OPE: O1, O2, O3, O4, O5</span></span>
+<span id="cb98-8"><a href="#cb98-8"></a><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Next, use the <code>cfa()</code> function to convert your series of equations into <code>sem()</code>-compatible syntax.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1"></a><span class="co">#Add some plausible item/factor loadings to the syntax</span></span>
-<span id="cb102-2"><a href="#cb102-2"></a>theory_syn_add <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb102-3"><a href="#cb102-3"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
-<span id="cb102-4"><a href="#cb102-4"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
-<span id="cb102-5"><a href="#cb102-5"></a><span class="st">EXT: E1, E2, E3, E4, E5, N4</span></span>
-<span id="cb102-6"><a href="#cb102-6"></a><span class="st">NEU: N1, N2, N3, N4, N5, E3</span></span>
-<span id="cb102-7"><a href="#cb102-7"></a><span class="st">OPE: O1, O2, O3, O4, O5</span></span>
-<span id="cb102-8"><a href="#cb102-8"></a><span class="st">"</span></span>
-<span id="cb102-9"><a href="#cb102-9"></a></span>
-<span id="cb102-10"><a href="#cb102-10"></a><span class="co"># Convert your equations to sem-compatible syntax</span></span>
-<span id="cb102-11"><a href="#cb102-11"></a>theory_syn2 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">text =</span> theory_syn_add, <span class="at">reference.indicators =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1"></a><span class="co">#Add some plausible item/factor loadings to the syntax</span></span>
+<span id="cb99-2"><a href="#cb99-2"></a>theory_syn_add <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb99-3"><a href="#cb99-3"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
+<span id="cb99-4"><a href="#cb99-4"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
+<span id="cb99-5"><a href="#cb99-5"></a><span class="st">EXT: E1, E2, E3, E4, E5, N4</span></span>
+<span id="cb99-6"><a href="#cb99-6"></a><span class="st">NEU: N1, N2, N3, N4, N5, E3</span></span>
+<span id="cb99-7"><a href="#cb99-7"></a><span class="st">OPE: O1, O2, O3, O4, O5</span></span>
+<span id="cb99-8"><a href="#cb99-8"></a><span class="st">"</span></span>
+<span id="cb99-9"><a href="#cb99-9"></a></span>
+<span id="cb99-10"><a href="#cb99-10"></a><span class="co"># Convert your equations to sem-compatible syntax</span></span>
+<span id="cb99-11"><a href="#cb99-11"></a>theory_syn2 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">text =</span> theory_syn_add, <span class="at">reference.indicators =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; NOTE: adding 25 variances to the model</code></pre>
 </div>
@@ -2476,22 +2468,22 @@ Theory. Coming soon …
 <li>Finally, run a CFA using your new syntax.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a><span class="co"># Add some plausible item/factor loadings to the syntax</span></span>
-<span id="cb104-2"><a href="#cb104-2"></a>theory_syn_add <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb104-3"><a href="#cb104-3"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
-<span id="cb104-4"><a href="#cb104-4"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
-<span id="cb104-5"><a href="#cb104-5"></a><span class="st">EXT: E1, E2, E3, E4, E5, N4</span></span>
-<span id="cb104-6"><a href="#cb104-6"></a><span class="st">NEU: N1, N2, N3, N4, N5, E3</span></span>
-<span id="cb104-7"><a href="#cb104-7"></a><span class="st">OPE: O1, O2, O3, O4, O5</span></span>
-<span id="cb104-8"><a href="#cb104-8"></a><span class="st">"</span></span>
-<span id="cb104-9"><a href="#cb104-9"></a></span>
-<span id="cb104-10"><a href="#cb104-10"></a><span class="co"># Convert your equations to sem-compatible syntax</span></span>
-<span id="cb104-11"><a href="#cb104-11"></a>theory_syn2 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">text =</span> theory_syn_add, <span class="at">reference.indicators =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1"></a><span class="co"># Add some plausible item/factor loadings to the syntax</span></span>
+<span id="cb101-2"><a href="#cb101-2"></a>theory_syn_add <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb101-3"><a href="#cb101-3"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
+<span id="cb101-4"><a href="#cb101-4"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
+<span id="cb101-5"><a href="#cb101-5"></a><span class="st">EXT: E1, E2, E3, E4, E5, N4</span></span>
+<span id="cb101-6"><a href="#cb101-6"></a><span class="st">NEU: N1, N2, N3, N4, N5, E3</span></span>
+<span id="cb101-7"><a href="#cb101-7"></a><span class="st">OPE: O1, O2, O3, O4, O5</span></span>
+<span id="cb101-8"><a href="#cb101-8"></a><span class="st">"</span></span>
+<span id="cb101-9"><a href="#cb101-9"></a></span>
+<span id="cb101-10"><a href="#cb101-10"></a><span class="co"># Convert your equations to sem-compatible syntax</span></span>
+<span id="cb101-11"><a href="#cb101-11"></a>theory_syn2 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">text =</span> theory_syn_add, <span class="at">reference.indicators =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; NOTE: adding 25 variances to the model</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a><span class="co"># Run a CFA with the revised syntax</span></span>
-<span id="cb106-2"><a href="#cb106-2"></a>theory_CFA_add <span class="ot">&lt;-</span> <span class="fu">sem</span>(<span class="at">model =</span> theory_syn2, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1"></a><span class="co"># Run a CFA with the revised syntax</span></span>
+<span id="cb103-2"><a href="#cb103-2"></a>theory_CFA_add <span class="ot">&lt;-</span> <span class="fu">sem</span>(<span class="at">model =</span> theory_syn2, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in sem.semmod(model = theory_syn2, data = bfi_CFA): -177 observations
 #&gt; removed due to missingness</code></pre>
@@ -2507,13 +2499,13 @@ Theory. Coming soon …
 <li>Use the <code>anova()</code> function to conduct a likelihood ratio test to see whether the models fit significantly differently.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1"></a><span class="co"># Conduct a likelihood ratio test</span></span>
-<span id="cb108-2"><a href="#cb108-2"></a><span class="fu">anova</span>(theory_CFA, theory_CFA_add)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1"></a><span class="co"># Conduct a likelihood ratio test</span></span>
+<span id="cb105-2"><a href="#cb105-2"></a><span class="fu">anova</span>(theory_CFA, theory_CFA_add)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Model Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Model Chisq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["LR Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"265","2":"2391.083","3":"NA","4":"NA","5":"NA","_rn_":"theory_CFA"},{"1":"263","2":"2248.523","3":"2","4":"142.5603","5":"1.105183e-31","_rn_":"theory_CFA_add"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Model Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Model Chisq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["LR Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"265","2":"2404.963","3":"NA","4":"NA","5":"NA","_rn_":"theory_CFA"},{"1":"263","2":"2260.832","3":"2","4":"144.1314","5":"5.038156e-32","_rn_":"theory_CFA_add"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2522,57 +2514,57 @@ Theory. Coming soon …
 <li>Check out the fit indices for each model to see which fits better.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1"></a><span class="co"># Conduct a likelihood ratio test</span></span>
-<span id="cb109-2"><a href="#cb109-2"></a><span class="fu">anova</span>(theory_CFA, theory_CFA_add)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a><span class="co"># Conduct a likelihood ratio test</span></span>
+<span id="cb106-2"><a href="#cb106-2"></a><span class="fu">anova</span>(theory_CFA, theory_CFA_add)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Model Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Model Chisq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["LR Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"265","2":"2391.083","3":"NA","4":"NA","5":"NA","_rn_":"theory_CFA"},{"1":"263","2":"2248.523","3":"2","4":"142.5603","5":"1.105183e-31","_rn_":"theory_CFA_add"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Model Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Model Chisq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["LR Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"265","2":"2404.963","3":"NA","4":"NA","5":"NA","_rn_":"theory_CFA"},{"1":"263","2":"2260.832","3":"2","4":"144.1314","5":"5.038156e-32","_rn_":"theory_CFA_add"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a><span class="co"># Compare the comparative fit indices - higher is better!</span></span>
-<span id="cb110-2"><a href="#cb110-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1"></a><span class="co"># Compare the comparative fit indices - higher is better!</span></span>
+<span id="cb107-2"><a href="#cb107-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.7705807</code></pre>
+<pre><code>#&gt; [1] 0.7616661</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a><span class="fu">summary</span>(theory_CFA_add)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1"></a><span class="fu">summary</span>(theory_CFA_add)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.7857482</code></pre>
+<pre><code>#&gt; [1] 0.7774957</code></pre>
 </div>
 </div>
 <ol start="3" type="1">
 <li>Investigate the RMSEAs for each model to see which fits better.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a><span class="co"># Conduct a likelihood ratio test</span></span>
-<span id="cb114-2"><a href="#cb114-2"></a><span class="fu">anova</span>(theory_CFA, theory_CFA_add)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1"></a><span class="co"># Conduct a likelihood ratio test</span></span>
+<span id="cb111-2"><a href="#cb111-2"></a><span class="fu">anova</span>(theory_CFA, theory_CFA_add)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Model Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Model Chisq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["LR Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"265","2":"2391.083","3":"NA","4":"NA","5":"NA","_rn_":"theory_CFA"},{"1":"263","2":"2248.523","3":"2","4":"142.5603","5":"1.105183e-31","_rn_":"theory_CFA_add"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Model Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Model Chisq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["LR Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"265","2":"2404.963","3":"NA","4":"NA","5":"NA","_rn_":"theory_CFA"},{"1":"263","2":"2260.832","3":"2","4":"144.1314","5":"5.038156e-32","_rn_":"theory_CFA_add"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1"></a><span class="co"># Compare the comparative fit indices - higher is better!</span></span>
-<span id="cb115-2"><a href="#cb115-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a><span class="co"># Compare the comparative fit indices - higher is better!</span></span>
+<span id="cb112-2"><a href="#cb112-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.7705807</code></pre>
+<pre><code>#&gt; [1] 0.7616661</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1"></a><span class="fu">summary</span>(theory_CFA_add)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a><span class="fu">summary</span>(theory_CFA_add)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.7857482</code></pre>
+<pre><code>#&gt; [1] 0.7774957</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1"></a><span class="co"># Compare the RMSEA values - lower is better!</span></span>
-<span id="cb119-2"><a href="#cb119-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>RMSEA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a><span class="co"># Compare the RMSEA values - lower is better!</span></span>
+<span id="cb116-2"><a href="#cb116-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>RMSEA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.08102735         NA         NA 0.90000000</code></pre>
+<pre><code>#&gt; [1] 0.0812914        NA        NA 0.9000000</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1"></a><span class="fu">summary</span>(theory_CFA_add)<span class="sc">$</span>RMSEA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1"></a><span class="fu">summary</span>(theory_CFA_add)<span class="sc">$</span>RMSEA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.07860026         NA         NA 0.90000000</code></pre>
+<pre><code>#&gt; [1] 0.07884352         NA         NA 0.90000000</code></pre>
 </div>
 </div>
 <p>Yep, the revised CFA fits better! In real life, you would carefully consider whether the new loadings make sense with your theory.</p>
@@ -2586,14 +2578,14 @@ Theory. Coming soon …
 <li>Check out the models’ BIC values to see which one is preferred.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1"></a><span class="co"># Compare BIC values</span></span>
-<span id="cb123-2"><a href="#cb123-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1"></a><span class="co"># Compare BIC values</span></span>
+<span id="cb120-2"><a href="#cb120-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 507.1819</code></pre>
+<pre><code>#&gt; [1] 521.0618</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1"></a><span class="fu">summary</span>(theory_CFA_add)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1"></a><span class="fu">summary</span>(theory_CFA_add)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 378.8398</code></pre>
+<pre><code>#&gt; [1] 391.1485</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -2632,30 +2624,30 @@ Theory. Coming soon …
 <li>First, let’s remove the weakest factor loading from the CFA, which is the fourth Openness item’s loading on its factor.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1"></a><span class="co"># Remove the weakest factor loading from the syntax</span></span>
-<span id="cb127-2"><a href="#cb127-2"></a>theory_syn_del <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb127-3"><a href="#cb127-3"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
-<span id="cb127-4"><a href="#cb127-4"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
-<span id="cb127-5"><a href="#cb127-5"></a><span class="st">EXT: E1, E2, E3, E4, E5</span></span>
-<span id="cb127-6"><a href="#cb127-6"></a><span class="st">NEU: N1, N2, N3, N4, N5</span></span>
-<span id="cb127-7"><a href="#cb127-7"></a><span class="st">OPE: O1, O2, O3, O5</span></span>
-<span id="cb127-8"><a href="#cb127-8"></a><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1"></a><span class="co"># Remove the weakest factor loading from the syntax</span></span>
+<span id="cb124-2"><a href="#cb124-2"></a>theory_syn_del <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb124-3"><a href="#cb124-3"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
+<span id="cb124-4"><a href="#cb124-4"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
+<span id="cb124-5"><a href="#cb124-5"></a><span class="st">EXT: E1, E2, E3, E4, E5</span></span>
+<span id="cb124-6"><a href="#cb124-6"></a><span class="st">NEU: N1, N2, N3, N4, N5</span></span>
+<span id="cb124-7"><a href="#cb124-7"></a><span class="st">OPE: O1, O2, O3, O5</span></span>
+<span id="cb124-8"><a href="#cb124-8"></a><span class="st">"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Next, convert your series of equations into <code>sem()</code> compatible syntax.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1"></a><span class="co"># Remove the weakest factor loading from the syntax</span></span>
-<span id="cb128-2"><a href="#cb128-2"></a>theory_syn_del <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb128-3"><a href="#cb128-3"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
-<span id="cb128-4"><a href="#cb128-4"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
-<span id="cb128-5"><a href="#cb128-5"></a><span class="st">EXT: E1, E2, E3, E4, E5</span></span>
-<span id="cb128-6"><a href="#cb128-6"></a><span class="st">NEU: N1, N2, N3, N4, N5</span></span>
-<span id="cb128-7"><a href="#cb128-7"></a><span class="st">OPE: O1, O2, O3, O5</span></span>
-<span id="cb128-8"><a href="#cb128-8"></a><span class="st">"</span></span>
-<span id="cb128-9"><a href="#cb128-9"></a></span>
-<span id="cb128-10"><a href="#cb128-10"></a><span class="co"># Convert your equations to sem-compatible syntax</span></span>
-<span id="cb128-11"><a href="#cb128-11"></a>theory_syn3 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">text =</span> theory_syn_del, <span class="at">reference.indicators =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1"></a><span class="co"># Remove the weakest factor loading from the syntax</span></span>
+<span id="cb125-2"><a href="#cb125-2"></a>theory_syn_del <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb125-3"><a href="#cb125-3"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
+<span id="cb125-4"><a href="#cb125-4"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
+<span id="cb125-5"><a href="#cb125-5"></a><span class="st">EXT: E1, E2, E3, E4, E5</span></span>
+<span id="cb125-6"><a href="#cb125-6"></a><span class="st">NEU: N1, N2, N3, N4, N5</span></span>
+<span id="cb125-7"><a href="#cb125-7"></a><span class="st">OPE: O1, O2, O3, O5</span></span>
+<span id="cb125-8"><a href="#cb125-8"></a><span class="st">"</span></span>
+<span id="cb125-9"><a href="#cb125-9"></a></span>
+<span id="cb125-10"><a href="#cb125-10"></a><span class="co"># Convert your equations to sem-compatible syntax</span></span>
+<span id="cb125-11"><a href="#cb125-11"></a>theory_syn3 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">text =</span> theory_syn_del, <span class="at">reference.indicators =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; NOTE: adding 24 variances to the model</code></pre>
 </div>
@@ -2664,22 +2656,22 @@ Theory. Coming soon …
 <li>Finally, run a CFA using your new syntax.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1"></a><span class="co"># Remove the weakest factor loading from the syntax</span></span>
-<span id="cb130-2"><a href="#cb130-2"></a>theory_syn_del <span class="ot">&lt;-</span> <span class="st">"</span></span>
-<span id="cb130-3"><a href="#cb130-3"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
-<span id="cb130-4"><a href="#cb130-4"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
-<span id="cb130-5"><a href="#cb130-5"></a><span class="st">EXT: E1, E2, E3, E4, E5</span></span>
-<span id="cb130-6"><a href="#cb130-6"></a><span class="st">NEU: N1, N2, N3, N4, N5</span></span>
-<span id="cb130-7"><a href="#cb130-7"></a><span class="st">OPE: O1, O2, O3, O5</span></span>
-<span id="cb130-8"><a href="#cb130-8"></a><span class="st">"</span></span>
-<span id="cb130-9"><a href="#cb130-9"></a></span>
-<span id="cb130-10"><a href="#cb130-10"></a><span class="co"># Convert your equations to sem-compatible syntax</span></span>
-<span id="cb130-11"><a href="#cb130-11"></a>theory_syn3 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">text =</span> theory_syn_del, <span class="at">reference.indicators =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1"></a><span class="co"># Remove the weakest factor loading from the syntax</span></span>
+<span id="cb127-2"><a href="#cb127-2"></a>theory_syn_del <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb127-3"><a href="#cb127-3"></a><span class="st">AGE: A1, A2, A3, A4, A5</span></span>
+<span id="cb127-4"><a href="#cb127-4"></a><span class="st">CON: C1, C2, C3, C4, C5</span></span>
+<span id="cb127-5"><a href="#cb127-5"></a><span class="st">EXT: E1, E2, E3, E4, E5</span></span>
+<span id="cb127-6"><a href="#cb127-6"></a><span class="st">NEU: N1, N2, N3, N4, N5</span></span>
+<span id="cb127-7"><a href="#cb127-7"></a><span class="st">OPE: O1, O2, O3, O5</span></span>
+<span id="cb127-8"><a href="#cb127-8"></a><span class="st">"</span></span>
+<span id="cb127-9"><a href="#cb127-9"></a></span>
+<span id="cb127-10"><a href="#cb127-10"></a><span class="co"># Convert your equations to sem-compatible syntax</span></span>
+<span id="cb127-11"><a href="#cb127-11"></a>theory_syn3 <span class="ot">&lt;-</span> <span class="fu">cfa</span>(<span class="at">text =</span> theory_syn_del, <span class="at">reference.indicators =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; NOTE: adding 24 variances to the model</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1"></a><span class="co"># Run a CFA with the revised syntax</span></span>
-<span id="cb132-2"><a href="#cb132-2"></a>theory_CFA_del <span class="ot">&lt;-</span> <span class="fu">sem</span>(<span class="at">model =</span> theory_syn3, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1"></a><span class="co"># Run a CFA with the revised syntax</span></span>
+<span id="cb129-2"><a href="#cb129-2"></a>theory_CFA_del <span class="ot">&lt;-</span> <span class="fu">sem</span>(<span class="at">model =</span> theory_syn3, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in sem.semmod(model = theory_syn3, data = bfi_CFA): -177 observations
 #&gt; removed due to missingness</code></pre>
@@ -2700,23 +2692,23 @@ Theory. Coming soon …
 <li>Investigate the RMSEAs for each model to see which fits better.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1"></a><span class="co"># Compare the comparative fit indices - higher is better!</span></span>
-<span id="cb135-2"><a href="#cb135-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1"></a><span class="co"># Compare the comparative fit indices - higher is better!</span></span>
+<span id="cb132-2"><a href="#cb132-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.7705807</code></pre>
+<pre><code>#&gt; [1] 0.7616661</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1"></a><span class="fu">summary</span>(theory_CFA_del)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1"></a><span class="fu">summary</span>(theory_CFA_del)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.787152</code></pre>
+<pre><code>#&gt; [1] 0.7782832</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1"></a><span class="co"># Compare the RMSEA values - lower is better!</span></span>
-<span id="cb139-2"><a href="#cb139-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>RMSEA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1"></a><span class="co"># Compare the RMSEA values - lower is better!</span></span>
+<span id="cb136-2"><a href="#cb136-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>RMSEA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.08102735         NA         NA 0.90000000</code></pre>
+<pre><code>#&gt; [1] 0.0812914        NA        NA 0.9000000</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1"></a><span class="fu">summary</span>(theory_CFA_del)<span class="sc">$</span>RMSEA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1"></a><span class="fu">summary</span>(theory_CFA_del)<span class="sc">$</span>RMSEA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.0805983        NA        NA 0.9000000</code></pre>
+<pre><code>#&gt; [1] 0.08096925         NA         NA 0.90000000</code></pre>
 </div>
 </div>
 <p>Once again, the revised CFA fits better! In real life, you would carefully consider whether you are okay with excluding that loading and dropping that item.</p>
@@ -2730,14 +2722,14 @@ Theory. Coming soon …
 <li>Check out the models’ BIC values to see which one is preferred.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1"></a><span class="co"># Compare BIC values</span></span>
-<span id="cb143-2"><a href="#cb143-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1"></a><span class="co"># Compare BIC values</span></span>
+<span id="cb140-2"><a href="#cb140-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 507.1819</code></pre>
+<pre><code>#&gt; [1] 521.0618</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1"></a><span class="fu">summary</span>(theory_CFA_del)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1"></a><span class="fu">summary</span>(theory_CFA_del)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 442.6553</code></pre>
+<pre><code>#&gt; [1] 460.3795</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -3029,7 +3021,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"loop":true,"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom"});</script>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":true,"openEffect":"zoom","closeEffect":"zoom"});</script>
 
 
 
