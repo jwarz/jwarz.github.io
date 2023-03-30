@@ -1,59 +1,4 @@
-/*! CSS Used from: Embedded ; media=screen */
-@media screen {
-  a {
-    color: #3391ff;
-  }
-  ::placeholder {
-    color: #b2aba1;
-  }
-  ::selection {
-    background-color: #004daa !important;
-    color: #e8e6e3 !important;
-  }
-}
-/*! CSS Used from: https://jschwarz.netlify.app/css/wowchemy.ddb2a9c79d7760a321f1b5392a04566a.css */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-section {
-  display: block;
-}
-h1 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-}
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-ul {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-a {
-  /*color: #1565c0;*/
-  color: var(--bs-body-color);
-  text-decoration: none;
-  background-color: transparent;
-}
-a:hover {
-  color: #0d417b;
-  text-decoration: underline;
-}
-img {
-  vertical-align: middle;
-  border-style: none;
-}
-h1 {
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  line-height: 1.2;
-}
-h1 {
-  font-size: 2.5rem;
-}
+/* CONTAINER */
 .container {
   width: 100%;
   padding-right: 15px;
@@ -81,6 +26,8 @@ h1 {
     max-width: 1290px;
   }
 }
+
+/* BOOTSTRAP */
 .row {
   display: flex;
   flex-wrap: wrap;
@@ -121,6 +68,8 @@ h1 {
     max-width: 66.66666667%;
   }
 }
+
+/* CARD */
 .card {
   position: relative;
   display: flex;
@@ -265,14 +214,8 @@ h1 {
     border: 1px solid #000;
   }
 }
-p {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
-ul {
-  margin-top: 0;
-  margin-bottom: 1rem;
-}
+
+
 h1 {
   font-family: montserrat, sans-serif;
   font-weight: 400;
@@ -288,30 +231,7 @@ h1 {
   -ms-hyphens: manual;
   hyphens: manual;
 }
-h1 {
-  font-size: 2.25rem;
-}
-a {
-  /*color: #1565c0;*/
-  color: var(--bs-body-color);
-  text-decoration: none;
-  transition: color 0.6s ease;
-}
-a:hover,
-a:focus {
-  /*color: #1565c0;*/
-  color: var(--bs-body-color);
-}
-.dark a {
-  color: #bbdefb;
-}
-.dark a:not(.btn):hover,
-.dark a:not(.btn):focus {
-  color: #bbdefb;
-}
-.dark .text-muted {
-  color: rgba(255, 255, 255, 0.54) !important;
-}
+
 .middot-divider {
   padding-right: 0.45em;
   padding-left: 0.45em;
@@ -362,11 +282,17 @@ img {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 .home-section {
-  background: var(--bs-body-bg);
+  /*background: var(--bs-body-bg);*/
+  background: #2d2d2d;
   position: relative;
-  /*padding: 110px 0;*/
+  padding: 110px 0;
   z-index: 0;
 }
+
+.home-section:nth-of-type(2n) {
+    background: var(--bs-body-bg);
+}
+
 .home-section-bg {
   position: absolute;
   top: 0;
