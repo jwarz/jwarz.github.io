@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -148,308 +119,349 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">Joschka Schwarz</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Data Science</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-science">    
         <li>
-    <a class="dropdown-item" href="../../../../../content/R/index.html">
+    <a class="dropdown-item" href="../../../../../content/R/index.html" rel="" target="">
  <span class="dropdown-text">R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/python/index.html">
+    <a class="dropdown-item" href="../../../../../content/python/index.html" rel="" target="">
  <span class="dropdown-text">Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/sql/index.html">
+    <a class="dropdown-item" href="../../../../../content/sql/index.html" rel="" target="">
  <span class="dropdown-text">SQL</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../slides/index.html">
+    <a class="nav-link" href="../../../../../slides/index.html" rel="" target="">
  <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../resumes/index.html">
+    <a class="nav-link" href="../../../../../resumes/index.html" rel="" target="">
  <span class="menu-text">Resumes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../index.html">
+    <a class="nav-link" href="../../../../../index.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jwarz/"><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
+    <a class="nav-link" href="https://github.com/jwarz/" rel="" target=""><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz"><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
+    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Supervised Learning in R: Classification</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Topics</li><li class="breadcrumb-item"><a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html">7.1: Supervised Learning: Classification</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Topics</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <b><i>1 Programming Basics</i></b>
+ <span class="menu-text"><b><i>1 Programming Basics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">1.1: Introduction to R</a>
+  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1: Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">1.2: Intermediate R</a>
+  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2: Intermediate R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">1.3: Introduction to the tidyverse</a>
+  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3: Introduction to the tidyverse</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>2 Importing Data</i></b>
+ <span class="menu-text"><b><i>2 Importing Data</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">2.1: Introduction to Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1: Introduction to Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">2.2: Intermediate Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2: Intermediate Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">2.3: Working with web data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3: Working with web data</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>3 Data Wrangling</i></b>
+ <span class="menu-text"><b><i>3 Data Wrangling</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">3.1: Data Manipulation with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1: Data Manipulation with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">3.2: Joining data with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2: Joining data with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.3: Exploratory Data Analysis</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3: Exploratory Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.4: Case Study: EDA</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4: Case Study: EDA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">3.5: Cleaning Data</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5: Cleaning Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">3.6: Data Manipulation with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6: Data Manipulation with data.table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">3.7: Joining Data with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.7: Joining Data with data.table</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>4 Data Visualization</i></b>
+ <span class="menu-text"><b><i>4 Data Visualization</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">4.1: Introduction to Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1: Introduction to Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">4.2: Intermediate Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2: Intermediate Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>5 Statistics</i></b>
+ <span class="menu-text"><b><i>5 Statistics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">5.1: Introduction to Statistics</a>
+  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1: Introduction to Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">5.2: Foundations of Probability</a>
+  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2: Foundations of Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">5.3: Introduction to Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3: Introduction to Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">5.4: Intermediate Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.4: Intermediate Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">5.5: Modeling with Data in the Tidyverse</a>
+  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.5: Modeling with Data in the Tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">5.6: Experimental Design</a>
+  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.6: Experimental Design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">5.7: A/B Testing</a>
+  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.7: A/B Testing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">5.8: Fundamentals of Bayesian Data Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.8: Fundamentals of Bayesian Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">5.9: Factor Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.9: Factor Analysis</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>7 Machine Learning</i></b>
+ <span class="menu-text"><b><i>7 Machine Learning</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link active">7.1: Supervised Learning: Classification</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">7.1: Supervised Learning: Classification</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">7.2: Supervised Learning: Regression</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2: Supervised Learning: Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">7.3: Unsupervised Learning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3: Unsupervised Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">7.4: Machine Learning in the tidyverse</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4: Machine Learning in the tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">7.5: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.5: Cluster Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">7.6: Machine Learning with caret</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6: Machine Learning with caret</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">7.7: Modeling with tidymodels</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.7: Modeling with tidymodels</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">7.8: Machine Learning with tree-based Models</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.8: Machine Learning with tree-based Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">7.9: Support Vector Machines</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.9: Support Vector Machines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">7.10: Topic Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.10: Topic Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">7.11: Hyperparameter Tuning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.11: Hyperparameter Tuning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">7.12: Bayesian Regression Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.12: Bayesian Regression Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">7.13: Introduction to Spark</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.13: Introduction to Spark</span></a>
   </div>
 </li>
       </ul>
@@ -457,40 +469,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Manuals</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">R Manuals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">1: An Introduction to R</a>
+  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: An Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">2: R Data Import/Export</a>
+  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: R Data Import/Export</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">3: R Installation and Administration</a>
+  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: R Installation and Administration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">4: Writing R Extensions</a>
+  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Writing R Extensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">5: R Language Definition</a>
+  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: R Language Definition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">6: R Internals</a>
+  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: R Internals</span></a>
   </div>
 </li>
       </ul>
@@ -498,78 +517,79 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#chapter-1-k-nearest-neighbors-knn" id="toc-chapter-1-k-nearest-neighbors-knn" class="nav-link active" data-scroll-target="#chapter-1-k-nearest-neighbors-knn"><span class="toc-section-number">1</span>  Chapter 1: k-Nearest Neighbors (kNN)</a>
+  <li><a href="#chapter-1-k-nearest-neighbors-knn" id="toc-chapter-1-k-nearest-neighbors-knn" class="nav-link active" data-scroll-target="#chapter-1-k-nearest-neighbors-knn"><span class="header-section-number">1</span> Chapter 1: k-Nearest Neighbors (kNN)</a>
   <ul class="collapse">
-  <li><a href="#classification-with-nearest-neighbors" id="toc-classification-with-nearest-neighbors" class="nav-link" data-scroll-target="#classification-with-nearest-neighbors"><span class="toc-section-number">1.1</span>  Classification with Nearest Neighbors</a></li>
-  <li><a href="#recognizing-a-road-sign-with-knn" id="toc-recognizing-a-road-sign-with-knn" class="nav-link" data-scroll-target="#recognizing-a-road-sign-with-knn"><span class="toc-section-number">1.2</span>  Recognizing a road sign with kNN</a></li>
-  <li><a href="#thinking-like-knn" id="toc-thinking-like-knn" class="nav-link" data-scroll-target="#thinking-like-knn"><span class="toc-section-number">1.3</span>  Thinking like kNN</a></li>
-  <li><a href="#exploring-the-traffic-sign-dataset" id="toc-exploring-the-traffic-sign-dataset" class="nav-link" data-scroll-target="#exploring-the-traffic-sign-dataset"><span class="toc-section-number">1.5</span>  Exploring the traffic sign dataset</a></li>
-  <li><a href="#classifying-a-collection-of-road-signs" id="toc-classifying-a-collection-of-road-signs" class="nav-link" data-scroll-target="#classifying-a-collection-of-road-signs"><span class="toc-section-number">1.6</span>  Classifying a collection of road signs</a></li>
-  <li><a href="#what-about-the-k-in-knn" id="toc-what-about-the-k-in-knn" class="nav-link" data-scroll-target="#what-about-the-k-in-knn"><span class="toc-section-number">1.7</span>  What about the ‘k’ in kNN?</a></li>
-  <li><a href="#understanding-the-impact-of-k" id="toc-understanding-the-impact-of-k" class="nav-link" data-scroll-target="#understanding-the-impact-of-k"><span class="toc-section-number">1.8</span>  Understanding the impact of ‘k’</a></li>
-  <li><a href="#testing-other-k-values" id="toc-testing-other-k-values" class="nav-link" data-scroll-target="#testing-other-k-values"><span class="toc-section-number">1.10</span>  Testing other ‘k’ values</a></li>
-  <li><a href="#seeing-how-the-neighbors-voted" id="toc-seeing-how-the-neighbors-voted" class="nav-link" data-scroll-target="#seeing-how-the-neighbors-voted"><span class="toc-section-number">1.11</span>  Seeing how the neighbors voted</a></li>
-  <li><a href="#data-preparation-for-knn" id="toc-data-preparation-for-knn" class="nav-link" data-scroll-target="#data-preparation-for-knn"><span class="toc-section-number">1.12</span>  Data preparation for kNN</a></li>
-  <li><a href="#why-normalize-data" id="toc-why-normalize-data" class="nav-link" data-scroll-target="#why-normalize-data"><span class="toc-section-number">1.13</span>  Why normalize data?</a></li>
+  <li><a href="#classification-with-nearest-neighbors" id="toc-classification-with-nearest-neighbors" class="nav-link" data-scroll-target="#classification-with-nearest-neighbors"><span class="header-section-number">1.1</span> Classification with Nearest Neighbors</a></li>
+  <li><a href="#recognizing-a-road-sign-with-knn" id="toc-recognizing-a-road-sign-with-knn" class="nav-link" data-scroll-target="#recognizing-a-road-sign-with-knn"><span class="header-section-number">1.2</span> Recognizing a road sign with kNN</a></li>
+  <li><a href="#thinking-like-knn" id="toc-thinking-like-knn" class="nav-link" data-scroll-target="#thinking-like-knn"><span class="header-section-number">1.3</span> Thinking like kNN</a></li>
+  <li><a href="#exploring-the-traffic-sign-dataset" id="toc-exploring-the-traffic-sign-dataset" class="nav-link" data-scroll-target="#exploring-the-traffic-sign-dataset"><span class="header-section-number">1.5</span> Exploring the traffic sign dataset</a></li>
+  <li><a href="#classifying-a-collection-of-road-signs" id="toc-classifying-a-collection-of-road-signs" class="nav-link" data-scroll-target="#classifying-a-collection-of-road-signs"><span class="header-section-number">1.6</span> Classifying a collection of road signs</a></li>
+  <li><a href="#what-about-the-k-in-knn" id="toc-what-about-the-k-in-knn" class="nav-link" data-scroll-target="#what-about-the-k-in-knn"><span class="header-section-number">1.7</span> What about the ‘k’ in kNN?</a></li>
+  <li><a href="#understanding-the-impact-of-k" id="toc-understanding-the-impact-of-k" class="nav-link" data-scroll-target="#understanding-the-impact-of-k"><span class="header-section-number">1.8</span> Understanding the impact of ‘k’</a></li>
+  <li><a href="#testing-other-k-values" id="toc-testing-other-k-values" class="nav-link" data-scroll-target="#testing-other-k-values"><span class="header-section-number">1.10</span> Testing other ‘k’ values</a></li>
+  <li><a href="#seeing-how-the-neighbors-voted" id="toc-seeing-how-the-neighbors-voted" class="nav-link" data-scroll-target="#seeing-how-the-neighbors-voted"><span class="header-section-number">1.11</span> Seeing how the neighbors voted</a></li>
+  <li><a href="#data-preparation-for-knn" id="toc-data-preparation-for-knn" class="nav-link" data-scroll-target="#data-preparation-for-knn"><span class="header-section-number">1.12</span> Data preparation for kNN</a></li>
+  <li><a href="#why-normalize-data" id="toc-why-normalize-data" class="nav-link" data-scroll-target="#why-normalize-data"><span class="header-section-number">1.13</span> Why normalize data?</a></li>
   </ul></li>
-  <li><a href="#chapter-2-naive-bayes" id="toc-chapter-2-naive-bayes" class="nav-link" data-scroll-target="#chapter-2-naive-bayes"><span class="toc-section-number">2</span>  2. Chapter 2: Naive Bayes</a>
+  <li><a href="#chapter-2-naive-bayes" id="toc-chapter-2-naive-bayes" class="nav-link" data-scroll-target="#chapter-2-naive-bayes"><span class="header-section-number">2</span> 2. Chapter 2: Naive Bayes</a>
   <ul class="collapse">
-  <li><a href="#understanding-bayesian-methods" id="toc-understanding-bayesian-methods" class="nav-link" data-scroll-target="#understanding-bayesian-methods"><span class="toc-section-number">2.1</span>  Understanding Bayesian methods</a></li>
-  <li><a href="#computing-probabilities" id="toc-computing-probabilities" class="nav-link" data-scroll-target="#computing-probabilities"><span class="toc-section-number">2.2</span>  Computing probabilities</a></li>
-  <li><a href="#understanding-dependent-events" id="toc-understanding-dependent-events" class="nav-link" data-scroll-target="#understanding-dependent-events"><span class="toc-section-number">2.3</span>  Understanding dependent events</a></li>
-  <li><a href="#a-simple-naive-bayes-location-model" id="toc-a-simple-naive-bayes-location-model" class="nav-link" data-scroll-target="#a-simple-naive-bayes-location-model"><span class="toc-section-number">2.5</span>  A simple Naive Bayes location model</a></li>
-  <li><a href="#examining-raw-probabilities" id="toc-examining-raw-probabilities" class="nav-link" data-scroll-target="#examining-raw-probabilities"><span class="toc-section-number">2.6</span>  Examining “raw” probabilities</a></li>
-  <li><a href="#understanding-independence" id="toc-understanding-independence" class="nav-link" data-scroll-target="#understanding-independence"><span class="toc-section-number">2.7</span>  Understanding independence</a></li>
-  <li><a href="#understanding-nbs-naivety" id="toc-understanding-nbs-naivety" class="nav-link" data-scroll-target="#understanding-nbs-naivety"><span class="toc-section-number">2.9</span>  Understanding NB’s “naivety”</a></li>
-  <li><a href="#who-are-you-calling-naive" id="toc-who-are-you-calling-naive" class="nav-link" data-scroll-target="#who-are-you-calling-naive"><span class="toc-section-number">2.10</span>  Who are you calling naive?</a></li>
-  <li><a href="#a-more-sophisticated-location-model" id="toc-a-more-sophisticated-location-model" class="nav-link" data-scroll-target="#a-more-sophisticated-location-model"><span class="toc-section-number">2.12</span>  A more sophisticated location model</a></li>
-  <li><a href="#preparing-for-unforeseen-circumstances" id="toc-preparing-for-unforeseen-circumstances" class="nav-link" data-scroll-target="#preparing-for-unforeseen-circumstances"><span class="toc-section-number">2.13</span>  Preparing for unforeseen circumstances</a></li>
-  <li><a href="#understanding-the-laplace-correction" id="toc-understanding-the-laplace-correction" class="nav-link" data-scroll-target="#understanding-the-laplace-correction"><span class="toc-section-number">2.14</span>  Understanding the Laplace correction</a></li>
-  <li><a href="#applying-naive-bayes-to-other-problems" id="toc-applying-naive-bayes-to-other-problems" class="nav-link" data-scroll-target="#applying-naive-bayes-to-other-problems"><span class="toc-section-number">2.16</span>  Applying Naive Bayes to other problems</a></li>
-  <li><a href="#handling-numeric-predictors" id="toc-handling-numeric-predictors" class="nav-link" data-scroll-target="#handling-numeric-predictors"><span class="toc-section-number">2.17</span>  Handling numeric predictors</a></li>
+  <li><a href="#understanding-bayesian-methods" id="toc-understanding-bayesian-methods" class="nav-link" data-scroll-target="#understanding-bayesian-methods"><span class="header-section-number">2.1</span> Understanding Bayesian methods</a></li>
+  <li><a href="#computing-probabilities" id="toc-computing-probabilities" class="nav-link" data-scroll-target="#computing-probabilities"><span class="header-section-number">2.2</span> Computing probabilities</a></li>
+  <li><a href="#understanding-dependent-events" id="toc-understanding-dependent-events" class="nav-link" data-scroll-target="#understanding-dependent-events"><span class="header-section-number">2.3</span> Understanding dependent events</a></li>
+  <li><a href="#a-simple-naive-bayes-location-model" id="toc-a-simple-naive-bayes-location-model" class="nav-link" data-scroll-target="#a-simple-naive-bayes-location-model"><span class="header-section-number">2.5</span> A simple Naive Bayes location model</a></li>
+  <li><a href="#examining-raw-probabilities" id="toc-examining-raw-probabilities" class="nav-link" data-scroll-target="#examining-raw-probabilities"><span class="header-section-number">2.6</span> Examining “raw” probabilities</a></li>
+  <li><a href="#understanding-independence" id="toc-understanding-independence" class="nav-link" data-scroll-target="#understanding-independence"><span class="header-section-number">2.7</span> Understanding independence</a></li>
+  <li><a href="#understanding-nbs-naivety" id="toc-understanding-nbs-naivety" class="nav-link" data-scroll-target="#understanding-nbs-naivety"><span class="header-section-number">2.9</span> Understanding NB’s “naivety”</a></li>
+  <li><a href="#who-are-you-calling-naive" id="toc-who-are-you-calling-naive" class="nav-link" data-scroll-target="#who-are-you-calling-naive"><span class="header-section-number">2.10</span> Who are you calling naive?</a></li>
+  <li><a href="#a-more-sophisticated-location-model" id="toc-a-more-sophisticated-location-model" class="nav-link" data-scroll-target="#a-more-sophisticated-location-model"><span class="header-section-number">2.12</span> A more sophisticated location model</a></li>
+  <li><a href="#preparing-for-unforeseen-circumstances" id="toc-preparing-for-unforeseen-circumstances" class="nav-link" data-scroll-target="#preparing-for-unforeseen-circumstances"><span class="header-section-number">2.13</span> Preparing for unforeseen circumstances</a></li>
+  <li><a href="#understanding-the-laplace-correction" id="toc-understanding-the-laplace-correction" class="nav-link" data-scroll-target="#understanding-the-laplace-correction"><span class="header-section-number">2.14</span> Understanding the Laplace correction</a></li>
+  <li><a href="#applying-naive-bayes-to-other-problems" id="toc-applying-naive-bayes-to-other-problems" class="nav-link" data-scroll-target="#applying-naive-bayes-to-other-problems"><span class="header-section-number">2.16</span> Applying Naive Bayes to other problems</a></li>
+  <li><a href="#handling-numeric-predictors" id="toc-handling-numeric-predictors" class="nav-link" data-scroll-target="#handling-numeric-predictors"><span class="header-section-number">2.17</span> Handling numeric predictors</a></li>
   </ul></li>
-  <li><a href="#chapter-3-logistic-regression" id="toc-chapter-3-logistic-regression" class="nav-link" data-scroll-target="#chapter-3-logistic-regression"><span class="toc-section-number">3</span>  3. Chapter 3: Logistic Regression</a>
+  <li><a href="#chapter-3-logistic-regression" id="toc-chapter-3-logistic-regression" class="nav-link" data-scroll-target="#chapter-3-logistic-regression"><span class="header-section-number">3</span> 3. Chapter 3: Logistic Regression</a>
   <ul class="collapse">
-  <li><a href="#making-binary-predictions-with-regression" id="toc-making-binary-predictions-with-regression" class="nav-link" data-scroll-target="#making-binary-predictions-with-regression"><span class="toc-section-number">3.1</span>  Making binary predictions with regression</a></li>
-  <li><a href="#building-simple-logistic-regression-models" id="toc-building-simple-logistic-regression-models" class="nav-link" data-scroll-target="#building-simple-logistic-regression-models"><span class="toc-section-number">3.2</span>  Building simple logistic regression models</a></li>
-  <li><a href="#making-a-binary-prediction" id="toc-making-a-binary-prediction" class="nav-link" data-scroll-target="#making-a-binary-prediction"><span class="toc-section-number">3.3</span>  Making a binary prediction</a></li>
-  <li><a href="#the-limitations-of-accuracy" id="toc-the-limitations-of-accuracy" class="nav-link" data-scroll-target="#the-limitations-of-accuracy"><span class="toc-section-number">3.4</span>  The limitations of accuracy</a></li>
-  <li><a href="#model-performance-tradeoffs" id="toc-model-performance-tradeoffs" class="nav-link" data-scroll-target="#model-performance-tradeoffs"><span class="toc-section-number">3.6</span>  Model performance tradeoffs</a></li>
-  <li><a href="#calculating-roc-curves-and-auc" id="toc-calculating-roc-curves-and-auc" class="nav-link" data-scroll-target="#calculating-roc-curves-and-auc"><span class="toc-section-number">3.7</span>  Calculating ROC Curves and AUC</a></li>
-  <li><a href="#comparing-roc-curves" id="toc-comparing-roc-curves" class="nav-link" data-scroll-target="#comparing-roc-curves"><span class="toc-section-number">3.8</span>  Comparing ROC curves</a></li>
-  <li><a href="#dummy-variables-missing-data-and-interactions" id="toc-dummy-variables-missing-data-and-interactions" class="nav-link" data-scroll-target="#dummy-variables-missing-data-and-interactions"><span class="toc-section-number">3.10</span>  Dummy variables, missing data, and interactions</a></li>
-  <li><a href="#coding-categorical-features" id="toc-coding-categorical-features" class="nav-link" data-scroll-target="#coding-categorical-features"><span class="toc-section-number">3.11</span>  Coding categorical features</a></li>
-  <li><a href="#handling-missing-data" id="toc-handling-missing-data" class="nav-link" data-scroll-target="#handling-missing-data"><span class="toc-section-number">3.12</span>  Handling missing data</a></li>
-  <li><a href="#understanding-missing-value-indicators" id="toc-understanding-missing-value-indicators" class="nav-link" data-scroll-target="#understanding-missing-value-indicators"><span class="toc-section-number">3.13</span>  Understanding missing value indicators</a></li>
-  <li><a href="#building-a-more-sophisticated-model" id="toc-building-a-more-sophisticated-model" class="nav-link" data-scroll-target="#building-a-more-sophisticated-model"><span class="toc-section-number">3.15</span>  Building a more sophisticated model</a></li>
-  <li><a href="#automatic-feature-selection" id="toc-automatic-feature-selection" class="nav-link" data-scroll-target="#automatic-feature-selection"><span class="toc-section-number">3.16</span>  Automatic feature selection</a></li>
-  <li><a href="#the-dangers-of-stepwise-regression" id="toc-the-dangers-of-stepwise-regression" class="nav-link" data-scroll-target="#the-dangers-of-stepwise-regression"><span class="toc-section-number">3.17</span>  The dangers of stepwise regression</a></li>
-  <li><a href="#building-a-stepwise-regression-model" id="toc-building-a-stepwise-regression-model" class="nav-link" data-scroll-target="#building-a-stepwise-regression-model"><span class="toc-section-number">3.19</span>  Building a stepwise regression model</a></li>
+  <li><a href="#making-binary-predictions-with-regression" id="toc-making-binary-predictions-with-regression" class="nav-link" data-scroll-target="#making-binary-predictions-with-regression"><span class="header-section-number">3.1</span> Making binary predictions with regression</a></li>
+  <li><a href="#building-simple-logistic-regression-models" id="toc-building-simple-logistic-regression-models" class="nav-link" data-scroll-target="#building-simple-logistic-regression-models"><span class="header-section-number">3.2</span> Building simple logistic regression models</a></li>
+  <li><a href="#making-a-binary-prediction" id="toc-making-a-binary-prediction" class="nav-link" data-scroll-target="#making-a-binary-prediction"><span class="header-section-number">3.3</span> Making a binary prediction</a></li>
+  <li><a href="#the-limitations-of-accuracy" id="toc-the-limitations-of-accuracy" class="nav-link" data-scroll-target="#the-limitations-of-accuracy"><span class="header-section-number">3.4</span> The limitations of accuracy</a></li>
+  <li><a href="#model-performance-tradeoffs" id="toc-model-performance-tradeoffs" class="nav-link" data-scroll-target="#model-performance-tradeoffs"><span class="header-section-number">3.6</span> Model performance tradeoffs</a></li>
+  <li><a href="#calculating-roc-curves-and-auc" id="toc-calculating-roc-curves-and-auc" class="nav-link" data-scroll-target="#calculating-roc-curves-and-auc"><span class="header-section-number">3.7</span> Calculating ROC Curves and AUC</a></li>
+  <li><a href="#comparing-roc-curves" id="toc-comparing-roc-curves" class="nav-link" data-scroll-target="#comparing-roc-curves"><span class="header-section-number">3.8</span> Comparing ROC curves</a></li>
+  <li><a href="#dummy-variables-missing-data-and-interactions" id="toc-dummy-variables-missing-data-and-interactions" class="nav-link" data-scroll-target="#dummy-variables-missing-data-and-interactions"><span class="header-section-number">3.10</span> Dummy variables, missing data, and interactions</a></li>
+  <li><a href="#coding-categorical-features" id="toc-coding-categorical-features" class="nav-link" data-scroll-target="#coding-categorical-features"><span class="header-section-number">3.11</span> Coding categorical features</a></li>
+  <li><a href="#handling-missing-data" id="toc-handling-missing-data" class="nav-link" data-scroll-target="#handling-missing-data"><span class="header-section-number">3.12</span> Handling missing data</a></li>
+  <li><a href="#understanding-missing-value-indicators" id="toc-understanding-missing-value-indicators" class="nav-link" data-scroll-target="#understanding-missing-value-indicators"><span class="header-section-number">3.13</span> Understanding missing value indicators</a></li>
+  <li><a href="#building-a-more-sophisticated-model" id="toc-building-a-more-sophisticated-model" class="nav-link" data-scroll-target="#building-a-more-sophisticated-model"><span class="header-section-number">3.15</span> Building a more sophisticated model</a></li>
+  <li><a href="#automatic-feature-selection" id="toc-automatic-feature-selection" class="nav-link" data-scroll-target="#automatic-feature-selection"><span class="header-section-number">3.16</span> Automatic feature selection</a></li>
+  <li><a href="#the-dangers-of-stepwise-regression" id="toc-the-dangers-of-stepwise-regression" class="nav-link" data-scroll-target="#the-dangers-of-stepwise-regression"><span class="header-section-number">3.17</span> The dangers of stepwise regression</a></li>
+  <li><a href="#building-a-stepwise-regression-model" id="toc-building-a-stepwise-regression-model" class="nav-link" data-scroll-target="#building-a-stepwise-regression-model"><span class="header-section-number">3.19</span> Building a stepwise regression model</a></li>
   </ul></li>
-  <li><a href="#chapter-4-classification-trees" id="toc-chapter-4-classification-trees" class="nav-link" data-scroll-target="#chapter-4-classification-trees"><span class="toc-section-number">4</span>  4. Chapter 4: Classification Trees</a>
+  <li><a href="#chapter-4-classification-trees" id="toc-chapter-4-classification-trees" class="nav-link" data-scroll-target="#chapter-4-classification-trees"><span class="header-section-number">4</span> 4. Chapter 4: Classification Trees</a>
   <ul class="collapse">
-  <li><a href="#making-decisions-with-trees" id="toc-making-decisions-with-trees" class="nav-link" data-scroll-target="#making-decisions-with-trees"><span class="toc-section-number">4.1</span>  Making decisions with trees</a></li>
-  <li><a href="#building-a-simple-decision-tree" id="toc-building-a-simple-decision-tree" class="nav-link" data-scroll-target="#building-a-simple-decision-tree"><span class="toc-section-number">4.2</span>  Building a simple decision tree</a></li>
-  <li><a href="#visualizing-classification-trees" id="toc-visualizing-classification-trees" class="nav-link" data-scroll-target="#visualizing-classification-trees"><span class="toc-section-number">4.3</span>  Visualizing classification trees</a></li>
-  <li><a href="#understanding-the-trees-decisions" id="toc-understanding-the-trees-decisions" class="nav-link" data-scroll-target="#understanding-the-trees-decisions"><span class="toc-section-number">4.4</span>  Understanding the tree’s decisions</a></li>
-  <li><a href="#growing-larger-classification-trees" id="toc-growing-larger-classification-trees" class="nav-link" data-scroll-target="#growing-larger-classification-trees"><span class="toc-section-number">4.6</span>  Growing larger classification trees</a></li>
-  <li><a href="#why-do-some-branches-split" id="toc-why-do-some-branches-split" class="nav-link" data-scroll-target="#why-do-some-branches-split"><span class="toc-section-number">4.7</span>  Why do some branches split?</a></li>
-  <li><a href="#creating-random-test-datasets" id="toc-creating-random-test-datasets" class="nav-link" data-scroll-target="#creating-random-test-datasets"><span class="toc-section-number">4.9</span>  Creating random test datasets</a></li>
-  <li><a href="#building-and-evaluating-a-larger-tree" id="toc-building-and-evaluating-a-larger-tree" class="nav-link" data-scroll-target="#building-and-evaluating-a-larger-tree"><span class="toc-section-number">4.10</span>  Building and evaluating a larger tree</a></li>
-  <li><a href="#conducting-a-fair-performance-evaluation" id="toc-conducting-a-fair-performance-evaluation" class="nav-link" data-scroll-target="#conducting-a-fair-performance-evaluation"><span class="toc-section-number">4.11</span>  Conducting a fair performance evaluation</a></li>
-  <li><a href="#tending-to-classification-trees" id="toc-tending-to-classification-trees" class="nav-link" data-scroll-target="#tending-to-classification-trees"><span class="toc-section-number">4.13</span>  Tending to classification trees</a></li>
-  <li><a href="#preventing-overgrown-trees" id="toc-preventing-overgrown-trees" class="nav-link" data-scroll-target="#preventing-overgrown-trees"><span class="toc-section-number">4.14</span>  Preventing overgrown trees</a></li>
-  <li><a href="#creating-a-nicely-pruned-tree" id="toc-creating-a-nicely-pruned-tree" class="nav-link" data-scroll-target="#creating-a-nicely-pruned-tree"><span class="toc-section-number">4.15</span>  Creating a nicely pruned tree</a></li>
-  <li><a href="#why-do-trees-benefit-from-pruning" id="toc-why-do-trees-benefit-from-pruning" class="nav-link" data-scroll-target="#why-do-trees-benefit-from-pruning"><span class="toc-section-number">4.16</span>  Why do trees benefit from pruning?</a></li>
-  <li><a href="#seeing-the-forest-from-the-trees" id="toc-seeing-the-forest-from-the-trees" class="nav-link" data-scroll-target="#seeing-the-forest-from-the-trees"><span class="toc-section-number">4.18</span>  Seeing the forest from the trees</a></li>
-  <li><a href="#understanding-random-forests" id="toc-understanding-random-forests" class="nav-link" data-scroll-target="#understanding-random-forests"><span class="toc-section-number">4.19</span>  Understanding random forests</a></li>
-  <li><a href="#building-a-random-forest-model" id="toc-building-a-random-forest-model" class="nav-link" data-scroll-target="#building-a-random-forest-model"><span class="toc-section-number">4.21</span>  Building a random forest model</a></li>
+  <li><a href="#making-decisions-with-trees" id="toc-making-decisions-with-trees" class="nav-link" data-scroll-target="#making-decisions-with-trees"><span class="header-section-number">4.1</span> Making decisions with trees</a></li>
+  <li><a href="#building-a-simple-decision-tree" id="toc-building-a-simple-decision-tree" class="nav-link" data-scroll-target="#building-a-simple-decision-tree"><span class="header-section-number">4.2</span> Building a simple decision tree</a></li>
+  <li><a href="#visualizing-classification-trees" id="toc-visualizing-classification-trees" class="nav-link" data-scroll-target="#visualizing-classification-trees"><span class="header-section-number">4.3</span> Visualizing classification trees</a></li>
+  <li><a href="#understanding-the-trees-decisions" id="toc-understanding-the-trees-decisions" class="nav-link" data-scroll-target="#understanding-the-trees-decisions"><span class="header-section-number">4.4</span> Understanding the tree’s decisions</a></li>
+  <li><a href="#growing-larger-classification-trees" id="toc-growing-larger-classification-trees" class="nav-link" data-scroll-target="#growing-larger-classification-trees"><span class="header-section-number">4.6</span> Growing larger classification trees</a></li>
+  <li><a href="#why-do-some-branches-split" id="toc-why-do-some-branches-split" class="nav-link" data-scroll-target="#why-do-some-branches-split"><span class="header-section-number">4.7</span> Why do some branches split?</a></li>
+  <li><a href="#creating-random-test-datasets" id="toc-creating-random-test-datasets" class="nav-link" data-scroll-target="#creating-random-test-datasets"><span class="header-section-number">4.9</span> Creating random test datasets</a></li>
+  <li><a href="#building-and-evaluating-a-larger-tree" id="toc-building-and-evaluating-a-larger-tree" class="nav-link" data-scroll-target="#building-and-evaluating-a-larger-tree"><span class="header-section-number">4.10</span> Building and evaluating a larger tree</a></li>
+  <li><a href="#conducting-a-fair-performance-evaluation" id="toc-conducting-a-fair-performance-evaluation" class="nav-link" data-scroll-target="#conducting-a-fair-performance-evaluation"><span class="header-section-number">4.11</span> Conducting a fair performance evaluation</a></li>
+  <li><a href="#tending-to-classification-trees" id="toc-tending-to-classification-trees" class="nav-link" data-scroll-target="#tending-to-classification-trees"><span class="header-section-number">4.13</span> Tending to classification trees</a></li>
+  <li><a href="#preventing-overgrown-trees" id="toc-preventing-overgrown-trees" class="nav-link" data-scroll-target="#preventing-overgrown-trees"><span class="header-section-number">4.14</span> Preventing overgrown trees</a></li>
+  <li><a href="#creating-a-nicely-pruned-tree" id="toc-creating-a-nicely-pruned-tree" class="nav-link" data-scroll-target="#creating-a-nicely-pruned-tree"><span class="header-section-number">4.15</span> Creating a nicely pruned tree</a></li>
+  <li><a href="#why-do-trees-benefit-from-pruning" id="toc-why-do-trees-benefit-from-pruning" class="nav-link" data-scroll-target="#why-do-trees-benefit-from-pruning"><span class="header-section-number">4.16</span> Why do trees benefit from pruning?</a></li>
+  <li><a href="#seeing-the-forest-from-the-trees" id="toc-seeing-the-forest-from-the-trees" class="nav-link" data-scroll-target="#seeing-the-forest-from-the-trees"><span class="header-section-number">4.18</span> Seeing the forest from the trees</a></li>
+  <li><a href="#understanding-random-forests" id="toc-understanding-random-forests" class="nav-link" data-scroll-target="#understanding-random-forests"><span class="header-section-number">4.19</span> Understanding random forests</a></li>
+  <li><a href="#building-a-random-forest-model" id="toc-building-a-random-forest-model" class="nav-link" data-scroll-target="#building-a-random-forest-model"><span class="header-section-number">4.21</span> Building a random forest model</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -579,7 +599,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Supervised Learning in R: Classification</h1>
+<h1 class="title">Supervised Learning in R: Classification</h1>
 </div>
 
 
@@ -826,7 +846,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb18-2"><a href="#cb18-2"></a>k_7 <span class="ot">&lt;-</span> <span class="fu">knn</span>(<span class="at">train =</span> signs[<span class="sc">-</span><span class="dv">1</span>], <span class="at">test =</span> signs_test[<span class="sc">-</span><span class="dv">1</span>], <span class="at">cl =</span> sign_types, <span class="at">k =</span> <span class="dv">7</span>)</span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="fu">mean</span>(signs_actual <span class="sc">==</span> k_7)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.9491525</code></pre>
+<pre><code>#&gt; [1] 0.9661017</code></pre>
 </div>
 </div>
 <ol start="3" type="1">
@@ -1384,10 +1404,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; glm(formula = donated ~ bad_address + interest_religion + interest_veterans, 
 #&gt;     family = "binomial", data = donors)
 #&gt; 
-#&gt; Deviance Residuals: 
-#&gt;     Min       1Q   Median       3Q      Max  
-#&gt; -0.3480  -0.3192  -0.3192  -0.3192   2.5678  
-#&gt; 
 #&gt; Coefficients:
 #&gt;                   Estimate Std. Error  z value Pr(&gt;|z|)    
 #&gt; (Intercept)       -2.95139    0.01652 -178.664   &lt;2e-16 ***
@@ -1578,10 +1594,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Call:
 #&gt; glm(formula = donated ~ wealth_levels, family = "binomial", data = donors)
 #&gt; 
-#&gt; Deviance Residuals: 
-#&gt;     Min       1Q   Median       3Q      Max  
-#&gt; -0.3320  -0.3243  -0.3175  -0.3175   2.4582  
-#&gt; 
 #&gt; Coefficients:
 #&gt;                      Estimate Std. Error z value Pr(&gt;|z|)    
 #&gt; (Intercept)          -2.91894    0.03614 -80.772   &lt;2e-16 ***
@@ -1680,10 +1692,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Call:
 #&gt; glm(formula = donated ~ recency * frequency + money, family = "binomial", 
 #&gt;     data = donors)
-#&gt; 
-#&gt; Deviance Residuals: 
-#&gt;     Min       1Q   Median       3Q      Max  
-#&gt; -0.3696  -0.3696  -0.2895  -0.2895   2.7924  
 #&gt; 
 #&gt; Coefficients:
 #&gt;                                   Estimate Std. Error z value Pr(&gt;|z|)    
@@ -2178,8 +2186,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;          
 #&gt;           default repaid
-#&gt;   default     786    645
-#&gt;   repaid      595    802</code></pre>
+#&gt;   default     822    605
+#&gt;   repaid      601    800</code></pre>
 </div>
 </div>
 <ol start="4" type="1">
@@ -2189,7 +2197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1"></a><span class="co"># Compute the accuracy on the test dataset</span></span>
 <span id="cb130-2"><a href="#cb130-2"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.5615276</code></pre>
+<pre><code>#&gt; [1] 0.5735502</code></pre>
 </div>
 </div>
 <p>Awesome! How did adding more predictors change the model’s performance?</p>
@@ -2242,7 +2250,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb132-7"><a href="#cb132-7"></a><span class="co"># Compute the accuracy of the simpler tree</span></span>
 <span id="cb132-8"><a href="#cb132-8"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.6004243</code></pre>
+<pre><code>#&gt; [1] 0.5739038</code></pre>
 </div>
 </div>
 <ol start="3" type="1">
@@ -2256,7 +2264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb134-5"><a href="#cb134-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model, loans_test, <span class="at">type =</span> <span class="st">"class"</span>)</span>
 <span id="cb134-6"><a href="#cb134-6"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.6067893</code></pre>
+<pre><code>#&gt; [1] 0.5958274</code></pre>
 </div>
 </div>
 <p>Nice work! It may seem surprising, but creating a simpler decision tree may actually result in greater performance on the test dataset.</p>
@@ -2298,7 +2306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb137-5"><a href="#cb137-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model_pruned, loans_test, <span class="at">type =</span> <span class="st">"class"</span>)</span>
 <span id="cb137-6"><a href="#cb137-6"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.606082</code></pre>
+<pre><code>#&gt; [1] 0.5873409</code></pre>
 </div>
 </div>
 <p>Great job! As with pre-pruning, creating a simpler tree actually improved the performance of the tree on the test dataset.</p>
@@ -2377,7 +2385,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb145-5"><a href="#cb145-5"></a>loans_test<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(loan_model, loans_test)</span>
 <span id="cb145-6"><a href="#cb145-6"></a><span class="fu">mean</span>(loans_test<span class="sc">$</span>pred <span class="sc">==</span> loans_test<span class="sc">$</span>outcome)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.5983027</code></pre>
+<pre><code>#&gt; [1] 0.5922914</code></pre>
 </div>
 </div>
 <p>Wow! Great job! Now you’re really a classification pro! Classification is only one of the problems you’ll have to tackle as a data scientist. Check out some other machine learning courses to learn more about supervised and unsupervised learning.</p>
@@ -2529,9 +2537,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -2596,6 +2618,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -2648,10 +2756,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Content 2022 by <a href="https://www.startupengineer.io/authors/schwarz/">Joschka Schwarz</a> <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":true});</script>
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","loop":true,"descPosition":"bottom","closeEffect":"zoom"});</script>
 
 
 

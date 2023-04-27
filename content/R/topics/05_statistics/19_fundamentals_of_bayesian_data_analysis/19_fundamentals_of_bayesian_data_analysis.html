@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -149,308 +120,349 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">Joschka Schwarz</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Data Science</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-science">    
         <li>
-    <a class="dropdown-item" href="../../../../../content/R/index.html">
+    <a class="dropdown-item" href="../../../../../content/R/index.html" rel="" target="">
  <span class="dropdown-text">R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/python/index.html">
+    <a class="dropdown-item" href="../../../../../content/python/index.html" rel="" target="">
  <span class="dropdown-text">Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/sql/index.html">
+    <a class="dropdown-item" href="../../../../../content/sql/index.html" rel="" target="">
  <span class="dropdown-text">SQL</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../slides/index.html">
+    <a class="nav-link" href="../../../../../slides/index.html" rel="" target="">
  <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../resumes/index.html">
+    <a class="nav-link" href="../../../../../resumes/index.html" rel="" target="">
  <span class="menu-text">Resumes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../index.html">
+    <a class="nav-link" href="../../../../../index.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jwarz/"><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
+    <a class="nav-link" href="https://github.com/jwarz/" rel="" target=""><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz"><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
+    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Fundamentals of Bayesian Data Analysis in R</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Topics</li><li class="breadcrumb-item"><a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html">5.8: Fundamentals of Bayesian Data Analysis</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Topics</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <b><i>1 Programming Basics</i></b>
+ <span class="menu-text"><b><i>1 Programming Basics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">1.1: Introduction to R</a>
+  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1: Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">1.2: Intermediate R</a>
+  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2: Intermediate R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">1.3: Introduction to the tidyverse</a>
+  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3: Introduction to the tidyverse</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>2 Importing Data</i></b>
+ <span class="menu-text"><b><i>2 Importing Data</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">2.1: Introduction to Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1: Introduction to Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">2.2: Intermediate Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2: Intermediate Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">2.3: Working with web data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3: Working with web data</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>3 Data Wrangling</i></b>
+ <span class="menu-text"><b><i>3 Data Wrangling</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">3.1: Data Manipulation with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1: Data Manipulation with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">3.2: Joining data with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2: Joining data with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.3: Exploratory Data Analysis</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3: Exploratory Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.4: Case Study: EDA</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4: Case Study: EDA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">3.5: Cleaning Data</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5: Cleaning Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">3.6: Data Manipulation with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6: Data Manipulation with data.table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">3.7: Joining Data with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.7: Joining Data with data.table</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>4 Data Visualization</i></b>
+ <span class="menu-text"><b><i>4 Data Visualization</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">4.1: Introduction to Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1: Introduction to Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">4.2: Intermediate Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2: Intermediate Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>5 Statistics</i></b>
+ <span class="menu-text"><b><i>5 Statistics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">5.1: Introduction to Statistics</a>
+  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1: Introduction to Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">5.2: Foundations of Probability</a>
+  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2: Foundations of Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">5.3: Introduction to Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3: Introduction to Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">5.4: Intermediate Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.4: Intermediate Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">5.5: Modeling with Data in the Tidyverse</a>
+  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.5: Modeling with Data in the Tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">5.6: Experimental Design</a>
+  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.6: Experimental Design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">5.7: A/B Testing</a>
+  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.7: A/B Testing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link active">5.8: Fundamentals of Bayesian Data Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">5.8: Fundamentals of Bayesian Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">5.9: Factor Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.9: Factor Analysis</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>7 Machine Learning</i></b>
+ <span class="menu-text"><b><i>7 Machine Learning</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">7.1: Supervised Learning: Classification</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1: Supervised Learning: Classification</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">7.2: Supervised Learning: Regression</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2: Supervised Learning: Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">7.3: Unsupervised Learning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3: Unsupervised Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">7.4: Machine Learning in the tidyverse</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4: Machine Learning in the tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">7.5: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.5: Cluster Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">7.6: Machine Learning with caret</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6: Machine Learning with caret</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">7.7: Modeling with tidymodels</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.7: Modeling with tidymodels</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">7.8: Machine Learning with tree-based Models</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.8: Machine Learning with tree-based Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">7.9: Support Vector Machines</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.9: Support Vector Machines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">7.10: Topic Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.10: Topic Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">7.11: Hyperparameter Tuning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.11: Hyperparameter Tuning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">7.12: Bayesian Regression Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.12: Bayesian Regression Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">7.13: Introduction to Spark</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.13: Introduction to Spark</span></a>
   </div>
 </li>
       </ul>
@@ -458,40 +470,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Manuals</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">R Manuals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">1: An Introduction to R</a>
+  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: An Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">2: R Data Import/Export</a>
+  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: R Data Import/Export</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">3: R Installation and Administration</a>
+  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: R Installation and Administration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">4: Writing R Extensions</a>
+  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Writing R Extensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">5: R Language Definition</a>
+  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: R Language Definition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">6: R Internals</a>
+  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: R Internals</span></a>
   </div>
 </li>
       </ul>
@@ -499,68 +518,71 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#what-is-bayesian-data-analysis" id="toc-what-is-bayesian-data-analysis" class="nav-link active" data-scroll-target="#what-is-bayesian-data-analysis"><span class="toc-section-number">1</span>  What is Bayesian Data Analysis?</a>
+  <li><a href="#what-is-bayesian-data-analysis" id="toc-what-is-bayesian-data-analysis" class="nav-link active" data-scroll-target="#what-is-bayesian-data-analysis"><span class="header-section-number">1</span> What is Bayesian Data Analysis?</a>
   <ul class="collapse">
-  <li><a href="#bayesian-inference-in-a-nutshell" id="toc-bayesian-inference-in-a-nutshell" class="nav-link" data-scroll-target="#bayesian-inference-in-a-nutshell"><span class="toc-section-number">1.1</span>  Bayesian Inference in a Nutshell</a></li>
-  <li><a href="#simple-bayesian-model" id="toc-simple-bayesian-model" class="nav-link" data-scroll-target="#simple-bayesian-model"><span class="toc-section-number">1.3</span>  Simple Bayesian model</a></li>
+  <li><a href="#bayesian-inference-in-a-nutshell" id="toc-bayesian-inference-in-a-nutshell" class="nav-link" data-scroll-target="#bayesian-inference-in-a-nutshell"><span class="header-section-number">1.1</span> Bayesian Inference in a Nutshell</a></li>
+  <li><a href="#simple-bayesian-model" id="toc-simple-bayesian-model" class="nav-link" data-scroll-target="#simple-bayesian-model"><span class="header-section-number">1.3</span> Simple Bayesian model</a></li>
   </ul></li>
-  <li><a href="#how-does-bayesian-inference-work" id="toc-how-does-bayesian-inference-work" class="nav-link" data-scroll-target="#how-does-bayesian-inference-work"><span class="toc-section-number">2</span>  2. How does Bayesian inference work?</a>
+  <li><a href="#how-does-bayesian-inference-work" id="toc-how-does-bayesian-inference-work" class="nav-link" data-scroll-target="#how-does-bayesian-inference-work"><span class="header-section-number">2</span> 2. How does Bayesian inference work?</a>
   <ul class="collapse">
-  <li><a href="#generative-model" id="toc-generative-model" class="nav-link" data-scroll-target="#generative-model"><span class="toc-section-number">2.1</span>  Generative model</a></li>
-  <li><a href="#generative-model-binomial-distribution" id="toc-generative-model-binomial-distribution" class="nav-link" data-scroll-target="#generative-model-binomial-distribution"><span class="toc-section-number">2.2</span>  Generative model: Binomial distribution</a></li>
-  <li><a href="#using-a-generative-model" id="toc-using-a-generative-model" class="nav-link" data-scroll-target="#using-a-generative-model"><span class="toc-section-number">2.3</span>  Using a generative model</a></li>
-  <li><a href="#bayesian-inference-ads" id="toc-bayesian-inference-ads" class="nav-link" data-scroll-target="#bayesian-inference-ads"><span class="toc-section-number">2.4</span>  Bayesian inference (Ads)</a></li>
-  <li><a href="#prior-probability-distribution" id="toc-prior-probability-distribution" class="nav-link" data-scroll-target="#prior-probability-distribution"><span class="toc-section-number">2.6</span>  Prior probability distribution</a></li>
-  <li><a href="#adding-a-prior-to-the-model" id="toc-adding-a-prior-to-the-model" class="nav-link" data-scroll-target="#adding-a-prior-to-the-model"><span class="toc-section-number">2.7</span>  Adding a prior to the model</a></li>
-  <li><a href="#bayesian-models-and-conditioning" id="toc-bayesian-models-and-conditioning" class="nav-link" data-scroll-target="#bayesian-models-and-conditioning"><span class="toc-section-number">2.9</span>  Bayesian models and conditioning</a></li>
-  <li><a href="#update-a-bayesian-model-with-data" id="toc-update-a-bayesian-model-with-data" class="nav-link" data-scroll-target="#update-a-bayesian-model-with-data"><span class="toc-section-number">2.10</span>  Update a Bayesian model with data</a></li>
-  <li><a href="#how-many-visitors-could-your-site-get-3" id="toc-how-many-visitors-could-your-site-get-3" class="nav-link" data-scroll-target="#how-many-visitors-could-your-site-get-3"><span class="toc-section-number">2.12</span>  How many visitors could your site get (3)?</a></li>
+  <li><a href="#generative-model" id="toc-generative-model" class="nav-link" data-scroll-target="#generative-model"><span class="header-section-number">2.1</span> Generative model</a></li>
+  <li><a href="#generative-model-binomial-distribution" id="toc-generative-model-binomial-distribution" class="nav-link" data-scroll-target="#generative-model-binomial-distribution"><span class="header-section-number">2.2</span> Generative model: Binomial distribution</a></li>
+  <li><a href="#using-a-generative-model" id="toc-using-a-generative-model" class="nav-link" data-scroll-target="#using-a-generative-model"><span class="header-section-number">2.3</span> Using a generative model</a></li>
+  <li><a href="#bayesian-inference-ads" id="toc-bayesian-inference-ads" class="nav-link" data-scroll-target="#bayesian-inference-ads"><span class="header-section-number">2.4</span> Bayesian inference (Ads)</a></li>
+  <li><a href="#prior-probability-distribution" id="toc-prior-probability-distribution" class="nav-link" data-scroll-target="#prior-probability-distribution"><span class="header-section-number">2.6</span> Prior probability distribution</a></li>
+  <li><a href="#adding-a-prior-to-the-model" id="toc-adding-a-prior-to-the-model" class="nav-link" data-scroll-target="#adding-a-prior-to-the-model"><span class="header-section-number">2.7</span> Adding a prior to the model</a></li>
+  <li><a href="#bayesian-models-and-conditioning" id="toc-bayesian-models-and-conditioning" class="nav-link" data-scroll-target="#bayesian-models-and-conditioning"><span class="header-section-number">2.9</span> Bayesian models and conditioning</a></li>
+  <li><a href="#update-a-bayesian-model-with-data" id="toc-update-a-bayesian-model-with-data" class="nav-link" data-scroll-target="#update-a-bayesian-model-with-data"><span class="header-section-number">2.10</span> Update a Bayesian model with data</a></li>
+  <li><a href="#how-many-visitors-could-your-site-get-3" id="toc-how-many-visitors-could-your-site-get-3" class="nav-link" data-scroll-target="#how-many-visitors-could-your-site-get-3"><span class="header-section-number">2.12</span> How many visitors could your site get (3)?</a></li>
   </ul></li>
-  <li><a href="#why-use-bayesian-data-analysis" id="toc-why-use-bayesian-data-analysis" class="nav-link" data-scroll-target="#why-use-bayesian-data-analysis"><span class="toc-section-number">3</span>  3. Why use Bayesian Data Analysis?</a>
+  <li><a href="#why-use-bayesian-data-analysis" id="toc-why-use-bayesian-data-analysis" class="nav-link" data-scroll-target="#why-use-bayesian-data-analysis"><span class="header-section-number">3</span> 3. Why use Bayesian Data Analysis?</a>
   <ul class="collapse">
-  <li><a href="#beta-distribution-as-a-prior" id="toc-beta-distribution-as-a-prior" class="nav-link" data-scroll-target="#beta-distribution-as-a-prior"><span class="toc-section-number">3.1</span>  Beta distribution as a prior</a></li>
-  <li><a href="#pick-the-prior-that-best-captures-the-information" id="toc-pick-the-prior-that-best-captures-the-information" class="nav-link" data-scroll-target="#pick-the-prior-that-best-captures-the-information"><span class="toc-section-number">3.2</span>  Pick the prior that best captures the information</a></li>
-  <li><a href="#change-the-model-to-use-an-informative-prior" id="toc-change-the-model-to-use-an-informative-prior" class="nav-link" data-scroll-target="#change-the-model-to-use-an-informative-prior"><span class="toc-section-number">3.4</span>  Change the model to use an informative prior</a></li>
-  <li><a href="#contrasts-and-comparisons" id="toc-contrasts-and-comparisons" class="nav-link" data-scroll-target="#contrasts-and-comparisons"><span class="toc-section-number">3.5</span>  Contrasts and comparisons</a></li>
-  <li><a href="#comparison-between-gruops-or-datasets" id="toc-comparison-between-gruops-or-datasets" class="nav-link" data-scroll-target="#comparison-between-gruops-or-datasets"><span class="toc-section-number">3.6</span>  2. Comparison between gruops or datasets</a></li>
-  <li><a href="#fit-the-model-using-another-dataset" id="toc-fit-the-model-using-another-dataset" class="nav-link" data-scroll-target="#fit-the-model-using-another-dataset"><span class="toc-section-number">3.7</span>  Fit the model using another dataset</a></li>
-  <li><a href="#calculating-the-posterior-difference" id="toc-calculating-the-posterior-difference" class="nav-link" data-scroll-target="#calculating-the-posterior-difference"><span class="toc-section-number">3.9</span>  Calculating the posterior difference</a></li>
-  <li><a href="#decision-analysis" id="toc-decision-analysis" class="nav-link" data-scroll-target="#decision-analysis"><span class="toc-section-number">3.11</span>  Decision analysis</a></li>
-  <li><a href="#a-small-decision-analysis-1" id="toc-a-small-decision-analysis-1" class="nav-link" data-scroll-target="#a-small-decision-analysis-1"><span class="toc-section-number">3.12</span>  A small decision analysis 1</a></li>
-  <li><a href="#a-small-decision-analysis-2" id="toc-a-small-decision-analysis-2" class="nav-link" data-scroll-target="#a-small-decision-analysis-2"><span class="toc-section-number">3.13</span>  A small decision analysis 2</a></li>
-  <li><a href="#change-anything-and-everything" id="toc-change-anything-and-everything" class="nav-link" data-scroll-target="#change-anything-and-everything"><span class="toc-section-number">3.15</span>  Change anything and everything</a></li>
-  <li><a href="#the-poisson-distribution" id="toc-the-poisson-distribution" class="nav-link" data-scroll-target="#the-poisson-distribution"><span class="toc-section-number">3.16</span>  The Poisson distribution</a></li>
-  <li><a href="#clicks-per-day-instead-of-clicks-per-ad" id="toc-clicks-per-day-instead-of-clicks-per-ad" class="nav-link" data-scroll-target="#clicks-per-day-instead-of-clicks-per-ad"><span class="toc-section-number">3.18</span>  Clicks per day instead of clicks per ad</a></li>
-  <li><a href="#bayes-is-optimal-kind-of" id="toc-bayes-is-optimal-kind-of" class="nav-link" data-scroll-target="#bayes-is-optimal-kind-of"><span class="toc-section-number">3.20</span>  Bayes is optimal, kind of…</a></li>
+  <li><a href="#beta-distribution-as-a-prior" id="toc-beta-distribution-as-a-prior" class="nav-link" data-scroll-target="#beta-distribution-as-a-prior"><span class="header-section-number">3.1</span> Beta distribution as a prior</a></li>
+  <li><a href="#pick-the-prior-that-best-captures-the-information" id="toc-pick-the-prior-that-best-captures-the-information" class="nav-link" data-scroll-target="#pick-the-prior-that-best-captures-the-information"><span class="header-section-number">3.2</span> Pick the prior that best captures the information</a></li>
+  <li><a href="#change-the-model-to-use-an-informative-prior" id="toc-change-the-model-to-use-an-informative-prior" class="nav-link" data-scroll-target="#change-the-model-to-use-an-informative-prior"><span class="header-section-number">3.4</span> Change the model to use an informative prior</a></li>
+  <li><a href="#contrasts-and-comparisons" id="toc-contrasts-and-comparisons" class="nav-link" data-scroll-target="#contrasts-and-comparisons"><span class="header-section-number">3.5</span> Contrasts and comparisons</a></li>
+  <li><a href="#comparison-between-gruops-or-datasets" id="toc-comparison-between-gruops-or-datasets" class="nav-link" data-scroll-target="#comparison-between-gruops-or-datasets"><span class="header-section-number">3.6</span> 2. Comparison between gruops or datasets</a></li>
+  <li><a href="#fit-the-model-using-another-dataset" id="toc-fit-the-model-using-another-dataset" class="nav-link" data-scroll-target="#fit-the-model-using-another-dataset"><span class="header-section-number">3.7</span> Fit the model using another dataset</a></li>
+  <li><a href="#calculating-the-posterior-difference" id="toc-calculating-the-posterior-difference" class="nav-link" data-scroll-target="#calculating-the-posterior-difference"><span class="header-section-number">3.9</span> Calculating the posterior difference</a></li>
+  <li><a href="#decision-analysis" id="toc-decision-analysis" class="nav-link" data-scroll-target="#decision-analysis"><span class="header-section-number">3.11</span> Decision analysis</a></li>
+  <li><a href="#a-small-decision-analysis-1" id="toc-a-small-decision-analysis-1" class="nav-link" data-scroll-target="#a-small-decision-analysis-1"><span class="header-section-number">3.12</span> A small decision analysis 1</a></li>
+  <li><a href="#a-small-decision-analysis-2" id="toc-a-small-decision-analysis-2" class="nav-link" data-scroll-target="#a-small-decision-analysis-2"><span class="header-section-number">3.13</span> A small decision analysis 2</a></li>
+  <li><a href="#change-anything-and-everything" id="toc-change-anything-and-everything" class="nav-link" data-scroll-target="#change-anything-and-everything"><span class="header-section-number">3.15</span> Change anything and everything</a></li>
+  <li><a href="#the-poisson-distribution" id="toc-the-poisson-distribution" class="nav-link" data-scroll-target="#the-poisson-distribution"><span class="header-section-number">3.16</span> The Poisson distribution</a></li>
+  <li><a href="#clicks-per-day-instead-of-clicks-per-ad" id="toc-clicks-per-day-instead-of-clicks-per-ad" class="nav-link" data-scroll-target="#clicks-per-day-instead-of-clicks-per-ad"><span class="header-section-number">3.18</span> Clicks per day instead of clicks per ad</a></li>
+  <li><a href="#bayes-is-optimal-kind-of" id="toc-bayes-is-optimal-kind-of" class="nav-link" data-scroll-target="#bayes-is-optimal-kind-of"><span class="header-section-number">3.20</span> Bayes is optimal, kind of…</a></li>
   </ul></li>
-  <li><a href="#bayesian-inference-with-bayes-theorem" id="toc-bayesian-inference-with-bayes-theorem" class="nav-link" data-scroll-target="#bayesian-inference-with-bayes-theorem"><span class="toc-section-number">4</span>  4. Bayesian inference with Bayes’ theorem</a>
+  <li><a href="#bayesian-inference-with-bayes-theorem" id="toc-bayesian-inference-with-bayes-theorem" class="nav-link" data-scroll-target="#bayesian-inference-with-bayes-theorem"><span class="header-section-number">4</span> 4. Bayesian inference with Bayes’ theorem</a>
   <ul class="collapse">
-  <li><a href="#probability-rules" id="toc-probability-rules" class="nav-link" data-scroll-target="#probability-rules"><span class="toc-section-number">4.1</span>  Probability rules</a></li>
-  <li><a href="#cards-and-the-sum-rule" id="toc-cards-and-the-sum-rule" class="nav-link" data-scroll-target="#cards-and-the-sum-rule"><span class="toc-section-number">4.2</span>  Cards and the sum rule</a></li>
-  <li><a href="#cards-and-the-product-rule" id="toc-cards-and-the-product-rule" class="nav-link" data-scroll-target="#cards-and-the-product-rule"><span class="toc-section-number">4.3</span>  Cards and the product rule</a></li>
-  <li><a href="#calculating-likelihoods" id="toc-calculating-likelihoods" class="nav-link" data-scroll-target="#calculating-likelihoods"><span class="toc-section-number">4.4</span>  Calculating likelihoods</a></li>
-  <li><a href="#from-rbinom-to-dbinom" id="toc-from-rbinom-to-dbinom" class="nav-link" data-scroll-target="#from-rbinom-to-dbinom"><span class="toc-section-number">4.5</span>  From rbinom to dbinom</a></li>
-  <li><a href="#calculating-probabilities-with-dbinom" id="toc-calculating-probabilities-with-dbinom" class="nav-link" data-scroll-target="#calculating-probabilities-with-dbinom"><span class="toc-section-number">4.6</span>  Calculating probabilities with dbinom</a></li>
-  <li><a href="#bayesian-calculation" id="toc-bayesian-calculation" class="nav-link" data-scroll-target="#bayesian-calculation"><span class="toc-section-number">4.8</span>  Bayesian calculation</a></li>
-  <li><a href="#calculating-a-joint-distribution" id="toc-calculating-a-joint-distribution" class="nav-link" data-scroll-target="#calculating-a-joint-distribution"><span class="toc-section-number">4.9</span>  Calculating a joint distribution</a></li>
-  <li><a href="#conditioning-on-the-data-again" id="toc-conditioning-on-the-data-again" class="nav-link" data-scroll-target="#conditioning-on-the-data-again"><span class="toc-section-number">4.10</span>  Conditioning on the data (again)</a></li>
-  <li><a href="#a-conditional-shortcut" id="toc-a-conditional-shortcut" class="nav-link" data-scroll-target="#a-conditional-shortcut"><span class="toc-section-number">4.11</span>  A conditional shortcut</a></li>
-  <li><a href="#bayes-theorem" id="toc-bayes-theorem" class="nav-link" data-scroll-target="#bayes-theorem"><span class="toc-section-number">4.12</span>  Bayes’ theorem</a></li>
-  <li><a href="#a-poisson-model-description" id="toc-a-poisson-model-description" class="nav-link" data-scroll-target="#a-poisson-model-description"><span class="toc-section-number">4.13</span>  A Poisson model description</a></li>
-  <li><a href="#a-bayesian-model-of-water-temperature" id="toc-a-bayesian-model-of-water-temperature" class="nav-link" data-scroll-target="#a-bayesian-model-of-water-temperature"><span class="toc-section-number">4.14</span>  A Bayesian model of water temperature</a></li>
-  <li><a href="#a-bayesian-model-of-zombie-iq" id="toc-a-bayesian-model-of-zombie-iq" class="nav-link" data-scroll-target="#a-bayesian-model-of-zombie-iq"><span class="toc-section-number">4.15</span>  A Bayesian model of Zombie IQ</a></li>
-  <li><a href="#eyeballing-the-mean-iq-of-zombies" id="toc-eyeballing-the-mean-iq-of-zombies" class="nav-link" data-scroll-target="#eyeballing-the-mean-iq-of-zombies"><span class="toc-section-number">4.16</span>  Eyeballing the mean IQ of zombies?</a></li>
-  <li><a href="#but-how-smart-will-the-next-zombie-be" id="toc-but-how-smart-will-the-next-zombie-be" class="nav-link" data-scroll-target="#but-how-smart-will-the-next-zombie-be"><span class="toc-section-number">4.18</span>  But how smart will the next zombie be?</a></li>
-  <li><a href="#a-practical-tool-best" id="toc-a-practical-tool-best" class="nav-link" data-scroll-target="#a-practical-tool-best"><span class="toc-section-number">4.20</span>  A practical tool: BEST</a></li>
-  <li><a href="#the-best-models-and-zombies-on-a-diet" id="toc-the-best-models-and-zombies-on-a-diet" class="nav-link" data-scroll-target="#the-best-models-and-zombies-on-a-diet"><span class="toc-section-number">4.21</span>  The BEST models and zombies on a diet</a></li>
-  <li><a href="#best-is-robust" id="toc-best-is-robust" class="nav-link" data-scroll-target="#best-is-robust"><span class="toc-section-number">4.23</span>  BEST is robust</a></li>
-  <li><a href="#what-have-you-learned-what-did-we-miss" id="toc-what-have-you-learned-what-did-we-miss" class="nav-link" data-scroll-target="#what-have-you-learned-what-did-we-miss"><span class="toc-section-number">4.25</span>  What have you learned? What did we miss?</a></li>
+  <li><a href="#probability-rules" id="toc-probability-rules" class="nav-link" data-scroll-target="#probability-rules"><span class="header-section-number">4.1</span> Probability rules</a></li>
+  <li><a href="#cards-and-the-sum-rule" id="toc-cards-and-the-sum-rule" class="nav-link" data-scroll-target="#cards-and-the-sum-rule"><span class="header-section-number">4.2</span> Cards and the sum rule</a></li>
+  <li><a href="#cards-and-the-product-rule" id="toc-cards-and-the-product-rule" class="nav-link" data-scroll-target="#cards-and-the-product-rule"><span class="header-section-number">4.3</span> Cards and the product rule</a></li>
+  <li><a href="#calculating-likelihoods" id="toc-calculating-likelihoods" class="nav-link" data-scroll-target="#calculating-likelihoods"><span class="header-section-number">4.4</span> Calculating likelihoods</a></li>
+  <li><a href="#from-rbinom-to-dbinom" id="toc-from-rbinom-to-dbinom" class="nav-link" data-scroll-target="#from-rbinom-to-dbinom"><span class="header-section-number">4.5</span> From rbinom to dbinom</a></li>
+  <li><a href="#calculating-probabilities-with-dbinom" id="toc-calculating-probabilities-with-dbinom" class="nav-link" data-scroll-target="#calculating-probabilities-with-dbinom"><span class="header-section-number">4.6</span> Calculating probabilities with dbinom</a></li>
+  <li><a href="#bayesian-calculation" id="toc-bayesian-calculation" class="nav-link" data-scroll-target="#bayesian-calculation"><span class="header-section-number">4.8</span> Bayesian calculation</a></li>
+  <li><a href="#calculating-a-joint-distribution" id="toc-calculating-a-joint-distribution" class="nav-link" data-scroll-target="#calculating-a-joint-distribution"><span class="header-section-number">4.9</span> Calculating a joint distribution</a></li>
+  <li><a href="#conditioning-on-the-data-again" id="toc-conditioning-on-the-data-again" class="nav-link" data-scroll-target="#conditioning-on-the-data-again"><span class="header-section-number">4.10</span> Conditioning on the data (again)</a></li>
+  <li><a href="#a-conditional-shortcut" id="toc-a-conditional-shortcut" class="nav-link" data-scroll-target="#a-conditional-shortcut"><span class="header-section-number">4.11</span> A conditional shortcut</a></li>
+  <li><a href="#bayes-theorem" id="toc-bayes-theorem" class="nav-link" data-scroll-target="#bayes-theorem"><span class="header-section-number">4.12</span> Bayes’ theorem</a></li>
+  <li><a href="#a-poisson-model-description" id="toc-a-poisson-model-description" class="nav-link" data-scroll-target="#a-poisson-model-description"><span class="header-section-number">4.13</span> A Poisson model description</a></li>
+  <li><a href="#a-bayesian-model-of-water-temperature" id="toc-a-bayesian-model-of-water-temperature" class="nav-link" data-scroll-target="#a-bayesian-model-of-water-temperature"><span class="header-section-number">4.14</span> A Bayesian model of water temperature</a></li>
+  <li><a href="#a-bayesian-model-of-zombie-iq" id="toc-a-bayesian-model-of-zombie-iq" class="nav-link" data-scroll-target="#a-bayesian-model-of-zombie-iq"><span class="header-section-number">4.15</span> A Bayesian model of Zombie IQ</a></li>
+  <li><a href="#eyeballing-the-mean-iq-of-zombies" id="toc-eyeballing-the-mean-iq-of-zombies" class="nav-link" data-scroll-target="#eyeballing-the-mean-iq-of-zombies"><span class="header-section-number">4.16</span> Eyeballing the mean IQ of zombies?</a></li>
+  <li><a href="#answering-the-question-should-i-have-a-beach-party" id="toc-answering-the-question-should-i-have-a-beach-party" class="nav-link" data-scroll-target="#answering-the-question-should-i-have-a-beach-party"><span class="header-section-number">4.17</span> Answering the question: Should I have a beach party?</a></li>
+  <li><a href="#sampling-from-the-zombie-posterior" id="toc-sampling-from-the-zombie-posterior" class="nav-link" data-scroll-target="#sampling-from-the-zombie-posterior"><span class="header-section-number">4.18</span> Sampling from the zombie posterior</a></li>
+  <li><a href="#but-how-smart-will-the-next-zombie-be" id="toc-but-how-smart-will-the-next-zombie-be" class="nav-link" data-scroll-target="#but-how-smart-will-the-next-zombie-be"><span class="header-section-number">4.20</span> But how smart will the next zombie be?</a></li>
+  <li><a href="#a-practical-tool-best" id="toc-a-practical-tool-best" class="nav-link" data-scroll-target="#a-practical-tool-best"><span class="header-section-number">4.22</span> A practical tool: BEST</a></li>
+  <li><a href="#the-best-models-and-zombies-on-a-diet" id="toc-the-best-models-and-zombies-on-a-diet" class="nav-link" data-scroll-target="#the-best-models-and-zombies-on-a-diet"><span class="header-section-number">4.23</span> The BEST models and zombies on a diet</a></li>
+  <li><a href="#best-is-robust" id="toc-best-is-robust" class="nav-link" data-scroll-target="#best-is-robust"><span class="header-section-number">4.25</span> BEST is robust</a></li>
+  <li><a href="#what-have-you-learned-what-did-we-miss" id="toc-what-have-you-learned-what-did-we-miss" class="nav-link" data-scroll-target="#what-have-you-learned-what-did-we-miss"><span class="header-section-number">4.27</span> What have you learned? What did we miss?</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -570,7 +592,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Fundamentals of Bayesian Data Analysis in R</h1>
+<h1 class="title">Fundamentals of Bayesian Data Analysis in R</h1>
 </div>
 
 
@@ -636,14 +658,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.2 ──
-#&gt; ✔ tibble  3.1.8      ✔ dplyr   1.0.10
-#&gt; ✔ tidyr   1.2.1      ✔ stringr 1.4.1 
-#&gt; ✔ readr   2.1.3      ✔ forcats 0.5.2 
-#&gt; ✔ purrr   0.3.5      
+<pre><code>#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+#&gt; ✔ dplyr     1.1.2     ✔ readr     2.1.4
+#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.0
+#&gt; ✔ lubridate 1.9.2     ✔ tibble    3.2.1
+#&gt; ✔ purrr     1.0.1     ✔ tidyr     1.3.0
 #&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 #&gt; ✖ dplyr::filter() masks stats::filter()
-#&gt; ✖ dplyr::lag()    masks stats::lag()</code></pre>
+#&gt; ✖ dplyr::lag()    masks stats::lag()
+#&gt; ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(ggridges)</span>
 <span id="cb3-2"><a href="#cb3-2"></a></span>
@@ -876,7 +899,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb14-2"><a href="#cb14-2"></a>number_of_sixes <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="dv">10000</span>, <span class="dv">5</span>, <span class="dv">1</span><span class="sc">/</span><span class="dv">6</span>)</span>
 <span id="cb14-3"><a href="#cb14-3"></a><span class="fu">head</span>(number_of_sixes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 1 1 0 1 2 0</code></pre>
+<pre><code>#&gt; [1] 1 3 0 0 1 3</code></pre>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
@@ -884,7 +907,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb16-2"><a href="#cb16-2"></a>number_of_sixes_mean <span class="ot">&lt;-</span> number_of_sixes <span class="sc">|&gt;</span> <span class="fu">mean</span>()</span>
 <span id="cb16-3"><a href="#cb16-3"></a>number_of_sixes_mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.8253</code></pre>
+<pre><code>#&gt; [1] 0.8334</code></pre>
 </div>
 </div>
 <p>Turns out the average number of sixes is 0.822 (Inline code execution does not work at the moment. Value might vary.). The easiest way of generating samples is by drawing a random sample from the probability distribution, and if this sample is large enough, each value will occur roughly proportionally often to how probable it is.</p>
@@ -909,7 +932,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">head</span>(posterior)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.45273968 0.08982111 0.12240656 0.15827327 0.03746298 0.29530722</code></pre>
+<pre><code>#&gt; [1] 0.3489524 0.1190741 0.2635501 0.1920451 0.2508515 0.2697663</code></pre>
 </div>
 </div>
 <p>Looking at these first few samples confirms what is already shown in the plot: That the underlying proportion of cured zombies is likely somewhere between 5% and 50%. But these were just the first six samples in <code>posterior</code> which currently contain 10,000 samples (the default of <code>prop_model</code>).</p>
@@ -941,7 +964,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Calculate the median</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a><span class="fu">median</span>(posterior)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.1858607</code></pre>
+<pre><code>#&gt; [1] 0.1891668</code></pre>
 </div>
 </div>
 <p>So, a best guess is that the drug would cure around 18% of all zombies. Another common summary is to report an interval that includes the parameter of interest with a certain probability. This is called a <em>credible interval</em> (CI). With a posterior represented as a vector of samples you can calculate a CI using the <code>quantile()</code> function.</p>
@@ -954,7 +977,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb24-2"><a href="#cb24-2"></a><span class="fu">quantile</span>(posterior, <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.95</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;         5%        95% 
-#&gt; 0.06178219 0.38641151</code></pre>
+#&gt; 0.06357949 0.38468900</code></pre>
 </div>
 </div>
 <p>According to the credible interval, there is a 90% probability that the proportion of zombies the drug would cure is between 6% and 38%. (Here we have to be careful to remember that the percentage of cured zombies and the percentage of probability are two different things.)</p>
@@ -966,7 +989,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># Calculate the sum</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a><span class="fu">sum</span>(posterior <span class="sc">&gt;</span> <span class="fl">0.07</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 9322</code></pre>
+<pre><code>#&gt; [1] 9350</code></pre>
 </div>
 </div>
 <p>To turn this count into a probability we now need to <em>normalize</em> it, that is, divide it by the total number of samples in <code>posterior</code>.</p>
@@ -977,7 +1000,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># Calculate the probability</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a><span class="fu">sum</span>(posterior <span class="sc">&gt;</span> <span class="fl">0.07</span>) <span class="sc">/</span> <span class="fu">length</span>(posterior)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.9322</code></pre>
+<pre><code>#&gt; [1] 0.935</code></pre>
 </div>
 </div>
 <p>It seems there is a large probability (93%) that our zombie drug is better!</p>
@@ -1016,7 +1039,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb31-6"><a href="#cb31-6"></a>data <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data)</span>
 <span id="cb31-7"><a href="#cb31-7"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;  [1] 0 0 0 0 0 0 0 0 0 0 0 1 0</code></pre>
+<pre><code>#&gt;  [1] 0 0 0 0 0 0 0 0 0 0 0 0 0</code></pre>
 </div>
 </div>
 <p>This gives us almost what we want, except that the simulated data is a vector of TRUEs and FALSEs, so the last step is to turn this into numbers instead. Alright, we have a generative model for curing zombies; every time we run it, it generates some simulated data for us.</p>
@@ -1040,9 +1063,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb33-12"><a href="#cb33-12"></a>data <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data)</span>
 <span id="cb33-13"><a href="#cb33-13"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;   [1] 0 0 0 0 1 1 1 0 1 1 1 1 1 1 1 1 0 1 0 1 0 1 0 1 0 0 0 1 1 0 1 1 0 1 1 1 0
-#&gt;  [38] 0 1 1 0 0 0 0 0 0 1 1 1 0 1 1 0 0 0 1 0 1 1 1 0 1 0 0 0 1 1 1 1 1 1 1 1 1
-#&gt;  [75] 1 1 0 1 0 1 0 1 0 1 0 0 0 0 1 0 1 0 0 0 0 1 1 1 0 0</code></pre>
+<pre><code>#&gt;   [1] 0 0 0 1 0 1 1 1 0 1 1 0 1 1 0 1 1 0 0 0 0 1 1 0 1 0 1 0 1 1 1 1 1 0 0 1 0
+#&gt;  [38] 1 0 0 1 0 0 0 1 0 0 0 0 1 1 1 0 0 0 0 0 0 0 1 1 1 0 0 0 1 0 1 0 0 1 0 1 1
+#&gt;  [75] 1 0 0 1 0 1 1 1 0 0 1 1 1 0 0 0 1 0 0 1 0 1 0 0 0 0</code></pre>
 </div>
 </div>
 <p>Instead of representing cured zombies as a vector of <code>1</code>s and <code>0</code>s it could be represented as a <em>count</em> of the number of cured out of the total number of treated.</p>
@@ -1066,7 +1089,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb35-14"><a href="#cb35-14"></a>data <span class="ot">&lt;-</span> <span class="fu">sum</span>( <span class="fu">as.numeric</span>(data) )</span>
 <span id="cb35-15"><a href="#cb35-15"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 35</code></pre>
+<pre><code>#&gt; [1] 47</code></pre>
 </div>
 </div>
 <p>Perfect! Some zombies got cured in this simulation, but far from all.</p>
@@ -1087,7 +1110,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Try out rbinom</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">prob =</span> <span class="fl">0.42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 33</code></pre>
+<pre><code>#&gt; [1] 45</code></pre>
 </div>
 </div>
 <p>A nice thing with <code>rbinom</code> is that it makes it easy to rerun the generative model many times.</p>
@@ -1098,14 +1121,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Try out rbinom</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a><span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">200</span>, <span class="at">size =</span> <span class="dv">100</span>, <span class="at">prob =</span> <span class="fl">0.42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;   [1] 48 43 44 43 46 37 52 36 42 53 40 36 47 41 47 49 33 54 44 39 51 30 40 42 47
-#&gt;  [26] 47 37 46 44 40 41 44 47 46 43 33 52 40 45 39 43 34 35 42 46 32 41 34 43 48
-#&gt;  [51] 48 47 42 46 45 36 45 43 44 41 38 47 45 45 26 45 46 48 47 35 33 47 32 37 35
-#&gt;  [76] 47 40 35 41 42 38 42 59 39 47 41 48 49 43 45 34 51 40 48 41 41 42 47 46 48
-#&gt; [101] 45 48 43 43 44 38 48 50 42 47 49 42 43 42 47 51 37 41 43 41 42 41 53 44 40
-#&gt; [126] 45 40 37 37 49 42 42 45 37 49 39 48 31 39 43 51 34 38 49 45 36 37 49 45 35
-#&gt; [151] 50 46 52 37 45 45 36 41 41 34 46 37 44 39 41 47 37 39 57 45 44 48 35 46 41
-#&gt; [176] 43 44 33 45 38 46 34 40 45 41 35 40 45 45 39 37 38 49 42 46 35 45 46 42 44</code></pre>
+<pre><code>#&gt;   [1] 43 37 36 49 39 35 46 30 34 38 48 36 41 47 44 46 38 45 39 32 45 37 41 51 48
+#&gt;  [26] 39 45 41 47 50 43 45 41 40 43 39 37 37 49 39 42 35 43 39 42 41 39 53 39 36
+#&gt;  [51] 43 39 40 44 41 44 42 55 43 45 40 41 37 44 44 35 35 40 39 32 38 37 37 46 39
+#&gt;  [76] 41 44 42 37 35 40 48 36 44 44 40 43 41 38 35 47 41 35 32 40 38 35 47 39 33
+#&gt; [101] 37 41 44 39 33 42 43 52 48 38 37 48 43 38 37 34 36 35 42 50 45 43 43 49 42
+#&gt; [126] 37 39 33 46 47 39 41 41 45 39 39 36 34 43 38 36 39 41 37 49 46 39 39 43 39
+#&gt; [151] 46 45 37 41 39 37 41 41 46 44 35 32 46 39 34 41 51 44 34 46 41 46 37 43 41
+#&gt; [176] 45 29 34 46 42 47 50 42 36 31 42 46 40 39 49 43 50 40 35 44 42 40 41 43 38</code></pre>
 </div>
 </div>
 <p>Nice! That’s a lot of simulated zombies right there.</p>
@@ -1167,7 +1190,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>proportion_clicks <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="at">n =</span> <span class="dv">6</span>, <span class="at">min =</span> <span class="fl">0.0</span>, <span class="at">max =</span> <span class="fl">1.0</span>)</span>
 <span id="cb43-2"><a href="#cb43-2"></a>proportion_clicks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.8616029 0.2746156 0.7991563 0.1178076 0.4448118 0.7093398</code></pre>
+<pre><code>#&gt; [1] 0.6933106 0.2669877 0.7720498 0.2372221 0.2455265 0.1185249</code></pre>
 </div>
 </div>
 <p>A neat thing is that because most random number functions are vectorized it’s very easy to chain probability distributions together in R. For example if we now use <code>proportion_clicks</code> as the argument to rbinom, then rbinom will automatically loop over the values in <code>proportion_clicks</code>.</p>
@@ -1175,7 +1198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>n_clicks <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> <span class="dv">6</span>, <span class="at">size =</span> <span class="dv">100</span>, proportion_clicks)</span>
 <span id="cb45-2"><a href="#cb45-2"></a>n_clicks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 86 33 86 10 39 66</code></pre>
+<pre><code>#&gt; [1] 70 24 75 17 30 18</code></pre>
 </div>
 </div>
 <p>If we look at the resulting values in <code>n_clicks</code>, we can see this. The first value in <code>proportion_clicks</code> is used to sample the first value in <code>n_clicks.</code> As it’s just an 0.05 proportion of success the number of successes in <code>n_clicks</code> becomes only 7 out of a 100. The second value in <code>proportion_clicks</code> is used to sample the second in <code>n_clicks</code>, and so on. This means that the variability from <code>runif()</code> gets combined with the variability of <code>rbinom()</code>. The result is that the samples in <code>n_clicks</code> now also incorporates the uncertainty in <code>proportion_clicks</code>.</p>
@@ -1259,7 +1282,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["proportion_clicks"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n_visitors"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"0.14962888","2":"12","_rn_":"1"},{"1":"0.02940844","2":"1","_rn_":"2"},{"1":"0.05176008","2":"5","_rn_":"3"},{"1":"0.18968375","2":"12","_rn_":"4"},{"1":"0.16216906","2":"20","_rn_":"5"},{"1":"0.07354111","2":"4","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["proportion_clicks"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n_visitors"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"0.06849776","2":"10","_rn_":"1"},{"1":"0.04722609","2":"6","_rn_":"2"},{"1":"0.11542443","2":"11","_rn_":"3"},{"1":"0.18582085","2":"16","_rn_":"4"},{"1":"0.03910171","2":"4","_rn_":"5"},{"1":"0.05720641","2":"5","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1370,7 +1393,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="readme_files/figure-gfm/marg_hist1.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-17" title="marg_hist"><img src="readme_files/figure-gfm/marg_hist1.gif" class="img-fluid figure-img" style="width:50.0%"></a></p>
-<p></p><figcaption class="figure-caption">marg_hist</figcaption><p></p>
+<figcaption class="figure-caption">marg_hist</figcaption>
 </figure>
 </div>
 <p>However, there is no point to this, because the problem was that we didn’t know what the underlying proportions of clicks could be. But what we can know is the data, and we can condition on the data too. Say that 5 out of a 100 clicked when we ran the ad campaign. If we remove all samples that doesn’t fulfill this condition, we also reduce the uncertainty in what the underlying proportion of clicks could be.</p>
@@ -1409,7 +1432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="readme_files/figure-gfm/marg_hist2.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-19" title="marg_hist"><img src="readme_files/figure-gfm/marg_hist2.gif" class="img-fluid figure-img" style="width:50.0%"></a></p>
-<p></p><figcaption class="figure-caption">marg_hist</figcaption><p></p>
+<figcaption class="figure-caption">marg_hist</figcaption>
 </figure>
 </div>
 <p>We have now reached the <strong>essence of what Bayesian inference</strong> is, it is conditioning on the data, in order to learn about what parameters values likely gave rise to this data. So, when you ran the ad campaign you got 13 site visits out of a 100 shown ads.</p>
@@ -1436,7 +1459,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["proportion_clicks"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n_visitors"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"0.14962888","2":"12","_rn_":"1"},{"1":"0.02940844","2":"1","_rn_":"2"},{"1":"0.05176008","2":"5","_rn_":"3"},{"1":"0.18968375","2":"12","_rn_":"4"},{"1":"0.16216906","2":"20","_rn_":"5"},{"1":"0.07354111","2":"4","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["proportion_clicks"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n_visitors"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"0.06849776","2":"10","_rn_":"1"},{"1":"0.04722609","2":"6","_rn_":"2"},{"1":"0.11542443","2":"11","_rn_":"3"},{"1":"0.18582085","2":"16","_rn_":"4"},{"1":"0.03910171","2":"4","_rn_":"5"},{"1":"0.05720641","2":"5","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1489,7 +1512,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["proportion_clicks"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n_visitors"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"0.1523001","2":"13","_rn_":"11"},{"1":"0.1326335","2":"13","_rn_":"28"},{"1":"0.1804960","2":"13","_rn_":"43"},{"1":"0.1480283","2":"13","_rn_":"57"},{"1":"0.1245936","2":"13","_rn_":"62"},{"1":"0.1185761","2":"13","_rn_":"85"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["proportion_clicks"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["n_visitors"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"0.1148898","2":"13","_rn_":"8"},{"1":"0.1239371","2":"13","_rn_":"76"},{"1":"0.1452675","2":"13","_rn_":"79"},{"1":"0.1711053","2":"13","_rn_":"91"},{"1":"0.1186378","2":"13","_rn_":"109"},{"1":"0.1457846","2":"13","_rn_":"117"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1521,7 +1544,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Calculate the probability that you will get 5 or more visitors</span></span>
 <span id="cb63-2"><a href="#cb63-2"></a><span class="fu">sum</span>(prior<span class="sc">$</span>n_visitors <span class="sc">&gt;=</span> <span class="dv">5</span>) <span class="sc">/</span> <span class="fu">length</span>(prior<span class="sc">$</span>n_visitors)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.9879091</code></pre>
+<pre><code>#&gt; [1] 0.9873553</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -1857,25 +1880,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; • `proportion_clicks` -&gt; `proportion_clicks...1`
 #&gt; • `proportion_clicks` -&gt; `proportion_clicks...2`</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a>posterior</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning: There were 2 warnings in `mutate()`.
+#&gt; The first warning was:
+#&gt; ℹ In argument: `across(, round, 2)`.
+#&gt; Caused by warning:
+#&gt; ! Using `across()` without supplying `.cols` was deprecated in dplyr 1.1.0.
+#&gt; ℹ Please supply `.cols` instead.
+#&gt; ℹ Run `dplyr::last_dplyr_warnings()` to see the 1 remaining warning.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a>posterior</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["video_prop"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["text_prop"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.17","2":"0.06"},{"1":"0.12","2":"0.12"},{"1":"0.14","2":"0.07"},{"1":"0.09","2":"0.04"},{"1":"0.16","2":"0.06"},{"1":"0.10","2":"0.09"},{"1":"0.11","2":"0.05"},{"1":"0.19","2":"0.04"},{"1":"0.16","2":"0.10"},{"1":"0.17","2":"0.07"},{"1":"0.12","2":"0.06"},{"1":"0.13","2":"0.04"},{"1":"0.15","2":"0.07"},{"1":"0.14","2":"0.05"},{"1":"0.15","2":"0.10"},{"1":"0.12","2":"0.08"},{"1":"0.13","2":"0.06"},{"1":"0.12","2":"0.04"},{"1":"0.11","2":"0.05"},{"1":"0.15","2":"0.10"},{"1":"0.15","2":"0.06"},{"1":"0.16","2":"0.07"},{"1":"0.06","2":"0.05"},{"1":"0.14","2":"0.07"},{"1":"0.14","2":"0.07"},{"1":"0.15","2":"0.08"},{"1":"0.10","2":"0.06"},{"1":"0.12","2":"0.04"},{"1":"0.12","2":"0.02"},{"1":"0.17","2":"0.06"},{"1":"0.15","2":"0.06"},{"1":"0.14","2":"0.06"},{"1":"0.14","2":"0.07"},{"1":"0.08","2":"0.08"},{"1":"0.14","2":"0.06"},{"1":"0.16","2":"0.04"},{"1":"0.15","2":"0.08"},{"1":"0.16","2":"0.06"},{"1":"0.10","2":"0.03"},{"1":"0.08","2":"0.05"},{"1":"0.11","2":"0.04"},{"1":"0.11","2":"0.06"},{"1":"0.14","2":"0.05"},{"1":"0.12","2":"0.06"},{"1":"0.11","2":"0.11"},{"1":"0.16","2":"0.05"},{"1":"0.09","2":"0.12"},{"1":"0.12","2":"0.08"},{"1":"0.10","2":"0.06"},{"1":"0.12","2":"0.08"},{"1":"0.16","2":"0.03"},{"1":"0.15","2":"0.03"},{"1":"0.10","2":"0.10"},{"1":"0.15","2":"0.07"},{"1":"0.11","2":"0.06"},{"1":"0.17","2":"0.10"},{"1":"0.13","2":"0.05"},{"1":"0.12","2":"0.07"},{"1":"0.14","2":"0.06"},{"1":"0.13","2":"0.05"},{"1":"0.10","2":"0.09"},{"1":"0.14","2":"0.05"},{"1":"0.14","2":"0.04"},{"1":"0.10","2":"0.10"},{"1":"0.14","2":"0.07"},{"1":"0.14","2":"0.05"},{"1":"0.10","2":"0.06"},{"1":"0.16","2":"0.06"},{"1":"0.16","2":"0.05"},{"1":"0.18","2":"0.03"},{"1":"0.19","2":"0.09"},{"1":"0.09","2":"0.08"},{"1":"0.14","2":"0.06"},{"1":"0.10","2":"0.07"},{"1":"0.17","2":"0.09"},{"1":"0.07","2":"0.05"},{"1":"0.14","2":"0.06"},{"1":"0.18","2":"0.07"},{"1":"0.17","2":"0.05"},{"1":"0.15","2":"0.13"},{"1":"0.18","2":"0.09"},{"1":"0.18","2":"0.05"},{"1":"0.08","2":"0.08"},{"1":"0.11","2":"0.07"},{"1":"0.12","2":"0.07"},{"1":"0.10","2":"0.06"},{"1":"0.09","2":"0.05"},{"1":"0.09","2":"0.07"},{"1":"0.11","2":"0.13"},{"1":"0.15","2":"0.15"},{"1":"0.15","2":"0.07"},{"1":"0.12","2":"0.09"},{"1":"0.14","2":"0.08"},{"1":"0.09","2":"0.09"},{"1":"0.12","2":"0.09"},{"1":"0.12","2":"0.12"},{"1":"0.11","2":"0.04"},{"1":"0.12","2":"0.05"},{"1":"0.13","2":"0.06"},{"1":"0.11","2":"0.10"},{"1":"0.16","2":"0.04"},{"1":"0.16","2":"0.10"},{"1":"0.15","2":"0.03"},{"1":"0.14","2":"0.08"},{"1":"0.10","2":"0.05"},{"1":"0.18","2":"0.10"},{"1":"0.16","2":"0.13"},{"1":"0.17","2":"0.05"},{"1":"0.17","2":"0.05"},{"1":"0.06","2":"0.08"},{"1":"0.12","2":"0.05"},{"1":"0.12","2":"0.09"},{"1":"0.13","2":"0.10"},{"1":"0.16","2":"0.13"},{"1":"0.08","2":"0.05"},{"1":"0.20","2":"0.05"},{"1":"0.14","2":"0.14"},{"1":"0.16","2":"0.10"},{"1":"0.18","2":"0.03"},{"1":"0.11","2":"0.10"},{"1":"0.10","2":"0.07"},{"1":"0.20","2":"0.04"},{"1":"0.15","2":"0.05"},{"1":"0.10","2":"0.06"},{"1":"0.12","2":"0.05"},{"1":"0.11","2":"0.11"},{"1":"0.18","2":"0.05"},{"1":"0.14","2":"0.06"},{"1":"0.09","2":"0.06"},{"1":"0.13","2":"0.07"},{"1":"0.15","2":"0.04"},{"1":"0.18","2":"0.07"},{"1":"0.13","2":"0.07"},{"1":"0.13","2":"0.04"},{"1":"0.11","2":"0.07"},{"1":"0.10","2":"0.09"},{"1":"0.13","2":"0.09"},{"1":"0.16","2":"0.06"},{"1":"0.18","2":"0.06"},{"1":"0.12","2":"0.04"},{"1":"0.13","2":"0.11"},{"1":"0.18","2":"0.03"},{"1":"0.14","2":"0.04"},{"1":"0.10","2":"0.07"},{"1":"0.14","2":"0.06"},{"1":"0.11","2":"0.06"},{"1":"0.17","2":"0.11"},{"1":"0.17","2":"0.07"},{"1":"0.10","2":"0.04"},{"1":"0.15","2":"0.09"},{"1":"0.11","2":"0.06"},{"1":"0.15","2":"0.05"},{"1":"0.10","2":"0.03"},{"1":"0.12","2":"0.15"},{"1":"0.14","2":"0.04"},{"1":"0.15","2":"0.06"},{"1":"0.12","2":"0.08"},{"1":"0.13","2":"0.10"},{"1":"0.20","2":"0.07"},{"1":"0.16","2":"0.12"},{"1":"0.19","2":"0.11"},{"1":"0.13","2":"0.10"},{"1":"0.13","2":"0.08"},{"1":"0.10","2":"0.04"},{"1":"0.10","2":"0.09"},{"1":"0.10","2":"0.06"},{"1":"0.12","2":"0.04"},{"1":"0.13","2":"0.07"},{"1":"0.12","2":"0.08"},{"1":"0.12","2":"0.16"},{"1":"0.18","2":"0.04"},{"1":"0.17","2":"0.04"},{"1":"0.12","2":"0.06"},{"1":"0.09","2":"0.08"},{"1":"0.20","2":"0.05"},{"1":"0.16","2":"0.14"},{"1":"0.16","2":"0.08"},{"1":"0.16","2":"0.08"},{"1":"0.12","2":"0.09"},{"1":"0.13","2":"0.08"},{"1":"0.12","2":"0.08"},{"1":"0.08","2":"0.11"},{"1":"0.11","2":"0.07"},{"1":"0.17","2":"0.07"},{"1":"0.20","2":"0.10"},{"1":"0.14","2":"0.10"},{"1":"0.13","2":"0.05"},{"1":"0.10","2":"0.09"},{"1":"0.13","2":"0.06"},{"1":"0.18","2":"0.13"},{"1":"0.14","2":"0.07"},{"1":"0.18","2":"0.06"},{"1":"0.14","2":"0.08"},{"1":"0.12","2":"0.04"},{"1":"0.12","2":"0.11"},{"1":"0.16","2":"0.09"},{"1":"0.16","2":"0.11"},{"1":"0.14","2":"0.12"},{"1":"0.11","2":"0.06"},{"1":"0.13","2":"0.10"},{"1":"0.16","2":"0.09"},{"1":"0.08","2":"0.06"},{"1":"0.12","2":"0.03"},{"1":"0.06","2":"0.11"},{"1":"0.09","2":"0.03"},{"1":"0.17","2":"0.05"},{"1":"0.09","2":"0.07"},{"1":"0.13","2":"0.11"},{"1":"0.12","2":"0.12"},{"1":"0.16","2":"0.10"},{"1":"0.15","2":"0.15"},{"1":"0.11","2":"0.05"},{"1":"0.11","2":"0.06"},{"1":"0.12","2":"0.09"},{"1":"0.20","2":"0.13"},{"1":"0.15","2":"0.07"},{"1":"0.14","2":"0.12"},{"1":"0.20","2":"0.08"},{"1":"0.18","2":"0.11"},{"1":"0.08","2":"0.03"},{"1":"0.09","2":"0.07"},{"1":"0.16","2":"0.05"},{"1":"0.17","2":"0.07"},{"1":"0.08","2":"0.05"},{"1":"0.14","2":"0.07"},{"1":"0.15","2":"0.08"},{"1":"0.10","2":"0.07"},{"1":"0.09","2":"0.04"},{"1":"0.16","2":"0.10"},{"1":"0.16","2":"0.04"},{"1":"0.14","2":"0.04"},{"1":"0.13","2":"0.09"},{"1":"0.16","2":"0.07"},{"1":"0.14","2":"0.06"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["video_prop"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["text_prop"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.13","2":"0.05"},{"1":"0.18","2":"0.04"},{"1":"0.09","2":"0.05"},{"1":"0.17","2":"0.03"},{"1":"0.11","2":"0.05"},{"1":"0.14","2":"0.03"},{"1":"0.12","2":"0.06"},{"1":"0.18","2":"0.11"},{"1":"0.16","2":"0.07"},{"1":"0.10","2":"0.05"},{"1":"0.16","2":"0.06"},{"1":"0.13","2":"0.08"},{"1":"0.14","2":"0.05"},{"1":"0.16","2":"0.14"},{"1":"0.15","2":"0.07"},{"1":"0.11","2":"0.11"},{"1":"0.12","2":"0.03"},{"1":"0.11","2":"0.06"},{"1":"0.08","2":"0.07"},{"1":"0.14","2":"0.09"},{"1":"0.10","2":"0.08"},{"1":"0.16","2":"0.04"},{"1":"0.09","2":"0.07"},{"1":"0.16","2":"0.11"},{"1":"0.15","2":"0.04"},{"1":"0.18","2":"0.07"},{"1":"0.13","2":"0.08"},{"1":"0.15","2":"0.09"},{"1":"0.17","2":"0.06"},{"1":"0.15","2":"0.06"},{"1":"0.18","2":"0.08"},{"1":"0.16","2":"0.11"},{"1":"0.13","2":"0.03"},{"1":"0.12","2":"0.05"},{"1":"0.12","2":"0.07"},{"1":"0.12","2":"0.06"},{"1":"0.15","2":"0.07"},{"1":"0.13","2":"0.04"},{"1":"0.17","2":"0.06"},{"1":"0.18","2":"0.08"},{"1":"0.16","2":"0.12"},{"1":"0.15","2":"0.09"},{"1":"0.14","2":"0.07"},{"1":"0.08","2":"0.03"},{"1":"0.14","2":"0.06"},{"1":"0.14","2":"0.04"},{"1":"0.15","2":"0.05"},{"1":"0.13","2":"0.05"},{"1":"0.13","2":"0.08"},{"1":"0.20","2":"0.09"},{"1":"0.18","2":"0.06"},{"1":"0.14","2":"0.05"},{"1":"0.17","2":"0.05"},{"1":"0.07","2":"0.07"},{"1":"0.11","2":"0.05"},{"1":"0.14","2":"0.04"},{"1":"0.16","2":"0.07"},{"1":"0.13","2":"0.09"},{"1":"0.09","2":"0.06"},{"1":"0.10","2":"0.04"},{"1":"0.12","2":"0.05"},{"1":"0.10","2":"0.08"},{"1":"0.10","2":"0.02"},{"1":"0.11","2":"0.11"},{"1":"0.13","2":"0.07"},{"1":"0.13","2":"0.07"},{"1":"0.07","2":"0.08"},{"1":"0.13","2":"0.02"},{"1":"0.13","2":"0.12"},{"1":"0.09","2":"0.07"},{"1":"0.14","2":"0.10"},{"1":"0.14","2":"0.06"},{"1":"0.14","2":"0.06"},{"1":"0.12","2":"0.06"},{"1":"0.15","2":"0.06"},{"1":"0.16","2":"0.05"},{"1":"0.17","2":"0.11"},{"1":"0.18","2":"0.06"},{"1":"0.13","2":"0.07"},{"1":"0.09","2":"0.15"},{"1":"0.15","2":"0.10"},{"1":"0.14","2":"0.07"},{"1":"0.14","2":"0.05"},{"1":"0.08","2":"0.05"},{"1":"0.13","2":"0.10"},{"1":"0.17","2":"0.05"},{"1":"0.15","2":"0.05"},{"1":"0.17","2":"0.07"},{"1":"0.20","2":"0.06"},{"1":"0.08","2":"0.06"},{"1":"0.06","2":"0.07"},{"1":"0.13","2":"0.07"},{"1":"0.15","2":"0.11"},{"1":"0.18","2":"0.07"},{"1":"0.12","2":"0.09"},{"1":"0.16","2":"0.12"},{"1":"0.18","2":"0.05"},{"1":"0.16","2":"0.13"},{"1":"0.12","2":"0.07"},{"1":"0.19","2":"0.05"},{"1":"0.13","2":"0.05"},{"1":"0.16","2":"0.03"},{"1":"0.15","2":"0.07"},{"1":"0.13","2":"0.10"},{"1":"0.19","2":"0.07"},{"1":"0.15","2":"0.06"},{"1":"0.20","2":"0.04"},{"1":"0.13","2":"0.06"},{"1":"0.13","2":"0.04"},{"1":"0.17","2":"0.06"},{"1":"0.13","2":"0.05"},{"1":"0.07","2":"0.04"},{"1":"0.12","2":"0.08"},{"1":"0.08","2":"0.05"},{"1":"0.14","2":"0.09"},{"1":"0.11","2":"0.05"},{"1":"0.17","2":"0.05"},{"1":"0.12","2":"0.06"},{"1":"0.11","2":"0.08"},{"1":"0.18","2":"0.08"},{"1":"0.09","2":"0.15"},{"1":"0.18","2":"0.05"},{"1":"0.14","2":"0.05"},{"1":"0.19","2":"0.03"},{"1":"0.09","2":"0.04"},{"1":"0.13","2":"0.06"},{"1":"0.17","2":"0.03"},{"1":"0.16","2":"0.07"},{"1":"0.15","2":"0.06"},{"1":"0.11","2":"0.07"},{"1":"0.12","2":"0.07"},{"1":"0.14","2":"0.04"},{"1":"0.12","2":"0.04"},{"1":"0.17","2":"0.03"},{"1":"0.20","2":"0.08"},{"1":"0.13","2":"0.06"},{"1":"0.15","2":"0.05"},{"1":"0.17","2":"0.10"},{"1":"0.15","2":"0.10"},{"1":"0.11","2":"0.06"},{"1":"0.10","2":"0.08"},{"1":"0.14","2":"0.05"},{"1":"0.15","2":"0.04"},{"1":"0.18","2":"0.06"},{"1":"0.12","2":"0.04"},{"1":"0.12","2":"0.09"},{"1":"0.12","2":"0.11"},{"1":"0.13","2":"0.02"},{"1":"0.11","2":"0.07"},{"1":"0.10","2":"0.12"},{"1":"0.13","2":"0.06"},{"1":"0.18","2":"0.07"},{"1":"0.20","2":"0.08"},{"1":"0.18","2":"0.05"},{"1":"0.06","2":"0.04"},{"1":"0.17","2":"0.08"},{"1":"0.13","2":"0.05"},{"1":"0.11","2":"0.08"},{"1":"0.14","2":"0.06"},{"1":"0.11","2":"0.10"},{"1":"0.09","2":"0.02"},{"1":"0.17","2":"0.09"},{"1":"0.14","2":"0.07"},{"1":"0.10","2":"0.09"},{"1":"0.17","2":"0.03"},{"1":"0.17","2":"0.10"},{"1":"0.10","2":"0.06"},{"1":"0.10","2":"0.05"},{"1":"0.10","2":"0.06"},{"1":"0.12","2":"0.07"},{"1":"0.12","2":"0.11"},{"1":"0.16","2":"0.04"},{"1":"0.10","2":"0.04"},{"1":"0.07","2":"0.07"},{"1":"0.12","2":"0.10"},{"1":"0.18","2":"0.09"},{"1":"0.15","2":"0.06"},{"1":"0.11","2":"0.08"},{"1":"0.12","2":"0.07"},{"1":"0.16","2":"0.05"},{"1":"0.13","2":"0.03"},{"1":"0.18","2":"0.05"},{"1":"0.17","2":"0.06"},{"1":"0.12","2":"0.03"},{"1":"0.12","2":"0.06"},{"1":"0.15","2":"0.06"},{"1":"0.08","2":"0.05"},{"1":"0.18","2":"0.06"},{"1":"0.12","2":"0.10"},{"1":"0.16","2":"0.05"},{"1":"0.15","2":"0.07"},{"1":"0.15","2":"0.11"},{"1":"0.15","2":"0.03"},{"1":"0.13","2":"0.06"},{"1":"0.15","2":"0.08"},{"1":"0.10","2":"0.07"},{"1":"0.18","2":"0.05"},{"1":"0.11","2":"0.08"},{"1":"0.13","2":"0.12"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 </div>
 <p>As long as these samples are in a random order, and as long as I do it row by row, I can now calculate any type of derivative quantity and the resulting new distribution of samples will correctly retain the uncertainty of these original two distributions. Now, we were interested in the difference, so for each row let’s subtract text_prop from video_prop and put it into the column prop_diff.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a>posterior<span class="sc">$</span>prop_diff <span class="ot">&lt;-</span> posterior<span class="sc">$</span>video_prop <span class="sc">-</span> posterior<span class="sc">$</span>text_prop</span>
-<span id="cb79-2"><a href="#cb79-2"></a>posterior</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a>posterior<span class="sc">$</span>prop_diff <span class="ot">&lt;-</span> posterior<span class="sc">$</span>video_prop <span class="sc">-</span> posterior<span class="sc">$</span>text_prop</span>
+<span id="cb80-2"><a href="#cb80-2"></a>posterior</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["video_prop"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["text_prop"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["prop_diff"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.12","2":"0.12","3":"0.00"},{"1":"0.14","2":"0.07","3":"0.07"},{"1":"0.09","2":"0.04","3":"0.05"},{"1":"0.16","2":"0.06","3":"0.10"},{"1":"0.10","2":"0.09","3":"0.01"},{"1":"0.11","2":"0.05","3":"0.06"},{"1":"0.19","2":"0.04","3":"0.15"},{"1":"0.16","2":"0.10","3":"0.06"},{"1":"0.17","2":"0.07","3":"0.10"},{"1":"0.12","2":"0.06","3":"0.06"},{"1":"0.13","2":"0.04","3":"0.09"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.15","2":"0.10","3":"0.05"},{"1":"0.12","2":"0.08","3":"0.04"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.12","2":"0.04","3":"0.08"},{"1":"0.11","2":"0.05","3":"0.06"},{"1":"0.15","2":"0.10","3":"0.05"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.16","2":"0.07","3":"0.09"},{"1":"0.06","2":"0.05","3":"0.01"},{"1":"0.14","2":"0.07","3":"0.07"},{"1":"0.14","2":"0.07","3":"0.07"},{"1":"0.15","2":"0.08","3":"0.07"},{"1":"0.10","2":"0.06","3":"0.04"},{"1":"0.12","2":"0.04","3":"0.08"},{"1":"0.12","2":"0.02","3":"0.10"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.14","2":"0.07","3":"0.07"},{"1":"0.08","2":"0.08","3":"0.00"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.16","2":"0.04","3":"0.12"},{"1":"0.15","2":"0.08","3":"0.07"},{"1":"0.16","2":"0.06","3":"0.10"},{"1":"0.10","2":"0.03","3":"0.07"},{"1":"0.08","2":"0.05","3":"0.03"},{"1":"0.11","2":"0.04","3":"0.07"},{"1":"0.11","2":"0.06","3":"0.05"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.12","2":"0.06","3":"0.06"},{"1":"0.11","2":"0.11","3":"0.00"},{"1":"0.16","2":"0.05","3":"0.11"},{"1":"0.09","2":"0.12","3":"-0.03"},{"1":"0.12","2":"0.08","3":"0.04"},{"1":"0.10","2":"0.06","3":"0.04"},{"1":"0.12","2":"0.08","3":"0.04"},{"1":"0.16","2":"0.03","3":"0.13"},{"1":"0.15","2":"0.03","3":"0.12"},{"1":"0.10","2":"0.10","3":"0.00"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.11","2":"0.06","3":"0.05"},{"1":"0.17","2":"0.10","3":"0.07"},{"1":"0.13","2":"0.05","3":"0.08"},{"1":"0.12","2":"0.07","3":"0.05"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.13","2":"0.05","3":"0.08"},{"1":"0.10","2":"0.09","3":"0.01"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.14","2":"0.04","3":"0.10"},{"1":"0.10","2":"0.10","3":"0.00"},{"1":"0.14","2":"0.07","3":"0.07"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.10","2":"0.06","3":"0.04"},{"1":"0.16","2":"0.06","3":"0.10"},{"1":"0.16","2":"0.05","3":"0.11"},{"1":"0.18","2":"0.03","3":"0.15"},{"1":"0.19","2":"0.09","3":"0.10"},{"1":"0.09","2":"0.08","3":"0.01"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.10","2":"0.07","3":"0.03"},{"1":"0.17","2":"0.09","3":"0.08"},{"1":"0.07","2":"0.05","3":"0.02"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.18","2":"0.07","3":"0.11"},{"1":"0.17","2":"0.05","3":"0.12"},{"1":"0.15","2":"0.13","3":"0.02"},{"1":"0.18","2":"0.09","3":"0.09"},{"1":"0.18","2":"0.05","3":"0.13"},{"1":"0.08","2":"0.08","3":"0.00"},{"1":"0.11","2":"0.07","3":"0.04"},{"1":"0.12","2":"0.07","3":"0.05"},{"1":"0.10","2":"0.06","3":"0.04"},{"1":"0.09","2":"0.05","3":"0.04"},{"1":"0.09","2":"0.07","3":"0.02"},{"1":"0.11","2":"0.13","3":"-0.02"},{"1":"0.15","2":"0.15","3":"0.00"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.12","2":"0.09","3":"0.03"},{"1":"0.14","2":"0.08","3":"0.06"},{"1":"0.09","2":"0.09","3":"0.00"},{"1":"0.12","2":"0.09","3":"0.03"},{"1":"0.12","2":"0.12","3":"0.00"},{"1":"0.11","2":"0.04","3":"0.07"},{"1":"0.12","2":"0.05","3":"0.07"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.11","2":"0.10","3":"0.01"},{"1":"0.16","2":"0.04","3":"0.12"},{"1":"0.16","2":"0.10","3":"0.06"},{"1":"0.15","2":"0.03","3":"0.12"},{"1":"0.14","2":"0.08","3":"0.06"},{"1":"0.10","2":"0.05","3":"0.05"},{"1":"0.18","2":"0.10","3":"0.08"},{"1":"0.16","2":"0.13","3":"0.03"},{"1":"0.17","2":"0.05","3":"0.12"},{"1":"0.17","2":"0.05","3":"0.12"},{"1":"0.06","2":"0.08","3":"-0.02"},{"1":"0.12","2":"0.05","3":"0.07"},{"1":"0.12","2":"0.09","3":"0.03"},{"1":"0.13","2":"0.10","3":"0.03"},{"1":"0.16","2":"0.13","3":"0.03"},{"1":"0.08","2":"0.05","3":"0.03"},{"1":"0.20","2":"0.05","3":"0.15"},{"1":"0.14","2":"0.14","3":"0.00"},{"1":"0.16","2":"0.10","3":"0.06"},{"1":"0.18","2":"0.03","3":"0.15"},{"1":"0.11","2":"0.10","3":"0.01"},{"1":"0.10","2":"0.07","3":"0.03"},{"1":"0.20","2":"0.04","3":"0.16"},{"1":"0.15","2":"0.05","3":"0.10"},{"1":"0.10","2":"0.06","3":"0.04"},{"1":"0.12","2":"0.05","3":"0.07"},{"1":"0.11","2":"0.11","3":"0.00"},{"1":"0.18","2":"0.05","3":"0.13"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.09","2":"0.06","3":"0.03"},{"1":"0.13","2":"0.07","3":"0.06"},{"1":"0.15","2":"0.04","3":"0.11"},{"1":"0.18","2":"0.07","3":"0.11"},{"1":"0.13","2":"0.07","3":"0.06"},{"1":"0.13","2":"0.04","3":"0.09"},{"1":"0.11","2":"0.07","3":"0.04"},{"1":"0.10","2":"0.09","3":"0.01"},{"1":"0.13","2":"0.09","3":"0.04"},{"1":"0.16","2":"0.06","3":"0.10"},{"1":"0.18","2":"0.06","3":"0.12"},{"1":"0.12","2":"0.04","3":"0.08"},{"1":"0.13","2":"0.11","3":"0.02"},{"1":"0.18","2":"0.03","3":"0.15"},{"1":"0.14","2":"0.04","3":"0.10"},{"1":"0.10","2":"0.07","3":"0.03"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.11","2":"0.06","3":"0.05"},{"1":"0.17","2":"0.11","3":"0.06"},{"1":"0.17","2":"0.07","3":"0.10"},{"1":"0.10","2":"0.04","3":"0.06"},{"1":"0.15","2":"0.09","3":"0.06"},{"1":"0.11","2":"0.06","3":"0.05"},{"1":"0.15","2":"0.05","3":"0.10"},{"1":"0.10","2":"0.03","3":"0.07"},{"1":"0.12","2":"0.15","3":"-0.03"},{"1":"0.14","2":"0.04","3":"0.10"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.12","2":"0.08","3":"0.04"},{"1":"0.13","2":"0.10","3":"0.03"},{"1":"0.20","2":"0.07","3":"0.13"},{"1":"0.16","2":"0.12","3":"0.04"},{"1":"0.19","2":"0.11","3":"0.08"},{"1":"0.13","2":"0.10","3":"0.03"},{"1":"0.13","2":"0.08","3":"0.05"},{"1":"0.10","2":"0.04","3":"0.06"},{"1":"0.10","2":"0.09","3":"0.01"},{"1":"0.10","2":"0.06","3":"0.04"},{"1":"0.12","2":"0.04","3":"0.08"},{"1":"0.13","2":"0.07","3":"0.06"},{"1":"0.12","2":"0.08","3":"0.04"},{"1":"0.12","2":"0.16","3":"-0.04"},{"1":"0.18","2":"0.04","3":"0.14"},{"1":"0.17","2":"0.04","3":"0.13"},{"1":"0.12","2":"0.06","3":"0.06"},{"1":"0.09","2":"0.08","3":"0.01"},{"1":"0.20","2":"0.05","3":"0.15"},{"1":"0.16","2":"0.14","3":"0.02"},{"1":"0.16","2":"0.08","3":"0.08"},{"1":"0.16","2":"0.08","3":"0.08"},{"1":"0.12","2":"0.09","3":"0.03"},{"1":"0.13","2":"0.08","3":"0.05"},{"1":"0.12","2":"0.08","3":"0.04"},{"1":"0.08","2":"0.11","3":"-0.03"},{"1":"0.11","2":"0.07","3":"0.04"},{"1":"0.17","2":"0.07","3":"0.10"},{"1":"0.20","2":"0.10","3":"0.10"},{"1":"0.14","2":"0.10","3":"0.04"},{"1":"0.13","2":"0.05","3":"0.08"},{"1":"0.10","2":"0.09","3":"0.01"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.18","2":"0.13","3":"0.05"},{"1":"0.14","2":"0.07","3":"0.07"},{"1":"0.18","2":"0.06","3":"0.12"},{"1":"0.14","2":"0.08","3":"0.06"},{"1":"0.12","2":"0.04","3":"0.08"},{"1":"0.12","2":"0.11","3":"0.01"},{"1":"0.16","2":"0.09","3":"0.07"},{"1":"0.16","2":"0.11","3":"0.05"},{"1":"0.14","2":"0.12","3":"0.02"},{"1":"0.11","2":"0.06","3":"0.05"},{"1":"0.13","2":"0.10","3":"0.03"},{"1":"0.16","2":"0.09","3":"0.07"},{"1":"0.08","2":"0.06","3":"0.02"},{"1":"0.12","2":"0.03","3":"0.09"},{"1":"0.06","2":"0.11","3":"-0.05"},{"1":"0.09","2":"0.03","3":"0.06"},{"1":"0.17","2":"0.05","3":"0.12"},{"1":"0.09","2":"0.07","3":"0.02"},{"1":"0.13","2":"0.11","3":"0.02"},{"1":"0.12","2":"0.12","3":"0.00"},{"1":"0.16","2":"0.10","3":"0.06"},{"1":"0.15","2":"0.15","3":"0.00"},{"1":"0.11","2":"0.05","3":"0.06"},{"1":"0.11","2":"0.06","3":"0.05"},{"1":"0.12","2":"0.09","3":"0.03"},{"1":"0.20","2":"0.13","3":"0.07"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.14","2":"0.12","3":"0.02"},{"1":"0.20","2":"0.08","3":"0.12"},{"1":"0.18","2":"0.11","3":"0.07"},{"1":"0.08","2":"0.03","3":"0.05"},{"1":"0.09","2":"0.07","3":"0.02"},{"1":"0.16","2":"0.05","3":"0.11"},{"1":"0.17","2":"0.07","3":"0.10"},{"1":"0.08","2":"0.05","3":"0.03"},{"1":"0.14","2":"0.07","3":"0.07"},{"1":"0.15","2":"0.08","3":"0.07"},{"1":"0.10","2":"0.07","3":"0.03"},{"1":"0.09","2":"0.04","3":"0.05"},{"1":"0.16","2":"0.10","3":"0.06"},{"1":"0.16","2":"0.04","3":"0.12"},{"1":"0.14","2":"0.04","3":"0.10"},{"1":"0.13","2":"0.09","3":"0.04"},{"1":"0.16","2":"0.07","3":"0.09"},{"1":"0.14","2":"0.06","3":"0.08"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["video_prop"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["text_prop"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["prop_diff"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.13","2":"0.05","3":"0.08"},{"1":"0.18","2":"0.04","3":"0.14"},{"1":"0.09","2":"0.05","3":"0.04"},{"1":"0.17","2":"0.03","3":"0.14"},{"1":"0.11","2":"0.05","3":"0.06"},{"1":"0.14","2":"0.03","3":"0.11"},{"1":"0.12","2":"0.06","3":"0.06"},{"1":"0.18","2":"0.11","3":"0.07"},{"1":"0.16","2":"0.07","3":"0.09"},{"1":"0.10","2":"0.05","3":"0.05"},{"1":"0.16","2":"0.06","3":"0.10"},{"1":"0.13","2":"0.08","3":"0.05"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.16","2":"0.14","3":"0.02"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.11","2":"0.11","3":"0.00"},{"1":"0.12","2":"0.03","3":"0.09"},{"1":"0.11","2":"0.06","3":"0.05"},{"1":"0.08","2":"0.07","3":"0.01"},{"1":"0.14","2":"0.09","3":"0.05"},{"1":"0.10","2":"0.08","3":"0.02"},{"1":"0.16","2":"0.04","3":"0.12"},{"1":"0.09","2":"0.07","3":"0.02"},{"1":"0.16","2":"0.11","3":"0.05"},{"1":"0.15","2":"0.04","3":"0.11"},{"1":"0.18","2":"0.07","3":"0.11"},{"1":"0.13","2":"0.08","3":"0.05"},{"1":"0.15","2":"0.09","3":"0.06"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.18","2":"0.08","3":"0.10"},{"1":"0.16","2":"0.11","3":"0.05"},{"1":"0.13","2":"0.03","3":"0.10"},{"1":"0.12","2":"0.05","3":"0.07"},{"1":"0.12","2":"0.07","3":"0.05"},{"1":"0.12","2":"0.06","3":"0.06"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.13","2":"0.04","3":"0.09"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.18","2":"0.08","3":"0.10"},{"1":"0.16","2":"0.12","3":"0.04"},{"1":"0.15","2":"0.09","3":"0.06"},{"1":"0.14","2":"0.07","3":"0.07"},{"1":"0.08","2":"0.03","3":"0.05"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.14","2":"0.04","3":"0.10"},{"1":"0.15","2":"0.05","3":"0.10"},{"1":"0.13","2":"0.05","3":"0.08"},{"1":"0.13","2":"0.08","3":"0.05"},{"1":"0.20","2":"0.09","3":"0.11"},{"1":"0.18","2":"0.06","3":"0.12"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.17","2":"0.05","3":"0.12"},{"1":"0.07","2":"0.07","3":"0.00"},{"1":"0.11","2":"0.05","3":"0.06"},{"1":"0.14","2":"0.04","3":"0.10"},{"1":"0.16","2":"0.07","3":"0.09"},{"1":"0.13","2":"0.09","3":"0.04"},{"1":"0.09","2":"0.06","3":"0.03"},{"1":"0.10","2":"0.04","3":"0.06"},{"1":"0.12","2":"0.05","3":"0.07"},{"1":"0.10","2":"0.08","3":"0.02"},{"1":"0.10","2":"0.02","3":"0.08"},{"1":"0.11","2":"0.11","3":"0.00"},{"1":"0.13","2":"0.07","3":"0.06"},{"1":"0.13","2":"0.07","3":"0.06"},{"1":"0.07","2":"0.08","3":"-0.01"},{"1":"0.13","2":"0.02","3":"0.11"},{"1":"0.13","2":"0.12","3":"0.01"},{"1":"0.09","2":"0.07","3":"0.02"},{"1":"0.14","2":"0.10","3":"0.04"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.12","2":"0.06","3":"0.06"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.16","2":"0.05","3":"0.11"},{"1":"0.17","2":"0.11","3":"0.06"},{"1":"0.18","2":"0.06","3":"0.12"},{"1":"0.13","2":"0.07","3":"0.06"},{"1":"0.09","2":"0.15","3":"-0.06"},{"1":"0.15","2":"0.10","3":"0.05"},{"1":"0.14","2":"0.07","3":"0.07"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.08","2":"0.05","3":"0.03"},{"1":"0.13","2":"0.10","3":"0.03"},{"1":"0.17","2":"0.05","3":"0.12"},{"1":"0.15","2":"0.05","3":"0.10"},{"1":"0.17","2":"0.07","3":"0.10"},{"1":"0.20","2":"0.06","3":"0.14"},{"1":"0.08","2":"0.06","3":"0.02"},{"1":"0.06","2":"0.07","3":"-0.01"},{"1":"0.13","2":"0.07","3":"0.06"},{"1":"0.15","2":"0.11","3":"0.04"},{"1":"0.18","2":"0.07","3":"0.11"},{"1":"0.12","2":"0.09","3":"0.03"},{"1":"0.16","2":"0.12","3":"0.04"},{"1":"0.18","2":"0.05","3":"0.13"},{"1":"0.16","2":"0.13","3":"0.03"},{"1":"0.12","2":"0.07","3":"0.05"},{"1":"0.19","2":"0.05","3":"0.14"},{"1":"0.13","2":"0.05","3":"0.08"},{"1":"0.16","2":"0.03","3":"0.13"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.13","2":"0.10","3":"0.03"},{"1":"0.19","2":"0.07","3":"0.12"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.20","2":"0.04","3":"0.16"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.13","2":"0.04","3":"0.09"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.13","2":"0.05","3":"0.08"},{"1":"0.07","2":"0.04","3":"0.03"},{"1":"0.12","2":"0.08","3":"0.04"},{"1":"0.08","2":"0.05","3":"0.03"},{"1":"0.14","2":"0.09","3":"0.05"},{"1":"0.11","2":"0.05","3":"0.06"},{"1":"0.17","2":"0.05","3":"0.12"},{"1":"0.12","2":"0.06","3":"0.06"},{"1":"0.11","2":"0.08","3":"0.03"},{"1":"0.18","2":"0.08","3":"0.10"},{"1":"0.09","2":"0.15","3":"-0.06"},{"1":"0.18","2":"0.05","3":"0.13"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.19","2":"0.03","3":"0.16"},{"1":"0.09","2":"0.04","3":"0.05"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.17","2":"0.03","3":"0.14"},{"1":"0.16","2":"0.07","3":"0.09"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.11","2":"0.07","3":"0.04"},{"1":"0.12","2":"0.07","3":"0.05"},{"1":"0.14","2":"0.04","3":"0.10"},{"1":"0.12","2":"0.04","3":"0.08"},{"1":"0.17","2":"0.03","3":"0.14"},{"1":"0.20","2":"0.08","3":"0.12"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.15","2":"0.05","3":"0.10"},{"1":"0.17","2":"0.10","3":"0.07"},{"1":"0.15","2":"0.10","3":"0.05"},{"1":"0.11","2":"0.06","3":"0.05"},{"1":"0.10","2":"0.08","3":"0.02"},{"1":"0.14","2":"0.05","3":"0.09"},{"1":"0.15","2":"0.04","3":"0.11"},{"1":"0.18","2":"0.06","3":"0.12"},{"1":"0.12","2":"0.04","3":"0.08"},{"1":"0.12","2":"0.09","3":"0.03"},{"1":"0.12","2":"0.11","3":"0.01"},{"1":"0.13","2":"0.02","3":"0.11"},{"1":"0.11","2":"0.07","3":"0.04"},{"1":"0.10","2":"0.12","3":"-0.02"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.18","2":"0.07","3":"0.11"},{"1":"0.20","2":"0.08","3":"0.12"},{"1":"0.18","2":"0.05","3":"0.13"},{"1":"0.06","2":"0.04","3":"0.02"},{"1":"0.17","2":"0.08","3":"0.09"},{"1":"0.13","2":"0.05","3":"0.08"},{"1":"0.11","2":"0.08","3":"0.03"},{"1":"0.14","2":"0.06","3":"0.08"},{"1":"0.11","2":"0.10","3":"0.01"},{"1":"0.09","2":"0.02","3":"0.07"},{"1":"0.17","2":"0.09","3":"0.08"},{"1":"0.14","2":"0.07","3":"0.07"},{"1":"0.10","2":"0.09","3":"0.01"},{"1":"0.17","2":"0.03","3":"0.14"},{"1":"0.17","2":"0.10","3":"0.07"},{"1":"0.10","2":"0.06","3":"0.04"},{"1":"0.10","2":"0.05","3":"0.05"},{"1":"0.10","2":"0.06","3":"0.04"},{"1":"0.12","2":"0.07","3":"0.05"},{"1":"0.12","2":"0.11","3":"0.01"},{"1":"0.16","2":"0.04","3":"0.12"},{"1":"0.10","2":"0.04","3":"0.06"},{"1":"0.07","2":"0.07","3":"0.00"},{"1":"0.12","2":"0.10","3":"0.02"},{"1":"0.18","2":"0.09","3":"0.09"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.11","2":"0.08","3":"0.03"},{"1":"0.12","2":"0.07","3":"0.05"},{"1":"0.16","2":"0.05","3":"0.11"},{"1":"0.13","2":"0.03","3":"0.10"},{"1":"0.18","2":"0.05","3":"0.13"},{"1":"0.17","2":"0.06","3":"0.11"},{"1":"0.12","2":"0.03","3":"0.09"},{"1":"0.12","2":"0.06","3":"0.06"},{"1":"0.15","2":"0.06","3":"0.09"},{"1":"0.08","2":"0.05","3":"0.03"},{"1":"0.18","2":"0.06","3":"0.12"},{"1":"0.12","2":"0.10","3":"0.02"},{"1":"0.16","2":"0.05","3":"0.11"},{"1":"0.15","2":"0.07","3":"0.08"},{"1":"0.15","2":"0.11","3":"0.04"},{"1":"0.15","2":"0.03","3":"0.12"},{"1":"0.13","2":"0.06","3":"0.07"},{"1":"0.15","2":"0.08","3":"0.07"},{"1":"0.10","2":"0.07","3":"0.03"},{"1":"0.18","2":"0.05","3":"0.13"},{"1":"0.11","2":"0.08","3":"0.03"},{"1":"0.13","2":"0.12","3":"0.01"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1892,22 +1924,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Plot <code>posterior_text</code> as a histogram just as <code>posterior_video</code> is plotted.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a><span class="co"># Define parameters</span></span>
-<span id="cb80-2"><a href="#cb80-2"></a>n_draws <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
-<span id="cb80-3"><a href="#cb80-3"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb80-4"><a href="#cb80-4"></a>proportion_clicks <span class="ot">&lt;-</span> <span class="fu">runif</span>(n_draws, <span class="at">min =</span> <span class="fl">0.0</span>, <span class="at">max =</span> <span class="fl">0.2</span>)</span>
-<span id="cb80-5"><a href="#cb80-5"></a>n_visitors <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> n_draws, <span class="at">size =</span> n_ads_shown, </span>
-<span id="cb80-6"><a href="#cb80-6"></a>                     <span class="at">prob =</span> proportion_clicks)</span>
-<span id="cb80-7"><a href="#cb80-7"></a>prior <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(proportion_clicks, n_visitors)</span>
-<span id="cb80-8"><a href="#cb80-8"></a></span>
-<span id="cb80-9"><a href="#cb80-9"></a><span class="co"># Create the posteriors for video and text ads</span></span>
-<span id="cb80-10"><a href="#cb80-10"></a>posterior_video <span class="ot">&lt;-</span> prior[prior<span class="sc">$</span>n_visitors <span class="sc">==</span> <span class="dv">13</span>, ]</span>
-<span id="cb80-11"><a href="#cb80-11"></a>posterior_text  <span class="ot">&lt;-</span> prior[prior<span class="sc">$</span>n_visitors <span class="sc">==</span> <span class="dv">6</span>, ]</span>
-<span id="cb80-12"><a href="#cb80-12"></a></span>
-<span id="cb80-13"><a href="#cb80-13"></a><span class="co"># Visualize the posteriors</span></span>
-<span id="cb80-14"><a href="#cb80-14"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
-<span id="cb80-15"><a href="#cb80-15"></a><span class="fu">hist</span>(posterior_video<span class="sc">$</span>proportion_clicks, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>))</span>
-<span id="cb80-16"><a href="#cb80-16"></a><span class="fu">hist</span>(posterior_text<span class="sc">$</span>proportion_clicks,  <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a><span class="co"># Define parameters</span></span>
+<span id="cb81-2"><a href="#cb81-2"></a>n_draws <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
+<span id="cb81-3"><a href="#cb81-3"></a>n_ads_shown <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb81-4"><a href="#cb81-4"></a>proportion_clicks <span class="ot">&lt;-</span> <span class="fu">runif</span>(n_draws, <span class="at">min =</span> <span class="fl">0.0</span>, <span class="at">max =</span> <span class="fl">0.2</span>)</span>
+<span id="cb81-5"><a href="#cb81-5"></a>n_visitors <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> n_draws, <span class="at">size =</span> n_ads_shown, </span>
+<span id="cb81-6"><a href="#cb81-6"></a>                     <span class="at">prob =</span> proportion_clicks)</span>
+<span id="cb81-7"><a href="#cb81-7"></a>prior <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(proportion_clicks, n_visitors)</span>
+<span id="cb81-8"><a href="#cb81-8"></a></span>
+<span id="cb81-9"><a href="#cb81-9"></a><span class="co"># Create the posteriors for video and text ads</span></span>
+<span id="cb81-10"><a href="#cb81-10"></a>posterior_video <span class="ot">&lt;-</span> prior[prior<span class="sc">$</span>n_visitors <span class="sc">==</span> <span class="dv">13</span>, ]</span>
+<span id="cb81-11"><a href="#cb81-11"></a>posterior_text  <span class="ot">&lt;-</span> prior[prior<span class="sc">$</span>n_visitors <span class="sc">==</span> <span class="dv">6</span>, ]</span>
+<span id="cb81-12"><a href="#cb81-12"></a></span>
+<span id="cb81-13"><a href="#cb81-13"></a><span class="co"># Visualize the posteriors</span></span>
+<span id="cb81-14"><a href="#cb81-14"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
+<span id="cb81-15"><a href="#cb81-15"></a><span class="fu">hist</span>(posterior_video<span class="sc">$</span>proportion_clicks, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>))</span>
+<span id="cb81-16"><a href="#cb81-16"></a><span class="fu">hist</span>(posterior_text<span class="sc">$</span>proportion_clicks,  <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1932,14 +1964,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Plot <code>posterior$prop_diff</code> as a histogram using <code>hist()</code>.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a>posterior <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">video_prop =</span> posterior_video<span class="sc">$</span>proportion_clicks[<span class="dv">1</span><span class="sc">:</span><span class="dv">4000</span>],</span>
-<span id="cb81-2"><a href="#cb81-2"></a>                        <span class="at">text_prop  =</span> posterior_text<span class="sc">$</span>proportion_click[<span class="dv">1</span><span class="sc">:</span><span class="dv">4000</span>])</span>
-<span id="cb81-3"><a href="#cb81-3"></a></span>
-<span id="cb81-4"><a href="#cb81-4"></a><span class="co"># Calculate the posterior difference: video_prop - text_prop</span></span>
-<span id="cb81-5"><a href="#cb81-5"></a>posterior<span class="sc">$</span>prop_diff <span class="ot">&lt;-</span> posterior<span class="sc">$</span>video_prop <span class="sc">-</span> posterior<span class="sc">$</span>text_prop </span>
-<span id="cb81-6"><a href="#cb81-6"></a></span>
-<span id="cb81-7"><a href="#cb81-7"></a><span class="co"># Visualize prop_diff</span></span>
-<span id="cb81-8"><a href="#cb81-8"></a><span class="fu">hist</span>(posterior<span class="sc">$</span>prop_diff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a>posterior <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">video_prop =</span> posterior_video<span class="sc">$</span>proportion_clicks[<span class="dv">1</span><span class="sc">:</span><span class="dv">4000</span>],</span>
+<span id="cb82-2"><a href="#cb82-2"></a>                        <span class="at">text_prop  =</span> posterior_text<span class="sc">$</span>proportion_click[<span class="dv">1</span><span class="sc">:</span><span class="dv">4000</span>])</span>
+<span id="cb82-3"><a href="#cb82-3"></a></span>
+<span id="cb82-4"><a href="#cb82-4"></a><span class="co"># Calculate the posterior difference: video_prop - text_prop</span></span>
+<span id="cb82-5"><a href="#cb82-5"></a>posterior<span class="sc">$</span>prop_diff <span class="ot">&lt;-</span> posterior<span class="sc">$</span>video_prop <span class="sc">-</span> posterior<span class="sc">$</span>text_prop </span>
+<span id="cb82-6"><a href="#cb82-6"></a></span>
+<span id="cb82-7"><a href="#cb82-7"></a><span class="co"># Visualize prop_diff</span></span>
+<span id="cb82-8"><a href="#cb82-8"></a><span class="fu">hist</span>(posterior<span class="sc">$</span>prop_diff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1952,20 +1984,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate “a most likely” difference by taking the <code>median</code> of <code>posterior$prop_diff</code></li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a><span class="co"># Calculate the median of prop_diff</span></span>
-<span id="cb82-2"><a href="#cb82-2"></a><span class="fu">median</span>(posterior<span class="sc">$</span>prop_diff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a><span class="co"># Calculate the median of prop_diff</span></span>
+<span id="cb83-2"><a href="#cb83-2"></a><span class="fu">median</span>(posterior<span class="sc">$</span>prop_diff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.06675348</code></pre>
+<pre><code>#&gt; [1] 0.06658975</code></pre>
 </div>
 </div>
 <ol start="4" type="1">
 <li>Finally, calculate the probability that proportion of clicks is larger for the video ad than for the text ad.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="co"># Calculate the proportion</span></span>
-<span id="cb84-2"><a href="#cb84-2"></a><span class="fu">mean</span>(posterior<span class="sc">$</span>prop_diff <span class="sc">&gt;</span> <span class="fl">0.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a><span class="co"># Calculate the proportion</span></span>
+<span id="cb85-2"><a href="#cb85-2"></a><span class="fu">mean</span>(posterior<span class="sc">$</span>prop_diff <span class="sc">&gt;</span> <span class="fl">0.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.94925</code></pre>
+<pre><code>#&gt; [1] 0.9485</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -1979,43 +2011,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We’ve now seen that Bayesian Data Analysis makes it easy to compare and contrast parameter estimates. And it’s generally the case that it’s easy to calculate any derivative quantities once we’ve fitted a Bayesian model and gotten out posteriors.</p>
 <p>Given a probability distribution over some interesting parameter you calculated a point estimate: A single value summarizing the whole distribution. You did the posterior median, but could also have calculated, say, the posterior mean. It’s important to remember that the posterior median or mean are not the same as the median or mean of the data. The posterior median is a summary of a probability distribution over some parameter, while the median of the data is a summary of a data set. Two different things. You calculated the amount of probability favoring a positive value.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="do">### TO DO</span></span>
-<span id="cb86-2"><a href="#cb86-2"></a><span class="co"># ADD legend</span></span>
-<span id="cb86-3"><a href="#cb86-3"></a><span class="co"># ADD CIs</span></span>
-<span id="cb86-4"><a href="#cb86-4"></a><span class="co"># ADD Text</span></span>
-<span id="cb86-5"><a href="#cb86-5"></a></span>
-<span id="cb86-6"><a href="#cb86-6"></a>posterior <span class="sc">|&gt;</span> </span>
-<span id="cb86-7"><a href="#cb86-7"></a>  </span>
-<span id="cb86-8"><a href="#cb86-8"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> prop_diff)) <span class="sc">+</span></span>
-<span id="cb86-9"><a href="#cb86-9"></a>    <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">col =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
-<span id="cb86-10"><a href="#cb86-10"></a>  </span>
-<span id="cb86-11"><a href="#cb86-11"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.05</span>), </span>
-<span id="cb86-12"><a href="#cb86-12"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1</span>,<span class="fl">0.2</span>), </span>
-<span id="cb86-13"><a href="#cb86-13"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)) <span class="sc">+</span></span>
-<span id="cb86-14"><a href="#cb86-14"></a>  </span>
-<span id="cb86-15"><a href="#cb86-15"></a>    <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> <span class="dv">0</span>, <span class="at">yend =</span> <span class="cn">Inf</span>, <span class="at">linetype  =</span> <span class="st">"dashed"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">lineend =</span> <span class="st">"round"</span>) <span class="sc">+</span></span>
-<span id="cb86-16"><a href="#cb86-16"></a>    <span class="co"># geom_vline(xintercept = 0, linetype = "dashed", size = 2, lineend='round')</span></span>
-<span id="cb86-17"><a href="#cb86-17"></a>    </span>
-<span id="cb86-18"><a href="#cb86-18"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">median</span>(prop_diff) , <span class="at">y =</span> <span class="dv">0</span>),<span class="at">colour=</span><span class="st">"darkred"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb86-19"><a href="#cb86-19"></a>    <span class="fu">geom_errorbarh</span>(<span class="fu">aes</span>(<span class="at">xmin=</span><span class="fl">0.02</span>, <span class="at">xmax=</span><span class="fl">0.12</span>, <span class="at">y =</span> <span class="dv">0</span>), <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.3</span>), <span class="at">color =</span> <span class="st">"darkred"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb86-20"><a href="#cb86-20"></a>  </span>
-<span id="cb86-21"><a href="#cb86-21"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Difference in proportion of clicks"</span>, <span class="at">y =</span> <span class="st">""</span>) <span class="sc">+</span></span>
-<span id="cb86-22"><a href="#cb86-22"></a>    <span class="fu">expand_limits</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">0.2</span>)) <span class="sc">+</span></span>
-<span id="cb86-23"><a href="#cb86-23"></a>  </span>
-<span id="cb86-24"><a href="#cb86-24"></a>    <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb86-25"><a href="#cb86-25"></a>          <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"black"</span>),</span>
-<span id="cb86-26"><a href="#cb86-26"></a>          <span class="at">axis.text        =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>),</span>
-<span id="cb86-27"><a href="#cb86-27"></a>          <span class="at">axis.text.x      =</span> <span class="fu">element_text</span>(<span class="at">margin=</span><span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">10</span>, <span class="at">r =</span> <span class="dv">0</span>, <span class="at">b =</span> <span class="dv">0</span>, <span class="at">l =</span> <span class="dv">0</span>)),</span>
-<span id="cb86-28"><a href="#cb86-28"></a>          <span class="at">axis.text.y      =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb86-29"><a href="#cb86-29"></a>          <span class="at">axis.ticks.y     =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb86-30"><a href="#cb86-30"></a>          <span class="at">axis.ticks.length=</span><span class="fu">unit</span>(.<span class="dv">3</span>, <span class="st">"cm"</span>),</span>
-<span id="cb86-31"><a href="#cb86-31"></a>          <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">30</span>, <span class="at">r =</span> <span class="dv">0</span>, <span class="at">b =</span> <span class="dv">0</span>, <span class="at">l =</span> <span class="dv">0</span>))</span>
-<span id="cb86-32"><a href="#cb86-32"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a><span class="do">### TO DO</span></span>
+<span id="cb87-2"><a href="#cb87-2"></a><span class="co"># ADD legend</span></span>
+<span id="cb87-3"><a href="#cb87-3"></a><span class="co"># ADD CIs</span></span>
+<span id="cb87-4"><a href="#cb87-4"></a><span class="co"># ADD Text</span></span>
+<span id="cb87-5"><a href="#cb87-5"></a></span>
+<span id="cb87-6"><a href="#cb87-6"></a>posterior <span class="sc">|&gt;</span> </span>
+<span id="cb87-7"><a href="#cb87-7"></a>  </span>
+<span id="cb87-8"><a href="#cb87-8"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> prop_diff)) <span class="sc">+</span></span>
+<span id="cb87-9"><a href="#cb87-9"></a>    <span class="fu">geom_histogram</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>, <span class="at">col =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb87-10"><a href="#cb87-10"></a>  </span>
+<span id="cb87-11"><a href="#cb87-11"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.05</span>), </span>
+<span id="cb87-12"><a href="#cb87-12"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1</span>,<span class="fl">0.2</span>), </span>
+<span id="cb87-13"><a href="#cb87-13"></a>                     <span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">0</span>)) <span class="sc">+</span></span>
+<span id="cb87-14"><a href="#cb87-14"></a>  </span>
+<span id="cb87-15"><a href="#cb87-15"></a>    <span class="fu">geom_segment</span>(<span class="at">x =</span> <span class="dv">0</span>, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">xend =</span> <span class="dv">0</span>, <span class="at">yend =</span> <span class="cn">Inf</span>, <span class="at">linetype  =</span> <span class="st">"dashed"</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">lineend =</span> <span class="st">"round"</span>) <span class="sc">+</span></span>
+<span id="cb87-16"><a href="#cb87-16"></a>    <span class="co"># geom_vline(xintercept = 0, linetype = "dashed", size = 2, lineend='round')</span></span>
+<span id="cb87-17"><a href="#cb87-17"></a>    </span>
+<span id="cb87-18"><a href="#cb87-18"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">median</span>(prop_diff) , <span class="at">y =</span> <span class="dv">0</span>),<span class="at">colour=</span><span class="st">"darkred"</span>, <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb87-19"><a href="#cb87-19"></a>    <span class="fu">geom_errorbarh</span>(<span class="fu">aes</span>(<span class="at">xmin=</span><span class="fl">0.02</span>, <span class="at">xmax=</span><span class="fl">0.12</span>, <span class="at">y =</span> <span class="dv">0</span>), <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.3</span>), <span class="at">color =</span> <span class="st">"darkred"</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb87-20"><a href="#cb87-20"></a>  </span>
+<span id="cb87-21"><a href="#cb87-21"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Difference in proportion of clicks"</span>, <span class="at">y =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb87-22"><a href="#cb87-22"></a>    <span class="fu">expand_limits</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">0.2</span>)) <span class="sc">+</span></span>
+<span id="cb87-23"><a href="#cb87-23"></a>  </span>
+<span id="cb87-24"><a href="#cb87-24"></a>    <span class="fu">theme</span>(<span class="at">panel.background =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb87-25"><a href="#cb87-25"></a>          <span class="at">axis.line.x =</span> <span class="fu">element_line</span>(<span class="at">colour =</span> <span class="st">"black"</span>),</span>
+<span id="cb87-26"><a href="#cb87-26"></a>          <span class="at">axis.text        =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>),</span>
+<span id="cb87-27"><a href="#cb87-27"></a>          <span class="at">axis.text.x      =</span> <span class="fu">element_text</span>(<span class="at">margin=</span><span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">10</span>, <span class="at">r =</span> <span class="dv">0</span>, <span class="at">b =</span> <span class="dv">0</span>, <span class="at">l =</span> <span class="dv">0</span>)),</span>
+<span id="cb87-28"><a href="#cb87-28"></a>          <span class="at">axis.text.y      =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb87-29"><a href="#cb87-29"></a>          <span class="at">axis.ticks.y     =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb87-30"><a href="#cb87-30"></a>          <span class="at">axis.ticks.length=</span><span class="fu">unit</span>(.<span class="dv">3</span>, <span class="st">"cm"</span>),</span>
+<span id="cb87-31"><a href="#cb87-31"></a>          <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">12</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">30</span>, <span class="at">r =</span> <span class="dv">0</span>, <span class="at">b =</span> <span class="dv">0</span>, <span class="at">l =</span> <span class="dv">0</span>))</span>
+<span id="cb87-32"><a href="#cb87-32"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning: Removed 1 rows containing non-finite values (`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning: Removed 2 rows containing missing values (`geom_bar()`).</code></pre>
@@ -2089,7 +2118,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["video_prop"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["text_prop"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["prop_diff"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["video_profit"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["text_profit"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.14217840","2":"0.06794855","3":"0.074229846","4":"0.10971134","5":"0.12190983","_rn_":"1"},{"1":"0.17192949","2":"0.06863105","3":"0.103298437","4":"0.18498160","5":"0.12363655","_rn_":"2"},{"1":"0.13567649","2":"0.02539809","3":"0.110278393","4":"0.09326151","5":"0.01425717","_rn_":"3"},{"1":"0.07639432","2":"0.04773592","3":"0.028658395","4":"-0.05672237","5":"0.07077189","_rn_":"4"},{"1":"0.10856852","2":"0.10014975","3":"0.008418771","4":"0.02467835","5":"0.20337886","_rn_":"5"},{"1":"0.18679683","2":"0.10721521","3":"0.079581625","4":"0.22259599","5":"0.22125448","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["video_prop"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["text_prop"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["prop_diff"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["video_profit"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["text_profit"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"0.10145105","2":"0.07703157","3":"0.02441949","4":"0.006671166","5":"0.14488987","_rn_":"1"},{"1":"0.17753043","2":"0.08474723","3":"0.09278320","4":"0.199151994","5":"0.16441049","_rn_":"2"},{"1":"0.09455183","2":"0.02814826","3":"0.06640357","4":"-0.010783868","5":"0.02121509","_rn_":"3"},{"1":"0.11123602","2":"0.08959868","3":"0.02163734","4":"0.031427134","5":"0.17668467","_rn_":"4"},{"1":"0.18700967","2":"0.07035687","3":"0.11665280","4":"0.223134466","5":"0.12800289","_rn_":"5"},{"1":"0.13336289","2":"0.08060614","3":"0.05275674","4":"0.087408099","5":"0.15393354","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2172,7 +2201,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="co"># Calculate a "best guess" for the difference in profits</span></span>
 <span id="cb96-2"><a href="#cb96-2"></a><span class="fu">median</span>(posterior<span class="sc">$</span>profit_diff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] -0.03111369</code></pre>
+<pre><code>#&gt; [1] -0.03152792</code></pre>
 </div>
 </div>
 <ol start="4" type="1">
@@ -2197,12 +2226,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1"></a><span class="co"># Calculate a "best guess" for the difference in profits</span></span>
 <span id="cb99-2"><a href="#cb99-2"></a><span class="fu">median</span>(posterior<span class="sc">$</span>profit_diff)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] -0.03111369</code></pre>
+<pre><code>#&gt; [1] -0.03152792</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1"></a><span class="co"># Calculate the probability that text ads are better than video ads</span></span>
 <span id="cb101-2"><a href="#cb101-2"></a><span class="fu">mean</span>(posterior<span class="sc">$</span>profit_diff <span class="sc">&lt;</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.626</code></pre>
+<pre><code>#&gt; [1] 0.62925</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -2304,7 +2333,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a><span class="co"># Calculate the probability of break-even</span></span>
 <span id="cb106-2"><a href="#cb106-2"></a><span class="fu">mean</span>(x <span class="sc">&gt;=</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.1899</code></pre>
+<pre><code>#&gt; [1] 0.1838</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -3058,90 +3087,51 @@ Here is a small data set with the birth weights of six newborn babies in grams.
 <section id="eyeballing-the-mean-iq-of-zombies" class="level2" data-number="4.16">
 <h2 data-number="4.16" class="anchored" data-anchor-id="eyeballing-the-mean-iq-of-zombies"><span class="header-section-number">4.16</span> Eyeballing the mean IQ of zombies?</h2>
 <p>In the last exercise, you computed the probability for each mean (<code>mu</code>) and SD (<code>sigma</code>) combination. Using the <code>levelplot</code> function from the <code>lattice</code> package we can now visualize this 2D probability distribution:</p>
-<pre><p><code class="R language-R">levelplot(probability ~ mu * sigma, data = pars)</code></p><code class="R language-R">
-<pre><code>
-&lt;img src="https://assets.datacamp.com/production/repositories/1300/datasets/ba53c55411008363e6656d2b30a62dd7e702e611/normal_zombie_2d_posterior.png" alt&gt;
-
-We could calculate all kinds of credible intervals and probabilities from this plot, but just eyeballing it: 
-
-
-* What is the most probable mean (`mu`) of the IQ of Zombies? Roughly how uncertain is the estimate of `mu`?
-&gt; *Question*
-&gt; ---
-&gt; ???&lt;br&gt;
-&gt; &lt;br&gt;
-&gt; ⬜ A mean IQ of 20 ± 10&lt;br&gt;
-&gt; ⬜ A mean IQ of 40 ± 1&lt;br&gt;
-&gt; ⬜ A mean IQ of 15 ± 15&lt;br&gt;
-&gt; ✅ A mean IQ of 42 ± 10&lt;br&gt;
-
-That seems about right! Zombies are not very smart it seems. Who could have guessed…
-
-## Answering the question: Should I have a beach party?
-
-Theory. Coming soon ...
-
-
-**1. Answering the question: Should I have a beach party?**
-
-So we have now done a whole analysis, you with zombie data, and I with temperature data. But I haven’t answered my original questions:
-
-**2. The questions**
-
-What’s likely the average water temperature for this lake on 20th of Julys, and what’s the probability the water temperature is going to be 18 or more on the next 20th? Right now
-
-**3. The posterior distribution**
-
-the posterior probability distribution is represented as a data frame with one row per parameter combination with the corresponding probability. But my questions are much easier to answer if the posterior is represented as a large number of samples, like in earlier chapters. So, let’s draw a sample from this posterior. We’re going to use the sample function to draw row indices proportionally to each rows probability. We want to be able to sample any row from 1 to the last row, we’re drawing a sample of size 10,000 (just a large enough sample), we want to be able to draw a row index twice so we sample with replacement, and we draw each row index proportional to its corresponding probability.
-
-**4. The posterior distribution**
-
-sample_indices is now a long vector of numbers, which we’ll use to pick out the corresponding mu and sigma parameters in pars. Hey, a long data frame of samples that we now can use to calculate stuff with ease. Let’s start by plotting
-
-**5. The probability distribution over the mean temperature**
-
-the probability distribution over the mean temperature. Looks like the mean is likely between 17 and 23 degrees. What would a 90% credible interval be here? We can calculate that using the quantile function
-
-**6. The probability distribution over the mean temperature**
-
-So with 90% probability, the average temperature is between 17.5 and 22.5 degrees.
-
-**7. Is the temperature 18 or above on the 20th?**
-
-Now, what’s the probability of the temperature being 18 or above on the 20th of July? Not the average temperature, the actual temperature. To get to this we need to simulate some temperature data using rnorm, but instead of using fixed parameter values, we’ll feed in our samples.
-
-**8. Is the temperature 18 or above on the 20th?**
-
-Here we’re simulating 10000 values using the posterior distributions for mu and sigma. And as rnorm is vectorized, and implicitly loops over mu and sigma, the uncertainty in the posterior will propagate and be included in the uncertainty in pred_temp. If we
-
-**9. Is the temperature 18 or above on the 20th?**
-
-plot it, we now get the probability distribution over the water temperature on the 20th. What’s the probability that it is 18 degrees or above? Is it large enough, or should I cancel my beach party? For that, we just
-
-**10. Is the temperature 18 or above on the 20th?**
-
-count up the proportion of samples that are 18 or more which gives us a 73% probability that the temperature in the lake is going to be 18 degrees or more. Good enough for me!
-
-**11. Beach party!**
-
-So I’m doing a beach party, nice!
-
-**12. What about the IQ of zombies?**
-
-Now you try to answer some of your questions about the IQ of zombies.
-
-## Sampling from the zombie posterior
-
-Again `pars` contains the data frame representing the posterior zombie IQ distribution you calculated earlier. The code to the right draws `sample_indices`: a sample of row numbers (a.k.a. *indices*) from the posterior.  Now, let's sample from `pars` to calculate some new measures!
-
-**Steps**
-
-1. Use `sample_indices` to create a new data frame `pars_sample` from `pars` with the columns `mu` and `sigma` drawn from the rows indicated by `sample_indices`.
-
-::: {.cell layout-align="center"}
-
-```{.r .cell-code}
-head(pars)</code></pre>
+<p><code>levelplot(probability ~ mu * sigma, data = pars)</code></p>
+<p><img src="https://assets.datacamp.com/production/repositories/1300/datasets/ba53c55411008363e6656d2b30a62dd7e702e611/normal_zombie_2d_posterior.png" alt=""></p>
+<p>We could calculate all kinds of credible intervals and probabilities from this plot, but just eyeballing it:</p>
+<ul>
+<li>What is the most probable mean (<code>mu</code>) of the IQ of Zombies? Roughly how uncertain is the estimate of <code>mu</code>? &gt; <em>Question</em> &gt; — &gt; ???<br> &gt; <br> &gt; ⬜ A mean IQ of 20 ± 10<br> &gt; ⬜ A mean IQ of 40 ± 1<br> &gt; ⬜ A mean IQ of 15 ± 15<br> &gt; ✅ A mean IQ of 42 ± 10<br></li>
+</ul>
+<p>That seems about right! Zombies are not very smart it seems. Who could have guessed…</p>
+</section>
+<section id="answering-the-question-should-i-have-a-beach-party" class="level2" data-number="4.17">
+<h2 data-number="4.17" class="anchored" data-anchor-id="answering-the-question-should-i-have-a-beach-party"><span class="header-section-number">4.17</span> Answering the question: Should I have a beach party?</h2>
+<p>Theory. Coming soon …</p>
+<p><strong>1. Answering the question: Should I have a beach party?</strong></p>
+<p>So we have now done a whole analysis, you with zombie data, and I with temperature data. But I haven’t answered my original questions:</p>
+<p><strong>2. The questions</strong></p>
+<p>What’s likely the average water temperature for this lake on 20th of Julys, and what’s the probability the water temperature is going to be 18 or more on the next 20th? Right now</p>
+<p><strong>3. The posterior distribution</strong></p>
+<p>the posterior probability distribution is represented as a data frame with one row per parameter combination with the corresponding probability. But my questions are much easier to answer if the posterior is represented as a large number of samples, like in earlier chapters. So, let’s draw a sample from this posterior. We’re going to use the sample function to draw row indices proportionally to each rows probability. We want to be able to sample any row from 1 to the last row, we’re drawing a sample of size 10,000 (just a large enough sample), we want to be able to draw a row index twice so we sample with replacement, and we draw each row index proportional to its corresponding probability.</p>
+<p><strong>4. The posterior distribution</strong></p>
+<p>sample_indices is now a long vector of numbers, which we’ll use to pick out the corresponding mu and sigma parameters in pars. Hey, a long data frame of samples that we now can use to calculate stuff with ease. Let’s start by plotting</p>
+<p><strong>5. The probability distribution over the mean temperature</strong></p>
+<p>the probability distribution over the mean temperature. Looks like the mean is likely between 17 and 23 degrees. What would a 90% credible interval be here? We can calculate that using the quantile function</p>
+<p><strong>6. The probability distribution over the mean temperature</strong></p>
+<p>So with 90% probability, the average temperature is between 17.5 and 22.5 degrees.</p>
+<p><strong>7. Is the temperature 18 or above on the 20th?</strong></p>
+<p>Now, what’s the probability of the temperature being 18 or above on the 20th of July? Not the average temperature, the actual temperature. To get to this we need to simulate some temperature data using rnorm, but instead of using fixed parameter values, we’ll feed in our samples.</p>
+<p><strong>8. Is the temperature 18 or above on the 20th?</strong></p>
+<p>Here we’re simulating 10000 values using the posterior distributions for mu and sigma. And as rnorm is vectorized, and implicitly loops over mu and sigma, the uncertainty in the posterior will propagate and be included in the uncertainty in pred_temp. If we</p>
+<p><strong>9. Is the temperature 18 or above on the 20th?</strong></p>
+<p>plot it, we now get the probability distribution over the water temperature on the 20th. What’s the probability that it is 18 degrees or above? Is it large enough, or should I cancel my beach party? For that, we just</p>
+<p><strong>10. Is the temperature 18 or above on the 20th?</strong></p>
+<p>count up the proportion of samples that are 18 or more which gives us a 73% probability that the temperature in the lake is going to be 18 degrees or more. Good enough for me!</p>
+<p><strong>11. Beach party!</strong></p>
+<p>So I’m doing a beach party, nice!</p>
+<p><strong>12. What about the IQ of zombies?</strong></p>
+<p>Now you try to answer some of your questions about the IQ of zombies.</p>
+</section>
+<section id="sampling-from-the-zombie-posterior" class="level2" data-number="4.18">
+<h2 data-number="4.18" class="anchored" data-anchor-id="sampling-from-the-zombie-posterior"><span class="header-section-number">4.18</span> Sampling from the zombie posterior</h2>
+<p>Again <code>pars</code> contains the data frame representing the posterior zombie IQ distribution you calculated earlier. The code to the right draws <code>sample_indices</code>: a sample of row numbers (a.k.a. <em>indices</em>) from the posterior. Now, let’s sample from <code>pars</code> to calculate some new measures!</p>
+<p><strong>Steps</strong></p>
+<ol type="1">
+<li>Use <code>sample_indices</code> to create a new data frame <code>pars_sample</code> from <code>pars</code> with the columns <code>mu</code> and <code>sigma</code> drawn from the rows indicated by <code>sample_indices</code>.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1"></a><span class="fu">head</span>(pars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -3154,11 +3144,11 @@ head(pars)</code></pre>
 <span id="cb137-2"><a href="#cb137-2"></a>    <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> pars<span class="sc">$</span>probability)</span>
 <span id="cb137-3"><a href="#cb137-3"></a><span class="fu">head</span>(sample_indices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 1826 3432 2823 2334 1729 2029</code></pre>
+<pre><code>#&gt; [1] 2732 2731 2328 2027 3130 2532</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1"></a><span class="co"># Sample from pars to calculate some new measures</span></span>
 <span id="cb139-2"><a href="#cb139-2"></a>pars_sample <span class="ot">&lt;-</span> pars[sample_indices, <span class="fu">c</span>(<span class="st">"mu"</span>, <span class="st">"sigma"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+</div>
 <ol start="2" type="1">
 <li><p>Nice! Now take a look at the posterior probability distribution over the mean IQ.</p>
 <ul>
@@ -3179,7 +3169,7 @@ head(pars)</code></pre>
 <span id="cb141-2"><a href="#cb141-2"></a>    <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> pars<span class="sc">$</span>probability)</span>
 <span id="cb141-3"><a href="#cb141-3"></a><span class="fu">head</span>(sample_indices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 4724 2432 1930 2527 2229 2225</code></pre>
+<pre><code>#&gt; [1] 2929 2328 1827 2232 2230 2430</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1"></a><span class="co"># Sample from pars to calculate some new measures</span></span>
 <span id="cb143-2"><a href="#cb143-2"></a>pars_sample <span class="ot">&lt;-</span> pars[sample_indices, <span class="fu">c</span>(<span class="st">"mu"</span>, <span class="st">"sigma"</span>)]</span>
@@ -3211,7 +3201,7 @@ head(pars)</code></pre>
 <span id="cb145-2"><a href="#cb145-2"></a>    <span class="at">replace =</span> <span class="cn">TRUE</span>, <span class="at">prob =</span> pars<span class="sc">$</span>probability)</span>
 <span id="cb145-3"><a href="#cb145-3"></a><span class="fu">head</span>(sample_indices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 3225 2227 3327 3131 1827 3125</code></pre>
+<pre><code>#&gt; [1] 3334 2230 2733 3131 1629 2227</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1"></a><span class="co"># Sample from pars to calculate some new measures</span></span>
 <span id="cb147-2"><a href="#cb147-2"></a>pars_sample <span class="ot">&lt;-</span> pars[sample_indices, <span class="fu">c</span>(<span class="st">"mu"</span>, <span class="st">"sigma"</span>)]</span>
@@ -3233,16 +3223,16 @@ head(pars)</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-14" data-number="4.17" class="anchored"><span class="header-section-number">4.17</span> <em>Question</em></h2>
+<h2 id="question-14" data-number="4.19" class="anchored"><span class="header-section-number">4.19</span> <em>Question</em></h2>
 <p>The 50% quantile you just calculated is the same as the median and a good candidate for a “best guess” for the mean IQ of a zombie, and the 2.5% and 97.5% quantiles form a 95% credible interval.</p>
 </blockquote>
 <ul>
 <li>When submitting this result to <em>The Journal of Zombieology</em>, which of the following sentence should we put into the result section? <em>Keep in mind that as <code>pars_sample$mu</code> is a random sample, the numbers you’ve calculated might differ slightly from the possible answers below.</em><br> &gt; <br> &gt; ⬜ We estimate the mean zombie IQ to be 42.424.<br> &gt; ⬜ The mean zombie IQ is at most 50.0.<br> &gt; ✅ [ We estimate the mean zombie IQ to be 42 (95% CI: [35, 50]) ]<br> &gt; ⬜ The mean zombie IQ is 34 - 50.<br></li>
 </ul>
 <p>This is a legitimate decision boundary as it lies in the gap between the clusters. Try again.</p>
-</code></pre></section><code class="R language-R">
-<section id="but-how-smart-will-the-next-zombie-be" class="level2" data-number="4.18">
-<h2 data-number="4.18" class="anchored" data-anchor-id="but-how-smart-will-the-next-zombie-be"><span class="header-section-number">4.18</span> But how smart will the next zombie be?</h2>
+</section>
+<section id="but-how-smart-will-the-next-zombie-be" class="level2" data-number="4.20">
+<h2 data-number="4.20" class="anchored" data-anchor-id="but-how-smart-will-the-next-zombie-be"><span class="header-section-number">4.20</span> But how smart will the next zombie be?</h2>
 <p>So we have an idea about what the <em>mean</em> zombie IQ is but what range of zombie IQs should we expect? And how likely is it that the next zombie you encounter is, at least, moderately intelligent?</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -3257,7 +3247,7 @@ head(pars)</code></pre>
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mu"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"36.36364","2":"16.229293","_rn_":"3225"},{"1":"39.39394","2":"11.188889","_rn_":"2227"},{"1":"39.39394","2":"16.733333","_rn_":"3327"},{"1":"45.45455","2":"15.725253","_rn_":"3131"},{"1":"39.39394","2":"9.172727","_rn_":"1827"},{"1":"36.36364","2":"15.725253","_rn_":"3125"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mu"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"50.00000","2":"16.733333","_rn_":"3334"},{"1":"43.93939","2":"11.188889","_rn_":"2230"},{"1":"48.48485","2":"13.709091","_rn_":"2733"},{"1":"45.45455","2":"15.725253","_rn_":"3131"},{"1":"42.42424","2":"8.164646","_rn_":"1629"},{"1":"39.39394","2":"11.188889","_rn_":"2227"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -3286,7 +3276,7 @@ head(pars)</code></pre>
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mu"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"36.36364","2":"16.229293","_rn_":"3225"},{"1":"39.39394","2":"11.188889","_rn_":"2227"},{"1":"39.39394","2":"16.733333","_rn_":"3327"},{"1":"45.45455","2":"15.725253","_rn_":"3131"},{"1":"39.39394","2":"9.172727","_rn_":"1827"},{"1":"36.36364","2":"15.725253","_rn_":"3125"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["mu"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["sigma"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"50.00000","2":"16.733333","_rn_":"3334"},{"1":"43.93939","2":"11.188889","_rn_":"2230"},{"1":"48.48485","2":"13.709091","_rn_":"2733"},{"1":"45.45455","2":"15.725253","_rn_":"3131"},{"1":"42.42424","2":"8.164646","_rn_":"1629"},{"1":"39.39394","2":"11.188889","_rn_":"2227"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -3305,11 +3295,11 @@ head(pars)</code></pre>
 <div class="sourceCode cell-code" id="cb154"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1"></a><span class="co"># Calculate the probability of a zombie being "smart" (+60 IQ)</span></span>
 <span id="cb154-2"><a href="#cb154-2"></a><span class="fu">sum</span>(pred_iq <span class="sc">&gt;=</span> <span class="dv">60</span>) <span class="sc">/</span> <span class="fu">length</span>(pred_iq)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.0868</code></pre>
+<pre><code>#&gt; [1] 0.0854</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-15" data-number="4.19" class="anchored"><span class="header-section-number">4.19</span> <em>Question</em></h2>
+<h2 id="question-15" data-number="4.21" class="anchored"><span class="header-section-number">4.21</span> <em>Question</em></h2>
 <p>Zombies with an IQ of 60 or more are of moderate intelligence, and much more dangerous! (They can open doors!)</p>
 </blockquote>
 <ul>
@@ -3317,12 +3307,12 @@ head(pars)</code></pre>
 </ul>
 <p>This is a legitimate decision boundary as it lies in the gap between the clusters. Try again.</p>
 </section>
-<section id="a-practical-tool-best" class="level2" data-number="4.20">
-<h2 data-number="4.20" class="anchored" data-anchor-id="a-practical-tool-best"><span class="header-section-number">4.20</span> A practical tool: BEST</h2>
+<section id="a-practical-tool-best" class="level2" data-number="4.22">
+<h2 data-number="4.22" class="anchored" data-anchor-id="a-practical-tool-best"><span class="header-section-number">4.22</span> A practical tool: BEST</h2>
 <p>Theory. Coming soon …</p>
 </section>
-<section id="the-best-models-and-zombies-on-a-diet" class="level2" data-number="4.21">
-<h2 data-number="4.21" class="anchored" data-anchor-id="the-best-models-and-zombies-on-a-diet"><span class="header-section-number">4.21</span> The BEST models and zombies on a diet</h2>
+<section id="the-best-models-and-zombies-on-a-diet" class="level2" data-number="4.23">
+<h2 data-number="4.23" class="anchored" data-anchor-id="the-best-models-and-zombies-on-a-diet"><span class="header-section-number">4.23</span> The BEST models and zombies on a diet</h2>
 <p>The t-test is a classical statistical procedure used to compare the means of two data sets. In 2013 John Kruschke developed a souped-up Bayesian version of the t-test he named BEST (standing for <em>Bayesian Estimation Supersedes the t-test</em>). Let’s try out BEST as implemented in the <code>BEST</code> package.</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -3349,28 +3339,18 @@ head(pars)</code></pre>
 <li>Fit the BEST model using the <code>BESTmcmc</code> function, like this: <code>BESTmcmc(iq_brains, iq_regular)</code>. Assign the output of <code>BESTmcmc</code> to the variable <code>best_posterior</code>.</li>
 </ul></li>
 </ol>
+<p>SOME ERRORS WITH THE <code>BEST</code> library</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb158"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1"></a><span class="co"># The IQ of zombies on a regular diet and a brain based diet.</span></span>
 <span id="cb158-2"><a href="#cb158-2"></a>iq_brains <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">44</span>, <span class="dv">52</span>, <span class="dv">42</span>, <span class="dv">66</span>, <span class="dv">53</span>, <span class="dv">42</span>, <span class="dv">55</span>, <span class="dv">57</span>, <span class="dv">56</span>, <span class="dv">51</span>)</span>
 <span id="cb158-3"><a href="#cb158-3"></a>iq_regular <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">44</span>, <span class="dv">34</span>, <span class="dv">18</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">49</span>, <span class="dv">48</span>, <span class="dv">46</span>)</span>
 <span id="cb158-4"><a href="#cb158-4"></a></span>
 <span id="cb158-5"><a href="#cb158-5"></a><span class="co"># Calculate the mean difference in IQ between the two groups</span></span>
-<span id="cb158-6"><a href="#cb158-6"></a><span class="fu">mean</span>(iq_brains) <span class="sc">-</span> <span class="fu">mean</span>(iq_regular)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 9.3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb160"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1"></a><span class="co"># Fit the BEST model to the data from both groups</span></span>
-<span id="cb160-2"><a href="#cb160-2"></a><span class="fu">library</span>(BEST)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Lade nötiges Paket: HDInterval</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb162"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1"></a>best_posterior <span class="ot">&lt;-</span> <span class="fu">BESTmcmc</span>(iq_brains, iq_regular)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Waiting for parallel processing to complete...</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>#&gt; done.</code></pre>
-</div>
+<span id="cb158-6"><a href="#cb158-6"></a><span class="fu">mean</span>(iq_brains) <span class="sc">-</span> <span class="fu">mean</span>(iq_regular)</span>
+<span id="cb158-7"><a href="#cb158-7"></a></span>
+<span id="cb158-8"><a href="#cb158-8"></a><span class="co"># Fit the BEST model to the data from both groups</span></span>
+<span id="cb158-9"><a href="#cb158-9"></a><span class="fu">library</span>(BEST)</span>
+<span id="cb158-10"><a href="#cb158-10"></a>best_posterior <span class="ot">&lt;-</span> <span class="fu">BESTmcmc</span>(iq_brains, iq_regular)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li><p>Hey, the model ran! But we’re none the wiser…</p>
@@ -3379,33 +3359,22 @@ head(pars)</code></pre>
 </ul></li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb165"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1"></a><span class="co"># The IQ of zombies on a regular diet and a brain based diet.</span></span>
-<span id="cb165-2"><a href="#cb165-2"></a>iq_brains <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">44</span>, <span class="dv">52</span>, <span class="dv">42</span>, <span class="dv">66</span>, <span class="dv">53</span>, <span class="dv">42</span>, <span class="dv">55</span>, <span class="dv">57</span>, <span class="dv">56</span>, <span class="dv">51</span>)</span>
-<span id="cb165-3"><a href="#cb165-3"></a>iq_regular <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">44</span>, <span class="dv">34</span>, <span class="dv">18</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">49</span>, <span class="dv">48</span>, <span class="dv">46</span>)</span>
-<span id="cb165-4"><a href="#cb165-4"></a></span>
-<span id="cb165-5"><a href="#cb165-5"></a><span class="co"># Calculate the mean difference in IQ between the two groups</span></span>
-<span id="cb165-6"><a href="#cb165-6"></a><span class="fu">mean</span>(iq_brains) <span class="sc">-</span> <span class="fu">mean</span>(iq_regular)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 9.3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1"></a><span class="co"># Fit the BEST model to the data from both groups</span></span>
-<span id="cb167-2"><a href="#cb167-2"></a><span class="fu">library</span>(BEST)</span>
-<span id="cb167-3"><a href="#cb167-3"></a>best_posterior <span class="ot">&lt;-</span> <span class="fu">BESTmcmc</span>(iq_brains, iq_regular)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Waiting for parallel processing to complete...done.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1"></a><span class="co"># Plot the model result</span></span>
-<span id="cb169-2"><a href="#cb169-2"></a><span class="fu">plot</span>(best_posterior)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="19_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-93-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-55"><img src="19_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-93-1.png" class="img-fluid figure-img" width="672"></a></p>
-</figure>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1"></a><span class="co"># The IQ of zombies on a regular diet and a brain based diet.</span></span>
+<span id="cb159-2"><a href="#cb159-2"></a>iq_brains <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">44</span>, <span class="dv">52</span>, <span class="dv">42</span>, <span class="dv">66</span>, <span class="dv">53</span>, <span class="dv">42</span>, <span class="dv">55</span>, <span class="dv">57</span>, <span class="dv">56</span>, <span class="dv">51</span>)</span>
+<span id="cb159-3"><a href="#cb159-3"></a>iq_regular <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">44</span>, <span class="dv">34</span>, <span class="dv">18</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">49</span>, <span class="dv">48</span>, <span class="dv">46</span>)</span>
+<span id="cb159-4"><a href="#cb159-4"></a></span>
+<span id="cb159-5"><a href="#cb159-5"></a><span class="co"># Calculate the mean difference in IQ between the two groups</span></span>
+<span id="cb159-6"><a href="#cb159-6"></a><span class="fu">mean</span>(iq_brains) <span class="sc">-</span> <span class="fu">mean</span>(iq_regular)</span>
+<span id="cb159-7"><a href="#cb159-7"></a></span>
+<span id="cb159-8"><a href="#cb159-8"></a><span class="co"># Fit the BEST model to the data from both groups</span></span>
+<span id="cb159-9"><a href="#cb159-9"></a><span class="fu">library</span>(BEST)</span>
+<span id="cb159-10"><a href="#cb159-10"></a>best_posterior <span class="ot">&lt;-</span> <span class="fu">BESTmcmc</span>(iq_brains, iq_regular)</span>
+<span id="cb159-11"><a href="#cb159-11"></a></span>
+<span id="cb159-12"><a href="#cb159-12"></a><span class="co"># Plot the model result</span></span>
+<span id="cb159-13"><a href="#cb159-13"></a><span class="fu">plot</span>(best_posterior)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-16" data-number="4.22" class="anchored"><span class="header-section-number">4.22</span> <em>Question</em></h2>
+<h2 id="question-16" data-number="4.24" class="anchored"><span class="header-section-number">4.24</span> <em>Question</em></h2>
 <p>This plot shows the posterior probability distribution over the difference in means between <code>iq_brains</code> and <code>iq_regular</code>. On top of this you get:</p>
 </blockquote>
 <ol type="1">
@@ -3418,8 +3387,8 @@ head(pars)</code></pre>
 </ul>
 <p>This is a legitimate decision boundary as it lies in the gap between the clusters. Try again.</p>
 </section>
-<section id="best-is-robust" class="level2" data-number="4.23">
-<h2 data-number="4.23" class="anchored" data-anchor-id="best-is-robust"><span class="header-section-number">4.23</span> BEST is robust</h2>
+<section id="best-is-robust" class="level2" data-number="4.25">
+<h2 data-number="4.25" class="anchored" data-anchor-id="best-is-robust"><span class="header-section-number">4.25</span> BEST is robust</h2>
 <p>The Bayesian model behind BEST assumes that the generative model for the data is a <em>t-distribution</em>; a more flexible distribution than the normal distribution as it assumes that data points might be outliers to some degree. This makes BEST’s estimate of the mean difference <em>robust</em> to outliers in the data.</p>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -3430,15 +3399,12 @@ head(pars)</code></pre>
 </ul></li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb170"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1"></a><span class="co"># The IQ of zombies given a regular diet and a brain based diet.</span></span>
-<span id="cb170-2"><a href="#cb170-2"></a>iq_brains <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">44</span>, <span class="dv">52</span>, <span class="dv">42</span>, <span class="dv">66</span>, <span class="dv">53</span>, <span class="dv">42</span>, <span class="dv">55</span>, <span class="dv">57</span>, <span class="dv">56</span>, <span class="dv">51</span>)</span>
-<span id="cb170-3"><a href="#cb170-3"></a>iq_regular <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">44</span>, <span class="dv">34</span>, <span class="dv">18</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">49</span>, <span class="dv">48</span>, <span class="dv">150</span>)</span>
-<span id="cb170-4"><a href="#cb170-4"></a></span>
-<span id="cb170-5"><a href="#cb170-5"></a><span class="co"># Modify the data above and calculate the difference in means</span></span>
-<span id="cb170-6"><a href="#cb170-6"></a><span class="fu">mean</span>(iq_brains) <span class="sc">-</span> <span class="fu">mean</span>(iq_regular)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] -1.1</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb160"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1"></a><span class="co"># The IQ of zombies given a regular diet and a brain based diet.</span></span>
+<span id="cb160-2"><a href="#cb160-2"></a>iq_brains <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">44</span>, <span class="dv">52</span>, <span class="dv">42</span>, <span class="dv">66</span>, <span class="dv">53</span>, <span class="dv">42</span>, <span class="dv">55</span>, <span class="dv">57</span>, <span class="dv">56</span>, <span class="dv">51</span>)</span>
+<span id="cb160-3"><a href="#cb160-3"></a>iq_regular <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">44</span>, <span class="dv">34</span>, <span class="dv">18</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">49</span>, <span class="dv">48</span>, <span class="dv">150</span>)</span>
+<span id="cb160-4"><a href="#cb160-4"></a></span>
+<span id="cb160-5"><a href="#cb160-5"></a><span class="co"># Modify the data above and calculate the difference in means</span></span>
+<span id="cb160-6"><a href="#cb160-6"></a><span class="fu">mean</span>(iq_brains) <span class="sc">-</span> <span class="fu">mean</span>(iq_regular)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li><p>Just looking at the difference in sample means, it now seems like there is little to no effect of diet on IQ. Let’s see how BEST deals with this outlier mutant zombie.</p>
@@ -3449,32 +3415,20 @@ head(pars)</code></pre>
 </ul></li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb172"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1"></a><span class="co"># The IQ of zombies given a regular diet and a brain based diet.</span></span>
-<span id="cb172-2"><a href="#cb172-2"></a>iq_brains <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">44</span>, <span class="dv">52</span>, <span class="dv">42</span>, <span class="dv">66</span>, <span class="dv">53</span>, <span class="dv">42</span>, <span class="dv">55</span>, <span class="dv">57</span>, <span class="dv">56</span>, <span class="dv">51</span>)</span>
-<span id="cb172-3"><a href="#cb172-3"></a>iq_regular <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">44</span>, <span class="dv">34</span>, <span class="dv">18</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">49</span>, <span class="dv">48</span>, <span class="dv">150</span>) <span class="co"># &lt;- Mutant zombie</span></span>
-<span id="cb172-4"><a href="#cb172-4"></a></span>
-<span id="cb172-5"><a href="#cb172-5"></a><span class="co"># Modify the data above and calculate the difference in means</span></span>
-<span id="cb172-6"><a href="#cb172-6"></a><span class="fu">mean</span>(iq_brains) <span class="sc">-</span> <span class="fu">mean</span>(iq_regular)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] -1.1</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb174"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb174-1"><a href="#cb174-1"></a><span class="co"># Fit the BEST model to the modified data and plot the result</span></span>
-<span id="cb174-2"><a href="#cb174-2"></a><span class="fu">library</span>(BEST)</span>
-<span id="cb174-3"><a href="#cb174-3"></a>best_posterior <span class="ot">&lt;-</span> <span class="fu">BESTmcmc</span>(iq_brains, iq_regular)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Waiting for parallel processing to complete...done.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb176"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb176-1"><a href="#cb176-1"></a><span class="fu">plot</span>(best_posterior)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="19_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-95-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-56"><img src="19_fundamentals_of_bayesian_data_analysis_files/figure-html/unnamed-chunk-95-1.png" class="img-fluid figure-img" width="672"></a></p>
-</figure>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1"></a><span class="co"># The IQ of zombies given a regular diet and a brain based diet.</span></span>
+<span id="cb161-2"><a href="#cb161-2"></a>iq_brains <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">44</span>, <span class="dv">52</span>, <span class="dv">42</span>, <span class="dv">66</span>, <span class="dv">53</span>, <span class="dv">42</span>, <span class="dv">55</span>, <span class="dv">57</span>, <span class="dv">56</span>, <span class="dv">51</span>)</span>
+<span id="cb161-3"><a href="#cb161-3"></a>iq_regular <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">55</span>, <span class="dv">44</span>, <span class="dv">34</span>, <span class="dv">18</span>, <span class="dv">51</span>, <span class="dv">40</span>, <span class="dv">40</span>, <span class="dv">49</span>, <span class="dv">48</span>, <span class="dv">150</span>) <span class="co"># &lt;- Mutant zombie</span></span>
+<span id="cb161-4"><a href="#cb161-4"></a></span>
+<span id="cb161-5"><a href="#cb161-5"></a><span class="co"># Modify the data above and calculate the difference in means</span></span>
+<span id="cb161-6"><a href="#cb161-6"></a><span class="fu">mean</span>(iq_brains) <span class="sc">-</span> <span class="fu">mean</span>(iq_regular)</span>
+<span id="cb161-7"><a href="#cb161-7"></a></span>
+<span id="cb161-8"><a href="#cb161-8"></a><span class="co"># Fit the BEST model to the modified data and plot the result</span></span>
+<span id="cb161-9"><a href="#cb161-9"></a><span class="fu">library</span>(BEST)</span>
+<span id="cb161-10"><a href="#cb161-10"></a>best_posterior <span class="ot">&lt;-</span> <span class="fu">BESTmcmc</span>(iq_brains, iq_regular)</span>
+<span id="cb161-11"><a href="#cb161-11"></a><span class="fu">plot</span>(best_posterior)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <blockquote class="blockquote">
-<h2 id="question-17" data-number="4.24" class="anchored"><span class="header-section-number">4.24</span> <em>Question</em></h2>
+<h2 id="question-17" data-number="4.26" class="anchored"><span class="header-section-number">4.26</span> <em>Question</em></h2>
 <p>Looking at the plot, we see that the mutant zombie data point has made BEST more uncertain to some degree. But since BEST is robust to outliers, it still estimates that brain-eating zombies are more likely to have a higher IQ than zombies on a regular diet.</p>
 </blockquote>
 <ul>
@@ -3482,8 +3436,8 @@ head(pars)</code></pre>
 </ul>
 <p>This is a legitimate decision boundary as it lies in the gap between the clusters. Try again.</p>
 </section>
-<section id="what-have-you-learned-what-did-we-miss" class="level2" data-number="4.25">
-<h2 data-number="4.25" class="anchored" data-anchor-id="what-have-you-learned-what-did-we-miss"><span class="header-section-number">4.25</span> What have you learned? What did we miss?</h2>
+<section id="what-have-you-learned-what-did-we-miss" class="level2" data-number="4.27">
+<h2 data-number="4.27" class="anchored" data-anchor-id="what-have-you-learned-what-did-we-miss"><span class="header-section-number">4.27</span> What have you learned? What did we miss?</h2>
 <p>Theory. Coming soon …</p>
 <p><strong>1. What have you learned? What did we miss?</strong></p>
 <p>Amazing! You are now at the end of this course on the fundamentals of Bayesian data analysis using R. And we’ve come far!</p>
@@ -3513,9 +3467,9 @@ head(pars)</code></pre>
 
 
 </section>
-</code></code></section><code class="R language-R"><code class="R language-R">
+</code></section><code class="R language-R">
 
-</code></code></main><code class="R language-R"><code class="R language-R"> <!-- /main -->
+</code></main><code class="R language-R"> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -3658,9 +3612,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -3725,6 +3693,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -3776,16 +3830,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>
   </div>
 </nav>
-</code></code></div><code class="R language-R"><code class="R language-R"> <!-- /content -->
+</code></div><code class="R language-R"> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Content 2022 by <a href="https://www.startupengineer.io/authors/schwarz/">Joschka Schwarz</a> <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","loop":true,"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","openEffect":"zoom","loop":true,"closeEffect":"zoom","selector":".lightbox"});</script>
 
 
 
-</code></code><script src="../../../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</code><script src="../../../../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

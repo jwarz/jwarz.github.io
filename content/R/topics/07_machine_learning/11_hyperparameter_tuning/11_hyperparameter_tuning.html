@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -149,308 +120,349 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">Joschka Schwarz</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Data Science</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-science">    
         <li>
-    <a class="dropdown-item" href="../../../../../content/R/index.html">
+    <a class="dropdown-item" href="../../../../../content/R/index.html" rel="" target="">
  <span class="dropdown-text">R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/python/index.html">
+    <a class="dropdown-item" href="../../../../../content/python/index.html" rel="" target="">
  <span class="dropdown-text">Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/sql/index.html">
+    <a class="dropdown-item" href="../../../../../content/sql/index.html" rel="" target="">
  <span class="dropdown-text">SQL</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../slides/index.html">
+    <a class="nav-link" href="../../../../../slides/index.html" rel="" target="">
  <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../resumes/index.html">
+    <a class="nav-link" href="../../../../../resumes/index.html" rel="" target="">
  <span class="menu-text">Resumes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../index.html">
+    <a class="nav-link" href="../../../../../index.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jwarz/"><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
+    <a class="nav-link" href="https://github.com/jwarz/" rel="" target=""><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz"><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
+    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Hyperparameter Tuning in R</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Topics</li><li class="breadcrumb-item"><a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html">7.11: Hyperparameter Tuning</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Topics</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <b><i>1 Programming Basics</i></b>
+ <span class="menu-text"><b><i>1 Programming Basics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">1.1: Introduction to R</a>
+  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1: Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">1.2: Intermediate R</a>
+  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2: Intermediate R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">1.3: Introduction to the tidyverse</a>
+  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3: Introduction to the tidyverse</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>2 Importing Data</i></b>
+ <span class="menu-text"><b><i>2 Importing Data</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">2.1: Introduction to Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1: Introduction to Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">2.2: Intermediate Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2: Intermediate Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">2.3: Working with web data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3: Working with web data</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>3 Data Wrangling</i></b>
+ <span class="menu-text"><b><i>3 Data Wrangling</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">3.1: Data Manipulation with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1: Data Manipulation with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">3.2: Joining data with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2: Joining data with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.3: Exploratory Data Analysis</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3: Exploratory Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.4: Case Study: EDA</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4: Case Study: EDA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">3.5: Cleaning Data</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5: Cleaning Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">3.6: Data Manipulation with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6: Data Manipulation with data.table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">3.7: Joining Data with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.7: Joining Data with data.table</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>4 Data Visualization</i></b>
+ <span class="menu-text"><b><i>4 Data Visualization</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">4.1: Introduction to Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1: Introduction to Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">4.2: Intermediate Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2: Intermediate Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>5 Statistics</i></b>
+ <span class="menu-text"><b><i>5 Statistics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">5.1: Introduction to Statistics</a>
+  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1: Introduction to Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">5.2: Foundations of Probability</a>
+  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2: Foundations of Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">5.3: Introduction to Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3: Introduction to Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">5.4: Intermediate Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.4: Intermediate Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">5.5: Modeling with Data in the Tidyverse</a>
+  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.5: Modeling with Data in the Tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">5.6: Experimental Design</a>
+  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.6: Experimental Design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">5.7: A/B Testing</a>
+  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.7: A/B Testing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">5.8: Fundamentals of Bayesian Data Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.8: Fundamentals of Bayesian Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">5.9: Factor Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.9: Factor Analysis</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>7 Machine Learning</i></b>
+ <span class="menu-text"><b><i>7 Machine Learning</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">7.1: Supervised Learning: Classification</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1: Supervised Learning: Classification</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">7.2: Supervised Learning: Regression</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2: Supervised Learning: Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">7.3: Unsupervised Learning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3: Unsupervised Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">7.4: Machine Learning in the tidyverse</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4: Machine Learning in the tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">7.5: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.5: Cluster Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">7.6: Machine Learning with caret</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6: Machine Learning with caret</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">7.7: Modeling with tidymodels</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.7: Modeling with tidymodels</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">7.8: Machine Learning with tree-based Models</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.8: Machine Learning with tree-based Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">7.9: Support Vector Machines</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.9: Support Vector Machines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">7.10: Topic Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.10: Topic Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link active">7.11: Hyperparameter Tuning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">7.11: Hyperparameter Tuning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">7.12: Bayesian Regression Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.12: Bayesian Regression Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">7.13: Introduction to Spark</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.13: Introduction to Spark</span></a>
   </div>
 </li>
       </ul>
@@ -458,40 +470,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Manuals</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">R Manuals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">1: An Introduction to R</a>
+  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: An Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">2: R Data Import/Export</a>
+  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: R Data Import/Export</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">3: R Installation and Administration</a>
+  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: R Installation and Administration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">4: Writing R Extensions</a>
+  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Writing R Extensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">5: R Language Definition</a>
+  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: R Language Definition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">6: R Internals</a>
+  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: R Internals</span></a>
   </div>
 </li>
       </ul>
@@ -499,70 +518,71 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#introduction-to-hyperparameters" id="toc-introduction-to-hyperparameters" class="nav-link active" data-scroll-target="#introduction-to-hyperparameters"><span class="toc-section-number">1</span>  Introduction to hyperparameters</a>
+  <li><a href="#introduction-to-hyperparameters" id="toc-introduction-to-hyperparameters" class="nav-link active" data-scroll-target="#introduction-to-hyperparameters"><span class="header-section-number">1</span> Introduction to hyperparameters</a>
   <ul class="collapse">
-  <li><a href="#parameters-vs-hyperparameters" id="toc-parameters-vs-hyperparameters" class="nav-link" data-scroll-target="#parameters-vs-hyperparameters"><span class="toc-section-number">1.1</span>  Parameters vs hyperparameters</a></li>
-  <li><a href="#model-parameters-vs.-hyperparameters" id="toc-model-parameters-vs.-hyperparameters" class="nav-link" data-scroll-target="#model-parameters-vs.-hyperparameters"><span class="toc-section-number">1.2</span>  Model parameters vs.&nbsp;hyperparameters</a></li>
-  <li><a href="#hyperparameters-in-linear-models" id="toc-hyperparameters-in-linear-models" class="nav-link" data-scroll-target="#hyperparameters-in-linear-models"><span class="toc-section-number">1.3</span>  Hyperparameters in linear models</a></li>
-  <li><a href="#what-are-the-coefficients" id="toc-what-are-the-coefficients" class="nav-link" data-scroll-target="#what-are-the-coefficients"><span class="toc-section-number">1.5</span>  What are the coefficients?</a></li>
-  <li><a href="#recap-of-machine-learning-basics" id="toc-recap-of-machine-learning-basics" class="nav-link" data-scroll-target="#recap-of-machine-learning-basics"><span class="toc-section-number">1.6</span>  Recap of machine learning basics</a></li>
-  <li><a href="#machine-learning-with-caret" id="toc-machine-learning-with-caret" class="nav-link" data-scroll-target="#machine-learning-with-caret"><span class="toc-section-number">1.7</span>  Machine learning with caret</a></li>
-  <li><a href="#resampling-schemes" id="toc-resampling-schemes" class="nav-link" data-scroll-target="#resampling-schemes"><span class="toc-section-number">1.8</span>  Resampling schemes</a></li>
-  <li><a href="#hyperparameter-tuning-in-caret" id="toc-hyperparameter-tuning-in-caret" class="nav-link" data-scroll-target="#hyperparameter-tuning-in-caret"><span class="toc-section-number">1.10</span>  Hyperparameter tuning in caret</a></li>
-  <li><a href="#hyperparameters-in-stochastic-gradient-boosting" id="toc-hyperparameters-in-stochastic-gradient-boosting" class="nav-link" data-scroll-target="#hyperparameters-in-stochastic-gradient-boosting"><span class="toc-section-number">1.11</span>  Hyperparameters in Stochastic Gradient Boosting</a></li>
-  <li><a href="#changing-the-number-of-hyperparameters-to-tune" id="toc-changing-the-number-of-hyperparameters-to-tune" class="nav-link" data-scroll-target="#changing-the-number-of-hyperparameters-to-tune"><span class="toc-section-number">1.13</span>  Changing the number of hyperparameters to tune</a></li>
-  <li><a href="#tune-hyperparameters-manually" id="toc-tune-hyperparameters-manually" class="nav-link" data-scroll-target="#tune-hyperparameters-manually"><span class="toc-section-number">1.14</span>  Tune hyperparameters manually</a></li>
+  <li><a href="#parameters-vs-hyperparameters" id="toc-parameters-vs-hyperparameters" class="nav-link" data-scroll-target="#parameters-vs-hyperparameters"><span class="header-section-number">1.1</span> Parameters vs hyperparameters</a></li>
+  <li><a href="#model-parameters-vs.-hyperparameters" id="toc-model-parameters-vs.-hyperparameters" class="nav-link" data-scroll-target="#model-parameters-vs.-hyperparameters"><span class="header-section-number">1.2</span> Model parameters vs.&nbsp;hyperparameters</a></li>
+  <li><a href="#hyperparameters-in-linear-models" id="toc-hyperparameters-in-linear-models" class="nav-link" data-scroll-target="#hyperparameters-in-linear-models"><span class="header-section-number">1.3</span> Hyperparameters in linear models</a></li>
+  <li><a href="#what-are-the-coefficients" id="toc-what-are-the-coefficients" class="nav-link" data-scroll-target="#what-are-the-coefficients"><span class="header-section-number">1.5</span> What are the coefficients?</a></li>
+  <li><a href="#recap-of-machine-learning-basics" id="toc-recap-of-machine-learning-basics" class="nav-link" data-scroll-target="#recap-of-machine-learning-basics"><span class="header-section-number">1.6</span> Recap of machine learning basics</a></li>
+  <li><a href="#machine-learning-with-caret" id="toc-machine-learning-with-caret" class="nav-link" data-scroll-target="#machine-learning-with-caret"><span class="header-section-number">1.7</span> Machine learning with caret</a></li>
+  <li><a href="#resampling-schemes" id="toc-resampling-schemes" class="nav-link" data-scroll-target="#resampling-schemes"><span class="header-section-number">1.8</span> Resampling schemes</a></li>
+  <li><a href="#hyperparameter-tuning-in-caret" id="toc-hyperparameter-tuning-in-caret" class="nav-link" data-scroll-target="#hyperparameter-tuning-in-caret"><span class="header-section-number">1.10</span> Hyperparameter tuning in caret</a></li>
+  <li><a href="#hyperparameters-in-stochastic-gradient-boosting" id="toc-hyperparameters-in-stochastic-gradient-boosting" class="nav-link" data-scroll-target="#hyperparameters-in-stochastic-gradient-boosting"><span class="header-section-number">1.11</span> Hyperparameters in Stochastic Gradient Boosting</a></li>
+  <li><a href="#changing-the-number-of-hyperparameters-to-tune" id="toc-changing-the-number-of-hyperparameters-to-tune" class="nav-link" data-scroll-target="#changing-the-number-of-hyperparameters-to-tune"><span class="header-section-number">1.13</span> Changing the number of hyperparameters to tune</a></li>
+  <li><a href="#tune-hyperparameters-manually" id="toc-tune-hyperparameters-manually" class="nav-link" data-scroll-target="#tune-hyperparameters-manually"><span class="header-section-number">1.14</span> Tune hyperparameters manually</a></li>
   </ul></li>
-  <li><a href="#hyperparameter-tuning-with-caret" id="toc-hyperparameter-tuning-with-caret" class="nav-link" data-scroll-target="#hyperparameter-tuning-with-caret"><span class="toc-section-number">2</span>  2. Hyperparameter tuning with caret</a>
+  <li><a href="#hyperparameter-tuning-with-caret" id="toc-hyperparameter-tuning-with-caret" class="nav-link" data-scroll-target="#hyperparameter-tuning-with-caret"><span class="header-section-number">2</span> 2. Hyperparameter tuning with caret</a>
   <ul class="collapse">
-  <li><a href="#hyperparameter-tuning-in-caret-1" id="toc-hyperparameter-tuning-in-caret-1" class="nav-link" data-scroll-target="#hyperparameter-tuning-in-caret-1"><span class="toc-section-number">2.1</span>  Hyperparameter tuning in caret</a></li>
-  <li><a href="#finding-hyperparameters" id="toc-finding-hyperparameters" class="nav-link" data-scroll-target="#finding-hyperparameters"><span class="toc-section-number">2.2</span>  Finding hyperparameters</a></li>
-  <li><a href="#cartesian-grid-search-in-caret" id="toc-cartesian-grid-search-in-caret" class="nav-link" data-scroll-target="#cartesian-grid-search-in-caret"><span class="toc-section-number">2.4</span>  Cartesian grid search in caret</a></li>
-  <li><a href="#plot-hyperparameter-model-output" id="toc-plot-hyperparameter-model-output" class="nav-link" data-scroll-target="#plot-hyperparameter-model-output"><span class="toc-section-number">2.6</span>  Plot hyperparameter model output</a></li>
-  <li><a href="#grid-vs.-random-search" id="toc-grid-vs.-random-search" class="nav-link" data-scroll-target="#grid-vs.-random-search"><span class="toc-section-number">2.7</span>  Grid vs.&nbsp;Random Search</a></li>
-  <li><a href="#grid-search-with-range-of-hyperparameters" id="toc-grid-search-with-range-of-hyperparameters" class="nav-link" data-scroll-target="#grid-search-with-range-of-hyperparameters"><span class="toc-section-number">2.8</span>  Grid search with range of hyperparameters</a></li>
-  <li><a href="#find-train-option-for-random-search" id="toc-find-train-option-for-random-search" class="nav-link" data-scroll-target="#find-train-option-for-random-search"><span class="toc-section-number">2.9</span>  Find train() option for random search</a></li>
-  <li><a href="#random-search-with-caret" id="toc-random-search-with-caret" class="nav-link" data-scroll-target="#random-search-with-caret"><span class="toc-section-number">2.11</span>  Random search with caret</a></li>
-  <li><a href="#adaptive-resampling" id="toc-adaptive-resampling" class="nav-link" data-scroll-target="#adaptive-resampling"><span class="toc-section-number">2.13</span>  Adaptive resampling</a></li>
-  <li><a href="#advantages-of-adaptive-resampling" id="toc-advantages-of-adaptive-resampling" class="nav-link" data-scroll-target="#advantages-of-adaptive-resampling"><span class="toc-section-number">2.14</span>  Advantages of Adaptive Resampling</a></li>
-  <li><a href="#adaptive-resampling-with-caret" id="toc-adaptive-resampling-with-caret" class="nav-link" data-scroll-target="#adaptive-resampling-with-caret"><span class="toc-section-number">2.16</span>  Adaptive Resampling with caret</a></li>
+  <li><a href="#hyperparameter-tuning-in-caret-1" id="toc-hyperparameter-tuning-in-caret-1" class="nav-link" data-scroll-target="#hyperparameter-tuning-in-caret-1"><span class="header-section-number">2.1</span> Hyperparameter tuning in caret</a></li>
+  <li><a href="#finding-hyperparameters" id="toc-finding-hyperparameters" class="nav-link" data-scroll-target="#finding-hyperparameters"><span class="header-section-number">2.2</span> Finding hyperparameters</a></li>
+  <li><a href="#cartesian-grid-search-in-caret" id="toc-cartesian-grid-search-in-caret" class="nav-link" data-scroll-target="#cartesian-grid-search-in-caret"><span class="header-section-number">2.4</span> Cartesian grid search in caret</a></li>
+  <li><a href="#plot-hyperparameter-model-output" id="toc-plot-hyperparameter-model-output" class="nav-link" data-scroll-target="#plot-hyperparameter-model-output"><span class="header-section-number">2.6</span> Plot hyperparameter model output</a></li>
+  <li><a href="#grid-vs.-random-search" id="toc-grid-vs.-random-search" class="nav-link" data-scroll-target="#grid-vs.-random-search"><span class="header-section-number">2.7</span> Grid vs.&nbsp;Random Search</a></li>
+  <li><a href="#grid-search-with-range-of-hyperparameters" id="toc-grid-search-with-range-of-hyperparameters" class="nav-link" data-scroll-target="#grid-search-with-range-of-hyperparameters"><span class="header-section-number">2.8</span> Grid search with range of hyperparameters</a></li>
+  <li><a href="#find-train-option-for-random-search" id="toc-find-train-option-for-random-search" class="nav-link" data-scroll-target="#find-train-option-for-random-search"><span class="header-section-number">2.9</span> Find train() option for random search</a></li>
+  <li><a href="#random-search-with-caret" id="toc-random-search-with-caret" class="nav-link" data-scroll-target="#random-search-with-caret"><span class="header-section-number">2.11</span> Random search with caret</a></li>
+  <li><a href="#adaptive-resampling" id="toc-adaptive-resampling" class="nav-link" data-scroll-target="#adaptive-resampling"><span class="header-section-number">2.13</span> Adaptive resampling</a></li>
+  <li><a href="#advantages-of-adaptive-resampling" id="toc-advantages-of-adaptive-resampling" class="nav-link" data-scroll-target="#advantages-of-adaptive-resampling"><span class="header-section-number">2.14</span> Advantages of Adaptive Resampling</a></li>
+  <li><a href="#adaptive-resampling-with-caret" id="toc-adaptive-resampling-with-caret" class="nav-link" data-scroll-target="#adaptive-resampling-with-caret"><span class="header-section-number">2.16</span> Adaptive Resampling with caret</a></li>
   </ul></li>
-  <li><a href="#hyperparameter-tuning-with-mlr" id="toc-hyperparameter-tuning-with-mlr" class="nav-link" data-scroll-target="#hyperparameter-tuning-with-mlr"><span class="toc-section-number">3</span>  3. Hyperparameter tuning with mlr</a>
+  <li><a href="#hyperparameter-tuning-with-mlr" id="toc-hyperparameter-tuning-with-mlr" class="nav-link" data-scroll-target="#hyperparameter-tuning-with-mlr"><span class="header-section-number">3</span> 3. Hyperparameter tuning with mlr</a>
   <ul class="collapse">
-  <li><a href="#machine-learning-with-mlr" id="toc-machine-learning-with-mlr" class="nav-link" data-scroll-target="#machine-learning-with-mlr"><span class="toc-section-number">3.1</span>  Machine learning with mlr</a></li>
-  <li><a href="#machine-learning-with-mlr-1" id="toc-machine-learning-with-mlr-1" class="nav-link" data-scroll-target="#machine-learning-with-mlr-1"><span class="toc-section-number">3.2</span>  Machine Learning with mlr</a></li>
-  <li><a href="#modeling-with-mlr" id="toc-modeling-with-mlr" class="nav-link" data-scroll-target="#modeling-with-mlr"><span class="toc-section-number">3.4</span>  Modeling with mlr</a></li>
-  <li><a href="#grid-and-random-search-with-mlr" id="toc-grid-and-random-search-with-mlr" class="nav-link" data-scroll-target="#grid-and-random-search-with-mlr"><span class="toc-section-number">3.5</span>  Grid and random search with mlr</a></li>
-  <li><a href="#random-search-with-mlr" id="toc-random-search-with-mlr" class="nav-link" data-scroll-target="#random-search-with-mlr"><span class="toc-section-number">3.6</span>  Random search with mlr</a></li>
-  <li><a href="#perform-hyperparameter-tuning-with-mlr" id="toc-perform-hyperparameter-tuning-with-mlr" class="nav-link" data-scroll-target="#perform-hyperparameter-tuning-with-mlr"><span class="toc-section-number">3.7</span>  Perform hyperparameter tuning with mlr</a></li>
-  <li><a href="#evaluating-hyperparameters-with-mlr" id="toc-evaluating-hyperparameters-with-mlr" class="nav-link" data-scroll-target="#evaluating-hyperparameters-with-mlr"><span class="toc-section-number">3.9</span>  Evaluating hyperparameters with mlr</a></li>
-  <li><a href="#why-to-evaluate-tuning" id="toc-why-to-evaluate-tuning" class="nav-link" data-scroll-target="#why-to-evaluate-tuning"><span class="toc-section-number">3.10</span>  Why to evaluate tuning?</a></li>
-  <li><a href="#evaluating-hyperparameter-tuning-results" id="toc-evaluating-hyperparameter-tuning-results" class="nav-link" data-scroll-target="#evaluating-hyperparameter-tuning-results"><span class="toc-section-number">3.12</span>  Evaluating hyperparameter tuning results</a></li>
-  <li><a href="#advanced-tuning-with-mlr" id="toc-advanced-tuning-with-mlr" class="nav-link" data-scroll-target="#advanced-tuning-with-mlr"><span class="toc-section-number">3.13</span>  Advanced tuning with mlr</a></li>
-  <li><a href="#define-advanced-tuning-controls" id="toc-define-advanced-tuning-controls" class="nav-link" data-scroll-target="#define-advanced-tuning-controls"><span class="toc-section-number">3.14</span>  Define advanced tuning controls</a></li>
-  <li><a href="#define-aggregated-measures" id="toc-define-aggregated-measures" class="nav-link" data-scroll-target="#define-aggregated-measures"><span class="toc-section-number">3.16</span>  Define aggregated measures</a></li>
-  <li><a href="#setting-hyperparameters" id="toc-setting-hyperparameters" class="nav-link" data-scroll-target="#setting-hyperparameters"><span class="toc-section-number">3.17</span>  Setting hyperparameters</a></li>
+  <li><a href="#machine-learning-with-mlr" id="toc-machine-learning-with-mlr" class="nav-link" data-scroll-target="#machine-learning-with-mlr"><span class="header-section-number">3.1</span> Machine learning with mlr</a></li>
+  <li><a href="#machine-learning-with-mlr-1" id="toc-machine-learning-with-mlr-1" class="nav-link" data-scroll-target="#machine-learning-with-mlr-1"><span class="header-section-number">3.2</span> Machine Learning with mlr</a></li>
+  <li><a href="#modeling-with-mlr" id="toc-modeling-with-mlr" class="nav-link" data-scroll-target="#modeling-with-mlr"><span class="header-section-number">3.4</span> Modeling with mlr</a></li>
+  <li><a href="#grid-and-random-search-with-mlr" id="toc-grid-and-random-search-with-mlr" class="nav-link" data-scroll-target="#grid-and-random-search-with-mlr"><span class="header-section-number">3.5</span> Grid and random search with mlr</a></li>
+  <li><a href="#random-search-with-mlr" id="toc-random-search-with-mlr" class="nav-link" data-scroll-target="#random-search-with-mlr"><span class="header-section-number">3.6</span> Random search with mlr</a></li>
+  <li><a href="#perform-hyperparameter-tuning-with-mlr" id="toc-perform-hyperparameter-tuning-with-mlr" class="nav-link" data-scroll-target="#perform-hyperparameter-tuning-with-mlr"><span class="header-section-number">3.7</span> Perform hyperparameter tuning with mlr</a></li>
+  <li><a href="#evaluating-hyperparameters-with-mlr" id="toc-evaluating-hyperparameters-with-mlr" class="nav-link" data-scroll-target="#evaluating-hyperparameters-with-mlr"><span class="header-section-number">3.9</span> Evaluating hyperparameters with mlr</a></li>
+  <li><a href="#why-to-evaluate-tuning" id="toc-why-to-evaluate-tuning" class="nav-link" data-scroll-target="#why-to-evaluate-tuning"><span class="header-section-number">3.10</span> Why to evaluate tuning?</a></li>
+  <li><a href="#evaluating-hyperparameter-tuning-results" id="toc-evaluating-hyperparameter-tuning-results" class="nav-link" data-scroll-target="#evaluating-hyperparameter-tuning-results"><span class="header-section-number">3.12</span> Evaluating hyperparameter tuning results</a></li>
+  <li><a href="#advanced-tuning-with-mlr" id="toc-advanced-tuning-with-mlr" class="nav-link" data-scroll-target="#advanced-tuning-with-mlr"><span class="header-section-number">3.13</span> Advanced tuning with mlr</a></li>
+  <li><a href="#define-advanced-tuning-controls" id="toc-define-advanced-tuning-controls" class="nav-link" data-scroll-target="#define-advanced-tuning-controls"><span class="header-section-number">3.14</span> Define advanced tuning controls</a></li>
+  <li><a href="#define-aggregated-measures" id="toc-define-aggregated-measures" class="nav-link" data-scroll-target="#define-aggregated-measures"><span class="header-section-number">3.16</span> Define aggregated measures</a></li>
+  <li><a href="#setting-hyperparameters" id="toc-setting-hyperparameters" class="nav-link" data-scroll-target="#setting-hyperparameters"><span class="header-section-number">3.17</span> Setting hyperparameters</a></li>
   </ul></li>
-  <li><a href="#hyperparameter-tuning-with-h2o" id="toc-hyperparameter-tuning-with-h2o" class="nav-link" data-scroll-target="#hyperparameter-tuning-with-h2o"><span class="toc-section-number">4</span>  4. Hyperparameter tuning with h2o</a>
+  <li><a href="#hyperparameter-tuning-with-h2o" id="toc-hyperparameter-tuning-with-h2o" class="nav-link" data-scroll-target="#hyperparameter-tuning-with-h2o"><span class="header-section-number">4</span> 4. Hyperparameter tuning with h2o</a>
   <ul class="collapse">
-  <li><a href="#machine-learning-with-h2o" id="toc-machine-learning-with-h2o" class="nav-link" data-scroll-target="#machine-learning-with-h2o"><span class="toc-section-number">4.1</span>  Machine learning with h2o</a></li>
-  <li><a href="#prepare-data-for-modelling-with-h2o" id="toc-prepare-data-for-modelling-with-h2o" class="nav-link" data-scroll-target="#prepare-data-for-modelling-with-h2o"><span class="toc-section-number">4.2</span>  Prepare data for modelling with h2o</a></li>
-  <li><a href="#modeling-with-h2o" id="toc-modeling-with-h2o" class="nav-link" data-scroll-target="#modeling-with-h2o"><span class="toc-section-number">4.3</span>  Modeling with h2o</a></li>
-  <li><a href="#grid-and-random-search-with-h2o" id="toc-grid-and-random-search-with-h2o" class="nav-link" data-scroll-target="#grid-and-random-search-with-h2o"><span class="toc-section-number">4.4</span>  Grid and random search with h2o</a></li>
-  <li><a href="#grid-search-with-h2o" id="toc-grid-search-with-h2o" class="nav-link" data-scroll-target="#grid-search-with-h2o"><span class="toc-section-number">4.5</span>  Grid search with h2o</a></li>
-  <li><a href="#random-search-with-h2o" id="toc-random-search-with-h2o" class="nav-link" data-scroll-target="#random-search-with-h2o"><span class="toc-section-number">4.7</span>  Random search with h2o</a></li>
-  <li><a href="#stopping-criteria" id="toc-stopping-criteria" class="nav-link" data-scroll-target="#stopping-criteria"><span class="toc-section-number">4.8</span>  Stopping criteria</a></li>
-  <li><a href="#automatic-machine-learning-with-h2o" id="toc-automatic-machine-learning-with-h2o" class="nav-link" data-scroll-target="#automatic-machine-learning-with-h2o"><span class="toc-section-number">4.10</span>  Automatic machine learning with H2O</a></li>
-  <li><a href="#automl-in-h2o" id="toc-automl-in-h2o" class="nav-link" data-scroll-target="#automl-in-h2o"><span class="toc-section-number">4.11</span>  AutoML in h2o</a></li>
-  <li><a href="#scoring-the-leaderboard" id="toc-scoring-the-leaderboard" class="nav-link" data-scroll-target="#scoring-the-leaderboard"><span class="toc-section-number">4.12</span>  Scoring the leaderboard</a></li>
-  <li><a href="#extract-h2o-models-and-evaluate-performance" id="toc-extract-h2o-models-and-evaluate-performance" class="nav-link" data-scroll-target="#extract-h2o-models-and-evaluate-performance"><span class="toc-section-number">4.13</span>  Extract h2o models and evaluate performance</a></li>
-  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up"><span class="toc-section-number">4.16</span>  Wrap-up</a></li>
+  <li><a href="#machine-learning-with-h2o" id="toc-machine-learning-with-h2o" class="nav-link" data-scroll-target="#machine-learning-with-h2o"><span class="header-section-number">4.1</span> Machine learning with h2o</a></li>
+  <li><a href="#prepare-data-for-modelling-with-h2o" id="toc-prepare-data-for-modelling-with-h2o" class="nav-link" data-scroll-target="#prepare-data-for-modelling-with-h2o"><span class="header-section-number">4.2</span> Prepare data for modelling with h2o</a></li>
+  <li><a href="#modeling-with-h2o" id="toc-modeling-with-h2o" class="nav-link" data-scroll-target="#modeling-with-h2o"><span class="header-section-number">4.3</span> Modeling with h2o</a></li>
+  <li><a href="#grid-and-random-search-with-h2o" id="toc-grid-and-random-search-with-h2o" class="nav-link" data-scroll-target="#grid-and-random-search-with-h2o"><span class="header-section-number">4.4</span> Grid and random search with h2o</a></li>
+  <li><a href="#grid-search-with-h2o" id="toc-grid-search-with-h2o" class="nav-link" data-scroll-target="#grid-search-with-h2o"><span class="header-section-number">4.5</span> Grid search with h2o</a></li>
+  <li><a href="#random-search-with-h2o" id="toc-random-search-with-h2o" class="nav-link" data-scroll-target="#random-search-with-h2o"><span class="header-section-number">4.7</span> Random search with h2o</a></li>
+  <li><a href="#stopping-criteria" id="toc-stopping-criteria" class="nav-link" data-scroll-target="#stopping-criteria"><span class="header-section-number">4.8</span> Stopping criteria</a></li>
+  <li><a href="#automatic-machine-learning-with-h2o" id="toc-automatic-machine-learning-with-h2o" class="nav-link" data-scroll-target="#automatic-machine-learning-with-h2o"><span class="header-section-number">4.10</span> Automatic machine learning with H2O</a></li>
+  <li><a href="#automl-in-h2o" id="toc-automl-in-h2o" class="nav-link" data-scroll-target="#automl-in-h2o"><span class="header-section-number">4.11</span> AutoML in h2o</a></li>
+  <li><a href="#scoring-the-leaderboard" id="toc-scoring-the-leaderboard" class="nav-link" data-scroll-target="#scoring-the-leaderboard"><span class="header-section-number">4.12</span> Scoring the leaderboard</a></li>
+  <li><a href="#extract-h2o-models-and-evaluate-performance" id="toc-extract-h2o-models-and-evaluate-performance" class="nav-link" data-scroll-target="#extract-h2o-models-and-evaluate-performance"><span class="header-section-number">4.13</span> Extract h2o models and evaluate performance</a></li>
+  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up"><span class="header-section-number">4.16</span> Wrap-up</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -572,7 +592,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Hyperparameter Tuning in R</h1>
+<h1 class="title">Hyperparameter Tuning in R</h1>
 </div>
 
 
@@ -810,14 +830,14 @@ LO: The student knows how to train a machine learning model with caret
 #&gt; Resampling results across tuning parameters:
 #&gt; 
 #&gt;   interaction.depth  n.trees  Accuracy   Kappa    
-#&gt;   1                   50      0.9208333  0.8416667
+#&gt;   1                   50      0.9125000  0.8250000
 #&gt;   1                  100      0.9166667  0.8333333
-#&gt;   1                  150      0.9166667  0.8333333
-#&gt;   2                   50      0.9166667  0.8333333
-#&gt;   2                  100      0.9083333  0.8166667
-#&gt;   2                  150      0.9083333  0.8166667
-#&gt;   3                   50      0.9083333  0.8166667
-#&gt;   3                  100      0.9041667  0.8083333
+#&gt;   1                  150      0.9000000  0.8000000
+#&gt;   2                   50      0.9041667  0.8083333
+#&gt;   2                  100      0.9041667  0.8083333
+#&gt;   2                  150      0.9041667  0.8083333
+#&gt;   3                   50      0.9166667  0.8333333
+#&gt;   3                  100      0.9125000  0.8250000
 #&gt;   3                  150      0.9041667  0.8083333
 #&gt; 
 #&gt; Tuning parameter 'shrinkage' was held constant at a value of 0.1
@@ -825,7 +845,7 @@ LO: The student knows how to train a machine learning model with caret
 #&gt; Tuning parameter 'n.minobsinnode' was held constant at a value of 10
 #&gt; Accuracy was used to select the optimal model using the largest value.
 #&gt; The final values used for the model were n.trees = 50, interaction.depth =
-#&gt;  1, shrinkage = 0.1 and n.minobsinnode = 10.</code></pre>
+#&gt;  3, shrinkage = 0.1 and n.minobsinnode = 10.</code></pre>
 </div>
 </div>
 <p>Very good! You know the basics of building models with caret.</p>
@@ -904,7 +924,7 @@ LO: The student knows how to change the number of hyperparameters that are tuned
 <span id="cb16-15"><a href="#cb16-15"></a><span class="co"># Stop timer.</span></span>
 <span id="cb16-16"><a href="#cb16-16"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; 0.705 sec elapsed</code></pre>
+<pre><code>#&gt; 0.835 sec elapsed</code></pre>
 </div>
 </div>
 <p>Great! You can now perform a simple hyperparameter-tuning with caret.</p>
@@ -1022,7 +1042,7 @@ LO: The student knows how to define a Cartesian grid of hyperparameters in caret
 <span id="cb23-11"><a href="#cb23-11"></a>                   <span class="at">tuneGrid  =</span> man_grid)</span>
 <span id="cb23-12"><a href="#cb23-12"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; 1.743 sec elapsed</code></pre>
+<pre><code>#&gt; 2.193 sec elapsed</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -1139,7 +1159,7 @@ LO: The student knows how to define a Cartesian grid with a range of hyperparame
 <span id="cb29-11"><a href="#cb29-11"></a>                   <span class="at">trace =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb29-12"><a href="#cb29-12"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; 1.935 sec elapsed</code></pre>
+<pre><code>#&gt; 2.106 sec elapsed</code></pre>
 </div>
 </div>
 <ol start="4" type="1">
@@ -1164,7 +1184,7 @@ LO: The student knows how to define a Cartesian grid with a range of hyperparame
 <span id="cb31-16"><a href="#cb31-16"></a>                   <span class="at">tuneGrid  =</span> big_grid)</span>
 <span id="cb31-17"><a href="#cb31-17"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; 1.862 sec elapsed</code></pre>
+<pre><code>#&gt; 2.264 sec elapsed</code></pre>
 </div>
 </div>
 <p>Great! You understood the complete workflow of defining a hyperparameter grid and using it in the caret <code>train()</code> function.</p>
@@ -1211,7 +1231,7 @@ LO: The student knows how to perform random hyperparameter search in caret
 <span id="cb34-9"><a href="#cb34-9"></a>                   <span class="at">tuneLength =</span> <span class="dv">6</span>)</span>
 <span id="cb34-10"><a href="#cb34-10"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; 3.076 sec elapsed</code></pre>
+<pre><code>#&gt; 3.255 sec elapsed</code></pre>
 </div>
 </div>
 <p>You just performed random search with hyperparameter values that were picked by <code>caret</code>.</p>
@@ -1330,7 +1350,7 @@ LO: The student knows how to perform Adaptive Resampling in caret
 </div>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; 2.044 sec elapsed</code></pre>
+<pre><code>#&gt; 2.223 sec elapsed</code></pre>
 </div>
 </div>
 <p>Good job! You have mastered the final hyperparameter tuning method in caret: Adaptive Resampling!</p>
@@ -1448,7 +1468,7 @@ LO: The student knows how to train a machine learning model with mlr
 <span id="cb64-5"><a href="#cb64-5"></a> <span class="fu">filter</span>(<span class="fu">grepl</span>(<span class="st">"classif."</span>, class))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in listLearners.character(): The following learners could not be constructed, probably because their packages are not installed:
-#&gt; classif.FDboost,classif.IBk,classif.J48,classif.JRip,classif.LiblineaRL1L2SVC,classif.LiblineaRL1LogReg,classif.LiblineaRL2L1SVC,classif.LiblineaRL2LogReg,classif.LiblineaRL2SVC,classif.LiblineaRMultiClassSVC,classif.OneR,classif.PART,classif.RRF,classif.ada,classif.adaboostm1,classif.bartMachine,classif.boosting,classif.bst,classif.cforest,classif.clusterSVM,classif.ctree,classif.dbnDNN,classif.dcSVM,classif.evtree,classif.fdausc.glm,classif.fdausc.kernel,classif.fdausc.knn,classif.fdausc.np,classif.fgam,classif.fnn,classif.gamboost,classif.gaterSVM,classif.glmboost,classif.kknn,classif.mda,classif.mlp,classif.neuralnet,classif.nnTrain,classif.pamr,classif.penalized,classif.plr,classif.plsdaCaret,classif.rFerns,classif.rda,classif.rotationForest,classif.saeDNN,classif.sda,classif.sparseLDA,cluster.Cobweb,cluster.EM,cluster.FarthestFirst,cluster.MiniBatchKmeans,cluster.SimpleKMeans,cluster.XMeans,cluster.cmeans,cluster.dbscan,cluster.kmeans,multilabel.cforest,multilabel.rFerns,regr.FDboost,regr.IBk,regr.LiblineaRL2L1SVR,regr.LiblineaRL2L2SVR,regr.RRF,regr.bartMachine,regr.bcart,regr.bgp,regr.bgpllm,regr.blm,regr.brnn,regr.bst,regr.btgp,regr.btgpllm,regr.btlm,regr.cforest,regr.crs,regr.ctree,regr.evtree,regr.fgam,regr.fnn,regr.frbs,regr.gamboost,regr.glmboost,regr.kknn,regr.km,regr.laGP,regr.mars,regr.mob,regr.pcr,regr.penalized,regr.plsr,regr.rsm,surv.cforest,surv.gamboost,surv.glmboost
+#&gt; classif.FDboost,classif.IBk,classif.J48,classif.JRip,classif.LiblineaRL1L2SVC,classif.LiblineaRL1LogReg,classif.LiblineaRL2L1SVC,classif.LiblineaRL2LogReg,classif.LiblineaRL2SVC,classif.LiblineaRMultiClassSVC,classif.OneR,classif.PART,classif.RRF,classif.ada,classif.adaboostm1,classif.bartMachine,classif.boosting,classif.bst,classif.cforest,classif.clusterSVM,classif.ctree,classif.dbnDNN,classif.dcSVM,classif.evtree,classif.fdausc.glm,classif.fdausc.kernel,classif.fdausc.knn,classif.fdausc.np,classif.fgam,classif.fnn,classif.gamboost,classif.gaterSVM,classif.glmboost,classif.kknn,classif.mda,classif.mlp,classif.neuralnet,classif.nnTrain,classif.pamr,classif.penalized,classif.plr,classif.plsdaCaret,classif.rFerns,classif.rotationForest,classif.saeDNN,classif.sda,classif.sparseLDA,cluster.Cobweb,cluster.EM,cluster.FarthestFirst,cluster.MiniBatchKmeans,cluster.SimpleKMeans,cluster.XMeans,cluster.cmeans,cluster.dbscan,cluster.kmeans,multilabel.cforest,multilabel.rFerns,regr.FDboost,regr.IBk,regr.LiblineaRL2L1SVR,regr.LiblineaRL2L2SVR,regr.RRF,regr.bartMachine,regr.bcart,regr.bgp,regr.bgpllm,regr.blm,regr.brnn,regr.bst,regr.btgp,regr.btgpllm,regr.btlm,regr.cforest,regr.crs,regr.ctree,regr.evtree,regr.fgam,regr.fnn,regr.frbs,regr.gamboost,regr.glmboost,regr.kknn,regr.km,regr.laGP,regr.mars,regr.mob,regr.pcr,regr.penalized,regr.plsr,regr.rsm,surv.cforest,surv.gamboost,surv.glmboost
 #&gt; Check ?learners to see which packages you need or install mlr with all suggestions.</code></pre>
 </div>
 <div class="cell-output-display">
@@ -1618,7 +1638,7 @@ LO: The student knows how to do hyperparameter tuning with random search in mlr
 <span id="cb79-11"><a href="#cb79-11"></a>                       <span class="fu">capture.output</span>()</span>
 <span id="cb79-12"><a href="#cb79-12"></a><span class="fu">toc</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; 4.657 sec elapsed</code></pre>
+<pre><code>#&gt; 4.692 sec elapsed</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -2177,18 +2197,18 @@ LO: The student knows how to prepare data for machine learning with h2o
 #&gt; H2O is not running yet, starting it now...
 #&gt; 
 #&gt; Note:  In case of errors look at the following log files:
-#&gt;     /var/folders/_t/jtmqlfxs6lz2jk_9ndj50w1r0000gp/T//RtmpAL0Cle/file9b59699745ea/h2o_jschwarz_started_from_r.out
-#&gt;     /var/folders/_t/jtmqlfxs6lz2jk_9ndj50w1r0000gp/T//RtmpAL0Cle/file9b594a6f3bce/h2o_jschwarz_started_from_r.err
+#&gt;     /var/folders/_t/jtmqlfxs6lz2jk_9ndj50w1r0000gp/T//RtmpfhYM2Z/file827d64b0a3c6/h2o_jschwarz_started_from_r.out
+#&gt;     /var/folders/_t/jtmqlfxs6lz2jk_9ndj50w1r0000gp/T//RtmpfhYM2Z/file827d8d04fcf/h2o_jschwarz_started_from_r.err
 #&gt; 
 #&gt; 
 #&gt; Starting H2O JVM and connecting: ... Connection successful!
 #&gt; 
 #&gt; R is connected to the H2O cluster: 
-#&gt;     H2O cluster uptime:         2 seconds 730 milliseconds 
+#&gt;     H2O cluster uptime:         2 seconds 611 milliseconds 
 #&gt;     H2O cluster timezone:       Europe/Berlin 
 #&gt;     H2O data parsing timezone:  UTC 
-#&gt;     H2O cluster version:        3.38.0.1 
-#&gt;     H2O cluster version age:    2 months and 19 days  
+#&gt;     H2O cluster version:        3.40.0.1 
+#&gt;     H2O cluster version age:    2 months and 18 days 
 #&gt;     H2O cluster name:           H2O_started_from_R_jschwarz_gnh329 
 #&gt;     H2O cluster total nodes:    1 
 #&gt;     H2O cluster total memory:   16.00 GB 
@@ -2199,7 +2219,7 @@ LO: The student knows how to prepare data for machine learning with h2o
 #&gt;     H2O Connection port:        54321 
 #&gt;     H2O Connection proxy:       NA 
 #&gt;     H2O Internal Security:      FALSE 
-#&gt;     R Version:                  R version 4.2.2 (2022-10-31)</code></pre>
+#&gt;     R Version:                  R version 4.3.0 (2023-04-21)</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb163"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1"></a><span class="co"># Convert data to h2o frame</span></span>
 <span id="cb163-2"><a href="#cb163-2"></a>seeds_train_data_hf <span class="ot">&lt;-</span> <span class="fu">as.h2o</span>(seeds_train_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2283,14 +2303,14 @@ LO: The student knows how to train machine learning models with h2o
 #&gt; Validation Set Metrics: 
 #&gt; =====================
 #&gt; 
-#&gt; Extract validation frame with `h2o.getFrame("RTMP_sid_9c1e_9")`
-#&gt; MSE: (Extract with `h2o.mse`) 0.04930212
-#&gt; RMSE: (Extract with `h2o.rmse`) 0.2220408
-#&gt; Logloss: (Extract with `h2o.logloss`) 0.1522815
+#&gt; Extract validation frame with `h2o.getFrame("RTMP_sid_ab74_9")`
+#&gt; MSE: (Extract with `h2o.mse`) 0.05453758
+#&gt; RMSE: (Extract with `h2o.rmse`) 0.2335328
+#&gt; Logloss: (Extract with `h2o.logloss`) 0.1736098
 #&gt; Mean Per-Class Error: 0.07407407
 #&gt; AUC: (Extract with `h2o.auc`) NaN
 #&gt; AUCPR: (Extract with `h2o.aucpr`) NaN
-#&gt; R^2: (Extract with `h2o.r2`) 0.9370028
+#&gt; R^2: (Extract with `h2o.r2`) 0.9303131
 #&gt; Confusion Matrix: Extract with `h2o.confusionMatrix(&lt;model&gt;,valid = TRUE)`)
 #&gt; =========================================================================
 #&gt; Confusion Matrix: Row labels: Actual class; Column labels: Predicted class
@@ -2331,7 +2351,7 @@ LO: The student knows how to train machine learning models with h2o
 <div class="sourceCode cell-code" id="cb174"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb174-1"><a href="#cb174-1"></a><span class="co"># Extract logloss</span></span>
 <span id="cb174-2"><a href="#cb174-2"></a><span class="fu">h2o.logloss</span>(perf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.1522815</code></pre>
+<pre><code>#&gt; [1] 0.1736098</code></pre>
 </div>
 </div>
 <p>Great! You know how to train a random forest model with h2o.</p>
@@ -2433,11 +2453,11 @@ LO: The student knows how to use random search for model tuning with h2o
   |                                                                            
   |=====================                                                 |  30%
   |                                                                            
-  |===================================                                   |  50%
+  |===================================                                   |  51%
   |                                                                            
-  |=================================================                     |  70%
+  |=================================================                     |  71%
   |                                                                            
-  |===============================================================       |  91%
+  |================================================================      |  91%
   |                                                                            
   |======================================================================| 100%</code></pre>
 </div>
@@ -2529,15 +2549,16 @@ LO: The student knows how to perform automatic machine learning with h2o
   |                                                                            
   |                                                                      |   0%
   |                                                                            
-  |=========                                                             |  13%
+  |========                                                              |  11%
+#&gt; 23:14:03.132: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
   |                                                                            
-  |=======================                                               |  33%
+  |======================                                                |  31%
   |                                                                            
-  |======================================                                |  54%
+  |====================================                                  |  52%
   |                                                                            
-  |====================================================                  |  74%
+  |==================================================                    |  72%
   |                                                                            
-  |==================================================================    |  94%
+  |=================================================================     |  92%
   |                                                                            
   |======================================================================| 100%</code></pre>
 </div>
@@ -2559,7 +2580,7 @@ LO: The student knows how to perform automatic machine learning with h2o
   |                                                                      |   0%
   |                                                                            
   |=======                                                               |  10%
-#&gt; 11:21:55.384: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
+#&gt; 23:14:17.747: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
   |                                                                            
   |=====================                                                 |  30%
   |                                                                            
@@ -2590,15 +2611,15 @@ LO: The student knows how to perform automatic machine learning with h2o
   |                                                                      |   0%
   |                                                                            
   |=======                                                               |  10%
-#&gt; 11:22:10.648: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
+#&gt; 23:14:33.226: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
   |                                                                            
   |=====================                                                 |  30%
   |                                                                            
-  |===================================                                   |  51%
+  |====================================                                  |  52%
   |                                                                            
-  |==================================================                    |  71%
+  |===================================================                   |  72%
   |                                                                            
-  |================================================================      |  91%
+  |=================================================================     |  93%
   |                                                                            
   |======================================================================| 100%</code></pre>
 </div>
@@ -2621,7 +2642,7 @@ LO: The student knows how to perform automatic machine learning with h2o
   |                                                                      |   0%
   |                                                                            
   |=======                                                               |  10%
-#&gt; 11:22:26.222: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
+#&gt; 23:14:48.585: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
   |                                                                            
   |=====================                                                 |  30%
   |                                                                            
@@ -2663,8 +2684,8 @@ LO: Student knows how to extract the best model from AutoML
   |                                                                            
   |                                                                      |   0%
   |                                                                            
-  |========                                                              |  11%
-#&gt; 11:22:40.880: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
+  |======                                                                |   9%
+#&gt; 23:15:04.7: _min_rows param, The dataset size is too small to split for min_rows=100.0: must have at least 200.0 (weighted) rows, but have only 82.0.
   |                                                                            
   |=================                                                     |  24%
   |                                                                            
@@ -2672,15 +2693,15 @@ LO: Student knows how to extract the best model from AutoML
   |                                                                            
   |===================                                                   |  27%
   |                                                                            
-  |====================                                                  |  28%
+  |===================                                                   |  28%
+  |                                                                            
+  |====================                                                  |  29%
   |                                                                            
   |=====================                                                 |  30%
   |                                                                            
-  |=====================                                                 |  31%
+  |======================                                                |  31%
   |                                                                            
-  |======================                                                |  32%
-  |                                                                            
-  |=======================                                               |  33%
+  |=======================                                               |  32%
   |                                                                            
   |========================                                              |  34%
   |                                                                            
@@ -2688,7 +2709,7 @@ LO: Student knows how to extract the best model from AutoML
   |                                                                            
   |===========================                                           |  39%
   |                                                                            
-  |==============================                                        |  43%
+  |==============================                                        |  42%
   |                                                                            
   |================================                                      |  46%
   |                                                                            
@@ -2702,7 +2723,7 @@ LO: Student knows how to extract the best model from AutoML
   |                                                                            
   |============================================                          |  63%
   |                                                                            
-  |===============================================                       |  67%
+  |===============================================                       |  66%
   |                                                                            
   |=================================================                     |  70%
   |                                                                            
@@ -2720,7 +2741,7 @@ LO: Student knows how to extract the best model from AutoML
   |                                                                            
   |==================================================================    |  94%
   |                                                                            
-  |===================================================================== |  98%
+  |====================================================================  |  98%
   |                                                                            
   |======================================================================| 100%</code></pre>
 </div>
@@ -2737,7 +2758,7 @@ LO: Student knows how to extract the best model from AutoML
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["model_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["mean_per_class_error"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["logloss"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["rmse"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["mse"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"DeepLearning_grid_2_AutoML_5_20221209_112240_model_1","2":"0.02564103","3":"0.1528640","4":"0.1597345","5":"0.02551511","_rn_":"1"},{"1":"XGBoost_grid_1_AutoML_5_20221209_112240_model_234","2":"0.02564103","3":"0.0995590","4":"0.1477110","5":"0.02181855","_rn_":"2"},{"1":"XGBoost_grid_1_AutoML_5_20221209_112240_model_140","2":"0.02564103","3":"0.1931445","4":"0.2004725","5":"0.04018923","_rn_":"3"},{"1":"XGBoost_grid_1_AutoML_5_20221209_112240_model_108","2":"0.02564103","3":"0.2116388","4":"0.2193494","5":"0.04811416","_rn_":"4"},{"1":"GBM_grid_1_AutoML_5_20221209_112240_model_4","2":"0.02564103","3":"0.0760121","4":"0.1459501","5":"0.02130143","_rn_":"5"},{"1":"StackedEnsemble_BestOfFamily_5_AutoML_5_20221209_112240","2":"0.02564103","3":"0.2734855","4":"0.2646685","5":"0.07004942","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["model_id"],"name":[1],"type":["chr"],"align":["left"]},{"label":["mean_per_class_error"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["logloss"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["rmse"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["mse"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"DeepLearning_grid_3_AutoML_5_20230426_231503_model_2","2":"0.02393162","3":"0.05709718","4":"0.1212415","5":"0.01469949","_rn_":"1"},{"1":"DeepLearning_grid_1_AutoML_5_20230426_231503_model_2","2":"0.02564103","3":"0.07934585","4":"0.1406467","5":"0.01978150","_rn_":"2"},{"1":"XGBoost_grid_1_AutoML_5_20230426_231503_model_205","2":"0.02564103","3":"0.13759012","4":"0.1799707","5":"0.03238944","_rn_":"3"},{"1":"XGBoost_grid_1_AutoML_5_20230426_231503_model_37","2":"0.02564103","3":"0.21179405","4":"0.2182183","5":"0.04761923","_rn_":"4"},{"1":"XGBoost_grid_1_AutoML_5_20230426_231503_model_140","2":"0.02564103","3":"0.19314450","4":"0.2004725","5":"0.04018923","_rn_":"5"},{"1":"DeepLearning_grid_1_AutoML_5_20230426_231503_model_3","2":"0.02564103","3":"0.11260840","4":"0.1701120","5":"0.02893811","_rn_":"6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2756,18 +2777,20 @@ LO: Student knows how to extract the best model from AutoML
 #&gt; ==============
 #&gt; 
 #&gt; H2OMultinomialModel: deeplearning
-#&gt; Model Key:  DeepLearning_grid_2_AutoML_5_20221209_112240_model_1 
-#&gt; Status of Neuron Layers: predicting seed_type, 3-class classification, multinomial distribution, CrossEntropy loss, 643 weights/biases, 12,2 KB, 597 training samples, mini-batch size 1
+#&gt; Model Key:  DeepLearning_grid_3_AutoML_5_20230426_231503_model_2 
+#&gt; Status of Neuron Layers: predicting seed_type, 3-class classification, multinomial distribution, CrossEntropy loss, 21.303 weights/biases, 258,0 KB, 542 training samples, mini-batch size 1
 #&gt;   layer units             type dropout       l1       l2 mean_rate rate_rms
-#&gt; 1     1     7            Input 15.00 %       NA       NA        NA       NA
-#&gt; 2     2    20 RectifierDropout  0.00 % 0.000000 0.000000  0.001876 0.001772
-#&gt; 3     3    20 RectifierDropout  0.00 % 0.000000 0.000000  0.001972 0.001963
-#&gt; 4     4     3          Softmax      NA 0.000000 0.000000  0.006924 0.028369
+#&gt; 1     1     7            Input  0.00 %       NA       NA        NA       NA
+#&gt; 2     2   100 RectifierDropout 20.00 % 0.000000 0.000000  0.000354 0.000133
+#&gt; 3     3   100 RectifierDropout 20.00 % 0.000000 0.000000  0.000571 0.000251
+#&gt; 4     4   100 RectifierDropout 20.00 % 0.000000 0.000000  0.015679 0.119387
+#&gt; 5     5     3          Softmax      NA 0.000000 0.000000  0.010155 0.098537
 #&gt;   momentum mean_weight weight_rms mean_bias bias_rms
 #&gt; 1       NA          NA         NA        NA       NA
-#&gt; 2 0.000000   -0.057683   0.272770  0.520670 0.077093
-#&gt; 3 0.000000   -0.003009   0.222437  0.987687 0.051666
-#&gt; 4 0.000000    0.003565   1.115716  0.011791 0.036845
+#&gt; 2 0.000000   -0.000929   0.133180  0.499999 0.006807
+#&gt; 3 0.000000    0.000912   0.100737  0.999690 0.009941
+#&gt; 4 0.000000    0.000127   0.100526  0.999088 0.003539
+#&gt; 5 0.000000    0.002159   0.553674 -0.000542 0.002476
 #&gt; 
 #&gt; H2OMultinomialMetrics: deeplearning
 #&gt; ** Reported on training data. **
@@ -2776,27 +2799,27 @@ LO: Student knows how to extract the best model from AutoML
 #&gt; Training Set Metrics: 
 #&gt; =====================
 #&gt; 
-#&gt; Extract training frame with `h2o.getFrame("AutoML_5_20221209_112240_training_RTMP_sid_9c1e_6")`
-#&gt; MSE: (Extract with `h2o.mse`) 0.01028865
-#&gt; RMSE: (Extract with `h2o.rmse`) 0.101433
-#&gt; Logloss: (Extract with `h2o.logloss`) 0.05975107
-#&gt; Mean Per-Class Error: 0
+#&gt; Extract training frame with `h2o.getFrame("AutoML_5_20230426_231503_training_RTMP_sid_ab74_6")`
+#&gt; MSE: (Extract with `h2o.mse`) 0.06535979
+#&gt; RMSE: (Extract with `h2o.rmse`) 0.2556556
+#&gt; Logloss: (Extract with `h2o.logloss`) 0.2169183
+#&gt; Mean Per-Class Error: 0.1025641
 #&gt; AUC: (Extract with `h2o.auc`) NaN
 #&gt; AUCPR: (Extract with `h2o.aucpr`) NaN
 #&gt; Confusion Matrix: Extract with `h2o.confusionMatrix(&lt;model&gt;,train = TRUE)`)
 #&gt; =========================================================================
 #&gt; Confusion Matrix: Row labels: Actual class; Column labels: Predicted class
 #&gt;         1  2  3  Error     Rate
-#&gt; 1      26  0  0 0.0000 = 0 / 26
+#&gt; 1      24  2  0 0.0769 = 2 / 26
 #&gt; 2       0 30  0 0.0000 = 0 / 30
-#&gt; 3       0  0 26 0.0000 = 0 / 26
-#&gt; Totals 26 30 26 0.0000 = 0 / 82
+#&gt; 3       6  0 20 0.2308 = 6 / 26
+#&gt; Totals 30 32 20 0.0976 = 8 / 82
 #&gt; 
 #&gt; Hit Ratio Table: Extract with `h2o.hit_ratio_table(&lt;model&gt;,train = TRUE)`
 #&gt; =======================================================================
 #&gt; Top-3 Hit Ratios: 
 #&gt;   k hit_ratio
-#&gt; 1 1  1.000000
+#&gt; 1 1  0.902439
 #&gt; 2 2  1.000000
 #&gt; 3 3  1.000000
 #&gt; 
@@ -2811,11 +2834,11 @@ LO: Student knows how to extract the best model from AutoML
 #&gt; Cross-Validation Set Metrics: 
 #&gt; =====================
 #&gt; 
-#&gt; Extract cross-validation frame with `h2o.getFrame("AutoML_5_20221209_112240_training_RTMP_sid_9c1e_6")`
-#&gt; MSE: (Extract with `h2o.mse`) 0.02551511
-#&gt; RMSE: (Extract with `h2o.rmse`) 0.1597345
-#&gt; Logloss: (Extract with `h2o.logloss`) 0.152864
-#&gt; Mean Per-Class Error: 0.02564103
+#&gt; Extract cross-validation frame with `h2o.getFrame("AutoML_5_20230426_231503_training_RTMP_sid_ab74_6")`
+#&gt; MSE: (Extract with `h2o.mse`) 0.01469949
+#&gt; RMSE: (Extract with `h2o.rmse`) 0.1212415
+#&gt; Logloss: (Extract with `h2o.logloss`) 0.05709718
+#&gt; Mean Per-Class Error: 0.02393162
 #&gt; AUC: (Extract with `h2o.auc`) NaN
 #&gt; AUCPR: (Extract with `h2o.aucpr`) NaN
 #&gt; Hit Ratio Table: Extract with `h2o.hit_ratio_table(&lt;model&gt;,xval = TRUE)`
@@ -2830,29 +2853,29 @@ LO: Student knows how to extract the best model from AutoML
 #&gt; 
 #&gt; 
 #&gt; Cross-Validation Metrics Summary: 
-#&gt;                             mean       sd cv_1_valid cv_2_valid cv_3_valid
-#&gt; accuracy                0.817460 0.096588   0.785714   0.925926   0.740741
-#&gt; auc                           NA 0.000000         NA         NA         NA
-#&gt; err                     0.182540 0.096588   0.214286   0.074074   0.259259
-#&gt; err_count               5.000000 2.645751   6.000000   2.000000   7.000000
-#&gt; logloss                 0.320788 0.121066   0.254927   0.246932   0.460507
-#&gt; max_per_class_error     0.486111 0.312731   0.666667   0.125000   0.666667
-#&gt; mean_per_class_accuracy 0.815741 0.096078   0.777778   0.925000   0.744444
-#&gt; mean_per_class_error    0.184259 0.096078   0.222222   0.075000   0.255556
-#&gt; mse                     0.112201 0.046437   0.092753   0.078651   0.165200
-#&gt; pr_auc                        NA 0.000000         NA         NA         NA
-#&gt; r2                      0.822526 0.074637   0.855717   0.874811   0.737050
-#&gt; rmse                    0.330483 0.066883   0.304554   0.280447   0.406448
+#&gt;                              mean       sd cv_1_valid cv_2_valid cv_3_valid
+#&gt; accuracy                 0.465168 0.238728   0.321429   0.333333   0.740741
+#&gt; auc                            NA 0.000000         NA         NA         NA
+#&gt; err                      0.534833 0.238728   0.678571   0.666667   0.259259
+#&gt; err_count               14.666667 6.658328  19.000000  18.000000   7.000000
+#&gt; logloss                  2.935164 2.004421   3.514907   4.585816   0.704770
+#&gt; max_per_class_error      0.958333 0.072169   1.000000   1.000000   0.875000
+#&gt; mean_per_class_accuracy  0.458333 0.216506   0.333333   0.333333   0.708333
+#&gt; mean_per_class_error     0.541667 0.216506   0.666667   0.666667   0.291667
+#&gt; mse                      0.510830 0.245119   0.652887   0.651812   0.227792
+#&gt; pr_auc                         NA 0.000000         NA         NA         NA
+#&gt; r2                       0.194777 0.383499  -0.015601  -0.037491   0.637424
+#&gt; rmse                     0.697546 0.190760   0.808014   0.807349   0.477275
 #&gt; 
 #&gt; Scoring History: 
 #&gt;             timestamp   duration training_speed  epochs iterations    samples
-#&gt; 1 2022-12-09 11:23:38  0.000 sec             NA 0.00000          0   0.000000
-#&gt; 2 2022-12-09 11:23:38  0.552 sec  54000 obs/sec 0.65854          1  54.000000
-#&gt; 3 2022-12-09 11:23:38  0.558 sec  85285 obs/sec 7.28049         11 597.000000
+#&gt; 1 2023-04-26 23:16:03  0.000 sec             NA 0.00000          0   0.000000
+#&gt; 2 2023-04-26 23:16:03  0.798 sec  19666 obs/sec 0.71951          1  59.000000
+#&gt; 3 2023-04-26 23:16:03  0.818 sec  24636 obs/sec 6.60976         10 542.000000
 #&gt;   training_rmse training_logloss training_r2 training_classification_error
 #&gt; 1            NA               NA          NA                            NA
-#&gt; 2       0.64401          1.90182     0.34597                       0.47561
-#&gt; 3       0.10143          0.05975     0.98378                       0.00000
+#&gt; 2       0.66037          1.33956     0.31233                       0.58537
+#&gt; 3       0.25566          0.21692     0.89693                       0.09756
 #&gt;   training_auc training_pr_auc
 #&gt; 1           NA              NA
 #&gt; 2           NA              NA
@@ -2863,13 +2886,13 @@ LO: Student knows how to extract the best model from AutoML
 #&gt; 
 #&gt; Variable Importances: 
 #&gt;        variable relative_importance scaled_importance percentage
-#&gt; 1          area            1.000000          1.000000   0.171565
-#&gt; 2     perimeter            0.939022          0.939022   0.161104
-#&gt; 3     asymmetry            0.936690          0.936690   0.160703
-#&gt; 4 kernel_length            0.807065          0.807065   0.138464
-#&gt; 5 kernel_groove            0.778050          0.778050   0.133486
-#&gt; 6   compactness            0.713528          0.713528   0.122417
-#&gt; 7  kernel_width            0.654331          0.654331   0.112260</code></pre>
+#&gt; 1     perimeter            1.000000          1.000000   0.161192
+#&gt; 2     asymmetry            0.943011          0.943011   0.152006
+#&gt; 3 kernel_length            0.905853          0.905853   0.146017
+#&gt; 4 kernel_groove            0.901507          0.901507   0.145316
+#&gt; 5   compactness            0.880732          0.880732   0.141967
+#&gt; 6          area            0.856897          0.856897   0.138125
+#&gt; 7  kernel_width            0.715772          0.715772   0.115377</code></pre>
 </div>
 </div>
 <p>–&gt; NO VALIDATION DATA SET</p>
@@ -3034,9 +3057,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -3101,6 +3138,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -3156,10 +3279,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Content 2022 by <a href="https://www.startupengineer.io/authors/schwarz/">Joschka Schwarz</a> <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":true,"descPosition":"bottom","selector":".lightbox"});</script>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","descPosition":"bottom","closeEffect":"zoom","openEffect":"zoom","loop":true});</script>
 
 
 

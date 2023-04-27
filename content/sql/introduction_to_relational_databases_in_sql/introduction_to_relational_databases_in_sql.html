@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -127,6 +98,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+<link href="../../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
 
 </head>
 
@@ -141,109 +115,116 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">Joschka Schwarz</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Data Science</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-science">    
         <li>
-    <a class="dropdown-item" href="../../../content/R/index.html">
+    <a class="dropdown-item" href="../../../content/R/index.html" rel="" target="">
  <span class="dropdown-text">R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../content/python/index.html">
+    <a class="dropdown-item" href="../../../content/python/index.html" rel="" target="">
  <span class="dropdown-text">Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../content/sql/index.html">
+    <a class="dropdown-item" href="../../../content/sql/index.html" rel="" target="">
  <span class="dropdown-text">SQL</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../slides/index.html">
+    <a class="nav-link" href="../../../slides/index.html" rel="" target="">
  <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../resumes/index.html">
+    <a class="nav-link" href="../../../resumes/index.html" rel="" target="">
  <span class="menu-text">Resumes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../index.html">
+    <a class="nav-link" href="../../../index.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jwarz/"><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
+    <a class="nav-link" href="https://github.com/jwarz/" rel="" target=""><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz"><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
+    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Introduction to Relational Databases in SQL</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../../content/sql/introduction_to_relational_databases_in_sql/introduction_to_relational_databases_in_sql.html">SQL</a></li><li class="breadcrumb-item"><a href="../../../content/sql/introduction_to_relational_databases_in_sql/introduction_to_relational_databases_in_sql.html">Introduction to Relational Databases in SQL</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../content/sql/index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="../../../content/sql/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">SQL</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">SQL</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../content/sql/introduction_to_relational_databases_in_sql/introduction_to_relational_databases_in_sql.html" class="sidebar-item-text sidebar-link active">Introduction to Relational Databases in SQL</a>
+  <a href="../../../content/sql/introduction_to_relational_databases_in_sql/introduction_to_relational_databases_in_sql.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Introduction to Relational Databases in SQL</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../content/sql/introduction_to_sql/introduction_to_sql.html" class="sidebar-item-text sidebar-link">Introduction to SQL</a>
+  <a href="../../../content/sql/introduction_to_sql/introduction_to_sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction to SQL</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../content/sql/joining_data_in_sql/joining_data_in_sql.html" class="sidebar-item-text sidebar-link">Joining Data in SQL</a>
+  <a href="../../../content/sql/joining_data_in_sql/joining_data_in_sql.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Joining Data in SQL</span></a>
   </div>
 </li>
       </ul>
@@ -251,68 +232,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#your-first-database" id="toc-your-first-database" class="nav-link active" data-scroll-target="#your-first-database"><span class="toc-section-number">1</span>  1. Your first database</a>
+  <li><a href="#your-first-database" id="toc-your-first-database" class="nav-link active" data-scroll-target="#your-first-database"><span class="header-section-number">1</span> 1. Your first database</a>
   <ul class="collapse">
-  <li><a href="#introduction-to-relational-databases" id="toc-introduction-to-relational-databases" class="nav-link" data-scroll-target="#introduction-to-relational-databases"><span class="toc-section-number">1.1</span>  Introduction to relational databases</a></li>
-  <li><a href="#attributes-of-relational-databases" id="toc-attributes-of-relational-databases" class="nav-link" data-scroll-target="#attributes-of-relational-databases"><span class="toc-section-number">1.2</span>  Attributes of relational databases</a></li>
-  <li><a href="#query-information_schema-with-select" id="toc-query-information_schema-with-select" class="nav-link" data-scroll-target="#query-information_schema-with-select"><span class="toc-section-number">1.4</span>  Query information_schema with SELECT</a></li>
-  <li><a href="#tables-at-the-core-of-every-database" id="toc-tables-at-the-core-of-every-database" class="nav-link" data-scroll-target="#tables-at-the-core-of-every-database"><span class="toc-section-number">1.6</span>  Tables: At the core of every database</a></li>
-  <li><a href="#create-your-first-few-tables" id="toc-create-your-first-few-tables" class="nav-link" data-scroll-target="#create-your-first-few-tables"><span class="toc-section-number">1.7</span>  CREATE your first few TABLEs</a></li>
-  <li><a href="#add-a-column-with-alter-table" id="toc-add-a-column-with-alter-table" class="nav-link" data-scroll-target="#add-a-column-with-alter-table"><span class="toc-section-number">1.8</span>  ADD a COLUMN with ALTER TABLE</a></li>
-  <li><a href="#update-your-database-as-the-structure-changes" id="toc-update-your-database-as-the-structure-changes" class="nav-link" data-scroll-target="#update-your-database-as-the-structure-changes"><span class="toc-section-number">1.9</span>  Update your database as the structure changes</a></li>
-  <li><a href="#rename-and-drop-columns-in-affiliations" id="toc-rename-and-drop-columns-in-affiliations" class="nav-link" data-scroll-target="#rename-and-drop-columns-in-affiliations"><span class="toc-section-number">1.10</span>  RENAME and DROP COLUMNs in affiliations</a></li>
-  <li><a href="#migrate-data-with-insert-into-select-distinct" id="toc-migrate-data-with-insert-into-select-distinct" class="nav-link" data-scroll-target="#migrate-data-with-insert-into-select-distinct"><span class="toc-section-number">1.11</span>  Migrate data with INSERT INTO SELECT DISTINCT</a></li>
-  <li><a href="#delete-tables-with-drop-table" id="toc-delete-tables-with-drop-table" class="nav-link" data-scroll-target="#delete-tables-with-drop-table"><span class="toc-section-number">1.12</span>  Delete tables with DROP TABLE</a></li>
+  <li><a href="#introduction-to-relational-databases" id="toc-introduction-to-relational-databases" class="nav-link" data-scroll-target="#introduction-to-relational-databases"><span class="header-section-number">1.1</span> Introduction to relational databases</a></li>
+  <li><a href="#attributes-of-relational-databases" id="toc-attributes-of-relational-databases" class="nav-link" data-scroll-target="#attributes-of-relational-databases"><span class="header-section-number">1.2</span> Attributes of relational databases</a></li>
+  <li><a href="#query-information_schema-with-select" id="toc-query-information_schema-with-select" class="nav-link" data-scroll-target="#query-information_schema-with-select"><span class="header-section-number">1.4</span> Query information_schema with SELECT</a></li>
+  <li><a href="#tables-at-the-core-of-every-database" id="toc-tables-at-the-core-of-every-database" class="nav-link" data-scroll-target="#tables-at-the-core-of-every-database"><span class="header-section-number">1.6</span> Tables: At the core of every database</a></li>
+  <li><a href="#create-your-first-few-tables" id="toc-create-your-first-few-tables" class="nav-link" data-scroll-target="#create-your-first-few-tables"><span class="header-section-number">1.7</span> CREATE your first few TABLEs</a></li>
+  <li><a href="#add-a-column-with-alter-table" id="toc-add-a-column-with-alter-table" class="nav-link" data-scroll-target="#add-a-column-with-alter-table"><span class="header-section-number">1.8</span> ADD a COLUMN with ALTER TABLE</a></li>
+  <li><a href="#update-your-database-as-the-structure-changes" id="toc-update-your-database-as-the-structure-changes" class="nav-link" data-scroll-target="#update-your-database-as-the-structure-changes"><span class="header-section-number">1.9</span> Update your database as the structure changes</a></li>
+  <li><a href="#rename-and-drop-columns-in-affiliations" id="toc-rename-and-drop-columns-in-affiliations" class="nav-link" data-scroll-target="#rename-and-drop-columns-in-affiliations"><span class="header-section-number">1.10</span> RENAME and DROP COLUMNs in affiliations</a></li>
+  <li><a href="#migrate-data-with-insert-into-select-distinct" id="toc-migrate-data-with-insert-into-select-distinct" class="nav-link" data-scroll-target="#migrate-data-with-insert-into-select-distinct"><span class="header-section-number">1.11</span> Migrate data with INSERT INTO SELECT DISTINCT</a></li>
+  <li><a href="#delete-tables-with-drop-table" id="toc-delete-tables-with-drop-table" class="nav-link" data-scroll-target="#delete-tables-with-drop-table"><span class="header-section-number">1.12</span> Delete tables with DROP TABLE</a></li>
   </ul></li>
-  <li><a href="#enforce-data-consistency-with-attribute-constraints" id="toc-enforce-data-consistency-with-attribute-constraints" class="nav-link" data-scroll-target="#enforce-data-consistency-with-attribute-constraints"><span class="toc-section-number">2</span>  2. Enforce data consistency with attribute constraints</a>
+  <li><a href="#enforce-data-consistency-with-attribute-constraints" id="toc-enforce-data-consistency-with-attribute-constraints" class="nav-link" data-scroll-target="#enforce-data-consistency-with-attribute-constraints"><span class="header-section-number">2</span> 2. Enforce data consistency with attribute constraints</a>
   <ul class="collapse">
-  <li><a href="#better-data-quality-with-constraints" id="toc-better-data-quality-with-constraints" class="nav-link" data-scroll-target="#better-data-quality-with-constraints"><span class="toc-section-number">2.1</span>  Better data quality with constraints</a></li>
-  <li><a href="#types-of-database-constraints" id="toc-types-of-database-constraints" class="nav-link" data-scroll-target="#types-of-database-constraints"><span class="toc-section-number">2.2</span>  Types of database constraints</a></li>
-  <li><a href="#conforming-with-data-types" id="toc-conforming-with-data-types" class="nav-link" data-scroll-target="#conforming-with-data-types"><span class="toc-section-number">2.4</span>  Conforming with data types</a></li>
-  <li><a href="#type-casts" id="toc-type-casts" class="nav-link" data-scroll-target="#type-casts"><span class="toc-section-number">2.5</span>  Type CASTs</a></li>
-  <li><a href="#working-with-data-types" id="toc-working-with-data-types" class="nav-link" data-scroll-target="#working-with-data-types"><span class="toc-section-number">2.6</span>  Working with data types</a></li>
-  <li><a href="#change-types-with-alter-column" id="toc-change-types-with-alter-column" class="nav-link" data-scroll-target="#change-types-with-alter-column"><span class="toc-section-number">2.7</span>  Change types with ALTER COLUMN</a></li>
-  <li><a href="#convert-types-using-a-function" id="toc-convert-types-using-a-function" class="nav-link" data-scroll-target="#convert-types-using-a-function"><span class="toc-section-number">2.8</span>  Convert types USING a function</a></li>
-  <li><a href="#the-not-null-and-unique-constraints" id="toc-the-not-null-and-unique-constraints" class="nav-link" data-scroll-target="#the-not-null-and-unique-constraints"><span class="toc-section-number">2.9</span>  The not-null and unique constraints</a></li>
-  <li><a href="#disallow-null-values-with-set-not-null" id="toc-disallow-null-values-with-set-not-null" class="nav-link" data-scroll-target="#disallow-null-values-with-set-not-null"><span class="toc-section-number">2.10</span>  Disallow NULL values with SET NOT NULL</a></li>
-  <li><a href="#what-happens-if-you-try-to-enter-nulls" id="toc-what-happens-if-you-try-to-enter-nulls" class="nav-link" data-scroll-target="#what-happens-if-you-try-to-enter-nulls"><span class="toc-section-number">2.11</span>  What happens if you try to enter NULLs?</a></li>
-  <li><a href="#make-your-columns-unique-with-add-constraint" id="toc-make-your-columns-unique-with-add-constraint" class="nav-link" data-scroll-target="#make-your-columns-unique-with-add-constraint"><span class="toc-section-number">2.13</span>  Make your columns UNIQUE with ADD CONSTRAINT</a></li>
+  <li><a href="#better-data-quality-with-constraints" id="toc-better-data-quality-with-constraints" class="nav-link" data-scroll-target="#better-data-quality-with-constraints"><span class="header-section-number">2.1</span> Better data quality with constraints</a></li>
+  <li><a href="#types-of-database-constraints" id="toc-types-of-database-constraints" class="nav-link" data-scroll-target="#types-of-database-constraints"><span class="header-section-number">2.2</span> Types of database constraints</a></li>
+  <li><a href="#conforming-with-data-types" id="toc-conforming-with-data-types" class="nav-link" data-scroll-target="#conforming-with-data-types"><span class="header-section-number">2.4</span> Conforming with data types</a></li>
+  <li><a href="#type-casts" id="toc-type-casts" class="nav-link" data-scroll-target="#type-casts"><span class="header-section-number">2.5</span> Type CASTs</a></li>
+  <li><a href="#working-with-data-types" id="toc-working-with-data-types" class="nav-link" data-scroll-target="#working-with-data-types"><span class="header-section-number">2.6</span> Working with data types</a></li>
+  <li><a href="#change-types-with-alter-column" id="toc-change-types-with-alter-column" class="nav-link" data-scroll-target="#change-types-with-alter-column"><span class="header-section-number">2.7</span> Change types with ALTER COLUMN</a></li>
+  <li><a href="#convert-types-using-a-function" id="toc-convert-types-using-a-function" class="nav-link" data-scroll-target="#convert-types-using-a-function"><span class="header-section-number">2.8</span> Convert types USING a function</a></li>
+  <li><a href="#the-not-null-and-unique-constraints" id="toc-the-not-null-and-unique-constraints" class="nav-link" data-scroll-target="#the-not-null-and-unique-constraints"><span class="header-section-number">2.9</span> The not-null and unique constraints</a></li>
+  <li><a href="#disallow-null-values-with-set-not-null" id="toc-disallow-null-values-with-set-not-null" class="nav-link" data-scroll-target="#disallow-null-values-with-set-not-null"><span class="header-section-number">2.10</span> Disallow NULL values with SET NOT NULL</a></li>
+  <li><a href="#what-happens-if-you-try-to-enter-nulls" id="toc-what-happens-if-you-try-to-enter-nulls" class="nav-link" data-scroll-target="#what-happens-if-you-try-to-enter-nulls"><span class="header-section-number">2.11</span> What happens if you try to enter NULLs?</a></li>
+  <li><a href="#make-your-columns-unique-with-add-constraint" id="toc-make-your-columns-unique-with-add-constraint" class="nav-link" data-scroll-target="#make-your-columns-unique-with-add-constraint"><span class="header-section-number">2.13</span> Make your columns UNIQUE with ADD CONSTRAINT</a></li>
   </ul></li>
-  <li><a href="#uniquely-identify-records-with-key-constraints" id="toc-uniquely-identify-records-with-key-constraints" class="nav-link" data-scroll-target="#uniquely-identify-records-with-key-constraints"><span class="toc-section-number">3</span>  3. Uniquely identify records with key constraints</a>
+  <li><a href="#uniquely-identify-records-with-key-constraints" id="toc-uniquely-identify-records-with-key-constraints" class="nav-link" data-scroll-target="#uniquely-identify-records-with-key-constraints"><span class="header-section-number">3</span> 3. Uniquely identify records with key constraints</a>
   <ul class="collapse">
-  <li><a href="#keys-and-superkeys" id="toc-keys-and-superkeys" class="nav-link" data-scroll-target="#keys-and-superkeys"><span class="toc-section-number">3.1</span>  Keys and superkeys</a></li>
-  <li><a href="#get-to-know-select-count-distinct" id="toc-get-to-know-select-count-distinct" class="nav-link" data-scroll-target="#get-to-know-select-count-distinct"><span class="toc-section-number">3.2</span>  Get to know SELECT COUNT DISTINCT</a></li>
-  <li><a href="#identify-keys-with-select-count-distinct" id="toc-identify-keys-with-select-count-distinct" class="nav-link" data-scroll-target="#identify-keys-with-select-count-distinct"><span class="toc-section-number">3.3</span>  Identify keys with SELECT COUNT DISTINCT</a></li>
-  <li><a href="#primary-keys" id="toc-primary-keys" class="nav-link" data-scroll-target="#primary-keys"><span class="toc-section-number">3.4</span>  Primary keys</a></li>
-  <li><a href="#identify-the-primary-key" id="toc-identify-the-primary-key" class="nav-link" data-scroll-target="#identify-the-primary-key"><span class="toc-section-number">3.5</span>  Identify the primary key</a></li>
-  <li><a href="#add-key-constraints-to-the-tables" id="toc-add-key-constraints-to-the-tables" class="nav-link" data-scroll-target="#add-key-constraints-to-the-tables"><span class="toc-section-number">3.7</span>  ADD key CONSTRAINTs to the tables</a></li>
-  <li><a href="#surrogate-keys" id="toc-surrogate-keys" class="nav-link" data-scroll-target="#surrogate-keys"><span class="toc-section-number">3.8</span>  Surrogate keys</a></li>
-  <li><a href="#add-a-serial-surrogate-key" id="toc-add-a-serial-surrogate-key" class="nav-link" data-scroll-target="#add-a-serial-surrogate-key"><span class="toc-section-number">3.9</span>  Add a SERIAL surrogate key</a></li>
-  <li><a href="#concatenate-columns-to-a-surrogate-key" id="toc-concatenate-columns-to-a-surrogate-key" class="nav-link" data-scroll-target="#concatenate-columns-to-a-surrogate-key"><span class="toc-section-number">3.10</span>  CONCATenate columns to a surrogate key</a></li>
-  <li><a href="#test-your-knowledge-before-advancing" id="toc-test-your-knowledge-before-advancing" class="nav-link" data-scroll-target="#test-your-knowledge-before-advancing"><span class="toc-section-number">3.11</span>  Test your knowledge before advancing</a></li>
+  <li><a href="#keys-and-superkeys" id="toc-keys-and-superkeys" class="nav-link" data-scroll-target="#keys-and-superkeys"><span class="header-section-number">3.1</span> Keys and superkeys</a></li>
+  <li><a href="#get-to-know-select-count-distinct" id="toc-get-to-know-select-count-distinct" class="nav-link" data-scroll-target="#get-to-know-select-count-distinct"><span class="header-section-number">3.2</span> Get to know SELECT COUNT DISTINCT</a></li>
+  <li><a href="#identify-keys-with-select-count-distinct" id="toc-identify-keys-with-select-count-distinct" class="nav-link" data-scroll-target="#identify-keys-with-select-count-distinct"><span class="header-section-number">3.3</span> Identify keys with SELECT COUNT DISTINCT</a></li>
+  <li><a href="#primary-keys" id="toc-primary-keys" class="nav-link" data-scroll-target="#primary-keys"><span class="header-section-number">3.4</span> Primary keys</a></li>
+  <li><a href="#identify-the-primary-key" id="toc-identify-the-primary-key" class="nav-link" data-scroll-target="#identify-the-primary-key"><span class="header-section-number">3.5</span> Identify the primary key</a></li>
+  <li><a href="#add-key-constraints-to-the-tables" id="toc-add-key-constraints-to-the-tables" class="nav-link" data-scroll-target="#add-key-constraints-to-the-tables"><span class="header-section-number">3.7</span> ADD key CONSTRAINTs to the tables</a></li>
+  <li><a href="#surrogate-keys" id="toc-surrogate-keys" class="nav-link" data-scroll-target="#surrogate-keys"><span class="header-section-number">3.8</span> Surrogate keys</a></li>
+  <li><a href="#add-a-serial-surrogate-key" id="toc-add-a-serial-surrogate-key" class="nav-link" data-scroll-target="#add-a-serial-surrogate-key"><span class="header-section-number">3.9</span> Add a SERIAL surrogate key</a></li>
+  <li><a href="#concatenate-columns-to-a-surrogate-key" id="toc-concatenate-columns-to-a-surrogate-key" class="nav-link" data-scroll-target="#concatenate-columns-to-a-surrogate-key"><span class="header-section-number">3.10</span> CONCATenate columns to a surrogate key</a></li>
+  <li><a href="#test-your-knowledge-before-advancing" id="toc-test-your-knowledge-before-advancing" class="nav-link" data-scroll-target="#test-your-knowledge-before-advancing"><span class="header-section-number">3.11</span> Test your knowledge before advancing</a></li>
   </ul></li>
-  <li><a href="#glue-together-tables-with-foreign-keys" id="toc-glue-together-tables-with-foreign-keys" class="nav-link" data-scroll-target="#glue-together-tables-with-foreign-keys"><span class="toc-section-number">4</span>  4. Glue together tables with foreign keys</a>
+  <li><a href="#glue-together-tables-with-foreign-keys" id="toc-glue-together-tables-with-foreign-keys" class="nav-link" data-scroll-target="#glue-together-tables-with-foreign-keys"><span class="header-section-number">4</span> 4. Glue together tables with foreign keys</a>
   <ul class="collapse">
-  <li><a href="#model-1n-relationships-with-foreign-keys" id="toc-model-1n-relationships-with-foreign-keys" class="nav-link" data-scroll-target="#model-1n-relationships-with-foreign-keys"><span class="toc-section-number">4.1</span>  Model 1:N relationships with foreign keys</a></li>
-  <li><a href="#reference-a-table-with-a-foreign-key" id="toc-reference-a-table-with-a-foreign-key" class="nav-link" data-scroll-target="#reference-a-table-with-a-foreign-key"><span class="toc-section-number">4.2</span>  REFERENCE a table with a FOREIGN KEY</a></li>
-  <li><a href="#explore-foreign-key-constraints" id="toc-explore-foreign-key-constraints" class="nav-link" data-scroll-target="#explore-foreign-key-constraints"><span class="toc-section-number">4.3</span>  Explore foreign key constraints</a></li>
-  <li><a href="#join-tables-linked-by-a-foreign-key" id="toc-join-tables-linked-by-a-foreign-key" class="nav-link" data-scroll-target="#join-tables-linked-by-a-foreign-key"><span class="toc-section-number">4.4</span>  JOIN tables linked by a foreign key</a></li>
-  <li><a href="#model-more-complex-relationships" id="toc-model-more-complex-relationships" class="nav-link" data-scroll-target="#model-more-complex-relationships"><span class="toc-section-number">4.5</span>  Model more complex relationships</a></li>
-  <li><a href="#add-foreign-keys-to-the-affiliations-table" id="toc-add-foreign-keys-to-the-affiliations-table" class="nav-link" data-scroll-target="#add-foreign-keys-to-the-affiliations-table"><span class="toc-section-number">4.6</span>  Add foreign keys to the “affiliations” table</a></li>
-  <li><a href="#populate-the-professor_id-column" id="toc-populate-the-professor_id-column" class="nav-link" data-scroll-target="#populate-the-professor_id-column"><span class="toc-section-number">4.7</span>  Populate the “professor_id” column</a></li>
-  <li><a href="#drop-firstname-and-lastname" id="toc-drop-firstname-and-lastname" class="nav-link" data-scroll-target="#drop-firstname-and-lastname"><span class="toc-section-number">4.8</span>  Drop “firstname” and “lastname”</a></li>
-  <li><a href="#referential-integrity" id="toc-referential-integrity" class="nav-link" data-scroll-target="#referential-integrity"><span class="toc-section-number">4.9</span>  Referential integrity</a></li>
-  <li><a href="#referential-integrity-violations" id="toc-referential-integrity-violations" class="nav-link" data-scroll-target="#referential-integrity-violations"><span class="toc-section-number">4.10</span>  Referential integrity violations</a></li>
-  <li><a href="#change-the-referential-integrity-behavior-of-a-key" id="toc-change-the-referential-integrity-behavior-of-a-key" class="nav-link" data-scroll-target="#change-the-referential-integrity-behavior-of-a-key"><span class="toc-section-number">4.12</span>  Change the referential integrity behavior of a key</a></li>
-  <li><a href="#roundup" id="toc-roundup" class="nav-link" data-scroll-target="#roundup"><span class="toc-section-number">4.13</span>  Roundup</a></li>
-  <li><a href="#count-affiliations-per-university" id="toc-count-affiliations-per-university" class="nav-link" data-scroll-target="#count-affiliations-per-university"><span class="toc-section-number">4.14</span>  Count affiliations per university</a></li>
-  <li><a href="#join-all-the-tables-together" id="toc-join-all-the-tables-together" class="nav-link" data-scroll-target="#join-all-the-tables-together"><span class="toc-section-number">4.15</span>  Join all the tables together</a></li>
+  <li><a href="#model-1n-relationships-with-foreign-keys" id="toc-model-1n-relationships-with-foreign-keys" class="nav-link" data-scroll-target="#model-1n-relationships-with-foreign-keys"><span class="header-section-number">4.1</span> Model 1:N relationships with foreign keys</a></li>
+  <li><a href="#reference-a-table-with-a-foreign-key" id="toc-reference-a-table-with-a-foreign-key" class="nav-link" data-scroll-target="#reference-a-table-with-a-foreign-key"><span class="header-section-number">4.2</span> REFERENCE a table with a FOREIGN KEY</a></li>
+  <li><a href="#explore-foreign-key-constraints" id="toc-explore-foreign-key-constraints" class="nav-link" data-scroll-target="#explore-foreign-key-constraints"><span class="header-section-number">4.3</span> Explore foreign key constraints</a></li>
+  <li><a href="#join-tables-linked-by-a-foreign-key" id="toc-join-tables-linked-by-a-foreign-key" class="nav-link" data-scroll-target="#join-tables-linked-by-a-foreign-key"><span class="header-section-number">4.4</span> JOIN tables linked by a foreign key</a></li>
+  <li><a href="#model-more-complex-relationships" id="toc-model-more-complex-relationships" class="nav-link" data-scroll-target="#model-more-complex-relationships"><span class="header-section-number">4.5</span> Model more complex relationships</a></li>
+  <li><a href="#add-foreign-keys-to-the-affiliations-table" id="toc-add-foreign-keys-to-the-affiliations-table" class="nav-link" data-scroll-target="#add-foreign-keys-to-the-affiliations-table"><span class="header-section-number">4.6</span> Add foreign keys to the “affiliations” table</a></li>
+  <li><a href="#populate-the-professor_id-column" id="toc-populate-the-professor_id-column" class="nav-link" data-scroll-target="#populate-the-professor_id-column"><span class="header-section-number">4.7</span> Populate the “professor_id” column</a></li>
+  <li><a href="#drop-firstname-and-lastname" id="toc-drop-firstname-and-lastname" class="nav-link" data-scroll-target="#drop-firstname-and-lastname"><span class="header-section-number">4.8</span> Drop “firstname” and “lastname”</a></li>
+  <li><a href="#referential-integrity" id="toc-referential-integrity" class="nav-link" data-scroll-target="#referential-integrity"><span class="header-section-number">4.9</span> Referential integrity</a></li>
+  <li><a href="#referential-integrity-violations" id="toc-referential-integrity-violations" class="nav-link" data-scroll-target="#referential-integrity-violations"><span class="header-section-number">4.10</span> Referential integrity violations</a></li>
+  <li><a href="#change-the-referential-integrity-behavior-of-a-key" id="toc-change-the-referential-integrity-behavior-of-a-key" class="nav-link" data-scroll-target="#change-the-referential-integrity-behavior-of-a-key"><span class="header-section-number">4.12</span> Change the referential integrity behavior of a key</a></li>
+  <li><a href="#roundup" id="toc-roundup" class="nav-link" data-scroll-target="#roundup"><span class="header-section-number">4.13</span> Roundup</a></li>
+  <li><a href="#count-affiliations-per-university" id="toc-count-affiliations-per-university" class="nav-link" data-scroll-target="#count-affiliations-per-university"><span class="header-section-number">4.14</span> Count affiliations per university</a></li>
+  <li><a href="#join-all-the-tables-together" id="toc-join-all-the-tables-together" class="nav-link" data-scroll-target="#join-all-the-tables-together"><span class="header-section-number">4.15</span> Join all the tables together</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/sql/introduction_to_relational_databases_in_sql/introduction_to_relational_databases_in_sql.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -322,7 +304,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Introduction to Relational Databases in SQL</h1>
+<h1 class="title">Introduction to Relational Databases in SQL</h1>
 </div>
 
 
@@ -396,7 +378,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-4"><a href="#cb1-4"></a><span class="co">-- Specify the correct table_schema value</span></span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="kw">WHERE</span> table_schema <span class="op">=</span> <span class="st">'public'</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>1 records</caption>
 <thead>
 <tr class="header">
@@ -420,7 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-3"><a href="#cb2-3"></a><span class="kw">FROM</span> information_schema.<span class="kw">columns</span> </span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="kw">WHERE</span> table_name <span class="op">=</span> <span class="st">'university_professors'</span> <span class="kw">AND</span> table_schema <span class="op">=</span> <span class="st">'public'</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>8 records</caption>
 <thead>
 <tr class="header">
@@ -478,7 +460,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-3"><a href="#cb3-3"></a><span class="kw">FROM</span> university_professors </span>
 <span id="cb3-4"><a href="#cb3-4"></a><span class="kw">LIMIT</span> <span class="dv">5</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>5 records</caption>
 <colgroup>
 <col style="width: 8%">
@@ -812,7 +794,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb22-2"><a href="#cb22-2"></a><span class="kw">SELECT</span> <span class="op">*</span> </span>
 <span id="cb22-3"><a href="#cb22-3"></a><span class="kw">FROM</span> professors;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <thead>
 <tr class="header">
@@ -890,7 +872,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb24-2"><a href="#cb24-2"></a><span class="kw">SELECT</span> <span class="op">*</span> </span>
 <span id="cb24-3"><a href="#cb24-3"></a><span class="kw">FROM</span> affiliations;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <colgroup>
 <col style="width: 9%">
@@ -976,7 +958,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb25-2"><a href="#cb25-2"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>) </span>
 <span id="cb25-3"><a href="#cb25-3"></a><span class="kw">FROM</span> affiliations;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>1 records</caption>
 <thead>
 <tr class="header">
@@ -1002,7 +984,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a><span class="kw">FROM</span> universities</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <thead>
 <tr class="header">
@@ -1075,7 +1057,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
 <span id="cb29-2"><a href="#cb29-2"></a><span class="kw">FROM</span> organizations</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <colgroup>
 <col style="width: 50%">
@@ -1202,10 +1184,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb33-2"><a href="#cb33-2"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> transactions (transaction_date, amount, fee) </span>
 <span id="cb33-3"><a href="#cb33-3"></a><span class="kw">VALUES</span> (<span class="st">'2018-24-09'</span>, <span class="dv">5454</span>, <span class="st">'30'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Error: Failed to prepare query: ERROR:  date/time field value out of range: "2018-24-09"
-LINE 3: VALUES ('2018-24-09', 5454, '30');
-                ^
-HINT:  Perhaps you need a different "datestyle" setting.</code></pre>
+<pre><code>#&gt; Error: Failed to prepare query: ERROR:  date/time field value out of range: "2018-24-09"
+#&gt; LINE 3: VALUES ('2018-24-09', 5454, '30');
+#&gt;                 ^
+#&gt; HINT:  Perhaps you need a different "datestyle" setting.</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1218,7 +1200,7 @@ HINT:  Perhaps you need a different "datestyle" setting.</code></pre>
 <span id="cb36-2"><a href="#cb36-2"></a><span class="kw">SELECT</span> <span class="op">*</span></span>
 <span id="cb36-3"><a href="#cb36-3"></a><span class="kw">FROM</span> transactions;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <thead>
 <tr class="header">
@@ -1302,10 +1284,10 @@ HINT:  Perhaps you need a different "datestyle" setting.</code></pre>
 <span id="cb38-2"><a href="#cb38-2"></a><span class="kw">SELECT</span> transaction_date, amount <span class="op">+</span> fee <span class="kw">AS</span> net_amount </span>
 <span id="cb38-3"><a href="#cb38-3"></a><span class="kw">FROM</span> transactions;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Error: Failed to prepare query: ERROR:  operator does not exist: double precision + text
-LINE 2: SELECT transaction_date, amount + fee AS net_amount 
-                                        ^
-HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.</code></pre>
+<pre><code>#&gt; Error: Failed to prepare query: ERROR:  operator does not exist: double precision + text
+#&gt; LINE 2: SELECT transaction_date, amount + fee AS net_amount 
+#&gt;                                         ^
+#&gt; HINT:  No operator matches the given name and argument types. You might need to add explicit type casts.</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -1313,7 +1295,7 @@ HINT:  No operator matches the given name and argument types. You might need to 
 <span id="cb40-2"><a href="#cb40-2"></a><span class="kw">SELECT</span> transaction_date, amount <span class="op">+</span> <span class="fu">CAST</span>(fee <span class="kw">AS</span> <span class="dt">integer</span>) <span class="kw">AS</span> net_amount </span>
 <span id="cb40-3"><a href="#cb40-3"></a><span class="kw">FROM</span> transactions;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <thead>
 <tr class="header">
@@ -1401,7 +1383,7 @@ HINT:  No operator matches the given name and argument types. You might need to 
 <span id="cb42-2"><a href="#cb42-2"></a><span class="kw">SELECT</span> <span class="kw">DISTINCT</span>(university_shortname) </span>
 <span id="cb42-3"><a href="#cb42-3"></a><span class="kw">FROM</span> professors;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <thead>
 <tr class="header">
@@ -1537,8 +1519,8 @@ HINT:  No operator matches the given name and argument types. You might need to 
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb49-1"><a href="#cb49-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> professors (firstname, lastname, university_shortname)</span>
 <span id="cb49-2"><a href="#cb49-2"></a><span class="kw">VALUES</span> (<span class="kw">NULL</span>, <span class="st">'Miller'</span>, <span class="st">'ETH'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Error: Failed to fetch row: ERROR:  null value in column "firstname" of relation "professors" violates not-null constraint
-DETAIL:  Failing row contains (null, Miller, ETH).</code></pre>
+<pre><code>#&gt; Error: Failed to fetch row: ERROR:  null value in column "firstname" of relation "professors" violates not-null constraint
+#&gt; DETAIL:  Failing row contains (null, Miller, ETH).</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -1620,7 +1602,7 @@ DETAIL:  Failing row contains (null, Miller, ETH).</code></pre>
 <span id="cb56-2"><a href="#cb56-2"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="op">*</span>) </span>
 <span id="cb56-3"><a href="#cb56-3"></a><span class="kw">FROM</span> universities;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>1 records</caption>
 <thead>
 <tr class="header">
@@ -1643,7 +1625,7 @@ DETAIL:  Failing row contains (null, Miller, ETH).</code></pre>
 <span id="cb57-2"><a href="#cb57-2"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span>(university_city)) </span>
 <span id="cb57-3"><a href="#cb57-3"></a><span class="kw">FROM</span> universities;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>1 records</caption>
 <thead>
 <tr class="header">
@@ -1677,7 +1659,7 @@ DETAIL:  Failing row contains (null, Miller, ETH).</code></pre>
 <span id="cb58-2"><a href="#cb58-2"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span>(firstname, lastname)) </span>
 <span id="cb58-3"><a href="#cb58-3"></a><span class="kw">FROM</span> professors;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>1 records</caption>
 <thead>
 <tr class="header">
@@ -1819,7 +1801,7 @@ DETAIL:  Failing row contains (null, Miller, ETH).</code></pre>
 <span id="cb67-3"><a href="#cb67-3"></a><span class="kw">FROM</span> professors </span>
 <span id="cb67-4"><a href="#cb67-4"></a><span class="kw">LIMIT</span> <span class="dv">10</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <thead>
 <tr class="header">
@@ -1919,7 +1901,7 @@ DETAIL:  Failing row contains (null, Miller, ETH).</code></pre>
 <span id="cb69-2"><a href="#cb69-2"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span>(make, model)) </span>
 <span id="cb69-3"><a href="#cb69-3"></a><span class="kw">FROM</span> cars;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>1 records</caption>
 <thead>
 <tr class="header">
@@ -1942,7 +1924,7 @@ DETAIL:  Failing row contains (null, Miller, ETH).</code></pre>
 <span id="cb70-2"><a href="#cb70-2"></a><span class="kw">SELECT</span> <span class="fu">COUNT</span>(<span class="kw">DISTINCT</span>(make, model)) </span>
 <span id="cb70-3"><a href="#cb70-3"></a><span class="kw">FROM</span> cars;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>1 records</caption>
 <thead>
 <tr class="header">
@@ -1982,7 +1964,7 @@ DETAIL:  Failing row contains (null, Miller, ETH).</code></pre>
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb74-1"><a href="#cb74-1"></a><span class="co">-- Have a look at the table</span></span>
 <span id="cb74-2"><a href="#cb74-2"></a><span class="kw">SELECT</span> <span class="op">*</span> <span class="kw">FROM</span> cars;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <thead>
 <tr class="header">
@@ -2151,8 +2133,8 @@ DETAIL:  Failing row contains (null, Miller, ETH).</code></pre>
 <span id="cb79-2"><a href="#cb79-2"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> professors (firstname, lastname, university_id)</span>
 <span id="cb79-3"><a href="#cb79-3"></a><span class="kw">VALUES</span> (<span class="st">'Albert'</span>, <span class="st">'Einstein'</span>, <span class="st">'MIT'</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Error: Failed to fetch row: ERROR:  insert or update on table "professors" violates foreign key constraint "professors_fkey"
-DETAIL:  Key (university_id)=(MIT) is not present in table "universities".</code></pre>
+<pre><code>#&gt; Error: Failed to fetch row: ERROR:  insert or update on table "professors" violates foreign key constraint "professors_fkey"
+#&gt; DETAIL:  Key (university_id)=(MIT) is not present in table "universities".</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -2188,7 +2170,7 @@ DETAIL:  Key (university_id)=(MIT) is not present in table "universities".</code
 <span id="cb83-5"><a href="#cb83-5"></a><span class="kw">ON</span> professors.university_id <span class="op">=</span> universities.<span class="kw">id</span></span>
 <span id="cb83-6"><a href="#cb83-6"></a><span class="kw">WHERE</span> universities.university_city <span class="op">=</span> <span class="st">'Zurich'</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <thead>
 <tr class="header">
@@ -2325,7 +2307,7 @@ DETAIL:  Key (university_id)=(MIT) is not present in table "universities".</code
 <span id="cb88-3"><a href="#cb88-3"></a><span class="kw">FROM</span> affiliations </span>
 <span id="cb88-4"><a href="#cb88-4"></a><span class="kw">LIMIT</span> <span class="dv">10</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <colgroup>
 <col style="width: 8%">
@@ -2438,7 +2420,7 @@ DETAIL:  Key (university_id)=(MIT) is not present in table "universities".</code
 <span id="cb90-3"><a href="#cb90-3"></a><span class="kw">FROM</span> affiliations </span>
 <span id="cb90-4"><a href="#cb90-4"></a><span class="kw">LIMIT</span> <span class="dv">10</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <colgroup>
 <col style="width: 13%">
@@ -2575,8 +2557,8 @@ DETAIL:  Key (university_id)=(MIT) is not present in table "universities".</code
 <div class="cell">
 <div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource sql number-lines code-with-copy"><code class="sourceCode sql"><span id="cb93-1"><a href="#cb93-1"></a><span class="kw">DELETE</span> <span class="kw">FROM</span> universities <span class="kw">WHERE</span> <span class="kw">id</span> <span class="op">=</span> <span class="st">'EPF'</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Error: Failed to fetch row: ERROR:  update or delete on table "universities" violates foreign key constraint "professors_fkey" on table "professors"
-DETAIL:  Key (id)=(EPF) is still referenced from table "professors".</code></pre>
+<pre><code>#&gt; Error: Failed to fetch row: ERROR:  update or delete on table "universities" violates foreign key constraint "professors_fkey" on table "professors"
+#&gt; DETAIL:  Key (id)=(EPF) is still referenced from table "professors".</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -2606,7 +2588,7 @@ DETAIL:  Key (id)=(EPF) is still referenced from table "professors".</code></pre
 <span id="cb95-3"><a href="#cb95-3"></a><span class="kw">FROM</span> information_schema.table_constraints</span>
 <span id="cb95-4"><a href="#cb95-4"></a><span class="kw">WHERE</span> constraint_type <span class="op">=</span> <span class="st">'FOREIGN KEY'</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>3 records</caption>
 <thead>
 <tr class="header">
@@ -2721,7 +2703,7 @@ DETAIL:  Key (id)=(EPF) is still referenced from table "professors".</code></pre
 <span id="cb101-7"><a href="#cb101-7"></a><span class="kw">GROUP</span> <span class="kw">BY</span> professors.university_id </span>
 <span id="cb101-8"><a href="#cb101-8"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="fu">count</span> <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <thead>
 <tr class="header">
@@ -2800,7 +2782,7 @@ DETAIL:  Key (id)=(EPF) is still referenced from table "professors".</code></pre
 <span id="cb102-8"><a href="#cb102-8"></a><span class="kw">JOIN</span> universities</span>
 <span id="cb102-9"><a href="#cb102-9"></a><span class="kw">ON</span> professors.university_id <span class="op">=</span> universities.<span class="kw">id</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <colgroup>
 <col style="width: 11%">
@@ -2995,7 +2977,7 @@ DETAIL:  Key (id)=(EPF) is still referenced from table "professors".</code></pre
 <span id="cb103-11"><a href="#cb103-11"></a><span class="kw">GROUP</span> <span class="kw">BY</span> organizations.organization_sector, </span>
 <span id="cb103-12"><a href="#cb103-12"></a>professors.<span class="kw">id</span>, universities.university_city;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <thead>
 <tr class="header">
@@ -3089,7 +3071,7 @@ DETAIL:  Key (id)=(EPF) is still referenced from table "professors".</code></pre
 <span id="cb104-13"><a href="#cb104-13"></a>professors.<span class="kw">id</span>, universities.university_city</span>
 <span id="cb104-14"><a href="#cb104-14"></a><span class="kw">ORDER</span> <span class="kw">BY</span> <span class="fu">count</span> <span class="kw">DESC</span>;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="knitsql-table">
-<table class="table table-sm table-striped">
+<table class="table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
 <thead>
 <tr class="header">
@@ -3313,9 +3295,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -3380,6 +3376,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -3432,6 +3514,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Content 2022 by <a href="https://www.startupengineer.io/authors/schwarz/">Joschka Schwarz</a> <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>

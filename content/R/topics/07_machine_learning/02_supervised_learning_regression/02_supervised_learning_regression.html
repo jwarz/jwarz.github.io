@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -134,6 +105,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../../../../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="../../../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -150,308 +122,349 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">Joschka Schwarz</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Data Science</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-science">    
         <li>
-    <a class="dropdown-item" href="../../../../../content/R/index.html">
+    <a class="dropdown-item" href="../../../../../content/R/index.html" rel="" target="">
  <span class="dropdown-text">R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/python/index.html">
+    <a class="dropdown-item" href="../../../../../content/python/index.html" rel="" target="">
  <span class="dropdown-text">Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/sql/index.html">
+    <a class="dropdown-item" href="../../../../../content/sql/index.html" rel="" target="">
  <span class="dropdown-text">SQL</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../slides/index.html">
+    <a class="nav-link" href="../../../../../slides/index.html" rel="" target="">
  <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../resumes/index.html">
+    <a class="nav-link" href="../../../../../resumes/index.html" rel="" target="">
  <span class="menu-text">Resumes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../index.html">
+    <a class="nav-link" href="../../../../../index.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jwarz/"><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
+    <a class="nav-link" href="https://github.com/jwarz/" rel="" target=""><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz"><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
+    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Supervised Learning in R: Regression</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Topics</li><li class="breadcrumb-item"><a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html">7.2: Supervised Learning: Regression</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Topics</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <b><i>1 Programming Basics</i></b>
+ <span class="menu-text"><b><i>1 Programming Basics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">1.1: Introduction to R</a>
+  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1: Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">1.2: Intermediate R</a>
+  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2: Intermediate R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">1.3: Introduction to the tidyverse</a>
+  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3: Introduction to the tidyverse</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>2 Importing Data</i></b>
+ <span class="menu-text"><b><i>2 Importing Data</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">2.1: Introduction to Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1: Introduction to Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">2.2: Intermediate Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2: Intermediate Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">2.3: Working with web data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3: Working with web data</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>3 Data Wrangling</i></b>
+ <span class="menu-text"><b><i>3 Data Wrangling</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">3.1: Data Manipulation with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1: Data Manipulation with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">3.2: Joining data with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2: Joining data with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.3: Exploratory Data Analysis</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3: Exploratory Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.4: Case Study: EDA</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4: Case Study: EDA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">3.5: Cleaning Data</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5: Cleaning Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">3.6: Data Manipulation with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6: Data Manipulation with data.table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">3.7: Joining Data with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.7: Joining Data with data.table</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>4 Data Visualization</i></b>
+ <span class="menu-text"><b><i>4 Data Visualization</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">4.1: Introduction to Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1: Introduction to Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">4.2: Intermediate Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2: Intermediate Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>5 Statistics</i></b>
+ <span class="menu-text"><b><i>5 Statistics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">5.1: Introduction to Statistics</a>
+  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1: Introduction to Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">5.2: Foundations of Probability</a>
+  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2: Foundations of Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">5.3: Introduction to Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3: Introduction to Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">5.4: Intermediate Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.4: Intermediate Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">5.5: Modeling with Data in the Tidyverse</a>
+  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.5: Modeling with Data in the Tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">5.6: Experimental Design</a>
+  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.6: Experimental Design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">5.7: A/B Testing</a>
+  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.7: A/B Testing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">5.8: Fundamentals of Bayesian Data Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.8: Fundamentals of Bayesian Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">5.9: Factor Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.9: Factor Analysis</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>7 Machine Learning</i></b>
+ <span class="menu-text"><b><i>7 Machine Learning</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">7.1: Supervised Learning: Classification</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1: Supervised Learning: Classification</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link active">7.2: Supervised Learning: Regression</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">7.2: Supervised Learning: Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">7.3: Unsupervised Learning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3: Unsupervised Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">7.4: Machine Learning in the tidyverse</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4: Machine Learning in the tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">7.5: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.5: Cluster Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">7.6: Machine Learning with caret</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6: Machine Learning with caret</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">7.7: Modeling with tidymodels</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.7: Modeling with tidymodels</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">7.8: Machine Learning with tree-based Models</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.8: Machine Learning with tree-based Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">7.9: Support Vector Machines</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.9: Support Vector Machines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">7.10: Topic Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.10: Topic Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">7.11: Hyperparameter Tuning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.11: Hyperparameter Tuning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">7.12: Bayesian Regression Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.12: Bayesian Regression Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">7.13: Introduction to Spark</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.13: Introduction to Spark</span></a>
   </div>
 </li>
       </ul>
@@ -459,40 +472,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Manuals</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">R Manuals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">1: An Introduction to R</a>
+  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: An Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">2: R Data Import/Export</a>
+  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: R Data Import/Export</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">3: R Installation and Administration</a>
+  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: R Installation and Administration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">4: Writing R Extensions</a>
+  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Writing R Extensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">5: R Language Definition</a>
+  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: R Language Definition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">6: R Internals</a>
+  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: R Internals</span></a>
   </div>
 </li>
       </ul>
@@ -500,91 +520,92 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#what-is-regression" id="toc-what-is-regression" class="nav-link active" data-scroll-target="#what-is-regression"><span class="toc-section-number">1</span>  What is Regression?</a>
+  <li><a href="#what-is-regression" id="toc-what-is-regression" class="nav-link active" data-scroll-target="#what-is-regression"><span class="header-section-number">1</span> What is Regression?</a>
   <ul class="collapse">
-  <li><a href="#welcome-and-introduction" id="toc-welcome-and-introduction" class="nav-link" data-scroll-target="#welcome-and-introduction"><span class="toc-section-number">1.1</span>  Welcome and Introduction</a></li>
-  <li><a href="#identify-the-regression-tasks" id="toc-identify-the-regression-tasks" class="nav-link" data-scroll-target="#identify-the-regression-tasks"><span class="toc-section-number">1.2</span>  Identify the regression tasks</a></li>
-  <li><a href="#linear-regression---the-fundamental-method" id="toc-linear-regression---the-fundamental-method" class="nav-link" data-scroll-target="#linear-regression---the-fundamental-method"><span class="toc-section-number">1.4</span>  Linear regression - the fundamental method</a></li>
-  <li><a href="#code-a-simple-one-variable-regression" id="toc-code-a-simple-one-variable-regression" class="nav-link" data-scroll-target="#code-a-simple-one-variable-regression"><span class="toc-section-number">1.5</span>  Code a simple one-variable regression</a></li>
-  <li><a href="#examining-a-model" id="toc-examining-a-model" class="nav-link" data-scroll-target="#examining-a-model"><span class="toc-section-number">1.6</span>  Examining a model</a></li>
-  <li><a href="#predicting-once-you-fit-a-model" id="toc-predicting-once-you-fit-a-model" class="nav-link" data-scroll-target="#predicting-once-you-fit-a-model"><span class="toc-section-number">1.7</span>  Predicting once you fit a model</a></li>
-  <li><a href="#predicting-from-the-unemployment-model" id="toc-predicting-from-the-unemployment-model" class="nav-link" data-scroll-target="#predicting-from-the-unemployment-model"><span class="toc-section-number">1.8</span>  Predicting from the unemployment model</a></li>
-  <li><a href="#multivariate-linear-regression-part-1" id="toc-multivariate-linear-regression-part-1" class="nav-link" data-scroll-target="#multivariate-linear-regression-part-1"><span class="toc-section-number">1.9</span>  Multivariate linear regression (Part 1)</a></li>
-  <li><a href="#multivariate-linear-regression-part-2" id="toc-multivariate-linear-regression-part-2" class="nav-link" data-scroll-target="#multivariate-linear-regression-part-2"><span class="toc-section-number">1.10</span>  Multivariate linear regression (Part 2)</a></li>
-  <li><a href="#wrapping-up-linear-regression" id="toc-wrapping-up-linear-regression" class="nav-link" data-scroll-target="#wrapping-up-linear-regression"><span class="toc-section-number">1.11</span>  Wrapping up linear regression</a></li>
+  <li><a href="#welcome-and-introduction" id="toc-welcome-and-introduction" class="nav-link" data-scroll-target="#welcome-and-introduction"><span class="header-section-number">1.1</span> Welcome and Introduction</a></li>
+  <li><a href="#identify-the-regression-tasks" id="toc-identify-the-regression-tasks" class="nav-link" data-scroll-target="#identify-the-regression-tasks"><span class="header-section-number">1.2</span> Identify the regression tasks</a></li>
+  <li><a href="#linear-regression---the-fundamental-method" id="toc-linear-regression---the-fundamental-method" class="nav-link" data-scroll-target="#linear-regression---the-fundamental-method"><span class="header-section-number">1.4</span> Linear regression - the fundamental method</a></li>
+  <li><a href="#code-a-simple-one-variable-regression" id="toc-code-a-simple-one-variable-regression" class="nav-link" data-scroll-target="#code-a-simple-one-variable-regression"><span class="header-section-number">1.5</span> Code a simple one-variable regression</a></li>
+  <li><a href="#examining-a-model" id="toc-examining-a-model" class="nav-link" data-scroll-target="#examining-a-model"><span class="header-section-number">1.6</span> Examining a model</a></li>
+  <li><a href="#predicting-once-you-fit-a-model" id="toc-predicting-once-you-fit-a-model" class="nav-link" data-scroll-target="#predicting-once-you-fit-a-model"><span class="header-section-number">1.7</span> Predicting once you fit a model</a></li>
+  <li><a href="#predicting-from-the-unemployment-model" id="toc-predicting-from-the-unemployment-model" class="nav-link" data-scroll-target="#predicting-from-the-unemployment-model"><span class="header-section-number">1.8</span> Predicting from the unemployment model</a></li>
+  <li><a href="#multivariate-linear-regression-part-1" id="toc-multivariate-linear-regression-part-1" class="nav-link" data-scroll-target="#multivariate-linear-regression-part-1"><span class="header-section-number">1.9</span> Multivariate linear regression (Part 1)</a></li>
+  <li><a href="#multivariate-linear-regression-part-2" id="toc-multivariate-linear-regression-part-2" class="nav-link" data-scroll-target="#multivariate-linear-regression-part-2"><span class="header-section-number">1.10</span> Multivariate linear regression (Part 2)</a></li>
+  <li><a href="#wrapping-up-linear-regression" id="toc-wrapping-up-linear-regression" class="nav-link" data-scroll-target="#wrapping-up-linear-regression"><span class="header-section-number">1.11</span> Wrapping up linear regression</a></li>
   </ul></li>
-  <li><a href="#training-and-evaluating-regression-models" id="toc-training-and-evaluating-regression-models" class="nav-link" data-scroll-target="#training-and-evaluating-regression-models"><span class="toc-section-number">2</span>  2. Training and Evaluating Regression Models</a>
+  <li><a href="#training-and-evaluating-regression-models" id="toc-training-and-evaluating-regression-models" class="nav-link" data-scroll-target="#training-and-evaluating-regression-models"><span class="header-section-number">2</span> 2. Training and Evaluating Regression Models</a>
   <ul class="collapse">
-  <li><a href="#evaluating-a-model-graphically" id="toc-evaluating-a-model-graphically" class="nav-link" data-scroll-target="#evaluating-a-model-graphically"><span class="toc-section-number">2.1</span>  Evaluating a model graphically</a></li>
-  <li><a href="#graphically-evaluate-the-unemployment-model" id="toc-graphically-evaluate-the-unemployment-model" class="nav-link" data-scroll-target="#graphically-evaluate-the-unemployment-model"><span class="toc-section-number">2.2</span>  Graphically evaluate the unemployment model</a></li>
-  <li><a href="#the-gain-curve-to-evaluate-the-unemployment-model" id="toc-the-gain-curve-to-evaluate-the-unemployment-model" class="nav-link" data-scroll-target="#the-gain-curve-to-evaluate-the-unemployment-model"><span class="toc-section-number">2.3</span>  The gain curve to evaluate the unemployment model</a></li>
-  <li><a href="#root-mean-squared-error-rmse" id="toc-root-mean-squared-error-rmse" class="nav-link" data-scroll-target="#root-mean-squared-error-rmse"><span class="toc-section-number">2.4</span>  Root Mean Squared Error (RMSE)</a></li>
-  <li><a href="#calculate-rmse" id="toc-calculate-rmse" class="nav-link" data-scroll-target="#calculate-rmse"><span class="toc-section-number">2.5</span>  Calculate RMSE</a></li>
-  <li><a href="#r-squared" id="toc-r-squared" class="nav-link" data-scroll-target="#r-squared"><span class="toc-section-number">2.6</span>  R-Squared</a></li>
-  <li><a href="#calculate-r-squared" id="toc-calculate-r-squared" class="nav-link" data-scroll-target="#calculate-r-squared"><span class="toc-section-number">2.7</span>  Calculate R-squared</a></li>
-  <li><a href="#correlation-and-r-squared" id="toc-correlation-and-r-squared" class="nav-link" data-scroll-target="#correlation-and-r-squared"><span class="toc-section-number">2.8</span>  Correlation and R-squared</a></li>
-  <li><a href="#properly-training-a-model" id="toc-properly-training-a-model" class="nav-link" data-scroll-target="#properly-training-a-model"><span class="toc-section-number">2.9</span>  Properly Training a Model</a></li>
-  <li><a href="#generating-a-random-testtrain-split" id="toc-generating-a-random-testtrain-split" class="nav-link" data-scroll-target="#generating-a-random-testtrain-split"><span class="toc-section-number">2.10</span>  Generating a random test/train split</a></li>
-  <li><a href="#train-a-model-using-testtrain-split" id="toc-train-a-model-using-testtrain-split" class="nav-link" data-scroll-target="#train-a-model-using-testtrain-split"><span class="toc-section-number">2.11</span>  Train a model using test/train split</a></li>
-  <li><a href="#evaluate-a-model-using-testtrain-split" id="toc-evaluate-a-model-using-testtrain-split" class="nav-link" data-scroll-target="#evaluate-a-model-using-testtrain-split"><span class="toc-section-number">2.12</span>  Evaluate a model using test/train split</a></li>
-  <li><a href="#create-a-cross-validation-plan" id="toc-create-a-cross-validation-plan" class="nav-link" data-scroll-target="#create-a-cross-validation-plan"><span class="toc-section-number">2.13</span>  Create a cross validation plan</a></li>
-  <li><a href="#evaluate-a-modeling-procedure-using-n-fold-cross-validation" id="toc-evaluate-a-modeling-procedure-using-n-fold-cross-validation" class="nav-link" data-scroll-target="#evaluate-a-modeling-procedure-using-n-fold-cross-validation"><span class="toc-section-number">2.14</span>  Evaluate a modeling procedure using n-fold cross-validation</a></li>
+  <li><a href="#evaluating-a-model-graphically" id="toc-evaluating-a-model-graphically" class="nav-link" data-scroll-target="#evaluating-a-model-graphically"><span class="header-section-number">2.1</span> Evaluating a model graphically</a></li>
+  <li><a href="#graphically-evaluate-the-unemployment-model" id="toc-graphically-evaluate-the-unemployment-model" class="nav-link" data-scroll-target="#graphically-evaluate-the-unemployment-model"><span class="header-section-number">2.2</span> Graphically evaluate the unemployment model</a></li>
+  <li><a href="#the-gain-curve-to-evaluate-the-unemployment-model" id="toc-the-gain-curve-to-evaluate-the-unemployment-model" class="nav-link" data-scroll-target="#the-gain-curve-to-evaluate-the-unemployment-model"><span class="header-section-number">2.3</span> The gain curve to evaluate the unemployment model</a></li>
+  <li><a href="#root-mean-squared-error-rmse" id="toc-root-mean-squared-error-rmse" class="nav-link" data-scroll-target="#root-mean-squared-error-rmse"><span class="header-section-number">2.4</span> Root Mean Squared Error (RMSE)</a></li>
+  <li><a href="#calculate-rmse" id="toc-calculate-rmse" class="nav-link" data-scroll-target="#calculate-rmse"><span class="header-section-number">2.5</span> Calculate RMSE</a></li>
+  <li><a href="#r-squared" id="toc-r-squared" class="nav-link" data-scroll-target="#r-squared"><span class="header-section-number">2.6</span> R-Squared</a></li>
+  <li><a href="#calculate-r-squared" id="toc-calculate-r-squared" class="nav-link" data-scroll-target="#calculate-r-squared"><span class="header-section-number">2.7</span> Calculate R-squared</a></li>
+  <li><a href="#correlation-and-r-squared" id="toc-correlation-and-r-squared" class="nav-link" data-scroll-target="#correlation-and-r-squared"><span class="header-section-number">2.8</span> Correlation and R-squared</a></li>
+  <li><a href="#properly-training-a-model" id="toc-properly-training-a-model" class="nav-link" data-scroll-target="#properly-training-a-model"><span class="header-section-number">2.9</span> Properly Training a Model</a></li>
+  <li><a href="#generating-a-random-testtrain-split" id="toc-generating-a-random-testtrain-split" class="nav-link" data-scroll-target="#generating-a-random-testtrain-split"><span class="header-section-number">2.10</span> Generating a random test/train split</a></li>
+  <li><a href="#train-a-model-using-testtrain-split" id="toc-train-a-model-using-testtrain-split" class="nav-link" data-scroll-target="#train-a-model-using-testtrain-split"><span class="header-section-number">2.11</span> Train a model using test/train split</a></li>
+  <li><a href="#evaluate-a-model-using-testtrain-split" id="toc-evaluate-a-model-using-testtrain-split" class="nav-link" data-scroll-target="#evaluate-a-model-using-testtrain-split"><span class="header-section-number">2.12</span> Evaluate a model using test/train split</a></li>
+  <li><a href="#create-a-cross-validation-plan" id="toc-create-a-cross-validation-plan" class="nav-link" data-scroll-target="#create-a-cross-validation-plan"><span class="header-section-number">2.13</span> Create a cross validation plan</a></li>
+  <li><a href="#evaluate-a-modeling-procedure-using-n-fold-cross-validation" id="toc-evaluate-a-modeling-procedure-using-n-fold-cross-validation" class="nav-link" data-scroll-target="#evaluate-a-modeling-procedure-using-n-fold-cross-validation"><span class="header-section-number">2.14</span> Evaluate a modeling procedure using n-fold cross-validation</a></li>
   </ul></li>
-  <li><a href="#issues-to-consider" id="toc-issues-to-consider" class="nav-link" data-scroll-target="#issues-to-consider"><span class="toc-section-number">3</span>  3. Issues to Consider</a>
+  <li><a href="#issues-to-consider" id="toc-issues-to-consider" class="nav-link" data-scroll-target="#issues-to-consider"><span class="header-section-number">3</span> 3. Issues to Consider</a>
   <ul class="collapse">
-  <li><a href="#categorical-inputs" id="toc-categorical-inputs" class="nav-link" data-scroll-target="#categorical-inputs"><span class="toc-section-number">3.1</span>  Categorical inputs</a></li>
-  <li><a href="#examining-the-structure-of-categorical-inputs" id="toc-examining-the-structure-of-categorical-inputs" class="nav-link" data-scroll-target="#examining-the-structure-of-categorical-inputs"><span class="toc-section-number">3.2</span>  Examining the structure of categorical inputs</a></li>
-  <li><a href="#modeling-with-categorical-inputs" id="toc-modeling-with-categorical-inputs" class="nav-link" data-scroll-target="#modeling-with-categorical-inputs"><span class="toc-section-number">3.3</span>  Modeling with categorical inputs</a></li>
-  <li><a href="#interactions" id="toc-interactions" class="nav-link" data-scroll-target="#interactions"><span class="toc-section-number">3.4</span>  Interactions</a></li>
-  <li><a href="#modeling-an-interaction" id="toc-modeling-an-interaction" class="nav-link" data-scroll-target="#modeling-an-interaction"><span class="toc-section-number">3.5</span>  Modeling an interaction</a></li>
-  <li><a href="#modeling-an-interaction-2" id="toc-modeling-an-interaction-2" class="nav-link" data-scroll-target="#modeling-an-interaction-2"><span class="toc-section-number">3.6</span>  Modeling an interaction (2)</a></li>
-  <li><a href="#transforming-the-response-before-modeling" id="toc-transforming-the-response-before-modeling" class="nav-link" data-scroll-target="#transforming-the-response-before-modeling"><span class="toc-section-number">3.7</span>  Transforming the response before modeling</a></li>
-  <li><a href="#relative-error" id="toc-relative-error" class="nav-link" data-scroll-target="#relative-error"><span class="toc-section-number">3.8</span>  Relative error</a></li>
-  <li><a href="#modeling-log-transformed-monetary-output" id="toc-modeling-log-transformed-monetary-output" class="nav-link" data-scroll-target="#modeling-log-transformed-monetary-output"><span class="toc-section-number">3.9</span>  Modeling log-transformed monetary output</a></li>
-  <li><a href="#comparing-rmse-and-root-mean-squared-relative-error" id="toc-comparing-rmse-and-root-mean-squared-relative-error" class="nav-link" data-scroll-target="#comparing-rmse-and-root-mean-squared-relative-error"><span class="toc-section-number">3.10</span>  Comparing RMSE and root-mean-squared Relative Error</a></li>
-  <li><a href="#transforming-inputs-before-modeling" id="toc-transforming-inputs-before-modeling" class="nav-link" data-scroll-target="#transforming-inputs-before-modeling"><span class="toc-section-number">3.11</span>  Transforming inputs before modeling</a></li>
-  <li><a href="#input-transforms-the-hockey-stick" id="toc-input-transforms-the-hockey-stick" class="nav-link" data-scroll-target="#input-transforms-the-hockey-stick"><span class="toc-section-number">3.12</span>  Input transforms: the “hockey stick”</a></li>
-  <li><a href="#input-transforms-the-hockey-stick-2" id="toc-input-transforms-the-hockey-stick-2" class="nav-link" data-scroll-target="#input-transforms-the-hockey-stick-2"><span class="toc-section-number">3.13</span>  Input transforms: the “hockey stick” (2)</a></li>
+  <li><a href="#categorical-inputs" id="toc-categorical-inputs" class="nav-link" data-scroll-target="#categorical-inputs"><span class="header-section-number">3.1</span> Categorical inputs</a></li>
+  <li><a href="#examining-the-structure-of-categorical-inputs" id="toc-examining-the-structure-of-categorical-inputs" class="nav-link" data-scroll-target="#examining-the-structure-of-categorical-inputs"><span class="header-section-number">3.2</span> Examining the structure of categorical inputs</a></li>
+  <li><a href="#modeling-with-categorical-inputs" id="toc-modeling-with-categorical-inputs" class="nav-link" data-scroll-target="#modeling-with-categorical-inputs"><span class="header-section-number">3.3</span> Modeling with categorical inputs</a></li>
+  <li><a href="#interactions" id="toc-interactions" class="nav-link" data-scroll-target="#interactions"><span class="header-section-number">3.4</span> Interactions</a></li>
+  <li><a href="#modeling-an-interaction" id="toc-modeling-an-interaction" class="nav-link" data-scroll-target="#modeling-an-interaction"><span class="header-section-number">3.5</span> Modeling an interaction</a></li>
+  <li><a href="#modeling-an-interaction-2" id="toc-modeling-an-interaction-2" class="nav-link" data-scroll-target="#modeling-an-interaction-2"><span class="header-section-number">3.6</span> Modeling an interaction (2)</a></li>
+  <li><a href="#transforming-the-response-before-modeling" id="toc-transforming-the-response-before-modeling" class="nav-link" data-scroll-target="#transforming-the-response-before-modeling"><span class="header-section-number">3.7</span> Transforming the response before modeling</a></li>
+  <li><a href="#relative-error" id="toc-relative-error" class="nav-link" data-scroll-target="#relative-error"><span class="header-section-number">3.8</span> Relative error</a></li>
+  <li><a href="#modeling-log-transformed-monetary-output" id="toc-modeling-log-transformed-monetary-output" class="nav-link" data-scroll-target="#modeling-log-transformed-monetary-output"><span class="header-section-number">3.9</span> Modeling log-transformed monetary output</a></li>
+  <li><a href="#comparing-rmse-and-root-mean-squared-relative-error" id="toc-comparing-rmse-and-root-mean-squared-relative-error" class="nav-link" data-scroll-target="#comparing-rmse-and-root-mean-squared-relative-error"><span class="header-section-number">3.10</span> Comparing RMSE and root-mean-squared Relative Error</a></li>
+  <li><a href="#transforming-inputs-before-modeling" id="toc-transforming-inputs-before-modeling" class="nav-link" data-scroll-target="#transforming-inputs-before-modeling"><span class="header-section-number">3.11</span> Transforming inputs before modeling</a></li>
+  <li><a href="#input-transforms-the-hockey-stick" id="toc-input-transforms-the-hockey-stick" class="nav-link" data-scroll-target="#input-transforms-the-hockey-stick"><span class="header-section-number">3.12</span> Input transforms: the “hockey stick”</a></li>
+  <li><a href="#input-transforms-the-hockey-stick-2" id="toc-input-transforms-the-hockey-stick-2" class="nav-link" data-scroll-target="#input-transforms-the-hockey-stick-2"><span class="header-section-number">3.13</span> Input transforms: the “hockey stick” (2)</a></li>
   </ul></li>
-  <li><a href="#dealing-with-non-linear-responses" id="toc-dealing-with-non-linear-responses" class="nav-link" data-scroll-target="#dealing-with-non-linear-responses"><span class="toc-section-number">4</span>  4. Dealing with Non-Linear Responses</a>
+  <li><a href="#dealing-with-non-linear-responses" id="toc-dealing-with-non-linear-responses" class="nav-link" data-scroll-target="#dealing-with-non-linear-responses"><span class="header-section-number">4</span> 4. Dealing with Non-Linear Responses</a>
   <ul class="collapse">
-  <li><a href="#logistic-regression-to-predict-probabilities" id="toc-logistic-regression-to-predict-probabilities" class="nav-link" data-scroll-target="#logistic-regression-to-predict-probabilities"><span class="toc-section-number">4.1</span>  Logistic regression to predict probabilities</a></li>
-  <li><a href="#fit-a-model-of-sparrow-survival-probability" id="toc-fit-a-model-of-sparrow-survival-probability" class="nav-link" data-scroll-target="#fit-a-model-of-sparrow-survival-probability"><span class="toc-section-number">4.2</span>  Fit a model of sparrow survival probability</a></li>
-  <li><a href="#predict-sparrow-survival" id="toc-predict-sparrow-survival" class="nav-link" data-scroll-target="#predict-sparrow-survival"><span class="toc-section-number">4.3</span>  Predict sparrow survival</a></li>
-  <li><a href="#poisson-and-quasipoisson-regression-to-predict-counts" id="toc-poisson-and-quasipoisson-regression-to-predict-counts" class="nav-link" data-scroll-target="#poisson-and-quasipoisson-regression-to-predict-counts"><span class="toc-section-number">4.4</span>  Poisson and quasipoisson regression to predict counts</a></li>
-  <li><a href="#poisson-or-quasipoisson" id="toc-poisson-or-quasipoisson" class="nav-link" data-scroll-target="#poisson-or-quasipoisson"><span class="toc-section-number">4.5</span>  Poisson or quasipoisson</a></li>
-  <li><a href="#fit-a-model-to-predict-bike-rental-counts" id="toc-fit-a-model-to-predict-bike-rental-counts" class="nav-link" data-scroll-target="#fit-a-model-to-predict-bike-rental-counts"><span class="toc-section-number">4.7</span>  Fit a model to predict bike rental counts</a></li>
-  <li><a href="#predict-bike-rentals-on-new-data" id="toc-predict-bike-rentals-on-new-data" class="nav-link" data-scroll-target="#predict-bike-rentals-on-new-data"><span class="toc-section-number">4.8</span>  Predict bike rentals on new data</a></li>
-  <li><a href="#visualize-the-bike-rental-predictions" id="toc-visualize-the-bike-rental-predictions" class="nav-link" data-scroll-target="#visualize-the-bike-rental-predictions"><span class="toc-section-number">4.9</span>  Visualize the bike rental predictions</a></li>
-  <li><a href="#gam-to-learn-non-linear-transforms" id="toc-gam-to-learn-non-linear-transforms" class="nav-link" data-scroll-target="#gam-to-learn-non-linear-transforms"><span class="toc-section-number">4.10</span>  GAM to learn non-linear transforms</a></li>
-  <li><a href="#writing-formulas-for-gam-models" id="toc-writing-formulas-for-gam-models" class="nav-link" data-scroll-target="#writing-formulas-for-gam-models"><span class="toc-section-number">4.11</span>  Writing formulas for GAM models</a></li>
-  <li><a href="#writing-formulas-for-gam-models-2" id="toc-writing-formulas-for-gam-models-2" class="nav-link" data-scroll-target="#writing-formulas-for-gam-models-2"><span class="toc-section-number">4.13</span>  Writing formulas for GAM models (2)</a></li>
-  <li><a href="#model-soybean-growth-with-gam" id="toc-model-soybean-growth-with-gam" class="nav-link" data-scroll-target="#model-soybean-growth-with-gam"><span class="toc-section-number">4.15</span>  Model soybean growth with GAM</a></li>
-  <li><a href="#predict-with-the-soybean-model-on-test-data" id="toc-predict-with-the-soybean-model-on-test-data" class="nav-link" data-scroll-target="#predict-with-the-soybean-model-on-test-data"><span class="toc-section-number">4.16</span>  Predict with the soybean model on test data</a></li>
+  <li><a href="#logistic-regression-to-predict-probabilities" id="toc-logistic-regression-to-predict-probabilities" class="nav-link" data-scroll-target="#logistic-regression-to-predict-probabilities"><span class="header-section-number">4.1</span> Logistic regression to predict probabilities</a></li>
+  <li><a href="#fit-a-model-of-sparrow-survival-probability" id="toc-fit-a-model-of-sparrow-survival-probability" class="nav-link" data-scroll-target="#fit-a-model-of-sparrow-survival-probability"><span class="header-section-number">4.2</span> Fit a model of sparrow survival probability</a></li>
+  <li><a href="#predict-sparrow-survival" id="toc-predict-sparrow-survival" class="nav-link" data-scroll-target="#predict-sparrow-survival"><span class="header-section-number">4.3</span> Predict sparrow survival</a></li>
+  <li><a href="#poisson-and-quasipoisson-regression-to-predict-counts" id="toc-poisson-and-quasipoisson-regression-to-predict-counts" class="nav-link" data-scroll-target="#poisson-and-quasipoisson-regression-to-predict-counts"><span class="header-section-number">4.4</span> Poisson and quasipoisson regression to predict counts</a></li>
+  <li><a href="#poisson-or-quasipoisson" id="toc-poisson-or-quasipoisson" class="nav-link" data-scroll-target="#poisson-or-quasipoisson"><span class="header-section-number">4.5</span> Poisson or quasipoisson</a></li>
+  <li><a href="#fit-a-model-to-predict-bike-rental-counts" id="toc-fit-a-model-to-predict-bike-rental-counts" class="nav-link" data-scroll-target="#fit-a-model-to-predict-bike-rental-counts"><span class="header-section-number">4.7</span> Fit a model to predict bike rental counts</a></li>
+  <li><a href="#predict-bike-rentals-on-new-data" id="toc-predict-bike-rentals-on-new-data" class="nav-link" data-scroll-target="#predict-bike-rentals-on-new-data"><span class="header-section-number">4.8</span> Predict bike rentals on new data</a></li>
+  <li><a href="#visualize-the-bike-rental-predictions" id="toc-visualize-the-bike-rental-predictions" class="nav-link" data-scroll-target="#visualize-the-bike-rental-predictions"><span class="header-section-number">4.9</span> Visualize the bike rental predictions</a></li>
+  <li><a href="#gam-to-learn-non-linear-transforms" id="toc-gam-to-learn-non-linear-transforms" class="nav-link" data-scroll-target="#gam-to-learn-non-linear-transforms"><span class="header-section-number">4.10</span> GAM to learn non-linear transforms</a></li>
+  <li><a href="#writing-formulas-for-gam-models" id="toc-writing-formulas-for-gam-models" class="nav-link" data-scroll-target="#writing-formulas-for-gam-models"><span class="header-section-number">4.11</span> Writing formulas for GAM models</a></li>
+  <li><a href="#writing-formulas-for-gam-models-2" id="toc-writing-formulas-for-gam-models-2" class="nav-link" data-scroll-target="#writing-formulas-for-gam-models-2"><span class="header-section-number">4.13</span> Writing formulas for GAM models (2)</a></li>
+  <li><a href="#model-soybean-growth-with-gam" id="toc-model-soybean-growth-with-gam" class="nav-link" data-scroll-target="#model-soybean-growth-with-gam"><span class="header-section-number">4.15</span> Model soybean growth with GAM</a></li>
+  <li><a href="#predict-with-the-soybean-model-on-test-data" id="toc-predict-with-the-soybean-model-on-test-data" class="nav-link" data-scroll-target="#predict-with-the-soybean-model-on-test-data"><span class="header-section-number">4.16</span> Predict with the soybean model on test data</a></li>
   </ul></li>
-  <li><a href="#tree-based-methods" id="toc-tree-based-methods" class="nav-link" data-scroll-target="#tree-based-methods"><span class="toc-section-number">5</span>  5. Tree-Based Methods</a>
+  <li><a href="#tree-based-methods" id="toc-tree-based-methods" class="nav-link" data-scroll-target="#tree-based-methods"><span class="header-section-number">5</span> 5. Tree-Based Methods</a>
   <ul class="collapse">
-  <li><a href="#the-intuition-behind-tree-based-methods" id="toc-the-intuition-behind-tree-based-methods" class="nav-link" data-scroll-target="#the-intuition-behind-tree-based-methods"><span class="toc-section-number">5.1</span>  The intuition behind tree-based methods</a></li>
-  <li><a href="#predicting-with-a-decision-tree" id="toc-predicting-with-a-decision-tree" class="nav-link" data-scroll-target="#predicting-with-a-decision-tree"><span class="toc-section-number">5.2</span>  Predicting with a decision tree</a></li>
-  <li><a href="#random-forests" id="toc-random-forests" class="nav-link" data-scroll-target="#random-forests"><span class="toc-section-number">5.4</span>  Random forests</a></li>
-  <li><a href="#build-a-random-forest-model-for-bike-rentals" id="toc-build-a-random-forest-model-for-bike-rentals" class="nav-link" data-scroll-target="#build-a-random-forest-model-for-bike-rentals"><span class="toc-section-number">5.5</span>  Build a random forest model for bike rentals</a></li>
-  <li><a href="#predict-bike-rentals-with-the-random-forest-model" id="toc-predict-bike-rentals-with-the-random-forest-model" class="nav-link" data-scroll-target="#predict-bike-rentals-with-the-random-forest-model"><span class="toc-section-number">5.6</span>  Predict bike rentals with the random forest model</a></li>
-  <li><a href="#visualize-random-forest-bike-model-predictions" id="toc-visualize-random-forest-bike-model-predictions" class="nav-link" data-scroll-target="#visualize-random-forest-bike-model-predictions"><span class="toc-section-number">5.7</span>  Visualize random forest bike model predictions</a></li>
-  <li><a href="#one-hot-encoding-categorical-variables" id="toc-one-hot-encoding-categorical-variables" class="nav-link" data-scroll-target="#one-hot-encoding-categorical-variables"><span class="toc-section-number">5.8</span>  One-Hot-Encoding Categorical Variables</a></li>
-  <li><a href="#vtreat-on-a-small-example" id="toc-vtreat-on-a-small-example" class="nav-link" data-scroll-target="#vtreat-on-a-small-example"><span class="toc-section-number">5.9</span>  vtreat on a small example</a></li>
-  <li><a href="#novel-levels" id="toc-novel-levels" class="nav-link" data-scroll-target="#novel-levels"><span class="toc-section-number">5.10</span>  Novel levels</a></li>
-  <li><a href="#vtreat-the-bike-rental-data" id="toc-vtreat-the-bike-rental-data" class="nav-link" data-scroll-target="#vtreat-the-bike-rental-data"><span class="toc-section-number">5.11</span>  vtreat the bike rental data</a></li>
-  <li><a href="#gradient-boosting-machines" id="toc-gradient-boosting-machines" class="nav-link" data-scroll-target="#gradient-boosting-machines"><span class="toc-section-number">5.12</span>  Gradient boosting machines</a></li>
-  <li><a href="#find-the-right-number-of-trees-for-a-gradient-boosting-machine" id="toc-find-the-right-number-of-trees-for-a-gradient-boosting-machine" class="nav-link" data-scroll-target="#find-the-right-number-of-trees-for-a-gradient-boosting-machine"><span class="toc-section-number">5.13</span>  Find the right number of trees for a gradient boosting machine</a></li>
-  <li><a href="#fit-an-xgboost-bike-rental-model-and-predict" id="toc-fit-an-xgboost-bike-rental-model-and-predict" class="nav-link" data-scroll-target="#fit-an-xgboost-bike-rental-model-and-predict"><span class="toc-section-number">5.14</span>  Fit an xgboost bike rental model and predict</a></li>
-  <li><a href="#evaluate-the-xgboost-bike-rental-model" id="toc-evaluate-the-xgboost-bike-rental-model" class="nav-link" data-scroll-target="#evaluate-the-xgboost-bike-rental-model"><span class="toc-section-number">5.15</span>  Evaluate the xgboost bike rental model</a></li>
-  <li><a href="#visualize-the-xgboost-bike-rental-model" id="toc-visualize-the-xgboost-bike-rental-model" class="nav-link" data-scroll-target="#visualize-the-xgboost-bike-rental-model"><span class="toc-section-number">5.16</span>  Visualize the xgboost bike rental model</a></li>
+  <li><a href="#the-intuition-behind-tree-based-methods" id="toc-the-intuition-behind-tree-based-methods" class="nav-link" data-scroll-target="#the-intuition-behind-tree-based-methods"><span class="header-section-number">5.1</span> The intuition behind tree-based methods</a></li>
+  <li><a href="#predicting-with-a-decision-tree" id="toc-predicting-with-a-decision-tree" class="nav-link" data-scroll-target="#predicting-with-a-decision-tree"><span class="header-section-number">5.2</span> Predicting with a decision tree</a></li>
+  <li><a href="#random-forests" id="toc-random-forests" class="nav-link" data-scroll-target="#random-forests"><span class="header-section-number">5.4</span> Random forests</a></li>
+  <li><a href="#build-a-random-forest-model-for-bike-rentals" id="toc-build-a-random-forest-model-for-bike-rentals" class="nav-link" data-scroll-target="#build-a-random-forest-model-for-bike-rentals"><span class="header-section-number">5.5</span> Build a random forest model for bike rentals</a></li>
+  <li><a href="#predict-bike-rentals-with-the-random-forest-model" id="toc-predict-bike-rentals-with-the-random-forest-model" class="nav-link" data-scroll-target="#predict-bike-rentals-with-the-random-forest-model"><span class="header-section-number">5.6</span> Predict bike rentals with the random forest model</a></li>
+  <li><a href="#visualize-random-forest-bike-model-predictions" id="toc-visualize-random-forest-bike-model-predictions" class="nav-link" data-scroll-target="#visualize-random-forest-bike-model-predictions"><span class="header-section-number">5.7</span> Visualize random forest bike model predictions</a></li>
+  <li><a href="#one-hot-encoding-categorical-variables" id="toc-one-hot-encoding-categorical-variables" class="nav-link" data-scroll-target="#one-hot-encoding-categorical-variables"><span class="header-section-number">5.8</span> One-Hot-Encoding Categorical Variables</a></li>
+  <li><a href="#vtreat-on-a-small-example" id="toc-vtreat-on-a-small-example" class="nav-link" data-scroll-target="#vtreat-on-a-small-example"><span class="header-section-number">5.9</span> vtreat on a small example</a></li>
+  <li><a href="#novel-levels" id="toc-novel-levels" class="nav-link" data-scroll-target="#novel-levels"><span class="header-section-number">5.10</span> Novel levels</a></li>
+  <li><a href="#vtreat-the-bike-rental-data" id="toc-vtreat-the-bike-rental-data" class="nav-link" data-scroll-target="#vtreat-the-bike-rental-data"><span class="header-section-number">5.11</span> vtreat the bike rental data</a></li>
+  <li><a href="#gradient-boosting-machines" id="toc-gradient-boosting-machines" class="nav-link" data-scroll-target="#gradient-boosting-machines"><span class="header-section-number">5.12</span> Gradient boosting machines</a></li>
+  <li><a href="#find-the-right-number-of-trees-for-a-gradient-boosting-machine" id="toc-find-the-right-number-of-trees-for-a-gradient-boosting-machine" class="nav-link" data-scroll-target="#find-the-right-number-of-trees-for-a-gradient-boosting-machine"><span class="header-section-number">5.13</span> Find the right number of trees for a gradient boosting machine</a></li>
+  <li><a href="#fit-an-xgboost-bike-rental-model-and-predict" id="toc-fit-an-xgboost-bike-rental-model-and-predict" class="nav-link" data-scroll-target="#fit-an-xgboost-bike-rental-model-and-predict"><span class="header-section-number">5.14</span> Fit an xgboost bike rental model and predict</a></li>
+  <li><a href="#evaluate-the-xgboost-bike-rental-model" id="toc-evaluate-the-xgboost-bike-rental-model" class="nav-link" data-scroll-target="#evaluate-the-xgboost-bike-rental-model"><span class="header-section-number">5.15</span> Evaluate the xgboost bike rental model</a></li>
+  <li><a href="#visualize-the-xgboost-bike-rental-model" id="toc-visualize-the-xgboost-bike-rental-model" class="nav-link" data-scroll-target="#visualize-the-xgboost-bike-rental-model"><span class="header-section-number">5.16</span> Visualize the xgboost bike rental model</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -594,7 +615,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Supervised Learning in R: Regression</h1>
+<h1 class="title">Supervised Learning in R: Regression</h1>
 </div>
 
 
@@ -1325,11 +1346,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb50-8"><a href="#cb50-8"></a><span class="co"># Use nrow() to examine mpg_train and mpg_test</span></span>
 <span id="cb50-9"><a href="#cb50-9"></a><span class="fu">nrow</span>(mpg_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 175</code></pre>
+<pre><code>#&gt; [1] 182</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="fu">nrow</span>(mpg_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 59</code></pre>
+<pre><code>#&gt; [1] 52</code></pre>
 </div>
 </div>
 <p>Great job! A random split won’t always produce sets of exactly X% and (100-X)% of the data, but it should be close.</p>
@@ -1361,18 +1382,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; 
 #&gt; Residuals:
 #&gt;     Min      1Q  Median      3Q     Max 
-#&gt; -2.9972 -0.7239 -0.0179  0.6214  4.4772 
+#&gt; -2.9358 -0.8478  0.0495  0.7040  4.6526 
 #&gt; 
 #&gt; Coefficients:
 #&gt;             Estimate Std. Error t value Pr(&gt;|t|)    
-#&gt; (Intercept)  0.72942    0.37791    1.93   0.0552 .  
-#&gt; hwy          0.69071    0.01576   43.82   &lt;2e-16 ***
+#&gt; (Intercept)  1.02458    0.39015   2.626  0.00938 ** 
+#&gt; hwy          0.67645    0.01636  41.353  &lt; 2e-16 ***
 #&gt; ---
 #&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 #&gt; 
-#&gt; Residual standard error: 1.247 on 173 degrees of freedom
-#&gt; Multiple R-squared:  0.9173, Adjusted R-squared:  0.9169 
-#&gt; F-statistic:  1920 on 1 and 173 DF,  p-value: &lt; 2.2e-16</code></pre>
+#&gt; Residual standard error: 1.278 on 180 degrees of freedom
+#&gt; Multiple R-squared:  0.9048, Adjusted R-squared:  0.9042 
+#&gt; F-statistic:  1710 on 1 and 180 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>Great! Now it’s time to apply the model.</p>
@@ -1420,20 +1441,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb59-19"><a href="#cb59-19"></a><span class="co"># Evaluate the rmse on both training and test data and print them</span></span>
 <span id="cb59-20"><a href="#cb59-20"></a>(rmse_train <span class="ot">&lt;-</span> <span class="fu">rmse</span>(mpg_train<span class="sc">$</span>pred, mpg_train<span class="sc">$</span>cty))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 1.239602</code></pre>
+<pre><code>#&gt; [1] 1.271126</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a>(rmse_test  <span class="ot">&lt;-</span> <span class="fu">rmse</span>(mpg_test<span class="sc">$</span>pred, mpg_test<span class="sc">$</span>cty))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 1.277706</code></pre>
+<pre><code>#&gt; [1] 1.162877</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Evaluate the r-squared on both training and test data.and print them</span></span>
 <span id="cb63-2"><a href="#cb63-2"></a>(rsq_train <span class="ot">&lt;-</span> <span class="fu">r_squared</span>(mpg_train<span class="sc">$</span>pred, mpg_train<span class="sc">$</span>cty))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.9173457</code></pre>
+<pre><code>#&gt; [1] 0.9047667</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a>(rsq_test <span class="ot">&lt;-</span> <span class="fu">r_squared</span>(mpg_test<span class="sc">$</span>pred, mpg_test<span class="sc">$</span>cty))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.8997628</code></pre>
+<pre><code>#&gt; [1] 0.9363632</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Plot the predictions (on the x-axis) against the outcome (cty) on the test data</span></span>
 <span id="cb67-2"><a href="#cb67-2"></a><span class="fu">ggplot</span>(mpg_test, <span class="fu">aes</span>(<span class="at">x =</span> pred, <span class="at">y =</span> cty)) <span class="sc">+</span> </span>
@@ -1514,14 +1535,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; List of 3
 #&gt;  $ :List of 2
-#&gt;   ..$ train: int [1:156] 1 2 3 5 9 10 11 12 13 14 ...
-#&gt;   ..$ app  : int [1:78] 133 179 229 148 59 197 91 92 155 22 ...
+#&gt;   ..$ train: int [1:156] 2 3 4 6 7 8 9 12 13 14 ...
+#&gt;   ..$ app  : int [1:78] 134 149 209 148 155 19 125 137 55 231 ...
 #&gt;  $ :List of 2
-#&gt;   ..$ train: int [1:156] 1 2 3 4 5 6 7 8 9 12 ...
-#&gt;   ..$ app  : int [1:78] 175 51 125 121 137 171 120 93 40 70 ...
+#&gt;   ..$ train: int [1:156] 1 4 5 6 9 10 11 13 15 16 ...
+#&gt;   ..$ app  : int [1:78] 111 34 8 119 85 208 18 97 204 205 ...
 #&gt;  $ :List of 2
-#&gt;   ..$ train: int [1:156] 4 6 7 8 10 11 15 16 17 19 ...
-#&gt;   ..$ app  : int [1:78] 207 14 3 50 199 49 68 191 62 100 ...
+#&gt;   ..$ train: int [1:156] 1 2 3 5 7 8 10 11 12 14 ...
+#&gt;   ..$ app  : int [1:78] 25 157 72 102 176 203 163 4 217 162 ...
 #&gt;  - attr(*, "splitmethod")= chr "kwaycross"</code></pre>
 </div>
 </div>
@@ -1582,7 +1603,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a><span class="co"># Get the rmse of the cross-validation predictions</span></span>
 <span id="cb76-2"><a href="#cb76-2"></a><span class="fu">rmse</span>(mpg<span class="sc">$</span>pred.cv, mpg<span class="sc">$</span>cty)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 1.256771</code></pre>
+<pre><code>#&gt; [1] 1.260294</code></pre>
 </div>
 </div>
 <p>Congratulations! You have successfully estimated a model’s out-of-sample error via cross-validation. Remember, cross-validation validates the <em>modeling process</em>, not an actual model.</p>
@@ -2584,10 +2605,6 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 #&gt; Call:
 #&gt; glm(formula = fmla, family = binomial, data = sparrow)
 #&gt; 
-#&gt; Deviance Residuals: 
-#&gt;     Min       1Q   Median       3Q      Max  
-#&gt; -2.1117  -0.6026   0.2871   0.6577   1.7082  
-#&gt; 
 #&gt; Coefficients:
 #&gt;              Estimate Std. Error z value Pr(&gt;|z|)    
 #&gt; (Intercept)   46.8813    16.9631   2.764 0.005715 ** 
@@ -2676,10 +2693,6 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <pre><code>#&gt; 
 #&gt; Call:
 #&gt; glm(formula = fmla, family = binomial, data = sparrow)
-#&gt; 
-#&gt; Deviance Residuals: 
-#&gt;     Min       1Q   Median       3Q      Max  
-#&gt; -2.1117  -0.6026   0.2871   0.6577   1.7082  
 #&gt; 
 #&gt; Coefficients:
 #&gt;              Estimate Std. Error z value Pr(&gt;|z|)    
@@ -2881,10 +2894,6 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <pre><code>#&gt; 
 #&gt; Call:
 #&gt; glm(formula = fmla, family = quasipoisson, data = bikesJuly)
-#&gt; 
-#&gt; Deviance Residuals: 
-#&gt;      Min        1Q    Median        3Q       Max  
-#&gt; -21.6117   -4.3121   -0.7223    3.5507   16.5079  
 #&gt; 
 #&gt; Coefficients:
 #&gt;                                Estimate Std. Error t value Pr(&gt;|t|)    
@@ -3129,7 +3138,7 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 #&gt;     collapse</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; This is mgcv 1.8-41. For overview type 'help("mgcv-package")'.</code></pre>
+<pre><code>#&gt; This is mgcv 1.8-42. For overview type 'help("mgcv-package")'.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; 
@@ -3645,11 +3654,11 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <span id="cb224-4"><a href="#cb224-4"></a><span class="co"># Create the treatment plan</span></span>
 <span id="cb224-5"><a href="#cb224-5"></a>treatplan <span class="ot">&lt;-</span> <span class="fu">designTreatmentsZ</span>(dframe, vars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] "vtreat 1.6.3 inspecting inputs Fri Dec  9 11:06:06 2022"
-#&gt; [1] "designing treatments Fri Dec  9 11:06:06 2022"
-#&gt; [1] " have initial level statistics Fri Dec  9 11:06:06 2022"
-#&gt; [1] " scoring treatments Fri Dec  9 11:06:06 2022"
-#&gt; [1] "have treatment plan Fri Dec  9 11:06:06 2022"</code></pre>
+<pre><code>#&gt; [1] "vtreat 1.6.3 inspecting inputs Wed Apr 26 21:58:11 2023"
+#&gt; [1] "designing treatments Wed Apr 26 21:58:11 2023"
+#&gt; [1] " have initial level statistics Wed Apr 26 21:58:11 2023"
+#&gt; [1] " scoring treatments Wed Apr 26 21:58:11 2023"
+#&gt; [1] "have treatment plan Wed Apr 26 21:58:11 2023"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb226"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb226-1"><a href="#cb226-1"></a><span class="co"># Examine the scoreFrame</span></span>
 <span id="cb226-2"><a href="#cb226-2"></a>(scoreFrame <span class="ot">&lt;-</span> treatplan <span class="sc">%&gt;%</span></span>
@@ -4046,11 +4055,11 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <span id="cb252-10"><a href="#cb252-10"></a>            <span class="at">verbose =</span> <span class="dv">0</span>   <span class="co"># silent</span></span>
 <span id="cb252-11"><a href="#cb252-11"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [11:06:06] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.
-#&gt; [11:06:06] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.
-#&gt; [11:06:06] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.
-#&gt; [11:06:06] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.
-#&gt; [11:06:06] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.</code></pre>
+<pre><code>#&gt; [21:58:11] WARNING: src/objective/regression_obj.cu:213: reg:linear is now deprecated in favor of reg:squarederror.
+#&gt; [21:58:11] WARNING: src/objective/regression_obj.cu:213: reg:linear is now deprecated in favor of reg:squarederror.
+#&gt; [21:58:11] WARNING: src/objective/regression_obj.cu:213: reg:linear is now deprecated in favor of reg:squarederror.
+#&gt; [21:58:11] WARNING: src/objective/regression_obj.cu:213: reg:linear is now deprecated in favor of reg:squarederror.
+#&gt; [21:58:11] WARNING: src/objective/regression_obj.cu:213: reg:linear is now deprecated in favor of reg:squarederror.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb254"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb254-1"><a href="#cb254-1"></a><span class="co"># Get the evaluation log</span></span>
 <span id="cb254-2"><a href="#cb254-2"></a>elog <span class="ot">&lt;-</span> cv<span class="sc">$</span>evaluation_log</span>
@@ -4109,13 +4118,9 @@ pseudoR^2 = 1 - \\frac{deviance}{null.deviance}
 <span id="cb255-11"><a href="#cb255-11"></a>                   <span class="at">verbose =</span> <span class="dv">0</span>  <span class="co"># silent</span></span>
 <span id="cb255-12"><a href="#cb255-12"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [11:06:06] WARNING: amalgamation/../src/objective/regression_obj.cu:203: reg:linear is now deprecated in favor of reg:squarederror.
-#&gt; [11:06:06] WARNING: amalgamation/../src/learner.cc:627: 
-#&gt; Parameters: { "depth" } might not be used.
-#&gt; 
-#&gt;   This could be a false alarm, with some parameters getting used by language bindings but
-#&gt;   then being mistakenly passed down to XGBoost core, or some parameter actually being used
-#&gt;   but getting flagged wrongly here. Please open an issue if you find any such cases.</code></pre>
+<pre><code>#&gt; [21:58:12] WARNING: src/objective/regression_obj.cu:213: reg:linear is now deprecated in favor of reg:squarederror.
+#&gt; [21:58:12] WARNING: src/learner.cc:767: 
+#&gt; Parameters: { "depth" } are not used.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb257"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb257-1"><a href="#cb257-1"></a><span class="co"># Make predictions</span></span>
 <span id="cb257-2"><a href="#cb257-2"></a>bikesAugust<span class="sc">$</span>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(bike_model_xgb, <span class="fu">as.matrix</span>(bikesAugust.treat))</span>
@@ -4369,9 +4374,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -4436,6 +4455,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -4491,10 +4596,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Content 2022 by <a href="https://www.startupengineer.io/authors/schwarz/">Joschka Schwarz</a> <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","descPosition":"bottom","closeEffect":"zoom","loop":true});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","loop":true,"openEffect":"zoom","descPosition":"bottom"});</script>
 
 
 

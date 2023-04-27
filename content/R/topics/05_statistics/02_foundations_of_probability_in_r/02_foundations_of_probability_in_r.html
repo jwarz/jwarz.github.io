@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -134,6 +105,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../../../../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="../../../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -150,308 +122,349 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">Joschka Schwarz</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Data Science</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-science">    
         <li>
-    <a class="dropdown-item" href="../../../../../content/R/index.html">
+    <a class="dropdown-item" href="../../../../../content/R/index.html" rel="" target="">
  <span class="dropdown-text">R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/python/index.html">
+    <a class="dropdown-item" href="../../../../../content/python/index.html" rel="" target="">
  <span class="dropdown-text">Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/sql/index.html">
+    <a class="dropdown-item" href="../../../../../content/sql/index.html" rel="" target="">
  <span class="dropdown-text">SQL</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../slides/index.html">
+    <a class="nav-link" href="../../../../../slides/index.html" rel="" target="">
  <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../resumes/index.html">
+    <a class="nav-link" href="../../../../../resumes/index.html" rel="" target="">
  <span class="menu-text">Resumes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../index.html">
+    <a class="nav-link" href="../../../../../index.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jwarz/"><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
+    <a class="nav-link" href="https://github.com/jwarz/" rel="" target=""><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz"><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
+    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Foundations of Probability in R</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Topics</li><li class="breadcrumb-item"><a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html">5.2: Foundations of Probability</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Topics</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <b><i>1 Programming Basics</i></b>
+ <span class="menu-text"><b><i>1 Programming Basics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">1.1: Introduction to R</a>
+  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1: Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">1.2: Intermediate R</a>
+  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2: Intermediate R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">1.3: Introduction to the tidyverse</a>
+  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3: Introduction to the tidyverse</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>2 Importing Data</i></b>
+ <span class="menu-text"><b><i>2 Importing Data</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">2.1: Introduction to Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1: Introduction to Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">2.2: Intermediate Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2: Intermediate Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">2.3: Working with web data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3: Working with web data</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>3 Data Wrangling</i></b>
+ <span class="menu-text"><b><i>3 Data Wrangling</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">3.1: Data Manipulation with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1: Data Manipulation with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">3.2: Joining data with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2: Joining data with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.3: Exploratory Data Analysis</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3: Exploratory Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.4: Case Study: EDA</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4: Case Study: EDA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">3.5: Cleaning Data</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5: Cleaning Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">3.6: Data Manipulation with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6: Data Manipulation with data.table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">3.7: Joining Data with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.7: Joining Data with data.table</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>4 Data Visualization</i></b>
+ <span class="menu-text"><b><i>4 Data Visualization</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">4.1: Introduction to Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1: Introduction to Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">4.2: Intermediate Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2: Intermediate Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>5 Statistics</i></b>
+ <span class="menu-text"><b><i>5 Statistics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">5.1: Introduction to Statistics</a>
+  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1: Introduction to Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link active">5.2: Foundations of Probability</a>
+  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">5.2: Foundations of Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">5.3: Introduction to Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3: Introduction to Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">5.4: Intermediate Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.4: Intermediate Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">5.5: Modeling with Data in the Tidyverse</a>
+  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.5: Modeling with Data in the Tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">5.6: Experimental Design</a>
+  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.6: Experimental Design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">5.7: A/B Testing</a>
+  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.7: A/B Testing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">5.8: Fundamentals of Bayesian Data Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.8: Fundamentals of Bayesian Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">5.9: Factor Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.9: Factor Analysis</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>7 Machine Learning</i></b>
+ <span class="menu-text"><b><i>7 Machine Learning</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">7.1: Supervised Learning: Classification</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1: Supervised Learning: Classification</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">7.2: Supervised Learning: Regression</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2: Supervised Learning: Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">7.3: Unsupervised Learning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3: Unsupervised Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">7.4: Machine Learning in the tidyverse</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4: Machine Learning in the tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">7.5: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.5: Cluster Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">7.6: Machine Learning with caret</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6: Machine Learning with caret</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">7.7: Modeling with tidymodels</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.7: Modeling with tidymodels</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">7.8: Machine Learning with tree-based Models</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.8: Machine Learning with tree-based Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">7.9: Support Vector Machines</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.9: Support Vector Machines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">7.10: Topic Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.10: Topic Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">7.11: Hyperparameter Tuning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.11: Hyperparameter Tuning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">7.12: Bayesian Regression Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.12: Bayesian Regression Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">7.13: Introduction to Spark</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.13: Introduction to Spark</span></a>
   </div>
 </li>
       </ul>
@@ -459,40 +472,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Manuals</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">R Manuals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">1: An Introduction to R</a>
+  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: An Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">2: R Data Import/Export</a>
+  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: R Data Import/Export</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">3: R Installation and Administration</a>
+  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: R Installation and Administration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">4: Writing R Extensions</a>
+  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Writing R Extensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">5: R Language Definition</a>
+  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: R Language Definition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">6: R Internals</a>
+  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: R Internals</span></a>
   </div>
 </li>
       </ul>
@@ -500,77 +520,78 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#the-binomial-distribution" id="toc-the-binomial-distribution" class="nav-link active" data-scroll-target="#the-binomial-distribution"><span class="toc-section-number">1</span>  1. The binomial distribution</a>
+  <li><a href="#the-binomial-distribution" id="toc-the-binomial-distribution" class="nav-link active" data-scroll-target="#the-binomial-distribution"><span class="header-section-number">1</span> 1. The binomial distribution</a>
   <ul class="collapse">
-  <li><a href="#flipping-coins-in-r" id="toc-flipping-coins-in-r" class="nav-link" data-scroll-target="#flipping-coins-in-r"><span class="toc-section-number">1.1</span>  Flipping coins in R</a></li>
-  <li><a href="#simulating-coin-flips" id="toc-simulating-coin-flips" class="nav-link" data-scroll-target="#simulating-coin-flips"><span class="toc-section-number">1.2</span>  Simulating coin flips</a></li>
-  <li><a href="#simulating-draws-from-a-binomial" id="toc-simulating-draws-from-a-binomial" class="nav-link" data-scroll-target="#simulating-draws-from-a-binomial"><span class="toc-section-number">1.3</span>  Simulating draws from a binomial</a></li>
-  <li><a href="#density-and-cumulative-density" id="toc-density-and-cumulative-density" class="nav-link" data-scroll-target="#density-and-cumulative-density"><span class="toc-section-number">1.4</span>  Density and cumulative density</a></li>
-  <li><a href="#calculating-density-of-a-binomial" id="toc-calculating-density-of-a-binomial" class="nav-link" data-scroll-target="#calculating-density-of-a-binomial"><span class="toc-section-number">1.5</span>  Calculating density of a binomial</a></li>
-  <li><a href="#calculating-cumulative-density-of-a-binomial" id="toc-calculating-cumulative-density-of-a-binomial" class="nav-link" data-scroll-target="#calculating-cumulative-density-of-a-binomial"><span class="toc-section-number">1.6</span>  Calculating cumulative density of a binomial</a></li>
-  <li><a href="#varying-the-number-of-trials" id="toc-varying-the-number-of-trials" class="nav-link" data-scroll-target="#varying-the-number-of-trials"><span class="toc-section-number">1.7</span>  Varying the number of trials</a></li>
-  <li><a href="#expected-value-and-variance" id="toc-expected-value-and-variance" class="nav-link" data-scroll-target="#expected-value-and-variance"><span class="toc-section-number">1.8</span>  Expected value and variance</a></li>
-  <li><a href="#calculating-the-expected-value" id="toc-calculating-the-expected-value" class="nav-link" data-scroll-target="#calculating-the-expected-value"><span class="toc-section-number">1.9</span>  Calculating the expected value</a></li>
-  <li><a href="#calculating-the-variance" id="toc-calculating-the-variance" class="nav-link" data-scroll-target="#calculating-the-variance"><span class="toc-section-number">1.10</span>  Calculating the variance</a></li>
+  <li><a href="#flipping-coins-in-r" id="toc-flipping-coins-in-r" class="nav-link" data-scroll-target="#flipping-coins-in-r"><span class="header-section-number">1.1</span> Flipping coins in R</a></li>
+  <li><a href="#simulating-coin-flips" id="toc-simulating-coin-flips" class="nav-link" data-scroll-target="#simulating-coin-flips"><span class="header-section-number">1.2</span> Simulating coin flips</a></li>
+  <li><a href="#simulating-draws-from-a-binomial" id="toc-simulating-draws-from-a-binomial" class="nav-link" data-scroll-target="#simulating-draws-from-a-binomial"><span class="header-section-number">1.3</span> Simulating draws from a binomial</a></li>
+  <li><a href="#density-and-cumulative-density" id="toc-density-and-cumulative-density" class="nav-link" data-scroll-target="#density-and-cumulative-density"><span class="header-section-number">1.4</span> Density and cumulative density</a></li>
+  <li><a href="#calculating-density-of-a-binomial" id="toc-calculating-density-of-a-binomial" class="nav-link" data-scroll-target="#calculating-density-of-a-binomial"><span class="header-section-number">1.5</span> Calculating density of a binomial</a></li>
+  <li><a href="#calculating-cumulative-density-of-a-binomial" id="toc-calculating-cumulative-density-of-a-binomial" class="nav-link" data-scroll-target="#calculating-cumulative-density-of-a-binomial"><span class="header-section-number">1.6</span> Calculating cumulative density of a binomial</a></li>
+  <li><a href="#varying-the-number-of-trials" id="toc-varying-the-number-of-trials" class="nav-link" data-scroll-target="#varying-the-number-of-trials"><span class="header-section-number">1.7</span> Varying the number of trials</a></li>
+  <li><a href="#expected-value-and-variance" id="toc-expected-value-and-variance" class="nav-link" data-scroll-target="#expected-value-and-variance"><span class="header-section-number">1.8</span> Expected value and variance</a></li>
+  <li><a href="#calculating-the-expected-value" id="toc-calculating-the-expected-value" class="nav-link" data-scroll-target="#calculating-the-expected-value"><span class="header-section-number">1.9</span> Calculating the expected value</a></li>
+  <li><a href="#calculating-the-variance" id="toc-calculating-the-variance" class="nav-link" data-scroll-target="#calculating-the-variance"><span class="header-section-number">1.10</span> Calculating the variance</a></li>
   </ul></li>
-  <li><a href="#laws-of-probability" id="toc-laws-of-probability" class="nav-link" data-scroll-target="#laws-of-probability"><span class="toc-section-number">2</span>  2. Laws of probability</a>
+  <li><a href="#laws-of-probability" id="toc-laws-of-probability" class="nav-link" data-scroll-target="#laws-of-probability"><span class="header-section-number">2</span> 2. Laws of probability</a>
   <ul class="collapse">
-  <li><a href="#probability-of-event-a-and-event-b" id="toc-probability-of-event-a-and-event-b" class="nav-link" data-scroll-target="#probability-of-event-a-and-event-b"><span class="toc-section-number">2.1</span>  Probability of event A and event B</a></li>
-  <li><a href="#solving-for-probability-of-a-and-b" id="toc-solving-for-probability-of-a-and-b" class="nav-link" data-scroll-target="#solving-for-probability-of-a-and-b"><span class="toc-section-number">2.2</span>  Solving for probability of A and B</a></li>
-  <li><a href="#simulating-the-probability-of-a-and-b" id="toc-simulating-the-probability-of-a-and-b" class="nav-link" data-scroll-target="#simulating-the-probability-of-a-and-b"><span class="toc-section-number">2.4</span>  Simulating the probability of A and B</a></li>
-  <li><a href="#simulating-the-probability-of-a-b-and-c" id="toc-simulating-the-probability-of-a-b-and-c" class="nav-link" data-scroll-target="#simulating-the-probability-of-a-b-and-c"><span class="toc-section-number">2.5</span>  Simulating the probability of A, B, and C</a></li>
-  <li><a href="#probability-of-a-or-b" id="toc-probability-of-a-or-b" class="nav-link" data-scroll-target="#probability-of-a-or-b"><span class="toc-section-number">2.6</span>  Probability of A or B</a></li>
-  <li><a href="#solving-for-probability-of-a-or-b" id="toc-solving-for-probability-of-a-or-b" class="nav-link" data-scroll-target="#solving-for-probability-of-a-or-b"><span class="toc-section-number">2.7</span>  Solving for probability of A or B</a></li>
-  <li><a href="#simulating-probability-of-a-or-b" id="toc-simulating-probability-of-a-or-b" class="nav-link" data-scroll-target="#simulating-probability-of-a-or-b"><span class="toc-section-number">2.9</span>  Simulating probability of A or B</a></li>
-  <li><a href="#probability-either-variable-is-less-than-or-equal-to-4" id="toc-probability-either-variable-is-less-than-or-equal-to-4" class="nav-link" data-scroll-target="#probability-either-variable-is-less-than-or-equal-to-4"><span class="toc-section-number">2.10</span>  Probability either variable is less than or equal to 4</a></li>
-  <li><a href="#multiplying-random-variables" id="toc-multiplying-random-variables" class="nav-link" data-scroll-target="#multiplying-random-variables"><span class="toc-section-number">2.11</span>  Multiplying random variables</a></li>
-  <li><a href="#expected-value-of-multiplying-a-random-variable" id="toc-expected-value-of-multiplying-a-random-variable" class="nav-link" data-scroll-target="#expected-value-of-multiplying-a-random-variable"><span class="toc-section-number">2.12</span>  Expected value of multiplying a random variable</a></li>
-  <li><a href="#simulating-multiplying-a-random-variable" id="toc-simulating-multiplying-a-random-variable" class="nav-link" data-scroll-target="#simulating-multiplying-a-random-variable"><span class="toc-section-number">2.14</span>  Simulating multiplying a random variable</a></li>
-  <li><a href="#variance-of-a-multiplied-random-variable" id="toc-variance-of-a-multiplied-random-variable" class="nav-link" data-scroll-target="#variance-of-a-multiplied-random-variable"><span class="toc-section-number">2.15</span>  Variance of a multiplied random variable</a></li>
-  <li><a href="#adding-two-random-variables" id="toc-adding-two-random-variables" class="nav-link" data-scroll-target="#adding-two-random-variables"><span class="toc-section-number">2.16</span>  Adding two random variables</a></li>
-  <li><a href="#solving-for-the-sum-of-two-binomial-variables" id="toc-solving-for-the-sum-of-two-binomial-variables" class="nav-link" data-scroll-target="#solving-for-the-sum-of-two-binomial-variables"><span class="toc-section-number">2.17</span>  Solving for the sum of two binomial variables</a></li>
-  <li><a href="#simulating-adding-two-binomial-variables" id="toc-simulating-adding-two-binomial-variables" class="nav-link" data-scroll-target="#simulating-adding-two-binomial-variables"><span class="toc-section-number">2.19</span>  Simulating adding two binomial variables</a></li>
-  <li><a href="#simulating-variance-of-sum-of-two-binomial-variables" id="toc-simulating-variance-of-sum-of-two-binomial-variables" class="nav-link" data-scroll-target="#simulating-variance-of-sum-of-two-binomial-variables"><span class="toc-section-number">2.20</span>  Simulating variance of sum of two binomial variables</a></li>
+  <li><a href="#probability-of-event-a-and-event-b" id="toc-probability-of-event-a-and-event-b" class="nav-link" data-scroll-target="#probability-of-event-a-and-event-b"><span class="header-section-number">2.1</span> Probability of event A and event B</a></li>
+  <li><a href="#solving-for-probability-of-a-and-b" id="toc-solving-for-probability-of-a-and-b" class="nav-link" data-scroll-target="#solving-for-probability-of-a-and-b"><span class="header-section-number">2.2</span> Solving for probability of A and B</a></li>
+  <li><a href="#simulating-the-probability-of-a-and-b" id="toc-simulating-the-probability-of-a-and-b" class="nav-link" data-scroll-target="#simulating-the-probability-of-a-and-b"><span class="header-section-number">2.4</span> Simulating the probability of A and B</a></li>
+  <li><a href="#simulating-the-probability-of-a-b-and-c" id="toc-simulating-the-probability-of-a-b-and-c" class="nav-link" data-scroll-target="#simulating-the-probability-of-a-b-and-c"><span class="header-section-number">2.5</span> Simulating the probability of A, B, and C</a></li>
+  <li><a href="#probability-of-a-or-b" id="toc-probability-of-a-or-b" class="nav-link" data-scroll-target="#probability-of-a-or-b"><span class="header-section-number">2.6</span> Probability of A or B</a></li>
+  <li><a href="#solving-for-probability-of-a-or-b" id="toc-solving-for-probability-of-a-or-b" class="nav-link" data-scroll-target="#solving-for-probability-of-a-or-b"><span class="header-section-number">2.7</span> Solving for probability of A or B</a></li>
+  <li><a href="#simulating-probability-of-a-or-b" id="toc-simulating-probability-of-a-or-b" class="nav-link" data-scroll-target="#simulating-probability-of-a-or-b"><span class="header-section-number">2.9</span> Simulating probability of A or B</a></li>
+  <li><a href="#probability-either-variable-is-less-than-or-equal-to-4" id="toc-probability-either-variable-is-less-than-or-equal-to-4" class="nav-link" data-scroll-target="#probability-either-variable-is-less-than-or-equal-to-4"><span class="header-section-number">2.10</span> Probability either variable is less than or equal to 4</a></li>
+  <li><a href="#multiplying-random-variables" id="toc-multiplying-random-variables" class="nav-link" data-scroll-target="#multiplying-random-variables"><span class="header-section-number">2.11</span> Multiplying random variables</a></li>
+  <li><a href="#expected-value-of-multiplying-a-random-variable" id="toc-expected-value-of-multiplying-a-random-variable" class="nav-link" data-scroll-target="#expected-value-of-multiplying-a-random-variable"><span class="header-section-number">2.12</span> Expected value of multiplying a random variable</a></li>
+  <li><a href="#simulating-multiplying-a-random-variable" id="toc-simulating-multiplying-a-random-variable" class="nav-link" data-scroll-target="#simulating-multiplying-a-random-variable"><span class="header-section-number">2.14</span> Simulating multiplying a random variable</a></li>
+  <li><a href="#variance-of-a-multiplied-random-variable" id="toc-variance-of-a-multiplied-random-variable" class="nav-link" data-scroll-target="#variance-of-a-multiplied-random-variable"><span class="header-section-number">2.15</span> Variance of a multiplied random variable</a></li>
+  <li><a href="#adding-two-random-variables" id="toc-adding-two-random-variables" class="nav-link" data-scroll-target="#adding-two-random-variables"><span class="header-section-number">2.16</span> Adding two random variables</a></li>
+  <li><a href="#solving-for-the-sum-of-two-binomial-variables" id="toc-solving-for-the-sum-of-two-binomial-variables" class="nav-link" data-scroll-target="#solving-for-the-sum-of-two-binomial-variables"><span class="header-section-number">2.17</span> Solving for the sum of two binomial variables</a></li>
+  <li><a href="#simulating-adding-two-binomial-variables" id="toc-simulating-adding-two-binomial-variables" class="nav-link" data-scroll-target="#simulating-adding-two-binomial-variables"><span class="header-section-number">2.19</span> Simulating adding two binomial variables</a></li>
+  <li><a href="#simulating-variance-of-sum-of-two-binomial-variables" id="toc-simulating-variance-of-sum-of-two-binomial-variables" class="nav-link" data-scroll-target="#simulating-variance-of-sum-of-two-binomial-variables"><span class="header-section-number">2.20</span> Simulating variance of sum of two binomial variables</a></li>
   </ul></li>
-  <li><a href="#bayesian-statistics" id="toc-bayesian-statistics" class="nav-link" data-scroll-target="#bayesian-statistics"><span class="toc-section-number">3</span>  3. Bayesian statistics</a>
+  <li><a href="#bayesian-statistics" id="toc-bayesian-statistics" class="nav-link" data-scroll-target="#bayesian-statistics"><span class="header-section-number">3</span> 3. Bayesian statistics</a>
   <ul class="collapse">
-  <li><a href="#updating-with-evidence" id="toc-updating-with-evidence" class="nav-link" data-scroll-target="#updating-with-evidence"><span class="toc-section-number">3.1</span>  Updating with evidence</a></li>
-  <li><a href="#updating" id="toc-updating" class="nav-link" data-scroll-target="#updating"><span class="toc-section-number">3.2</span>  Updating</a></li>
-  <li><a href="#updating-with-simulation" id="toc-updating-with-simulation" class="nav-link" data-scroll-target="#updating-with-simulation"><span class="toc-section-number">3.4</span>  Updating with simulation</a></li>
-  <li><a href="#updating-after-16-heads" id="toc-updating-after-16-heads" class="nav-link" data-scroll-target="#updating-after-16-heads"><span class="toc-section-number">3.5</span>  Updating after 16 heads</a></li>
-  <li><a href="#updating-with-simulation-after-16-heads" id="toc-updating-with-simulation-after-16-heads" class="nav-link" data-scroll-target="#updating-with-simulation-after-16-heads"><span class="toc-section-number">3.7</span>  Updating with simulation after 16 heads</a></li>
-  <li><a href="#prior-probability" id="toc-prior-probability" class="nav-link" data-scroll-target="#prior-probability"><span class="toc-section-number">3.8</span>  Prior probability</a></li>
-  <li><a href="#updating-with-priors" id="toc-updating-with-priors" class="nav-link" data-scroll-target="#updating-with-priors"><span class="toc-section-number">3.9</span>  Updating with priors</a></li>
-  <li><a href="#updating-with-three-coins" id="toc-updating-with-three-coins" class="nav-link" data-scroll-target="#updating-with-three-coins"><span class="toc-section-number">3.10</span>  Updating with three coins</a></li>
-  <li><a href="#bayes-theorem" id="toc-bayes-theorem" class="nav-link" data-scroll-target="#bayes-theorem"><span class="toc-section-number">3.11</span>  Bayes’ theorem</a></li>
-  <li><a href="#updating-with-bayes-theorem" id="toc-updating-with-bayes-theorem" class="nav-link" data-scroll-target="#updating-with-bayes-theorem"><span class="toc-section-number">3.12</span>  Updating with Bayes theorem</a></li>
-  <li><a href="#updating-for-other-outcomes" id="toc-updating-for-other-outcomes" class="nav-link" data-scroll-target="#updating-for-other-outcomes"><span class="toc-section-number">3.13</span>  Updating for other outcomes</a></li>
-  <li><a href="#more-updating-with-priors" id="toc-more-updating-with-priors" class="nav-link" data-scroll-target="#more-updating-with-priors"><span class="toc-section-number">3.14</span>  More updating with priors</a></li>
+  <li><a href="#updating-with-evidence" id="toc-updating-with-evidence" class="nav-link" data-scroll-target="#updating-with-evidence"><span class="header-section-number">3.1</span> Updating with evidence</a></li>
+  <li><a href="#updating" id="toc-updating" class="nav-link" data-scroll-target="#updating"><span class="header-section-number">3.2</span> Updating</a></li>
+  <li><a href="#updating-with-simulation" id="toc-updating-with-simulation" class="nav-link" data-scroll-target="#updating-with-simulation"><span class="header-section-number">3.4</span> Updating with simulation</a></li>
+  <li><a href="#updating-after-16-heads" id="toc-updating-after-16-heads" class="nav-link" data-scroll-target="#updating-after-16-heads"><span class="header-section-number">3.5</span> Updating after 16 heads</a></li>
+  <li><a href="#updating-with-simulation-after-16-heads" id="toc-updating-with-simulation-after-16-heads" class="nav-link" data-scroll-target="#updating-with-simulation-after-16-heads"><span class="header-section-number">3.7</span> Updating with simulation after 16 heads</a></li>
+  <li><a href="#prior-probability" id="toc-prior-probability" class="nav-link" data-scroll-target="#prior-probability"><span class="header-section-number">3.8</span> Prior probability</a></li>
+  <li><a href="#updating-with-priors" id="toc-updating-with-priors" class="nav-link" data-scroll-target="#updating-with-priors"><span class="header-section-number">3.9</span> Updating with priors</a></li>
+  <li><a href="#updating-with-three-coins" id="toc-updating-with-three-coins" class="nav-link" data-scroll-target="#updating-with-three-coins"><span class="header-section-number">3.10</span> Updating with three coins</a></li>
+  <li><a href="#bayes-theorem" id="toc-bayes-theorem" class="nav-link" data-scroll-target="#bayes-theorem"><span class="header-section-number">3.11</span> Bayes’ theorem</a></li>
+  <li><a href="#updating-with-bayes-theorem" id="toc-updating-with-bayes-theorem" class="nav-link" data-scroll-target="#updating-with-bayes-theorem"><span class="header-section-number">3.12</span> Updating with Bayes theorem</a></li>
+  <li><a href="#updating-for-other-outcomes" id="toc-updating-for-other-outcomes" class="nav-link" data-scroll-target="#updating-for-other-outcomes"><span class="header-section-number">3.13</span> Updating for other outcomes</a></li>
+  <li><a href="#more-updating-with-priors" id="toc-more-updating-with-priors" class="nav-link" data-scroll-target="#more-updating-with-priors"><span class="header-section-number">3.14</span> More updating with priors</a></li>
   </ul></li>
-  <li><a href="#related-distributions" id="toc-related-distributions" class="nav-link" data-scroll-target="#related-distributions"><span class="toc-section-number">4</span>  4. Related distributions</a>
+  <li><a href="#related-distributions" id="toc-related-distributions" class="nav-link" data-scroll-target="#related-distributions"><span class="header-section-number">4</span> 4. Related distributions</a>
   <ul class="collapse">
-  <li><a href="#the-normal-distribution" id="toc-the-normal-distribution" class="nav-link" data-scroll-target="#the-normal-distribution"><span class="toc-section-number">4.1</span>  The normal distribution</a></li>
-  <li><a href="#approximating-a-binomial-to-the-normal" id="toc-approximating-a-binomial-to-the-normal" class="nav-link" data-scroll-target="#approximating-a-binomial-to-the-normal"><span class="toc-section-number">4.2</span>  Approximating a binomial to the normal</a></li>
-  <li><a href="#simulating-from-the-binomial-and-the-normal" id="toc-simulating-from-the-binomial-and-the-normal" class="nav-link" data-scroll-target="#simulating-from-the-binomial-and-the-normal"><span class="toc-section-number">4.4</span>  Simulating from the binomial and the normal</a></li>
-  <li><a href="#comparing-the-cumulative-density-of-the-binomial" id="toc-comparing-the-cumulative-density-of-the-binomial" class="nav-link" data-scroll-target="#comparing-the-cumulative-density-of-the-binomial"><span class="toc-section-number">4.5</span>  Comparing the cumulative density of the binomial</a></li>
-  <li><a href="#comparing-the-distributions-of-the-normal-and-binomial-for-low-n" id="toc-comparing-the-distributions-of-the-normal-and-binomial-for-low-n" class="nav-link" data-scroll-target="#comparing-the-distributions-of-the-normal-and-binomial-for-low-n"><span class="toc-section-number">4.6</span>  Comparing the distributions of the normal and binomial for low n</a></li>
-  <li><a href="#the-poisson-distribution" id="toc-the-poisson-distribution" class="nav-link" data-scroll-target="#the-poisson-distribution"><span class="toc-section-number">4.7</span>  The Poisson distribution</a></li>
-  <li><a href="#approximating-a-binomial-with-a-poisson" id="toc-approximating-a-binomial-with-a-poisson" class="nav-link" data-scroll-target="#approximating-a-binomial-with-a-poisson"><span class="toc-section-number">4.8</span>  Approximating a binomial with a Poisson</a></li>
-  <li><a href="#simulating-from-a-poisson-and-a-binomial" id="toc-simulating-from-a-poisson-and-a-binomial" class="nav-link" data-scroll-target="#simulating-from-a-poisson-and-a-binomial"><span class="toc-section-number">4.10</span>  Simulating from a Poisson and a binomial</a></li>
-  <li><a href="#density-of-the-poisson-distribution" id="toc-density-of-the-poisson-distribution" class="nav-link" data-scroll-target="#density-of-the-poisson-distribution"><span class="toc-section-number">4.11</span>  Density of the Poisson distribution</a></li>
-  <li><a href="#sum-of-two-poisson-variables" id="toc-sum-of-two-poisson-variables" class="nav-link" data-scroll-target="#sum-of-two-poisson-variables"><span class="toc-section-number">4.12</span>  Sum of two Poisson variables</a></li>
-  <li><a href="#the-geometric-distribution" id="toc-the-geometric-distribution" class="nav-link" data-scroll-target="#the-geometric-distribution"><span class="toc-section-number">4.13</span>  The geometric distribution</a></li>
-  <li><a href="#waiting-for-first-coin-flip" id="toc-waiting-for-first-coin-flip" class="nav-link" data-scroll-target="#waiting-for-first-coin-flip"><span class="toc-section-number">4.14</span>  Waiting for first coin flip</a></li>
-  <li><a href="#using-replicate-for-simulation" id="toc-using-replicate-for-simulation" class="nav-link" data-scroll-target="#using-replicate-for-simulation"><span class="toc-section-number">4.15</span>  Using replicate() for simulation</a></li>
-  <li><a href="#simulating-from-the-geometric-distribution" id="toc-simulating-from-the-geometric-distribution" class="nav-link" data-scroll-target="#simulating-from-the-geometric-distribution"><span class="toc-section-number">4.16</span>  Simulating from the geometric distribution</a></li>
-  <li><a href="#probability-of-a-machine-lasting-x-days" id="toc-probability-of-a-machine-lasting-x-days" class="nav-link" data-scroll-target="#probability-of-a-machine-lasting-x-days"><span class="toc-section-number">4.17</span>  Probability of a machine lasting X days</a></li>
-  <li><a href="#graphing-the-probability-that-a-machine-still-works" id="toc-graphing-the-probability-that-a-machine-still-works" class="nav-link" data-scroll-target="#graphing-the-probability-that-a-machine-still-works"><span class="toc-section-number">4.18</span>  Graphing the probability that a machine still works</a></li>
+  <li><a href="#the-normal-distribution" id="toc-the-normal-distribution" class="nav-link" data-scroll-target="#the-normal-distribution"><span class="header-section-number">4.1</span> The normal distribution</a></li>
+  <li><a href="#approximating-a-binomial-to-the-normal" id="toc-approximating-a-binomial-to-the-normal" class="nav-link" data-scroll-target="#approximating-a-binomial-to-the-normal"><span class="header-section-number">4.2</span> Approximating a binomial to the normal</a></li>
+  <li><a href="#simulating-from-the-binomial-and-the-normal" id="toc-simulating-from-the-binomial-and-the-normal" class="nav-link" data-scroll-target="#simulating-from-the-binomial-and-the-normal"><span class="header-section-number">4.4</span> Simulating from the binomial and the normal</a></li>
+  <li><a href="#comparing-the-cumulative-density-of-the-binomial" id="toc-comparing-the-cumulative-density-of-the-binomial" class="nav-link" data-scroll-target="#comparing-the-cumulative-density-of-the-binomial"><span class="header-section-number">4.5</span> Comparing the cumulative density of the binomial</a></li>
+  <li><a href="#comparing-the-distributions-of-the-normal-and-binomial-for-low-n" id="toc-comparing-the-distributions-of-the-normal-and-binomial-for-low-n" class="nav-link" data-scroll-target="#comparing-the-distributions-of-the-normal-and-binomial-for-low-n"><span class="header-section-number">4.6</span> Comparing the distributions of the normal and binomial for low n</a></li>
+  <li><a href="#the-poisson-distribution" id="toc-the-poisson-distribution" class="nav-link" data-scroll-target="#the-poisson-distribution"><span class="header-section-number">4.7</span> The Poisson distribution</a></li>
+  <li><a href="#approximating-a-binomial-with-a-poisson" id="toc-approximating-a-binomial-with-a-poisson" class="nav-link" data-scroll-target="#approximating-a-binomial-with-a-poisson"><span class="header-section-number">4.8</span> Approximating a binomial with a Poisson</a></li>
+  <li><a href="#simulating-from-a-poisson-and-a-binomial" id="toc-simulating-from-a-poisson-and-a-binomial" class="nav-link" data-scroll-target="#simulating-from-a-poisson-and-a-binomial"><span class="header-section-number">4.10</span> Simulating from a Poisson and a binomial</a></li>
+  <li><a href="#density-of-the-poisson-distribution" id="toc-density-of-the-poisson-distribution" class="nav-link" data-scroll-target="#density-of-the-poisson-distribution"><span class="header-section-number">4.11</span> Density of the Poisson distribution</a></li>
+  <li><a href="#sum-of-two-poisson-variables" id="toc-sum-of-two-poisson-variables" class="nav-link" data-scroll-target="#sum-of-two-poisson-variables"><span class="header-section-number">4.12</span> Sum of two Poisson variables</a></li>
+  <li><a href="#the-geometric-distribution" id="toc-the-geometric-distribution" class="nav-link" data-scroll-target="#the-geometric-distribution"><span class="header-section-number">4.13</span> The geometric distribution</a></li>
+  <li><a href="#waiting-for-first-coin-flip" id="toc-waiting-for-first-coin-flip" class="nav-link" data-scroll-target="#waiting-for-first-coin-flip"><span class="header-section-number">4.14</span> Waiting for first coin flip</a></li>
+  <li><a href="#using-replicate-for-simulation" id="toc-using-replicate-for-simulation" class="nav-link" data-scroll-target="#using-replicate-for-simulation"><span class="header-section-number">4.15</span> Using replicate() for simulation</a></li>
+  <li><a href="#simulating-from-the-geometric-distribution" id="toc-simulating-from-the-geometric-distribution" class="nav-link" data-scroll-target="#simulating-from-the-geometric-distribution"><span class="header-section-number">4.16</span> Simulating from the geometric distribution</a></li>
+  <li><a href="#probability-of-a-machine-lasting-x-days" id="toc-probability-of-a-machine-lasting-x-days" class="nav-link" data-scroll-target="#probability-of-a-machine-lasting-x-days"><span class="header-section-number">4.17</span> Probability of a machine lasting X days</a></li>
+  <li><a href="#graphing-the-probability-that-a-machine-still-works" id="toc-graphing-the-probability-that-a-machine-still-works" class="nav-link" data-scroll-target="#graphing-the-probability-that-a-machine-still-works"><span class="header-section-number">4.18</span> Graphing the probability that a machine still works</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -580,7 +601,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Foundations of Probability in R</h1>
+<h1 class="title">Foundations of Probability in R</h1>
 </div>
 
 
@@ -636,7 +657,7 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Generate 10 separate random flips with probability .3</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">rbinom</span>(<span class="dv">10</span>, <span class="dv">1</span>, .<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;  [1] 0 1 1 0 1 0 1 0 0 0</code></pre>
+<pre><code>#&gt;  [1] 0 0 0 0 0 0 0 0 0 0</code></pre>
 </div>
 </div>
 <p>That’s much easier than actually flipping all those coins!</p>
@@ -654,9 +675,9 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Generate 100 occurrences of flipping 10 coins, each with 30% probability</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="fu">rbinom</span>(<span class="dv">100</span>, <span class="dv">10</span>, .<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;   [1] 1 5 1 0 1 2 2 1 3 2 1 3 3 3 2 5 4 3 4 4 0 3 3 3 4 2 2 6 3 4 3 3 1 1 2 1 2
-#&gt;  [38] 6 1 3 2 3 6 2 4 0 2 3 2 3 1 3 4 4 4 4 3 2 2 1 6 1 6 4 3 3 2 3 6 3 2 3 3 2
-#&gt;  [75] 2 5 6 1 4 4 2 3 3 5 4 2 5 7 1 4 1 4 5 0 5 5 4 2 3 3</code></pre>
+<pre><code>#&gt;   [1] 1 2 2 4 2 4 2 2 2 2 4 2 4 4 0 3 6 1 1 2 3 4 4 1 3 1 3 3 6 2 1 6 3 3 4 4 1
+#&gt;  [38] 2 4 2 2 1 1 7 2 4 4 4 5 3 3 2 2 4 3 4 1 2 2 4 2 4 2 3 2 0 4 2 6 3 4 3 2 3
+#&gt;  [75] 4 4 4 4 1 3 2 2 4 2 1 2 4 3 2 3 1 4 2 1 3 3 5 1 3 2</code></pre>
 </div>
 </div>
 <p>Wow, that’s a lot of flips in almost no time at all!</p>
@@ -695,7 +716,7 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Confirm your answer with a simulation using rbinom</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="fu">mean</span>(<span class="fu">rbinom</span>(<span class="dv">10000</span>, <span class="dv">10</span>, .<span class="dv">3</span>) <span class="sc">==</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.2339</code></pre>
+<pre><code>#&gt; [1] 0.2336</code></pre>
 </div>
 </div>
 <p>Awesome job on this exercise!</p>
@@ -717,7 +738,7 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Confirm your answer with a simulation of 10,000 trials</span></span>
 <span id="cb11-2"><a href="#cb11-2"></a><span class="fu">mean</span>(<span class="fu">rbinom</span>(<span class="dv">10000</span>, <span class="dv">10</span>, .<span class="dv">3</span>) <span class="sc">&gt;=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.1433</code></pre>
+<pre><code>#&gt; [1] 0.1472</code></pre>
 </div>
 </div>
 <p>Good work simulating!</p>
@@ -735,7 +756,7 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Here is how you computed the answer in the last problem</span></span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="fu">mean</span>(<span class="fu">rbinom</span>(<span class="dv">10000</span>, <span class="dv">10</span>, .<span class="dv">3</span>) <span class="sc">&gt;=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.152</code></pre>
+<pre><code>#&gt; [1] 0.1471</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Try now with 100, 1000, 10,000, and 100,000 trials</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="fu">mean</span>(<span class="fu">rbinom</span>(<span class="dv">100</span>, <span class="dv">10</span>, .<span class="dv">3</span>) <span class="sc">&gt;=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -744,15 +765,15 @@ Theory. Coming soon …
 </div>
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">mean</span>(<span class="fu">rbinom</span>(<span class="dv">1000</span>, <span class="dv">10</span>, .<span class="dv">3</span>) <span class="sc">&gt;=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.153</code></pre>
+<pre><code>#&gt; [1] 0.178</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">mean</span>(<span class="fu">rbinom</span>(<span class="dv">10000</span>, <span class="dv">10</span>, .<span class="dv">3</span>) <span class="sc">&gt;=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.154</code></pre>
+<pre><code>#&gt; [1] 0.1464</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">mean</span>(<span class="fu">rbinom</span>(<span class="dv">100000</span>, <span class="dv">10</span>, .<span class="dv">3</span>) <span class="sc">&gt;=</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.14855</code></pre>
+<pre><code>#&gt; [1] 0.14964</code></pre>
 </div>
 </div>
 <p>Awesome work on all those simulations!</p>
@@ -791,7 +812,7 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Confirm with a simulation using rbinom</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a><span class="fu">mean</span>(<span class="fu">rbinom</span>(<span class="dv">10000</span>, <span class="dv">25</span>, .<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 7.5529</code></pre>
+<pre><code>#&gt; [1] 7.4662</code></pre>
 </div>
 </div>
 <p>Great work! Do you prefer using the simulation or the exact formula to find the mean?</p>
@@ -813,7 +834,7 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># Confirm with a simulation using rbinom</span></span>
 <span id="cb29-2"><a href="#cb29-2"></a><span class="fu">var</span>(<span class="fu">rbinom</span>(<span class="dv">10000</span>, <span class="dv">25</span>, .<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 5.105134</code></pre>
+<pre><code>#&gt; [1] 5.278588</code></pre>
 </div>
 </div>
 <p>Awesome job! You can simulate the variance just like you can with the mean.</p>
@@ -867,7 +888,7 @@ Theory. Coming soon …
 <span id="cb31-7"><a href="#cb31-7"></a><span class="co"># Estimate the probability both A and B are heads</span></span>
 <span id="cb31-8"><a href="#cb31-8"></a><span class="fu">mean</span>(A <span class="sc">&amp;</span> B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.08072</code></pre>
+<pre><code>#&gt; [1] 0.07994</code></pre>
 </div>
 </div>
 <p>You’re a whiz at this simulation stuff!</p>
@@ -891,7 +912,7 @@ Theory. Coming soon …
 <span id="cb33-8"><a href="#cb33-8"></a><span class="co"># Estimate the probability A, B, and C are all heads</span></span>
 <span id="cb33-9"><a href="#cb33-9"></a><span class="fu">mean</span>(A <span class="sc">&amp;</span> B <span class="sc">&amp;</span> C)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.0557</code></pre>
+<pre><code>#&gt; [1] 0.05671</code></pre>
 </div>
 </div>
 <p>Great job! That was much easier than using a nasty formula.</p>
@@ -939,7 +960,7 @@ Theory. Coming soon …
 <span id="cb35-7"><a href="#cb35-7"></a><span class="co"># Estimate the probability either A or B is heads</span></span>
 <span id="cb35-8"><a href="#cb35-8"></a><span class="fu">mean</span>(A <span class="sc">|</span> B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.64265</code></pre>
+<pre><code>#&gt; [1] 0.63988</code></pre>
 </div>
 </div>
 <p>Great work! How does the simulated probability compare to the one you calculated in the last exercise?</p>
@@ -963,7 +984,7 @@ Theory. Coming soon …
 <span id="cb37-5"><a href="#cb37-5"></a><span class="co"># Estimate the probability either X or Y is &lt;= to 4</span></span>
 <span id="cb37-6"><a href="#cb37-6"></a><span class="fu">mean</span>(X <span class="sc">&lt;=</span> <span class="dv">4</span> <span class="sc">|</span> Y <span class="sc">&lt;=</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.20434</code></pre>
+<pre><code>#&gt; [1] 0.20689</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># Use pbinom to calculate the probabilities separately</span></span>
 <span id="cb39-2"><a href="#cb39-2"></a>prob_X_less <span class="ot">&lt;-</span> <span class="fu">pbinom</span>(<span class="dv">4</span>, <span class="dv">10</span>, .<span class="dv">6</span>)</span>
@@ -1019,12 +1040,12 @@ Theory. Coming soon …
 <span id="cb41-4"><a href="#cb41-4"></a><span class="co"># Estimate the expected value of X</span></span>
 <span id="cb41-5"><a href="#cb41-5"></a><span class="fu">mean</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 1.99844</code></pre>
+<pre><code>#&gt; [1] 1.99864</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="co"># Estimate the expected value of 5 * X</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a><span class="fu">mean</span>(<span class="dv">5</span> <span class="sc">*</span> X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 9.9922</code></pre>
+<pre><code>#&gt; [1] 9.9932</code></pre>
 </div>
 </div>
 <p>Fantastic! You’re a pro at this simulation stuff!</p>
@@ -1044,12 +1065,12 @@ Theory. Coming soon …
 <span id="cb45-4"><a href="#cb45-4"></a><span class="co"># Estimate the variance of X</span></span>
 <span id="cb45-5"><a href="#cb45-5"></a><span class="fu">var</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 1.79788</code></pre>
+<pre><code>#&gt; [1] 1.806878</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Estimate the variance of 5 * X</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a><span class="fu">var</span>(<span class="dv">5</span> <span class="sc">*</span> X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 44.94701</code></pre>
+<pre><code>#&gt; [1] 45.17195</code></pre>
 </div>
 </div>
 <p>Stellar work! How does the variance compare to the mean?</p>
@@ -1096,7 +1117,7 @@ Theory. Coming soon …
 <span id="cb49-5"><a href="#cb49-5"></a><span class="co"># Estimate the expected value of X + Y</span></span>
 <span id="cb49-6"><a href="#cb49-6"></a><span class="fu">mean</span>(X <span class="sc">+</span> Y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 10.00662</code></pre>
+<pre><code>#&gt; [1] 9.99859</code></pre>
 </div>
 </div>
 <p>Great job! The fact that you can add the means makes stuff much simpler.</p>
@@ -1117,12 +1138,12 @@ Theory. Coming soon …
 <span id="cb51-5"><a href="#cb51-5"></a><span class="co"># Find the variance of X + Y</span></span>
 <span id="cb51-6"><a href="#cb51-6"></a><span class="fu">var</span>(X <span class="sc">+</span> Y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 7.79159</code></pre>
+<pre><code>#&gt; [1] 7.808233</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># Find the variance of 3 * X + Y</span></span>
 <span id="cb53-2"><a href="#cb53-2"></a><span class="fu">var</span>(<span class="dv">3</span> <span class="sc">*</span> X <span class="sc">+</span> Y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 41.33771</code></pre>
+<pre><code>#&gt; [1] 41.47497</code></pre>
 </div>
 </div>
 <p>Great simulating! Remember this rule only works when X and Y are independent.</p>
@@ -1175,7 +1196,7 @@ Theory. Coming soon …
 <span id="cb55-9"><a href="#cb55-9"></a><span class="co"># Find the fraction of fair coins that are 11 out of all coins that were 11</span></span>
 <span id="cb55-10"><a href="#cb55-10"></a>fair_11 <span class="sc">/</span> (fair_11 <span class="sc">+</span> biased_11)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.8589067</code></pre>
+<pre><code>#&gt; [1] 0.8577222</code></pre>
 </div>
 </div>
 <p>Great job! How does this compare with your intuition?</p>
@@ -1211,7 +1232,7 @@ Theory. Coming soon …
 <span id="cb57-9"><a href="#cb57-9"></a><span class="co"># Find the fraction of fair coins that are 16 out of all coins that were 16</span></span>
 <span id="cb57-10"><a href="#cb57-10"></a>fair_16 <span class="sc">/</span> (fair_16 <span class="sc">+</span> biased_16)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.02295048</code></pre>
+<pre><code>#&gt; [1] 0.02184119</code></pre>
 </div>
 </div>
 <p>Fantastic work! How does this compare with your intuition from the last exercise?</p>
@@ -1251,7 +1272,7 @@ Theory. Coming soon …
 <span id="cb59-9"><a href="#cb59-9"></a><span class="co"># Use these to estimate the posterior probability</span></span>
 <span id="cb59-10"><a href="#cb59-10"></a>fair_14 <span class="sc">/</span> (fair_14 <span class="sc">+</span> biased_14)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.4657534</code></pre>
+<pre><code>#&gt; [1] 0.478852</code></pre>
 </div>
 </div>
 <p>Awesome! How did adding a prior into the mix change your outcome?</p>
@@ -1280,7 +1301,7 @@ Theory. Coming soon …
 <span id="cb61-11"><a href="#cb61-11"></a><span class="co"># Compute the posterior probability that the coin was fair</span></span>
 <span id="cb61-12"><a href="#cb61-12"></a>fair_14 <span class="sc">/</span> (fair_14 <span class="sc">+</span> low_14 <span class="sc">+</span> high_14)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.6304114</code></pre>
+<pre><code>#&gt; [1] 0.6382523</code></pre>
 </div>
 </div>
 <p>Wow! Great work! Adding another coin doesn’t make things too much harder, does it?</p>
@@ -1469,12 +1490,12 @@ Theory. Coming soon …
 <span id="cb75-5"><a href="#cb75-5"></a><span class="co"># Use binom_sample to estimate the probability of &lt;= 190 heads</span></span>
 <span id="cb75-6"><a href="#cb75-6"></a><span class="fu">mean</span>(binom_sample <span class="sc">&lt;=</span> <span class="dv">190</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.22805</code></pre>
+<pre><code>#&gt; [1] 0.2304</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># Use normal_sample to estimate the probability of &lt;= 190 heads</span></span>
 <span id="cb77-2"><a href="#cb77-2"></a><span class="fu">mean</span>(normal_sample <span class="sc">&lt;=</span> <span class="dv">190</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.2151</code></pre>
+<pre><code>#&gt; [1] 0.21487</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># Calculate the probability of &lt;= 190 heads with pbinom</span></span>
 <span id="cb79-2"><a href="#cb79-2"></a><span class="fu">pbinom</span>(<span class="dv">190</span>, <span class="dv">1000</span>, .<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1591,7 +1612,7 @@ Theory. Coming soon …
 <span id="cb87-4"><a href="#cb87-4"></a><span class="co"># Find the percentage of simulated values that are 0</span></span>
 <span id="cb87-5"><a href="#cb87-5"></a><span class="fu">mean</span>(poisson_sample <span class="sc">==</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.13564</code></pre>
+<pre><code>#&gt; [1] 0.13722</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1"></a><span class="co"># Use dpois to find the exact probability that a draw is 0</span></span>
 <span id="cb89-2"><a href="#cb89-2"></a><span class="fu">dpois</span>(<span class="dv">0</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1667,7 +1688,7 @@ Theory. Coming soon …
 <span id="cb93-4"><a href="#cb93-4"></a><span class="co"># Use which to find the first case of 1 ("heads")</span></span>
 <span id="cb93-5"><a href="#cb93-5"></a><span class="fu">which</span>(flips <span class="sc">==</span> <span class="dv">1</span>)[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 10</code></pre>
+<pre><code>#&gt; [1] 1</code></pre>
 </div>
 </div>
 <p>Wow! What situations can you think of that are good examples of a geometric distribution?</p>
@@ -1684,7 +1705,7 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a><span class="co"># Existing code for finding the first instance of heads</span></span>
 <span id="cb95-2"><a href="#cb95-2"></a><span class="fu">which</span>(<span class="fu">rbinom</span>(<span class="dv">100</span>, <span class="dv">1</span>, <span class="fl">0.2</span>) <span class="sc">==</span> <span class="dv">1</span>)[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 6</code></pre>
+<pre><code>#&gt; [1] 5</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a><span class="co"># Replicate this 100,000 times using replicate()</span></span>
 <span id="cb97-2"><a href="#cb97-2"></a>replications <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">100000</span>, <span class="fu">which</span>(<span class="fu">rbinom</span>(<span class="dv">100</span>, <span class="dv">1</span>, <span class="fl">0.2</span>) <span class="sc">==</span> <span class="dv">1</span>)[<span class="dv">1</span>])</span>
@@ -1931,9 +1952,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1998,6 +2033,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -2053,10 +2174,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Content 2022 by <a href="https://www.startupengineer.io/authors/schwarz/">Joschka Schwarz</a> <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","openEffect":"zoom","loop":true,"selector":".lightbox"});</script>
+<script>var lightboxQuarto = GLightbox({"loop":true,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","openEffect":"zoom"});</script>
 
 
 

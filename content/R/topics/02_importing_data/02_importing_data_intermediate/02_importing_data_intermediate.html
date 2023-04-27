@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -149,308 +120,349 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">Joschka Schwarz</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Data Science</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-science">    
         <li>
-    <a class="dropdown-item" href="../../../../../content/R/index.html">
+    <a class="dropdown-item" href="../../../../../content/R/index.html" rel="" target="">
  <span class="dropdown-text">R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/python/index.html">
+    <a class="dropdown-item" href="../../../../../content/python/index.html" rel="" target="">
  <span class="dropdown-text">Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/sql/index.html">
+    <a class="dropdown-item" href="../../../../../content/sql/index.html" rel="" target="">
  <span class="dropdown-text">SQL</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../slides/index.html">
+    <a class="nav-link" href="../../../../../slides/index.html" rel="" target="">
  <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../resumes/index.html">
+    <a class="nav-link" href="../../../../../resumes/index.html" rel="" target="">
  <span class="menu-text">Resumes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../index.html">
+    <a class="nav-link" href="../../../../../index.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jwarz/"><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
+    <a class="nav-link" href="https://github.com/jwarz/" rel="" target=""><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz"><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
+    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Intermediate Importing Data in R</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Topics</li><li class="breadcrumb-item"><a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html">2.2: Intermediate Importing Data</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Topics</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <b><i>1 Programming Basics</i></b>
+ <span class="menu-text"><b><i>1 Programming Basics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">1.1: Introduction to R</a>
+  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1: Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">1.2: Intermediate R</a>
+  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2: Intermediate R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">1.3: Introduction to the tidyverse</a>
+  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3: Introduction to the tidyverse</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>2 Importing Data</i></b>
+ <span class="menu-text"><b><i>2 Importing Data</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">2.1: Introduction to Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1: Introduction to Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link active">2.2: Intermediate Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">2.2: Intermediate Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">2.3: Working with web data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3: Working with web data</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>3 Data Wrangling</i></b>
+ <span class="menu-text"><b><i>3 Data Wrangling</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">3.1: Data Manipulation with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1: Data Manipulation with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">3.2: Joining data with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2: Joining data with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.3: Exploratory Data Analysis</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3: Exploratory Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.4: Case Study: EDA</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4: Case Study: EDA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">3.5: Cleaning Data</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5: Cleaning Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">3.6: Data Manipulation with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6: Data Manipulation with data.table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">3.7: Joining Data with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.7: Joining Data with data.table</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>4 Data Visualization</i></b>
+ <span class="menu-text"><b><i>4 Data Visualization</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">4.1: Introduction to Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1: Introduction to Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">4.2: Intermediate Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2: Intermediate Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>5 Statistics</i></b>
+ <span class="menu-text"><b><i>5 Statistics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">5.1: Introduction to Statistics</a>
+  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1: Introduction to Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">5.2: Foundations of Probability</a>
+  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2: Foundations of Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">5.3: Introduction to Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3: Introduction to Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">5.4: Intermediate Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.4: Intermediate Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">5.5: Modeling with Data in the Tidyverse</a>
+  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.5: Modeling with Data in the Tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">5.6: Experimental Design</a>
+  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.6: Experimental Design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">5.7: A/B Testing</a>
+  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.7: A/B Testing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">5.8: Fundamentals of Bayesian Data Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.8: Fundamentals of Bayesian Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">5.9: Factor Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.9: Factor Analysis</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>7 Machine Learning</i></b>
+ <span class="menu-text"><b><i>7 Machine Learning</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">7.1: Supervised Learning: Classification</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1: Supervised Learning: Classification</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">7.2: Supervised Learning: Regression</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2: Supervised Learning: Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">7.3: Unsupervised Learning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3: Unsupervised Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">7.4: Machine Learning in the tidyverse</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4: Machine Learning in the tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">7.5: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.5: Cluster Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">7.6: Machine Learning with caret</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6: Machine Learning with caret</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">7.7: Modeling with tidymodels</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.7: Modeling with tidymodels</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">7.8: Machine Learning with tree-based Models</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.8: Machine Learning with tree-based Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">7.9: Support Vector Machines</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.9: Support Vector Machines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">7.10: Topic Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.10: Topic Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">7.11: Hyperparameter Tuning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.11: Hyperparameter Tuning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">7.12: Bayesian Regression Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.12: Bayesian Regression Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">7.13: Introduction to Spark</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.13: Introduction to Spark</span></a>
   </div>
 </li>
       </ul>
@@ -458,40 +470,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Manuals</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">R Manuals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">1: An Introduction to R</a>
+  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: An Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">2: R Data Import/Export</a>
+  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: R Data Import/Export</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">3: R Installation and Administration</a>
+  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: R Installation and Administration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">4: Writing R Extensions</a>
+  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Writing R Extensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">5: R Language Definition</a>
+  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: R Language Definition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">6: R Internals</a>
+  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: R Internals</span></a>
   </div>
 </li>
       </ul>
@@ -499,74 +518,75 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#importing-data-from-databases-part-1" id="toc-importing-data-from-databases-part-1" class="nav-link active" data-scroll-target="#importing-data-from-databases-part-1"><span class="toc-section-number">1</span>  1. Importing data from databases (Part 1)</a>
+  <li><a href="#importing-data-from-databases-part-1" id="toc-importing-data-from-databases-part-1" class="nav-link active" data-scroll-target="#importing-data-from-databases-part-1"><span class="header-section-number">1</span> 1. Importing data from databases (Part 1)</a>
   <ul class="collapse">
-  <li><a href="#connect-to-a-database" id="toc-connect-to-a-database" class="nav-link" data-scroll-target="#connect-to-a-database"><span class="toc-section-number">1.1</span>  Connect to a database</a></li>
-  <li><a href="#establish-a-connection" id="toc-establish-a-connection" class="nav-link" data-scroll-target="#establish-a-connection"><span class="toc-section-number">1.2</span>  Establish a connection</a></li>
-  <li><a href="#inspect-the-connection" id="toc-inspect-the-connection" class="nav-link" data-scroll-target="#inspect-the-connection"><span class="toc-section-number">1.3</span>  Inspect the connection</a></li>
-  <li><a href="#import-table-data" id="toc-import-table-data" class="nav-link" data-scroll-target="#import-table-data"><span class="toc-section-number">1.5</span>  Import table data</a></li>
-  <li><a href="#list-the-database-tables" id="toc-list-the-database-tables" class="nav-link" data-scroll-target="#list-the-database-tables"><span class="toc-section-number">1.6</span>  List the database tables</a></li>
-  <li><a href="#import-users" id="toc-import-users" class="nav-link" data-scroll-target="#import-users"><span class="toc-section-number">1.7</span>  Import users</a></li>
-  <li><a href="#import-all-tables" id="toc-import-all-tables" class="nav-link" data-scroll-target="#import-all-tables"><span class="toc-section-number">1.8</span>  Import all tables</a></li>
-  <li><a href="#how-do-the-tables-relate" id="toc-how-do-the-tables-relate" class="nav-link" data-scroll-target="#how-do-the-tables-relate"><span class="toc-section-number">1.9</span>  How do the tables relate?</a></li>
+  <li><a href="#connect-to-a-database" id="toc-connect-to-a-database" class="nav-link" data-scroll-target="#connect-to-a-database"><span class="header-section-number">1.1</span> Connect to a database</a></li>
+  <li><a href="#establish-a-connection" id="toc-establish-a-connection" class="nav-link" data-scroll-target="#establish-a-connection"><span class="header-section-number">1.2</span> Establish a connection</a></li>
+  <li><a href="#inspect-the-connection" id="toc-inspect-the-connection" class="nav-link" data-scroll-target="#inspect-the-connection"><span class="header-section-number">1.3</span> Inspect the connection</a></li>
+  <li><a href="#import-table-data" id="toc-import-table-data" class="nav-link" data-scroll-target="#import-table-data"><span class="header-section-number">1.5</span> Import table data</a></li>
+  <li><a href="#list-the-database-tables" id="toc-list-the-database-tables" class="nav-link" data-scroll-target="#list-the-database-tables"><span class="header-section-number">1.6</span> List the database tables</a></li>
+  <li><a href="#import-users" id="toc-import-users" class="nav-link" data-scroll-target="#import-users"><span class="header-section-number">1.7</span> Import users</a></li>
+  <li><a href="#import-all-tables" id="toc-import-all-tables" class="nav-link" data-scroll-target="#import-all-tables"><span class="header-section-number">1.8</span> Import all tables</a></li>
+  <li><a href="#how-do-the-tables-relate" id="toc-how-do-the-tables-relate" class="nav-link" data-scroll-target="#how-do-the-tables-relate"><span class="header-section-number">1.9</span> How do the tables relate?</a></li>
   </ul></li>
-  <li><a href="#importing-data-from-databases-part-2" id="toc-importing-data-from-databases-part-2" class="nav-link" data-scroll-target="#importing-data-from-databases-part-2"><span class="toc-section-number">2</span>  2. Importing data from databases (Part 2)</a>
+  <li><a href="#importing-data-from-databases-part-2" id="toc-importing-data-from-databases-part-2" class="nav-link" data-scroll-target="#importing-data-from-databases-part-2"><span class="header-section-number">2</span> 2. Importing data from databases (Part 2)</a>
   <ul class="collapse">
-  <li><a href="#sql-queries-from-inside-r" id="toc-sql-queries-from-inside-r" class="nav-link" data-scroll-target="#sql-queries-from-inside-r"><span class="toc-section-number">2.1</span>  SQL Queries from inside R</a></li>
-  <li><a href="#query-tweater-1" id="toc-query-tweater-1" class="nav-link" data-scroll-target="#query-tweater-1"><span class="toc-section-number">2.2</span>  Query tweater (1)</a></li>
-  <li><a href="#query-tweater-2" id="toc-query-tweater-2" class="nav-link" data-scroll-target="#query-tweater-2"><span class="toc-section-number">2.3</span>  Query tweater (2)</a></li>
-  <li><a href="#query-tweater-3" id="toc-query-tweater-3" class="nav-link" data-scroll-target="#query-tweater-3"><span class="toc-section-number">2.4</span>  Query tweater (3)</a></li>
-  <li><a href="#query-tweater-4" id="toc-query-tweater-4" class="nav-link" data-scroll-target="#query-tweater-4"><span class="toc-section-number">2.5</span>  Query tweater (4)</a></li>
-  <li><a href="#join-the-query-madness" id="toc-join-the-query-madness" class="nav-link" data-scroll-target="#join-the-query-madness"><span class="toc-section-number">2.6</span>  Join the query madness!</a></li>
-  <li><a href="#dbi-internals" id="toc-dbi-internals" class="nav-link" data-scroll-target="#dbi-internals"><span class="toc-section-number">2.8</span>  DBI internals</a></li>
-  <li><a href="#send---fetch---clear" id="toc-send---fetch---clear" class="nav-link" data-scroll-target="#send---fetch---clear"><span class="toc-section-number">2.9</span>  Send - Fetch - Clear</a></li>
-  <li><a href="#be-polite-and" id="toc-be-polite-and" class="nav-link" data-scroll-target="#be-polite-and"><span class="toc-section-number">2.10</span>  Be polite and …</a></li>
+  <li><a href="#sql-queries-from-inside-r" id="toc-sql-queries-from-inside-r" class="nav-link" data-scroll-target="#sql-queries-from-inside-r"><span class="header-section-number">2.1</span> SQL Queries from inside R</a></li>
+  <li><a href="#query-tweater-1" id="toc-query-tweater-1" class="nav-link" data-scroll-target="#query-tweater-1"><span class="header-section-number">2.2</span> Query tweater (1)</a></li>
+  <li><a href="#query-tweater-2" id="toc-query-tweater-2" class="nav-link" data-scroll-target="#query-tweater-2"><span class="header-section-number">2.3</span> Query tweater (2)</a></li>
+  <li><a href="#query-tweater-3" id="toc-query-tweater-3" class="nav-link" data-scroll-target="#query-tweater-3"><span class="header-section-number">2.4</span> Query tweater (3)</a></li>
+  <li><a href="#query-tweater-4" id="toc-query-tweater-4" class="nav-link" data-scroll-target="#query-tweater-4"><span class="header-section-number">2.5</span> Query tweater (4)</a></li>
+  <li><a href="#join-the-query-madness" id="toc-join-the-query-madness" class="nav-link" data-scroll-target="#join-the-query-madness"><span class="header-section-number">2.6</span> Join the query madness!</a></li>
+  <li><a href="#dbi-internals" id="toc-dbi-internals" class="nav-link" data-scroll-target="#dbi-internals"><span class="header-section-number">2.8</span> DBI internals</a></li>
+  <li><a href="#send---fetch---clear" id="toc-send---fetch---clear" class="nav-link" data-scroll-target="#send---fetch---clear"><span class="header-section-number">2.9</span> Send - Fetch - Clear</a></li>
+  <li><a href="#be-polite-and" id="toc-be-polite-and" class="nav-link" data-scroll-target="#be-polite-and"><span class="header-section-number">2.10</span> Be polite and …</a></li>
   </ul></li>
-  <li><a href="#importing-data-from-the-web-part-1" id="toc-importing-data-from-the-web-part-1" class="nav-link" data-scroll-target="#importing-data-from-the-web-part-1"><span class="toc-section-number">3</span>  3. Importing data from the web (Part 1)</a>
+  <li><a href="#importing-data-from-the-web-part-1" id="toc-importing-data-from-the-web-part-1" class="nav-link" data-scroll-target="#importing-data-from-the-web-part-1"><span class="header-section-number">3</span> 3. Importing data from the web (Part 1)</a>
   <ul class="collapse">
-  <li><a href="#http" id="toc-http" class="nav-link" data-scroll-target="#http"><span class="toc-section-number">3.1</span>  HTTP</a></li>
-  <li><a href="#import-flat-files-from-the-web" id="toc-import-flat-files-from-the-web" class="nav-link" data-scroll-target="#import-flat-files-from-the-web"><span class="toc-section-number">3.2</span>  Import flat files from the web</a></li>
-  <li><a href="#secure-importing" id="toc-secure-importing" class="nav-link" data-scroll-target="#secure-importing"><span class="toc-section-number">3.3</span>  Secure importing</a></li>
-  <li><a href="#downloading-files" id="toc-downloading-files" class="nav-link" data-scroll-target="#downloading-files"><span class="toc-section-number">3.4</span>  Downloading files</a></li>
-  <li><a href="#import-excel-files-from-the-web" id="toc-import-excel-files-from-the-web" class="nav-link" data-scroll-target="#import-excel-files-from-the-web"><span class="toc-section-number">3.5</span>  Import Excel files from the web</a></li>
-  <li><a href="#downloading-any-file-secure-or-not" id="toc-downloading-any-file-secure-or-not" class="nav-link" data-scroll-target="#downloading-any-file-secure-or-not"><span class="toc-section-number">3.6</span>  Downloading any file, secure or not</a></li>
-  <li><a href="#reading-a-text-file-from-the-web" id="toc-reading-a-text-file-from-the-web" class="nav-link" data-scroll-target="#reading-a-text-file-from-the-web"><span class="toc-section-number">3.7</span>  Reading a text file from the web</a></li>
-  <li><a href="#http-httr-1" id="toc-http-httr-1" class="nav-link" data-scroll-target="#http-httr-1"><span class="toc-section-number">3.9</span>  HTTP? httr! (1)</a></li>
-  <li><a href="#http-httr-2" id="toc-http-httr-2" class="nav-link" data-scroll-target="#http-httr-2"><span class="toc-section-number">3.10</span>  HTTP? httr! (2)</a></li>
+  <li><a href="#http" id="toc-http" class="nav-link" data-scroll-target="#http"><span class="header-section-number">3.1</span> HTTP</a></li>
+  <li><a href="#import-flat-files-from-the-web" id="toc-import-flat-files-from-the-web" class="nav-link" data-scroll-target="#import-flat-files-from-the-web"><span class="header-section-number">3.2</span> Import flat files from the web</a></li>
+  <li><a href="#secure-importing" id="toc-secure-importing" class="nav-link" data-scroll-target="#secure-importing"><span class="header-section-number">3.3</span> Secure importing</a></li>
+  <li><a href="#downloading-files" id="toc-downloading-files" class="nav-link" data-scroll-target="#downloading-files"><span class="header-section-number">3.4</span> Downloading files</a></li>
+  <li><a href="#import-excel-files-from-the-web" id="toc-import-excel-files-from-the-web" class="nav-link" data-scroll-target="#import-excel-files-from-the-web"><span class="header-section-number">3.5</span> Import Excel files from the web</a></li>
+  <li><a href="#downloading-any-file-secure-or-not" id="toc-downloading-any-file-secure-or-not" class="nav-link" data-scroll-target="#downloading-any-file-secure-or-not"><span class="header-section-number">3.6</span> Downloading any file, secure or not</a></li>
+  <li><a href="#reading-a-text-file-from-the-web" id="toc-reading-a-text-file-from-the-web" class="nav-link" data-scroll-target="#reading-a-text-file-from-the-web"><span class="header-section-number">3.7</span> Reading a text file from the web</a></li>
+  <li><a href="#http-httr-1" id="toc-http-httr-1" class="nav-link" data-scroll-target="#http-httr-1"><span class="header-section-number">3.9</span> HTTP? httr! (1)</a></li>
+  <li><a href="#http-httr-2" id="toc-http-httr-2" class="nav-link" data-scroll-target="#http-httr-2"><span class="header-section-number">3.10</span> HTTP? httr! (2)</a></li>
   </ul></li>
-  <li><a href="#importing-data-from-the-web-part-2" id="toc-importing-data-from-the-web-part-2" class="nav-link" data-scroll-target="#importing-data-from-the-web-part-2"><span class="toc-section-number">4</span>  4. Importing data from the web (Part 2)</a>
+  <li><a href="#importing-data-from-the-web-part-2" id="toc-importing-data-from-the-web-part-2" class="nav-link" data-scroll-target="#importing-data-from-the-web-part-2"><span class="header-section-number">4</span> 4. Importing data from the web (Part 2)</a>
   <ul class="collapse">
-  <li><a href="#apis-json" id="toc-apis-json" class="nav-link" data-scroll-target="#apis-json"><span class="toc-section-number">4.1</span>  APIs &amp; JSON</a></li>
-  <li><a href="#from-json-to-r" id="toc-from-json-to-r" class="nav-link" data-scroll-target="#from-json-to-r"><span class="toc-section-number">4.2</span>  From JSON to R</a></li>
-  <li><a href="#quandl-api" id="toc-quandl-api" class="nav-link" data-scroll-target="#quandl-api"><span class="toc-section-number">4.3</span>  Quandl API</a></li>
-  <li><a href="#omdb-api" id="toc-omdb-api" class="nav-link" data-scroll-target="#omdb-api"><span class="toc-section-number">4.4</span>  OMDb API</a></li>
-  <li><a href="#json-jsonlite" id="toc-json-jsonlite" class="nav-link" data-scroll-target="#json-jsonlite"><span class="toc-section-number">4.5</span>  JSON &amp; jsonlite</a></li>
-  <li><a href="#json-practice-1" id="toc-json-practice-1" class="nav-link" data-scroll-target="#json-practice-1"><span class="toc-section-number">4.6</span>  JSON practice (1)</a></li>
-  <li><a href="#json-practice-2" id="toc-json-practice-2" class="nav-link" data-scroll-target="#json-practice-2"><span class="toc-section-number">4.7</span>  JSON practice (2)</a></li>
-  <li><a href="#tojson" id="toc-tojson" class="nav-link" data-scroll-target="#tojson"><span class="toc-section-number">4.8</span>  toJSON()</a></li>
-  <li><a href="#minify-and-prettify" id="toc-minify-and-prettify" class="nav-link" data-scroll-target="#minify-and-prettify"><span class="toc-section-number">4.9</span>  Minify and prettify</a></li>
+  <li><a href="#apis-json" id="toc-apis-json" class="nav-link" data-scroll-target="#apis-json"><span class="header-section-number">4.1</span> APIs &amp; JSON</a></li>
+  <li><a href="#from-json-to-r" id="toc-from-json-to-r" class="nav-link" data-scroll-target="#from-json-to-r"><span class="header-section-number">4.2</span> From JSON to R</a></li>
+  <li><a href="#quandl-api" id="toc-quandl-api" class="nav-link" data-scroll-target="#quandl-api"><span class="header-section-number">4.3</span> Quandl API</a></li>
+  <li><a href="#omdb-api" id="toc-omdb-api" class="nav-link" data-scroll-target="#omdb-api"><span class="header-section-number">4.4</span> OMDb API</a></li>
+  <li><a href="#json-jsonlite" id="toc-json-jsonlite" class="nav-link" data-scroll-target="#json-jsonlite"><span class="header-section-number">4.5</span> JSON &amp; jsonlite</a></li>
+  <li><a href="#json-practice-1" id="toc-json-practice-1" class="nav-link" data-scroll-target="#json-practice-1"><span class="header-section-number">4.6</span> JSON practice (1)</a></li>
+  <li><a href="#json-practice-2" id="toc-json-practice-2" class="nav-link" data-scroll-target="#json-practice-2"><span class="header-section-number">4.7</span> JSON practice (2)</a></li>
+  <li><a href="#tojson" id="toc-tojson" class="nav-link" data-scroll-target="#tojson"><span class="header-section-number">4.8</span> toJSON()</a></li>
+  <li><a href="#minify-and-prettify" id="toc-minify-and-prettify" class="nav-link" data-scroll-target="#minify-and-prettify"><span class="header-section-number">4.9</span> Minify and prettify</a></li>
   </ul></li>
-  <li><a href="#importing-data-from-statistical-software-packages" id="toc-importing-data-from-statistical-software-packages" class="nav-link" data-scroll-target="#importing-data-from-statistical-software-packages"><span class="toc-section-number">5</span>  5. Importing data from statistical software packages</a>
+  <li><a href="#importing-data-from-statistical-software-packages" id="toc-importing-data-from-statistical-software-packages" class="nav-link" data-scroll-target="#importing-data-from-statistical-software-packages"><span class="header-section-number">5</span> 5. Importing data from statistical software packages</a>
   <ul class="collapse">
-  <li><a href="#haven" id="toc-haven" class="nav-link" data-scroll-target="#haven"><span class="toc-section-number">5.1</span>  haven</a></li>
-  <li><a href="#import-sas-data-with-haven" id="toc-import-sas-data-with-haven" class="nav-link" data-scroll-target="#import-sas-data-with-haven"><span class="toc-section-number">5.2</span>  Import SAS data with haven</a></li>
-  <li><a href="#import-stata-data-with-haven" id="toc-import-stata-data-with-haven" class="nav-link" data-scroll-target="#import-stata-data-with-haven"><span class="toc-section-number">5.3</span>  Import STATA data with haven</a></li>
-  <li><a href="#what-does-the-graphic-tell" id="toc-what-does-the-graphic-tell" class="nav-link" data-scroll-target="#what-does-the-graphic-tell"><span class="toc-section-number">5.4</span>  What does the graphic tell?</a></li>
-  <li><a href="#import-spss-data-with-haven" id="toc-import-spss-data-with-haven" class="nav-link" data-scroll-target="#import-spss-data-with-haven"><span class="toc-section-number">5.6</span>  Import SPSS data with haven</a></li>
-  <li><a href="#factorize-round-two" id="toc-factorize-round-two" class="nav-link" data-scroll-target="#factorize-round-two"><span class="toc-section-number">5.7</span>  Factorize, round two</a></li>
-  <li><a href="#foreign" id="toc-foreign" class="nav-link" data-scroll-target="#foreign"><span class="toc-section-number">5.8</span>  foreign</a></li>
-  <li><a href="#import-stata-data-with-foreign-1" id="toc-import-stata-data-with-foreign-1" class="nav-link" data-scroll-target="#import-stata-data-with-foreign-1"><span class="toc-section-number">5.9</span>  Import STATA data with foreign (1)</a></li>
-  <li><a href="#import-stata-data-with-foreign-2" id="toc-import-stata-data-with-foreign-2" class="nav-link" data-scroll-target="#import-stata-data-with-foreign-2"><span class="toc-section-number">5.10</span>  Import STATA data with foreign (2)</a></li>
-  <li><a href="#do-you-know-your-data" id="toc-do-you-know-your-data" class="nav-link" data-scroll-target="#do-you-know-your-data"><span class="toc-section-number">5.11</span>  Do you know your data?</a></li>
-  <li><a href="#import-spss-data-with-foreign-1" id="toc-import-spss-data-with-foreign-1" class="nav-link" data-scroll-target="#import-spss-data-with-foreign-1"><span class="toc-section-number">5.13</span>  Import SPSS data with foreign (1)</a></li>
-  <li><a href="#excursion-correlation" id="toc-excursion-correlation" class="nav-link" data-scroll-target="#excursion-correlation"><span class="toc-section-number">5.14</span>  Excursion: Correlation</a></li>
-  <li><a href="#import-spss-data-with-foreign-2" id="toc-import-spss-data-with-foreign-2" class="nav-link" data-scroll-target="#import-spss-data-with-foreign-2"><span class="toc-section-number">5.16</span>  Import SPSS data with foreign (2)</a></li>
+  <li><a href="#haven" id="toc-haven" class="nav-link" data-scroll-target="#haven"><span class="header-section-number">5.1</span> haven</a></li>
+  <li><a href="#import-sas-data-with-haven" id="toc-import-sas-data-with-haven" class="nav-link" data-scroll-target="#import-sas-data-with-haven"><span class="header-section-number">5.2</span> Import SAS data with haven</a></li>
+  <li><a href="#import-stata-data-with-haven" id="toc-import-stata-data-with-haven" class="nav-link" data-scroll-target="#import-stata-data-with-haven"><span class="header-section-number">5.3</span> Import STATA data with haven</a></li>
+  <li><a href="#what-does-the-graphic-tell" id="toc-what-does-the-graphic-tell" class="nav-link" data-scroll-target="#what-does-the-graphic-tell"><span class="header-section-number">5.4</span> What does the graphic tell?</a></li>
+  <li><a href="#import-spss-data-with-haven" id="toc-import-spss-data-with-haven" class="nav-link" data-scroll-target="#import-spss-data-with-haven"><span class="header-section-number">5.6</span> Import SPSS data with haven</a></li>
+  <li><a href="#factorize-round-two" id="toc-factorize-round-two" class="nav-link" data-scroll-target="#factorize-round-two"><span class="header-section-number">5.7</span> Factorize, round two</a></li>
+  <li><a href="#foreign" id="toc-foreign" class="nav-link" data-scroll-target="#foreign"><span class="header-section-number">5.8</span> foreign</a></li>
+  <li><a href="#import-stata-data-with-foreign-1" id="toc-import-stata-data-with-foreign-1" class="nav-link" data-scroll-target="#import-stata-data-with-foreign-1"><span class="header-section-number">5.9</span> Import STATA data with foreign (1)</a></li>
+  <li><a href="#import-stata-data-with-foreign-2" id="toc-import-stata-data-with-foreign-2" class="nav-link" data-scroll-target="#import-stata-data-with-foreign-2"><span class="header-section-number">5.10</span> Import STATA data with foreign (2)</a></li>
+  <li><a href="#do-you-know-your-data" id="toc-do-you-know-your-data" class="nav-link" data-scroll-target="#do-you-know-your-data"><span class="header-section-number">5.11</span> Do you know your data?</a></li>
+  <li><a href="#import-spss-data-with-foreign-1" id="toc-import-spss-data-with-foreign-1" class="nav-link" data-scroll-target="#import-spss-data-with-foreign-1"><span class="header-section-number">5.13</span> Import SPSS data with foreign (1)</a></li>
+  <li><a href="#excursion-correlation" id="toc-excursion-correlation" class="nav-link" data-scroll-target="#excursion-correlation"><span class="header-section-number">5.14</span> Excursion: Correlation</a></li>
+  <li><a href="#import-spss-data-with-foreign-2" id="toc-import-spss-data-with-foreign-2" class="nav-link" data-scroll-target="#import-spss-data-with-foreign-2"><span class="header-section-number">5.16</span> Import SPSS data with foreign (2)</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -576,7 +596,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Intermediate Importing Data in R</h1>
+<h1 class="title">Intermediate Importing Data in R</h1>
 </div>
 
 
@@ -1159,29 +1179,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb27-2"><a href="#cb27-2"></a><span class="fu">print</span>(pools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; # A tibble: 20 × 4
-#&gt;    Name                                      Address             Latit…¹ Longi…²
-#&gt;    &lt;chr&gt;                                     &lt;chr&gt;                 &lt;dbl&gt;   &lt;dbl&gt;
-#&gt;  1 Acacia Ridge Leisure Centre               1391 Beaudesert Ro…   -27.6    153.
-#&gt;  2 Bellbowrie Pool                           Sugarwood Street, …   -27.6    153.
-#&gt;  3 Carole Park                               Cnr Boundary Road …   -27.6    153.
-#&gt;  4 Centenary Pool (inner City)               400 Gregory Terrac…   -27.5    153.
-#&gt;  5 Chermside Pool                            375 Hamilton Road,…   -27.4    153.
-#&gt;  6 Colmslie Pool (Morningside)               400 Lytton Road, M…   -27.5    153.
-#&gt;  7 Spring Hill Baths (inner City)            14 Torrington Stre…   -27.5    153.
-#&gt;  8 Dunlop Park Pool (Corinda)                794 Oxley Road, Co…   -27.5    153.
-#&gt;  9 Fortitude Valley Pool                     432 Wickham Street…   -27.5    153.
-#&gt; 10 Hibiscus Sports Complex (upper MtGravatt) 90 Klumpp Road, Up…   -27.6    153.
-#&gt; 11 Ithaca Pool ( Paddington)                 131 Caxton Street,…   -27.5    153.
-#&gt; 12 Jindalee Pool                             11 Yallambee Road,…   -27.5    153.
-#&gt; 13 Manly Pool                                1 Fairlead Crescen…   -27.5    153.
-#&gt; 14 Mt Gravatt East Aquatic Centre            Cnr wecker Road an…   -27.5    153.
-#&gt; 15 Musgrave Park Pool (South Brisbane)       100 Edmonstone Str…   -27.5    153.
-#&gt; 16 Newmarket Pool                            71 Alderson Stret,…   -27.4    153.
-#&gt; 17 Runcorn Pool                              37 Bonemill Road, …   -27.6    153.
-#&gt; 18 Sandgate Pool                             231 Flinders Parad…   -27.3    153.
-#&gt; 19 Langlands Parks Pool (Stones Corner)      5 Panitya Street, …   -27.5    153.
-#&gt; 20 Yeronga Park Pool                         81 School Road, Ye…   -27.5    153.
-#&gt; # … with abbreviated variable names ¹​Latitude, ²​Longitude</code></pre>
+#&gt;    Name                                      Address          Latitude Longitude
+#&gt;    &lt;chr&gt;                                     &lt;chr&gt;               &lt;dbl&gt;     &lt;dbl&gt;
+#&gt;  1 Acacia Ridge Leisure Centre               1391 Beaudesert…    -27.6      153.
+#&gt;  2 Bellbowrie Pool                           Sugarwood Stree…    -27.6      153.
+#&gt;  3 Carole Park                               Cnr Boundary Ro…    -27.6      153.
+#&gt;  4 Centenary Pool (inner City)               400 Gregory Ter…    -27.5      153.
+#&gt;  5 Chermside Pool                            375 Hamilton Ro…    -27.4      153.
+#&gt;  6 Colmslie Pool (Morningside)               400 Lytton Road…    -27.5      153.
+#&gt;  7 Spring Hill Baths (inner City)            14 Torrington S…    -27.5      153.
+#&gt;  8 Dunlop Park Pool (Corinda)                794 Oxley Road,…    -27.5      153.
+#&gt;  9 Fortitude Valley Pool                     432 Wickham Str…    -27.5      153.
+#&gt; 10 Hibiscus Sports Complex (upper MtGravatt) 90 Klumpp Road,…    -27.6      153.
+#&gt; 11 Ithaca Pool ( Paddington)                 131 Caxton Stre…    -27.5      153.
+#&gt; 12 Jindalee Pool                             11 Yallambee Ro…    -27.5      153.
+#&gt; 13 Manly Pool                                1 Fairlead Cres…    -27.5      153.
+#&gt; 14 Mt Gravatt East Aquatic Centre            Cnr wecker Road…    -27.5      153.
+#&gt; 15 Musgrave Park Pool (South Brisbane)       100 Edmonstone …    -27.5      153.
+#&gt; 16 Newmarket Pool                            71 Alderson Str…    -27.4      153.
+#&gt; 17 Runcorn Pool                              37 Bonemill Roa…    -27.6      153.
+#&gt; 18 Sandgate Pool                             231 Flinders Pa…    -27.3      153.
+#&gt; 19 Langlands Parks Pool (Stones Corner)      5 Panitya Stree…    -27.5      153.
+#&gt; 20 Yeronga Park Pool                         81 School Road,…    -27.5      153.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">print</span>(potatoes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1198,7 +1217,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt;  8     1     1     1       2      3     3      3         2.9
 #&gt;  9     1     1     1       2      4     2.2    3.2       2.5
 #&gt; 10     1     1     1       2      5     2      2.8       1.9
-#&gt; # … with 150 more rows</code></pre>
+#&gt; # ℹ 150 more rows</code></pre>
 </div>
 </div>
 <p>Great! It seems to work without any additional problems!</p>
@@ -1413,7 +1432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb48-9"><a href="#cb48-9"></a>resp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Response [http://www.example.com/]
-#&gt;   Date: 2022-12-09 09:59
+#&gt;   Date: 2023-04-26 18:56
 #&gt;   Status: 200
 #&gt;   Content-Type: text/html; charset=UTF-8
 #&gt;   Size: 1.26 kB
@@ -1460,7 +1479,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb52-6"><a href="#cb52-6"></a><span class="fu">print</span>(resp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Response [http://www.omdbapi.com/?apikey=72bc447a&amp;t=Annie+Hall&amp;y=&amp;plot=short&amp;r=json]
-#&gt;   Date: 2022-12-09 09:59
+#&gt;   Date: 2023-04-26 18:56
 #&gt;   Status: 200
 #&gt;   Content-Type: application/json; charset=utf-8
 #&gt;   Size: 1.02 kB</code></pre>
@@ -1468,7 +1487,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># Print content of resp as text</span></span>
 <span id="cb54-2"><a href="#cb54-2"></a><span class="fu">print</span>(<span class="fu">content</span>(resp, <span class="at">as =</span> <span class="st">"text"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] "{\"Title\":\"Annie Hall\",\"Year\":\"1977\",\"Rated\":\"PG\",\"Released\":\"20 Apr 1977\",\"Runtime\":\"93 min\",\"Genre\":\"Comedy, Romance\",\"Director\":\"Woody Allen\",\"Writer\":\"Woody Allen, Marshall Brickman\",\"Actors\":\"Woody Allen, Diane Keaton, Tony Roberts\",\"Plot\":\"Alvy Singer, a divorced Jewish comedian, reflects on his relationship with ex-lover Annie Hall, an aspiring nightclub singer, which ended abruptly just like his previous marriages.\",\"Language\":\"English, German\",\"Country\":\"United States\",\"Awards\":\"Won 4 Oscars. 31 wins &amp; 8 nominations total\",\"Poster\":\"https://m.media-amazon.com/images/M/MV5BZDg1OGQ4YzgtM2Y2NS00NjA3LWFjYTctMDRlMDI3NWE1OTUyXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg\",\"Ratings\":[{\"Source\":\"Internet Movie Database\",\"Value\":\"8.0/10\"},{\"Source\":\"Rotten Tomatoes\",\"Value\":\"97%\"},{\"Source\":\"Metacritic\",\"Value\":\"92/100\"}],\"Metascore\":\"92\",\"imdbRating\":\"8.0\",\"imdbVotes\":\"266,470\",\"imdbID\":\"tt0075686\",\"Type\":\"movie\",\"DVD\":\"05 Jul 2000\",\"BoxOffice\":\"$38,251,425\",\"Production\":\"N/A\",\"Website\":\"N/A\",\"Response\":\"True\"}"</code></pre>
+<pre><code>#&gt; [1] "{\"Title\":\"Annie Hall\",\"Year\":\"1977\",\"Rated\":\"PG\",\"Released\":\"20 Apr 1977\",\"Runtime\":\"93 min\",\"Genre\":\"Comedy, Romance\",\"Director\":\"Woody Allen\",\"Writer\":\"Woody Allen, Marshall Brickman\",\"Actors\":\"Woody Allen, Diane Keaton, Tony Roberts\",\"Plot\":\"Alvy Singer, a divorced Jewish comedian, reflects on his relationship with ex-lover Annie Hall, an aspiring nightclub singer, which ended abruptly just like his previous marriages.\",\"Language\":\"English, German\",\"Country\":\"United States\",\"Awards\":\"Won 4 Oscars. 31 wins &amp; 8 nominations total\",\"Poster\":\"https://m.media-amazon.com/images/M/MV5BZDg1OGQ4YzgtM2Y2NS00NjA3LWFjYTctMDRlMDI3NWE1OTUyXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_SX300.jpg\",\"Ratings\":[{\"Source\":\"Internet Movie Database\",\"Value\":\"8.0/10\"},{\"Source\":\"Rotten Tomatoes\",\"Value\":\"97%\"},{\"Source\":\"Metacritic\",\"Value\":\"92/100\"}],\"Metascore\":\"92\",\"imdbRating\":\"8.0\",\"imdbVotes\":\"269,350\",\"imdbID\":\"tt0075686\",\"Type\":\"movie\",\"DVD\":\"05 Jul 2000\",\"BoxOffice\":\"$38,251,425\",\"Production\":\"N/A\",\"Website\":\"N/A\",\"Response\":\"True\"}"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># Print content of resp</span></span>
 <span id="cb56-2"><a href="#cb56-2"></a><span class="fu">print</span>(<span class="fu">content</span>(resp))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1548,7 +1567,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; [1] "8.0"
 #&gt; 
 #&gt; $imdbVotes
-#&gt; [1] "266,470"
+#&gt; [1] "269,350"
 #&gt; 
 #&gt; $imdbID
 #&gt; [1] "tt0075686"
@@ -3168,9 +3187,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -3235,6 +3268,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -3290,10 +3409,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Content 2022 by <a href="https://www.startupengineer.io/authors/schwarz/">Joschka Schwarz</a> <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":true,"descPosition":"bottom"});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","openEffect":"zoom","loop":true});</script>
 
 
 

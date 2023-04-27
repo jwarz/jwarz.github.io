@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -149,308 +120,349 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">Joschka Schwarz</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Data Science</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-science">    
         <li>
-    <a class="dropdown-item" href="../../../../../content/R/index.html">
+    <a class="dropdown-item" href="../../../../../content/R/index.html" rel="" target="">
  <span class="dropdown-text">R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/python/index.html">
+    <a class="dropdown-item" href="../../../../../content/python/index.html" rel="" target="">
  <span class="dropdown-text">Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/sql/index.html">
+    <a class="dropdown-item" href="../../../../../content/sql/index.html" rel="" target="">
  <span class="dropdown-text">SQL</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../slides/index.html">
+    <a class="nav-link" href="../../../../../slides/index.html" rel="" target="">
  <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../resumes/index.html">
+    <a class="nav-link" href="../../../../../resumes/index.html" rel="" target="">
  <span class="menu-text">Resumes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../index.html">
+    <a class="nav-link" href="../../../../../index.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jwarz/"><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
+    <a class="nav-link" href="https://github.com/jwarz/" rel="" target=""><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz"><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
+    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Intermediate Regression in R</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Topics</li><li class="breadcrumb-item"><a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html">5.4: Intermediate Regression</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Topics</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <b><i>1 Programming Basics</i></b>
+ <span class="menu-text"><b><i>1 Programming Basics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">1.1: Introduction to R</a>
+  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1: Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">1.2: Intermediate R</a>
+  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2: Intermediate R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">1.3: Introduction to the tidyverse</a>
+  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3: Introduction to the tidyverse</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>2 Importing Data</i></b>
+ <span class="menu-text"><b><i>2 Importing Data</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">2.1: Introduction to Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1: Introduction to Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">2.2: Intermediate Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2: Intermediate Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">2.3: Working with web data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3: Working with web data</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>3 Data Wrangling</i></b>
+ <span class="menu-text"><b><i>3 Data Wrangling</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">3.1: Data Manipulation with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1: Data Manipulation with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">3.2: Joining data with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2: Joining data with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.3: Exploratory Data Analysis</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3: Exploratory Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.4: Case Study: EDA</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4: Case Study: EDA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">3.5: Cleaning Data</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5: Cleaning Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">3.6: Data Manipulation with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6: Data Manipulation with data.table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">3.7: Joining Data with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.7: Joining Data with data.table</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>4 Data Visualization</i></b>
+ <span class="menu-text"><b><i>4 Data Visualization</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">4.1: Introduction to Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1: Introduction to Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">4.2: Intermediate Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2: Intermediate Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>5 Statistics</i></b>
+ <span class="menu-text"><b><i>5 Statistics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">5.1: Introduction to Statistics</a>
+  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1: Introduction to Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">5.2: Foundations of Probability</a>
+  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2: Foundations of Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">5.3: Introduction to Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3: Introduction to Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link active">5.4: Intermediate Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">5.4: Intermediate Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">5.5: Modeling with Data in the Tidyverse</a>
+  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.5: Modeling with Data in the Tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">5.6: Experimental Design</a>
+  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.6: Experimental Design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">5.7: A/B Testing</a>
+  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.7: A/B Testing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">5.8: Fundamentals of Bayesian Data Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.8: Fundamentals of Bayesian Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">5.9: Factor Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.9: Factor Analysis</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>7 Machine Learning</i></b>
+ <span class="menu-text"><b><i>7 Machine Learning</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">7.1: Supervised Learning: Classification</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1: Supervised Learning: Classification</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">7.2: Supervised Learning: Regression</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2: Supervised Learning: Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">7.3: Unsupervised Learning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3: Unsupervised Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">7.4: Machine Learning in the tidyverse</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4: Machine Learning in the tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">7.5: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.5: Cluster Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">7.6: Machine Learning with caret</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6: Machine Learning with caret</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">7.7: Modeling with tidymodels</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.7: Modeling with tidymodels</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">7.8: Machine Learning with tree-based Models</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.8: Machine Learning with tree-based Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">7.9: Support Vector Machines</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.9: Support Vector Machines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">7.10: Topic Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.10: Topic Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">7.11: Hyperparameter Tuning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.11: Hyperparameter Tuning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">7.12: Bayesian Regression Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.12: Bayesian Regression Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">7.13: Introduction to Spark</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.13: Introduction to Spark</span></a>
   </div>
 </li>
       </ul>
@@ -458,40 +470,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Manuals</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">R Manuals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">1: An Introduction to R</a>
+  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: An Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">2: R Data Import/Export</a>
+  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: R Data Import/Export</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">3: R Installation and Administration</a>
+  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: R Installation and Administration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">4: Writing R Extensions</a>
+  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Writing R Extensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">5: R Language Definition</a>
+  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: R Language Definition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">6: R Internals</a>
+  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: R Internals</span></a>
   </div>
 </li>
       </ul>
@@ -499,73 +518,74 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#parallel-slopes" id="toc-parallel-slopes" class="nav-link active" data-scroll-target="#parallel-slopes"><span class="toc-section-number">1</span>  Parallel Slopes</a>
+  <li><a href="#parallel-slopes" id="toc-parallel-slopes" class="nav-link active" data-scroll-target="#parallel-slopes"><span class="header-section-number">1</span> Parallel Slopes</a>
   <ul class="collapse">
-  <li><a href="#parallel-slopes-linear-regression" id="toc-parallel-slopes-linear-regression" class="nav-link" data-scroll-target="#parallel-slopes-linear-regression"><span class="toc-section-number">1.1</span>  Parallel slopes linear regression</a></li>
-  <li><a href="#fitting-a-parallel-slopes-linear-regression" id="toc-fitting-a-parallel-slopes-linear-regression" class="nav-link" data-scroll-target="#fitting-a-parallel-slopes-linear-regression"><span class="toc-section-number">1.2</span>  Fitting a parallel slopes linear regression</a></li>
-  <li><a href="#interpreting-parallel-slopes-coefficients" id="toc-interpreting-parallel-slopes-coefficients" class="nav-link" data-scroll-target="#interpreting-parallel-slopes-coefficients"><span class="toc-section-number">1.3</span>  Interpreting parallel slopes coefficients</a></li>
-  <li><a href="#visualizing-each-explanatory-variable" id="toc-visualizing-each-explanatory-variable" class="nav-link" data-scroll-target="#visualizing-each-explanatory-variable"><span class="toc-section-number">1.6</span>  Visualizing each explanatory variable</a></li>
-  <li><a href="#visualizing-parallel-slopes" id="toc-visualizing-parallel-slopes" class="nav-link" data-scroll-target="#visualizing-parallel-slopes"><span class="toc-section-number">1.7</span>  Visualizing parallel slopes</a></li>
-  <li><a href="#predicting-parallel-slopes" id="toc-predicting-parallel-slopes" class="nav-link" data-scroll-target="#predicting-parallel-slopes"><span class="toc-section-number">1.8</span>  Predicting parallel slopes</a></li>
-  <li><a href="#predicting-with-a-parallel-slopes-model" id="toc-predicting-with-a-parallel-slopes-model" class="nav-link" data-scroll-target="#predicting-with-a-parallel-slopes-model"><span class="toc-section-number">1.9</span>  Predicting with a parallel slopes model</a></li>
-  <li><a href="#manually-calculating-predictions" id="toc-manually-calculating-predictions" class="nav-link" data-scroll-target="#manually-calculating-predictions"><span class="toc-section-number">1.10</span>  Manually calculating predictions</a></li>
-  <li><a href="#assessing-model-performance" id="toc-assessing-model-performance" class="nav-link" data-scroll-target="#assessing-model-performance"><span class="toc-section-number">1.11</span>  Assessing model performance</a></li>
-  <li><a href="#comparing-coefficients-of-determination" id="toc-comparing-coefficients-of-determination" class="nav-link" data-scroll-target="#comparing-coefficients-of-determination"><span class="toc-section-number">1.12</span>  Comparing coefficients of determination</a></li>
-  <li><a href="#comparing-residual-standard-error" id="toc-comparing-residual-standard-error" class="nav-link" data-scroll-target="#comparing-residual-standard-error"><span class="toc-section-number">1.14</span>  Comparing residual standard error</a></li>
+  <li><a href="#parallel-slopes-linear-regression" id="toc-parallel-slopes-linear-regression" class="nav-link" data-scroll-target="#parallel-slopes-linear-regression"><span class="header-section-number">1.1</span> Parallel slopes linear regression</a></li>
+  <li><a href="#fitting-a-parallel-slopes-linear-regression" id="toc-fitting-a-parallel-slopes-linear-regression" class="nav-link" data-scroll-target="#fitting-a-parallel-slopes-linear-regression"><span class="header-section-number">1.2</span> Fitting a parallel slopes linear regression</a></li>
+  <li><a href="#interpreting-parallel-slopes-coefficients" id="toc-interpreting-parallel-slopes-coefficients" class="nav-link" data-scroll-target="#interpreting-parallel-slopes-coefficients"><span class="header-section-number">1.3</span> Interpreting parallel slopes coefficients</a></li>
+  <li><a href="#visualizing-each-explanatory-variable" id="toc-visualizing-each-explanatory-variable" class="nav-link" data-scroll-target="#visualizing-each-explanatory-variable"><span class="header-section-number">1.6</span> Visualizing each explanatory variable</a></li>
+  <li><a href="#visualizing-parallel-slopes" id="toc-visualizing-parallel-slopes" class="nav-link" data-scroll-target="#visualizing-parallel-slopes"><span class="header-section-number">1.7</span> Visualizing parallel slopes</a></li>
+  <li><a href="#predicting-parallel-slopes" id="toc-predicting-parallel-slopes" class="nav-link" data-scroll-target="#predicting-parallel-slopes"><span class="header-section-number">1.8</span> Predicting parallel slopes</a></li>
+  <li><a href="#predicting-with-a-parallel-slopes-model" id="toc-predicting-with-a-parallel-slopes-model" class="nav-link" data-scroll-target="#predicting-with-a-parallel-slopes-model"><span class="header-section-number">1.9</span> Predicting with a parallel slopes model</a></li>
+  <li><a href="#manually-calculating-predictions" id="toc-manually-calculating-predictions" class="nav-link" data-scroll-target="#manually-calculating-predictions"><span class="header-section-number">1.10</span> Manually calculating predictions</a></li>
+  <li><a href="#assessing-model-performance" id="toc-assessing-model-performance" class="nav-link" data-scroll-target="#assessing-model-performance"><span class="header-section-number">1.11</span> Assessing model performance</a></li>
+  <li><a href="#comparing-coefficients-of-determination" id="toc-comparing-coefficients-of-determination" class="nav-link" data-scroll-target="#comparing-coefficients-of-determination"><span class="header-section-number">1.12</span> Comparing coefficients of determination</a></li>
+  <li><a href="#comparing-residual-standard-error" id="toc-comparing-residual-standard-error" class="nav-link" data-scroll-target="#comparing-residual-standard-error"><span class="header-section-number">1.14</span> Comparing residual standard error</a></li>
   </ul></li>
-  <li><a href="#interactions" id="toc-interactions" class="nav-link" data-scroll-target="#interactions"><span class="toc-section-number">2</span>  2. Interactions</a>
+  <li><a href="#interactions" id="toc-interactions" class="nav-link" data-scroll-target="#interactions"><span class="header-section-number">2</span> 2. Interactions</a>
   <ul class="collapse">
-  <li><a href="#models-for-each-category" id="toc-models-for-each-category" class="nav-link" data-scroll-target="#models-for-each-category"><span class="toc-section-number">2.1</span>  Models for each category</a></li>
-  <li><a href="#one-model-per-category" id="toc-one-model-per-category" class="nav-link" data-scroll-target="#one-model-per-category"><span class="toc-section-number">2.2</span>  One model per category</a></li>
-  <li><a href="#predicting-multiple-models" id="toc-predicting-multiple-models" class="nav-link" data-scroll-target="#predicting-multiple-models"><span class="toc-section-number">2.3</span>  Predicting multiple models</a></li>
-  <li><a href="#visualizing-multiple-models" id="toc-visualizing-multiple-models" class="nav-link" data-scroll-target="#visualizing-multiple-models"><span class="toc-section-number">2.4</span>  Visualizing multiple models</a></li>
-  <li><a href="#assessing-model-performance-1" id="toc-assessing-model-performance-1" class="nav-link" data-scroll-target="#assessing-model-performance-1"><span class="toc-section-number">2.5</span>  Assessing model performance</a></li>
-  <li><a href="#one-model-with-an-interaction" id="toc-one-model-with-an-interaction" class="nav-link" data-scroll-target="#one-model-with-an-interaction"><span class="toc-section-number">2.6</span>  One model with an interaction</a></li>
-  <li><a href="#specifying-an-interaction" id="toc-specifying-an-interaction" class="nav-link" data-scroll-target="#specifying-an-interaction"><span class="toc-section-number">2.7</span>  Specifying an interaction</a></li>
-  <li><a href="#interactions-with-understandable-coeffs" id="toc-interactions-with-understandable-coeffs" class="nav-link" data-scroll-target="#interactions-with-understandable-coeffs"><span class="toc-section-number">2.8</span>  Interactions with understandable coeffs</a></li>
-  <li><a href="#making-predictions-with-interactions" id="toc-making-predictions-with-interactions" class="nav-link" data-scroll-target="#making-predictions-with-interactions"><span class="toc-section-number">2.10</span>  Making predictions with interactions</a></li>
-  <li><a href="#predicting-with-interactions" id="toc-predicting-with-interactions" class="nav-link" data-scroll-target="#predicting-with-interactions"><span class="toc-section-number">2.11</span>  Predicting with interactions</a></li>
-  <li><a href="#manually-calculating-predictions-with-interactions" id="toc-manually-calculating-predictions-with-interactions" class="nav-link" data-scroll-target="#manually-calculating-predictions-with-interactions"><span class="toc-section-number">2.12</span>  Manually calculating predictions with interactions</a></li>
-  <li><a href="#simpsons-paradox" id="toc-simpsons-paradox" class="nav-link" data-scroll-target="#simpsons-paradox"><span class="toc-section-number">2.13</span>  Simpson’s Paradox</a></li>
-  <li><a href="#modeling-ebay-auctions" id="toc-modeling-ebay-auctions" class="nav-link" data-scroll-target="#modeling-ebay-auctions"><span class="toc-section-number">2.14</span>  Modeling eBay auctions</a></li>
-  <li><a href="#modeling-each-auction-type" id="toc-modeling-each-auction-type" class="nav-link" data-scroll-target="#modeling-each-auction-type"><span class="toc-section-number">2.15</span>  Modeling each auction type</a></li>
+  <li><a href="#models-for-each-category" id="toc-models-for-each-category" class="nav-link" data-scroll-target="#models-for-each-category"><span class="header-section-number">2.1</span> Models for each category</a></li>
+  <li><a href="#one-model-per-category" id="toc-one-model-per-category" class="nav-link" data-scroll-target="#one-model-per-category"><span class="header-section-number">2.2</span> One model per category</a></li>
+  <li><a href="#predicting-multiple-models" id="toc-predicting-multiple-models" class="nav-link" data-scroll-target="#predicting-multiple-models"><span class="header-section-number">2.3</span> Predicting multiple models</a></li>
+  <li><a href="#visualizing-multiple-models" id="toc-visualizing-multiple-models" class="nav-link" data-scroll-target="#visualizing-multiple-models"><span class="header-section-number">2.4</span> Visualizing multiple models</a></li>
+  <li><a href="#assessing-model-performance-1" id="toc-assessing-model-performance-1" class="nav-link" data-scroll-target="#assessing-model-performance-1"><span class="header-section-number">2.5</span> Assessing model performance</a></li>
+  <li><a href="#one-model-with-an-interaction" id="toc-one-model-with-an-interaction" class="nav-link" data-scroll-target="#one-model-with-an-interaction"><span class="header-section-number">2.6</span> One model with an interaction</a></li>
+  <li><a href="#specifying-an-interaction" id="toc-specifying-an-interaction" class="nav-link" data-scroll-target="#specifying-an-interaction"><span class="header-section-number">2.7</span> Specifying an interaction</a></li>
+  <li><a href="#interactions-with-understandable-coeffs" id="toc-interactions-with-understandable-coeffs" class="nav-link" data-scroll-target="#interactions-with-understandable-coeffs"><span class="header-section-number">2.8</span> Interactions with understandable coeffs</a></li>
+  <li><a href="#making-predictions-with-interactions" id="toc-making-predictions-with-interactions" class="nav-link" data-scroll-target="#making-predictions-with-interactions"><span class="header-section-number">2.10</span> Making predictions with interactions</a></li>
+  <li><a href="#predicting-with-interactions" id="toc-predicting-with-interactions" class="nav-link" data-scroll-target="#predicting-with-interactions"><span class="header-section-number">2.11</span> Predicting with interactions</a></li>
+  <li><a href="#manually-calculating-predictions-with-interactions" id="toc-manually-calculating-predictions-with-interactions" class="nav-link" data-scroll-target="#manually-calculating-predictions-with-interactions"><span class="header-section-number">2.12</span> Manually calculating predictions with interactions</a></li>
+  <li><a href="#simpsons-paradox" id="toc-simpsons-paradox" class="nav-link" data-scroll-target="#simpsons-paradox"><span class="header-section-number">2.13</span> Simpson’s Paradox</a></li>
+  <li><a href="#modeling-ebay-auctions" id="toc-modeling-ebay-auctions" class="nav-link" data-scroll-target="#modeling-ebay-auctions"><span class="header-section-number">2.14</span> Modeling eBay auctions</a></li>
+  <li><a href="#modeling-each-auction-type" id="toc-modeling-each-auction-type" class="nav-link" data-scroll-target="#modeling-each-auction-type"><span class="header-section-number">2.15</span> Modeling each auction type</a></li>
   </ul></li>
-  <li><a href="#multiple-linear-regression" id="toc-multiple-linear-regression" class="nav-link" data-scroll-target="#multiple-linear-regression"><span class="toc-section-number">3</span>  3. Multiple Linear Regression</a>
+  <li><a href="#multiple-linear-regression" id="toc-multiple-linear-regression" class="nav-link" data-scroll-target="#multiple-linear-regression"><span class="header-section-number">3</span> 3. Multiple Linear Regression</a>
   <ul class="collapse">
-  <li><a href="#two-numeric-explanatory-variables" id="toc-two-numeric-explanatory-variables" class="nav-link" data-scroll-target="#two-numeric-explanatory-variables"><span class="toc-section-number">3.1</span>  Two numeric explanatory variables</a></li>
-  <li><a href="#d-visualizations" id="toc-d-visualizations" class="nav-link" data-scroll-target="#d-visualizations"><span class="toc-section-number">3.2</span>  3D visualizations</a></li>
-  <li><a href="#modeling-2-numeric-explanatory-variables" id="toc-modeling-2-numeric-explanatory-variables" class="nav-link" data-scroll-target="#modeling-2-numeric-explanatory-variables"><span class="toc-section-number">3.3</span>  Modeling 2 numeric explanatory variables</a></li>
-  <li><a href="#including-an-interaction" id="toc-including-an-interaction" class="nav-link" data-scroll-target="#including-an-interaction"><span class="toc-section-number">3.4</span>  Including an interaction</a></li>
-  <li><a href="#more-than-2-explanatory-variables" id="toc-more-than-2-explanatory-variables" class="nav-link" data-scroll-target="#more-than-2-explanatory-variables"><span class="toc-section-number">3.5</span>  More than 2 explanatory variables</a></li>
-  <li><a href="#visualizing-many-variables" id="toc-visualizing-many-variables" class="nav-link" data-scroll-target="#visualizing-many-variables"><span class="toc-section-number">3.6</span>  Visualizing many variables</a></li>
-  <li><a href="#different-levels-of-interaction" id="toc-different-levels-of-interaction" class="nav-link" data-scroll-target="#different-levels-of-interaction"><span class="toc-section-number">3.7</span>  Different levels of interaction</a></li>
-  <li><a href="#predicting-again" id="toc-predicting-again" class="nav-link" data-scroll-target="#predicting-again"><span class="toc-section-number">3.8</span>  Predicting again</a></li>
-  <li><a href="#how-linear-regression-works" id="toc-how-linear-regression-works" class="nav-link" data-scroll-target="#how-linear-regression-works"><span class="toc-section-number">3.9</span>  How linear regression works</a></li>
-  <li><a href="#the-sum-of-squares" id="toc-the-sum-of-squares" class="nav-link" data-scroll-target="#the-sum-of-squares"><span class="toc-section-number">3.10</span>  The sum of squares</a></li>
-  <li><a href="#linear-regression-algorithm" id="toc-linear-regression-algorithm" class="nav-link" data-scroll-target="#linear-regression-algorithm"><span class="toc-section-number">3.12</span>  Linear regression algorithm</a></li>
+  <li><a href="#two-numeric-explanatory-variables" id="toc-two-numeric-explanatory-variables" class="nav-link" data-scroll-target="#two-numeric-explanatory-variables"><span class="header-section-number">3.1</span> Two numeric explanatory variables</a></li>
+  <li><a href="#d-visualizations" id="toc-d-visualizations" class="nav-link" data-scroll-target="#d-visualizations"><span class="header-section-number">3.2</span> 3D visualizations</a></li>
+  <li><a href="#modeling-2-numeric-explanatory-variables" id="toc-modeling-2-numeric-explanatory-variables" class="nav-link" data-scroll-target="#modeling-2-numeric-explanatory-variables"><span class="header-section-number">3.3</span> Modeling 2 numeric explanatory variables</a></li>
+  <li><a href="#including-an-interaction" id="toc-including-an-interaction" class="nav-link" data-scroll-target="#including-an-interaction"><span class="header-section-number">3.4</span> Including an interaction</a></li>
+  <li><a href="#more-than-2-explanatory-variables" id="toc-more-than-2-explanatory-variables" class="nav-link" data-scroll-target="#more-than-2-explanatory-variables"><span class="header-section-number">3.5</span> More than 2 explanatory variables</a></li>
+  <li><a href="#visualizing-many-variables" id="toc-visualizing-many-variables" class="nav-link" data-scroll-target="#visualizing-many-variables"><span class="header-section-number">3.6</span> Visualizing many variables</a></li>
+  <li><a href="#different-levels-of-interaction" id="toc-different-levels-of-interaction" class="nav-link" data-scroll-target="#different-levels-of-interaction"><span class="header-section-number">3.7</span> Different levels of interaction</a></li>
+  <li><a href="#predicting-again" id="toc-predicting-again" class="nav-link" data-scroll-target="#predicting-again"><span class="header-section-number">3.8</span> Predicting again</a></li>
+  <li><a href="#how-linear-regression-works" id="toc-how-linear-regression-works" class="nav-link" data-scroll-target="#how-linear-regression-works"><span class="header-section-number">3.9</span> How linear regression works</a></li>
+  <li><a href="#the-sum-of-squares" id="toc-the-sum-of-squares" class="nav-link" data-scroll-target="#the-sum-of-squares"><span class="header-section-number">3.10</span> The sum of squares</a></li>
+  <li><a href="#linear-regression-algorithm" id="toc-linear-regression-algorithm" class="nav-link" data-scroll-target="#linear-regression-algorithm"><span class="header-section-number">3.12</span> Linear regression algorithm</a></li>
   </ul></li>
-  <li><a href="#multiple-logistic-regression" id="toc-multiple-logistic-regression" class="nav-link" data-scroll-target="#multiple-logistic-regression"><span class="toc-section-number">4</span>  4. Multiple Logistic Regression</a>
+  <li><a href="#multiple-logistic-regression" id="toc-multiple-logistic-regression" class="nav-link" data-scroll-target="#multiple-logistic-regression"><span class="header-section-number">4</span> 4. Multiple Logistic Regression</a>
   <ul class="collapse">
-  <li><a href="#multiple-logistic-regression-1" id="toc-multiple-logistic-regression-1" class="nav-link" data-scroll-target="#multiple-logistic-regression-1"><span class="toc-section-number">4.1</span>  Multiple logistic regression</a></li>
-  <li><a href="#visualizing-multiple-explanatory-variables" id="toc-visualizing-multiple-explanatory-variables" class="nav-link" data-scroll-target="#visualizing-multiple-explanatory-variables"><span class="toc-section-number">4.2</span>  Visualizing multiple explanatory variables</a></li>
-  <li><a href="#logistic-regression-with-2-explanatory-variables" id="toc-logistic-regression-with-2-explanatory-variables" class="nav-link" data-scroll-target="#logistic-regression-with-2-explanatory-variables"><span class="toc-section-number">4.3</span>  Logistic regression with 2 explanatory variables</a></li>
-  <li><a href="#logistic-regression-prediction" id="toc-logistic-regression-prediction" class="nav-link" data-scroll-target="#logistic-regression-prediction"><span class="toc-section-number">4.4</span>  Logistic regression prediction</a></li>
-  <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix"><span class="toc-section-number">4.5</span>  Confusion matrix</a></li>
-  <li><a href="#the-logistic-distribution" id="toc-the-logistic-distribution" class="nav-link" data-scroll-target="#the-logistic-distribution"><span class="toc-section-number">4.6</span>  The logistic distribution</a></li>
-  <li><a href="#cumulative-distribution-function" id="toc-cumulative-distribution-function" class="nav-link" data-scroll-target="#cumulative-distribution-function"><span class="toc-section-number">4.7</span>  Cumulative distribution function</a></li>
-  <li><a href="#inverse-cumulative-distribution-function" id="toc-inverse-cumulative-distribution-function" class="nav-link" data-scroll-target="#inverse-cumulative-distribution-function"><span class="toc-section-number">4.8</span>  Inverse cumulative distribution function</a></li>
-  <li><a href="#binomial-family-argument" id="toc-binomial-family-argument" class="nav-link" data-scroll-target="#binomial-family-argument"><span class="toc-section-number">4.9</span>  binomial family argument</a></li>
-  <li><a href="#logistic-distribution-parameters" id="toc-logistic-distribution-parameters" class="nav-link" data-scroll-target="#logistic-distribution-parameters"><span class="toc-section-number">4.10</span>  Logistic distribution parameters</a></li>
-  <li><a href="#how-logistic-regression-works" id="toc-how-logistic-regression-works" class="nav-link" data-scroll-target="#how-logistic-regression-works"><span class="toc-section-number">4.12</span>  How logistic regression works</a></li>
-  <li><a href="#likelihood-log-likelihood" id="toc-likelihood-log-likelihood" class="nav-link" data-scroll-target="#likelihood-log-likelihood"><span class="toc-section-number">4.13</span>  Likelihood &amp; log-likelihood</a></li>
-  <li><a href="#logistic-regression-algorithm" id="toc-logistic-regression-algorithm" class="nav-link" data-scroll-target="#logistic-regression-algorithm"><span class="toc-section-number">4.15</span>  Logistic regression algorithm</a></li>
-  <li><a href="#congratulations" id="toc-congratulations" class="nav-link" data-scroll-target="#congratulations"><span class="toc-section-number">4.16</span>  Congratulations</a></li>
+  <li><a href="#multiple-logistic-regression-1" id="toc-multiple-logistic-regression-1" class="nav-link" data-scroll-target="#multiple-logistic-regression-1"><span class="header-section-number">4.1</span> Multiple logistic regression</a></li>
+  <li><a href="#visualizing-multiple-explanatory-variables" id="toc-visualizing-multiple-explanatory-variables" class="nav-link" data-scroll-target="#visualizing-multiple-explanatory-variables"><span class="header-section-number">4.2</span> Visualizing multiple explanatory variables</a></li>
+  <li><a href="#logistic-regression-with-2-explanatory-variables" id="toc-logistic-regression-with-2-explanatory-variables" class="nav-link" data-scroll-target="#logistic-regression-with-2-explanatory-variables"><span class="header-section-number">4.3</span> Logistic regression with 2 explanatory variables</a></li>
+  <li><a href="#logistic-regression-prediction" id="toc-logistic-regression-prediction" class="nav-link" data-scroll-target="#logistic-regression-prediction"><span class="header-section-number">4.4</span> Logistic regression prediction</a></li>
+  <li><a href="#confusion-matrix" id="toc-confusion-matrix" class="nav-link" data-scroll-target="#confusion-matrix"><span class="header-section-number">4.5</span> Confusion matrix</a></li>
+  <li><a href="#the-logistic-distribution" id="toc-the-logistic-distribution" class="nav-link" data-scroll-target="#the-logistic-distribution"><span class="header-section-number">4.6</span> The logistic distribution</a></li>
+  <li><a href="#cumulative-distribution-function" id="toc-cumulative-distribution-function" class="nav-link" data-scroll-target="#cumulative-distribution-function"><span class="header-section-number">4.7</span> Cumulative distribution function</a></li>
+  <li><a href="#inverse-cumulative-distribution-function" id="toc-inverse-cumulative-distribution-function" class="nav-link" data-scroll-target="#inverse-cumulative-distribution-function"><span class="header-section-number">4.8</span> Inverse cumulative distribution function</a></li>
+  <li><a href="#binomial-family-argument" id="toc-binomial-family-argument" class="nav-link" data-scroll-target="#binomial-family-argument"><span class="header-section-number">4.9</span> binomial family argument</a></li>
+  <li><a href="#logistic-distribution-parameters" id="toc-logistic-distribution-parameters" class="nav-link" data-scroll-target="#logistic-distribution-parameters"><span class="header-section-number">4.10</span> Logistic distribution parameters</a></li>
+  <li><a href="#how-logistic-regression-works" id="toc-how-logistic-regression-works" class="nav-link" data-scroll-target="#how-logistic-regression-works"><span class="header-section-number">4.12</span> How logistic regression works</a></li>
+  <li><a href="#likelihood-log-likelihood" id="toc-likelihood-log-likelihood" class="nav-link" data-scroll-target="#likelihood-log-likelihood"><span class="header-section-number">4.13</span> Likelihood &amp; log-likelihood</a></li>
+  <li><a href="#logistic-regression-algorithm" id="toc-logistic-regression-algorithm" class="nav-link" data-scroll-target="#logistic-regression-algorithm"><span class="header-section-number">4.15</span> Logistic regression algorithm</a></li>
+  <li><a href="#congratulations" id="toc-congratulations" class="nav-link" data-scroll-target="#congratulations"><span class="header-section-number">4.16</span> Congratulations</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -575,7 +595,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Intermediate Regression in R</h1>
+<h1 class="title">Intermediate Regression in R</h1>
 </div>
 
 
@@ -2920,25 +2940,22 @@ LO: Can generate a confusion matrix from a dataset and logistic regression model
 </ol>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1"></a><span class="co"># Load packages</span></span>
-<span id="cb124-2"><a href="#cb124-2"></a><span class="fu">library</span>(yardstick)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>#&gt; For binary classification, the first factor level is assumed to be the event.
-#&gt; Use the argument `event_level = "second"` to alter this as needed.</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1"></a><span class="co"># Get the actual responses from churn</span></span>
-<span id="cb126-2"><a href="#cb126-2"></a>actual_response <span class="ot">&lt;-</span> churn<span class="sc">$</span>has_churned</span>
-<span id="cb126-3"><a href="#cb126-3"></a></span>
-<span id="cb126-4"><a href="#cb126-4"></a><span class="co"># Get the predicted responses from the model</span></span>
-<span id="cb126-5"><a href="#cb126-5"></a>predicted_response <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">fitted</span>(mdl_churn_vs_both_inter))</span>
-<span id="cb126-6"><a href="#cb126-6"></a></span>
-<span id="cb126-7"><a href="#cb126-7"></a><span class="co"># Get a table of these values</span></span>
-<span id="cb126-8"><a href="#cb126-8"></a>outcomes <span class="ot">&lt;-</span> <span class="fu">table</span>(predicted_response, actual_response)</span>
-<span id="cb126-9"><a href="#cb126-9"></a></span>
-<span id="cb126-10"><a href="#cb126-10"></a><span class="co"># Convert the table to a conf_mat object</span></span>
-<span id="cb126-11"><a href="#cb126-11"></a>confusion <span class="ot">&lt;-</span> <span class="fu">conf_mat</span>(outcomes)</span>
-<span id="cb126-12"><a href="#cb126-12"></a></span>
-<span id="cb126-13"><a href="#cb126-13"></a><span class="co"># See the result</span></span>
-<span id="cb126-14"><a href="#cb126-14"></a>confusion</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb124-2"><a href="#cb124-2"></a><span class="fu">library</span>(yardstick)</span>
+<span id="cb124-3"><a href="#cb124-3"></a></span>
+<span id="cb124-4"><a href="#cb124-4"></a><span class="co"># Get the actual responses from churn</span></span>
+<span id="cb124-5"><a href="#cb124-5"></a>actual_response <span class="ot">&lt;-</span> churn<span class="sc">$</span>has_churned</span>
+<span id="cb124-6"><a href="#cb124-6"></a></span>
+<span id="cb124-7"><a href="#cb124-7"></a><span class="co"># Get the predicted responses from the model</span></span>
+<span id="cb124-8"><a href="#cb124-8"></a>predicted_response <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">fitted</span>(mdl_churn_vs_both_inter))</span>
+<span id="cb124-9"><a href="#cb124-9"></a></span>
+<span id="cb124-10"><a href="#cb124-10"></a><span class="co"># Get a table of these values</span></span>
+<span id="cb124-11"><a href="#cb124-11"></a>outcomes <span class="ot">&lt;-</span> <span class="fu">table</span>(predicted_response, actual_response)</span>
+<span id="cb124-12"><a href="#cb124-12"></a></span>
+<span id="cb124-13"><a href="#cb124-13"></a><span class="co"># Convert the table to a conf_mat object</span></span>
+<span id="cb124-14"><a href="#cb124-14"></a>confusion <span class="ot">&lt;-</span> <span class="fu">conf_mat</span>(outcomes)</span>
+<span id="cb124-15"><a href="#cb124-15"></a></span>
+<span id="cb124-16"><a href="#cb124-16"></a><span class="co"># See the result</span></span>
+<span id="cb124-17"><a href="#cb124-17"></a>confusion</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;                   actual_response
 #&gt; predicted_response   0   1
@@ -2951,14 +2968,14 @@ LO: Can generate a confusion matrix from a dataset and logistic regression model
 <li>Get summary metrics from the confusion matrix. Remember that the churn event is in the second row/column of the matrix.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1"></a><span class="co"># From previous step</span></span>
-<span id="cb128-2"><a href="#cb128-2"></a>actual_response <span class="ot">&lt;-</span> churn<span class="sc">$</span>has_churned</span>
-<span id="cb128-3"><a href="#cb128-3"></a>predicted_response <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">fitted</span>(mdl_churn_vs_both_inter))</span>
-<span id="cb128-4"><a href="#cb128-4"></a>outcomes <span class="ot">&lt;-</span> <span class="fu">table</span>(predicted_response, actual_response)</span>
-<span id="cb128-5"><a href="#cb128-5"></a>confusion <span class="ot">&lt;-</span> <span class="fu">conf_mat</span>(outcomes)</span>
-<span id="cb128-6"><a href="#cb128-6"></a></span>
-<span id="cb128-7"><a href="#cb128-7"></a><span class="co"># "Automatically" plot the confusion matrix</span></span>
-<span id="cb128-8"><a href="#cb128-8"></a><span class="fu">autoplot</span>(confusion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1"></a><span class="co"># From previous step</span></span>
+<span id="cb126-2"><a href="#cb126-2"></a>actual_response <span class="ot">&lt;-</span> churn<span class="sc">$</span>has_churned</span>
+<span id="cb126-3"><a href="#cb126-3"></a>predicted_response <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fu">fitted</span>(mdl_churn_vs_both_inter))</span>
+<span id="cb126-4"><a href="#cb126-4"></a>outcomes <span class="ot">&lt;-</span> <span class="fu">table</span>(predicted_response, actual_response)</span>
+<span id="cb126-5"><a href="#cb126-5"></a>confusion <span class="ot">&lt;-</span> <span class="fu">conf_mat</span>(outcomes)</span>
+<span id="cb126-6"><a href="#cb126-6"></a></span>
+<span id="cb126-7"><a href="#cb126-7"></a><span class="co"># "Automatically" plot the confusion matrix</span></span>
+<span id="cb126-8"><a href="#cb126-8"></a><span class="fu">autoplot</span>(confusion)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2966,8 +2983,8 @@ LO: Can generate a confusion matrix from a dataset and logistic regression model
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1"></a><span class="co"># Get summary metrics</span></span>
-<span id="cb129-2"><a href="#cb129-2"></a><span class="fu">summary</span>(confusion, <span class="at">event_level =</span> <span class="st">"second"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1"></a><span class="co"># Get summary metrics</span></span>
+<span id="cb127-2"><a href="#cb127-2"></a><span class="fu">summary</span>(confusion, <span class="at">event_level =</span> <span class="st">"second"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -3023,20 +3040,20 @@ LO: Knows what a logistic distribution CDF looks like.
 </ul></li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1"></a>logistic_distn_cdf <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb130-2"><a href="#cb130-2"></a>  <span class="co"># Make a seq from -10 to 10 in steps of 0.1</span></span>
-<span id="cb130-3"><a href="#cb130-3"></a>  <span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="fl">0.1</span>),</span>
-<span id="cb130-4"><a href="#cb130-4"></a>  <span class="co"># Transform x with built-in logistic CDF</span></span>
-<span id="cb130-5"><a href="#cb130-5"></a>  <span class="at">logistic_x =</span> <span class="fu">plogis</span>(x),</span>
-<span id="cb130-6"><a href="#cb130-6"></a>  <span class="co"># Transform x with manual logistic</span></span>
-<span id="cb130-7"><a href="#cb130-7"></a>  <span class="at">logistic_x_man =</span> <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="sc">-</span>x))</span>
-<span id="cb130-8"><a href="#cb130-8"></a>) </span>
-<span id="cb130-9"><a href="#cb130-9"></a></span>
-<span id="cb130-10"><a href="#cb130-10"></a><span class="co"># Check that each logistic function gives the same results</span></span>
-<span id="cb130-11"><a href="#cb130-11"></a><span class="fu">all.equal</span>(</span>
-<span id="cb130-12"><a href="#cb130-12"></a>  logistic_distn_cdf<span class="sc">$</span>logistic_x, </span>
-<span id="cb130-13"><a href="#cb130-13"></a>  logistic_distn_cdf<span class="sc">$</span>logistic_x_man</span>
-<span id="cb130-14"><a href="#cb130-14"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1"></a>logistic_distn_cdf <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb128-2"><a href="#cb128-2"></a>  <span class="co"># Make a seq from -10 to 10 in steps of 0.1</span></span>
+<span id="cb128-3"><a href="#cb128-3"></a>  <span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="fl">0.1</span>),</span>
+<span id="cb128-4"><a href="#cb128-4"></a>  <span class="co"># Transform x with built-in logistic CDF</span></span>
+<span id="cb128-5"><a href="#cb128-5"></a>  <span class="at">logistic_x =</span> <span class="fu">plogis</span>(x),</span>
+<span id="cb128-6"><a href="#cb128-6"></a>  <span class="co"># Transform x with manual logistic</span></span>
+<span id="cb128-7"><a href="#cb128-7"></a>  <span class="at">logistic_x_man =</span> <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="sc">-</span>x))</span>
+<span id="cb128-8"><a href="#cb128-8"></a>) </span>
+<span id="cb128-9"><a href="#cb128-9"></a></span>
+<span id="cb128-10"><a href="#cb128-10"></a><span class="co"># Check that each logistic function gives the same results</span></span>
+<span id="cb128-11"><a href="#cb128-11"></a><span class="fu">all.equal</span>(</span>
+<span id="cb128-12"><a href="#cb128-12"></a>  logistic_distn_cdf<span class="sc">$</span>logistic_x, </span>
+<span id="cb128-13"><a href="#cb128-13"></a>  logistic_distn_cdf<span class="sc">$</span>logistic_x_man</span>
+<span id="cb128-14"><a href="#cb128-14"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] TRUE</code></pre>
 </div>
@@ -3045,17 +3062,17 @@ LO: Knows what a logistic distribution CDF looks like.
 <li>Using the <code>logistic_distn_cdf</code> dataset, plot <code>logistic_x</code> versus <code>x</code> as a line plot.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1"></a><span class="co"># From previous step</span></span>
-<span id="cb132-2"><a href="#cb132-2"></a>logistic_distn_cdf <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb132-3"><a href="#cb132-3"></a>  <span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="fl">0.1</span>),</span>
-<span id="cb132-4"><a href="#cb132-4"></a>  <span class="at">logistic_x =</span> <span class="fu">plogis</span>(x),</span>
-<span id="cb132-5"><a href="#cb132-5"></a>  <span class="at">logistic_x_man =</span> <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="sc">-</span>x))</span>
-<span id="cb132-6"><a href="#cb132-6"></a>)</span>
-<span id="cb132-7"><a href="#cb132-7"></a></span>
-<span id="cb132-8"><a href="#cb132-8"></a><span class="co"># Using logistic_distn_cdf, plot logistic_x vs. x</span></span>
-<span id="cb132-9"><a href="#cb132-9"></a><span class="fu">ggplot</span>(logistic_distn_cdf, <span class="fu">aes</span>(x, logistic_x)) <span class="sc">+</span></span>
-<span id="cb132-10"><a href="#cb132-10"></a>  <span class="co"># Make it a line plot</span></span>
-<span id="cb132-11"><a href="#cb132-11"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1"></a><span class="co"># From previous step</span></span>
+<span id="cb130-2"><a href="#cb130-2"></a>logistic_distn_cdf <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb130-3"><a href="#cb130-3"></a>  <span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="fl">0.1</span>),</span>
+<span id="cb130-4"><a href="#cb130-4"></a>  <span class="at">logistic_x =</span> <span class="fu">plogis</span>(x),</span>
+<span id="cb130-5"><a href="#cb130-5"></a>  <span class="at">logistic_x_man =</span> <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="sc">-</span>x))</span>
+<span id="cb130-6"><a href="#cb130-6"></a>)</span>
+<span id="cb130-7"><a href="#cb130-7"></a></span>
+<span id="cb130-8"><a href="#cb130-8"></a><span class="co"># Using logistic_distn_cdf, plot logistic_x vs. x</span></span>
+<span id="cb130-9"><a href="#cb130-9"></a><span class="fu">ggplot</span>(logistic_distn_cdf, <span class="fu">aes</span>(x, logistic_x)) <span class="sc">+</span></span>
+<span id="cb130-10"><a href="#cb130-10"></a>  <span class="co"># Make it a line plot</span></span>
+<span id="cb130-11"><a href="#cb130-11"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -3084,20 +3101,20 @@ LO: Knows what a logistic distribution inverse CDF looks like.
 </ul></li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1"></a>logistic_distn_inv_cdf <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb133-2"><a href="#cb133-2"></a>  <span class="co"># Make a seq from 0.001 to 0.999 in steps of 0.001</span></span>
-<span id="cb133-3"><a href="#cb133-3"></a>  <span class="at">p =</span> <span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="fl">0.001</span>),</span>
-<span id="cb133-4"><a href="#cb133-4"></a>  <span class="co"># Transform with built-in logistic inverse CDF</span></span>
-<span id="cb133-5"><a href="#cb133-5"></a>  <span class="at">logit_p =</span> <span class="fu">qlogis</span>(p),</span>
-<span id="cb133-6"><a href="#cb133-6"></a>  <span class="co"># Transform with manual logit</span></span>
-<span id="cb133-7"><a href="#cb133-7"></a>  <span class="at">logit_p_man =</span> <span class="fu">log</span>(p <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> p))</span>
-<span id="cb133-8"><a href="#cb133-8"></a>) </span>
-<span id="cb133-9"><a href="#cb133-9"></a></span>
-<span id="cb133-10"><a href="#cb133-10"></a><span class="co"># Check that each logistic function gives the same results</span></span>
-<span id="cb133-11"><a href="#cb133-11"></a><span class="fu">all.equal</span>(</span>
-<span id="cb133-12"><a href="#cb133-12"></a>  logistic_distn_inv_cdf<span class="sc">$</span>logit_p,</span>
-<span id="cb133-13"><a href="#cb133-13"></a>  logistic_distn_inv_cdf<span class="sc">$</span>logit_p_man</span>
-<span id="cb133-14"><a href="#cb133-14"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1"></a>logistic_distn_inv_cdf <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb131-2"><a href="#cb131-2"></a>  <span class="co"># Make a seq from 0.001 to 0.999 in steps of 0.001</span></span>
+<span id="cb131-3"><a href="#cb131-3"></a>  <span class="at">p =</span> <span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="fl">0.001</span>),</span>
+<span id="cb131-4"><a href="#cb131-4"></a>  <span class="co"># Transform with built-in logistic inverse CDF</span></span>
+<span id="cb131-5"><a href="#cb131-5"></a>  <span class="at">logit_p =</span> <span class="fu">qlogis</span>(p),</span>
+<span id="cb131-6"><a href="#cb131-6"></a>  <span class="co"># Transform with manual logit</span></span>
+<span id="cb131-7"><a href="#cb131-7"></a>  <span class="at">logit_p_man =</span> <span class="fu">log</span>(p <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> p))</span>
+<span id="cb131-8"><a href="#cb131-8"></a>) </span>
+<span id="cb131-9"><a href="#cb131-9"></a></span>
+<span id="cb131-10"><a href="#cb131-10"></a><span class="co"># Check that each logistic function gives the same results</span></span>
+<span id="cb131-11"><a href="#cb131-11"></a><span class="fu">all.equal</span>(</span>
+<span id="cb131-12"><a href="#cb131-12"></a>  logistic_distn_inv_cdf<span class="sc">$</span>logit_p,</span>
+<span id="cb131-13"><a href="#cb131-13"></a>  logistic_distn_inv_cdf<span class="sc">$</span>logit_p_man</span>
+<span id="cb131-14"><a href="#cb131-14"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] TRUE</code></pre>
 </div>
@@ -3106,17 +3123,17 @@ LO: Knows what a logistic distribution inverse CDF looks like.
 <li>Using the <code>logistic_distn_inv_cdf</code> dataset, plot <code>logit_p</code> versus <code>p</code> as a line plot.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1"></a><span class="co"># From previous step</span></span>
-<span id="cb135-2"><a href="#cb135-2"></a>logistic_distn_inv_cdf <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb135-3"><a href="#cb135-3"></a>  <span class="at">p =</span> <span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="fl">0.001</span>),</span>
-<span id="cb135-4"><a href="#cb135-4"></a>  <span class="at">logit_p =</span> <span class="fu">qlogis</span>(p),</span>
-<span id="cb135-5"><a href="#cb135-5"></a>  <span class="at">logit_p_man =</span> <span class="fu">log</span>(p <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> p))</span>
-<span id="cb135-6"><a href="#cb135-6"></a>)</span>
-<span id="cb135-7"><a href="#cb135-7"></a></span>
-<span id="cb135-8"><a href="#cb135-8"></a><span class="co"># Using logistic_distn_inv_cdf, plot logit_p vs. p</span></span>
-<span id="cb135-9"><a href="#cb135-9"></a><span class="fu">ggplot</span>(logistic_distn_inv_cdf, <span class="fu">aes</span>(p, logit_p)) <span class="sc">+</span></span>
-<span id="cb135-10"><a href="#cb135-10"></a>  <span class="co"># Make it a line plot</span></span>
-<span id="cb135-11"><a href="#cb135-11"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1"></a><span class="co"># From previous step</span></span>
+<span id="cb133-2"><a href="#cb133-2"></a>logistic_distn_inv_cdf <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb133-3"><a href="#cb133-3"></a>  <span class="at">p =</span> <span class="fu">seq</span>(<span class="fl">0.001</span>, <span class="fl">0.999</span>, <span class="fl">0.001</span>),</span>
+<span id="cb133-4"><a href="#cb133-4"></a>  <span class="at">logit_p =</span> <span class="fu">qlogis</span>(p),</span>
+<span id="cb133-5"><a href="#cb133-5"></a>  <span class="at">logit_p_man =</span> <span class="fu">log</span>(p <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">-</span> p))</span>
+<span id="cb133-6"><a href="#cb133-6"></a>)</span>
+<span id="cb133-7"><a href="#cb133-7"></a></span>
+<span id="cb133-8"><a href="#cb133-8"></a><span class="co"># Using logistic_distn_inv_cdf, plot logit_p vs. p</span></span>
+<span id="cb133-9"><a href="#cb133-9"></a><span class="fu">ggplot</span>(logistic_distn_inv_cdf, <span class="fu">aes</span>(p, logit_p)) <span class="sc">+</span></span>
+<span id="cb133-10"><a href="#cb133-10"></a>  <span class="co"># Make it a line plot</span></span>
+<span id="cb133-11"><a href="#cb133-11"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -3142,14 +3159,14 @@ LO: Understands the fmaily argument for glm(), in the context of logistic regres
 <li>Check that <code>linkfun_p</code> and <code>qlogis()</code> of <code>p</code> give the same results.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1"></a><span class="co"># Create data</span></span>
-<span id="cb136-2"><a href="#cb136-2"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="fl">0.2</span>)</span>
-<span id="cb136-3"><a href="#cb136-3"></a>p <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>)</span>
-<span id="cb136-4"><a href="#cb136-4"></a></span>
-<span id="cb136-5"><a href="#cb136-5"></a><span class="co"># Look at the structure of binomial() function</span></span>
-<span id="cb136-6"><a href="#cb136-6"></a><span class="fu">str</span>(<span class="fu">binomial</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1"></a><span class="co"># Create data</span></span>
+<span id="cb134-2"><a href="#cb134-2"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">10</span>, <span class="fl">0.2</span>)</span>
+<span id="cb134-3"><a href="#cb134-3"></a>p <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>, <span class="fl">0.01</span>)</span>
+<span id="cb134-4"><a href="#cb134-4"></a></span>
+<span id="cb134-5"><a href="#cb134-5"></a><span class="co"># Look at the structure of binomial() function</span></span>
+<span id="cb134-6"><a href="#cb134-6"></a><span class="fu">str</span>(<span class="fu">binomial</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; List of 12
+<pre><code>#&gt; List of 13
 #&gt;  $ family    : chr "binomial"
 #&gt;  $ link      : chr "logit"
 #&gt;  $ linkfun   :function (mu)  
@@ -3162,21 +3179,22 @@ LO: Understands the fmaily argument for glm(), in the context of logistic regres
 #&gt;  $ validmu   :function (mu)  
 #&gt;  $ valideta  :function (eta)  
 #&gt;  $ simulate  :function (object, nsim)  
+#&gt;  $ dispersion: num 1
 #&gt;  - attr(*, "class")= chr "family"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1"></a><span class="co"># Call the link inverse on x</span></span>
-<span id="cb138-2"><a href="#cb138-2"></a>linkinv_x <span class="ot">&lt;-</span> <span class="fu">binomial</span>()<span class="sc">$</span><span class="fu">linkinv</span>(x)</span>
-<span id="cb138-3"><a href="#cb138-3"></a></span>
-<span id="cb138-4"><a href="#cb138-4"></a><span class="co"># Check linkinv_x and plogis() of x give same results </span></span>
-<span id="cb138-5"><a href="#cb138-5"></a><span class="fu">all.equal</span>(linkinv_x, <span class="fu">plogis</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1"></a><span class="co"># Call the link inverse on x</span></span>
+<span id="cb136-2"><a href="#cb136-2"></a>linkinv_x <span class="ot">&lt;-</span> <span class="fu">binomial</span>()<span class="sc">$</span><span class="fu">linkinv</span>(x)</span>
+<span id="cb136-3"><a href="#cb136-3"></a></span>
+<span id="cb136-4"><a href="#cb136-4"></a><span class="co"># Check linkinv_x and plogis() of x give same results </span></span>
+<span id="cb136-5"><a href="#cb136-5"></a><span class="fu">all.equal</span>(linkinv_x, <span class="fu">plogis</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] TRUE</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1"></a><span class="co"># Call the link fun on p</span></span>
-<span id="cb140-2"><a href="#cb140-2"></a>linkfun_p <span class="ot">&lt;-</span> <span class="fu">binomial</span>()<span class="sc">$</span><span class="fu">linkfun</span>(p)</span>
-<span id="cb140-3"><a href="#cb140-3"></a></span>
-<span id="cb140-4"><a href="#cb140-4"></a><span class="co"># Check linkfun_p and qlogis() of p give same results </span></span>
-<span id="cb140-5"><a href="#cb140-5"></a><span class="fu">all.equal</span>(linkfun_p, <span class="fu">qlogis</span>(p))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1"></a><span class="co"># Call the link fun on p</span></span>
+<span id="cb138-2"><a href="#cb138-2"></a>linkfun_p <span class="ot">&lt;-</span> <span class="fu">binomial</span>()<span class="sc">$</span><span class="fu">linkfun</span>(p)</span>
+<span id="cb138-3"><a href="#cb138-3"></a></span>
+<span id="cb138-4"><a href="#cb138-4"></a><span class="co"># Check linkfun_p and qlogis() of p give same results </span></span>
+<span id="cb138-5"><a href="#cb138-5"></a><span class="fu">all.equal</span>(linkfun_p, <span class="fu">qlogis</span>(p))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] TRUE</code></pre>
 </div>
@@ -3251,20 +3269,20 @@ LO: Can write a simple logistic regression algorithm for a specific dataset.
 <li>Calculate minus the sum of the log-likelihoods for each term.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1"></a><span class="co"># Set the intercept to 1</span></span>
-<span id="cb142-2"><a href="#cb142-2"></a>intercept <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb142-3"><a href="#cb142-3"></a></span>
-<span id="cb142-4"><a href="#cb142-4"></a><span class="co"># Set the slope to 0.5</span></span>
-<span id="cb142-5"><a href="#cb142-5"></a>slope <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
-<span id="cb142-6"><a href="#cb142-6"></a></span>
-<span id="cb142-7"><a href="#cb142-7"></a><span class="co"># Calculate the predicted y values</span></span>
-<span id="cb142-8"><a href="#cb142-8"></a>y_pred <span class="ot">&lt;-</span> <span class="fu">plogis</span>(intercept <span class="sc">+</span> slope <span class="sc">*</span> x_actual)</span>
-<span id="cb142-9"><a href="#cb142-9"></a></span>
-<span id="cb142-10"><a href="#cb142-10"></a><span class="co"># Calculate the log-likelihood for each term</span></span>
-<span id="cb142-11"><a href="#cb142-11"></a>log_likelihoods <span class="ot">&lt;-</span> <span class="fu">log</span>(y_pred) <span class="sc">*</span> y_actual <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> y_pred) <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> y_actual)</span>
-<span id="cb142-12"><a href="#cb142-12"></a></span>
-<span id="cb142-13"><a href="#cb142-13"></a><span class="co"># Calculate minus the sum of the log-likelihoods for each term</span></span>
-<span id="cb142-14"><a href="#cb142-14"></a><span class="sc">-</span><span class="fu">sum</span>(log_likelihoods)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1"></a><span class="co"># Set the intercept to 1</span></span>
+<span id="cb140-2"><a href="#cb140-2"></a>intercept <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb140-3"><a href="#cb140-3"></a></span>
+<span id="cb140-4"><a href="#cb140-4"></a><span class="co"># Set the slope to 0.5</span></span>
+<span id="cb140-5"><a href="#cb140-5"></a>slope <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb140-6"><a href="#cb140-6"></a></span>
+<span id="cb140-7"><a href="#cb140-7"></a><span class="co"># Calculate the predicted y values</span></span>
+<span id="cb140-8"><a href="#cb140-8"></a>y_pred <span class="ot">&lt;-</span> <span class="fu">plogis</span>(intercept <span class="sc">+</span> slope <span class="sc">*</span> x_actual)</span>
+<span id="cb140-9"><a href="#cb140-9"></a></span>
+<span id="cb140-10"><a href="#cb140-10"></a><span class="co"># Calculate the log-likelihood for each term</span></span>
+<span id="cb140-11"><a href="#cb140-11"></a>log_likelihoods <span class="ot">&lt;-</span> <span class="fu">log</span>(y_pred) <span class="sc">*</span> y_actual <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> y_pred) <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> y_actual)</span>
+<span id="cb140-12"><a href="#cb140-12"></a></span>
+<span id="cb140-13"><a href="#cb140-13"></a><span class="co"># Calculate minus the sum of the log-likelihoods for each term</span></span>
+<span id="cb140-14"><a href="#cb140-14"></a><span class="sc">-</span><span class="fu">sum</span>(log_likelihoods)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] -14623.45</code></pre>
 </div>
@@ -3280,22 +3298,22 @@ LO: Can write a simple logistic regression algorithm for a specific dataset.
 </ul></li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1"></a>calc_neg_log_likelihood <span class="ot">&lt;-</span> <span class="cf">function</span>(coeffs) {</span>
-<span id="cb144-2"><a href="#cb144-2"></a>  <span class="co"># Get the intercept coeff</span></span>
-<span id="cb144-3"><a href="#cb144-3"></a>  intercept <span class="ot">&lt;-</span> coeffs[<span class="dv">1</span>]</span>
-<span id="cb144-4"><a href="#cb144-4"></a></span>
-<span id="cb144-5"><a href="#cb144-5"></a>  <span class="co"># Get the slope coeff</span></span>
-<span id="cb144-6"><a href="#cb144-6"></a>  slope <span class="ot">&lt;-</span> coeffs[<span class="dv">2</span>]</span>
-<span id="cb144-7"><a href="#cb144-7"></a></span>
-<span id="cb144-8"><a href="#cb144-8"></a>  <span class="co"># Calculate the predicted y values</span></span>
-<span id="cb144-9"><a href="#cb144-9"></a>  y_pred <span class="ot">&lt;-</span> <span class="fu">plogis</span>(intercept <span class="sc">+</span> slope <span class="sc">*</span> x_actual)</span>
-<span id="cb144-10"><a href="#cb144-10"></a></span>
-<span id="cb144-11"><a href="#cb144-11"></a>  <span class="co"># Calculate the log-likelihood for each term</span></span>
-<span id="cb144-12"><a href="#cb144-12"></a>  log_likelihoods <span class="ot">&lt;-</span> <span class="fu">log</span>(y_pred) <span class="sc">*</span> y_actual <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> y_pred) <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> y_actual)</span>
-<span id="cb144-13"><a href="#cb144-13"></a></span>
-<span id="cb144-14"><a href="#cb144-14"></a>  <span class="co"># Calculate minus the sum of the log-likelihoods for each term</span></span>
-<span id="cb144-15"><a href="#cb144-15"></a>  <span class="sc">-</span><span class="fu">sum</span>(log_likelihoods)</span>
-<span id="cb144-16"><a href="#cb144-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1"></a>calc_neg_log_likelihood <span class="ot">&lt;-</span> <span class="cf">function</span>(coeffs) {</span>
+<span id="cb142-2"><a href="#cb142-2"></a>  <span class="co"># Get the intercept coeff</span></span>
+<span id="cb142-3"><a href="#cb142-3"></a>  intercept <span class="ot">&lt;-</span> coeffs[<span class="dv">1</span>]</span>
+<span id="cb142-4"><a href="#cb142-4"></a></span>
+<span id="cb142-5"><a href="#cb142-5"></a>  <span class="co"># Get the slope coeff</span></span>
+<span id="cb142-6"><a href="#cb142-6"></a>  slope <span class="ot">&lt;-</span> coeffs[<span class="dv">2</span>]</span>
+<span id="cb142-7"><a href="#cb142-7"></a></span>
+<span id="cb142-8"><a href="#cb142-8"></a>  <span class="co"># Calculate the predicted y values</span></span>
+<span id="cb142-9"><a href="#cb142-9"></a>  y_pred <span class="ot">&lt;-</span> <span class="fu">plogis</span>(intercept <span class="sc">+</span> slope <span class="sc">*</span> x_actual)</span>
+<span id="cb142-10"><a href="#cb142-10"></a></span>
+<span id="cb142-11"><a href="#cb142-11"></a>  <span class="co"># Calculate the log-likelihood for each term</span></span>
+<span id="cb142-12"><a href="#cb142-12"></a>  log_likelihoods <span class="ot">&lt;-</span> <span class="fu">log</span>(y_pred) <span class="sc">*</span> y_actual <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> y_pred) <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> y_actual)</span>
+<span id="cb142-13"><a href="#cb142-13"></a></span>
+<span id="cb142-14"><a href="#cb142-14"></a>  <span class="co"># Calculate minus the sum of the log-likelihoods for each term</span></span>
+<span id="cb142-15"><a href="#cb142-15"></a>  <span class="sc">-</span><span class="fu">sum</span>(log_likelihoods)</span>
+<span id="cb142-16"><a href="#cb142-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="7" type="1">
 <li><p>Optimize the sum of squares metric.</p>
@@ -3306,22 +3324,22 @@ LO: Can write a simple logistic regression algorithm for a specific dataset.
 </ul></li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1"></a><span class="co"># From previous step</span></span>
-<span id="cb145-2"><a href="#cb145-2"></a>calc_neg_log_likelihood <span class="ot">&lt;-</span> <span class="cf">function</span>(coeffs) {</span>
-<span id="cb145-3"><a href="#cb145-3"></a>  intercept <span class="ot">&lt;-</span> coeffs[<span class="dv">1</span>]</span>
-<span id="cb145-4"><a href="#cb145-4"></a>  slope <span class="ot">&lt;-</span> coeffs[<span class="dv">2</span>]</span>
-<span id="cb145-5"><a href="#cb145-5"></a>  y_pred <span class="ot">&lt;-</span> <span class="fu">plogis</span>(intercept <span class="sc">+</span> slope <span class="sc">*</span> x_actual)</span>
-<span id="cb145-6"><a href="#cb145-6"></a>  log_likelihoods <span class="ot">&lt;-</span> <span class="fu">log</span>(y_pred) <span class="sc">*</span> y_actual <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> y_pred) <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> y_actual)</span>
-<span id="cb145-7"><a href="#cb145-7"></a>  <span class="sc">-</span><span class="fu">sum</span>(log_likelihoods)</span>
-<span id="cb145-8"><a href="#cb145-8"></a>}</span>
-<span id="cb145-9"><a href="#cb145-9"></a></span>
-<span id="cb145-10"><a href="#cb145-10"></a><span class="co"># Optimize the metric</span></span>
-<span id="cb145-11"><a href="#cb145-11"></a><span class="fu">optim</span>(</span>
-<span id="cb145-12"><a href="#cb145-12"></a>  <span class="co"># Initially guess 0 intercept and 1 slope</span></span>
-<span id="cb145-13"><a href="#cb145-13"></a>  <span class="at">par =</span> <span class="fu">c</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>),</span>
-<span id="cb145-14"><a href="#cb145-14"></a>  <span class="co"># Use calc_neg_log_likelihood as the optimization fn </span></span>
-<span id="cb145-15"><a href="#cb145-15"></a>  <span class="at">fn =</span> calc_neg_log_likelihood</span>
-<span id="cb145-16"><a href="#cb145-16"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1"></a><span class="co"># From previous step</span></span>
+<span id="cb143-2"><a href="#cb143-2"></a>calc_neg_log_likelihood <span class="ot">&lt;-</span> <span class="cf">function</span>(coeffs) {</span>
+<span id="cb143-3"><a href="#cb143-3"></a>  intercept <span class="ot">&lt;-</span> coeffs[<span class="dv">1</span>]</span>
+<span id="cb143-4"><a href="#cb143-4"></a>  slope <span class="ot">&lt;-</span> coeffs[<span class="dv">2</span>]</span>
+<span id="cb143-5"><a href="#cb143-5"></a>  y_pred <span class="ot">&lt;-</span> <span class="fu">plogis</span>(intercept <span class="sc">+</span> slope <span class="sc">*</span> x_actual)</span>
+<span id="cb143-6"><a href="#cb143-6"></a>  log_likelihoods <span class="ot">&lt;-</span> <span class="fu">log</span>(y_pred) <span class="sc">*</span> y_actual <span class="sc">+</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">-</span> y_pred) <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> y_actual)</span>
+<span id="cb143-7"><a href="#cb143-7"></a>  <span class="sc">-</span><span class="fu">sum</span>(log_likelihoods)</span>
+<span id="cb143-8"><a href="#cb143-8"></a>}</span>
+<span id="cb143-9"><a href="#cb143-9"></a></span>
+<span id="cb143-10"><a href="#cb143-10"></a><span class="co"># Optimize the metric</span></span>
+<span id="cb143-11"><a href="#cb143-11"></a><span class="fu">optim</span>(</span>
+<span id="cb143-12"><a href="#cb143-12"></a>  <span class="co"># Initially guess 0 intercept and 1 slope</span></span>
+<span id="cb143-13"><a href="#cb143-13"></a>  <span class="at">par =</span> <span class="fu">c</span>(<span class="at">intercept =</span> <span class="dv">0</span>, <span class="at">slope =</span> <span class="dv">1</span>),</span>
+<span id="cb143-14"><a href="#cb143-14"></a>  <span class="co"># Use calc_neg_log_likelihood as the optimization fn </span></span>
+<span id="cb143-15"><a href="#cb143-15"></a>  <span class="at">fn =</span> calc_neg_log_likelihood</span>
+<span id="cb143-16"><a href="#cb143-16"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; $par
 #&gt;   intercept       slope 
@@ -3340,8 +3358,8 @@ LO: Can write a simple logistic regression algorithm for a specific dataset.
 #&gt; $message
 #&gt; NULL</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1"></a><span class="co"># Compare the coefficients to those calculated by glm()</span></span>
-<span id="cb147-2"><a href="#cb147-2"></a><span class="fu">glm</span>(has_churned <span class="sc">~</span> time_since_last_purchase, <span class="at">data =</span> churn, <span class="at">family =</span> binomial)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1"></a><span class="co"># Compare the coefficients to those calculated by glm()</span></span>
+<span id="cb145-2"><a href="#cb145-2"></a><span class="fu">glm</span>(has_churned <span class="sc">~</span> time_since_last_purchase, <span class="at">data =</span> churn, <span class="at">family =</span> binomial)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 
 #&gt; Call:  glm(formula = has_churned ~ time_since_last_purchase, family = binomial, 
@@ -3519,9 +3537,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -3586,6 +3618,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -3641,10 +3759,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Content 2022 by <a href="https://www.startupengineer.io/authors/schwarz/">Joschka Schwarz</a> <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":true});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox","openEffect":"zoom","loop":true});</script>
 
 
 

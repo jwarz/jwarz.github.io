@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -134,6 +105,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <link href="../../../../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
 <script src="../../../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -150,308 +122,349 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">Joschka Schwarz</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Data Science</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-science">    
         <li>
-    <a class="dropdown-item" href="../../../../../content/R/index.html">
+    <a class="dropdown-item" href="../../../../../content/R/index.html" rel="" target="">
  <span class="dropdown-text">R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/python/index.html">
+    <a class="dropdown-item" href="../../../../../content/python/index.html" rel="" target="">
  <span class="dropdown-text">Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/sql/index.html">
+    <a class="dropdown-item" href="../../../../../content/sql/index.html" rel="" target="">
  <span class="dropdown-text">SQL</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../slides/index.html">
+    <a class="nav-link" href="../../../../../slides/index.html" rel="" target="">
  <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../resumes/index.html">
+    <a class="nav-link" href="../../../../../resumes/index.html" rel="" target="">
  <span class="menu-text">Resumes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../index.html">
+    <a class="nav-link" href="../../../../../index.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jwarz/"><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
+    <a class="nav-link" href="https://github.com/jwarz/" rel="" target=""><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz"><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
+    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Machine Learning with Tree-Based Models in R</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Topics</li><li class="breadcrumb-item"><a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html">7.8: Machine Learning with tree-based Models</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Topics</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <b><i>1 Programming Basics</i></b>
+ <span class="menu-text"><b><i>1 Programming Basics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">1.1: Introduction to R</a>
+  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1: Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">1.2: Intermediate R</a>
+  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2: Intermediate R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">1.3: Introduction to the tidyverse</a>
+  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3: Introduction to the tidyverse</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>2 Importing Data</i></b>
+ <span class="menu-text"><b><i>2 Importing Data</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">2.1: Introduction to Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1: Introduction to Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">2.2: Intermediate Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2: Intermediate Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">2.3: Working with web data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3: Working with web data</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>3 Data Wrangling</i></b>
+ <span class="menu-text"><b><i>3 Data Wrangling</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">3.1: Data Manipulation with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1: Data Manipulation with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">3.2: Joining data with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2: Joining data with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.3: Exploratory Data Analysis</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3: Exploratory Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.4: Case Study: EDA</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4: Case Study: EDA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">3.5: Cleaning Data</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5: Cleaning Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">3.6: Data Manipulation with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6: Data Manipulation with data.table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">3.7: Joining Data with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.7: Joining Data with data.table</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>4 Data Visualization</i></b>
+ <span class="menu-text"><b><i>4 Data Visualization</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">4.1: Introduction to Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1: Introduction to Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">4.2: Intermediate Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2: Intermediate Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>5 Statistics</i></b>
+ <span class="menu-text"><b><i>5 Statistics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">5.1: Introduction to Statistics</a>
+  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1: Introduction to Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">5.2: Foundations of Probability</a>
+  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2: Foundations of Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">5.3: Introduction to Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3: Introduction to Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">5.4: Intermediate Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.4: Intermediate Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">5.5: Modeling with Data in the Tidyverse</a>
+  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.5: Modeling with Data in the Tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">5.6: Experimental Design</a>
+  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.6: Experimental Design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">5.7: A/B Testing</a>
+  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.7: A/B Testing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">5.8: Fundamentals of Bayesian Data Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.8: Fundamentals of Bayesian Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">5.9: Factor Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.9: Factor Analysis</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>7 Machine Learning</i></b>
+ <span class="menu-text"><b><i>7 Machine Learning</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">7.1: Supervised Learning: Classification</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1: Supervised Learning: Classification</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">7.2: Supervised Learning: Regression</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2: Supervised Learning: Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">7.3: Unsupervised Learning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3: Unsupervised Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">7.4: Machine Learning in the tidyverse</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4: Machine Learning in the tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">7.5: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.5: Cluster Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">7.6: Machine Learning with caret</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6: Machine Learning with caret</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">7.7: Modeling with tidymodels</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.7: Modeling with tidymodels</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link active">7.8: Machine Learning with tree-based Models</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">7.8: Machine Learning with tree-based Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">7.9: Support Vector Machines</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.9: Support Vector Machines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">7.10: Topic Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.10: Topic Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">7.11: Hyperparameter Tuning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.11: Hyperparameter Tuning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">7.12: Bayesian Regression Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.12: Bayesian Regression Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">7.13: Introduction to Spark</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.13: Introduction to Spark</span></a>
   </div>
 </li>
       </ul>
@@ -459,40 +472,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Manuals</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">R Manuals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">1: An Introduction to R</a>
+  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: An Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">2: R Data Import/Export</a>
+  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: R Data Import/Export</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">3: R Installation and Administration</a>
+  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: R Installation and Administration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">4: Writing R Extensions</a>
+  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Writing R Extensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">5: R Language Definition</a>
+  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: R Language Definition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">6: R Internals</a>
+  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: R Internals</span></a>
   </div>
 </li>
       </ul>
@@ -500,81 +520,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#classification-trees" id="toc-classification-trees" class="nav-link active" data-scroll-target="#classification-trees"><span class="toc-section-number">1</span>  Classification Trees</a>
+  <li><a href="#classification-trees" id="toc-classification-trees" class="nav-link active" data-scroll-target="#classification-trees"><span class="header-section-number">1</span> Classification Trees</a>
   <ul class="collapse">
-  <li><a href="#welcome-to-the-course" id="toc-welcome-to-the-course" class="nav-link" data-scroll-target="#welcome-to-the-course"><span class="toc-section-number">1.1</span>  Welcome to the course!</a></li>
-  <li><a href="#why-tree-based-methods" id="toc-why-tree-based-methods" class="nav-link" data-scroll-target="#why-tree-based-methods"><span class="toc-section-number">1.2</span>  Why tree-based methods?</a></li>
-  <li><a href="#specify-that-tree" id="toc-specify-that-tree" class="nav-link" data-scroll-target="#specify-that-tree"><span class="toc-section-number">1.3</span>  Specify that tree</a></li>
-  <li><a href="#train-that-model" id="toc-train-that-model" class="nav-link" data-scroll-target="#train-that-model"><span class="toc-section-number">1.4</span>  Train that model</a></li>
-  <li><a href="#how-to-grow-your-tree" id="toc-how-to-grow-your-tree" class="nav-link" data-scroll-target="#how-to-grow-your-tree"><span class="toc-section-number">1.5</span>  How to grow your tree</a></li>
-  <li><a href="#traintest-split" id="toc-traintest-split" class="nav-link" data-scroll-target="#traintest-split"><span class="toc-section-number">1.6</span>  Train/test split</a></li>
-  <li><a href="#avoiding-class-imbalances" id="toc-avoiding-class-imbalances" class="nav-link" data-scroll-target="#avoiding-class-imbalances"><span class="toc-section-number">1.7</span>  Avoiding class imbalances</a></li>
-  <li><a href="#from-zero-to-hero" id="toc-from-zero-to-hero" class="nav-link" data-scroll-target="#from-zero-to-hero"><span class="toc-section-number">1.8</span>  From zero to hero</a></li>
-  <li><a href="#predict-and-evaluate" id="toc-predict-and-evaluate" class="nav-link" data-scroll-target="#predict-and-evaluate"><span class="toc-section-number">1.9</span>  Predict and evaluate</a></li>
-  <li><a href="#make-predictions" id="toc-make-predictions" class="nav-link" data-scroll-target="#make-predictions"><span class="toc-section-number">1.10</span>  Make predictions</a></li>
-  <li><a href="#crack-the-matrix" id="toc-crack-the-matrix" class="nav-link" data-scroll-target="#crack-the-matrix"><span class="toc-section-number">1.11</span>  Crack the matrix</a></li>
-  <li><a href="#are-you-predicting-correctly" id="toc-are-you-predicting-correctly" class="nav-link" data-scroll-target="#are-you-predicting-correctly"><span class="toc-section-number">1.13</span>  Are you predicting correctly?</a></li>
+  <li><a href="#welcome-to-the-course" id="toc-welcome-to-the-course" class="nav-link" data-scroll-target="#welcome-to-the-course"><span class="header-section-number">1.1</span> Welcome to the course!</a></li>
+  <li><a href="#why-tree-based-methods" id="toc-why-tree-based-methods" class="nav-link" data-scroll-target="#why-tree-based-methods"><span class="header-section-number">1.2</span> Why tree-based methods?</a></li>
+  <li><a href="#specify-that-tree" id="toc-specify-that-tree" class="nav-link" data-scroll-target="#specify-that-tree"><span class="header-section-number">1.3</span> Specify that tree</a></li>
+  <li><a href="#train-that-model" id="toc-train-that-model" class="nav-link" data-scroll-target="#train-that-model"><span class="header-section-number">1.4</span> Train that model</a></li>
+  <li><a href="#how-to-grow-your-tree" id="toc-how-to-grow-your-tree" class="nav-link" data-scroll-target="#how-to-grow-your-tree"><span class="header-section-number">1.5</span> How to grow your tree</a></li>
+  <li><a href="#traintest-split" id="toc-traintest-split" class="nav-link" data-scroll-target="#traintest-split"><span class="header-section-number">1.6</span> Train/test split</a></li>
+  <li><a href="#avoiding-class-imbalances" id="toc-avoiding-class-imbalances" class="nav-link" data-scroll-target="#avoiding-class-imbalances"><span class="header-section-number">1.7</span> Avoiding class imbalances</a></li>
+  <li><a href="#from-zero-to-hero" id="toc-from-zero-to-hero" class="nav-link" data-scroll-target="#from-zero-to-hero"><span class="header-section-number">1.8</span> From zero to hero</a></li>
+  <li><a href="#predict-and-evaluate" id="toc-predict-and-evaluate" class="nav-link" data-scroll-target="#predict-and-evaluate"><span class="header-section-number">1.9</span> Predict and evaluate</a></li>
+  <li><a href="#make-predictions" id="toc-make-predictions" class="nav-link" data-scroll-target="#make-predictions"><span class="header-section-number">1.10</span> Make predictions</a></li>
+  <li><a href="#crack-the-matrix" id="toc-crack-the-matrix" class="nav-link" data-scroll-target="#crack-the-matrix"><span class="header-section-number">1.11</span> Crack the matrix</a></li>
+  <li><a href="#are-you-predicting-correctly" id="toc-are-you-predicting-correctly" class="nav-link" data-scroll-target="#are-you-predicting-correctly"><span class="header-section-number">1.13</span> Are you predicting correctly?</a></li>
   </ul></li>
-  <li><a href="#regression-trees-and-cross-validation" id="toc-regression-trees-and-cross-validation" class="nav-link" data-scroll-target="#regression-trees-and-cross-validation"><span class="toc-section-number">2</span>  2. Regression Trees and Cross-Validation</a>
+  <li><a href="#regression-trees-and-cross-validation" id="toc-regression-trees-and-cross-validation" class="nav-link" data-scroll-target="#regression-trees-and-cross-validation"><span class="header-section-number">2</span> 2. Regression Trees and Cross-Validation</a>
   <ul class="collapse">
-  <li><a href="#continuous-outcomes" id="toc-continuous-outcomes" class="nav-link" data-scroll-target="#continuous-outcomes"><span class="toc-section-number">2.1</span>  Continuous outcomes</a></li>
-  <li><a href="#train-a-regression-tree" id="toc-train-a-regression-tree" class="nav-link" data-scroll-target="#train-a-regression-tree"><span class="toc-section-number">2.2</span>  Train a regression tree</a></li>
-  <li><a href="#predict-new-values" id="toc-predict-new-values" class="nav-link" data-scroll-target="#predict-new-values"><span class="toc-section-number">2.3</span>  Predict new values</a></li>
-  <li><a href="#inspect-model-output" id="toc-inspect-model-output" class="nav-link" data-scroll-target="#inspect-model-output"><span class="toc-section-number">2.4</span>  Inspect model output</a></li>
-  <li><a href="#performance-metrics-for-regression-trees" id="toc-performance-metrics-for-regression-trees" class="nav-link" data-scroll-target="#performance-metrics-for-regression-trees"><span class="toc-section-number">2.6</span>  Performance metrics for regression trees</a></li>
-  <li><a href="#in-sample-performance" id="toc-in-sample-performance" class="nav-link" data-scroll-target="#in-sample-performance"><span class="toc-section-number">2.7</span>  In-sample performance</a></li>
-  <li><a href="#out-of-sample-performance" id="toc-out-of-sample-performance" class="nav-link" data-scroll-target="#out-of-sample-performance"><span class="toc-section-number">2.8</span>  Out-of-sample performance</a></li>
-  <li><a href="#bigger-mistakes-bigger-penalty" id="toc-bigger-mistakes-bigger-penalty" class="nav-link" data-scroll-target="#bigger-mistakes-bigger-penalty"><span class="toc-section-number">2.9</span>  Bigger mistakes, bigger penalty</a></li>
-  <li><a href="#cross-validation" id="toc-cross-validation" class="nav-link" data-scroll-target="#cross-validation"><span class="toc-section-number">2.10</span>  Cross-validation</a></li>
-  <li><a href="#create-the-folds" id="toc-create-the-folds" class="nav-link" data-scroll-target="#create-the-folds"><span class="toc-section-number">2.11</span>  Create the folds</a></li>
-  <li><a href="#fit-the-folds" id="toc-fit-the-folds" class="nav-link" data-scroll-target="#fit-the-folds"><span class="toc-section-number">2.12</span>  Fit the folds</a></li>
-  <li><a href="#evaluate-the-folds" id="toc-evaluate-the-folds" class="nav-link" data-scroll-target="#evaluate-the-folds"><span class="toc-section-number">2.13</span>  Evaluate the folds</a></li>
-  <li><a href="#bias-variance-tradeoff" id="toc-bias-variance-tradeoff" class="nav-link" data-scroll-target="#bias-variance-tradeoff"><span class="toc-section-number">2.14</span>  Bias-variance tradeoff</a></li>
-  <li><a href="#call-things-by-their-names" id="toc-call-things-by-their-names" class="nav-link" data-scroll-target="#call-things-by-their-names"><span class="toc-section-number">2.15</span>  Call things by their names</a></li>
-  <li><a href="#adjust-model-complexity" id="toc-adjust-model-complexity" class="nav-link" data-scroll-target="#adjust-model-complexity"><span class="toc-section-number">2.16</span>  Adjust model complexity</a></li>
-  <li><a href="#in-sample-and-out-of-sample-performance" id="toc-in-sample-and-out-of-sample-performance" class="nav-link" data-scroll-target="#in-sample-and-out-of-sample-performance"><span class="toc-section-number">2.17</span>  In-sample and out-of-sample performance</a></li>
+  <li><a href="#continuous-outcomes" id="toc-continuous-outcomes" class="nav-link" data-scroll-target="#continuous-outcomes"><span class="header-section-number">2.1</span> Continuous outcomes</a></li>
+  <li><a href="#train-a-regression-tree" id="toc-train-a-regression-tree" class="nav-link" data-scroll-target="#train-a-regression-tree"><span class="header-section-number">2.2</span> Train a regression tree</a></li>
+  <li><a href="#predict-new-values" id="toc-predict-new-values" class="nav-link" data-scroll-target="#predict-new-values"><span class="header-section-number">2.3</span> Predict new values</a></li>
+  <li><a href="#inspect-model-output" id="toc-inspect-model-output" class="nav-link" data-scroll-target="#inspect-model-output"><span class="header-section-number">2.4</span> Inspect model output</a></li>
+  <li><a href="#performance-metrics-for-regression-trees" id="toc-performance-metrics-for-regression-trees" class="nav-link" data-scroll-target="#performance-metrics-for-regression-trees"><span class="header-section-number">2.6</span> Performance metrics for regression trees</a></li>
+  <li><a href="#in-sample-performance" id="toc-in-sample-performance" class="nav-link" data-scroll-target="#in-sample-performance"><span class="header-section-number">2.7</span> In-sample performance</a></li>
+  <li><a href="#out-of-sample-performance" id="toc-out-of-sample-performance" class="nav-link" data-scroll-target="#out-of-sample-performance"><span class="header-section-number">2.8</span> Out-of-sample performance</a></li>
+  <li><a href="#bigger-mistakes-bigger-penalty" id="toc-bigger-mistakes-bigger-penalty" class="nav-link" data-scroll-target="#bigger-mistakes-bigger-penalty"><span class="header-section-number">2.9</span> Bigger mistakes, bigger penalty</a></li>
+  <li><a href="#cross-validation" id="toc-cross-validation" class="nav-link" data-scroll-target="#cross-validation"><span class="header-section-number">2.10</span> Cross-validation</a></li>
+  <li><a href="#create-the-folds" id="toc-create-the-folds" class="nav-link" data-scroll-target="#create-the-folds"><span class="header-section-number">2.11</span> Create the folds</a></li>
+  <li><a href="#fit-the-folds" id="toc-fit-the-folds" class="nav-link" data-scroll-target="#fit-the-folds"><span class="header-section-number">2.12</span> Fit the folds</a></li>
+  <li><a href="#evaluate-the-folds" id="toc-evaluate-the-folds" class="nav-link" data-scroll-target="#evaluate-the-folds"><span class="header-section-number">2.13</span> Evaluate the folds</a></li>
+  <li><a href="#bias-variance-tradeoff" id="toc-bias-variance-tradeoff" class="nav-link" data-scroll-target="#bias-variance-tradeoff"><span class="header-section-number">2.14</span> Bias-variance tradeoff</a></li>
+  <li><a href="#call-things-by-their-names" id="toc-call-things-by-their-names" class="nav-link" data-scroll-target="#call-things-by-their-names"><span class="header-section-number">2.15</span> Call things by their names</a></li>
+  <li><a href="#adjust-model-complexity" id="toc-adjust-model-complexity" class="nav-link" data-scroll-target="#adjust-model-complexity"><span class="header-section-number">2.16</span> Adjust model complexity</a></li>
+  <li><a href="#in-sample-and-out-of-sample-performance" id="toc-in-sample-and-out-of-sample-performance" class="nav-link" data-scroll-target="#in-sample-and-out-of-sample-performance"><span class="header-section-number">2.17</span> In-sample and out-of-sample performance</a></li>
   </ul></li>
-  <li><a href="#hyperparameters-and-ensemble-models" id="toc-hyperparameters-and-ensemble-models" class="nav-link" data-scroll-target="#hyperparameters-and-ensemble-models"><span class="toc-section-number">3</span>  3. Hyperparameters and Ensemble Models</a>
+  <li><a href="#hyperparameters-and-ensemble-models" id="toc-hyperparameters-and-ensemble-models" class="nav-link" data-scroll-target="#hyperparameters-and-ensemble-models"><span class="header-section-number">3</span> 3. Hyperparameters and Ensemble Models</a>
   <ul class="collapse">
-  <li><a href="#tuning-hyperparameters" id="toc-tuning-hyperparameters" class="nav-link" data-scroll-target="#tuning-hyperparameters"><span class="toc-section-number">3.1</span>  Tuning hyperparameters</a></li>
-  <li><a href="#generate-a-tuning-grid" id="toc-generate-a-tuning-grid" class="nav-link" data-scroll-target="#generate-a-tuning-grid"><span class="toc-section-number">3.2</span>  Generate a tuning grid</a></li>
-  <li><a href="#tune-along-the-grid" id="toc-tune-along-the-grid" class="nav-link" data-scroll-target="#tune-along-the-grid"><span class="toc-section-number">3.3</span>  Tune along the grid</a></li>
-  <li><a href="#pick-the-winner" id="toc-pick-the-winner" class="nav-link" data-scroll-target="#pick-the-winner"><span class="toc-section-number">3.4</span>  Pick the winner</a></li>
-  <li><a href="#more-model-measures" id="toc-more-model-measures" class="nav-link" data-scroll-target="#more-model-measures"><span class="toc-section-number">3.5</span>  More model measures</a></li>
-  <li><a href="#calculate-specificity" id="toc-calculate-specificity" class="nav-link" data-scroll-target="#calculate-specificity"><span class="toc-section-number">3.6</span>  Calculate specificity</a></li>
-  <li><a href="#draw-the-roc-curve" id="toc-draw-the-roc-curve" class="nav-link" data-scroll-target="#draw-the-roc-curve"><span class="toc-section-number">3.7</span>  Draw the ROC curve</a></li>
-  <li><a href="#area-under-the-roc-curve" id="toc-area-under-the-roc-curve" class="nav-link" data-scroll-target="#area-under-the-roc-curve"><span class="toc-section-number">3.8</span>  Area under the ROC curve</a></li>
-  <li><a href="#bagged-trees" id="toc-bagged-trees" class="nav-link" data-scroll-target="#bagged-trees"><span class="toc-section-number">3.9</span>  Bagged trees</a></li>
-  <li><a href="#create-bagged-trees" id="toc-create-bagged-trees" class="nav-link" data-scroll-target="#create-bagged-trees"><span class="toc-section-number">3.10</span>  Create bagged trees</a></li>
-  <li><a href="#in-sample-roc-and-auc" id="toc-in-sample-roc-and-auc" class="nav-link" data-scroll-target="#in-sample-roc-and-auc"><span class="toc-section-number">3.12</span>  In-sample ROC and AUC</a></li>
-  <li><a href="#check-for-overfitting" id="toc-check-for-overfitting" class="nav-link" data-scroll-target="#check-for-overfitting"><span class="toc-section-number">3.13</span>  Check for overfitting</a></li>
-  <li><a href="#random-forest" id="toc-random-forest" class="nav-link" data-scroll-target="#random-forest"><span class="toc-section-number">3.14</span>  Random forest</a></li>
-  <li><a href="#bagged-trees-vs.-random-forest" id="toc-bagged-trees-vs.-random-forest" class="nav-link" data-scroll-target="#bagged-trees-vs.-random-forest"><span class="toc-section-number">3.15</span>  Bagged trees vs.&nbsp;random forest</a></li>
-  <li><a href="#variable-importance" id="toc-variable-importance" class="nav-link" data-scroll-target="#variable-importance"><span class="toc-section-number">3.17</span>  Variable importance</a></li>
+  <li><a href="#tuning-hyperparameters" id="toc-tuning-hyperparameters" class="nav-link" data-scroll-target="#tuning-hyperparameters"><span class="header-section-number">3.1</span> Tuning hyperparameters</a></li>
+  <li><a href="#generate-a-tuning-grid" id="toc-generate-a-tuning-grid" class="nav-link" data-scroll-target="#generate-a-tuning-grid"><span class="header-section-number">3.2</span> Generate a tuning grid</a></li>
+  <li><a href="#tune-along-the-grid" id="toc-tune-along-the-grid" class="nav-link" data-scroll-target="#tune-along-the-grid"><span class="header-section-number">3.3</span> Tune along the grid</a></li>
+  <li><a href="#pick-the-winner" id="toc-pick-the-winner" class="nav-link" data-scroll-target="#pick-the-winner"><span class="header-section-number">3.4</span> Pick the winner</a></li>
+  <li><a href="#more-model-measures" id="toc-more-model-measures" class="nav-link" data-scroll-target="#more-model-measures"><span class="header-section-number">3.5</span> More model measures</a></li>
+  <li><a href="#calculate-specificity" id="toc-calculate-specificity" class="nav-link" data-scroll-target="#calculate-specificity"><span class="header-section-number">3.6</span> Calculate specificity</a></li>
+  <li><a href="#draw-the-roc-curve" id="toc-draw-the-roc-curve" class="nav-link" data-scroll-target="#draw-the-roc-curve"><span class="header-section-number">3.7</span> Draw the ROC curve</a></li>
+  <li><a href="#area-under-the-roc-curve" id="toc-area-under-the-roc-curve" class="nav-link" data-scroll-target="#area-under-the-roc-curve"><span class="header-section-number">3.8</span> Area under the ROC curve</a></li>
+  <li><a href="#bagged-trees" id="toc-bagged-trees" class="nav-link" data-scroll-target="#bagged-trees"><span class="header-section-number">3.9</span> Bagged trees</a></li>
+  <li><a href="#create-bagged-trees" id="toc-create-bagged-trees" class="nav-link" data-scroll-target="#create-bagged-trees"><span class="header-section-number">3.10</span> Create bagged trees</a></li>
+  <li><a href="#in-sample-roc-and-auc" id="toc-in-sample-roc-and-auc" class="nav-link" data-scroll-target="#in-sample-roc-and-auc"><span class="header-section-number">3.12</span> In-sample ROC and AUC</a></li>
+  <li><a href="#check-for-overfitting" id="toc-check-for-overfitting" class="nav-link" data-scroll-target="#check-for-overfitting"><span class="header-section-number">3.13</span> Check for overfitting</a></li>
+  <li><a href="#random-forest" id="toc-random-forest" class="nav-link" data-scroll-target="#random-forest"><span class="header-section-number">3.14</span> Random forest</a></li>
+  <li><a href="#bagged-trees-vs.-random-forest" id="toc-bagged-trees-vs.-random-forest" class="nav-link" data-scroll-target="#bagged-trees-vs.-random-forest"><span class="header-section-number">3.15</span> Bagged trees vs.&nbsp;random forest</a></li>
+  <li><a href="#variable-importance" id="toc-variable-importance" class="nav-link" data-scroll-target="#variable-importance"><span class="header-section-number">3.17</span> Variable importance</a></li>
   </ul></li>
-  <li><a href="#boosted-trees" id="toc-boosted-trees" class="nav-link" data-scroll-target="#boosted-trees"><span class="toc-section-number">4</span>  4. Boosted Trees</a>
+  <li><a href="#boosted-trees" id="toc-boosted-trees" class="nav-link" data-scroll-target="#boosted-trees"><span class="header-section-number">4</span> 4. Boosted Trees</a>
   <ul class="collapse">
-  <li><a href="#introduction-to-boosting" id="toc-introduction-to-boosting" class="nav-link" data-scroll-target="#introduction-to-boosting"><span class="toc-section-number">4.1</span>  Introduction to boosting</a></li>
-  <li><a href="#bagging-vs.-boosting" id="toc-bagging-vs.-boosting" class="nav-link" data-scroll-target="#bagging-vs.-boosting"><span class="toc-section-number">4.2</span>  Bagging vs.&nbsp;boosting</a></li>
-  <li><a href="#specify-a-boosted-ensemble" id="toc-specify-a-boosted-ensemble" class="nav-link" data-scroll-target="#specify-a-boosted-ensemble"><span class="toc-section-number">4.4</span>  Specify a boosted ensemble</a></li>
-  <li><a href="#gradient-boosting" id="toc-gradient-boosting" class="nav-link" data-scroll-target="#gradient-boosting"><span class="toc-section-number">4.5</span>  Gradient boosting</a></li>
-  <li><a href="#train-a-boosted-ensemble" id="toc-train-a-boosted-ensemble" class="nav-link" data-scroll-target="#train-a-boosted-ensemble"><span class="toc-section-number">4.6</span>  Train a boosted ensemble</a></li>
-  <li><a href="#evaluate-the-ensemble" id="toc-evaluate-the-ensemble" class="nav-link" data-scroll-target="#evaluate-the-ensemble"><span class="toc-section-number">4.8</span>  Evaluate the ensemble</a></li>
-  <li><a href="#compare-to-a-single-classifier" id="toc-compare-to-a-single-classifier" class="nav-link" data-scroll-target="#compare-to-a-single-classifier"><span class="toc-section-number">4.9</span>  Compare to a single classifier</a></li>
-  <li><a href="#optimize-the-boosted-ensemble" id="toc-optimize-the-boosted-ensemble" class="nav-link" data-scroll-target="#optimize-the-boosted-ensemble"><span class="toc-section-number">4.10</span>  Optimize the boosted ensemble</a></li>
-  <li><a href="#tuning-preparation" id="toc-tuning-preparation" class="nav-link" data-scroll-target="#tuning-preparation"><span class="toc-section-number">4.11</span>  Tuning preparation</a></li>
-  <li><a href="#the-actual-tuning" id="toc-the-actual-tuning" class="nav-link" data-scroll-target="#the-actual-tuning"><span class="toc-section-number">4.12</span>  The actual tuning</a></li>
-  <li><a href="#finalize-the-model" id="toc-finalize-the-model" class="nav-link" data-scroll-target="#finalize-the-model"><span class="toc-section-number">4.13</span>  Finalize the model</a></li>
-  <li><a href="#model-comparison" id="toc-model-comparison" class="nav-link" data-scroll-target="#model-comparison"><span class="toc-section-number">4.14</span>  Model comparison</a></li>
-  <li><a href="#compare-auc" id="toc-compare-auc" class="nav-link" data-scroll-target="#compare-auc"><span class="toc-section-number">4.15</span>  Compare AUC</a></li>
-  <li><a href="#plot-roc-curves" id="toc-plot-roc-curves" class="nav-link" data-scroll-target="#plot-roc-curves"><span class="toc-section-number">4.16</span>  Plot ROC curves</a></li>
-  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up"><span class="toc-section-number">4.17</span>  Wrap-up</a></li>
+  <li><a href="#introduction-to-boosting" id="toc-introduction-to-boosting" class="nav-link" data-scroll-target="#introduction-to-boosting"><span class="header-section-number">4.1</span> Introduction to boosting</a></li>
+  <li><a href="#bagging-vs.-boosting" id="toc-bagging-vs.-boosting" class="nav-link" data-scroll-target="#bagging-vs.-boosting"><span class="header-section-number">4.2</span> Bagging vs.&nbsp;boosting</a></li>
+  <li><a href="#specify-a-boosted-ensemble" id="toc-specify-a-boosted-ensemble" class="nav-link" data-scroll-target="#specify-a-boosted-ensemble"><span class="header-section-number">4.4</span> Specify a boosted ensemble</a></li>
+  <li><a href="#gradient-boosting" id="toc-gradient-boosting" class="nav-link" data-scroll-target="#gradient-boosting"><span class="header-section-number">4.5</span> Gradient boosting</a></li>
+  <li><a href="#train-a-boosted-ensemble" id="toc-train-a-boosted-ensemble" class="nav-link" data-scroll-target="#train-a-boosted-ensemble"><span class="header-section-number">4.6</span> Train a boosted ensemble</a></li>
+  <li><a href="#evaluate-the-ensemble" id="toc-evaluate-the-ensemble" class="nav-link" data-scroll-target="#evaluate-the-ensemble"><span class="header-section-number">4.8</span> Evaluate the ensemble</a></li>
+  <li><a href="#compare-to-a-single-classifier" id="toc-compare-to-a-single-classifier" class="nav-link" data-scroll-target="#compare-to-a-single-classifier"><span class="header-section-number">4.9</span> Compare to a single classifier</a></li>
+  <li><a href="#optimize-the-boosted-ensemble" id="toc-optimize-the-boosted-ensemble" class="nav-link" data-scroll-target="#optimize-the-boosted-ensemble"><span class="header-section-number">4.10</span> Optimize the boosted ensemble</a></li>
+  <li><a href="#tuning-preparation" id="toc-tuning-preparation" class="nav-link" data-scroll-target="#tuning-preparation"><span class="header-section-number">4.11</span> Tuning preparation</a></li>
+  <li><a href="#the-actual-tuning" id="toc-the-actual-tuning" class="nav-link" data-scroll-target="#the-actual-tuning"><span class="header-section-number">4.12</span> The actual tuning</a></li>
+  <li><a href="#finalize-the-model" id="toc-finalize-the-model" class="nav-link" data-scroll-target="#finalize-the-model"><span class="header-section-number">4.13</span> Finalize the model</a></li>
+  <li><a href="#model-comparison" id="toc-model-comparison" class="nav-link" data-scroll-target="#model-comparison"><span class="header-section-number">4.14</span> Model comparison</a></li>
+  <li><a href="#compare-auc" id="toc-compare-auc" class="nav-link" data-scroll-target="#compare-auc"><span class="header-section-number">4.15</span> Compare AUC</a></li>
+  <li><a href="#plot-roc-curves" id="toc-plot-roc-curves" class="nav-link" data-scroll-target="#plot-roc-curves"><span class="header-section-number">4.16</span> Plot ROC curves</a></li>
+  <li><a href="#wrap-up" id="toc-wrap-up" class="nav-link" data-scroll-target="#wrap-up"><span class="header-section-number">4.17</span> Wrap-up</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -584,7 +605,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Machine Learning with Tree-Based Models in R</h1>
+<h1 class="title">Machine Learning with Tree-Based Models in R</h1>
 </div>
 
 
@@ -683,14 +704,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>#&gt; ── Attaching packages ────────────────────────────────────── tidymodels 1.0.0 ──</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; ✔ broom        1.0.1      ✔ rsample      1.1.0 
-#&gt; ✔ dials        1.1.0      ✔ tibble       3.1.8 
-#&gt; ✔ dplyr        1.0.10     ✔ tidyr        1.2.1 
-#&gt; ✔ infer        1.0.3      ✔ tune         1.0.1 
-#&gt; ✔ modeldata    1.0.1      ✔ workflows    1.1.2 
-#&gt; ✔ parsnip      1.0.3      ✔ workflowsets 1.0.0 
-#&gt; ✔ purrr        0.3.5      ✔ yardstick    1.1.0 
-#&gt; ✔ recipes      1.0.3</code></pre>
+<pre><code>#&gt; ✔ broom        1.0.4     ✔ rsample      1.1.1
+#&gt; ✔ dials        1.2.0     ✔ tibble       3.2.1
+#&gt; ✔ dplyr        1.1.2     ✔ tidyr        1.3.0
+#&gt; ✔ infer        1.0.4     ✔ tune         1.1.1
+#&gt; ✔ modeldata    1.1.0     ✔ workflows    1.1.3
+#&gt; ✔ parsnip      1.1.0     ✔ workflowsets 1.0.1
+#&gt; ✔ purrr        1.0.1     ✔ yardstick    1.2.0
+#&gt; ✔ recipes      1.0.6</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; ── Conflicts ───────────────────────────────────────── tidymodels_conflicts() ──
@@ -708,7 +729,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; ✖ .GlobalEnv::scale_fill_ordinal()     masks ggplot2::scale_fill_ordinal()
 #&gt; ✖ yardstick::spec()                    masks readr::spec()
 #&gt; ✖ recipes::step()                      masks stats::step()
-#&gt; • Learn how to get started at https://www.tidymodels.org/start/</code></pre>
+#&gt; • Use tidymodels_prefer() to resolve common conflicts.</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Pick a model class</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>tree_spec <span class="ot">&lt;-</span> <span class="fu">decision_tree</span>() </span>
@@ -917,11 +938,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb22-8"><a href="#cb22-8"></a></span>
 <span id="cb22-9"><a href="#cb22-9"></a><span class="fu">paste</span>(<span class="st">"Proportion of positive outcomes in training set:"</span>, <span class="fu">round</span>(prop_yes_train, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] "Proportion of positive outcomes in training set: 0.35"</code></pre>
+<pre><code>#&gt; [1] "Proportion of positive outcomes in training set: 0.37"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">paste</span>(<span class="st">"Proportion of positive outcomes in test set:"</span>, <span class="fu">round</span>(prop_yes_test, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] "Proportion of positive outcomes in test set: 0.36"</code></pre>
+<pre><code>#&gt; [1] "Proportion of positive outcomes in test set: 0.27"</code></pre>
 </div>
 </div>
 <ol start="2" type="1">
@@ -1081,7 +1102,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[".pred_class"],"name":[1],"type":["fct"],"align":["left"]},{"label":["true_class"],"name":[2],"type":["fct"],"align":["left"]}],"data":[{"1":"yes","2":"yes"},{"1":"no","2":"no"},{"1":"yes","2":"yes"},{"1":"no","2":"yes"},{"1":"no","2":"yes"},{"1":"yes","2":"yes"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[".pred_class"],"name":[1],"type":["fct"],"align":["left"]},{"label":["true_class"],"name":[2],"type":["fct"],"align":["left"]}],"data":[{"1":"yes","2":"yes"},{"1":"no","2":"no"},{"1":"no","2":"yes"},{"1":"no","2":"yes"},{"1":"no","2":"yes"},{"1":"no","2":"no"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -1108,8 +1129,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;           Truth
 #&gt; Prediction no yes
-#&gt;        no  79  22
-#&gt;        yes 20  33</code></pre>
+#&gt;        no  90  23
+#&gt;        yes 22  19</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -1166,7 +1187,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb40-4"><a href="#cb40-4"></a>                     <span class="at">truth =</span> true_class)</span>
 <span id="cb40-5"><a href="#cb40-5"></a>acc_auto<span class="sc">$</span>.estimate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.7272727</code></pre>
+<pre><code>#&gt; [1] 0.7077922</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -4046,6 +4067,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the ROC curve of the result.</li>
 <li>Plot the ROC curve using <code>autoplot()</code>.</li>
 </ol>
+<p>ERROR HERE: Can’t rename variables in this context roc_curve()</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a><span class="do">## Assign model</span></span>
 <span id="cb83-2"><a href="#cb83-2"></a>model <span class="ot">&lt;-</span> tree_spec <span class="sc">|&gt;</span> <span class="fu">fit</span>(still_customer <span class="sc">~</span> ., customers_train)</span>
@@ -4064,13 +4086,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb83-15"><a href="#cb83-15"></a></span>
 <span id="cb83-16"><a href="#cb83-16"></a><span class="co"># Plot the ROC curve</span></span>
 <span id="cb83-17"><a href="#cb83-17"></a><span class="fu">autoplot</span>(roc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-40-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></a></p>
-</figure>
-</div>
-</div>
 </div>
 <p>Well predicted, wizard! You predicted on the test set and plotted the ROC curve. It looks really good, being very steep and located very much in the top left corner. Wonder what the area under this curve is? Find out in the following exercise!</p>
 </section>
@@ -4113,6 +4128,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ol type="1">
 <li>Calculate the area under the ROC curve using the <code>roc_auc()</code> function and the <code>predictions</code> tibble.</li>
 </ol>
+<p>ERROR: variable not exist</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="co"># Calculate area under the curve</span></span>
 <span id="cb84-2"><a href="#cb84-2"></a>auc_result <span class="ot">&lt;-</span> <span class="fu">roc_auc</span>(predictions,</span>
@@ -4120,9 +4136,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb84-4"><a href="#cb84-4"></a>                      <span class="at">truth =</span> still_customer)</span>
 <span id="cb84-5"><a href="#cb84-5"></a></span>
 <span id="cb84-6"><a href="#cb84-6"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"The area under the ROC curve is"</span>, <span class="fu">round</span>(auc_result<span class="sc">$</span>.estimate, <span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] "The area under the ROC curve is 0.061"</code></pre>
-</div>
 </div>
 <p>Too easy for you! An AUC of over 92% corresponds to grade A in the grading system and suggests a very helpful model!</p>
 </section>
@@ -4156,14 +4169,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>bag_tree()</code> to create a bagged tree classification model with an <code>"rpart"</code> engine that builds 20 bagged trees.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="co"># Create the specification</span></span>
-<span id="cb86-2"><a href="#cb86-2"></a><span class="fu">library</span>(baguette)</span>
-<span id="cb86-3"><a href="#cb86-3"></a></span>
-<span id="cb86-4"><a href="#cb86-4"></a>spec_bagged <span class="ot">&lt;-</span> <span class="fu">bag_tree</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb86-5"><a href="#cb86-5"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb86-6"><a href="#cb86-6"></a>  <span class="fu">set_engine</span>(<span class="st">"rpart"</span>, <span class="at">times =</span> <span class="dv">20</span>)</span>
-<span id="cb86-7"><a href="#cb86-7"></a></span>
-<span id="cb86-8"><a href="#cb86-8"></a>spec_bagged</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a><span class="co"># Create the specification</span></span>
+<span id="cb85-2"><a href="#cb85-2"></a><span class="fu">library</span>(baguette)</span>
+<span id="cb85-3"><a href="#cb85-3"></a></span>
+<span id="cb85-4"><a href="#cb85-4"></a>spec_bagged <span class="ot">&lt;-</span> <span class="fu">bag_tree</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb85-5"><a href="#cb85-5"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb85-6"><a href="#cb85-6"></a>  <span class="fu">set_engine</span>(<span class="st">"rpart"</span>, <span class="at">times =</span> <span class="dv">20</span>)</span>
+<span id="cb85-7"><a href="#cb85-7"></a></span>
+<span id="cb85-8"><a href="#cb85-8"></a>spec_bagged</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Bagged Decision Tree Model Specification (classification)
 #&gt; 
@@ -4182,13 +4195,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Print the model to see the importance of variables.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a><span class="co"># Fit to the training data</span></span>
-<span id="cb88-2"><a href="#cb88-2"></a>model_bagged <span class="ot">&lt;-</span> <span class="fu">fit</span>(spec_bagged,</span>
-<span id="cb88-3"><a href="#cb88-3"></a>                    <span class="at">formula =</span> still_customer <span class="sc">~</span> total_trans_amt <span class="sc">+</span> customer_age <span class="sc">+</span> education_level, </span>
-<span id="cb88-4"><a href="#cb88-4"></a>                    <span class="at">data =</span> customers_train)</span>
-<span id="cb88-5"><a href="#cb88-5"></a></span>
-<span id="cb88-6"><a href="#cb88-6"></a><span class="co"># Print the model</span></span>
-<span id="cb88-7"><a href="#cb88-7"></a>model_bagged</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a><span class="co"># Fit to the training data</span></span>
+<span id="cb87-2"><a href="#cb87-2"></a>model_bagged <span class="ot">&lt;-</span> <span class="fu">fit</span>(spec_bagged,</span>
+<span id="cb87-3"><a href="#cb87-3"></a>                    <span class="at">formula =</span> still_customer <span class="sc">~</span> total_trans_amt <span class="sc">+</span> customer_age <span class="sc">+</span> education_level, </span>
+<span id="cb87-4"><a href="#cb87-4"></a>                    <span class="at">data =</span> customers_train)</span>
+<span id="cb87-5"><a href="#cb87-5"></a></span>
+<span id="cb87-6"><a href="#cb87-6"></a><span class="co"># Print the model</span></span>
+<span id="cb87-7"><a href="#cb87-7"></a>model_bagged</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; parsnip model object
 #&gt; 
@@ -4199,9 +4212,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; # A tibble: 3 × 4
 #&gt;   term            value std.error  used
 #&gt;   &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt; &lt;int&gt;
-#&gt; 1 total_trans_amt 1357.     12.4     20
-#&gt; 2 customer_age     583.      4.79    20
-#&gt; 3 education_level  198.      3.50    20</code></pre>
+#&gt; 1 total_trans_amt 1354.      8.02    20
+#&gt; 2 customer_age     592.      5.58    20
+#&gt; 3 education_level  205.      3.25    20</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -4220,44 +4233,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use <code>model_bagged</code> to generate <strong>probability</strong> predictions with your training set and add them to the training set tibble, saving the result as <code>predictions</code>.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="co"># Predict on training set and add to training set</span></span>
-<span id="cb90-2"><a href="#cb90-2"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model_bagged,</span>
-<span id="cb90-3"><a href="#cb90-3"></a>                       <span class="at">new_data =</span> customers_train, </span>
-<span id="cb90-4"><a href="#cb90-4"></a>                       <span class="at">type =</span> <span class="st">"prob"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb90-5"><a href="#cb90-5"></a>    <span class="fu">bind_cols</span>(customers_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1"></a><span class="co"># Predict on training set and add to training set</span></span>
+<span id="cb89-2"><a href="#cb89-2"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model_bagged,</span>
+<span id="cb89-3"><a href="#cb89-3"></a>                       <span class="at">new_data =</span> customers_train, </span>
+<span id="cb89-4"><a href="#cb89-4"></a>                       <span class="at">type =</span> <span class="st">"prob"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb89-5"><a href="#cb89-5"></a>    <span class="fu">bind_cols</span>(customers_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Generate the ROC curve of the <code>predictions</code> tibble and plot the result.</li>
 </ol>
+<p>ERROR with roc_curver()</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a><span class="co"># Create and plot the ROC curve</span></span>
-<span id="cb91-2"><a href="#cb91-2"></a><span class="fu">roc_curve</span>(predictions, </span>
-<span id="cb91-3"><a href="#cb91-3"></a>          <span class="at">estimate =</span> .pred_yes, </span>
-<span id="cb91-4"><a href="#cb91-4"></a>          <span class="at">truth =</span> still_customer) <span class="sc">%&gt;%</span> <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-45-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" width="672"></a></p>
-</figure>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="co"># Create and plot the ROC curve</span></span>
+<span id="cb90-2"><a href="#cb90-2"></a><span class="fu">roc_curve</span>(predictions, </span>
+<span id="cb90-3"><a href="#cb90-3"></a>          <span class="at">estimate =</span> .pred_yes, </span>
+<span id="cb90-4"><a href="#cb90-4"></a>          <span class="at">truth =</span> still_customer) <span class="sc">%&gt;%</span> <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Calculate the AUC of the <code>predictions</code> tibble.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="co"># Calculate the AUC</span></span>
-<span id="cb92-2"><a href="#cb92-2"></a><span class="fu">roc_auc</span>(predictions,</span>
-<span id="cb92-3"><a href="#cb92-3"></a>        <span class="at">estimate =</span> .pred_yes, </span>
-<span id="cb92-4"><a href="#cb92-4"></a>        <span class="at">truth =</span> still_customer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[".metric"],"name":[1],"type":["chr"],"align":["left"]},{"label":[".estimator"],"name":[2],"type":["chr"],"align":["left"]},{"label":[".estimate"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"roc_auc","2":"binary","3":"9.755601e-05"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a><span class="co"># Calculate the AUC</span></span>
+<span id="cb91-2"><a href="#cb91-2"></a><span class="fu">roc_auc</span>(predictions,</span>
+<span id="cb91-3"><a href="#cb91-3"></a>        <span class="at">estimate =</span> .pred_yes, </span>
+<span id="cb91-4"><a href="#cb91-4"></a>        <span class="at">truth =</span> still_customer)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Convincing curve! You created in-sample predictions and got a terrific ROC curve and an AUC value of 99.9%. But wait, that looks too good to be true! Time to check the out-of-sample performance!</p>
 </section>
@@ -4272,16 +4271,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Collect the metrics of the result to display the AUC.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="fu">set.seed</span>(<span class="dv">55</span>)</span>
-<span id="cb93-2"><a href="#cb93-2"></a></span>
-<span id="cb93-3"><a href="#cb93-3"></a><span class="co"># Estimate AUC using cross-validation</span></span>
-<span id="cb93-4"><a href="#cb93-4"></a>cv_results <span class="ot">&lt;-</span> <span class="fu">fit_resamples</span>(spec_bagged,</span>
-<span id="cb93-5"><a href="#cb93-5"></a>                            still_customer <span class="sc">~</span> total_trans_amt <span class="sc">+</span> customer_age <span class="sc">+</span> education_level, </span>
-<span id="cb93-6"><a href="#cb93-6"></a>                            <span class="at">resamples =</span> <span class="fu">vfold_cv</span>(customers_train, <span class="at">v =</span> <span class="dv">3</span>),</span>
-<span id="cb93-7"><a href="#cb93-7"></a>                            <span class="at">metrics =</span> <span class="fu">metric_set</span>(roc_auc))</span>
-<span id="cb93-8"><a href="#cb93-8"></a> </span>
-<span id="cb93-9"><a href="#cb93-9"></a><span class="co"># Collect metrics</span></span>
-<span id="cb93-10"><a href="#cb93-10"></a><span class="fu">collect_metrics</span>(cv_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="fu">set.seed</span>(<span class="dv">55</span>)</span>
+<span id="cb92-2"><a href="#cb92-2"></a></span>
+<span id="cb92-3"><a href="#cb92-3"></a><span class="co"># Estimate AUC using cross-validation</span></span>
+<span id="cb92-4"><a href="#cb92-4"></a>cv_results <span class="ot">&lt;-</span> <span class="fu">fit_resamples</span>(spec_bagged,</span>
+<span id="cb92-5"><a href="#cb92-5"></a>                            still_customer <span class="sc">~</span> total_trans_amt <span class="sc">+</span> customer_age <span class="sc">+</span> education_level, </span>
+<span id="cb92-6"><a href="#cb92-6"></a>                            <span class="at">resamples =</span> <span class="fu">vfold_cv</span>(customers_train, <span class="at">v =</span> <span class="dv">3</span>),</span>
+<span id="cb92-7"><a href="#cb92-7"></a>                            <span class="at">metrics =</span> <span class="fu">metric_set</span>(roc_auc))</span>
+<span id="cb92-8"><a href="#cb92-8"></a> </span>
+<span id="cb92-9"><a href="#cb92-9"></a><span class="co"># Collect metrics</span></span>
+<span id="cb92-10"><a href="#cb92-10"></a><span class="fu">collect_metrics</span>(cv_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -4334,22 +4333,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Plot the variable importance using the <code>vip()</code> function from the <code>vip</code> package (which is not pre-loaded).</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="co"># Specify a random forest</span></span>
-<span id="cb94-2"><a href="#cb94-2"></a>spec <span class="ot">&lt;-</span> <span class="fu">rand_forest</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb94-3"><a href="#cb94-3"></a>    <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb94-4"><a href="#cb94-4"></a>    <span class="fu">set_engine</span>(<span class="st">"ranger"</span>, <span class="at">importance =</span> <span class="st">"impurity"</span>)</span>
-<span id="cb94-5"><a href="#cb94-5"></a></span>
-<span id="cb94-6"><a href="#cb94-6"></a><span class="co"># Train the forest</span></span>
-<span id="cb94-7"><a href="#cb94-7"></a>model <span class="ot">&lt;-</span> spec <span class="sc">%&gt;%</span></span>
-<span id="cb94-8"><a href="#cb94-8"></a>    <span class="fu">fit</span>(still_customer <span class="sc">~</span> ., </span>
-<span id="cb94-9"><a href="#cb94-9"></a>        <span class="at">data =</span> customers_train)</span>
-<span id="cb94-10"><a href="#cb94-10"></a></span>
-<span id="cb94-11"><a href="#cb94-11"></a><span class="co"># Plot the variable importance</span></span>
-<span id="cb94-12"><a href="#cb94-12"></a>vip<span class="sc">::</span><span class="fu">vip</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="co"># Specify a random forest</span></span>
+<span id="cb93-2"><a href="#cb93-2"></a>spec <span class="ot">&lt;-</span> <span class="fu">rand_forest</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb93-3"><a href="#cb93-3"></a>    <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb93-4"><a href="#cb93-4"></a>    <span class="fu">set_engine</span>(<span class="st">"ranger"</span>, <span class="at">importance =</span> <span class="st">"impurity"</span>)</span>
+<span id="cb93-5"><a href="#cb93-5"></a></span>
+<span id="cb93-6"><a href="#cb93-6"></a><span class="co"># Train the forest</span></span>
+<span id="cb93-7"><a href="#cb93-7"></a>model <span class="ot">&lt;-</span> spec <span class="sc">%&gt;%</span></span>
+<span id="cb93-8"><a href="#cb93-8"></a>    <span class="fu">fit</span>(still_customer <span class="sc">~</span> ., </span>
+<span id="cb93-9"><a href="#cb93-9"></a>        <span class="at">data =</span> customers_train)</span>
+<span id="cb93-10"><a href="#cb93-10"></a></span>
+<span id="cb93-11"><a href="#cb93-11"></a><span class="co"># Plot the variable importance</span></span>
+<span id="cb93-12"><a href="#cb93-12"></a>vip<span class="sc">::</span><span class="fu">vip</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-48-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-48-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -4408,10 +4407,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the appropriate <code>parsnip</code> function to specify a boosted tree model.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a><span class="co"># Specify the model class</span></span>
-<span id="cb95-2"><a href="#cb95-2"></a>boost_spec <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>()</span>
-<span id="cb95-3"><a href="#cb95-3"></a></span>
-<span id="cb95-4"><a href="#cb95-4"></a>boost_spec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="co"># Specify the model class</span></span>
+<span id="cb94-2"><a href="#cb94-2"></a>boost_spec <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>()</span>
+<span id="cb94-3"><a href="#cb94-3"></a></span>
+<span id="cb94-4"><a href="#cb94-4"></a>boost_spec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Boosted Tree Model Specification (unknown mode)
 #&gt; 
@@ -4422,12 +4421,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Set the mode to <code>"classification"</code>.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1"></a><span class="co"># Specify the model class</span></span>
-<span id="cb97-2"><a href="#cb97-2"></a>boost_spec <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb97-3"><a href="#cb97-3"></a>    <span class="co"># Set the mode</span></span>
-<span id="cb97-4"><a href="#cb97-4"></a>    <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span>
-<span id="cb97-5"><a href="#cb97-5"></a></span>
-<span id="cb97-6"><a href="#cb97-6"></a>boost_spec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="co"># Specify the model class</span></span>
+<span id="cb96-2"><a href="#cb96-2"></a>boost_spec <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb96-3"><a href="#cb96-3"></a>    <span class="co"># Set the mode</span></span>
+<span id="cb96-4"><a href="#cb96-4"></a>    <span class="fu">set_mode</span>(<span class="st">"classification"</span>)</span>
+<span id="cb96-5"><a href="#cb96-5"></a></span>
+<span id="cb96-6"><a href="#cb96-6"></a>boost_spec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Boosted Tree Model Specification (classification)
 #&gt; 
@@ -4438,14 +4437,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Use the <code>"xgboost"</code> package to power your model.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1"></a><span class="co"># Specify the model class</span></span>
-<span id="cb99-2"><a href="#cb99-2"></a>boost_spec <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb99-3"><a href="#cb99-3"></a>    <span class="co"># Set the mode</span></span>
-<span id="cb99-4"><a href="#cb99-4"></a>    <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb99-5"><a href="#cb99-5"></a>    <span class="co"># Set the engine</span></span>
-<span id="cb99-6"><a href="#cb99-6"></a>    <span class="fu">set_engine</span>(<span class="st">"xgboost"</span>)</span>
-<span id="cb99-7"><a href="#cb99-7"></a></span>
-<span id="cb99-8"><a href="#cb99-8"></a>boost_spec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1"></a><span class="co"># Specify the model class</span></span>
+<span id="cb98-2"><a href="#cb98-2"></a>boost_spec <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb98-3"><a href="#cb98-3"></a>    <span class="co"># Set the mode</span></span>
+<span id="cb98-4"><a href="#cb98-4"></a>    <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb98-5"><a href="#cb98-5"></a>    <span class="co"># Set the engine</span></span>
+<span id="cb98-6"><a href="#cb98-6"></a>    <span class="fu">set_engine</span>(<span class="st">"xgboost"</span>)</span>
+<span id="cb98-7"><a href="#cb98-7"></a></span>
+<span id="cb98-8"><a href="#cb98-8"></a>boost_spec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Boosted Tree Model Specification (classification)
 #&gt; 
@@ -4481,17 +4480,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Train a boosted classification model on the <code>customers_train</code> tibble using <code>still_customer</code> as the response variable and all other columns as the predictor variables.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1"></a><span class="co"># Train the model on the training set</span></span>
-<span id="cb101-2"><a href="#cb101-2"></a>boost_model <span class="ot">&lt;-</span> <span class="fu">fit</span>(boost_spec,</span>
-<span id="cb101-3"><a href="#cb101-3"></a>                   <span class="at">formula =</span> still_customer <span class="sc">~</span> ., </span>
-<span id="cb101-4"><a href="#cb101-4"></a>                   <span class="at">data =</span> customers_train)</span>
-<span id="cb101-5"><a href="#cb101-5"></a></span>
-<span id="cb101-6"><a href="#cb101-6"></a>boost_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1"></a><span class="co"># Train the model on the training set</span></span>
+<span id="cb100-2"><a href="#cb100-2"></a>boost_model <span class="ot">&lt;-</span> <span class="fu">fit</span>(boost_spec,</span>
+<span id="cb100-3"><a href="#cb100-3"></a>                   <span class="at">formula =</span> still_customer <span class="sc">~</span> ., </span>
+<span id="cb100-4"><a href="#cb100-4"></a>                   <span class="at">data =</span> customers_train)</span>
+<span id="cb100-5"><a href="#cb100-5"></a></span>
+<span id="cb100-6"><a href="#cb100-6"></a>boost_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; parsnip model object
 #&gt; 
 #&gt; ##### xgb.Booster
-#&gt; raw: 55.4 Kb 
+#&gt; raw: 55.5 Kb 
 #&gt; call:
 #&gt;   xgboost::xgb.train(params = list(eta = 0.3, max_depth = 6, gamma = 0, 
 #&gt;     colsample_bytree = 1, colsample_bynode = 1, min_child_weight = 1, 
@@ -4532,19 +4531,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Collect the metrics of <code>cv_results</code> and check the mean AUC.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1"></a><span class="fu">set.seed</span>(<span class="dv">99</span>)</span>
-<span id="cb103-2"><a href="#cb103-2"></a></span>
-<span id="cb103-3"><a href="#cb103-3"></a><span class="co"># Create CV folds</span></span>
-<span id="cb103-4"><a href="#cb103-4"></a>folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(customers_train, <span class="at">v =</span> <span class="dv">5</span>)</span>
-<span id="cb103-5"><a href="#cb103-5"></a></span>
-<span id="cb103-6"><a href="#cb103-6"></a><span class="co"># Fit and evaluate models for all folds</span></span>
-<span id="cb103-7"><a href="#cb103-7"></a>cv_results <span class="ot">&lt;-</span> <span class="fu">fit_resamples</span>(boost_spec,</span>
-<span id="cb103-8"><a href="#cb103-8"></a>                            still_customer <span class="sc">~</span> ., </span>
-<span id="cb103-9"><a href="#cb103-9"></a>                            <span class="at">resamples =</span> folds,</span>
-<span id="cb103-10"><a href="#cb103-10"></a>                            <span class="at">metrics =</span> <span class="fu">metric_set</span>(roc_auc))</span>
-<span id="cb103-11"><a href="#cb103-11"></a></span>
-<span id="cb103-12"><a href="#cb103-12"></a><span class="co"># Collect cross-validated metrics</span></span>
-<span id="cb103-13"><a href="#cb103-13"></a><span class="fu">collect_metrics</span>(cv_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1"></a><span class="fu">set.seed</span>(<span class="dv">99</span>)</span>
+<span id="cb102-2"><a href="#cb102-2"></a></span>
+<span id="cb102-3"><a href="#cb102-3"></a><span class="co"># Create CV folds</span></span>
+<span id="cb102-4"><a href="#cb102-4"></a>folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(customers_train, <span class="at">v =</span> <span class="dv">5</span>)</span>
+<span id="cb102-5"><a href="#cb102-5"></a></span>
+<span id="cb102-6"><a href="#cb102-6"></a><span class="co"># Fit and evaluate models for all folds</span></span>
+<span id="cb102-7"><a href="#cb102-7"></a>cv_results <span class="ot">&lt;-</span> <span class="fu">fit_resamples</span>(boost_spec,</span>
+<span id="cb102-8"><a href="#cb102-8"></a>                            still_customer <span class="sc">~</span> ., </span>
+<span id="cb102-9"><a href="#cb102-9"></a>                            <span class="at">resamples =</span> folds,</span>
+<span id="cb102-10"><a href="#cb102-10"></a>                            <span class="at">metrics =</span> <span class="fu">metric_set</span>(roc_auc))</span>
+<span id="cb102-11"><a href="#cb102-11"></a></span>
+<span id="cb102-12"><a href="#cb102-12"></a><span class="co"># Collect cross-validated metrics</span></span>
+<span id="cb102-13"><a href="#cb102-13"></a><span class="fu">collect_metrics</span>(cv_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -4567,28 +4566,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Calculate the in-sample AUC of your predictions.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a><span class="fu">set.seed</span>(<span class="dv">100</span>)</span>
-<span id="cb104-2"><a href="#cb104-2"></a></span>
-<span id="cb104-3"><a href="#cb104-3"></a><span class="co"># Specify, fit, predict, and combine with training data</span></span>
-<span id="cb104-4"><a href="#cb104-4"></a>predictions <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb104-5"><a href="#cb104-5"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb104-6"><a href="#cb104-6"></a>  <span class="fu">set_engine</span>(<span class="st">"xgboost"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb104-7"><a href="#cb104-7"></a>  <span class="fu">fit</span>(still_customer <span class="sc">~</span> ., <span class="at">data =</span> customers_train) <span class="sc">%&gt;%</span></span>
-<span id="cb104-8"><a href="#cb104-8"></a>  <span class="fu">predict</span>(<span class="at">new_data =</span> customers_train, <span class="at">type =</span> <span class="st">"prob"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb104-9"><a href="#cb104-9"></a>  <span class="fu">bind_cols</span>(customers_train)</span>
-<span id="cb104-10"><a href="#cb104-10"></a></span>
-<span id="cb104-11"><a href="#cb104-11"></a><span class="co"># Calculate AUC</span></span>
-<span id="cb104-12"><a href="#cb104-12"></a><span class="fu">roc_auc</span>(predictions, </span>
-<span id="cb104-13"><a href="#cb104-13"></a>        <span class="at">truth =</span> still_customer, </span>
-<span id="cb104-14"><a href="#cb104-14"></a>        <span class="at">estimate =</span> .pred_yes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[".metric"],"name":[1],"type":["chr"],"align":["left"]},{"label":[".estimator"],"name":[2],"type":["chr"],"align":["left"]},{"label":[".estimate"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"roc_auc","2":"binary","3":"0.001503011"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1"></a><span class="fu">set.seed</span>(<span class="dv">100</span>)</span>
+<span id="cb103-2"><a href="#cb103-2"></a></span>
+<span id="cb103-3"><a href="#cb103-3"></a><span class="co"># Specify, fit, predict, and combine with training data</span></span>
+<span id="cb103-4"><a href="#cb103-4"></a>predictions <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb103-5"><a href="#cb103-5"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb103-6"><a href="#cb103-6"></a>  <span class="fu">set_engine</span>(<span class="st">"xgboost"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb103-7"><a href="#cb103-7"></a>  <span class="fu">fit</span>(still_customer <span class="sc">~</span> ., <span class="at">data =</span> customers_train) <span class="sc">%&gt;%</span></span>
+<span id="cb103-8"><a href="#cb103-8"></a>  <span class="fu">predict</span>(<span class="at">new_data =</span> customers_train, <span class="at">type =</span> <span class="st">"prob"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb103-9"><a href="#cb103-9"></a>  <span class="fu">bind_cols</span>(customers_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
+<p>ERROR</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1"></a><span class="co"># Calculate AUC</span></span>
+<span id="cb104-2"><a href="#cb104-2"></a><span class="fu">roc_auc</span>(predictions, </span>
+<span id="cb104-3"><a href="#cb104-3"></a>        <span class="at">truth =</span> still_customer, </span>
+<span id="cb104-4"><a href="#cb104-4"></a>        <span class="at">estimate =</span> .pred_yes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Change your code so that the same is done using a simple decision tree classifier.</li>
@@ -4602,20 +4595,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb105-6"><a href="#cb105-6"></a>  <span class="fu">set_engine</span>(<span class="st">"rpart"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb105-7"><a href="#cb105-7"></a>  <span class="fu">fit</span>(still_customer <span class="sc">~</span> ., <span class="at">data =</span> customers_train) <span class="sc">%&gt;%</span></span>
 <span id="cb105-8"><a href="#cb105-8"></a>  <span class="fu">predict</span>(<span class="at">new_data =</span> customers_train, <span class="at">type =</span> <span class="st">"prob"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb105-9"><a href="#cb105-9"></a>  <span class="fu">bind_cols</span>(customers_train)</span>
-<span id="cb105-10"><a href="#cb105-10"></a></span>
-<span id="cb105-11"><a href="#cb105-11"></a><span class="co"># Calculate AUC</span></span>
-<span id="cb105-12"><a href="#cb105-12"></a><span class="fu">roc_auc</span>(predictions, </span>
-<span id="cb105-13"><a href="#cb105-13"></a>        <span class="at">truth =</span> still_customer,</span>
-<span id="cb105-14"><a href="#cb105-14"></a>        <span class="at">estimate =</span> .pred_yes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[".metric"],"name":[1],"type":["chr"],"align":["left"]},{"label":[".estimator"],"name":[2],"type":["chr"],"align":["left"]},{"label":[".estimate"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"roc_auc","2":"binary","3":"0.07206587"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
+<span id="cb105-9"><a href="#cb105-9"></a>  <span class="fu">bind_cols</span>(customers_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
+<p>ERROR</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a><span class="co"># Calculate AUC</span></span>
+<span id="cb106-2"><a href="#cb106-2"></a><span class="fu">roc_auc</span>(predictions, </span>
+<span id="cb106-3"><a href="#cb106-3"></a>        <span class="at">truth =</span> still_customer,</span>
+<span id="cb106-4"><a href="#cb106-4"></a>        <span class="at">estimate =</span> .pred_yes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Good job! Boosting beats the decision tree with 99.8% versus 92.9% in-sample AUC.</p>
 </section>
@@ -4665,20 +4652,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Build a regular tuning grid for the tuning parameters of <code>boost_spec</code> with three levels for each parameter.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1"></a><span class="co"># Create the specification with placeholders</span></span>
-<span id="cb106-2"><a href="#cb106-2"></a>boost_spec <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>(</span>
-<span id="cb106-3"><a href="#cb106-3"></a>                <span class="at">trees =</span> <span class="dv">500</span>,</span>
-<span id="cb106-4"><a href="#cb106-4"></a>                <span class="at">learn_rate =</span> <span class="fu">tune</span>(),</span>
-<span id="cb106-5"><a href="#cb106-5"></a>                <span class="at">tree_depth =</span> <span class="fu">tune</span>(),</span>
-<span id="cb106-6"><a href="#cb106-6"></a>                <span class="at">sample_size =</span> <span class="fu">tune</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb106-7"><a href="#cb106-7"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb106-8"><a href="#cb106-8"></a>  <span class="fu">set_engine</span>(<span class="st">"xgboost"</span>)</span>
-<span id="cb106-9"><a href="#cb106-9"></a></span>
-<span id="cb106-10"><a href="#cb106-10"></a><span class="co"># Create the tuning grid</span></span>
-<span id="cb106-11"><a href="#cb106-11"></a>tunegrid_boost <span class="ot">&lt;-</span> <span class="fu">grid_regular</span>(<span class="fu">parameters</span>(boost_spec), </span>
-<span id="cb106-12"><a href="#cb106-12"></a>                               <span class="at">levels =</span> <span class="dv">3</span>)</span>
-<span id="cb106-13"><a href="#cb106-13"></a></span>
-<span id="cb106-14"><a href="#cb106-14"></a>tunegrid_boost</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1"></a><span class="co"># Create the specification with placeholders</span></span>
+<span id="cb107-2"><a href="#cb107-2"></a>boost_spec <span class="ot">&lt;-</span> <span class="fu">boost_tree</span>(</span>
+<span id="cb107-3"><a href="#cb107-3"></a>                <span class="at">trees =</span> <span class="dv">500</span>,</span>
+<span id="cb107-4"><a href="#cb107-4"></a>                <span class="at">learn_rate =</span> <span class="fu">tune</span>(),</span>
+<span id="cb107-5"><a href="#cb107-5"></a>                <span class="at">tree_depth =</span> <span class="fu">tune</span>(),</span>
+<span id="cb107-6"><a href="#cb107-6"></a>                <span class="at">sample_size =</span> <span class="fu">tune</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb107-7"><a href="#cb107-7"></a>  <span class="fu">set_mode</span>(<span class="st">"classification"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb107-8"><a href="#cb107-8"></a>  <span class="fu">set_engine</span>(<span class="st">"xgboost"</span>)</span>
+<span id="cb107-9"><a href="#cb107-9"></a></span>
+<span id="cb107-10"><a href="#cb107-10"></a><span class="co"># Create the tuning grid</span></span>
+<span id="cb107-11"><a href="#cb107-11"></a>tunegrid_boost <span class="ot">&lt;-</span> <span class="fu">grid_regular</span>(<span class="fu">parameters</span>(boost_spec), </span>
+<span id="cb107-12"><a href="#cb107-12"></a>                               <span class="at">levels =</span> <span class="dv">3</span>)</span>
+<span id="cb107-13"><a href="#cb107-13"></a></span>
+<span id="cb107-14"><a href="#cb107-14"></a>tunegrid_boost</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -4696,14 +4683,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This can take some time, given that using k-fold cross-validation, an ensemble size of <code>n</code> trees, and a tuning grid of <code>t</code> combinations makes <code>k * n * t</code> models to be trained in total.</p>
 <p>It’s your turn to perform the actual tuning! Pre-loaded are <code>customers_train</code> and the results of the last exercise, <code>boost_spec</code> and <code>tunegrid_boost</code>:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1"></a><span class="co"># A tibble: 27 x 3</span></span>
-<span id="cb107-2"><a href="#cb107-2"></a>   tree_depth   learn_rate sample_size</span>
-<span id="cb107-3"><a href="#cb107-3"></a>        <span class="sc">&lt;</span>int<span class="sc">&gt;</span>        <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
-<span id="cb107-4"><a href="#cb107-4"></a> <span class="dv">1</span>          <span class="dv">1</span> <span class="fl">0.0000000001</span>        <span class="fl">0.1</span> </span>
-<span id="cb107-5"><a href="#cb107-5"></a> <span class="dv">2</span>          <span class="dv">8</span> <span class="fl">0.0000000001</span>        <span class="fl">0.1</span> </span>
-<span id="cb107-6"><a href="#cb107-6"></a> <span class="dv">3</span>         <span class="dv">15</span> <span class="fl">0.0000000001</span>        <span class="fl">0.1</span> </span>
-<span id="cb107-7"><a href="#cb107-7"></a> <span class="dv">4</span>          <span class="dv">1</span> <span class="fl">0.00000316</span>          <span class="fl">0.1</span> </span>
-<span id="cb107-8"><a href="#cb107-8"></a> ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1"></a><span class="co"># A tibble: 27 x 3</span></span>
+<span id="cb108-2"><a href="#cb108-2"></a>   tree_depth   learn_rate sample_size</span>
+<span id="cb108-3"><a href="#cb108-3"></a>        <span class="sc">&lt;</span>int<span class="sc">&gt;</span>        <span class="er">&lt;</span>dbl<span class="sc">&gt;</span>       <span class="er">&lt;</span>dbl<span class="sc">&gt;</span></span>
+<span id="cb108-4"><a href="#cb108-4"></a> <span class="dv">1</span>          <span class="dv">1</span> <span class="fl">0.0000000001</span>        <span class="fl">0.1</span> </span>
+<span id="cb108-5"><a href="#cb108-5"></a> <span class="dv">2</span>          <span class="dv">8</span> <span class="fl">0.0000000001</span>        <span class="fl">0.1</span> </span>
+<span id="cb108-6"><a href="#cb108-6"></a> <span class="dv">3</span>         <span class="dv">15</span> <span class="fl">0.0000000001</span>        <span class="fl">0.1</span> </span>
+<span id="cb108-7"><a href="#cb108-7"></a> <span class="dv">4</span>          <span class="dv">1</span> <span class="fl">0.00000316</span>          <span class="fl">0.1</span> </span>
+<span id="cb108-8"><a href="#cb108-8"></a> ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Steps</strong></p>
 <ol type="1">
@@ -4712,22 +4699,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Plot the results to visualize the result of the tuning process.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1"></a><span class="co"># Create CV folds of training data</span></span>
-<span id="cb108-2"><a href="#cb108-2"></a>folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(customers_train, <span class="at">v =</span> <span class="dv">6</span>)</span>
-<span id="cb108-3"><a href="#cb108-3"></a></span>
-<span id="cb108-4"><a href="#cb108-4"></a><span class="co"># Tune along the grid</span></span>
-<span id="cb108-5"><a href="#cb108-5"></a>tune_results <span class="ot">&lt;-</span> <span class="fu">tune_grid</span>(boost_spec,</span>
-<span id="cb108-6"><a href="#cb108-6"></a>                          still_customer <span class="sc">~</span> .,</span>
-<span id="cb108-7"><a href="#cb108-7"></a>                          <span class="at">resamples =</span> folds,</span>
-<span id="cb108-8"><a href="#cb108-8"></a>                          <span class="at">grid =</span> tunegrid_boost,</span>
-<span id="cb108-9"><a href="#cb108-9"></a>                          <span class="at">metrics =</span> <span class="fu">metric_set</span>(roc_auc))</span>
-<span id="cb108-10"><a href="#cb108-10"></a></span>
-<span id="cb108-11"><a href="#cb108-11"></a><span class="co"># Plot the results</span></span>
-<span id="cb108-12"><a href="#cb108-12"></a><span class="fu">autoplot</span>(tune_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1"></a><span class="co"># Create CV folds of training data</span></span>
+<span id="cb109-2"><a href="#cb109-2"></a>folds <span class="ot">&lt;-</span> <span class="fu">vfold_cv</span>(customers_train, <span class="at">v =</span> <span class="dv">6</span>)</span>
+<span id="cb109-3"><a href="#cb109-3"></a></span>
+<span id="cb109-4"><a href="#cb109-4"></a><span class="co"># Tune along the grid</span></span>
+<span id="cb109-5"><a href="#cb109-5"></a>tune_results <span class="ot">&lt;-</span> <span class="fu">tune_grid</span>(boost_spec,</span>
+<span id="cb109-6"><a href="#cb109-6"></a>                          still_customer <span class="sc">~</span> .,</span>
+<span id="cb109-7"><a href="#cb109-7"></a>                          <span class="at">resamples =</span> folds,</span>
+<span id="cb109-8"><a href="#cb109-8"></a>                          <span class="at">grid =</span> tunegrid_boost,</span>
+<span id="cb109-9"><a href="#cb109-9"></a>                          <span class="at">metrics =</span> <span class="fu">metric_set</span>(roc_auc))</span>
+<span id="cb109-10"><a href="#cb109-10"></a></span>
+<span id="cb109-11"><a href="#cb109-11"></a><span class="co"># Plot the results</span></span>
+<span id="cb109-12"><a href="#cb109-12"></a><span class="fu">autoplot</span>(tune_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-58-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-58-1.png" class="img-fluid figure-img" width="672"></a></p>
+<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-60-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-60-1.png" class="img-fluid figure-img" width="672"></a></p>
 </figure>
 </div>
 </div>
@@ -4744,10 +4731,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Select the best-performing hyperparameters of <code>tune_results</code> and save them as <code>best_params</code>.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1"></a><span class="co"># Select the final hyperparameters</span></span>
-<span id="cb109-2"><a href="#cb109-2"></a>best_params <span class="ot">&lt;-</span> <span class="fu">select_best</span>(tune_results)</span>
-<span id="cb109-3"><a href="#cb109-3"></a></span>
-<span id="cb109-4"><a href="#cb109-4"></a>best_params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a><span class="co"># Select the final hyperparameters</span></span>
+<span id="cb110-2"><a href="#cb110-2"></a>best_params <span class="ot">&lt;-</span> <span class="fu">select_best</span>(tune_results)</span>
+<span id="cb110-3"><a href="#cb110-3"></a></span>
+<span id="cb110-4"><a href="#cb110-4"></a>best_params</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -4761,10 +4748,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create <code>final_spec</code> by plugging the best parameters into the untuned specification.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1"></a><span class="co"># Finalize the specification</span></span>
-<span id="cb110-2"><a href="#cb110-2"></a>final_spec <span class="ot">&lt;-</span> <span class="fu">finalize_model</span>(boost_spec, best_params)</span>
-<span id="cb110-3"><a href="#cb110-3"></a></span>
-<span id="cb110-4"><a href="#cb110-4"></a>final_spec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1"></a><span class="co"># Finalize the specification</span></span>
+<span id="cb111-2"><a href="#cb111-2"></a>final_spec <span class="ot">&lt;-</span> <span class="fu">finalize_model</span>(boost_spec, best_params)</span>
+<span id="cb111-3"><a href="#cb111-3"></a></span>
+<span id="cb111-4"><a href="#cb111-4"></a>final_spec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Boosted Tree Model Specification (classification)
 #&gt; 
@@ -4781,11 +4768,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create <code>final_model</code>, the final model trained on the whole training set, using all predictor variables.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a><span class="co"># Train the final model on the full training data</span></span>
-<span id="cb112-2"><a href="#cb112-2"></a>final_model <span class="ot">&lt;-</span> final_spec <span class="sc">%&gt;%</span> <span class="fu">fit</span>(<span class="at">formula =</span> still_customer <span class="sc">~</span> ., </span>
-<span id="cb112-3"><a href="#cb112-3"></a>                                  <span class="at">data =</span> customers_train)</span>
-<span id="cb112-4"><a href="#cb112-4"></a></span>
-<span id="cb112-5"><a href="#cb112-5"></a>final_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1"></a><span class="co"># Train the final model on the full training data</span></span>
+<span id="cb113-2"><a href="#cb113-2"></a>final_model <span class="ot">&lt;-</span> final_spec <span class="sc">%&gt;%</span> <span class="fu">fit</span>(<span class="at">formula =</span> still_customer <span class="sc">~</span> ., </span>
+<span id="cb113-3"><a href="#cb113-3"></a>                                  <span class="at">data =</span> customers_train)</span>
+<span id="cb113-4"><a href="#cb113-4"></a></span>
+<span id="cb113-5"><a href="#cb113-5"></a>final_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; parsnip model object
 #&gt; 
@@ -4859,105 +4846,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Comparing different models is the core of model selection. In the final two exercises, you’ll perform a model comparison across all types of models in this course: decision trees, bagged trees, random forests, and gradient boosting.</p>
 <p>The models were all tuned to perfection and trained on the same training set, <code>customers_train</code>, and predictions were made for the <code>customers_test</code> dataset. The results are numeric probabilities and are available as <code>preds_combined</code> in your session:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a>tibble [<span class="dv">1</span>,<span class="dv">011</span> × <span class="dv">5</span>]</span>
-<span id="cb114-2"><a href="#cb114-2"></a> <span class="sc">$</span> preds_tree    <span class="sc">:</span> <span class="fl">0.144</span> <span class="fl">0.441</span> ...</span>
-<span id="cb114-3"><a href="#cb114-3"></a> <span class="sc">$</span> preds_bagging <span class="sc">:</span> <span class="fl">0.115</span> <span class="fl">0.326</span> ...</span>
-<span id="cb114-4"><a href="#cb114-4"></a> <span class="sc">$</span> preds_forest  <span class="sc">:</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="fl">0.286</span> ...</span>
-<span id="cb114-5"><a href="#cb114-5"></a> <span class="sc">$</span> preds_boosting<span class="sc">:</span> <span class="fl">0.136</span> <span class="fl">0.149</span> ...</span>
-<span id="cb114-6"><a href="#cb114-6"></a> <span class="sc">$</span> still_customer<span class="sc">:</span> <span class="st">"no"</span>,<span class="st">"no"</span>, ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1"></a>tibble [<span class="dv">1</span>,<span class="dv">011</span> × <span class="dv">5</span>]</span>
+<span id="cb115-2"><a href="#cb115-2"></a> <span class="sc">$</span> preds_tree    <span class="sc">:</span> <span class="fl">0.144</span> <span class="fl">0.441</span> ...</span>
+<span id="cb115-3"><a href="#cb115-3"></a> <span class="sc">$</span> preds_bagging <span class="sc">:</span> <span class="fl">0.115</span> <span class="fl">0.326</span> ...</span>
+<span id="cb115-4"><a href="#cb115-4"></a> <span class="sc">$</span> preds_forest  <span class="sc">:</span> <span class="dv">0</span> <span class="dv">0</span> <span class="dv">0</span> <span class="fl">0.286</span> ...</span>
+<span id="cb115-5"><a href="#cb115-5"></a> <span class="sc">$</span> preds_boosting<span class="sc">:</span> <span class="fl">0.136</span> <span class="fl">0.149</span> ...</span>
+<span id="cb115-6"><a href="#cb115-6"></a> <span class="sc">$</span> still_customer<span class="sc">:</span> <span class="st">"no"</span>,<span class="st">"no"</span>, ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Steps</strong></p>
 <ol type="1">
 <li>Calculate the AUC for each prediction column in <code>preds_combined</code>, always using <code>still_customer</code> as the truth column.</li>
 </ol>
+<p>ERROR</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1"></a><span class="co"># load data</span></span>
-<span id="cb115-2"><a href="#cb115-2"></a>preds_combined <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/preds_combined.rds"</span>)</span>
-<span id="cb115-3"><a href="#cb115-3"></a></span>
-<span id="cb115-4"><a href="#cb115-4"></a><span class="co"># Calculate the AUC for each model</span></span>
-<span id="cb115-5"><a href="#cb115-5"></a>auc_tree   <span class="ot">&lt;-</span> <span class="fu">roc_auc</span>(preds_combined, <span class="at">truth =</span> still_customer, <span class="at">estimate =</span> preds_tree)</span>
-<span id="cb115-6"><a href="#cb115-6"></a>auc_bagged <span class="ot">&lt;-</span> <span class="fu">roc_auc</span>(preds_combined, <span class="at">truth =</span> still_customer, <span class="at">estimate =</span> preds_bagging)</span>
-<span id="cb115-7"><a href="#cb115-7"></a>auc_forest <span class="ot">&lt;-</span> <span class="fu">roc_auc</span>(preds_combined, <span class="at">truth =</span> still_customer, <span class="at">estimate =</span> preds_forest)</span>
-<span id="cb115-8"><a href="#cb115-8"></a>auc_boost  <span class="ot">&lt;-</span> <span class="fu">roc_auc</span>(preds_combined, <span class="at">truth =</span> still_customer, <span class="at">estimate =</span> preds_boosting)</span>
-<span id="cb115-9"><a href="#cb115-9"></a></span>
-<span id="cb115-10"><a href="#cb115-10"></a><span class="co"># Print the results</span></span>
-<span id="cb115-11"><a href="#cb115-11"></a>auc_tree</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[".metric"],"name":[1],"type":["chr"],"align":["left"]},{"label":[".estimator"],"name":[2],"type":["chr"],"align":["left"]},{"label":[".estimate"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"roc_auc","2":"binary","3":"0.08879364"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a>auc_bagged</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[".metric"],"name":[1],"type":["chr"],"align":["left"]},{"label":[".estimator"],"name":[2],"type":["chr"],"align":["left"]},{"label":[".estimate"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"roc_auc","2":"binary","3":"0.05827117"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1"></a>auc_forest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[".metric"],"name":[1],"type":["chr"],"align":["left"]},{"label":[".estimator"],"name":[2],"type":["chr"],"align":["left"]},{"label":[".estimate"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"roc_auc","2":"binary","3":"0.01976908"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1"></a>auc_boost</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[".metric"],"name":[1],"type":["chr"],"align":["left"]},{"label":[".estimator"],"name":[2],"type":["chr"],"align":["left"]},{"label":[".estimate"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"roc_auc","2":"binary","3":"0.0134072"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a><span class="co"># load data</span></span>
+<span id="cb116-2"><a href="#cb116-2"></a>preds_combined <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/preds_combined.rds"</span>)</span>
+<span id="cb116-3"><a href="#cb116-3"></a></span>
+<span id="cb116-4"><a href="#cb116-4"></a><span class="co"># Calculate the AUC for each model</span></span>
+<span id="cb116-5"><a href="#cb116-5"></a>auc_tree   <span class="ot">&lt;-</span> <span class="fu">roc_auc</span>(preds_combined, <span class="at">truth =</span> still_customer, <span class="at">estimate =</span> preds_tree)</span>
+<span id="cb116-6"><a href="#cb116-6"></a>auc_bagged <span class="ot">&lt;-</span> <span class="fu">roc_auc</span>(preds_combined, <span class="at">truth =</span> still_customer, <span class="at">estimate =</span> preds_bagging)</span>
+<span id="cb116-7"><a href="#cb116-7"></a>auc_forest <span class="ot">&lt;-</span> <span class="fu">roc_auc</span>(preds_combined, <span class="at">truth =</span> still_customer, <span class="at">estimate =</span> preds_forest)</span>
+<span id="cb116-8"><a href="#cb116-8"></a>auc_boost  <span class="ot">&lt;-</span> <span class="fu">roc_auc</span>(preds_combined, <span class="at">truth =</span> still_customer, <span class="at">estimate =</span> preds_boosting)</span>
+<span id="cb116-9"><a href="#cb116-9"></a></span>
+<span id="cb116-10"><a href="#cb116-10"></a><span class="co"># Print the results</span></span>
+<span id="cb116-11"><a href="#cb116-11"></a>auc_tree</span>
+<span id="cb116-12"><a href="#cb116-12"></a>auc_bagged</span>
+<span id="cb116-13"><a href="#cb116-13"></a>auc_forest</span>
+<span id="cb116-14"><a href="#cb116-14"></a>auc_boost</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Combine the results into one single tibble.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1"></a><span class="co"># Combine AUCs into one tibble</span></span>
-<span id="cb119-2"><a href="#cb119-2"></a>combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(auc_tree,</span>
-<span id="cb119-3"><a href="#cb119-3"></a>                      auc_bagged,</span>
-<span id="cb119-4"><a href="#cb119-4"></a>                      auc_forest,</span>
-<span id="cb119-5"><a href="#cb119-5"></a>                      auc_boost)</span>
-<span id="cb119-6"><a href="#cb119-6"></a></span>
-<span id="cb119-7"><a href="#cb119-7"></a>combined</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[".metric"],"name":[1],"type":["chr"],"align":["left"]},{"label":[".estimator"],"name":[2],"type":["chr"],"align":["left"]},{"label":[".estimate"],"name":[3],"type":["dbl"],"align":["right"]}],"data":[{"1":"roc_auc","2":"binary","3":"0.08879364"},{"1":"roc_auc","2":"binary","3":"0.05827117"},{"1":"roc_auc","2":"binary","3":"0.01976908"},{"1":"roc_auc","2":"binary","3":"0.01340720"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1"></a><span class="co"># Combine AUCs into one tibble</span></span>
+<span id="cb117-2"><a href="#cb117-2"></a>combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(auc_tree,</span>
+<span id="cb117-3"><a href="#cb117-3"></a>                      auc_bagged,</span>
+<span id="cb117-4"><a href="#cb117-4"></a>                      auc_forest,</span>
+<span id="cb117-5"><a href="#cb117-5"></a>                      auc_boost)</span>
+<span id="cb117-6"><a href="#cb117-6"></a></span>
+<span id="cb117-7"><a href="#cb117-7"></a>combined</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Change the code so that the arguments to <code>bind_rows()</code> are named <code>decision_tree</code>, <code>bagged_tree</code>, <code>random_forest</code>, and <code>boosted_tree</code>.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1"></a><span class="co"># Combine AUCs into one tibble</span></span>
-<span id="cb120-2"><a href="#cb120-2"></a>combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(<span class="at">decision_tree =</span> auc_tree,</span>
-<span id="cb120-3"><a href="#cb120-3"></a>                      <span class="at">bagged_tree   =</span> auc_bagged,</span>
-<span id="cb120-4"><a href="#cb120-4"></a>                      <span class="at">random_forest =</span> auc_forest,</span>
-<span id="cb120-5"><a href="#cb120-5"></a>                      <span class="at">boosted_tree  =</span> auc_boost,</span>
-<span id="cb120-6"><a href="#cb120-6"></a>                      <span class="at">.id =</span> <span class="st">"model"</span>)</span>
-<span id="cb120-7"><a href="#cb120-7"></a></span>
-<span id="cb120-8"><a href="#cb120-8"></a>combined</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-
-<div data-pagedtable="false">
-  <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["model"],"name":[1],"type":["chr"],"align":["left"]},{"label":[".metric"],"name":[2],"type":["chr"],"align":["left"]},{"label":[".estimator"],"name":[3],"type":["chr"],"align":["left"]},{"label":[".estimate"],"name":[4],"type":["dbl"],"align":["right"]}],"data":[{"1":"decision_tree","2":"roc_auc","3":"binary","4":"0.08879364"},{"1":"bagged_tree","2":"roc_auc","3":"binary","4":"0.05827117"},{"1":"random_forest","2":"roc_auc","3":"binary","4":"0.01976908"},{"1":"boosted_tree","2":"roc_auc","3":"binary","4":"0.01340720"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
-  </script>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1"></a><span class="co"># Combine AUCs into one tibble</span></span>
+<span id="cb118-2"><a href="#cb118-2"></a>combined <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(<span class="at">decision_tree =</span> auc_tree,</span>
+<span id="cb118-3"><a href="#cb118-3"></a>                      <span class="at">bagged_tree   =</span> auc_bagged,</span>
+<span id="cb118-4"><a href="#cb118-4"></a>                      <span class="at">random_forest =</span> auc_forest,</span>
+<span id="cb118-5"><a href="#cb118-5"></a>                      <span class="at">boosted_tree  =</span> auc_boost,</span>
+<span id="cb118-6"><a href="#cb118-6"></a>                      <span class="at">.id =</span> <span class="st">"model"</span>)</span>
+<span id="cb118-7"><a href="#cb118-7"></a></span>
+<span id="cb118-8"><a href="#cb118-8"></a>combined</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Cool combination! You calculated and combined the AUC of all models. Note how there is a clear distinction between each of them, with the boosted ensemble having the highest AUC. However, four repeated calls to <code>roc_auc()</code> is cumbersome. In the next exercise, you’ll learn how to cut this down to just a few lines…</p>
 </section>
@@ -4974,27 +4914,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Produce a graphical plot of the curves.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1"></a><span class="co"># Reshape the predictions into long format</span></span>
-<span id="cb121-2"><a href="#cb121-2"></a>predictions_long <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(preds_combined,</span>
-<span id="cb121-3"><a href="#cb121-3"></a>                                        <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"preds_"</span>),</span>
-<span id="cb121-4"><a href="#cb121-4"></a>                                        <span class="at">names_to =</span> <span class="st">"model"</span>,</span>
-<span id="cb121-5"><a href="#cb121-5"></a>                                        <span class="at">values_to =</span> <span class="st">"predictions"</span>)</span>
-<span id="cb121-6"><a href="#cb121-6"></a></span>
-<span id="cb121-7"><a href="#cb121-7"></a>predictions_long <span class="sc">%&gt;%</span></span>
-<span id="cb121-8"><a href="#cb121-8"></a>  <span class="co"># Group by model</span></span>
-<span id="cb121-9"><a href="#cb121-9"></a>  <span class="fu">group_by</span>(model) <span class="sc">%&gt;%</span> </span>
-<span id="cb121-10"><a href="#cb121-10"></a>  <span class="co"># Calculate values for every cutoff</span></span>
-<span id="cb121-11"><a href="#cb121-11"></a>  <span class="fu">roc_curve</span>(<span class="at">truth =</span> still_customer,</span>
-<span id="cb121-12"><a href="#cb121-12"></a>            <span class="at">estimate =</span> predictions) <span class="sc">%&gt;%</span></span>
-<span id="cb121-13"><a href="#cb121-13"></a>  <span class="co"># Create a plot from the calculated data</span></span>
-<span id="cb121-14"><a href="#cb121-14"></a>  <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-66-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img src="08_machine_learning_with_tree-based_models_files/figure-html/unnamed-chunk-66-1.png" class="img-fluid figure-img" width="672"></a></p>
-</figure>
-</div>
-</div>
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1"></a><span class="co"># Reshape the predictions into long format</span></span>
+<span id="cb119-2"><a href="#cb119-2"></a>predictions_long <span class="ot">&lt;-</span> tidyr<span class="sc">::</span><span class="fu">pivot_longer</span>(preds_combined,</span>
+<span id="cb119-3"><a href="#cb119-3"></a>                                        <span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"preds_"</span>),</span>
+<span id="cb119-4"><a href="#cb119-4"></a>                                        <span class="at">names_to =</span> <span class="st">"model"</span>,</span>
+<span id="cb119-5"><a href="#cb119-5"></a>                                        <span class="at">values_to =</span> <span class="st">"predictions"</span>)</span>
+<span id="cb119-6"><a href="#cb119-6"></a></span>
+<span id="cb119-7"><a href="#cb119-7"></a>predictions_long <span class="sc">%&gt;%</span></span>
+<span id="cb119-8"><a href="#cb119-8"></a>  <span class="co"># Group by model</span></span>
+<span id="cb119-9"><a href="#cb119-9"></a>  <span class="fu">group_by</span>(model) <span class="sc">%&gt;%</span> </span>
+<span id="cb119-10"><a href="#cb119-10"></a>  <span class="co"># Calculate values for every cutoff</span></span>
+<span id="cb119-11"><a href="#cb119-11"></a>  <span class="fu">roc_curve</span>(<span class="at">truth =</span> still_customer,</span>
+<span id="cb119-12"><a href="#cb119-12"></a>            <span class="at">estimate =</span> predictions) <span class="sc">%&gt;%</span></span>
+<span id="cb119-13"><a href="#cb119-13"></a>  <span class="co"># Create a plot from the calculated data</span></span>
+<span id="cb119-14"><a href="#cb119-14"></a>  <span class="fu">autoplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Fantastic plot! The ROC curves resemble the AUC differences, and you can clearly see the performance differences, with XGBoost and random forest being the winners. One last tip: The previous AUC exercise can easily be solved with this technique - just replace <code>roc_curve()</code> with <code>roc_auc()</code> and remove <code>autoplot()</code>! Save that code snippet - it might be useful in your own modeling career!<br><br>Congratulations, you almost finished the course and are now able to use tree-based models in R! Did you like the course? <a href="http://twitter.com/intent/tweet?text=I%20just%20finished%20Machine%20Learning%20with%20Tree-Based%20Models%20in%20R%20on%20@DataCamp:&amp;url=https%3A%2Fdatacamp.com/courses/machine-learning-with-tree-based-models-in-r">Let us know!</a></p>
 </section>
@@ -5161,9 +5094,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -5228,6 +5175,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -5283,10 +5316,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Content 2022 by <a href="https://www.startupengineer.io/authors/schwarz/">Joschka Schwarz</a> <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":true,"closeEffect":"zoom","descPosition":"bottom","selector":".lightbox"});</script>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":true,"descPosition":"bottom"});</script>
 
 
 

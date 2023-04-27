@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -148,308 +119,349 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">Joschka Schwarz</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Data Science</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-science">    
         <li>
-    <a class="dropdown-item" href="../../../../../content/R/index.html">
+    <a class="dropdown-item" href="../../../../../content/R/index.html" rel="" target="">
  <span class="dropdown-text">R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/python/index.html">
+    <a class="dropdown-item" href="../../../../../content/python/index.html" rel="" target="">
  <span class="dropdown-text">Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/sql/index.html">
+    <a class="dropdown-item" href="../../../../../content/sql/index.html" rel="" target="">
  <span class="dropdown-text">SQL</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../slides/index.html">
+    <a class="nav-link" href="../../../../../slides/index.html" rel="" target="">
  <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../resumes/index.html">
+    <a class="nav-link" href="../../../../../resumes/index.html" rel="" target="">
  <span class="menu-text">Resumes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../index.html">
+    <a class="nav-link" href="../../../../../index.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jwarz/"><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
+    <a class="nav-link" href="https://github.com/jwarz/" rel="" target=""><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz"><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
+    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Factor Analysis in R</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Topics</li><li class="breadcrumb-item"><a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html">5.9: Factor Analysis</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Topics</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <b><i>1 Programming Basics</i></b>
+ <span class="menu-text"><b><i>1 Programming Basics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">1.1: Introduction to R</a>
+  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1: Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">1.2: Intermediate R</a>
+  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2: Intermediate R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">1.3: Introduction to the tidyverse</a>
+  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3: Introduction to the tidyverse</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>2 Importing Data</i></b>
+ <span class="menu-text"><b><i>2 Importing Data</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">2.1: Introduction to Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1: Introduction to Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">2.2: Intermediate Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2: Intermediate Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">2.3: Working with web data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3: Working with web data</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>3 Data Wrangling</i></b>
+ <span class="menu-text"><b><i>3 Data Wrangling</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">3.1: Data Manipulation with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1: Data Manipulation with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">3.2: Joining data with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2: Joining data with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.3: Exploratory Data Analysis</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3: Exploratory Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.4: Case Study: EDA</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4: Case Study: EDA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">3.5: Cleaning Data</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5: Cleaning Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">3.6: Data Manipulation with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6: Data Manipulation with data.table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">3.7: Joining Data with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.7: Joining Data with data.table</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>4 Data Visualization</i></b>
+ <span class="menu-text"><b><i>4 Data Visualization</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">4.1: Introduction to Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1: Introduction to Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">4.2: Intermediate Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2: Intermediate Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>5 Statistics</i></b>
+ <span class="menu-text"><b><i>5 Statistics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">5.1: Introduction to Statistics</a>
+  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1: Introduction to Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">5.2: Foundations of Probability</a>
+  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2: Foundations of Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">5.3: Introduction to Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3: Introduction to Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">5.4: Intermediate Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.4: Intermediate Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">5.5: Modeling with Data in the Tidyverse</a>
+  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.5: Modeling with Data in the Tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">5.6: Experimental Design</a>
+  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.6: Experimental Design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">5.7: A/B Testing</a>
+  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.7: A/B Testing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">5.8: Fundamentals of Bayesian Data Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.8: Fundamentals of Bayesian Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link active">5.9: Factor Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">5.9: Factor Analysis</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>7 Machine Learning</i></b>
+ <span class="menu-text"><b><i>7 Machine Learning</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">7.1: Supervised Learning: Classification</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1: Supervised Learning: Classification</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">7.2: Supervised Learning: Regression</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2: Supervised Learning: Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">7.3: Unsupervised Learning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3: Unsupervised Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">7.4: Machine Learning in the tidyverse</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4: Machine Learning in the tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">7.5: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.5: Cluster Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">7.6: Machine Learning with caret</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6: Machine Learning with caret</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">7.7: Modeling with tidymodels</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.7: Modeling with tidymodels</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">7.8: Machine Learning with tree-based Models</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.8: Machine Learning with tree-based Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">7.9: Support Vector Machines</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.9: Support Vector Machines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">7.10: Topic Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.10: Topic Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">7.11: Hyperparameter Tuning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.11: Hyperparameter Tuning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">7.12: Bayesian Regression Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.12: Bayesian Regression Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">7.13: Introduction to Spark</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.13: Introduction to Spark</span></a>
   </div>
 </li>
       </ul>
@@ -457,40 +469,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Manuals</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">R Manuals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">1: An Introduction to R</a>
+  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: An Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">2: R Data Import/Export</a>
+  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: R Data Import/Export</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">3: R Installation and Administration</a>
+  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: R Installation and Administration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">4: Writing R Extensions</a>
+  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Writing R Extensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">5: R Language Definition</a>
+  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: R Language Definition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">6: R Internals</a>
+  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: R Internals</span></a>
   </div>
 </li>
       </ul>
@@ -498,68 +517,69 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#evaluating-your-measure-with-factor-analysis" id="toc-evaluating-your-measure-with-factor-analysis" class="nav-link active" data-scroll-target="#evaluating-your-measure-with-factor-analysis"><span class="toc-section-number">1</span>  1. Evaluating your measure with factor analysis</a>
+  <li><a href="#evaluating-your-measure-with-factor-analysis" id="toc-evaluating-your-measure-with-factor-analysis" class="nav-link active" data-scroll-target="#evaluating-your-measure-with-factor-analysis"><span class="header-section-number">1</span> 1. Evaluating your measure with factor analysis</a>
   <ul class="collapse">
-  <li><a href="#introduction-to-exploratory-factor-analysis-efa" id="toc-introduction-to-exploratory-factor-analysis-efa" class="nav-link" data-scroll-target="#introduction-to-exploratory-factor-analysis-efa"><span class="toc-section-number">1.1</span>  Introduction to Exploratory Factor Analysis (EFA)</a></li>
-  <li><a href="#starting-out-with-a-unidimensional-efa" id="toc-starting-out-with-a-unidimensional-efa" class="nav-link" data-scroll-target="#starting-out-with-a-unidimensional-efa"><span class="toc-section-number">1.2</span>  Starting out with a unidimensional EFA</a></li>
-  <li><a href="#viewing-and-visualizing-the-factor-loadings" id="toc-viewing-and-visualizing-the-factor-loadings" class="nav-link" data-scroll-target="#viewing-and-visualizing-the-factor-loadings"><span class="toc-section-number">1.3</span>  Viewing and visualizing the factor loadings</a></li>
-  <li><a href="#interpreting-individuals-factor-scores" id="toc-interpreting-individuals-factor-scores" class="nav-link" data-scroll-target="#interpreting-individuals-factor-scores"><span class="toc-section-number">1.4</span>  Interpreting individuals’ factor scores</a></li>
-  <li><a href="#overview-of-the-measure-development-process" id="toc-overview-of-the-measure-development-process" class="nav-link" data-scroll-target="#overview-of-the-measure-development-process"><span class="toc-section-number">1.5</span>  Overview of the measure development process</a></li>
-  <li><a href="#descriptive-statistics-of-your-dataset" id="toc-descriptive-statistics-of-your-dataset" class="nav-link" data-scroll-target="#descriptive-statistics-of-your-dataset"><span class="toc-section-number">1.6</span>  Descriptive statistics of your dataset</a></li>
-  <li><a href="#splitting-your-dataset" id="toc-splitting-your-dataset" class="nav-link" data-scroll-target="#splitting-your-dataset"><span class="toc-section-number">1.7</span>  Splitting your dataset</a></li>
-  <li><a href="#comparing-the-halves-of-your-dataset" id="toc-comparing-the-halves-of-your-dataset" class="nav-link" data-scroll-target="#comparing-the-halves-of-your-dataset"><span class="toc-section-number">1.8</span>  Comparing the halves of your dataset</a></li>
-  <li><a href="#measure-features-correlations-and-reliability" id="toc-measure-features-correlations-and-reliability" class="nav-link" data-scroll-target="#measure-features-correlations-and-reliability"><span class="toc-section-number">1.9</span>  Measure features: correlations and reliability</a></li>
-  <li><a href="#viewing-and-testing-correlations" id="toc-viewing-and-testing-correlations" class="nav-link" data-scroll-target="#viewing-and-testing-correlations"><span class="toc-section-number">1.10</span>  Viewing and testing correlations</a></li>
-  <li><a href="#internal-reliability" id="toc-internal-reliability" class="nav-link" data-scroll-target="#internal-reliability"><span class="toc-section-number">1.11</span>  Internal reliability</a></li>
-  <li><a href="#when-to-use-efa" id="toc-when-to-use-efa" class="nav-link" data-scroll-target="#when-to-use-efa"><span class="toc-section-number">1.13</span>  When to use EFA</a></li>
+  <li><a href="#introduction-to-exploratory-factor-analysis-efa" id="toc-introduction-to-exploratory-factor-analysis-efa" class="nav-link" data-scroll-target="#introduction-to-exploratory-factor-analysis-efa"><span class="header-section-number">1.1</span> Introduction to Exploratory Factor Analysis (EFA)</a></li>
+  <li><a href="#starting-out-with-a-unidimensional-efa" id="toc-starting-out-with-a-unidimensional-efa" class="nav-link" data-scroll-target="#starting-out-with-a-unidimensional-efa"><span class="header-section-number">1.2</span> Starting out with a unidimensional EFA</a></li>
+  <li><a href="#viewing-and-visualizing-the-factor-loadings" id="toc-viewing-and-visualizing-the-factor-loadings" class="nav-link" data-scroll-target="#viewing-and-visualizing-the-factor-loadings"><span class="header-section-number">1.3</span> Viewing and visualizing the factor loadings</a></li>
+  <li><a href="#interpreting-individuals-factor-scores" id="toc-interpreting-individuals-factor-scores" class="nav-link" data-scroll-target="#interpreting-individuals-factor-scores"><span class="header-section-number">1.4</span> Interpreting individuals’ factor scores</a></li>
+  <li><a href="#overview-of-the-measure-development-process" id="toc-overview-of-the-measure-development-process" class="nav-link" data-scroll-target="#overview-of-the-measure-development-process"><span class="header-section-number">1.5</span> Overview of the measure development process</a></li>
+  <li><a href="#descriptive-statistics-of-your-dataset" id="toc-descriptive-statistics-of-your-dataset" class="nav-link" data-scroll-target="#descriptive-statistics-of-your-dataset"><span class="header-section-number">1.6</span> Descriptive statistics of your dataset</a></li>
+  <li><a href="#splitting-your-dataset" id="toc-splitting-your-dataset" class="nav-link" data-scroll-target="#splitting-your-dataset"><span class="header-section-number">1.7</span> Splitting your dataset</a></li>
+  <li><a href="#comparing-the-halves-of-your-dataset" id="toc-comparing-the-halves-of-your-dataset" class="nav-link" data-scroll-target="#comparing-the-halves-of-your-dataset"><span class="header-section-number">1.8</span> Comparing the halves of your dataset</a></li>
+  <li><a href="#measure-features-correlations-and-reliability" id="toc-measure-features-correlations-and-reliability" class="nav-link" data-scroll-target="#measure-features-correlations-and-reliability"><span class="header-section-number">1.9</span> Measure features: correlations and reliability</a></li>
+  <li><a href="#viewing-and-testing-correlations" id="toc-viewing-and-testing-correlations" class="nav-link" data-scroll-target="#viewing-and-testing-correlations"><span class="header-section-number">1.10</span> Viewing and testing correlations</a></li>
+  <li><a href="#internal-reliability" id="toc-internal-reliability" class="nav-link" data-scroll-target="#internal-reliability"><span class="header-section-number">1.11</span> Internal reliability</a></li>
+  <li><a href="#when-to-use-efa" id="toc-when-to-use-efa" class="nav-link" data-scroll-target="#when-to-use-efa"><span class="header-section-number">1.13</span> When to use EFA</a></li>
   </ul></li>
-  <li><a href="#multidimensional-efa" id="toc-multidimensional-efa" class="nav-link" data-scroll-target="#multidimensional-efa"><span class="toc-section-number">2</span>  2. Multidimensional EFA</a>
+  <li><a href="#multidimensional-efa" id="toc-multidimensional-efa" class="nav-link" data-scroll-target="#multidimensional-efa"><span class="header-section-number">2</span> 2. Multidimensional EFA</a>
   <ul class="collapse">
-  <li><a href="#determining-dimensionality" id="toc-determining-dimensionality" class="nav-link" data-scroll-target="#determining-dimensionality"><span class="toc-section-number">2.1</span>  Determining dimensionality</a></li>
-  <li><a href="#splitting-the-bfi-dataset" id="toc-splitting-the-bfi-dataset" class="nav-link" data-scroll-target="#splitting-the-bfi-dataset"><span class="toc-section-number">2.2</span>  Splitting the BFI dataset</a></li>
-  <li><a href="#calculating-eigenvalues" id="toc-calculating-eigenvalues" class="nav-link" data-scroll-target="#calculating-eigenvalues"><span class="toc-section-number">2.3</span>  Calculating eigenvalues</a></li>
-  <li><a href="#creating-a-scree-plot" id="toc-creating-a-scree-plot" class="nav-link" data-scroll-target="#creating-a-scree-plot"><span class="toc-section-number">2.4</span>  Creating a scree plot</a></li>
-  <li><a href="#interpreting-the-scree-plot" id="toc-interpreting-the-scree-plot" class="nav-link" data-scroll-target="#interpreting-the-scree-plot"><span class="toc-section-number">2.5</span>  Interpreting the scree plot</a></li>
-  <li><a href="#understanding-multidimensional-data" id="toc-understanding-multidimensional-data" class="nav-link" data-scroll-target="#understanding-multidimensional-data"><span class="toc-section-number">2.7</span>  Understanding multidimensional data</a></li>
-  <li><a href="#conducting-a-multidimensional-efa" id="toc-conducting-a-multidimensional-efa" class="nav-link" data-scroll-target="#conducting-a-multidimensional-efa"><span class="toc-section-number">2.8</span>  Conducting a multidimensional EFA</a></li>
-  <li><a href="#interpreting-the-results" id="toc-interpreting-the-results" class="nav-link" data-scroll-target="#interpreting-the-results"><span class="toc-section-number">2.9</span>  Interpreting the results</a></li>
-  <li><a href="#investigating-model-fit" id="toc-investigating-model-fit" class="nav-link" data-scroll-target="#investigating-model-fit"><span class="toc-section-number">2.10</span>  Investigating model fit</a></li>
-  <li><a href="#interpret-absolute-model-fit-statistics" id="toc-interpret-absolute-model-fit-statistics" class="nav-link" data-scroll-target="#interpret-absolute-model-fit-statistics"><span class="toc-section-number">2.11</span>  Interpret absolute model fit statistics</a></li>
-  <li><a href="#selecting-the-best-model" id="toc-selecting-the-best-model" class="nav-link" data-scroll-target="#selecting-the-best-model"><span class="toc-section-number">2.13</span>  Selecting the best model</a></li>
+  <li><a href="#determining-dimensionality" id="toc-determining-dimensionality" class="nav-link" data-scroll-target="#determining-dimensionality"><span class="header-section-number">2.1</span> Determining dimensionality</a></li>
+  <li><a href="#splitting-the-bfi-dataset" id="toc-splitting-the-bfi-dataset" class="nav-link" data-scroll-target="#splitting-the-bfi-dataset"><span class="header-section-number">2.2</span> Splitting the BFI dataset</a></li>
+  <li><a href="#calculating-eigenvalues" id="toc-calculating-eigenvalues" class="nav-link" data-scroll-target="#calculating-eigenvalues"><span class="header-section-number">2.3</span> Calculating eigenvalues</a></li>
+  <li><a href="#creating-a-scree-plot" id="toc-creating-a-scree-plot" class="nav-link" data-scroll-target="#creating-a-scree-plot"><span class="header-section-number">2.4</span> Creating a scree plot</a></li>
+  <li><a href="#interpreting-the-scree-plot" id="toc-interpreting-the-scree-plot" class="nav-link" data-scroll-target="#interpreting-the-scree-plot"><span class="header-section-number">2.5</span> Interpreting the scree plot</a></li>
+  <li><a href="#understanding-multidimensional-data" id="toc-understanding-multidimensional-data" class="nav-link" data-scroll-target="#understanding-multidimensional-data"><span class="header-section-number">2.7</span> Understanding multidimensional data</a></li>
+  <li><a href="#conducting-a-multidimensional-efa" id="toc-conducting-a-multidimensional-efa" class="nav-link" data-scroll-target="#conducting-a-multidimensional-efa"><span class="header-section-number">2.8</span> Conducting a multidimensional EFA</a></li>
+  <li><a href="#interpreting-the-results" id="toc-interpreting-the-results" class="nav-link" data-scroll-target="#interpreting-the-results"><span class="header-section-number">2.9</span> Interpreting the results</a></li>
+  <li><a href="#investigating-model-fit" id="toc-investigating-model-fit" class="nav-link" data-scroll-target="#investigating-model-fit"><span class="header-section-number">2.10</span> Investigating model fit</a></li>
+  <li><a href="#interpret-absolute-model-fit-statistics" id="toc-interpret-absolute-model-fit-statistics" class="nav-link" data-scroll-target="#interpret-absolute-model-fit-statistics"><span class="header-section-number">2.11</span> Interpret absolute model fit statistics</a></li>
+  <li><a href="#selecting-the-best-model" id="toc-selecting-the-best-model" class="nav-link" data-scroll-target="#selecting-the-best-model"><span class="header-section-number">2.13</span> Selecting the best model</a></li>
   </ul></li>
-  <li><a href="#confirmatory-factor-analysis" id="toc-confirmatory-factor-analysis" class="nav-link" data-scroll-target="#confirmatory-factor-analysis"><span class="toc-section-number">3</span>  3. Confirmatory Factor Analysis</a>
+  <li><a href="#confirmatory-factor-analysis" id="toc-confirmatory-factor-analysis" class="nav-link" data-scroll-target="#confirmatory-factor-analysis"><span class="header-section-number">3</span> 3. Confirmatory Factor Analysis</a>
   <ul class="collapse">
-  <li><a href="#setting-up-a-cfa" id="toc-setting-up-a-cfa" class="nav-link" data-scroll-target="#setting-up-a-cfa"><span class="toc-section-number">3.1</span>  Setting up a CFA</a></li>
-  <li><a href="#creating-cfa-syntax-from-efa-results" id="toc-creating-cfa-syntax-from-efa-results" class="nav-link" data-scroll-target="#creating-cfa-syntax-from-efa-results"><span class="toc-section-number">3.2</span>  Creating CFA syntax from EFA results</a></li>
-  <li><a href="#creating-cfa-syntax-from-theory" id="toc-creating-cfa-syntax-from-theory" class="nav-link" data-scroll-target="#creating-cfa-syntax-from-theory"><span class="toc-section-number">3.3</span>  Creating CFA syntax from theory</a></li>
-  <li><a href="#understanding-the-sem-syntax" id="toc-understanding-the-sem-syntax" class="nav-link" data-scroll-target="#understanding-the-sem-syntax"><span class="toc-section-number">3.4</span>  Understanding the sem() syntax</a></li>
-  <li><a href="#components-of-sem-syntax" id="toc-components-of-sem-syntax" class="nav-link" data-scroll-target="#components-of-sem-syntax"><span class="toc-section-number">3.5</span>  Components of sem() syntax</a></li>
-  <li><a href="#run-a-cfa-and-interpret-loadings" id="toc-run-a-cfa-and-interpret-loadings" class="nav-link" data-scroll-target="#run-a-cfa-and-interpret-loadings"><span class="toc-section-number">3.7</span>  Run a CFA and interpret loadings</a></li>
-  <li><a href="#examine-item-loadings" id="toc-examine-item-loadings" class="nav-link" data-scroll-target="#examine-item-loadings"><span class="toc-section-number">3.8</span>  Examine item loadings</a></li>
-  <li><a href="#investigating-model-fit-1" id="toc-investigating-model-fit-1" class="nav-link" data-scroll-target="#investigating-model-fit-1"><span class="toc-section-number">3.10</span>  Investigating model fit</a></li>
-  <li><a href="#absolute-fit-statistics" id="toc-absolute-fit-statistics" class="nav-link" data-scroll-target="#absolute-fit-statistics"><span class="toc-section-number">3.11</span>  Absolute fit statistics</a></li>
-  <li><a href="#relative-fit-statistics" id="toc-relative-fit-statistics" class="nav-link" data-scroll-target="#relative-fit-statistics"><span class="toc-section-number">3.13</span>  Relative fit statistics</a></li>
+  <li><a href="#setting-up-a-cfa" id="toc-setting-up-a-cfa" class="nav-link" data-scroll-target="#setting-up-a-cfa"><span class="header-section-number">3.1</span> Setting up a CFA</a></li>
+  <li><a href="#creating-cfa-syntax-from-efa-results" id="toc-creating-cfa-syntax-from-efa-results" class="nav-link" data-scroll-target="#creating-cfa-syntax-from-efa-results"><span class="header-section-number">3.2</span> Creating CFA syntax from EFA results</a></li>
+  <li><a href="#creating-cfa-syntax-from-theory" id="toc-creating-cfa-syntax-from-theory" class="nav-link" data-scroll-target="#creating-cfa-syntax-from-theory"><span class="header-section-number">3.3</span> Creating CFA syntax from theory</a></li>
+  <li><a href="#understanding-the-sem-syntax" id="toc-understanding-the-sem-syntax" class="nav-link" data-scroll-target="#understanding-the-sem-syntax"><span class="header-section-number">3.4</span> Understanding the sem() syntax</a></li>
+  <li><a href="#components-of-sem-syntax" id="toc-components-of-sem-syntax" class="nav-link" data-scroll-target="#components-of-sem-syntax"><span class="header-section-number">3.5</span> Components of sem() syntax</a></li>
+  <li><a href="#run-a-cfa-and-interpret-loadings" id="toc-run-a-cfa-and-interpret-loadings" class="nav-link" data-scroll-target="#run-a-cfa-and-interpret-loadings"><span class="header-section-number">3.7</span> Run a CFA and interpret loadings</a></li>
+  <li><a href="#examine-item-loadings" id="toc-examine-item-loadings" class="nav-link" data-scroll-target="#examine-item-loadings"><span class="header-section-number">3.8</span> Examine item loadings</a></li>
+  <li><a href="#investigating-model-fit-1" id="toc-investigating-model-fit-1" class="nav-link" data-scroll-target="#investigating-model-fit-1"><span class="header-section-number">3.10</span> Investigating model fit</a></li>
+  <li><a href="#absolute-fit-statistics" id="toc-absolute-fit-statistics" class="nav-link" data-scroll-target="#absolute-fit-statistics"><span class="header-section-number">3.11</span> Absolute fit statistics</a></li>
+  <li><a href="#relative-fit-statistics" id="toc-relative-fit-statistics" class="nav-link" data-scroll-target="#relative-fit-statistics"><span class="header-section-number">3.13</span> Relative fit statistics</a></li>
   </ul></li>
-  <li><a href="#refining-your-measure-andor-model" id="toc-refining-your-measure-andor-model" class="nav-link" data-scroll-target="#refining-your-measure-andor-model"><span class="toc-section-number">4</span>  4. Refining your measure and/or model</a>
+  <li><a href="#refining-your-measure-andor-model" id="toc-refining-your-measure-andor-model" class="nav-link" data-scroll-target="#refining-your-measure-andor-model"><span class="header-section-number">4</span> 4. Refining your measure and/or model</a>
   <ul class="collapse">
-  <li><a href="#efa-vs.-cfa-revisited" id="toc-efa-vs.-cfa-revisited" class="nav-link" data-scroll-target="#efa-vs.-cfa-revisited"><span class="toc-section-number">4.1</span>  EFA vs.&nbsp;CFA revisited</a></li>
-  <li><a href="#differences-in-estimated-factor-loadings" id="toc-differences-in-estimated-factor-loadings" class="nav-link" data-scroll-target="#differences-in-estimated-factor-loadings"><span class="toc-section-number">4.2</span>  Differences in estimated factor loadings</a></li>
-  <li><a href="#plotting-differences-in-persons-factor-scores" id="toc-plotting-differences-in-persons-factor-scores" class="nav-link" data-scroll-target="#plotting-differences-in-persons-factor-scores"><span class="toc-section-number">4.4</span>  Plotting differences in persons’ factor scores</a></li>
-  <li><a href="#adding-loadings-to-improve-fit" id="toc-adding-loadings-to-improve-fit" class="nav-link" data-scroll-target="#adding-loadings-to-improve-fit"><span class="toc-section-number">4.5</span>  Adding loadings to improve fit</a></li>
-  <li><a href="#add-loadings-to-improve-fit" id="toc-add-loadings-to-improve-fit" class="nav-link" data-scroll-target="#add-loadings-to-improve-fit"><span class="toc-section-number">4.6</span>  Add loadings to improve fit</a></li>
-  <li><a href="#compare-original-model-to-model-with-added-loadings" id="toc-compare-original-model-to-model-with-added-loadings" class="nav-link" data-scroll-target="#compare-original-model-to-model-with-added-loadings"><span class="toc-section-number">4.7</span>  Compare original model to model with added loadings</a></li>
-  <li><a href="#evaluate-added-loadings-with-relative-fit-stats" id="toc-evaluate-added-loadings-with-relative-fit-stats" class="nav-link" data-scroll-target="#evaluate-added-loadings-with-relative-fit-stats"><span class="toc-section-number">4.8</span>  Evaluate added loadings with relative fit stats</a></li>
-  <li><a href="#improving-fit-by-removing-loadings" id="toc-improving-fit-by-removing-loadings" class="nav-link" data-scroll-target="#improving-fit-by-removing-loadings"><span class="toc-section-number">4.10</span>  Improving fit by removing loadings</a></li>
-  <li><a href="#remove-loadings-to-improve-fit" id="toc-remove-loadings-to-improve-fit" class="nav-link" data-scroll-target="#remove-loadings-to-improve-fit"><span class="toc-section-number">4.11</span>  Remove loadings to improve fit</a></li>
-  <li><a href="#compare-original-model-to-model-with-deleted-loadings" id="toc-compare-original-model-to-model-with-deleted-loadings" class="nav-link" data-scroll-target="#compare-original-model-to-model-with-deleted-loadings"><span class="toc-section-number">4.12</span>  Compare original model to model with deleted loadings</a></li>
-  <li><a href="#evaluate-deleted-loadings-with-relative-fit-stats" id="toc-evaluate-deleted-loadings-with-relative-fit-stats" class="nav-link" data-scroll-target="#evaluate-deleted-loadings-with-relative-fit-stats"><span class="toc-section-number">4.13</span>  Evaluate deleted loadings with relative fit stats</a></li>
-  <li><a href="#wrap-up-video" id="toc-wrap-up-video" class="nav-link" data-scroll-target="#wrap-up-video"><span class="toc-section-number">4.15</span>  Wrap-Up Video</a></li>
+  <li><a href="#efa-vs.-cfa-revisited" id="toc-efa-vs.-cfa-revisited" class="nav-link" data-scroll-target="#efa-vs.-cfa-revisited"><span class="header-section-number">4.1</span> EFA vs.&nbsp;CFA revisited</a></li>
+  <li><a href="#differences-in-estimated-factor-loadings" id="toc-differences-in-estimated-factor-loadings" class="nav-link" data-scroll-target="#differences-in-estimated-factor-loadings"><span class="header-section-number">4.2</span> Differences in estimated factor loadings</a></li>
+  <li><a href="#plotting-differences-in-persons-factor-scores" id="toc-plotting-differences-in-persons-factor-scores" class="nav-link" data-scroll-target="#plotting-differences-in-persons-factor-scores"><span class="header-section-number">4.4</span> Plotting differences in persons’ factor scores</a></li>
+  <li><a href="#adding-loadings-to-improve-fit" id="toc-adding-loadings-to-improve-fit" class="nav-link" data-scroll-target="#adding-loadings-to-improve-fit"><span class="header-section-number">4.5</span> Adding loadings to improve fit</a></li>
+  <li><a href="#add-loadings-to-improve-fit" id="toc-add-loadings-to-improve-fit" class="nav-link" data-scroll-target="#add-loadings-to-improve-fit"><span class="header-section-number">4.6</span> Add loadings to improve fit</a></li>
+  <li><a href="#compare-original-model-to-model-with-added-loadings" id="toc-compare-original-model-to-model-with-added-loadings" class="nav-link" data-scroll-target="#compare-original-model-to-model-with-added-loadings"><span class="header-section-number">4.7</span> Compare original model to model with added loadings</a></li>
+  <li><a href="#evaluate-added-loadings-with-relative-fit-stats" id="toc-evaluate-added-loadings-with-relative-fit-stats" class="nav-link" data-scroll-target="#evaluate-added-loadings-with-relative-fit-stats"><span class="header-section-number">4.8</span> Evaluate added loadings with relative fit stats</a></li>
+  <li><a href="#improving-fit-by-removing-loadings" id="toc-improving-fit-by-removing-loadings" class="nav-link" data-scroll-target="#improving-fit-by-removing-loadings"><span class="header-section-number">4.10</span> Improving fit by removing loadings</a></li>
+  <li><a href="#remove-loadings-to-improve-fit" id="toc-remove-loadings-to-improve-fit" class="nav-link" data-scroll-target="#remove-loadings-to-improve-fit"><span class="header-section-number">4.11</span> Remove loadings to improve fit</a></li>
+  <li><a href="#compare-original-model-to-model-with-deleted-loadings" id="toc-compare-original-model-to-model-with-deleted-loadings" class="nav-link" data-scroll-target="#compare-original-model-to-model-with-deleted-loadings"><span class="header-section-number">4.12</span> Compare original model to model with deleted loadings</a></li>
+  <li><a href="#evaluate-deleted-loadings-with-relative-fit-stats" id="toc-evaluate-deleted-loadings-with-relative-fit-stats" class="nav-link" data-scroll-target="#evaluate-deleted-loadings-with-relative-fit-stats"><span class="header-section-number">4.13</span> Evaluate deleted loadings with relative fit stats</a></li>
+  <li><a href="#wrap-up-video" id="toc-wrap-up-video" class="nav-link" data-scroll-target="#wrap-up-video"><span class="header-section-number">4.15</span> Wrap-Up Video</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -569,7 +589,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Factor Analysis in R</h1>
+<h1 class="title">Factor Analysis in R</h1>
 </div>
 
 
@@ -675,14 +695,14 @@ Theory. Coming soon …
 #&gt; Mean item complexity =  1
 #&gt; Test of the hypothesis that 1 factor is sufficient.
 #&gt; 
-#&gt; The degrees of freedom for the null model are  105  and the objective function was  9.31 with Chi Square of  23173.8
-#&gt; The degrees of freedom for the model are 90  and the objective function was  1.93 
+#&gt; df null model =  105  with the objective function =  9.31 with Chi Square =  23173.8
+#&gt; df of  the model are 90  and the objective function was  1.93 
 #&gt; 
 #&gt; The root mean square of the residuals (RMSR) is  0.08 
 #&gt; The df corrected root mean square of the residuals is  0.09 
 #&gt; 
-#&gt; The harmonic number of observations is  2495 with the empirical chi square  3398.99  with prob &lt;  0 
-#&gt; The total number of observations was  2495  with Likelihood Chi Square =  4809.34  with prob &lt;  0 
+#&gt; The harmonic n.obs is  2495 with the empirical chi square  3398.99  with prob &lt;  0 
+#&gt; The total n.obs was  2495  with Likelihood Chi Square =  4809.34  with prob &lt;  0 
 #&gt; 
 #&gt; Tucker Lewis Index of factoring reliability =  0.761
 #&gt; RMSEA index =  0.145  and the 90 % confidence intervals are  0.142 0.149
@@ -1041,21 +1061,21 @@ Theory. Coming soon …
 #&gt;  Descriptive statistics by group 
 #&gt; group: 1
 #&gt;           vars    n mean   sd median trimmed  mad min max range  skew kurtosis
-#&gt; Q1           1 1247 3.47 1.46      4    3.59 1.48   0   5     5 -0.55    -1.11
-#&gt; Q2           2 1247 2.91 1.50      3    2.90 1.48   0   5     5  0.04    -1.40
-#&gt; Q3           3 1247 2.05 1.38      1    1.82 0.00   0   5     5  0.97    -0.43
-#&gt; Q4           4 1247 2.66 1.44      2    2.58 1.48   0   5     5  0.25    -1.33
-#&gt; Q5           5 1247 3.25 1.46      4    3.32 1.48   0   5     5 -0.35    -1.26
-#&gt; Q6           6 1247 3.11 1.52      3    3.14 1.48   0   5     5 -0.16    -1.44
-#&gt; Q7           7 1247 2.65 1.52      2    2.57 1.48   0   5     5  0.29    -1.40
-#&gt; Q8           8 1247 2.47 1.57      2    2.35 1.48   0   5     5  0.49    -1.31
-#&gt; Q9           9 1247 2.25 1.42      2    2.07 1.48   0   5     5  0.72    -0.88
-#&gt; Q10         10 1247 3.50 1.40      4    3.63 1.48   1   5     4 -0.61    -0.94
-#&gt; Q11         11 1247 3.23 1.42      3    3.29 1.48   0   5     5 -0.31    -1.17
-#&gt; Q12         12 1247 2.63 1.50      2    2.54 1.48   0   5     5  0.31    -1.35
-#&gt; Q13         13 1247 2.13 1.38      2    1.92 1.48   0   5     5  0.88    -0.59
-#&gt; Q14         14 1247 2.98 1.49      3    2.98 1.48   0   5     5 -0.04    -1.43
-#&gt; Q15         15 1247 4.22 1.13      5    4.47 0.00   0   5     5 -1.59     1.73
+#&gt; Q1           1 1247 3.43 1.47      4    3.54 1.48   0   5     5 -0.50    -1.17
+#&gt; Q2           2 1247 2.95 1.50      3    2.94 1.48   0   5     5  0.01    -1.41
+#&gt; Q3           3 1247 2.07 1.40      1    1.84 0.00   0   5     5  0.96    -0.52
+#&gt; Q4           4 1247 2.62 1.44      2    2.53 1.48   0   5     5  0.28    -1.29
+#&gt; Q5           5 1247 3.27 1.47      4    3.34 1.48   0   5     5 -0.36    -1.26
+#&gt; Q6           6 1247 3.11 1.51      3    3.14 1.48   0   5     5 -0.16    -1.43
+#&gt; Q7           7 1247 2.64 1.51      2    2.56 1.48   0   5     5  0.29    -1.38
+#&gt; Q8           8 1247 2.47 1.58      2    2.34 1.48   0   5     5  0.49    -1.34
+#&gt; Q9           9 1247 2.24 1.42      2    2.06 1.48   0   5     5  0.73    -0.85
+#&gt; Q10         10 1247 3.46 1.41      4    3.57 1.48   1   5     4 -0.56    -1.02
+#&gt; Q11         11 1247 3.25 1.41      3    3.31 1.48   0   5     5 -0.33    -1.13
+#&gt; Q12         12 1247 2.63 1.49      2    2.54 1.48   0   5     5  0.29    -1.36
+#&gt; Q13         13 1247 2.10 1.39      1    1.89 0.00   0   5     5  0.88    -0.58
+#&gt; Q14         14 1247 2.97 1.50      3    2.96 1.48   0   5     5 -0.05    -1.43
+#&gt; Q15         15 1247 4.17 1.14      5    4.41 0.00   1   5     4 -1.48     1.35
 #&gt; group_var   16 1247 1.00 0.00      1    1.00 0.00   1   1     0   NaN      NaN
 #&gt;             se
 #&gt; Q1        0.04
@@ -1077,21 +1097,21 @@ Theory. Coming soon …
 #&gt; ------------------------------------------------------------ 
 #&gt; group: 2
 #&gt;           vars    n mean   sd median trimmed  mad min max range  skew kurtosis
-#&gt; Q1           1 1248 3.47 1.45      4    3.59 1.48   1   5     4 -0.55    -1.10
-#&gt; Q2           2 1248 3.01 1.49      3    3.02 1.48   0   5     5 -0.05    -1.40
-#&gt; Q3           3 1248 2.05 1.39      1    1.81 0.00   0   5     5  0.99    -0.46
-#&gt; Q4           4 1248 2.61 1.46      2    2.52 1.48   0   5     5  0.28    -1.35
-#&gt; Q5           5 1248 3.26 1.48      4    3.33 1.48   0   5     5 -0.34    -1.28
-#&gt; Q6           6 1248 3.11 1.50      3    3.14 1.48   0   5     5 -0.17    -1.40
-#&gt; Q7           7 1248 2.68 1.50      2    2.61 1.48   0   5     5  0.28    -1.38
-#&gt; Q8           8 1248 2.43 1.57      2    2.29 1.48   0   5     5  0.54    -1.29
-#&gt; Q9           9 1248 2.21 1.42      2    2.02 1.48   0   5     5  0.79    -0.76
-#&gt; Q10         10 1248 3.50 1.38      4    3.62 1.48   1   5     4 -0.56    -0.96
-#&gt; Q11         11 1248 3.30 1.38      4    3.38 1.48   0   5     5 -0.39    -1.05
-#&gt; Q12         12 1248 2.66 1.51      2    2.58 1.48   0   5     5  0.27    -1.38
-#&gt; Q13         13 1248 2.08 1.39      1    1.87 0.00   0   5     5  0.90    -0.54
-#&gt; Q14         14 1248 2.93 1.49      3    2.91 1.48   0   5     5  0.01    -1.43
-#&gt; Q15         15 1248 4.23 1.08      5    4.46 0.00   1   5     4 -1.53     1.65
+#&gt; Q1           1 1248 3.51 1.44      4    3.64 1.48   1   5     4 -0.59    -1.04
+#&gt; Q2           2 1248 2.98 1.49      3    2.98 1.48   0   5     5 -0.03    -1.39
+#&gt; Q3           3 1248 2.03 1.37      1    1.80 0.00   0   5     5  1.00    -0.37
+#&gt; Q4           4 1248 2.65 1.46      2    2.56 1.48   0   5     5  0.24    -1.38
+#&gt; Q5           5 1248 3.24 1.48      4    3.30 1.48   0   5     5 -0.33    -1.28
+#&gt; Q6           6 1248 3.10 1.50      3    3.13 1.48   0   5     5 -0.17    -1.41
+#&gt; Q7           7 1248 2.69 1.51      2    2.62 1.48   0   5     5  0.28    -1.40
+#&gt; Q8           8 1248 2.43 1.56      2    2.29 1.48   0   5     5  0.54    -1.25
+#&gt; Q9           9 1248 2.22 1.42      2    2.04 1.48   0   5     5  0.78    -0.79
+#&gt; Q10         10 1248 3.55 1.36      4    3.68 1.48   1   5     4 -0.61    -0.87
+#&gt; Q11         11 1248 3.29 1.39      4    3.36 1.48   0   5     5 -0.37    -1.09
+#&gt; Q12         12 1248 2.66 1.52      2    2.59 1.48   0   5     5  0.28    -1.37
+#&gt; Q13         13 1248 2.10 1.38      1    1.89 0.00   0   5     5  0.89    -0.56
+#&gt; Q14         14 1248 2.94 1.48      3    2.93 1.48   0   5     5  0.02    -1.43
+#&gt; Q15         15 1248 4.28 1.06      5    4.51 0.00   0   5     5 -1.64     2.09
 #&gt; group_var   16 1248 2.00 0.00      2    2.00 0.00   2   2     0   NaN      NaN
 #&gt;             se
 #&gt; Q1        0.04
@@ -1122,9 +1142,9 @@ Theory. Coming soon …
 #&gt;         0         0         0         0         0         0         0         1 
 #&gt; Intraclass Correlation 2 (Reliability of group differences) 
 #&gt;        Q1        Q2        Q3        Q4        Q5        Q6        Q7        Q8 
-#&gt; -19006.70      0.64   -516.40     -0.15    -55.93   -585.34     -3.08     -0.93 
+#&gt;      0.46     -2.31     -0.84     -4.02     -1.53    -23.82     -0.62     -1.41 
 #&gt;        Q9       Q10       Q11       Q12       Q13       Q14       Q15 group_var 
-#&gt;     -1.07   -391.45      0.33     -3.28     -0.20     -0.13    -20.97      1.00 
+#&gt;     -8.31      0.62     -0.98     -1.63   -494.43     -4.42      0.84      1.00 
 #&gt; eta^2 between groups  
 #&gt;  Q1.bg  Q2.bg  Q3.bg  Q4.bg  Q5.bg  Q6.bg  Q7.bg  Q8.bg  Q9.bg Q10.bg Q11.bg 
 #&gt;      0      0      0      0      0      0      0      0      0      0      0 
@@ -1532,10 +1552,10 @@ Theory. Coming soon …
 <span id="cb51-7"><a href="#cb51-7"></a><span class="co"># Look at the eigenvalues returned</span></span>
 <span id="cb51-8"><a href="#cb51-8"></a>eigenvals<span class="sc">$</span>values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;  [1] 5.1486238 2.6355023 2.1413056 1.8671895 1.5101598 1.0883551 0.8906895
-#&gt;  [8] 0.7949836 0.7260365 0.6994483 0.6927846 0.6597426 0.6276151 0.5960250
-#&gt; [15] 0.5590994 0.5470786 0.5147909 0.5108888 0.4743013 0.4473944 0.4227057
-#&gt; [22] 0.4169246 0.3952026 0.3692910 0.2638614</code></pre>
+<pre><code>#&gt;  [1] 5.0865845 2.6584549 2.1110541 1.7807348 1.5479718 1.1402504 0.8670209
+#&gt;  [8] 0.8288758 0.7462987 0.7055473 0.6855907 0.6507153 0.6321656 0.6162927
+#&gt; [15] 0.5625912 0.5475608 0.5174253 0.4792512 0.4721993 0.4609386 0.4440337
+#&gt; [22] 0.4077953 0.3955001 0.3748457 0.2803013</code></pre>
 </div>
 </div>
 <p>Great work! Now you know how to use the correlation matrix to calculate eigenvalues from a dataset.</p>
@@ -1625,7 +1645,7 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># Run the EFA with six factors (as indicated by your scree plot)</span></span>
 <span id="cb55-2"><a href="#cb55-2"></a>EFA_model <span class="ot">&lt;-</span> <span class="fu">fa</span>(bfi_EFA, <span class="at">nfactors =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Loading required namespace: GPArotation</code></pre>
+<pre><code>#&gt; Lade nötigen Namensraum: GPArotation</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># View results from the model object</span></span>
 <span id="cb57-2"><a href="#cb57-2"></a>EFA_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1634,69 +1654,69 @@ Theory. Coming soon …
 #&gt; Call: fa(r = bfi_EFA, nfactors = 6)
 #&gt; Standardized loadings (pattern matrix) based upon correlation matrix
 #&gt;      MR2   MR1   MR3   MR5   MR4   MR6   h2   u2 com
-#&gt; A1  0.06 -0.13  0.06 -0.57  0.10  0.22 0.31 0.69 1.6
-#&gt; A2  0.02 -0.04  0.08  0.69 -0.02 -0.02 0.52 0.48 1.0
-#&gt; A3 -0.02 -0.12  0.03  0.66  0.05  0.05 0.55 0.45 1.1
-#&gt; A4 -0.05 -0.11  0.21  0.36 -0.09  0.15 0.28 0.72 2.4
-#&gt; A5 -0.17 -0.19 -0.01  0.47  0.14  0.17 0.48 0.52 2.2
-#&gt; C1  0.02  0.03  0.51 -0.03  0.19  0.02 0.31 0.69 1.3
-#&gt; C2  0.06  0.12  0.68  0.00  0.16  0.19 0.52 0.48 1.4
-#&gt; C3  0.01  0.05  0.57  0.06 -0.04  0.06 0.33 0.67 1.1
-#&gt; C4  0.06  0.03 -0.66 -0.07  0.12  0.27 0.56 0.44 1.5
-#&gt; C5  0.14  0.20 -0.54 -0.01  0.11  0.06 0.44 0.56 1.6
-#&gt; E1 -0.11  0.55  0.11 -0.15 -0.09  0.10 0.37 0.63 1.4
-#&gt; E2  0.04  0.66 -0.01 -0.11 -0.07  0.05 0.54 0.46 1.1
-#&gt; E3 -0.02 -0.33 -0.01  0.17  0.41  0.13 0.46 0.54 2.5
-#&gt; E4 -0.05 -0.56  0.04  0.20  0.08  0.27 0.58 0.42 1.8
-#&gt; E5  0.14 -0.41  0.26  0.06  0.26  0.00 0.41 0.59 2.8
-#&gt; N1  0.84 -0.11 -0.01 -0.09 -0.04  0.00 0.70 0.30 1.1
-#&gt; N2  0.84 -0.04  0.02 -0.01 -0.03 -0.07 0.66 0.34 1.0
-#&gt; N3  0.64  0.17 -0.03  0.08  0.06  0.09 0.51 0.49 1.2
-#&gt; N4  0.42  0.41 -0.11  0.06  0.11  0.07 0.47 0.53 2.4
-#&gt; N5  0.40  0.23 -0.04  0.15 -0.06  0.22 0.34 0.66 2.7
-#&gt; O1 -0.05 -0.07  0.07 -0.10  0.60 -0.01 0.38 0.62 1.1
-#&gt; O2  0.10  0.00 -0.06  0.08 -0.28  0.41 0.28 0.72 2.1
-#&gt; O3 -0.05 -0.06  0.01  0.07  0.63 -0.11 0.47 0.53 1.1
-#&gt; O4  0.08  0.38 -0.01  0.17  0.37 -0.09 0.27 0.73 2.6
-#&gt; O5 -0.02 -0.05 -0.02 -0.05 -0.35  0.49 0.37 0.63 1.9
+#&gt; A1  0.11 -0.08  0.11 -0.56  0.08  0.28 0.34 0.66 1.8
+#&gt; A2  0.05 -0.02  0.06  0.71  0.00 -0.03 0.52 0.48 1.0
+#&gt; A3 -0.04 -0.14  0.05  0.58  0.07  0.13 0.51 0.49 1.3
+#&gt; A4 -0.10 -0.08  0.16  0.40 -0.09  0.17 0.29 0.71 2.1
+#&gt; A5 -0.15 -0.18  0.03  0.40  0.21  0.23 0.48 0.52 3.1
+#&gt; C1  0.02  0.05  0.55 -0.03  0.20  0.04 0.36 0.64 1.3
+#&gt; C2  0.06  0.14  0.67 -0.01  0.15  0.12 0.48 0.52 1.3
+#&gt; C3  0.02  0.09  0.56  0.08 -0.04  0.04 0.30 0.70 1.1
+#&gt; C4  0.06  0.11 -0.60 -0.07  0.12  0.31 0.53 0.47 1.7
+#&gt; C5  0.13  0.16 -0.57 -0.01  0.11  0.02 0.44 0.56 1.3
+#&gt; E1 -0.14  0.59  0.09 -0.11 -0.10  0.07 0.39 0.61 1.3
+#&gt; E2  0.02  0.69 -0.03 -0.08 -0.08  0.04 0.56 0.44 1.1
+#&gt; E3 -0.02 -0.33  0.04  0.10  0.44  0.18 0.46 0.54 2.4
+#&gt; E4 -0.03 -0.53  0.04  0.21  0.08  0.24 0.53 0.47 1.8
+#&gt; E5  0.13 -0.35  0.27  0.08  0.24  0.01 0.38 0.62 3.2
+#&gt; N1  0.83 -0.09  0.02 -0.07 -0.05  0.02 0.67 0.33 1.0
+#&gt; N2  0.82 -0.07  0.01 -0.03 -0.02 -0.08 0.64 0.36 1.0
+#&gt; N3  0.66  0.14 -0.04  0.07  0.07  0.09 0.53 0.47 1.2
+#&gt; N4  0.40  0.43 -0.14  0.07  0.12  0.01 0.47 0.53 2.4
+#&gt; N5  0.42  0.25  0.01  0.17 -0.06  0.19 0.33 0.67 2.5
+#&gt; O1 -0.08 -0.04  0.07 -0.02  0.55 -0.03 0.34 0.66 1.1
+#&gt; O2  0.10  0.01 -0.09  0.06 -0.26  0.44 0.31 0.69 1.9
+#&gt; O3 -0.02 -0.10  0.03  0.02  0.65 -0.10 0.49 0.51 1.1
+#&gt; O4  0.05  0.41  0.01  0.12  0.39 -0.07 0.29 0.71 2.3
+#&gt; O5  0.02 -0.04 -0.02 -0.03 -0.36  0.46 0.35 0.65 1.9
 #&gt; 
 #&gt;                        MR2  MR1  MR3  MR5  MR4  MR6
-#&gt; SS loadings           2.41 2.16 2.06 2.00 1.63 0.86
-#&gt; Proportion Var        0.10 0.09 0.08 0.08 0.07 0.03
-#&gt; Cumulative Var        0.10 0.18 0.27 0.34 0.41 0.44
-#&gt; Proportion Explained  0.22 0.19 0.19 0.18 0.15 0.08
-#&gt; Cumulative Proportion 0.22 0.41 0.60 0.78 0.92 1.00
+#&gt; SS loadings           2.36 2.19 2.05 1.84 1.65 0.91
+#&gt; Proportion Var        0.09 0.09 0.08 0.07 0.07 0.04
+#&gt; Cumulative Var        0.09 0.18 0.26 0.34 0.40 0.44
+#&gt; Proportion Explained  0.21 0.20 0.19 0.17 0.15 0.08
+#&gt; Cumulative Proportion 0.21 0.41 0.60 0.77 0.92 1.00
 #&gt; 
 #&gt;  With factor correlations of 
 #&gt;       MR2   MR1   MR3   MR5   MR4   MR6
-#&gt; MR2  1.00  0.26 -0.19 -0.14  0.04  0.15
-#&gt; MR1  0.26  1.00 -0.19 -0.32 -0.19 -0.06
-#&gt; MR3 -0.19 -0.19  1.00  0.20  0.17 -0.04
-#&gt; MR5 -0.14 -0.32  0.20  1.00  0.26  0.11
-#&gt; MR4  0.04 -0.19  0.17  0.26  1.00 -0.02
-#&gt; MR6  0.15 -0.06 -0.04  0.11 -0.02  1.00
+#&gt; MR2  1.00  0.22 -0.17 -0.14  0.03  0.16
+#&gt; MR1  0.22  1.00 -0.24 -0.30 -0.17 -0.06
+#&gt; MR3 -0.17 -0.24  1.00  0.20  0.21 -0.03
+#&gt; MR5 -0.14 -0.30  0.20  1.00  0.27  0.13
+#&gt; MR4  0.03 -0.17  0.21  0.27  1.00  0.00
+#&gt; MR6  0.16 -0.06 -0.03  0.13  0.00  1.00
 #&gt; 
 #&gt; Mean item complexity =  1.7
 #&gt; Test of the hypothesis that 6 factors are sufficient.
 #&gt; 
-#&gt; The degrees of freedom for the null model are  300  and the objective function was  7.36 with Chi Square of  10231.57
-#&gt; The degrees of freedom for the model are 165  and the objective function was  0.43 
+#&gt; df null model =  300  with the objective function =  7.21 with Chi Square =  10022.3
+#&gt; df of  the model are 165  and the objective function was  0.46 
 #&gt; 
 #&gt; The root mean square of the residuals (RMSR) is  0.02 
 #&gt; The df corrected root mean square of the residuals is  0.03 
 #&gt; 
-#&gt; The harmonic number of observations is  1380 with the empirical chi square  371.41  with prob &lt;  6.1e-18 
-#&gt; The total number of observations was  1400  with Likelihood Chi Square =  597.47  with prob &lt;  2.6e-50 
+#&gt; The harmonic n.obs is  1382 with the empirical chi square  408.08  with prob &lt;  1.3e-22 
+#&gt; The total n.obs was  1400  with Likelihood Chi Square =  643.14  with prob &lt;  1.2e-57 
 #&gt; 
-#&gt; Tucker Lewis Index of factoring reliability =  0.921
-#&gt; RMSEA index =  0.043  and the 90 % confidence intervals are  0.04 0.047
-#&gt; BIC =  -597.83
+#&gt; Tucker Lewis Index of factoring reliability =  0.91
+#&gt; RMSEA index =  0.045  and the 90 % confidence intervals are  0.042 0.049
+#&gt; BIC =  -552.16
 #&gt; Fit based upon off diagonal values = 0.99
 #&gt; Measures of factor score adequacy             
 #&gt;                                                    MR2  MR1  MR3  MR5  MR4  MR6
-#&gt; Correlation of (regression) scores with factors   0.93 0.89 0.89 0.88 0.85 0.77
-#&gt; Multiple R square of scores with factors          0.86 0.79 0.79 0.78 0.73 0.59
-#&gt; Minimum correlation of possible factor scores     0.72 0.58 0.57 0.56 0.45 0.19</code></pre>
+#&gt; Correlation of (regression) scores with factors   0.92 0.89 0.88 0.87 0.85 0.77
+#&gt; Multiple R square of scores with factors          0.85 0.79 0.78 0.76 0.73 0.60
+#&gt; Minimum correlation of possible factor scores     0.70 0.59 0.56 0.52 0.46 0.20</code></pre>
 </div>
 </div>
 <p>Nice work! Now you can say you’ve run a multidimensional EFA!</p>
@@ -1727,36 +1747,36 @@ Theory. Coming soon …
 <pre><code>#&gt; 
 #&gt; Loadings:
 #&gt;    MR2    MR1    MR3    MR5    MR4    MR6   
-#&gt; A1        -0.133        -0.567  0.100  0.225
-#&gt; A2                       0.692              
-#&gt; A3        -0.119         0.656              
-#&gt; A4        -0.106  0.211  0.362         0.151
-#&gt; A5 -0.170 -0.187         0.468  0.139  0.173
-#&gt; C1                0.513         0.192       
-#&gt; C2         0.124  0.680         0.164  0.195
-#&gt; C3                0.575                     
-#&gt; C4               -0.657         0.120  0.273
-#&gt; C5  0.145  0.201 -0.543         0.109       
-#&gt; E1 -0.114  0.554  0.108 -0.148              
-#&gt; E2         0.663        -0.111              
-#&gt; E3        -0.330         0.169  0.414  0.128
-#&gt; E4        -0.556         0.202         0.269
-#&gt; E5  0.142 -0.406  0.264         0.257       
-#&gt; N1  0.842 -0.115                            
-#&gt; N2  0.836                                   
-#&gt; N3  0.636  0.168                            
-#&gt; N4  0.421  0.407 -0.114         0.115       
-#&gt; N5  0.403  0.233         0.150         0.225
-#&gt; O1                      -0.101  0.605       
-#&gt; O2  0.104                      -0.285  0.407
-#&gt; O3                              0.633 -0.113
-#&gt; O4         0.375         0.172  0.366       
-#&gt; O5                             -0.346  0.490
+#&gt; A1  0.112         0.112 -0.559         0.282
+#&gt; A2                       0.709              
+#&gt; A3        -0.143         0.582         0.131
+#&gt; A4                0.156  0.399         0.173
+#&gt; A5 -0.148 -0.184         0.403  0.208  0.235
+#&gt; C1                0.549         0.196       
+#&gt; C2         0.143  0.667         0.146  0.122
+#&gt; C3                0.558                     
+#&gt; C4         0.107 -0.605         0.125  0.305
+#&gt; C5  0.131  0.160 -0.572         0.108       
+#&gt; E1 -0.139  0.593        -0.114 -0.102       
+#&gt; E2         0.694                            
+#&gt; E3        -0.326         0.102  0.437  0.176
+#&gt; E4        -0.528         0.212         0.237
+#&gt; E5  0.133 -0.354  0.272         0.238       
+#&gt; N1  0.827                                   
+#&gt; N2  0.819                                   
+#&gt; N3  0.661  0.143                            
+#&gt; N4  0.404  0.433 -0.139         0.116       
+#&gt; N5  0.422  0.246         0.170         0.192
+#&gt; O1                              0.552       
+#&gt; O2                             -0.258  0.444
+#&gt; O3        -0.103                0.649 -0.102
+#&gt; O4         0.412         0.122  0.391       
+#&gt; O5                             -0.359  0.461
 #&gt; 
 #&gt;                  MR2   MR1   MR3   MR5   MR4   MR6
-#&gt; SS loadings    2.277 1.885 1.946 1.791 1.511 0.821
-#&gt; Proportion Var 0.091 0.075 0.078 0.072 0.060 0.033
-#&gt; Cumulative Var 0.091 0.166 0.244 0.316 0.376 0.409</code></pre>
+#&gt; SS loadings    2.263 1.944 1.917 1.632 1.525 0.864
+#&gt; Proportion Var 0.091 0.078 0.077 0.065 0.061 0.035
+#&gt; Cumulative Var 0.091 0.168 0.245 0.310 0.371 0.406</code></pre>
 </div>
 </div>
 <ol start="3" type="1">
@@ -1772,47 +1792,47 @@ Theory. Coming soon …
 <pre><code>#&gt; 
 #&gt; Loadings:
 #&gt;    MR2    MR1    MR3    MR5    MR4    MR6   
-#&gt; A1        -0.133        -0.567  0.100  0.225
-#&gt; A2                       0.692              
-#&gt; A3        -0.119         0.656              
-#&gt; A4        -0.106  0.211  0.362         0.151
-#&gt; A5 -0.170 -0.187         0.468  0.139  0.173
-#&gt; C1                0.513         0.192       
-#&gt; C2         0.124  0.680         0.164  0.195
-#&gt; C3                0.575                     
-#&gt; C4               -0.657         0.120  0.273
-#&gt; C5  0.145  0.201 -0.543         0.109       
-#&gt; E1 -0.114  0.554  0.108 -0.148              
-#&gt; E2         0.663        -0.111              
-#&gt; E3        -0.330         0.169  0.414  0.128
-#&gt; E4        -0.556         0.202         0.269
-#&gt; E5  0.142 -0.406  0.264         0.257       
-#&gt; N1  0.842 -0.115                            
-#&gt; N2  0.836                                   
-#&gt; N3  0.636  0.168                            
-#&gt; N4  0.421  0.407 -0.114         0.115       
-#&gt; N5  0.403  0.233         0.150         0.225
-#&gt; O1                      -0.101  0.605       
-#&gt; O2  0.104                      -0.285  0.407
-#&gt; O3                              0.633 -0.113
-#&gt; O4         0.375         0.172  0.366       
-#&gt; O5                             -0.346  0.490
+#&gt; A1  0.112         0.112 -0.559         0.282
+#&gt; A2                       0.709              
+#&gt; A3        -0.143         0.582         0.131
+#&gt; A4                0.156  0.399         0.173
+#&gt; A5 -0.148 -0.184         0.403  0.208  0.235
+#&gt; C1                0.549         0.196       
+#&gt; C2         0.143  0.667         0.146  0.122
+#&gt; C3                0.558                     
+#&gt; C4         0.107 -0.605         0.125  0.305
+#&gt; C5  0.131  0.160 -0.572         0.108       
+#&gt; E1 -0.139  0.593        -0.114 -0.102       
+#&gt; E2         0.694                            
+#&gt; E3        -0.326         0.102  0.437  0.176
+#&gt; E4        -0.528         0.212         0.237
+#&gt; E5  0.133 -0.354  0.272         0.238       
+#&gt; N1  0.827                                   
+#&gt; N2  0.819                                   
+#&gt; N3  0.661  0.143                            
+#&gt; N4  0.404  0.433 -0.139         0.116       
+#&gt; N5  0.422  0.246         0.170         0.192
+#&gt; O1                              0.552       
+#&gt; O2                             -0.258  0.444
+#&gt; O3        -0.103                0.649 -0.102
+#&gt; O4         0.412         0.122  0.391       
+#&gt; O5                             -0.359  0.461
 #&gt; 
 #&gt;                  MR2   MR1   MR3   MR5   MR4   MR6
-#&gt; SS loadings    2.277 1.885 1.946 1.791 1.511 0.821
-#&gt; Proportion Var 0.091 0.075 0.078 0.072 0.060 0.033
-#&gt; Cumulative Var 0.091 0.166 0.244 0.316 0.376 0.409</code></pre>
+#&gt; SS loadings    2.263 1.944 1.917 1.632 1.525 0.864
+#&gt; Proportion Var 0.091 0.078 0.077 0.065 0.061 0.035
+#&gt; Cumulative Var 0.091 0.168 0.245 0.310 0.371 0.406</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># View the first few lines of examinees' factor scores</span></span>
 <span id="cb64-2"><a href="#cb64-2"></a><span class="fu">head</span>(EFA_model<span class="sc">$</span>scores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;              MR2        MR1        MR3        MR5         MR4        MR6
-#&gt; 62954 -0.1315741  1.7265920 -0.6125628 -0.4476389 -0.38460657 -1.1975485
-#&gt; 63875 -1.2092441 -0.1470361  1.1737412  0.1172982  0.03492418 -0.3293493
-#&gt; 66077  0.7238701  0.7445423 -0.1674473 -0.0385460 -0.13334668  1.8248461
-#&gt; 67289  0.1561028 -0.4296978  0.1470074  0.9713202  0.64425958 -0.8175323
-#&gt; 66246 -0.9705320  1.3425642 -0.6612105 -0.4662768 -0.46847232 -1.0280654
-#&gt; 65018         NA         NA         NA         NA          NA         NA</code></pre>
+<pre><code>#&gt;              MR2         MR1        MR3         MR5        MR4         MR6
+#&gt; 64636 -0.4759467 -0.11122761  1.3177375 -0.48848507 -0.8277406 -0.05318218
+#&gt; 66534  0.2026303  0.04455795 -0.2349701  0.08601468 -0.1697745  0.75428786
+#&gt; 62597  1.0925334 -0.33186009 -0.4991666  0.36124163  1.0394701 -0.66242398
+#&gt; 67560 -1.2034007  0.73994042 -0.2649663 -1.97187089 -1.4666319 -1.81339210
+#&gt; 65273  0.8786716  1.14188478 -0.8386316 -0.48965414 -1.4405711  1.07658395
+#&gt; 63036         NA          NA         NA          NA         NA          NA</code></pre>
 </div>
 </div>
 <p>You got the most important pieces of information from your EFA! Nicely done!</p>
@@ -1880,11 +1900,11 @@ Theory. Coming soon …
 <span id="cb66-5"><a href="#cb66-5"></a><span class="co"># Compare the BIC values</span></span>
 <span id="cb66-6"><a href="#cb66-6"></a>bfi_theory<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] -352.4317</code></pre>
+<pre><code>#&gt; [1] -324.5092</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>bfi_eigen<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] -597.8324</code></pre>
+<pre><code>#&gt; [1] -552.1621</code></pre>
 </div>
 </div>
 <p>Nice work! You can see that the eigenvalue-driven model has a much lower BIC, so it is empirically preferred.</p>
@@ -2015,8 +2035,8 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="co"># Use the sem() function to run a CFA</span></span>
 <span id="cb74-2"><a href="#cb74-2"></a>theory_CFA <span class="ot">&lt;-</span> <span class="fu">sem</span>(theory_syn, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning in sem.semmod(theory_syn, data = bfi_CFA): -177 observations removed due
-#&gt; to missingness</code></pre>
+<pre><code>#&gt; Warning in sem.semmod(theory_syn, data = bfi_CFA): -186 observations removed
+#&gt; due to missingness</code></pre>
 </div>
 </div>
 <ol start="2" type="1">
@@ -2026,91 +2046,91 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a><span class="co"># Use the sem() function to run a CFA</span></span>
 <span id="cb76-2"><a href="#cb76-2"></a>theory_CFA <span class="ot">&lt;-</span> <span class="fu">sem</span>(theory_syn, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning in sem.semmod(theory_syn, data = bfi_CFA): -177 observations removed due
-#&gt; to missingness</code></pre>
+<pre><code>#&gt; Warning in sem.semmod(theory_syn, data = bfi_CFA): -186 observations removed
+#&gt; due to missingness</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a><span class="co"># Use the summary function to view fit information and parameter estimates</span></span>
 <span id="cb78-2"><a href="#cb78-2"></a><span class="fu">summary</span>(theory_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 
-#&gt;  Model Chisquare =  2404.963   Df =  265 Pr(&gt;Chisq) = 0
-#&gt;  AIC =  2524.963
-#&gt;  BIC =  521.0618
+#&gt;  Model Chisquare =  2207.306   Df =  265 Pr(&gt;Chisq) = 7.748607e-303
+#&gt;  AIC =  2327.306
+#&gt;  BIC =  325.3621
 #&gt; 
 #&gt;  Normalized Residuals
 #&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-#&gt; -7.6924 -0.4771  1.0348  1.1622  2.7387 10.2111 
+#&gt; -6.3653 -0.4214  0.8265  1.0752  2.5831  9.3621 
 #&gt; 
 #&gt;  R-square for Endogenous Variables
 #&gt;     A1     A2     A3     A4     A5     C1     C2     C3     C4     C5     E1 
-#&gt; 0.0993 0.3718 0.5256 0.2410 0.4683 0.3203 0.3492 0.2631 0.4989 0.3683 0.3072 
+#&gt; 0.1267 0.4348 0.5558 0.2451 0.4733 0.2772 0.3547 0.3132 0.5518 0.3717 0.2971 
 #&gt;     E2     E3     E4     E5     N1     N2     N3     N4     N5     O1     O2 
-#&gt; 0.4606 0.4263 0.4534 0.3098 0.6697 0.6498 0.5655 0.3263 0.2659 0.3231 0.1953 
+#&gt; 0.4688 0.4130 0.4920 0.3057 0.6822 0.6517 0.5421 0.3796 0.2753 0.3323 0.1970 
 #&gt;     O3     O4     O5 
-#&gt; 0.5026 0.0414 0.2328 
+#&gt; 0.4944 0.0540 0.2509 
 #&gt; 
 #&gt;  Parameter Estimates
-#&gt;             Estimate   Std Error  z value    Pr(&gt;|z|)                  
-#&gt; lam[A1:AGE] -0.4438064 0.04443225  -9.988384  1.713518e-23 A1 &lt;--- AGE 
-#&gt; lam[A2:AGE]  0.7035697 0.03389465  20.757545  1.047851e-95 A2 &lt;--- AGE 
-#&gt; lam[A3:AGE]  0.9486888 0.03721983  25.488801 2.623800e-143 A3 &lt;--- AGE 
-#&gt; lam[A4:AGE]  0.7201055 0.04456261  16.159410  9.749077e-59 A4 &lt;--- AGE 
-#&gt; lam[A5:AGE]  0.8520176 0.03579453  23.803014 3.108171e-125 A5 &lt;--- AGE 
-#&gt; lam[C1:CON] -0.6921399 0.03705695 -18.677735  7.514035e-78 C1 &lt;--- CON 
-#&gt; lam[C2:CON] -0.7650560 0.03897820 -19.627795  8.951653e-86 C2 &lt;--- CON 
-#&gt; lam[C3:CON] -0.6683610 0.04002245 -16.699654  1.318266e-62 C3 &lt;--- CON 
-#&gt; lam[C4:CON]  0.9831834 0.04077708  24.111177 1.908421e-128 C4 &lt;--- CON 
-#&gt; lam[C5:CON]  0.9938847 0.04910193  20.241255  4.242322e-91 C5 &lt;--- CON 
-#&gt; lam[E1:EXT]  0.9113864 0.04826322  18.883663  1.554241e-79 E1 &lt;--- EXT 
-#&gt; lam[E2:EXT]  1.0785501 0.04468752  24.135377 1.063420e-128 E2 &lt;--- EXT 
-#&gt; lam[E3:EXT] -0.8767566 0.03811531 -23.002744 4.375694e-117 E3 &lt;--- EXT 
-#&gt; lam[E4:EXT] -0.9809395 0.04104700 -23.897960 3.216008e-126 E4 &lt;--- EXT 
-#&gt; lam[E5:EXT] -0.7394457 0.03896134 -18.978963  2.545699e-80 E5 &lt;--- EXT 
-#&gt; lam[N1:NEU]  1.2865620 0.03966566  32.435158 8.770896e-231 N1 &lt;--- NEU 
-#&gt; lam[N2:NEU]  1.2133440 0.03819599  31.766264 1.893356e-221 N2 &lt;--- NEU 
-#&gt; lam[N3:NEU]  1.1914340 0.04122296  28.902195 1.120436e-183 N3 &lt;--- NEU 
-#&gt; lam[N4:NEU]  0.8837288 0.04345338  20.337400  6.002911e-92 N4 &lt;--- NEU 
-#&gt; lam[N5:NEU]  0.8374952 0.04647448  18.020538  1.344306e-72 N5 &lt;--- NEU 
-#&gt; lam[O1:OPE]  0.6390408 0.03658415  17.467696  2.524861e-68 O1 &lt;--- OPE 
-#&gt; lam[O2:OPE] -0.6922459 0.05157953 -13.420944  4.558718e-41 O2 &lt;--- OPE 
-#&gt; lam[O3:OPE]  0.8514957 0.03943545  21.592138 2.129294e-103 O3 &lt;--- OPE 
-#&gt; lam[O4:OPE]  0.2360223 0.03928797   6.007496  1.884108e-09 O4 &lt;--- OPE 
-#&gt; lam[O5:OPE] -0.6428650 0.04363941 -14.731294  4.058590e-49 O5 &lt;--- OPE 
-#&gt; C[AGE,CON]  -0.3177427 0.03551402  -8.946966  3.653861e-19 CON &lt;--&gt; AGE
-#&gt; C[AGE,EXT]  -0.6699934 0.02582028 -25.948338 1.898553e-148 EXT &lt;--&gt; AGE
-#&gt; C[AGE,NEU]  -0.1714326 0.03484440  -4.919948  8.656733e-07 NEU &lt;--&gt; AGE
-#&gt; C[AGE,OPE]   0.3168494 0.03762481   8.421290  3.723610e-17 OPE &lt;--&gt; AGE
-#&gt; C[CON,EXT]   0.3630429 0.03421501  10.610634  2.659391e-26 EXT &lt;--&gt; CON
-#&gt; C[CON,NEU]   0.2747992 0.03367306   8.160803  3.328033e-16 NEU &lt;--&gt; CON
-#&gt; C[CON,OPE]  -0.3381289 0.03737894  -9.045971  1.483402e-19 OPE &lt;--&gt; CON
-#&gt; C[EXT,NEU]   0.1996937 0.03412920   5.851109  4.883066e-09 NEU &lt;--&gt; EXT
-#&gt; C[EXT,OPE]  -0.4697150 0.03409431 -13.776929  3.508814e-43 OPE &lt;--&gt; EXT
-#&gt; C[NEU,OPE]  -0.1208130 0.03720849  -3.246919  1.166614e-03 OPE &lt;--&gt; NEU
-#&gt; V[A1]        1.7875322 0.07462586  23.953256 8.545892e-127 A1 &lt;--&gt; A1  
-#&gt; V[A2]        0.8365292 0.04078698  20.509712  1.763342e-93 A2 &lt;--&gt; A2  
-#&gt; V[A3]        0.8124692 0.04845909  16.766083  4.320708e-63 A3 &lt;--&gt; A3  
-#&gt; V[A4]        1.6329314 0.07260377  22.491000 5.084087e-112 A4 &lt;--&gt; A4  
-#&gt; V[A5]        0.8242236 0.04484687  18.378619  1.948682e-75 A5 &lt;--&gt; A5  
-#&gt; V[C1]        1.0164409 0.04850590  20.954994  1.689502e-97 C1 &lt;--&gt; C1  
-#&gt; V[C2]        1.0908679 0.05342245  20.419655  1.118505e-92 C2 &lt;--&gt; C2  
-#&gt; V[C3]        1.2509577 0.05716271  21.884157 3.677500e-106 C3 &lt;--&gt; C3  
-#&gt; V[C4]        0.9708560 0.05805742  16.722342  9.010771e-63 C4 &lt;--&gt; C4  
-#&gt; V[C5]        1.6940599 0.08455046  20.036083  2.669704e-89 C5 &lt;--&gt; C5  
-#&gt; V[E1]        1.8735699 0.08521203  21.987152 3.822393e-107 E1 &lt;--&gt; E1  
-#&gt; V[E2]        1.3621976 0.07019542  19.405792  6.894826e-84 E2 &lt;--&gt; E2  
-#&gt; V[E3]        1.0346996 0.05146450  20.105112  6.656966e-90 E3 &lt;--&gt; E3  
-#&gt; V[E4]        1.1602458 0.05931544  19.560601  3.351028e-85 E4 &lt;--&gt; E4  
-#&gt; V[E5]        1.2181420 0.05548950  21.952660 8.168004e-107 E5 &lt;--&gt; E5  
-#&gt; V[N1]        0.8162114 0.05100027  16.004061  1.197057e-57 N1 &lt;--&gt; N1  
-#&gt; V[N2]        0.7932693 0.04744753  16.718874  9.550599e-63 N2 &lt;--&gt; N2  
-#&gt; V[N3]        1.0906624 0.05683385  19.190364  4.455074e-82 N3 &lt;--&gt; N3  
-#&gt; V[N4]        1.6121854 0.07094259  22.725211 2.524141e-114 N4 &lt;--&gt; N4  
-#&gt; V[N5]        1.9363756 0.08334015  23.234607 2.035742e-119 N5 &lt;--&gt; N5  
-#&gt; V[O1]        0.8557401 0.04436142  19.290187  6.493828e-83 O1 &lt;--&gt; O1  
-#&gt; V[O2]        1.9740875 0.08947248  22.063629 7.067824e-108 O2 &lt;--&gt; O2  
-#&gt; V[O3]        0.7174355 0.05281637  13.583582  5.011443e-42 O3 &lt;--&gt; O3  
-#&gt; V[O4]        1.2884487 0.05311254  24.258842 5.333881e-130 O4 &lt;--&gt; O4  
-#&gt; V[O5]        1.3617160 0.06372859  21.367428 2.685218e-101 O5 &lt;--&gt; O5  
+#&gt;             Estimate    Std Error  z value    Pr(&gt;|z|)                  
+#&gt; lam[A1:AGE] -0.49691956 0.04338272 -11.454320  2.237124e-30 A1 &lt;--- AGE 
+#&gt; lam[A2:AGE]  0.78098434 0.03385353  23.069509 9.372279e-118 A2 &lt;--- AGE 
+#&gt; lam[A3:AGE]  0.98804254 0.03685490  26.808990 2.538454e-158 A3 &lt;--- AGE 
+#&gt; lam[A4:AGE]  0.71769903 0.04361676  16.454663  7.765256e-61 A4 &lt;--- AGE 
+#&gt; lam[A5:AGE]  0.87350272 0.03595745  24.292680 2.342585e-130 A5 &lt;--- AGE 
+#&gt; lam[C1:CON] -0.65571876 0.03790483 -17.299080  4.779606e-67 C1 &lt;--- CON 
+#&gt; lam[C2:CON] -0.78599971 0.03942876 -19.934682  2.035955e-88 C2 &lt;--- CON 
+#&gt; lam[C3:CON] -0.73226809 0.03947081 -18.552141  7.836734e-77 C3 &lt;--- CON 
+#&gt; lam[C4:CON]  1.04086859 0.04037586  25.779481 1.506421e-146 C4 &lt;--- CON 
+#&gt; lam[C5:CON]  1.00749570 0.04917890  20.486342  2.850186e-93 C5 &lt;--- CON 
+#&gt; lam[E1:EXT]  0.88776400 0.04800097  18.494708  2.277726e-76 E1 &lt;--- EXT 
+#&gt; lam[E2:EXT]  1.11019064 0.04552912  24.384190 2.516533e-131 E2 &lt;--- EXT 
+#&gt; lam[E3:EXT] -0.88905668 0.03944588 -22.538643 1.735562e-112 E3 &lt;--- EXT 
+#&gt; lam[E4:EXT] -1.01712504 0.04046820 -25.133935 2.117820e-139 E4 &lt;--- EXT 
+#&gt; lam[E5:EXT] -0.75725364 0.04026012 -18.809024  6.369989e-79 E5 &lt;--- EXT 
+#&gt; lam[N1:NEU]  1.33684346 0.04067636  32.865367 6.871318e-237 N1 &lt;--- NEU 
+#&gt; lam[N2:NEU]  1.26648801 0.03978733  31.831436 2.378552e-222 N2 &lt;--- NEU 
+#&gt; lam[N3:NEU]  1.18611833 0.04226192  28.065890 2.556196e-173 N3 &lt;--- NEU 
+#&gt; lam[N4:NEU]  0.96532836 0.04333833  22.274241 6.568131e-110 N4 &lt;--- NEU 
+#&gt; lam[N5:NEU]  0.84719562 0.04613952  18.361603  2.666178e-75 N5 &lt;--- NEU 
+#&gt; lam[O1:OPE]  0.63576863 0.03600921  17.655722  9.195012e-70 O1 &lt;--- OPE 
+#&gt; lam[O2:OPE] -0.68788495 0.05123670 -13.425629  4.279364e-41 O2 &lt;--- OPE 
+#&gt; lam[O3:OPE]  0.84698393 0.03964312  21.365217 2.815437e-101 O3 &lt;--- OPE 
+#&gt; lam[O4:OPE]  0.28346254 0.04139592   6.847596  7.510121e-12 O4 &lt;--- OPE 
+#&gt; lam[O5:OPE] -0.68523474 0.04489185 -15.264123  1.325992e-52 O5 &lt;--- OPE 
+#&gt; C[AGE,CON]  -0.31644433 0.03469793  -9.119978  7.513975e-20 CON &lt;--&gt; AGE
+#&gt; C[AGE,EXT]  -0.66066624 0.02546001 -25.949171 1.857890e-148 EXT &lt;--&gt; AGE
+#&gt; C[AGE,NEU]  -0.20269084 0.03407250  -5.948810  2.700990e-09 NEU &lt;--&gt; AGE
+#&gt; C[AGE,OPE]   0.28924801 0.03748311   7.716756  1.193274e-14 OPE &lt;--&gt; AGE
+#&gt; C[CON,EXT]   0.30318389 0.03487810   8.692672  3.540119e-18 EXT &lt;--&gt; CON
+#&gt; C[CON,NEU]   0.28724232 0.03315083   8.664710  4.526623e-18 NEU &lt;--&gt; CON
+#&gt; C[CON,OPE]  -0.26266143 0.03811663  -6.890992  5.540455e-12 OPE &lt;--&gt; CON
+#&gt; C[EXT,NEU]   0.25995529 0.03329940   7.806607  5.874817e-15 NEU &lt;--&gt; EXT
+#&gt; C[EXT,OPE]  -0.44730234 0.03445063 -12.983865  1.510606e-38 OPE &lt;--&gt; EXT
+#&gt; C[NEU,OPE]  -0.09907849 0.03729780  -2.656417  7.897598e-03 OPE &lt;--&gt; NEU
+#&gt; V[A1]        1.70149694 0.07173814  23.718163 2.342267e-124 A1 &lt;--&gt; A1  
+#&gt; V[A2]        0.79274793 0.04030406  19.669182  3.961163e-86 A2 &lt;--&gt; A2  
+#&gt; V[A3]        0.78009217 0.04716687  16.538984  1.922377e-61 A3 &lt;--&gt; A3  
+#&gt; V[A4]        1.58631352 0.07026234  22.577010 7.291746e-113 A4 &lt;--&gt; A4  
+#&gt; V[A5]        0.84919572 0.04515008  18.808288  6.458961e-79 A5 &lt;--&gt; A5  
+#&gt; V[C1]        1.12095845 0.05146538  21.780827 3.526493e-105 C1 &lt;--&gt; C1  
+#&gt; V[C2]        1.12410785 0.05482552  20.503368  2.008952e-93 C2 &lt;--&gt; C2  
+#&gt; V[C3]        1.17561180 0.05538504  21.226161 5.475707e-100 C3 &lt;--&gt; C3  
+#&gt; V[C4]        0.88015612 0.05711566  15.410066  1.400689e-53 C4 &lt;--&gt; C4  
+#&gt; V[C5]        1.71569261 0.08503902  20.175357  1.611964e-90 C5 &lt;--&gt; C5  
+#&gt; V[E1]        1.86479157 0.08441971  22.089529 3.985254e-108 E1 &lt;--&gt; E1  
+#&gt; V[E2]        1.39653314 0.07248794  19.265732  1.041819e-82 E2 &lt;--&gt; E2  
+#&gt; V[E3]        1.12341936 0.05515533  20.368284  3.196877e-92 E3 &lt;--&gt; E3  
+#&gt; V[E4]        1.06826756 0.05700432  18.740114  2.331267e-78 E4 &lt;--&gt; E4  
+#&gt; V[E5]        1.30211344 0.05923677  21.981505 4.328753e-107 E5 &lt;--&gt; E5  
+#&gt; V[N1]        0.83257871 0.05289594  15.739935  8.052685e-56 N1 &lt;--&gt; N1  
+#&gt; V[N2]        0.85710912 0.05091547  16.833963  1.375780e-63 N2 &lt;--&gt; N2  
+#&gt; V[N3]        1.18830814 0.06002434  19.797104  3.153063e-87 N3 &lt;--&gt; N3  
+#&gt; V[N4]        1.52317776 0.06865793  22.185022 4.791978e-109 N4 &lt;--&gt; N4  
+#&gt; V[N5]        1.88941982 0.08171063  23.123304 2.699218e-118 N5 &lt;--&gt; N5  
+#&gt; V[O1]        0.81212435 0.04280253  18.973746  2.811373e-80 O1 &lt;--&gt; O1  
+#&gt; V[O2]        1.92911750 0.08789488  21.948007 9.048228e-107 O2 &lt;--&gt; O2  
+#&gt; V[O3]        0.73364521 0.05303819  13.832396  1.625150e-43 O3 &lt;--&gt; O3  
+#&gt; V[O4]        1.40665672 0.05856505  24.018705 1.773324e-127 O4 &lt;--&gt; O4  
+#&gt; V[O5]        1.40225157 0.06702530  20.921229  3.431539e-97 O5 &lt;--&gt; O5  
 #&gt; 
 #&gt;  Iterations =  25</code></pre>
 </div>
@@ -2164,86 +2184,86 @@ Theory. Coming soon …
 <span id="cb80-5"><a href="#cb80-5"></a><span class="fu">summary</span>(theory_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 
-#&gt;  Model Chisquare =  2404.963   Df =  265 Pr(&gt;Chisq) = 0
-#&gt;  Goodness-of-fit index =  0.844214
-#&gt;  RMSEA index =  0.0812914   90% CI: (NA, NA)
-#&gt;  Bentler CFI =  0.7616661
-#&gt;  BIC =  521.0618
+#&gt;  Model Chisquare =  2207.306   Df =  265 Pr(&gt;Chisq) = 7.748607e-303
+#&gt;  Goodness-of-fit index =  0.8560267
+#&gt;  RMSEA index =  0.07773302   90% CI: (NA, NA)
+#&gt;  Bentler CFI =  0.7862606
+#&gt;  BIC =  325.3621
 #&gt; 
 #&gt;  Normalized Residuals
 #&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-#&gt; -7.6924 -0.4771  1.0348  1.1622  2.7387 10.2111 
+#&gt; -6.3653 -0.4214  0.8265  1.0752  2.5831  9.3621 
 #&gt; 
 #&gt;  R-square for Endogenous Variables
 #&gt;     A1     A2     A3     A4     A5     C1     C2     C3     C4     C5     E1 
-#&gt; 0.0993 0.3718 0.5256 0.2410 0.4683 0.3203 0.3492 0.2631 0.4989 0.3683 0.3072 
+#&gt; 0.1267 0.4348 0.5558 0.2451 0.4733 0.2772 0.3547 0.3132 0.5518 0.3717 0.2971 
 #&gt;     E2     E3     E4     E5     N1     N2     N3     N4     N5     O1     O2 
-#&gt; 0.4606 0.4263 0.4534 0.3098 0.6697 0.6498 0.5655 0.3263 0.2659 0.3231 0.1953 
+#&gt; 0.4688 0.4130 0.4920 0.3057 0.6822 0.6517 0.5421 0.3796 0.2753 0.3323 0.1970 
 #&gt;     O3     O4     O5 
-#&gt; 0.5026 0.0414 0.2328 
+#&gt; 0.4944 0.0540 0.2509 
 #&gt; 
 #&gt;  Parameter Estimates
-#&gt;             Estimate   Std Error  z value    Pr(&gt;|z|)                  
-#&gt; lam[A1:AGE] -0.4438064 0.04443225  -9.988384  1.713518e-23 A1 &lt;--- AGE 
-#&gt; lam[A2:AGE]  0.7035697 0.03389465  20.757545  1.047851e-95 A2 &lt;--- AGE 
-#&gt; lam[A3:AGE]  0.9486888 0.03721983  25.488801 2.623800e-143 A3 &lt;--- AGE 
-#&gt; lam[A4:AGE]  0.7201055 0.04456261  16.159410  9.749077e-59 A4 &lt;--- AGE 
-#&gt; lam[A5:AGE]  0.8520176 0.03579453  23.803014 3.108171e-125 A5 &lt;--- AGE 
-#&gt; lam[C1:CON] -0.6921399 0.03705695 -18.677735  7.514035e-78 C1 &lt;--- CON 
-#&gt; lam[C2:CON] -0.7650560 0.03897820 -19.627795  8.951653e-86 C2 &lt;--- CON 
-#&gt; lam[C3:CON] -0.6683610 0.04002245 -16.699654  1.318266e-62 C3 &lt;--- CON 
-#&gt; lam[C4:CON]  0.9831834 0.04077708  24.111177 1.908421e-128 C4 &lt;--- CON 
-#&gt; lam[C5:CON]  0.9938847 0.04910193  20.241255  4.242322e-91 C5 &lt;--- CON 
-#&gt; lam[E1:EXT]  0.9113864 0.04826322  18.883663  1.554241e-79 E1 &lt;--- EXT 
-#&gt; lam[E2:EXT]  1.0785501 0.04468752  24.135377 1.063420e-128 E2 &lt;--- EXT 
-#&gt; lam[E3:EXT] -0.8767566 0.03811531 -23.002744 4.375694e-117 E3 &lt;--- EXT 
-#&gt; lam[E4:EXT] -0.9809395 0.04104700 -23.897960 3.216008e-126 E4 &lt;--- EXT 
-#&gt; lam[E5:EXT] -0.7394457 0.03896134 -18.978963  2.545699e-80 E5 &lt;--- EXT 
-#&gt; lam[N1:NEU]  1.2865620 0.03966566  32.435158 8.770896e-231 N1 &lt;--- NEU 
-#&gt; lam[N2:NEU]  1.2133440 0.03819599  31.766264 1.893356e-221 N2 &lt;--- NEU 
-#&gt; lam[N3:NEU]  1.1914340 0.04122296  28.902195 1.120436e-183 N3 &lt;--- NEU 
-#&gt; lam[N4:NEU]  0.8837288 0.04345338  20.337400  6.002911e-92 N4 &lt;--- NEU 
-#&gt; lam[N5:NEU]  0.8374952 0.04647448  18.020538  1.344306e-72 N5 &lt;--- NEU 
-#&gt; lam[O1:OPE]  0.6390408 0.03658415  17.467696  2.524861e-68 O1 &lt;--- OPE 
-#&gt; lam[O2:OPE] -0.6922459 0.05157953 -13.420944  4.558718e-41 O2 &lt;--- OPE 
-#&gt; lam[O3:OPE]  0.8514957 0.03943545  21.592138 2.129294e-103 O3 &lt;--- OPE 
-#&gt; lam[O4:OPE]  0.2360223 0.03928797   6.007496  1.884108e-09 O4 &lt;--- OPE 
-#&gt; lam[O5:OPE] -0.6428650 0.04363941 -14.731294  4.058590e-49 O5 &lt;--- OPE 
-#&gt; C[AGE,CON]  -0.3177427 0.03551402  -8.946966  3.653861e-19 CON &lt;--&gt; AGE
-#&gt; C[AGE,EXT]  -0.6699934 0.02582028 -25.948338 1.898553e-148 EXT &lt;--&gt; AGE
-#&gt; C[AGE,NEU]  -0.1714326 0.03484440  -4.919948  8.656733e-07 NEU &lt;--&gt; AGE
-#&gt; C[AGE,OPE]   0.3168494 0.03762481   8.421290  3.723610e-17 OPE &lt;--&gt; AGE
-#&gt; C[CON,EXT]   0.3630429 0.03421501  10.610634  2.659391e-26 EXT &lt;--&gt; CON
-#&gt; C[CON,NEU]   0.2747992 0.03367306   8.160803  3.328033e-16 NEU &lt;--&gt; CON
-#&gt; C[CON,OPE]  -0.3381289 0.03737894  -9.045971  1.483402e-19 OPE &lt;--&gt; CON
-#&gt; C[EXT,NEU]   0.1996937 0.03412920   5.851109  4.883066e-09 NEU &lt;--&gt; EXT
-#&gt; C[EXT,OPE]  -0.4697150 0.03409431 -13.776929  3.508814e-43 OPE &lt;--&gt; EXT
-#&gt; C[NEU,OPE]  -0.1208130 0.03720849  -3.246919  1.166614e-03 OPE &lt;--&gt; NEU
-#&gt; V[A1]        1.7875322 0.07462586  23.953256 8.545892e-127 A1 &lt;--&gt; A1  
-#&gt; V[A2]        0.8365292 0.04078698  20.509712  1.763342e-93 A2 &lt;--&gt; A2  
-#&gt; V[A3]        0.8124692 0.04845909  16.766083  4.320708e-63 A3 &lt;--&gt; A3  
-#&gt; V[A4]        1.6329314 0.07260377  22.491000 5.084087e-112 A4 &lt;--&gt; A4  
-#&gt; V[A5]        0.8242236 0.04484687  18.378619  1.948682e-75 A5 &lt;--&gt; A5  
-#&gt; V[C1]        1.0164409 0.04850590  20.954994  1.689502e-97 C1 &lt;--&gt; C1  
-#&gt; V[C2]        1.0908679 0.05342245  20.419655  1.118505e-92 C2 &lt;--&gt; C2  
-#&gt; V[C3]        1.2509577 0.05716271  21.884157 3.677500e-106 C3 &lt;--&gt; C3  
-#&gt; V[C4]        0.9708560 0.05805742  16.722342  9.010771e-63 C4 &lt;--&gt; C4  
-#&gt; V[C5]        1.6940599 0.08455046  20.036083  2.669704e-89 C5 &lt;--&gt; C5  
-#&gt; V[E1]        1.8735699 0.08521203  21.987152 3.822393e-107 E1 &lt;--&gt; E1  
-#&gt; V[E2]        1.3621976 0.07019542  19.405792  6.894826e-84 E2 &lt;--&gt; E2  
-#&gt; V[E3]        1.0346996 0.05146450  20.105112  6.656966e-90 E3 &lt;--&gt; E3  
-#&gt; V[E4]        1.1602458 0.05931544  19.560601  3.351028e-85 E4 &lt;--&gt; E4  
-#&gt; V[E5]        1.2181420 0.05548950  21.952660 8.168004e-107 E5 &lt;--&gt; E5  
-#&gt; V[N1]        0.8162114 0.05100027  16.004061  1.197057e-57 N1 &lt;--&gt; N1  
-#&gt; V[N2]        0.7932693 0.04744753  16.718874  9.550599e-63 N2 &lt;--&gt; N2  
-#&gt; V[N3]        1.0906624 0.05683385  19.190364  4.455074e-82 N3 &lt;--&gt; N3  
-#&gt; V[N4]        1.6121854 0.07094259  22.725211 2.524141e-114 N4 &lt;--&gt; N4  
-#&gt; V[N5]        1.9363756 0.08334015  23.234607 2.035742e-119 N5 &lt;--&gt; N5  
-#&gt; V[O1]        0.8557401 0.04436142  19.290187  6.493828e-83 O1 &lt;--&gt; O1  
-#&gt; V[O2]        1.9740875 0.08947248  22.063629 7.067824e-108 O2 &lt;--&gt; O2  
-#&gt; V[O3]        0.7174355 0.05281637  13.583582  5.011443e-42 O3 &lt;--&gt; O3  
-#&gt; V[O4]        1.2884487 0.05311254  24.258842 5.333881e-130 O4 &lt;--&gt; O4  
-#&gt; V[O5]        1.3617160 0.06372859  21.367428 2.685218e-101 O5 &lt;--&gt; O5  
+#&gt;             Estimate    Std Error  z value    Pr(&gt;|z|)                  
+#&gt; lam[A1:AGE] -0.49691956 0.04338272 -11.454320  2.237124e-30 A1 &lt;--- AGE 
+#&gt; lam[A2:AGE]  0.78098434 0.03385353  23.069509 9.372279e-118 A2 &lt;--- AGE 
+#&gt; lam[A3:AGE]  0.98804254 0.03685490  26.808990 2.538454e-158 A3 &lt;--- AGE 
+#&gt; lam[A4:AGE]  0.71769903 0.04361676  16.454663  7.765256e-61 A4 &lt;--- AGE 
+#&gt; lam[A5:AGE]  0.87350272 0.03595745  24.292680 2.342585e-130 A5 &lt;--- AGE 
+#&gt; lam[C1:CON] -0.65571876 0.03790483 -17.299080  4.779606e-67 C1 &lt;--- CON 
+#&gt; lam[C2:CON] -0.78599971 0.03942876 -19.934682  2.035955e-88 C2 &lt;--- CON 
+#&gt; lam[C3:CON] -0.73226809 0.03947081 -18.552141  7.836734e-77 C3 &lt;--- CON 
+#&gt; lam[C4:CON]  1.04086859 0.04037586  25.779481 1.506421e-146 C4 &lt;--- CON 
+#&gt; lam[C5:CON]  1.00749570 0.04917890  20.486342  2.850186e-93 C5 &lt;--- CON 
+#&gt; lam[E1:EXT]  0.88776400 0.04800097  18.494708  2.277726e-76 E1 &lt;--- EXT 
+#&gt; lam[E2:EXT]  1.11019064 0.04552912  24.384190 2.516533e-131 E2 &lt;--- EXT 
+#&gt; lam[E3:EXT] -0.88905668 0.03944588 -22.538643 1.735562e-112 E3 &lt;--- EXT 
+#&gt; lam[E4:EXT] -1.01712504 0.04046820 -25.133935 2.117820e-139 E4 &lt;--- EXT 
+#&gt; lam[E5:EXT] -0.75725364 0.04026012 -18.809024  6.369989e-79 E5 &lt;--- EXT 
+#&gt; lam[N1:NEU]  1.33684346 0.04067636  32.865367 6.871318e-237 N1 &lt;--- NEU 
+#&gt; lam[N2:NEU]  1.26648801 0.03978733  31.831436 2.378552e-222 N2 &lt;--- NEU 
+#&gt; lam[N3:NEU]  1.18611833 0.04226192  28.065890 2.556196e-173 N3 &lt;--- NEU 
+#&gt; lam[N4:NEU]  0.96532836 0.04333833  22.274241 6.568131e-110 N4 &lt;--- NEU 
+#&gt; lam[N5:NEU]  0.84719562 0.04613952  18.361603  2.666178e-75 N5 &lt;--- NEU 
+#&gt; lam[O1:OPE]  0.63576863 0.03600921  17.655722  9.195012e-70 O1 &lt;--- OPE 
+#&gt; lam[O2:OPE] -0.68788495 0.05123670 -13.425629  4.279364e-41 O2 &lt;--- OPE 
+#&gt; lam[O3:OPE]  0.84698393 0.03964312  21.365217 2.815437e-101 O3 &lt;--- OPE 
+#&gt; lam[O4:OPE]  0.28346254 0.04139592   6.847596  7.510121e-12 O4 &lt;--- OPE 
+#&gt; lam[O5:OPE] -0.68523474 0.04489185 -15.264123  1.325992e-52 O5 &lt;--- OPE 
+#&gt; C[AGE,CON]  -0.31644433 0.03469793  -9.119978  7.513975e-20 CON &lt;--&gt; AGE
+#&gt; C[AGE,EXT]  -0.66066624 0.02546001 -25.949171 1.857890e-148 EXT &lt;--&gt; AGE
+#&gt; C[AGE,NEU]  -0.20269084 0.03407250  -5.948810  2.700990e-09 NEU &lt;--&gt; AGE
+#&gt; C[AGE,OPE]   0.28924801 0.03748311   7.716756  1.193274e-14 OPE &lt;--&gt; AGE
+#&gt; C[CON,EXT]   0.30318389 0.03487810   8.692672  3.540119e-18 EXT &lt;--&gt; CON
+#&gt; C[CON,NEU]   0.28724232 0.03315083   8.664710  4.526623e-18 NEU &lt;--&gt; CON
+#&gt; C[CON,OPE]  -0.26266143 0.03811663  -6.890992  5.540455e-12 OPE &lt;--&gt; CON
+#&gt; C[EXT,NEU]   0.25995529 0.03329940   7.806607  5.874817e-15 NEU &lt;--&gt; EXT
+#&gt; C[EXT,OPE]  -0.44730234 0.03445063 -12.983865  1.510606e-38 OPE &lt;--&gt; EXT
+#&gt; C[NEU,OPE]  -0.09907849 0.03729780  -2.656417  7.897598e-03 OPE &lt;--&gt; NEU
+#&gt; V[A1]        1.70149694 0.07173814  23.718163 2.342267e-124 A1 &lt;--&gt; A1  
+#&gt; V[A2]        0.79274793 0.04030406  19.669182  3.961163e-86 A2 &lt;--&gt; A2  
+#&gt; V[A3]        0.78009217 0.04716687  16.538984  1.922377e-61 A3 &lt;--&gt; A3  
+#&gt; V[A4]        1.58631352 0.07026234  22.577010 7.291746e-113 A4 &lt;--&gt; A4  
+#&gt; V[A5]        0.84919572 0.04515008  18.808288  6.458961e-79 A5 &lt;--&gt; A5  
+#&gt; V[C1]        1.12095845 0.05146538  21.780827 3.526493e-105 C1 &lt;--&gt; C1  
+#&gt; V[C2]        1.12410785 0.05482552  20.503368  2.008952e-93 C2 &lt;--&gt; C2  
+#&gt; V[C3]        1.17561180 0.05538504  21.226161 5.475707e-100 C3 &lt;--&gt; C3  
+#&gt; V[C4]        0.88015612 0.05711566  15.410066  1.400689e-53 C4 &lt;--&gt; C4  
+#&gt; V[C5]        1.71569261 0.08503902  20.175357  1.611964e-90 C5 &lt;--&gt; C5  
+#&gt; V[E1]        1.86479157 0.08441971  22.089529 3.985254e-108 E1 &lt;--&gt; E1  
+#&gt; V[E2]        1.39653314 0.07248794  19.265732  1.041819e-82 E2 &lt;--&gt; E2  
+#&gt; V[E3]        1.12341936 0.05515533  20.368284  3.196877e-92 E3 &lt;--&gt; E3  
+#&gt; V[E4]        1.06826756 0.05700432  18.740114  2.331267e-78 E4 &lt;--&gt; E4  
+#&gt; V[E5]        1.30211344 0.05923677  21.981505 4.328753e-107 E5 &lt;--&gt; E5  
+#&gt; V[N1]        0.83257871 0.05289594  15.739935  8.052685e-56 N1 &lt;--&gt; N1  
+#&gt; V[N2]        0.85710912 0.05091547  16.833963  1.375780e-63 N2 &lt;--&gt; N2  
+#&gt; V[N3]        1.18830814 0.06002434  19.797104  3.153063e-87 N3 &lt;--&gt; N3  
+#&gt; V[N4]        1.52317776 0.06865793  22.185022 4.791978e-109 N4 &lt;--&gt; N4  
+#&gt; V[N5]        1.88941982 0.08171063  23.123304 2.699218e-118 N5 &lt;--&gt; N5  
+#&gt; V[O1]        0.81212435 0.04280253  18.973746  2.811373e-80 O1 &lt;--&gt; O1  
+#&gt; V[O2]        1.92911750 0.08789488  21.948007 9.048228e-107 O2 &lt;--&gt; O2  
+#&gt; V[O3]        0.73364521 0.05303819  13.832396  1.625150e-43 O3 &lt;--&gt; O3  
+#&gt; V[O4]        1.40665672 0.05856505  24.018705 1.773324e-127 O4 &lt;--&gt; O4  
+#&gt; V[O5]        1.40225157 0.06702530  20.921229  3.431539e-97 O5 &lt;--&gt; O5  
 #&gt; 
 #&gt;  Iterations =  25</code></pre>
 </div>
@@ -2266,8 +2286,8 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a><span class="co"># Run a CFA using the EFA syntax you created earlier</span></span>
 <span id="cb82-2"><a href="#cb82-2"></a>EFA_CFA <span class="ot">&lt;-</span> sem<span class="sc">::</span><span class="fu">sem</span>(EFA_syn, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning in sem.semmod(EFA_syn, data = bfi_CFA): -177 observations removed due to
-#&gt; missingness</code></pre>
+<pre><code>#&gt; Warning in sem.semmod(EFA_syn, data = bfi_CFA): -186 observations removed due
+#&gt; to missingness</code></pre>
 </div>
 </div>
 <ol start="2" type="1">
@@ -2277,13 +2297,13 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="co"># Run a CFA using the EFA syntax you created earlier</span></span>
 <span id="cb84-2"><a href="#cb84-2"></a>EFA_CFA <span class="ot">&lt;-</span> <span class="fu">sem</span>(EFA_syn, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning in sem.semmod(EFA_syn, data = bfi_CFA): -177 observations removed due to
-#&gt; missingness</code></pre>
+<pre><code>#&gt; Warning in sem.semmod(EFA_syn, data = bfi_CFA): -186 observations removed due
+#&gt; to missingness</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="co"># Locate the BIC in the fit statistics of the summary output</span></span>
 <span id="cb86-2"><a href="#cb86-2"></a><span class="fu">summary</span>(EFA_CFA)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 628.7737</code></pre>
+<pre><code>#&gt; [1] 467.901</code></pre>
 </div>
 </div>
 <ol start="3" type="1">
@@ -2293,18 +2313,18 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a><span class="co"># Run a CFA using the EFA syntax you created earlier</span></span>
 <span id="cb88-2"><a href="#cb88-2"></a>EFA_CFA <span class="ot">&lt;-</span> <span class="fu">sem</span>(EFA_syn, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning in sem.semmod(EFA_syn, data = bfi_CFA): -177 observations removed due to
-#&gt; missingness</code></pre>
+<pre><code>#&gt; Warning in sem.semmod(EFA_syn, data = bfi_CFA): -186 observations removed due
+#&gt; to missingness</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="co"># Locate the BIC in the fit statistics of the summary output</span></span>
 <span id="cb90-2"><a href="#cb90-2"></a><span class="fu">summary</span>(EFA_CFA)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 628.7737</code></pre>
+<pre><code>#&gt; [1] 467.901</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a><span class="co"># Compare EFA_CFA BIC to the BIC from the CFA based on theory</span></span>
 <span id="cb92-2"><a href="#cb92-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 521.0618</code></pre>
+<pre><code>#&gt; [1] 325.3621</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -2350,12 +2370,12 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="co"># View the first five rows of the EFA loadings</span></span>
 <span id="cb94-2"><a href="#cb94-2"></a>EFA_model<span class="sc">$</span>loadings[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt;            MR2        MR1          MR3        MR5          MR4
-#&gt; A1  0.15912833 0.19347830  0.055432853 -0.4686316 -0.045787212
-#&gt; A2 -0.01465335 0.03079566  0.083046397  0.6635713  0.008941085
-#&gt; A3 -0.02971015 0.13148678  0.030627963  0.6662833  0.031959916
-#&gt; A4 -0.02969164 0.12360025  0.215461713  0.3864048 -0.157174647
-#&gt; A5 -0.11441182 0.24808517 -0.009194763  0.5205276  0.036793031</code></pre>
+<pre><code>#&gt;            MR2         MR1        MR5        MR3         MR4
+#&gt; A1  0.25286077 -0.12839184 -0.3550222 0.10237797 -0.07860271
+#&gt; A2 -0.03581408  0.02661336  0.6409885 0.05125907  0.04516005
+#&gt; A3 -0.05319625 -0.10695543  0.6585458 0.03876312  0.01594446
+#&gt; A4 -0.09471651 -0.04847837  0.4697481 0.14859190 -0.16242754
+#&gt; A5 -0.09215666 -0.18580733  0.5544875 0.01689182  0.07867323</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="co"># View the first five loadings from the CFA estimated from the EFA results</span></span>
 <span id="cb96-2"><a href="#cb96-2"></a><span class="fu">summary</span>(EFA_CFA)<span class="sc">$</span>coeff[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2363,7 +2383,7 @@ Theory. Coming soon …
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Estimate"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Std Error"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["z value"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Pr(>|z|)"],"name":[4],"type":["dbl"],"align":["right"]},{"label":[" "],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"-0.4443045","2":"0.04458129","3":"-9.966165","4":"2.143459e-23","5":"A1 <--- MR5","_rn_":"F4A1"},{"1":"0.7055546","2":"0.03404503","3":"20.724159","4":"2.097597e-95","5":"A2 <--- MR5","_rn_":"F4A2"},{"1":"0.9543554","2":"0.03745938","3":"25.477076","4":"3.539081e-143","5":"A3 <--- MR5","_rn_":"F4A3"},{"1":"0.7208679","2":"0.04473182","3":"16.115328","4":"1.991059e-58","5":"A4 <--- MR5","_rn_":"F4A4"},{"1":"0.8452544","2":"0.03607411","3":"23.431052","4":"2.062719e-121","5":"A5 <--- MR5","_rn_":"F4A5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Estimate"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Std Error"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["z value"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["Pr(>|z|)"],"name":[4],"type":["dbl"],"align":["right"]},{"label":[" "],"name":[5],"type":["chr"],"align":["left"]}],"data":[{"1":"-0.4917284","2":"0.04348766","3":"-11.30731","4":"1.207365e-29","5":"A1 <--- MR5","_rn_":"F3A1"},{"1":"0.7717405","2":"0.03402950","3":"22.67857","4":"7.291541e-114","5":"A2 <--- MR5","_rn_":"F3A2"},{"1":"0.9894887","2":"0.03698509","3":"26.75372","4":"1.117751e-157","5":"A3 <--- MR5","_rn_":"F3A3"},{"1":"0.7126392","2":"0.04374113","3":"16.29220","4":"1.121275e-59","5":"A4 <--- MR5","_rn_":"F3A4"},{"1":"0.8838437","2":"0.03597606","3":"24.56755","4":"2.808634e-133","5":"A5 <--- MR5","_rn_":"F3A5"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2486,7 +2506,7 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1"></a><span class="co"># Run a CFA with the revised syntax</span></span>
 <span id="cb103-2"><a href="#cb103-2"></a>theory_CFA_add <span class="ot">&lt;-</span> <span class="fu">sem</span>(<span class="at">model =</span> theory_syn2, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning in sem.semmod(model = theory_syn2, data = bfi_CFA): -177 observations
+<pre><code>#&gt; Warning in sem.semmod(model = theory_syn2, data = bfi_CFA): -186 observations
 #&gt; removed due to missingness</code></pre>
 </div>
 </div>
@@ -2506,7 +2526,7 @@ Theory. Coming soon …
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Model Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Model Chisq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["LR Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"265","2":"2404.963","3":"NA","4":"NA","5":"NA","_rn_":"theory_CFA"},{"1":"263","2":"2260.832","3":"2","4":"144.1314","5":"5.038156e-32","_rn_":"theory_CFA_add"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Model Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Model Chisq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["LR Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"265","2":"2207.306","3":"NA","4":"NA","5":"NA","_rn_":"theory_CFA"},{"1":"263","2":"2088.925","3":"2","4":"118.3808","5":"1.967603e-26","_rn_":"theory_CFA_add"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -2521,18 +2541,18 @@ Theory. Coming soon …
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Model Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Model Chisq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["LR Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"265","2":"2404.963","3":"NA","4":"NA","5":"NA","_rn_":"theory_CFA"},{"1":"263","2":"2260.832","3":"2","4":"144.1314","5":"5.038156e-32","_rn_":"theory_CFA_add"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Model Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Model Chisq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["LR Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"265","2":"2207.306","3":"NA","4":"NA","5":"NA","_rn_":"theory_CFA"},{"1":"263","2":"2088.925","3":"2","4":"118.3808","5":"1.967603e-26","_rn_":"theory_CFA_add"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1"></a><span class="co"># Compare the comparative fit indices - higher is better!</span></span>
 <span id="cb107-2"><a href="#cb107-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.7616661</code></pre>
+<pre><code>#&gt; [1] 0.7862606</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1"></a><span class="fu">summary</span>(theory_CFA_add)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.7774957</code></pre>
+<pre><code>#&gt; [1] 0.7990676</code></pre>
 </div>
 </div>
 <ol start="3" type="1">
@@ -2545,27 +2565,27 @@ Theory. Coming soon …
 
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Model Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Model Chisq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["LR Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"265","2":"2404.963","3":"NA","4":"NA","5":"NA","_rn_":"theory_CFA"},{"1":"263","2":"2260.832","3":"2","4":"144.1314","5":"5.038156e-32","_rn_":"theory_CFA_add"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["Model Df"],"name":[1],"type":["dbl"],"align":["right"]},{"label":["Model Chisq"],"name":[2],"type":["dbl"],"align":["right"]},{"label":["Df"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["LR Chisq"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["Pr(>Chisq)"],"name":[5],"type":["dbl"],"align":["right"]}],"data":[{"1":"265","2":"2207.306","3":"NA","4":"NA","5":"NA","_rn_":"theory_CFA"},{"1":"263","2":"2088.925","3":"2","4":"118.3808","5":"1.967603e-26","_rn_":"theory_CFA_add"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1"></a><span class="co"># Compare the comparative fit indices - higher is better!</span></span>
 <span id="cb112-2"><a href="#cb112-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.7616661</code></pre>
+<pre><code>#&gt; [1] 0.7862606</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1"></a><span class="fu">summary</span>(theory_CFA_add)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.7774957</code></pre>
+<pre><code>#&gt; [1] 0.7990676</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1"></a><span class="co"># Compare the RMSEA values - lower is better!</span></span>
 <span id="cb116-2"><a href="#cb116-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>RMSEA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.0812914        NA        NA 0.9000000</code></pre>
+<pre><code>#&gt; [1] 0.07773302         NA         NA 0.90000000</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1"></a><span class="fu">summary</span>(theory_CFA_add)<span class="sc">$</span>RMSEA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.07884352         NA         NA 0.90000000</code></pre>
+<pre><code>#&gt; [1] 0.07565424         NA         NA 0.90000000</code></pre>
 </div>
 </div>
 <p>Yep, the revised CFA fits better! In real life, you would carefully consider whether the new loadings make sense with your theory.</p>
@@ -2582,11 +2602,11 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1"></a><span class="co"># Compare BIC values</span></span>
 <span id="cb120-2"><a href="#cb120-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 521.0618</code></pre>
+<pre><code>#&gt; [1] 325.3621</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb122"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1"></a><span class="fu">summary</span>(theory_CFA_add)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 391.1485</code></pre>
+<pre><code>#&gt; [1] 221.1847</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -2674,7 +2694,7 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb129"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1"></a><span class="co"># Run a CFA with the revised syntax</span></span>
 <span id="cb129-2"><a href="#cb129-2"></a>theory_CFA_del <span class="ot">&lt;-</span> <span class="fu">sem</span>(<span class="at">model =</span> theory_syn3, <span class="at">data =</span> bfi_CFA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Warning in sem.semmod(model = theory_syn3, data = bfi_CFA): -177 observations
+<pre><code>#&gt; Warning in sem.semmod(model = theory_syn3, data = bfi_CFA): -186 observations
 #&gt; removed due to missingness</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
@@ -2696,20 +2716,20 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb132"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1"></a><span class="co"># Compare the comparative fit indices - higher is better!</span></span>
 <span id="cb132-2"><a href="#cb132-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.7616661</code></pre>
+<pre><code>#&gt; [1] 0.7862606</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb134"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1"></a><span class="fu">summary</span>(theory_CFA_del)<span class="sc">$</span>CFI</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.7782832</code></pre>
+<pre><code>#&gt; [1] 0.7998554</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb136"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1"></a><span class="co"># Compare the RMSEA values - lower is better!</span></span>
 <span id="cb136-2"><a href="#cb136-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>RMSEA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.0812914        NA        NA 0.9000000</code></pre>
+<pre><code>#&gt; [1] 0.07773302         NA         NA 0.90000000</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb138"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1"></a><span class="fu">summary</span>(theory_CFA_del)<span class="sc">$</span>RMSEA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 0.08096925         NA         NA 0.90000000</code></pre>
+<pre><code>#&gt; [1] 0.0778008        NA        NA 0.9000000</code></pre>
 </div>
 </div>
 <p>Once again, the revised CFA fits better! In real life, you would carefully consider whether you are okay with excluding that loading and dropping that item.</p>
@@ -2726,11 +2746,11 @@ Theory. Coming soon …
 <div class="sourceCode cell-code" id="cb140"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1"></a><span class="co"># Compare BIC values</span></span>
 <span id="cb140-2"><a href="#cb140-2"></a><span class="fu">summary</span>(theory_CFA)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 521.0618</code></pre>
+<pre><code>#&gt; [1] 325.3621</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb142"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1"></a><span class="fu">summary</span>(theory_CFA_del)<span class="sc">$</span>BIC</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; [1] 460.3795</code></pre>
+<pre><code>#&gt; [1] 300.218</code></pre>
 </div>
 </div>
 <blockquote class="blockquote">
@@ -2900,9 +2920,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -2967,6 +3001,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -3019,10 +3139,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Content 2022 by <a href="https://www.startupengineer.io/authors/schwarz/">Joschka Schwarz</a> <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":true,"selector":".lightbox","openEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","descPosition":"bottom","loop":true});</script>
 
 
 

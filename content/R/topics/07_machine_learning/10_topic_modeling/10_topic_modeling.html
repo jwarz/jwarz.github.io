@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.475">
+<meta name="generator" content="quarto-1.3.340">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,43 +48,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -149,308 +120,349 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <span class="navbar-title">Joschka Schwarz</span>
     </a>
   </div>
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-science" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">Data Science</span>
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-science">    
         <li>
-    <a class="dropdown-item" href="../../../../../content/R/index.html">
+    <a class="dropdown-item" href="../../../../../content/R/index.html" rel="" target="">
  <span class="dropdown-text">R</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/python/index.html">
+    <a class="dropdown-item" href="../../../../../content/python/index.html" rel="" target="">
  <span class="dropdown-text">Python</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../../../../content/sql/index.html">
+    <a class="dropdown-item" href="../../../../../content/sql/index.html" rel="" target="">
  <span class="dropdown-text">SQL</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../slides/index.html">
+    <a class="nav-link" href="../../../../../slides/index.html" rel="" target="">
  <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../resumes/index.html">
+    <a class="nav-link" href="../../../../../resumes/index.html" rel="" target="">
  <span class="menu-text">Resumes</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../../index.html">
+    <a class="nav-link" href="../../../../../index.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/jwarz/"><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
+    <a class="nav-link" href="https://github.com/jwarz/" rel="" target=""><i class="bi bi-github" role="img" aria-label="Quarto GitHub">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
-    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz"><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
+    <a class="nav-link" href="https://www.linkedin.com/in/j-schwarz" rel="" target=""><i class="bi bi-linkedin" role="img" aria-label="Quarto LinkedIn">
 </i> 
  <span class="menu-text"></span></a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
-              </div>
-              <div id="quarto-search" class="" title="Search"></div>
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Topic Modeling in R</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Topics</li><li class="breadcrumb-item"><a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html">7.10: Topic Modeling</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
     </div>
   </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">Overview</a>
+  <a href="../../../../../content/R/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Topics</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Topics</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
-  <b><i>1 Programming Basics</i></b>
+ <span class="menu-text"><b><i>1 Programming Basics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">1.1: Introduction to R</a>
+  <a href="../../../../../content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.1: Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">1.2: Intermediate R</a>
+  <a href="../../../../../content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.2: Intermediate R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">1.3: Introduction to the tidyverse</a>
+  <a href="../../../../../content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1.3: Introduction to the tidyverse</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>2 Importing Data</i></b>
+ <span class="menu-text"><b><i>2 Importing Data</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">2.1: Introduction to Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.1: Introduction to Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">2.2: Intermediate Importing Data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.2: Intermediate Importing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">2.3: Working with web data</a>
+  <a href="../../../../../content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2.3: Working with web data</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>3 Data Wrangling</i></b>
+ <span class="menu-text"><b><i>3 Data Wrangling</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">3.1: Data Manipulation with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.1: Data Manipulation with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">3.2: Joining data with dplyr</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.2: Joining data with dplyr</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.3: Exploratory Data Analysis</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.3: Exploratory Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">3.4: Case Study: EDA</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.4: Case Study: EDA</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">3.5: Cleaning Data</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.5: Cleaning Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">3.6: Data Manipulation with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.6: Data Manipulation with data.table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">3.7: Joining Data with data.table</a>
+  <a href="../../../../../content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3.7: Joining Data with data.table</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>4 Data Visualization</i></b>
+ <span class="menu-text"><b><i>4 Data Visualization</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">4.1: Introduction to Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.1: Introduction to Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">4.2: Intermediate Data Visualization with ggplot2</a>
+  <a href="../../../../../content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4.2: Intermediate Data Visualization with ggplot2</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>5 Statistics</i></b>
+ <span class="menu-text"><b><i>5 Statistics</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">5.1: Introduction to Statistics</a>
+  <a href="../../../../../content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.1: Introduction to Statistics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">5.2: Foundations of Probability</a>
+  <a href="../../../../../content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.2: Foundations of Probability</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">5.3: Introduction to Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.3: Introduction to Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">5.4: Intermediate Regression</a>
+  <a href="../../../../../content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.4: Intermediate Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">5.5: Modeling with Data in the Tidyverse</a>
+  <a href="../../../../../content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.5: Modeling with Data in the Tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">5.6: Experimental Design</a>
+  <a href="../../../../../content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.6: Experimental Design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">5.7: A/B Testing</a>
+  <a href="../../../../../content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.7: A/B Testing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">5.8: Fundamentals of Bayesian Data Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.8: Fundamentals of Bayesian Data Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">5.9: Factor Analysis</a>
+  <a href="../../../../../content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5.9: Factor Analysis</span></a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
-  <b><i>7 Machine Learning</i></b>
+ <span class="menu-text"><b><i>7 Machine Learning</i></b></span>
   </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">7.1: Supervised Learning: Classification</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.1: Supervised Learning: Classification</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">7.2: Supervised Learning: Regression</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.2: Supervised Learning: Regression</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">7.3: Unsupervised Learning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.3: Unsupervised Learning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">7.4: Machine Learning in the tidyverse</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.4: Machine Learning in the tidyverse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">7.5: Cluster Analysis</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.5: Cluster Analysis</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">7.6: Machine Learning with caret</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.6: Machine Learning with caret</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">7.7: Modeling with tidymodels</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.7: Modeling with tidymodels</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">7.8: Machine Learning with tree-based Models</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.8: Machine Learning with tree-based Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">7.9: Support Vector Machines</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.9: Support Vector Machines</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link active">7.10: Topic Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">7.10: Topic Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">7.11: Hyperparameter Tuning</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.11: Hyperparameter Tuning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">7.12: Bayesian Regression Modeling</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.12: Bayesian Regression Modeling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">7.13: Introduction to Spark</a>
+  <a href="../../../../../content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">7.13: Introduction to Spark</span></a>
   </div>
 </li>
       </ul>
@@ -458,40 +470,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Manuals</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">R Manuals</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">1: An Introduction to R</a>
+  <a href="../../../../../content/R/r-manuals/test.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1: An Introduction to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">2: R Data Import/Export</a>
+  <a href="../../../../../content/R/r-manuals/02-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2: R Data Import/Export</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">3: R Installation and Administration</a>
+  <a href="../../../../../content/R/r-manuals/03-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3: R Installation and Administration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">4: Writing R Extensions</a>
+  <a href="../../../../../content/R/r-manuals/04-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Writing R Extensions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">5: R Language Definition</a>
+  <a href="../../../../../content/R/r-manuals/05-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">5: R Language Definition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">6: R Internals</a>
+  <a href="../../../../../content/R/r-manuals/06-content.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">6: R Internals</span></a>
   </div>
 </li>
       </ul>
@@ -499,72 +518,73 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#info-for-rstan-rstanarm" id="toc-info-for-rstan-rstanarm" class="nav-link active" data-scroll-target="#info-for-rstan-rstanarm"><span class="toc-section-number">0.1</span>  INFO FOR RSTAN / RSTANARM</a></li>
-  <li><a href="#quick-introduction-to-the-workflow" id="toc-quick-introduction-to-the-workflow" class="nav-link" data-scroll-target="#quick-introduction-to-the-workflow"><span class="toc-section-number">1</span>  Quick introduction to the workflow</a>
+  <li><a href="#info-for-rstan-rstanarm" id="toc-info-for-rstan-rstanarm" class="nav-link active" data-scroll-target="#info-for-rstan-rstanarm"><span class="header-section-number">0.1</span> INFO FOR RSTAN / RSTANARM</a></li>
+  <li><a href="#quick-introduction-to-the-workflow" id="toc-quick-introduction-to-the-workflow" class="nav-link" data-scroll-target="#quick-introduction-to-the-workflow"><span class="header-section-number">1</span> Quick introduction to the workflow</a>
   <ul class="collapse">
-  <li><a href="#why-learn-topic-modeling" id="toc-why-learn-topic-modeling" class="nav-link" data-scroll-target="#why-learn-topic-modeling"><span class="toc-section-number">1.1</span>  Why learn topic modeling</a></li>
-  <li><a href="#topics-as-word-contexts" id="toc-topics-as-word-contexts" class="nav-link" data-scroll-target="#topics-as-word-contexts"><span class="toc-section-number">1.2</span>  Topics as word contexts</a></li>
-  <li><a href="#topic-prevalence" id="toc-topic-prevalence" class="nav-link" data-scroll-target="#topic-prevalence"><span class="toc-section-number">1.4</span>  Topic prevalence</a></li>
-  <li><a href="#probabilities-of-words-belonging-to-topics" id="toc-probabilities-of-words-belonging-to-topics" class="nav-link" data-scroll-target="#probabilities-of-words-belonging-to-topics"><span class="toc-section-number">1.6</span>  Probabilities of words belonging to topics</a></li>
-  <li><a href="#counting-words" id="toc-counting-words" class="nav-link" data-scroll-target="#counting-words"><span class="toc-section-number">1.7</span>  Counting words</a></li>
-  <li><a href="#removal-of-punctuation-marks" id="toc-removal-of-punctuation-marks" class="nav-link" data-scroll-target="#removal-of-punctuation-marks"><span class="toc-section-number">1.8</span>  Removal of punctuation marks</a></li>
-  <li><a href="#word-frequencies" id="toc-word-frequencies" class="nav-link" data-scroll-target="#word-frequencies"><span class="toc-section-number">1.10</span>  Word frequencies</a></li>
-  <li><a href="#our-first-lda-model" id="toc-our-first-lda-model" class="nav-link" data-scroll-target="#our-first-lda-model"><span class="toc-section-number">1.11</span>  Our first LDA model</a></li>
-  <li><a href="#displaying-frequencies-with-ggplot" id="toc-displaying-frequencies-with-ggplot" class="nav-link" data-scroll-target="#displaying-frequencies-with-ggplot"><span class="toc-section-number">1.12</span>  Displaying frequencies with ggplot</a></li>
-  <li><a href="#simple-lda-model" id="toc-simple-lda-model" class="nav-link" data-scroll-target="#simple-lda-model"><span class="toc-section-number">1.13</span>  Simple LDA model</a></li>
+  <li><a href="#why-learn-topic-modeling" id="toc-why-learn-topic-modeling" class="nav-link" data-scroll-target="#why-learn-topic-modeling"><span class="header-section-number">1.1</span> Why learn topic modeling</a></li>
+  <li><a href="#topics-as-word-contexts" id="toc-topics-as-word-contexts" class="nav-link" data-scroll-target="#topics-as-word-contexts"><span class="header-section-number">1.2</span> Topics as word contexts</a></li>
+  <li><a href="#topic-prevalence" id="toc-topic-prevalence" class="nav-link" data-scroll-target="#topic-prevalence"><span class="header-section-number">1.4</span> Topic prevalence</a></li>
+  <li><a href="#probabilities-of-words-belonging-to-topics" id="toc-probabilities-of-words-belonging-to-topics" class="nav-link" data-scroll-target="#probabilities-of-words-belonging-to-topics"><span class="header-section-number">1.6</span> Probabilities of words belonging to topics</a></li>
+  <li><a href="#counting-words" id="toc-counting-words" class="nav-link" data-scroll-target="#counting-words"><span class="header-section-number">1.7</span> Counting words</a></li>
+  <li><a href="#removal-of-punctuation-marks" id="toc-removal-of-punctuation-marks" class="nav-link" data-scroll-target="#removal-of-punctuation-marks"><span class="header-section-number">1.8</span> Removal of punctuation marks</a></li>
+  <li><a href="#word-frequencies" id="toc-word-frequencies" class="nav-link" data-scroll-target="#word-frequencies"><span class="header-section-number">1.10</span> Word frequencies</a></li>
+  <li><a href="#our-first-lda-model" id="toc-our-first-lda-model" class="nav-link" data-scroll-target="#our-first-lda-model"><span class="header-section-number">1.11</span> Our first LDA model</a></li>
+  <li><a href="#displaying-frequencies-with-ggplot" id="toc-displaying-frequencies-with-ggplot" class="nav-link" data-scroll-target="#displaying-frequencies-with-ggplot"><span class="header-section-number">1.12</span> Displaying frequencies with ggplot</a></li>
+  <li><a href="#simple-lda-model" id="toc-simple-lda-model" class="nav-link" data-scroll-target="#simple-lda-model"><span class="header-section-number">1.13</span> Simple LDA model</a></li>
   </ul></li>
-  <li><a href="#wordclouds-stopwords-and-control-arguments" id="toc-wordclouds-stopwords-and-control-arguments" class="nav-link" data-scroll-target="#wordclouds-stopwords-and-control-arguments"><span class="toc-section-number">2</span>  2. Wordclouds, stopwords, and control arguments</a>
+  <li><a href="#wordclouds-stopwords-and-control-arguments" id="toc-wordclouds-stopwords-and-control-arguments" class="nav-link" data-scroll-target="#wordclouds-stopwords-and-control-arguments"><span class="header-section-number">2</span> 2. Wordclouds, stopwords, and control arguments</a>
   <ul class="collapse">
-  <li><a href="#random-nature-of-lda-algorithm" id="toc-random-nature-of-lda-algorithm" class="nav-link" data-scroll-target="#random-nature-of-lda-algorithm"><span class="toc-section-number">2.1</span>  Random nature of LDA algorithm</a></li>
-  <li><a href="#probabilities-of-words-in-topics" id="toc-probabilities-of-words-in-topics" class="nav-link" data-scroll-target="#probabilities-of-words-in-topics"><span class="toc-section-number">2.2</span>  Probabilities of words in topics</a></li>
-  <li><a href="#effect-of-argument-alpha" id="toc-effect-of-argument-alpha" class="nav-link" data-scroll-target="#effect-of-argument-alpha"><span class="toc-section-number">2.3</span>  Effect of argument alpha</a></li>
-  <li><a href="#manipulating-the-vocabulary" id="toc-manipulating-the-vocabulary" class="nav-link" data-scroll-target="#manipulating-the-vocabulary"><span class="toc-section-number">2.5</span>  Manipulating the vocabulary</a></li>
-  <li><a href="#removing-stopwords" id="toc-removing-stopwords" class="nav-link" data-scroll-target="#removing-stopwords"><span class="toc-section-number">2.6</span>  Removing stopwords</a></li>
-  <li><a href="#keeping-the-needed-words" id="toc-keeping-the-needed-words" class="nav-link" data-scroll-target="#keeping-the-needed-words"><span class="toc-section-number">2.7</span>  Keeping the needed words</a></li>
-  <li><a href="#word-clouds" id="toc-word-clouds" class="nav-link" data-scroll-target="#word-clouds"><span class="toc-section-number">2.8</span>  Word clouds</a></li>
-  <li><a href="#wordcloud-of-term-frequency" id="toc-wordcloud-of-term-frequency" class="nav-link" data-scroll-target="#wordcloud-of-term-frequency"><span class="toc-section-number">2.9</span>  Wordcloud of term frequency</a></li>
-  <li><a href="#history-of-the-byzantine-empire" id="toc-history-of-the-byzantine-empire" class="nav-link" data-scroll-target="#history-of-the-byzantine-empire"><span class="toc-section-number">2.10</span>  History of the Byzantine Empire</a></li>
-  <li><a href="#lda-model-fitting---first-iteration" id="toc-lda-model-fitting---first-iteration" class="nav-link" data-scroll-target="#lda-model-fitting---first-iteration"><span class="toc-section-number">2.11</span>  LDA model fitting - first iteration</a></li>
-  <li><a href="#capturing-the-actions---dtm-with-verbs" id="toc-capturing-the-actions---dtm-with-verbs" class="nav-link" data-scroll-target="#capturing-the-actions---dtm-with-verbs"><span class="toc-section-number">2.12</span>  Capturing the actions - dtm with verbs</a></li>
-  <li><a href="#making-a-chart" id="toc-making-a-chart" class="nav-link" data-scroll-target="#making-a-chart"><span class="toc-section-number">2.13</span>  Making a chart</a></li>
-  <li><a href="#use-wordclouds" id="toc-use-wordclouds" class="nav-link" data-scroll-target="#use-wordclouds"><span class="toc-section-number">2.14</span>  Use wordclouds</a></li>
+  <li><a href="#random-nature-of-lda-algorithm" id="toc-random-nature-of-lda-algorithm" class="nav-link" data-scroll-target="#random-nature-of-lda-algorithm"><span class="header-section-number">2.1</span> Random nature of LDA algorithm</a></li>
+  <li><a href="#probabilities-of-words-in-topics" id="toc-probabilities-of-words-in-topics" class="nav-link" data-scroll-target="#probabilities-of-words-in-topics"><span class="header-section-number">2.2</span> Probabilities of words in topics</a></li>
+  <li><a href="#effect-of-argument-alpha" id="toc-effect-of-argument-alpha" class="nav-link" data-scroll-target="#effect-of-argument-alpha"><span class="header-section-number">2.3</span> Effect of argument alpha</a></li>
+  <li><a href="#manipulating-the-vocabulary" id="toc-manipulating-the-vocabulary" class="nav-link" data-scroll-target="#manipulating-the-vocabulary"><span class="header-section-number">2.5</span> Manipulating the vocabulary</a></li>
+  <li><a href="#removing-stopwords" id="toc-removing-stopwords" class="nav-link" data-scroll-target="#removing-stopwords"><span class="header-section-number">2.6</span> Removing stopwords</a></li>
+  <li><a href="#keeping-the-needed-words" id="toc-keeping-the-needed-words" class="nav-link" data-scroll-target="#keeping-the-needed-words"><span class="header-section-number">2.7</span> Keeping the needed words</a></li>
+  <li><a href="#word-clouds" id="toc-word-clouds" class="nav-link" data-scroll-target="#word-clouds"><span class="header-section-number">2.8</span> Word clouds</a></li>
+  <li><a href="#wordcloud-of-term-frequency" id="toc-wordcloud-of-term-frequency" class="nav-link" data-scroll-target="#wordcloud-of-term-frequency"><span class="header-section-number">2.9</span> Wordcloud of term frequency</a></li>
+  <li><a href="#history-of-the-byzantine-empire" id="toc-history-of-the-byzantine-empire" class="nav-link" data-scroll-target="#history-of-the-byzantine-empire"><span class="header-section-number">2.10</span> History of the Byzantine Empire</a></li>
+  <li><a href="#lda-model-fitting---first-iteration" id="toc-lda-model-fitting---first-iteration" class="nav-link" data-scroll-target="#lda-model-fitting---first-iteration"><span class="header-section-number">2.11</span> LDA model fitting - first iteration</a></li>
+  <li><a href="#capturing-the-actions---dtm-with-verbs" id="toc-capturing-the-actions---dtm-with-verbs" class="nav-link" data-scroll-target="#capturing-the-actions---dtm-with-verbs"><span class="header-section-number">2.12</span> Capturing the actions - dtm with verbs</a></li>
+  <li><a href="#making-a-chart" id="toc-making-a-chart" class="nav-link" data-scroll-target="#making-a-chart"><span class="header-section-number">2.13</span> Making a chart</a></li>
+  <li><a href="#use-wordclouds" id="toc-use-wordclouds" class="nav-link" data-scroll-target="#use-wordclouds"><span class="header-section-number">2.14</span> Use wordclouds</a></li>
   </ul></li>
-  <li><a href="#named-entity-recognition-as-unsupervised-classification" id="toc-named-entity-recognition-as-unsupervised-classification" class="nav-link" data-scroll-target="#named-entity-recognition-as-unsupervised-classification"><span class="toc-section-number">3</span>  3. Named entity recognition as unsupervised classification</a>
+  <li><a href="#named-entity-recognition-as-unsupervised-classification" id="toc-named-entity-recognition-as-unsupervised-classification" class="nav-link" data-scroll-target="#named-entity-recognition-as-unsupervised-classification"><span class="header-section-number">3</span> 3. Named entity recognition as unsupervised classification</a>
   <ul class="collapse">
-  <li><a href="#using-topic-models-as-classifiers" id="toc-using-topic-models-as-classifiers" class="nav-link" data-scroll-target="#using-topic-models-as-classifiers"><span class="toc-section-number">3.1</span>  Using topic models as classifiers</a></li>
-  <li><a href="#same-k-different-alpha" id="toc-same-k-different-alpha" class="nav-link" data-scroll-target="#same-k-different-alpha"><span class="toc-section-number">3.2</span>  Same k, different alpha</a></li>
-  <li><a href="#probabilities-of-words-in-topics-1" id="toc-probabilities-of-words-in-topics-1" class="nav-link" data-scroll-target="#probabilities-of-words-in-topics-1"><span class="toc-section-number">3.4</span>  Probabilities of words in topics</a></li>
-  <li><a href="#from-word-windows-to-dtm" id="toc-from-word-windows-to-dtm" class="nav-link" data-scroll-target="#from-word-windows-to-dtm"><span class="toc-section-number">3.5</span>  From word windows to dtm</a></li>
-  <li><a href="#regex-patterns-for-entity-matching" id="toc-regex-patterns-for-entity-matching" class="nav-link" data-scroll-target="#regex-patterns-for-entity-matching"><span class="toc-section-number">3.6</span>  Regex patterns for entity matching</a></li>
-  <li><a href="#making-a-corpus" id="toc-making-a-corpus" class="nav-link" data-scroll-target="#making-a-corpus"><span class="toc-section-number">3.8</span>  Making a corpus</a></li>
-  <li><a href="#from-dtm-to-topic-model" id="toc-from-dtm-to-topic-model" class="nav-link" data-scroll-target="#from-dtm-to-topic-model"><span class="toc-section-number">3.9</span>  From dtm to topic model</a></li>
-  <li><a href="#corpus-alignment-and-classification" id="toc-corpus-alignment-and-classification" class="nav-link" data-scroll-target="#corpus-alignment-and-classification"><span class="toc-section-number">3.10</span>  Corpus alignment and classification</a></li>
-  <li><a href="#train-a-topic-model" id="toc-train-a-topic-model" class="nav-link" data-scroll-target="#train-a-topic-model"><span class="toc-section-number">3.11</span>  Train a topic model</a></li>
-  <li><a href="#align-corpus" id="toc-align-corpus" class="nav-link" data-scroll-target="#align-corpus"><span class="toc-section-number">3.12</span>  Align corpus</a></li>
-  <li><a href="#classify-test-data" id="toc-classify-test-data" class="nav-link" data-scroll-target="#classify-test-data"><span class="toc-section-number">3.13</span>  Classify test data</a></li>
-  <li><a href="#explore-the-results" id="toc-explore-the-results" class="nav-link" data-scroll-target="#explore-the-results"><span class="toc-section-number">3.14</span>  Explore the results</a></li>
+  <li><a href="#using-topic-models-as-classifiers" id="toc-using-topic-models-as-classifiers" class="nav-link" data-scroll-target="#using-topic-models-as-classifiers"><span class="header-section-number">3.1</span> Using topic models as classifiers</a></li>
+  <li><a href="#same-k-different-alpha" id="toc-same-k-different-alpha" class="nav-link" data-scroll-target="#same-k-different-alpha"><span class="header-section-number">3.2</span> Same k, different alpha</a></li>
+  <li><a href="#probabilities-of-words-in-topics-1" id="toc-probabilities-of-words-in-topics-1" class="nav-link" data-scroll-target="#probabilities-of-words-in-topics-1"><span class="header-section-number">3.4</span> Probabilities of words in topics</a></li>
+  <li><a href="#from-word-windows-to-dtm" id="toc-from-word-windows-to-dtm" class="nav-link" data-scroll-target="#from-word-windows-to-dtm"><span class="header-section-number">3.5</span> From word windows to dtm</a></li>
+  <li><a href="#regex-patterns-for-entity-matching" id="toc-regex-patterns-for-entity-matching" class="nav-link" data-scroll-target="#regex-patterns-for-entity-matching"><span class="header-section-number">3.6</span> Regex patterns for entity matching</a></li>
+  <li><a href="#making-a-corpus" id="toc-making-a-corpus" class="nav-link" data-scroll-target="#making-a-corpus"><span class="header-section-number">3.8</span> Making a corpus</a></li>
+  <li><a href="#from-dtm-to-topic-model" id="toc-from-dtm-to-topic-model" class="nav-link" data-scroll-target="#from-dtm-to-topic-model"><span class="header-section-number">3.9</span> From dtm to topic model</a></li>
+  <li><a href="#corpus-alignment-and-classification" id="toc-corpus-alignment-and-classification" class="nav-link" data-scroll-target="#corpus-alignment-and-classification"><span class="header-section-number">3.10</span> Corpus alignment and classification</a></li>
+  <li><a href="#train-a-topic-model" id="toc-train-a-topic-model" class="nav-link" data-scroll-target="#train-a-topic-model"><span class="header-section-number">3.11</span> Train a topic model</a></li>
+  <li><a href="#align-corpus" id="toc-align-corpus" class="nav-link" data-scroll-target="#align-corpus"><span class="header-section-number">3.12</span> Align corpus</a></li>
+  <li><a href="#classify-test-data" id="toc-classify-test-data" class="nav-link" data-scroll-target="#classify-test-data"><span class="header-section-number">3.13</span> Classify test data</a></li>
+  <li><a href="#explore-the-results" id="toc-explore-the-results" class="nav-link" data-scroll-target="#explore-the-results"><span class="header-section-number">3.14</span> Explore the results</a></li>
   </ul></li>
-  <li><a href="#how-many-topics-is-enough" id="toc-how-many-topics-is-enough" class="nav-link" data-scroll-target="#how-many-topics-is-enough"><span class="toc-section-number">4</span>  4. How many topics is enough?</a>
+  <li><a href="#how-many-topics-is-enough" id="toc-how-many-topics-is-enough" class="nav-link" data-scroll-target="#how-many-topics-is-enough"><span class="header-section-number">4</span> 4. How many topics is enough?</a>
   <ul class="collapse">
-  <li><a href="#finding-the-best-number-of-topics" id="toc-finding-the-best-number-of-topics" class="nav-link" data-scroll-target="#finding-the-best-number-of-topics"><span class="toc-section-number">4.1</span>  Finding the best number of topics</a></li>
-  <li><a href="#preparing-the-dtm" id="toc-preparing-the-dtm" class="nav-link" data-scroll-target="#preparing-the-dtm"><span class="toc-section-number">4.2</span>  Preparing the dtm</a></li>
-  <li><a href="#filtering-by-word-frequency" id="toc-filtering-by-word-frequency" class="nav-link" data-scroll-target="#filtering-by-word-frequency"><span class="toc-section-number">4.3</span>  Filtering by word frequency</a></li>
-  <li><a href="#fitting-one-model" id="toc-fitting-one-model" class="nav-link" data-scroll-target="#fitting-one-model"><span class="toc-section-number">4.4</span>  Fitting one model</a></li>
-  <li><a href="#using-perplexity-to-find-the-best-k" id="toc-using-perplexity-to-find-the-best-k" class="nav-link" data-scroll-target="#using-perplexity-to-find-the-best-k"><span class="toc-section-number">4.5</span>  Using perplexity to find the best k</a></li>
-  <li><a href="#topic-models-fitted-to-novels" id="toc-topic-models-fitted-to-novels" class="nav-link" data-scroll-target="#topic-models-fitted-to-novels"><span class="toc-section-number">4.7</span>  Topic models fitted to novels</a></li>
-  <li><a href="#generating-chunk-numbers" id="toc-generating-chunk-numbers" class="nav-link" data-scroll-target="#generating-chunk-numbers"><span class="toc-section-number">4.8</span>  Generating chunk numbers</a></li>
-  <li><a href="#inner-join-and-cast-dtm" id="toc-inner-join-and-cast-dtm" class="nav-link" data-scroll-target="#inner-join-and-cast-dtm"><span class="toc-section-number">4.9</span>  Inner join and cast dtm</a></li>
-  <li><a href="#finding-the-best-value-for-k" id="toc-finding-the-best-value-for-k" class="nav-link" data-scroll-target="#finding-the-best-value-for-k"><span class="toc-section-number">4.10</span>  Finding the best value for k</a></li>
-  <li><a href="#locking-topics-by-using-seed-words" id="toc-locking-topics-by-using-seed-words" class="nav-link" data-scroll-target="#locking-topics-by-using-seed-words"><span class="toc-section-number">4.12</span>  Locking topics by using seed words</a></li>
-  <li><a href="#topics-without-seedwords" id="toc-topics-without-seedwords" class="nav-link" data-scroll-target="#topics-without-seedwords"><span class="toc-section-number">4.13</span>  Topics without seedwords</a></li>
-  <li><a href="#topics-with-seedwords" id="toc-topics-with-seedwords" class="nav-link" data-scroll-target="#topics-with-seedwords"><span class="toc-section-number">4.14</span>  Topics with seedwords</a></li>
-  <li><a href="#final-words-and-more-things-to-learn" id="toc-final-words-and-more-things-to-learn" class="nav-link" data-scroll-target="#final-words-and-more-things-to-learn"><span class="toc-section-number">4.15</span>  Final words (and more things to learn)</a></li>
+  <li><a href="#finding-the-best-number-of-topics" id="toc-finding-the-best-number-of-topics" class="nav-link" data-scroll-target="#finding-the-best-number-of-topics"><span class="header-section-number">4.1</span> Finding the best number of topics</a></li>
+  <li><a href="#preparing-the-dtm" id="toc-preparing-the-dtm" class="nav-link" data-scroll-target="#preparing-the-dtm"><span class="header-section-number">4.2</span> Preparing the dtm</a></li>
+  <li><a href="#filtering-by-word-frequency" id="toc-filtering-by-word-frequency" class="nav-link" data-scroll-target="#filtering-by-word-frequency"><span class="header-section-number">4.3</span> Filtering by word frequency</a></li>
+  <li><a href="#fitting-one-model" id="toc-fitting-one-model" class="nav-link" data-scroll-target="#fitting-one-model"><span class="header-section-number">4.4</span> Fitting one model</a></li>
+  <li><a href="#using-perplexity-to-find-the-best-k" id="toc-using-perplexity-to-find-the-best-k" class="nav-link" data-scroll-target="#using-perplexity-to-find-the-best-k"><span class="header-section-number">4.5</span> Using perplexity to find the best k</a></li>
+  <li><a href="#topic-models-fitted-to-novels" id="toc-topic-models-fitted-to-novels" class="nav-link" data-scroll-target="#topic-models-fitted-to-novels"><span class="header-section-number">4.7</span> Topic models fitted to novels</a></li>
+  <li><a href="#generating-chunk-numbers" id="toc-generating-chunk-numbers" class="nav-link" data-scroll-target="#generating-chunk-numbers"><span class="header-section-number">4.8</span> Generating chunk numbers</a></li>
+  <li><a href="#inner-join-and-cast-dtm" id="toc-inner-join-and-cast-dtm" class="nav-link" data-scroll-target="#inner-join-and-cast-dtm"><span class="header-section-number">4.9</span> Inner join and cast dtm</a></li>
+  <li><a href="#finding-the-best-value-for-k" id="toc-finding-the-best-value-for-k" class="nav-link" data-scroll-target="#finding-the-best-value-for-k"><span class="header-section-number">4.10</span> Finding the best value for k</a></li>
+  <li><a href="#locking-topics-by-using-seed-words" id="toc-locking-topics-by-using-seed-words" class="nav-link" data-scroll-target="#locking-topics-by-using-seed-words"><span class="header-section-number">4.12</span> Locking topics by using seed words</a></li>
+  <li><a href="#topics-without-seedwords" id="toc-topics-without-seedwords" class="nav-link" data-scroll-target="#topics-without-seedwords"><span class="header-section-number">4.13</span> Topics without seedwords</a></li>
+  <li><a href="#topics-with-seedwords" id="toc-topics-with-seedwords" class="nav-link" data-scroll-target="#topics-with-seedwords"><span class="header-section-number">4.14</span> Topics with seedwords</a></li>
+  <li><a href="#final-words-and-more-things-to-learn" id="toc-final-words-and-more-things-to-learn" class="nav-link" data-scroll-target="#final-words-and-more-things-to-learn"><span class="header-section-number">4.15</span> Final words (and more things to learn)</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/jwarz/jwarz.github.io/edit/main/content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/jwarz/jwarz.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -574,7 +594,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Topic Modeling in R</h1>
+<h1 class="title">Topic Modeling in R</h1>
 </div>
 
 
@@ -756,7 +776,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-22"><a href="#cb9-22"></a>  <span class="fu">filter</span>(<span class="sc">!</span>is_chapter_title, chapter <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb9-23"><a href="#cb9-23"></a>  <span class="fu">select</span>(<span class="sc">-</span>is_chapter_title)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Determining mirror for Project Gutenberg from http://www.gutenberg.org/robot/harvest</code></pre>
+<pre><code>#&gt; Determining mirror for Project Gutenberg from https://www.gutenberg.org/robot/harvest</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Using mirror http://aleph.gutenberg.org</code></pre>
@@ -1061,7 +1081,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb25-5"><a href="#cb25-5"></a>  <span class="fu">count</span>(id, word) <span class="sc">%&gt;%</span></span>
 <span id="cb25-6"><a href="#cb25-6"></a>  <span class="fu">cast_dtm</span>(<span class="at">document=</span>id, <span class="at">term=</span>word, <span class="at">value=</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Joining, by = "word"</code></pre>
+<pre><code>#&gt; Joining with `by = join_by(word)`</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Display the matrix</span></span>
 <span id="cb27-2"><a href="#cb27-2"></a><span class="fu">as.matrix</span>(dtm2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1102,7 +1122,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb29-8"><a href="#cb29-8"></a>  <span class="fu">count</span>(id, word) <span class="sc">%&gt;%</span></span>
 <span id="cb29-9"><a href="#cb29-9"></a>  <span class="fu">cast_dtm</span>(<span class="at">document=</span>id, <span class="at">term=</span>word, <span class="at">value=</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Joining, by = "word"</code></pre>
+<pre><code>#&gt; Joining with `by = join_by(word)`</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># Display the contents of dtm</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="fu">as.matrix</span>(dtm3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1241,7 +1261,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb39-10"><a href="#cb39-10"></a>    <span class="fu">count</span>(chapter, word) <span class="sc">%&gt;%</span> </span>
 <span id="cb39-11"><a href="#cb39-11"></a>    <span class="fu">cast_dtm</span>(<span class="at">document=</span>chapter, <span class="at">term=</span>word, <span class="at">value=</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Joining, by = "word"</code></pre>
+<pre><code>#&gt; Joining with `by = join_by(word)`</code></pre>
 </div>
 </div>
 <ol start="2" type="1">
@@ -1304,21 +1324,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb46-4"><a href="#cb46-4"></a>    <span class="fu">inner_join</span>(verbs, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"word"</span><span class="ot">=</span><span class="st">"past"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb46-5"><a href="#cb46-5"></a>    <span class="fu">count</span>(chapter, word) <span class="sc">%&gt;%</span> </span>
 <span id="cb46-6"><a href="#cb46-6"></a>    <span class="fu">cast_dtm</span>(<span class="at">document=</span>chapter, <span class="at">term=</span>word, <span class="at">value=</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning in inner_join(., verbs, by = c(word = "past")): Detected an unexpected many-to-many relationship between `x` and `y`.
+#&gt; ℹ Row 17948 of `x` matches multiple rows in `y`.
+#&gt; ℹ Row 506 of `y` matches multiple rows in `x`.
+#&gt; ℹ If a many-to-many relationship is expected, set `relationship =
+#&gt;   "many-to-many"` to silence this warning.</code></pre>
+</div>
 </div>
 <ol start="2" type="1">
 <li>Fit the Gibbs-sampling LDA topic model with four topics. Do not modify the <code>control</code> argument.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># Fit LDA for four topics</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a>mod5 <span class="ot">&lt;-</span> <span class="fu">LDA</span>(<span class="at">x=</span>dtm5, <span class="at">k=</span><span class="dv">4</span>, <span class="at">method=</span><span class="st">"Gibbs"</span>,</span>
-<span id="cb47-3"><a href="#cb47-3"></a>          <span class="at">control=</span><span class="fu">list</span>(<span class="at">alpha=</span><span class="dv">1</span>, <span class="at">seed=</span><span class="dv">10005</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="co"># Fit LDA for four topics</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>mod5 <span class="ot">&lt;-</span> <span class="fu">LDA</span>(<span class="at">x=</span>dtm5, <span class="at">k=</span><span class="dv">4</span>, <span class="at">method=</span><span class="st">"Gibbs"</span>,</span>
+<span id="cb48-3"><a href="#cb48-3"></a>          <span class="at">control=</span><span class="fu">list</span>(<span class="at">alpha=</span><span class="dv">1</span>, <span class="at">seed=</span><span class="dv">10005</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Use function <code>terms</code> to display top 25 words from each topic</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="co"># Display top 25 words from each topic</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a><span class="fu">terms</span>(mod5, <span class="at">k=</span><span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># Display top 25 words from each topic</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a><span class="fu">terms</span>(mod5, <span class="at">k=</span><span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;       Topic 1     Topic 2        Topic 3       Topic 4     
 #&gt;  [1,] "was"       "began"        "kept"        "came"      
@@ -1358,11 +1385,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Make a stacked column chart showing proportions of topics in documents/chapters.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># Extract matrix gamma and plot it</span></span>
-<span id="cb50-2"><a href="#cb50-2"></a><span class="fu">tidy</span>(mod5, <span class="st">"gamma"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb50-3"><a href="#cb50-3"></a>    <span class="fu">mutate</span>(<span class="at">document=</span><span class="fu">as.numeric</span>(document)) <span class="sc">%&gt;%</span> </span>
-<span id="cb50-4"><a href="#cb50-4"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>document, <span class="at">y=</span>gamma)) <span class="sc">+</span> </span>
-<span id="cb50-5"><a href="#cb50-5"></a>    <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span><span class="fu">factor</span>(topic)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Extract matrix gamma and plot it</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a><span class="fu">tidy</span>(mod5, <span class="st">"gamma"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-3"><a href="#cb51-3"></a>    <span class="fu">mutate</span>(<span class="at">document=</span><span class="fu">as.numeric</span>(document)) <span class="sc">%&gt;%</span> </span>
+<span id="cb51-4"><a href="#cb51-4"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>document, <span class="at">y=</span>gamma)) <span class="sc">+</span> </span>
+<span id="cb51-5"><a href="#cb51-5"></a>    <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span><span class="fu">factor</span>(topic)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1378,8 +1405,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co"># Display the words whose probability is above the threshold</span></span>
-<span id="cb51-2"><a href="#cb51-2"></a><span class="fu">terms</span>(mod5, <span class="at">threshold=</span><span class="fl">0.0075</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a><span class="co"># Display the words whose probability is above the threshold</span></span>
+<span id="cb52-2"><a href="#cb52-2"></a><span class="fu">terms</span>(mod5, <span class="at">threshold=</span><span class="fl">0.0075</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; $`Topic 1`
 #&gt;  [1] "destined" "did"      "found"    "had"      "left"     "made"    
@@ -1413,13 +1440,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>You are given a code that will generate a line plot. Specify new axes labels: set x label to <code>Chapter</code> and y label to <code>Topic probability</code>.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># Extract matrix gamma and plot it</span></span>
-<span id="cb53-2"><a href="#cb53-2"></a><span class="fu">tidy</span>(mod5, <span class="st">"gamma"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb53-3"><a href="#cb53-3"></a>    <span class="fu">mutate</span>(<span class="at">document=</span><span class="fu">as.numeric</span>(document)) <span class="sc">%&gt;%</span> </span>
-<span id="cb53-4"><a href="#cb53-4"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>document, <span class="at">y=</span>gamma)) <span class="sc">+</span> </span>
-<span id="cb53-5"><a href="#cb53-5"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span><span class="fu">factor</span>(topic))) <span class="sc">+</span> </span>
-<span id="cb53-6"><a href="#cb53-6"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Chapter"</span>, <span class="at">y=</span><span class="st">"Topic probability"</span>) <span class="sc">+</span></span>
-<span id="cb53-7"><a href="#cb53-7"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">brewer.pal</span>(<span class="at">n=</span><span class="dv">4</span>, <span class="st">"Set1"</span>), <span class="at">name=</span><span class="st">"Topic"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># Extract matrix gamma and plot it</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a><span class="fu">tidy</span>(mod5, <span class="st">"gamma"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb54-3"><a href="#cb54-3"></a>    <span class="fu">mutate</span>(<span class="at">document=</span><span class="fu">as.numeric</span>(document)) <span class="sc">%&gt;%</span> </span>
+<span id="cb54-4"><a href="#cb54-4"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>document, <span class="at">y=</span>gamma)) <span class="sc">+</span> </span>
+<span id="cb54-5"><a href="#cb54-5"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span><span class="fu">factor</span>(topic))) <span class="sc">+</span> </span>
+<span id="cb54-6"><a href="#cb54-6"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Chapter"</span>, <span class="at">y=</span><span class="st">"Topic probability"</span>) <span class="sc">+</span></span>
+<span id="cb54-7"><a href="#cb54-7"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">brewer.pal</span>(<span class="at">n=</span><span class="dv">4</span>, <span class="st">"Set1"</span>), <span class="at">name=</span><span class="st">"Topic"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1440,21 +1467,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Display the word cloud. You need to pass the terms to the <code>word</code>argument and the frequencies to the <code>freq</code> argument. The for-loop will do one chart per topic.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># Display wordclouds one at a time</span></span>
-<span id="cb54-2"><a href="#cb54-2"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) {</span>
-<span id="cb54-3"><a href="#cb54-3"></a>  <span class="co"># Generate a table with word frequences for topic j</span></span>
-<span id="cb54-4"><a href="#cb54-4"></a>  word_frequencies <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mod5, <span class="at">matrix=</span><span class="st">"beta"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb54-5"><a href="#cb54-5"></a>    <span class="fu">mutate</span>(<span class="at">n =</span> <span class="fu">trunc</span>(beta <span class="sc">*</span> <span class="dv">10000</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb54-6"><a href="#cb54-6"></a>    <span class="fu">filter</span>(topic <span class="sc">==</span> j)</span>
-<span id="cb54-7"><a href="#cb54-7"></a></span>
-<span id="cb54-8"><a href="#cb54-8"></a>  <span class="co"># Display word cloud</span></span>
-<span id="cb54-9"><a href="#cb54-9"></a>  <span class="fu">wordcloud</span>(<span class="at">words =</span> word_frequencies<span class="sc">$</span>term, </span>
-<span id="cb54-10"><a href="#cb54-10"></a>            <span class="at">freq =</span> word_frequencies<span class="sc">$</span>n,</span>
-<span id="cb54-11"><a href="#cb54-11"></a>            <span class="at">max.words =</span> <span class="dv">20</span>,</span>
-<span id="cb54-12"><a href="#cb54-12"></a>            <span class="at">scale =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="fl">0.5</span>),</span>
-<span id="cb54-13"><a href="#cb54-13"></a>            <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"DarkOrange"</span>, <span class="st">"CornflowerBlue"</span>, <span class="st">"DarkRed"</span>), </span>
-<span id="cb54-14"><a href="#cb54-14"></a>            <span class="at">rot.per =</span> <span class="fl">0.3</span>)</span>
-<span id="cb54-15"><a href="#cb54-15"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># Display wordclouds one at a time</span></span>
+<span id="cb55-2"><a href="#cb55-2"></a><span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) {</span>
+<span id="cb55-3"><a href="#cb55-3"></a>  <span class="co"># Generate a table with word frequences for topic j</span></span>
+<span id="cb55-4"><a href="#cb55-4"></a>  word_frequencies <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mod5, <span class="at">matrix=</span><span class="st">"beta"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb55-5"><a href="#cb55-5"></a>    <span class="fu">mutate</span>(<span class="at">n =</span> <span class="fu">trunc</span>(beta <span class="sc">*</span> <span class="dv">10000</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb55-6"><a href="#cb55-6"></a>    <span class="fu">filter</span>(topic <span class="sc">==</span> j)</span>
+<span id="cb55-7"><a href="#cb55-7"></a></span>
+<span id="cb55-8"><a href="#cb55-8"></a>  <span class="co"># Display word cloud</span></span>
+<span id="cb55-9"><a href="#cb55-9"></a>  <span class="fu">wordcloud</span>(<span class="at">words =</span> word_frequencies<span class="sc">$</span>term, </span>
+<span id="cb55-10"><a href="#cb55-10"></a>            <span class="at">freq =</span> word_frequencies<span class="sc">$</span>n,</span>
+<span id="cb55-11"><a href="#cb55-11"></a>            <span class="at">max.words =</span> <span class="dv">20</span>,</span>
+<span id="cb55-12"><a href="#cb55-12"></a>            <span class="at">scale =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="fl">0.5</span>),</span>
+<span id="cb55-13"><a href="#cb55-13"></a>            <span class="at">colors =</span> <span class="fu">c</span>(<span class="st">"DarkOrange"</span>, <span class="st">"CornflowerBlue"</span>, <span class="st">"DarkRed"</span>), </span>
+<span id="cb55-14"><a href="#cb55-14"></a>            <span class="at">rot.per =</span> <span class="fl">0.3</span>)</span>
+<span id="cb55-15"><a href="#cb55-15"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1519,17 +1546,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>When you are done, click Submit Answer with <code>alpha</code> equal to <code>NULL</code>.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># load data</span></span>
-<span id="cb55-2"><a href="#cb55-2"></a>dtm6 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/dtm6.rds"</span>)</span>
-<span id="cb55-3"><a href="#cb55-3"></a></span>
-<span id="cb55-4"><a href="#cb55-4"></a><span class="co"># Fit a topic model using LDA with Gibbs sampling</span></span>
-<span id="cb55-5"><a href="#cb55-5"></a>mod6_1 <span class="ot">=</span> <span class="fu">LDA</span>(<span class="at">x=</span>dtm6, <span class="at">k=</span><span class="dv">2</span>, <span class="at">method=</span><span class="st">"Gibbs"</span>, </span>
-<span id="cb55-6"><a href="#cb55-6"></a>          <span class="at">control=</span><span class="fu">list</span>(<span class="at">iter=</span><span class="dv">500</span>, <span class="at">thin=</span><span class="dv">1</span>,</span>
-<span id="cb55-7"><a href="#cb55-7"></a>                      <span class="at">seed =</span> <span class="dv">12345</span>,</span>
-<span id="cb55-8"><a href="#cb55-8"></a>                      <span class="at">alpha=</span><span class="cn">NULL</span>))</span>
-<span id="cb55-9"><a href="#cb55-9"></a></span>
-<span id="cb55-10"><a href="#cb55-10"></a><span class="co"># Display topic prevalance in documents as a table</span></span>
-<span id="cb55-11"><a href="#cb55-11"></a><span class="fu">tidy</span>(mod6_1, <span class="st">"gamma"</span>) <span class="sc">%&gt;%</span> <span class="fu">spread</span>(topic, gamma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># load data</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>dtm6 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/dtm6.rds"</span>)</span>
+<span id="cb56-3"><a href="#cb56-3"></a></span>
+<span id="cb56-4"><a href="#cb56-4"></a><span class="co"># Fit a topic model using LDA with Gibbs sampling</span></span>
+<span id="cb56-5"><a href="#cb56-5"></a>mod6_1 <span class="ot">=</span> <span class="fu">LDA</span>(<span class="at">x=</span>dtm6, <span class="at">k=</span><span class="dv">2</span>, <span class="at">method=</span><span class="st">"Gibbs"</span>, </span>
+<span id="cb56-6"><a href="#cb56-6"></a>          <span class="at">control=</span><span class="fu">list</span>(<span class="at">iter=</span><span class="dv">500</span>, <span class="at">thin=</span><span class="dv">1</span>,</span>
+<span id="cb56-7"><a href="#cb56-7"></a>                      <span class="at">seed =</span> <span class="dv">12345</span>,</span>
+<span id="cb56-8"><a href="#cb56-8"></a>                      <span class="at">alpha=</span><span class="cn">NULL</span>))</span>
+<span id="cb56-9"><a href="#cb56-9"></a></span>
+<span id="cb56-10"><a href="#cb56-10"></a><span class="co"># Display topic prevalance in documents as a table</span></span>
+<span id="cb56-11"><a href="#cb56-11"></a><span class="fu">tidy</span>(mod6_1, <span class="st">"gamma"</span>) <span class="sc">%&gt;%</span> <span class="fu">spread</span>(topic, gamma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 
 <div data-pagedtable="false">
@@ -1553,19 +1580,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Fit the model for delta set to 0.1, create a tidy table containing probabilities <code>beta</code> for words from the <code>my_terms</code> vector and make a stacked column chart from the data.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># Fit the model for delta = 0.1</span></span>
-<span id="cb56-2"><a href="#cb56-2"></a>mod1_5 <span class="ot">&lt;-</span> <span class="fu">LDA</span>(<span class="at">x=</span>dtm1, <span class="at">k=</span><span class="dv">2</span>, <span class="at">method=</span><span class="st">"Gibbs"</span>,</span>
-<span id="cb56-3"><a href="#cb56-3"></a>         <span class="at">control=</span><span class="fu">list</span>(<span class="at">iter=</span><span class="dv">500</span>, <span class="at">seed=</span><span class="dv">12345</span>, <span class="at">alpha=</span><span class="dv">1</span>, <span class="at">delta=</span><span class="fl">0.1</span>))</span>
-<span id="cb56-4"><a href="#cb56-4"></a></span>
-<span id="cb56-5"><a href="#cb56-5"></a><span class="co"># Define which words we want to examine</span></span>
-<span id="cb56-6"><a href="#cb56-6"></a>my_terms <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"loans"</span>, <span class="st">"bank"</span>, <span class="st">"opened"</span>, <span class="st">"pay"</span>, <span class="st">"restaurant"</span>, <span class="st">"you"</span>)</span>
-<span id="cb56-7"><a href="#cb56-7"></a></span>
-<span id="cb56-8"><a href="#cb56-8"></a><span class="co"># Make a tidy table</span></span>
-<span id="cb56-9"><a href="#cb56-9"></a>t <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mod1_5, <span class="st">"beta"</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(term <span class="sc">%in%</span> my_terms)</span>
-<span id="cb56-10"><a href="#cb56-10"></a></span>
-<span id="cb56-11"><a href="#cb56-11"></a><span class="co"># Make a stacked column chart of word probabilities</span></span>
-<span id="cb56-12"><a href="#cb56-12"></a><span class="fu">ggplot</span>(t, <span class="fu">aes</span>(<span class="at">x=</span>term, <span class="at">y=</span>beta)) <span class="sc">+</span> <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span><span class="fu">factor</span>(topic))) <span class="sc">+</span></span>
-<span id="cb56-13"><a href="#cb56-13"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># Fit the model for delta = 0.1</span></span>
+<span id="cb57-2"><a href="#cb57-2"></a>mod1_5 <span class="ot">&lt;-</span> <span class="fu">LDA</span>(<span class="at">x=</span>dtm1, <span class="at">k=</span><span class="dv">2</span>, <span class="at">method=</span><span class="st">"Gibbs"</span>,</span>
+<span id="cb57-3"><a href="#cb57-3"></a>         <span class="at">control=</span><span class="fu">list</span>(<span class="at">iter=</span><span class="dv">500</span>, <span class="at">seed=</span><span class="dv">12345</span>, <span class="at">alpha=</span><span class="dv">1</span>, <span class="at">delta=</span><span class="fl">0.1</span>))</span>
+<span id="cb57-4"><a href="#cb57-4"></a></span>
+<span id="cb57-5"><a href="#cb57-5"></a><span class="co"># Define which words we want to examine</span></span>
+<span id="cb57-6"><a href="#cb57-6"></a>my_terms <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"loans"</span>, <span class="st">"bank"</span>, <span class="st">"opened"</span>, <span class="st">"pay"</span>, <span class="st">"restaurant"</span>, <span class="st">"you"</span>)</span>
+<span id="cb57-7"><a href="#cb57-7"></a></span>
+<span id="cb57-8"><a href="#cb57-8"></a><span class="co"># Make a tidy table</span></span>
+<span id="cb57-9"><a href="#cb57-9"></a>t <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mod1_5, <span class="st">"beta"</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(term <span class="sc">%in%</span> my_terms)</span>
+<span id="cb57-10"><a href="#cb57-10"></a></span>
+<span id="cb57-11"><a href="#cb57-11"></a><span class="co"># Make a stacked column chart of word probabilities</span></span>
+<span id="cb57-12"><a href="#cb57-12"></a><span class="fu">ggplot</span>(t, <span class="fu">aes</span>(<span class="at">x=</span>term, <span class="at">y=</span>beta)) <span class="sc">+</span> <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span><span class="fu">factor</span>(topic))) <span class="sc">+</span></span>
+<span id="cb57-13"><a href="#cb57-13"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1578,19 +1605,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Fit the model for delta set to 0.5, create a tidy table containing probabilities <code>beta</code> for words from the <code>my_terms</code> vector and make a stacked column chart from the data.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a><span class="co"># Fit the model for delta = 0.5</span></span>
-<span id="cb57-2"><a href="#cb57-2"></a>mod1_6 <span class="ot">&lt;-</span> <span class="fu">LDA</span>(<span class="at">x=</span>dtm1, <span class="at">k=</span><span class="dv">2</span>, <span class="at">method=</span><span class="st">"Gibbs"</span>,</span>
-<span id="cb57-3"><a href="#cb57-3"></a>         <span class="at">control=</span><span class="fu">list</span>(<span class="at">iter=</span><span class="dv">500</span>, <span class="at">seed=</span><span class="dv">12345</span>, <span class="at">alpha=</span><span class="dv">1</span>, <span class="at">delta=</span><span class="fl">0.5</span>))</span>
-<span id="cb57-4"><a href="#cb57-4"></a></span>
-<span id="cb57-5"><a href="#cb57-5"></a><span class="co"># Define which words we want to examine</span></span>
-<span id="cb57-6"><a href="#cb57-6"></a>my_terms <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"loans"</span>, <span class="st">"bank"</span>, <span class="st">"opened"</span>, <span class="st">"pay"</span>, <span class="st">"restaurant"</span>, <span class="st">"you"</span>)</span>
-<span id="cb57-7"><a href="#cb57-7"></a></span>
-<span id="cb57-8"><a href="#cb57-8"></a><span class="co"># Make a tidy table</span></span>
-<span id="cb57-9"><a href="#cb57-9"></a>t <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mod1_6, <span class="st">"beta"</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(term <span class="sc">%in%</span> my_terms)</span>
-<span id="cb57-10"><a href="#cb57-10"></a></span>
-<span id="cb57-11"><a href="#cb57-11"></a><span class="co"># Make a stacked column chart</span></span>
-<span id="cb57-12"><a href="#cb57-12"></a><span class="fu">ggplot</span>(t, <span class="fu">aes</span>(<span class="at">x=</span>term, <span class="at">y=</span>beta)) <span class="sc">+</span> <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span><span class="fu">factor</span>(topic))) <span class="sc">+</span></span>
-<span id="cb57-13"><a href="#cb57-13"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># Fit the model for delta = 0.5</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a>mod1_6 <span class="ot">&lt;-</span> <span class="fu">LDA</span>(<span class="at">x=</span>dtm1, <span class="at">k=</span><span class="dv">2</span>, <span class="at">method=</span><span class="st">"Gibbs"</span>,</span>
+<span id="cb58-3"><a href="#cb58-3"></a>         <span class="at">control=</span><span class="fu">list</span>(<span class="at">iter=</span><span class="dv">500</span>, <span class="at">seed=</span><span class="dv">12345</span>, <span class="at">alpha=</span><span class="dv">1</span>, <span class="at">delta=</span><span class="fl">0.5</span>))</span>
+<span id="cb58-4"><a href="#cb58-4"></a></span>
+<span id="cb58-5"><a href="#cb58-5"></a><span class="co"># Define which words we want to examine</span></span>
+<span id="cb58-6"><a href="#cb58-6"></a>my_terms <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"loans"</span>, <span class="st">"bank"</span>, <span class="st">"opened"</span>, <span class="st">"pay"</span>, <span class="st">"restaurant"</span>, <span class="st">"you"</span>)</span>
+<span id="cb58-7"><a href="#cb58-7"></a></span>
+<span id="cb58-8"><a href="#cb58-8"></a><span class="co"># Make a tidy table</span></span>
+<span id="cb58-9"><a href="#cb58-9"></a>t <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mod1_6, <span class="st">"beta"</span>) <span class="sc">%&gt;%</span> <span class="fu">filter</span>(term <span class="sc">%in%</span> my_terms)</span>
+<span id="cb58-10"><a href="#cb58-10"></a></span>
+<span id="cb58-11"><a href="#cb58-11"></a><span class="co"># Make a stacked column chart</span></span>
+<span id="cb58-12"><a href="#cb58-12"></a><span class="fu">ggplot</span>(t, <span class="fu">aes</span>(<span class="at">x=</span>term, <span class="at">y=</span>beta)) <span class="sc">+</span> <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill=</span><span class="fu">factor</span>(topic))) <span class="sc">+</span></span>
+<span id="cb58-13"><a href="#cb58-13"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">90</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1627,20 +1654,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>You are given a pattern that will match a capitalized word and two lowercase words before and after. Find how many times this pattern matched.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="co"># Create text</span></span>
-<span id="cb58-2"><a href="#cb58-2"></a>text <span class="ot">&lt;-</span> tbe_book_chapters<span class="sc">$</span>text</span>
-<span id="cb58-3"><a href="#cb58-3"></a></span>
-<span id="cb58-4"><a href="#cb58-4"></a><span class="co"># Regex pattern for an entity and word context</span></span>
-<span id="cb58-5"><a href="#cb58-5"></a>p1 <span class="ot">&lt;-</span> <span class="st">"( [a-z]+){2}( (St[.] )?[A-Z][a-z]+)+( [a-z]+){2}"</span></span>
-<span id="cb58-6"><a href="#cb58-6"></a></span>
-<span id="cb58-7"><a href="#cb58-7"></a><span class="co"># Obtain the regex match object from gregexpr</span></span>
-<span id="cb58-8"><a href="#cb58-8"></a>m <span class="ot">&lt;-</span> <span class="fu">gregexpr</span>(p1, text)</span>
-<span id="cb58-9"><a href="#cb58-9"></a></span>
-<span id="cb58-10"><a href="#cb58-10"></a><span class="co"># Get the matches and flatten the list</span></span>
-<span id="cb58-11"><a href="#cb58-11"></a>v <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">regmatches</span>(text, m))</span>
-<span id="cb58-12"><a href="#cb58-12"></a></span>
-<span id="cb58-13"><a href="#cb58-13"></a><span class="co"># Find the number of elements in the vector</span></span>
-<span id="cb58-14"><a href="#cb58-14"></a><span class="fu">length</span>(v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="co"># Create text</span></span>
+<span id="cb59-2"><a href="#cb59-2"></a>text <span class="ot">&lt;-</span> tbe_book_chapters<span class="sc">$</span>text</span>
+<span id="cb59-3"><a href="#cb59-3"></a></span>
+<span id="cb59-4"><a href="#cb59-4"></a><span class="co"># Regex pattern for an entity and word context</span></span>
+<span id="cb59-5"><a href="#cb59-5"></a>p1 <span class="ot">&lt;-</span> <span class="st">"( [a-z]+){2}( (St[.] )?[A-Z][a-z]+)+( [a-z]+){2}"</span></span>
+<span id="cb59-6"><a href="#cb59-6"></a></span>
+<span id="cb59-7"><a href="#cb59-7"></a><span class="co"># Obtain the regex match object from gregexpr</span></span>
+<span id="cb59-8"><a href="#cb59-8"></a>m <span class="ot">&lt;-</span> <span class="fu">gregexpr</span>(p1, text)</span>
+<span id="cb59-9"><a href="#cb59-9"></a></span>
+<span id="cb59-10"><a href="#cb59-10"></a><span class="co"># Get the matches and flatten the list</span></span>
+<span id="cb59-11"><a href="#cb59-11"></a>v <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">regmatches</span>(text, m))</span>
+<span id="cb59-12"><a href="#cb59-12"></a></span>
+<span id="cb59-13"><a href="#cb59-13"></a><span class="co"># Find the number of elements in the vector</span></span>
+<span id="cb59-14"><a href="#cb59-14"></a><span class="fu">length</span>(v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] 1505</code></pre>
 </div>
@@ -1650,17 +1677,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Find how many entities you match now.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="co"># Regex pattern for an entity and word context</span></span>
-<span id="cb60-2"><a href="#cb60-2"></a>p2 <span class="ot">&lt;-</span> <span class="st">"( [a-z]+){2}( (St[.] )?[A-Z][a-z]+( (of|the) [A-Z][a-z]+)?)+( [a-z]+){2}"</span></span>
-<span id="cb60-3"><a href="#cb60-3"></a></span>
-<span id="cb60-4"><a href="#cb60-4"></a><span class="co"># Obtain the regex match object from gregexpr</span></span>
-<span id="cb60-5"><a href="#cb60-5"></a>m <span class="ot">&lt;-</span> <span class="fu">gregexpr</span>(p2, text)</span>
-<span id="cb60-6"><a href="#cb60-6"></a></span>
-<span id="cb60-7"><a href="#cb60-7"></a><span class="co"># Get the matches and flatten the list</span></span>
-<span id="cb60-8"><a href="#cb60-8"></a>v <span class="ot">=</span> <span class="fu">unlist</span>(<span class="fu">regmatches</span>(text, m))</span>
-<span id="cb60-9"><a href="#cb60-9"></a></span>
-<span id="cb60-10"><a href="#cb60-10"></a><span class="co"># Find the number of elenents in the vector</span></span>
-<span id="cb60-11"><a href="#cb60-11"></a><span class="fu">length</span>(v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="co"># Regex pattern for an entity and word context</span></span>
+<span id="cb61-2"><a href="#cb61-2"></a>p2 <span class="ot">&lt;-</span> <span class="st">"( [a-z]+){2}( (St[.] )?[A-Z][a-z]+( (of|the) [A-Z][a-z]+)?)+( [a-z]+){2}"</span></span>
+<span id="cb61-3"><a href="#cb61-3"></a></span>
+<span id="cb61-4"><a href="#cb61-4"></a><span class="co"># Obtain the regex match object from gregexpr</span></span>
+<span id="cb61-5"><a href="#cb61-5"></a>m <span class="ot">&lt;-</span> <span class="fu">gregexpr</span>(p2, text)</span>
+<span id="cb61-6"><a href="#cb61-6"></a></span>
+<span id="cb61-7"><a href="#cb61-7"></a><span class="co"># Get the matches and flatten the list</span></span>
+<span id="cb61-8"><a href="#cb61-8"></a>v <span class="ot">=</span> <span class="fu">unlist</span>(<span class="fu">regmatches</span>(text, m))</span>
+<span id="cb61-9"><a href="#cb61-9"></a></span>
+<span id="cb61-10"><a href="#cb61-10"></a><span class="co"># Find the number of elenents in the vector</span></span>
+<span id="cb61-11"><a href="#cb61-11"></a><span class="fu">length</span>(v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] 1533</code></pre>
 </div>
@@ -1681,14 +1708,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Save the result into variable <code>v2</code>.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="co"># Print out contents of the `entity_pattern`</span></span>
-<span id="cb62-2"><a href="#cb62-2"></a>entity_pattern <span class="ot">&lt;-</span> <span class="st">"( (St[.] )?[A-Z][a-z]+( (of|the) [A-Z][a-z]+)?)+"</span></span>
-<span id="cb62-3"><a href="#cb62-3"></a></span>
-<span id="cb62-4"><a href="#cb62-4"></a><span class="co"># Remove the named entity from text</span></span>
-<span id="cb62-5"><a href="#cb62-5"></a>v2 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(entity_pattern, <span class="st">""</span>, v)</span>
-<span id="cb62-6"><a href="#cb62-6"></a></span>
-<span id="cb62-7"><a href="#cb62-7"></a><span class="co"># Display the head of v2</span></span>
-<span id="cb62-8"><a href="#cb62-8"></a><span class="fu">head</span>(v2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1"></a><span class="co"># Print out contents of the `entity_pattern`</span></span>
+<span id="cb63-2"><a href="#cb63-2"></a>entity_pattern <span class="ot">&lt;-</span> <span class="st">"( (St[.] )?[A-Z][a-z]+( (of|the) [A-Z][a-z]+)?)+"</span></span>
+<span id="cb63-3"><a href="#cb63-3"></a></span>
+<span id="cb63-4"><a href="#cb63-4"></a><span class="co"># Remove the named entity from text</span></span>
+<span id="cb63-5"><a href="#cb63-5"></a>v2 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(entity_pattern, <span class="st">""</span>, v)</span>
+<span id="cb63-6"><a href="#cb63-6"></a></span>
+<span id="cb63-7"><a href="#cb63-7"></a><span class="co"># Display the head of v2</span></span>
+<span id="cb63-8"><a href="#cb63-8"></a><span class="fu">head</span>(v2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] " into the shore of"       " settlers were of the"   
 #&gt; [3] " cities of in the"        " to the to plant"        
@@ -1700,14 +1727,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Add backreferences to capture groups 3 and 4 and add suffixes ‘R1’ and ‘R2’ respectively.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="co"># Remove the named entity</span></span>
-<span id="cb64-2"><a href="#cb64-2"></a>v2 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(entity_pattern, <span class="st">""</span>, v)</span>
-<span id="cb64-3"><a href="#cb64-3"></a></span>
-<span id="cb64-4"><a href="#cb64-4"></a><span class="co"># Pattern for inserting suffixes</span></span>
-<span id="cb64-5"><a href="#cb64-5"></a>p <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\\</span><span class="st">1_L1 </span><span class="sc">\\</span><span class="st">2_L2 </span><span class="sc">\\</span><span class="st">3_R1 </span><span class="sc">\\</span><span class="st">4_R2"</span></span>
-<span id="cb64-6"><a href="#cb64-6"></a></span>
-<span id="cb64-7"><a href="#cb64-7"></a><span class="co"># Add suffixes to words</span></span>
-<span id="cb64-8"><a href="#cb64-8"></a>context <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"([a-z]+) ([a-z]+) ([a-z]+) ([a-z]+)"</span>, p, v2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># Remove the named entity</span></span>
+<span id="cb65-2"><a href="#cb65-2"></a>v2 <span class="ot">&lt;-</span> <span class="fu">gsub</span>(entity_pattern, <span class="st">""</span>, v)</span>
+<span id="cb65-3"><a href="#cb65-3"></a></span>
+<span id="cb65-4"><a href="#cb65-4"></a><span class="co"># Pattern for inserting suffixes</span></span>
+<span id="cb65-5"><a href="#cb65-5"></a>p <span class="ot">&lt;-</span> <span class="st">"</span><span class="sc">\\</span><span class="st">1_L1 </span><span class="sc">\\</span><span class="st">2_L2 </span><span class="sc">\\</span><span class="st">3_R1 </span><span class="sc">\\</span><span class="st">4_R2"</span></span>
+<span id="cb65-6"><a href="#cb65-6"></a></span>
+<span id="cb65-7"><a href="#cb65-7"></a><span class="co"># Add suffixes to words</span></span>
+<span id="cb65-8"><a href="#cb65-8"></a>context <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"([a-z]+) ([a-z]+) ([a-z]+) ([a-z]+)"</span>, p, v2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="6" type="1">
 <li><p>By now you have vector <code>v2</code> which contains the new “documents” - context words of named entities. You have figured out how to add suffixes to the context words using <code>gsub()</code>. Now, two last steps toward making a corpus: converting the context strings into a data frame, and assigning named entity string as document ids.</p>
@@ -1717,12 +1744,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="co"># Extract named entity and use it as document ID</span></span>
-<span id="cb65-2"><a href="#cb65-2"></a>re_match <span class="ot">&lt;-</span>  <span class="fu">gregexpr</span>(entity_pattern, v)</span>
-<span id="cb65-3"><a href="#cb65-3"></a>doc_id   <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">regmatches</span>(v, re_match))</span>
-<span id="cb65-4"><a href="#cb65-4"></a></span>
-<span id="cb65-5"><a href="#cb65-5"></a><span class="co"># Make a data frame with columns doc_id and text</span></span>
-<span id="cb65-6"><a href="#cb65-6"></a>corpus2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">doc_id =</span> doc_id, <span class="at">text =</span> context, <span class="at">stringsAsFactors =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Extract named entity and use it as document ID</span></span>
+<span id="cb66-2"><a href="#cb66-2"></a>re_match <span class="ot">&lt;-</span>  <span class="fu">gregexpr</span>(entity_pattern, v)</span>
+<span id="cb66-3"><a href="#cb66-3"></a>doc_id   <span class="ot">&lt;-</span> <span class="fu">unlist</span>(<span class="fu">regmatches</span>(v, re_match))</span>
+<span id="cb66-4"><a href="#cb66-4"></a></span>
+<span id="cb66-5"><a href="#cb66-5"></a><span class="co"># Make a data frame with columns doc_id and text</span></span>
+<span id="cb66-6"><a href="#cb66-6"></a>corpus2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">doc_id =</span> doc_id, <span class="at">text =</span> context, <span class="at">stringsAsFactors =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Very good! Regex functions can be tricky but you figured it out.</p>
 </section>
@@ -1734,36 +1761,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>We need to combine text from multiple occurrences of the same entity into one document. Using <code>dplyr</code>, for each entity (<code>doc_id</code>) generate a summary variable <code>doc</code> that will contain combined <code>text</code> strings. Save the result into table <code>corpus3</code>.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="co"># Summarize the text to produce a document for each doc_id</span></span>
-<span id="cb66-2"><a href="#cb66-2"></a>corpus3 <span class="ot">&lt;-</span> corpus2 <span class="sc">%&gt;%</span> </span>
-<span id="cb66-3"><a href="#cb66-3"></a>            <span class="fu">group_by</span>(doc_id) <span class="sc">%&gt;%</span> </span>
-<span id="cb66-4"><a href="#cb66-4"></a>            <span class="fu">summarize</span>(<span class="at">doc =</span> <span class="fu">paste</span>(text, <span class="at">collapse =</span> <span class="st">" "</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Summarize the text to produce a document for each doc_id</span></span>
+<span id="cb67-2"><a href="#cb67-2"></a>corpus3 <span class="ot">&lt;-</span> corpus2 <span class="sc">%&gt;%</span> </span>
+<span id="cb67-3"><a href="#cb67-3"></a>            <span class="fu">group_by</span>(doc_id) <span class="sc">%&gt;%</span> </span>
+<span id="cb67-4"><a href="#cb67-4"></a>            <span class="fu">summarize</span>(<span class="at">doc =</span> <span class="fu">paste</span>(text, <span class="at">collapse =</span> <span class="st">" "</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="2" type="1">
 <li>Now that we have dataframe <code>corpus3</code>, we are on familiar grounds. Create a document-term matrix and save it into variable <code>dtm7</code>.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="co"># Make a document-term matrix</span></span>
-<span id="cb67-2"><a href="#cb67-2"></a>dtm7 <span class="ot">&lt;-</span> corpus3 <span class="sc">%&gt;%</span> </span>
-<span id="cb67-3"><a href="#cb67-3"></a>        <span class="fu">unnest_tokens</span>(<span class="at">input =</span> doc, <span class="at">output =</span> word) <span class="sc">%&gt;%</span> </span>
-<span id="cb67-4"><a href="#cb67-4"></a>        <span class="fu">count</span>(doc_id, word) <span class="sc">%&gt;%</span> </span>
-<span id="cb67-5"><a href="#cb67-5"></a>        <span class="fu">cast_dtm</span>(<span class="at">document =</span> doc_id, <span class="at">term =</span> word, <span class="at">value =</span> n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># Make a document-term matrix</span></span>
+<span id="cb68-2"><a href="#cb68-2"></a>dtm7 <span class="ot">&lt;-</span> corpus3 <span class="sc">%&gt;%</span> </span>
+<span id="cb68-3"><a href="#cb68-3"></a>        <span class="fu">unnest_tokens</span>(<span class="at">input =</span> doc, <span class="at">output =</span> word) <span class="sc">%&gt;%</span> </span>
+<span id="cb68-4"><a href="#cb68-4"></a>        <span class="fu">count</span>(doc_id, word) <span class="sc">%&gt;%</span> </span>
+<span id="cb68-5"><a href="#cb68-5"></a>        <span class="fu">cast_dtm</span>(<span class="at">document =</span> doc_id, <span class="at">term =</span> word, <span class="at">value =</span> n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Fit a Latent Dirichlet allocation topic model with <code>k=3</code>. Keep the <code>control</code> argument as is.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a><span class="co"># Fit an LDA model for 3 topics</span></span>
-<span id="cb68-2"><a href="#cb68-2"></a>mod7 <span class="ot">&lt;-</span> <span class="fu">LDA</span>(<span class="at">x =</span> dtm7, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">method =</span> <span class="st">"Gibbs"</span>, </span>
-<span id="cb68-3"><a href="#cb68-3"></a>          <span class="at">control=</span><span class="fu">list</span>(<span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">seed =</span> <span class="dv">12345</span>, <span class="at">iter =</span> <span class="dv">1000</span>, <span class="at">thin =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># Fit an LDA model for 3 topics</span></span>
+<span id="cb69-2"><a href="#cb69-2"></a>mod7 <span class="ot">&lt;-</span> <span class="fu">LDA</span>(<span class="at">x =</span> dtm7, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">method =</span> <span class="st">"Gibbs"</span>, </span>
+<span id="cb69-3"><a href="#cb69-3"></a>          <span class="at">control=</span><span class="fu">list</span>(<span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">seed =</span> <span class="dv">12345</span>, <span class="at">iter =</span> <span class="dv">1000</span>, <span class="at">thin =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="4" type="1">
 <li>Using function <code>tidy</code>, extract matrix <code>gamma</code> with probabilities of topics in documents, and convert it to a wide format using <code>spread</code>.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="co"># Create a table with probabilities of topics in documents</span></span>
-<span id="cb69-2"><a href="#cb69-2"></a>topics <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mod7, <span class="at">matrix=</span><span class="st">"gamma"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb69-3"><a href="#cb69-3"></a>            <span class="fu">spread</span>(topic, gamma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># Create a table with probabilities of topics in documents</span></span>
+<span id="cb70-2"><a href="#cb70-2"></a>topics <span class="ot">&lt;-</span> <span class="fu">tidy</span>(mod7, <span class="at">matrix=</span><span class="st">"gamma"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb70-3"><a href="#cb70-3"></a>            <span class="fu">spread</span>(topic, gamma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Excellent. Later on we will use this model in a classifier.</p>
 </section>
@@ -1795,25 +1822,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Fit an LDA topic model for <code>k=3</code> on the training data.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a><span class="co"># Set random seed for reproducability</span></span>
-<span id="cb70-2"><a href="#cb70-2"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>, <span class="at">sample.kind=</span><span class="st">"Rounding"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a><span class="co"># Set random seed for reproducability</span></span>
+<span id="cb71-2"><a href="#cb71-2"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>, <span class="at">sample.kind=</span><span class="st">"Rounding"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in set.seed(12345, sample.kind = "Rounding"): non-uniform 'Rounding'
 #&gt; sampler used</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a><span class="co"># Take a sample of 20 random integers, without replacement</span></span>
-<span id="cb72-2"><a href="#cb72-2"></a>r <span class="ot">&lt;-</span> <span class="fu">sample.int</span>(<span class="at">n=</span><span class="fu">nrow</span>(corpus3), <span class="at">size=</span><span class="dv">20</span>, <span class="at">replace=</span><span class="cn">FALSE</span>)</span>
-<span id="cb72-3"><a href="#cb72-3"></a></span>
-<span id="cb72-4"><a href="#cb72-4"></a><span class="co"># Generate a document-term matrix</span></span>
-<span id="cb72-5"><a href="#cb72-5"></a>train_dtm <span class="ot">&lt;-</span> corpus3[<span class="sc">-</span>r, ] <span class="sc">%&gt;%</span> </span>
-<span id="cb72-6"><a href="#cb72-6"></a>                <span class="fu">unnest_tokens</span>(<span class="at">input=</span>doc, <span class="at">output=</span>word) <span class="sc">%&gt;%</span> </span>
-<span id="cb72-7"><a href="#cb72-7"></a>                <span class="fu">count</span>(doc_id, word) <span class="sc">%&gt;%</span> </span>
-<span id="cb72-8"><a href="#cb72-8"></a>                <span class="fu">cast_dtm</span>(<span class="at">document=</span>doc_id, <span class="at">term=</span>word, <span class="at">value=</span>n)</span>
-<span id="cb72-9"><a href="#cb72-9"></a></span>
-<span id="cb72-10"><a href="#cb72-10"></a><span class="co"># Fit an LDA topic model for k=3</span></span>
-<span id="cb72-11"><a href="#cb72-11"></a>train_mod <span class="ot">&lt;-</span> <span class="fu">LDA</span>(<span class="at">x=</span>train_dtm, <span class="at">k=</span><span class="dv">3</span>, <span class="at">method=</span><span class="st">"Gibbs"</span>,</span>
-<span id="cb72-12"><a href="#cb72-12"></a>                <span class="at">control=</span><span class="fu">list</span>(<span class="at">alpha=</span><span class="dv">1</span>, <span class="at">seed=</span><span class="dv">10001</span>,</span>
-<span id="cb72-13"><a href="#cb72-13"></a>                             <span class="at">iter=</span><span class="dv">1000</span>, <span class="at">thin=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># Take a sample of 20 random integers, without replacement</span></span>
+<span id="cb73-2"><a href="#cb73-2"></a>r <span class="ot">&lt;-</span> <span class="fu">sample.int</span>(<span class="at">n=</span><span class="fu">nrow</span>(corpus3), <span class="at">size=</span><span class="dv">20</span>, <span class="at">replace=</span><span class="cn">FALSE</span>)</span>
+<span id="cb73-3"><a href="#cb73-3"></a></span>
+<span id="cb73-4"><a href="#cb73-4"></a><span class="co"># Generate a document-term matrix</span></span>
+<span id="cb73-5"><a href="#cb73-5"></a>train_dtm <span class="ot">&lt;-</span> corpus3[<span class="sc">-</span>r, ] <span class="sc">%&gt;%</span> </span>
+<span id="cb73-6"><a href="#cb73-6"></a>                <span class="fu">unnest_tokens</span>(<span class="at">input=</span>doc, <span class="at">output=</span>word) <span class="sc">%&gt;%</span> </span>
+<span id="cb73-7"><a href="#cb73-7"></a>                <span class="fu">count</span>(doc_id, word) <span class="sc">%&gt;%</span> </span>
+<span id="cb73-8"><a href="#cb73-8"></a>                <span class="fu">cast_dtm</span>(<span class="at">document=</span>doc_id, <span class="at">term=</span>word, <span class="at">value=</span>n)</span>
+<span id="cb73-9"><a href="#cb73-9"></a></span>
+<span id="cb73-10"><a href="#cb73-10"></a><span class="co"># Fit an LDA topic model for k=3</span></span>
+<span id="cb73-11"><a href="#cb73-11"></a>train_mod <span class="ot">&lt;-</span> <span class="fu">LDA</span>(<span class="at">x=</span>train_dtm, <span class="at">k=</span><span class="dv">3</span>, <span class="at">method=</span><span class="st">"Gibbs"</span>,</span>
+<span id="cb73-12"><a href="#cb73-12"></a>                <span class="at">control=</span><span class="fu">list</span>(<span class="at">alpha=</span><span class="dv">1</span>, <span class="at">seed=</span><span class="dv">10001</span>,</span>
+<span id="cb73-13"><a href="#cb73-13"></a>                             <span class="at">iter=</span><span class="dv">1000</span>, <span class="at">thin=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Very good! We just trained our classifier.</p>
 </section>
@@ -1828,29 +1855,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Generate a document-term matrix with the testing data</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1"></a><span class="co"># Get the test row indices</span></span>
-<span id="cb73-2"><a href="#cb73-2"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>, <span class="at">sample.kind=</span><span class="st">"Rounding"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1"></a><span class="co"># Get the test row indices</span></span>
+<span id="cb74-2"><a href="#cb74-2"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>, <span class="at">sample.kind=</span><span class="st">"Rounding"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>#&gt; Warning in set.seed(12345, sample.kind = "Rounding"): non-uniform 'Rounding'
 #&gt; sampler used</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1"></a>r <span class="ot">&lt;-</span> <span class="fu">sample.int</span>(<span class="at">n=</span><span class="fu">nrow</span>(corpus3), <span class="at">size=</span><span class="dv">20</span>, <span class="at">replace=</span><span class="cn">FALSE</span>)</span>
-<span id="cb75-2"><a href="#cb75-2"></a></span>
-<span id="cb75-3"><a href="#cb75-3"></a><span class="co"># Extract the vocabulary of the training model</span></span>
-<span id="cb75-4"><a href="#cb75-4"></a>model_vocab <span class="ot">&lt;-</span> <span class="fu">tidy</span>(train_mod, <span class="at">matrix=</span><span class="st">"beta"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb75-5"><a href="#cb75-5"></a>  <span class="fu">select</span>(term) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
-<span id="cb75-6"><a href="#cb75-6"></a></span>
-<span id="cb75-7"><a href="#cb75-7"></a><span class="co"># Create a table of counts with aligned vocabularies</span></span>
-<span id="cb75-8"><a href="#cb75-8"></a>test_table <span class="ot">&lt;-</span> corpus3[r, ] <span class="sc">%&gt;%</span> <span class="fu">unnest_tokens</span>(<span class="at">input=</span>doc, <span class="at">output=</span>word) <span class="sc">%&gt;%</span> </span>
-<span id="cb75-9"><a href="#cb75-9"></a>  <span class="fu">count</span>(doc_id, word) <span class="sc">%&gt;%</span></span>
-<span id="cb75-10"><a href="#cb75-10"></a>  <span class="fu">right_join</span>(model_vocab, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"word"</span><span class="ot">=</span><span class="st">"term"</span>))</span>
-<span id="cb75-11"><a href="#cb75-11"></a></span>
-<span id="cb75-12"><a href="#cb75-12"></a><span class="co"># Prepare a document-term matrix</span></span>
-<span id="cb75-13"><a href="#cb75-13"></a>test_dtm <span class="ot">&lt;-</span> test_table <span class="sc">%&gt;%</span> </span>
-<span id="cb75-14"><a href="#cb75-14"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(doc_id)) <span class="sc">%&gt;%</span> </span>
-<span id="cb75-15"><a href="#cb75-15"></a>  <span class="fu">mutate</span>(<span class="at">doc_id =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(doc_id), <span class="fu">first</span>(doc_id), doc_id),</span>
-<span id="cb75-16"><a href="#cb75-16"></a>         <span class="at">n =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(n), <span class="dv">0</span>, n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb75-17"><a href="#cb75-17"></a>  <span class="fu">cast_dtm</span>(<span class="at">document=</span>doc_id, <span class="at">term=</span>word, <span class="at">value=</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a>r <span class="ot">&lt;-</span> <span class="fu">sample.int</span>(<span class="at">n=</span><span class="fu">nrow</span>(corpus3), <span class="at">size=</span><span class="dv">20</span>, <span class="at">replace=</span><span class="cn">FALSE</span>)</span>
+<span id="cb76-2"><a href="#cb76-2"></a></span>
+<span id="cb76-3"><a href="#cb76-3"></a><span class="co"># Extract the vocabulary of the training model</span></span>
+<span id="cb76-4"><a href="#cb76-4"></a>model_vocab <span class="ot">&lt;-</span> <span class="fu">tidy</span>(train_mod, <span class="at">matrix=</span><span class="st">"beta"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb76-5"><a href="#cb76-5"></a>  <span class="fu">select</span>(term) <span class="sc">%&gt;%</span> <span class="fu">distinct</span>()</span>
+<span id="cb76-6"><a href="#cb76-6"></a></span>
+<span id="cb76-7"><a href="#cb76-7"></a><span class="co"># Create a table of counts with aligned vocabularies</span></span>
+<span id="cb76-8"><a href="#cb76-8"></a>test_table <span class="ot">&lt;-</span> corpus3[r, ] <span class="sc">%&gt;%</span> <span class="fu">unnest_tokens</span>(<span class="at">input=</span>doc, <span class="at">output=</span>word) <span class="sc">%&gt;%</span> </span>
+<span id="cb76-9"><a href="#cb76-9"></a>  <span class="fu">count</span>(doc_id, word) <span class="sc">%&gt;%</span></span>
+<span id="cb76-10"><a href="#cb76-10"></a>  <span class="fu">right_join</span>(model_vocab, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"word"</span><span class="ot">=</span><span class="st">"term"</span>))</span>
+<span id="cb76-11"><a href="#cb76-11"></a></span>
+<span id="cb76-12"><a href="#cb76-12"></a><span class="co"># Prepare a document-term matrix</span></span>
+<span id="cb76-13"><a href="#cb76-13"></a>test_dtm <span class="ot">&lt;-</span> test_table <span class="sc">%&gt;%</span> </span>
+<span id="cb76-14"><a href="#cb76-14"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(doc_id)) <span class="sc">%&gt;%</span> </span>
+<span id="cb76-15"><a href="#cb76-15"></a>  <span class="fu">mutate</span>(<span class="at">doc_id =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(doc_id), <span class="fu">first</span>(doc_id), doc_id),</span>
+<span id="cb76-16"><a href="#cb76-16"></a>         <span class="at">n =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(n), <span class="dv">0</span>, n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb76-17"><a href="#cb76-17"></a>  <span class="fu">cast_dtm</span>(<span class="at">document=</span>doc_id, <span class="at">term=</span>word, <span class="at">value=</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Excellent! This exercise packed a lot of steps, but you did them all.</p>
 </section>
@@ -1863,11 +1890,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Probabilities of topics in documents are contained in the element <code>$topics</code> inside the <code>result</code> list. Display the matrix with topic probabilities.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1"></a><span class="co"># Obtain posterior probabilities for test documents</span></span>
-<span id="cb76-2"><a href="#cb76-2"></a>results <span class="ot">&lt;-</span> <span class="fu">posterior</span>(<span class="at">object=</span>train_mod, <span class="at">newdata=</span>test_dtm)</span>
-<span id="cb76-3"><a href="#cb76-3"></a></span>
-<span id="cb76-4"><a href="#cb76-4"></a><span class="co"># Display the matrix with topic probabilities</span></span>
-<span id="cb76-5"><a href="#cb76-5"></a>results<span class="sc">$</span>topics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1"></a><span class="co"># Obtain posterior probabilities for test documents</span></span>
+<span id="cb77-2"><a href="#cb77-2"></a>results <span class="ot">&lt;-</span> <span class="fu">posterior</span>(<span class="at">object=</span>train_mod, <span class="at">newdata=</span>test_dtm)</span>
+<span id="cb77-3"><a href="#cb77-3"></a></span>
+<span id="cb77-4"><a href="#cb77-4"></a><span class="co"># Display the matrix with topic probabilities</span></span>
+<span id="cb77-5"><a href="#cb77-5"></a>results<span class="sc">$</span>topics</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt;                                      1          2         3
 #&gt;  Visigothic                  0.5714286 0.14285714 0.2857143
@@ -1942,24 +1969,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Create a document term matrix.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1"></a><span class="co"># Load data</span></span>
-<span id="cb78-2"><a href="#cb78-2"></a>df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/df.rds"</span>)</span>
-<span id="cb78-3"><a href="#cb78-3"></a></span>
-<span id="cb78-4"><a href="#cb78-4"></a><span class="co"># Split the Abstract column into tokens</span></span>
-<span id="cb78-5"><a href="#cb78-5"></a>dtm8 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb78-6"><a href="#cb78-6"></a>  </span>
-<span id="cb78-7"><a href="#cb78-7"></a>   <span class="co"># Fix missing spaces after dots and colons (except for decimal places in numbers)</span></span>
-<span id="cb78-8"><a href="#cb78-8"></a>   <span class="fu">mutate</span>(<span class="at">Abstract =</span> Abstract <span class="sc">|&gt;</span> <span class="fu">str_replace_all</span>(<span class="st">"(?&lt;!</span><span class="sc">\\</span><span class="st">d)[:</span><span class="sc">\\</span><span class="st">.](?!</span><span class="sc">\\</span><span class="st">d)"</span>, <span class="st">" "</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb78-9"><a href="#cb78-9"></a>  </span>
-<span id="cb78-10"><a href="#cb78-10"></a>   <span class="fu">unnest_tokens</span>(<span class="at">input=</span>Abstract, <span class="at">output=</span>word) <span class="sc">%&gt;%</span> </span>
-<span id="cb78-11"><a href="#cb78-11"></a>   <span class="co"># Remove stopwords</span></span>
-<span id="cb78-12"><a href="#cb78-12"></a>   <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span> </span>
-<span id="cb78-13"><a href="#cb78-13"></a>   <span class="co"># Count the number of occurrences</span></span>
-<span id="cb78-14"><a href="#cb78-14"></a>   <span class="fu">count</span>(AwardNumber, word) <span class="sc">%&gt;%</span> </span>
-<span id="cb78-15"><a href="#cb78-15"></a>   <span class="co"># Create a document term matrix</span></span>
-<span id="cb78-16"><a href="#cb78-16"></a>   <span class="fu">cast_dtm</span>(<span class="at">document=</span>AwardNumber, <span class="at">term=</span>word, <span class="at">value=</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1"></a><span class="co"># Load data</span></span>
+<span id="cb79-2"><a href="#cb79-2"></a>df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/df.rds"</span>)</span>
+<span id="cb79-3"><a href="#cb79-3"></a></span>
+<span id="cb79-4"><a href="#cb79-4"></a><span class="co"># Split the Abstract column into tokens</span></span>
+<span id="cb79-5"><a href="#cb79-5"></a>dtm8 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb79-6"><a href="#cb79-6"></a>  </span>
+<span id="cb79-7"><a href="#cb79-7"></a>   <span class="co"># Fix missing spaces after dots and colons (except for decimal places in numbers)</span></span>
+<span id="cb79-8"><a href="#cb79-8"></a>   <span class="fu">mutate</span>(<span class="at">Abstract =</span> Abstract <span class="sc">|&gt;</span> <span class="fu">str_replace_all</span>(<span class="st">"(?&lt;!</span><span class="sc">\\</span><span class="st">d)[:</span><span class="sc">\\</span><span class="st">.](?!</span><span class="sc">\\</span><span class="st">d)"</span>, <span class="st">" "</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb79-9"><a href="#cb79-9"></a>  </span>
+<span id="cb79-10"><a href="#cb79-10"></a>   <span class="fu">unnest_tokens</span>(<span class="at">input=</span>Abstract, <span class="at">output=</span>word) <span class="sc">%&gt;%</span> </span>
+<span id="cb79-11"><a href="#cb79-11"></a>   <span class="co"># Remove stopwords</span></span>
+<span id="cb79-12"><a href="#cb79-12"></a>   <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span> </span>
+<span id="cb79-13"><a href="#cb79-13"></a>   <span class="co"># Count the number of occurrences</span></span>
+<span id="cb79-14"><a href="#cb79-14"></a>   <span class="fu">count</span>(AwardNumber, word) <span class="sc">%&gt;%</span> </span>
+<span id="cb79-15"><a href="#cb79-15"></a>   <span class="co"># Create a document term matrix</span></span>
+<span id="cb79-16"><a href="#cb79-16"></a>   <span class="fu">cast_dtm</span>(<span class="at">document=</span>AwardNumber, <span class="at">term=</span>word, <span class="at">value=</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Joining, by = "word"</code></pre>
+<pre><code>#&gt; Joining with `by = join_by(word)`</code></pre>
 </div>
 </div>
 <p>Well done! Let’s keep going.</p>
@@ -1976,33 +2003,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Ungroup the data and create a document-term matrix.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1"></a><span class="fu">library</span>(SnowballC)</span>
-<span id="cb80-2"><a href="#cb80-2"></a><span class="co"># rems &lt;- c( "context", "dai", "ecologi", "ph","qepa", "size")</span></span>
-<span id="cb80-3"><a href="#cb80-3"></a></span>
-<span id="cb80-4"><a href="#cb80-4"></a>dtm9 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
-<span id="cb80-5"><a href="#cb80-5"></a>  </span>
-<span id="cb80-6"><a href="#cb80-6"></a>  <span class="co"># Fix missing spaces after dots and colons (except for decimal places in numbers)</span></span>
-<span id="cb80-7"><a href="#cb80-7"></a>   <span class="fu">mutate</span>(<span class="at">Abstract =</span> Abstract <span class="sc">|&gt;</span> <span class="fu">str_replace_all</span>(<span class="st">"(?&lt;!</span><span class="sc">\\</span><span class="st">d)[:</span><span class="sc">\\</span><span class="st">.](?!</span><span class="sc">\\</span><span class="st">d)"</span>, <span class="st">" "</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb80-8"><a href="#cb80-8"></a>  </span>
-<span id="cb80-9"><a href="#cb80-9"></a>   <span class="fu">unnest_tokens</span>(<span class="at">input=</span>Abstract, <span class="at">output=</span>word) <span class="sc">%&gt;%</span> </span>
-<span id="cb80-10"><a href="#cb80-10"></a>   <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span> </span>
-<span id="cb80-11"><a href="#cb80-11"></a>  </span>
-<span id="cb80-12"><a href="#cb80-12"></a>  <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">wordStem</span>(word)) <span class="sc">%&gt;%</span></span>
-<span id="cb80-13"><a href="#cb80-13"></a>  </span>
-<span id="cb80-14"><a href="#cb80-14"></a>   <span class="co"># Count occurences within documents</span></span>
-<span id="cb80-15"><a href="#cb80-15"></a>   <span class="fu">count</span>(AwardNumber, word) <span class="sc">%&gt;%</span></span>
-<span id="cb80-16"><a href="#cb80-16"></a>  </span>
-<span id="cb80-17"><a href="#cb80-17"></a>  <span class="co"># filter(!(word %in% rems)) |&gt; </span></span>
-<span id="cb80-18"><a href="#cb80-18"></a>  </span>
-<span id="cb80-19"><a href="#cb80-19"></a>   <span class="co"># Group the data</span></span>
-<span id="cb80-20"><a href="#cb80-20"></a>   <span class="fu">group_by</span>(word) <span class="sc">%&gt;%</span> </span>
-<span id="cb80-21"><a href="#cb80-21"></a>   <span class="co"># Filter for corpus wide frequency</span></span>
-<span id="cb80-22"><a href="#cb80-22"></a>   <span class="fu">filter</span>(<span class="fu">sum</span>(n) <span class="sc">&gt;=</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb80-23"><a href="#cb80-23"></a>   <span class="co"># Ungroup the data andreate a document term matrix</span></span>
-<span id="cb80-24"><a href="#cb80-24"></a>   <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb80-25"><a href="#cb80-25"></a>   <span class="fu">cast_dtm</span>(<span class="at">document=</span>AwardNumber, <span class="at">term=</span>word, <span class="at">value=</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1"></a><span class="fu">library</span>(SnowballC)</span>
+<span id="cb81-2"><a href="#cb81-2"></a><span class="co"># rems &lt;- c( "context", "dai", "ecologi", "ph","qepa", "size")</span></span>
+<span id="cb81-3"><a href="#cb81-3"></a></span>
+<span id="cb81-4"><a href="#cb81-4"></a>dtm9 <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span> </span>
+<span id="cb81-5"><a href="#cb81-5"></a>  </span>
+<span id="cb81-6"><a href="#cb81-6"></a>  <span class="co"># Fix missing spaces after dots and colons (except for decimal places in numbers)</span></span>
+<span id="cb81-7"><a href="#cb81-7"></a>   <span class="fu">mutate</span>(<span class="at">Abstract =</span> Abstract <span class="sc">|&gt;</span> <span class="fu">str_replace_all</span>(<span class="st">"(?&lt;!</span><span class="sc">\\</span><span class="st">d)[:</span><span class="sc">\\</span><span class="st">.](?!</span><span class="sc">\\</span><span class="st">d)"</span>, <span class="st">" "</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb81-8"><a href="#cb81-8"></a>  </span>
+<span id="cb81-9"><a href="#cb81-9"></a>   <span class="fu">unnest_tokens</span>(<span class="at">input=</span>Abstract, <span class="at">output=</span>word) <span class="sc">%&gt;%</span> </span>
+<span id="cb81-10"><a href="#cb81-10"></a>   <span class="fu">anti_join</span>(stop_words) <span class="sc">%&gt;%</span> </span>
+<span id="cb81-11"><a href="#cb81-11"></a>  </span>
+<span id="cb81-12"><a href="#cb81-12"></a>  <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">wordStem</span>(word)) <span class="sc">%&gt;%</span></span>
+<span id="cb81-13"><a href="#cb81-13"></a>  </span>
+<span id="cb81-14"><a href="#cb81-14"></a>   <span class="co"># Count occurences within documents</span></span>
+<span id="cb81-15"><a href="#cb81-15"></a>   <span class="fu">count</span>(AwardNumber, word) <span class="sc">%&gt;%</span></span>
+<span id="cb81-16"><a href="#cb81-16"></a>  </span>
+<span id="cb81-17"><a href="#cb81-17"></a>  <span class="co"># filter(!(word %in% rems)) |&gt; </span></span>
+<span id="cb81-18"><a href="#cb81-18"></a>  </span>
+<span id="cb81-19"><a href="#cb81-19"></a>   <span class="co"># Group the data</span></span>
+<span id="cb81-20"><a href="#cb81-20"></a>   <span class="fu">group_by</span>(word) <span class="sc">%&gt;%</span> </span>
+<span id="cb81-21"><a href="#cb81-21"></a>   <span class="co"># Filter for corpus wide frequency</span></span>
+<span id="cb81-22"><a href="#cb81-22"></a>   <span class="fu">filter</span>(<span class="fu">sum</span>(n) <span class="sc">&gt;=</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb81-23"><a href="#cb81-23"></a>   <span class="co"># Ungroup the data andreate a document term matrix</span></span>
+<span id="cb81-24"><a href="#cb81-24"></a>   <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb81-25"><a href="#cb81-25"></a>   <span class="fu">cast_dtm</span>(<span class="at">document=</span>AwardNumber, <span class="at">term=</span>word, <span class="at">value=</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>#&gt; Joining, by = "word"</code></pre>
+<pre><code>#&gt; Joining with `by = join_by(word)`</code></pre>
 </div>
 </div>
 <p>Excellent. Now we move on to model fitting.</p>
@@ -2017,19 +2044,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Find perplexity for the dataset.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1"></a>dtm10 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/dtm10.rds"</span>)</span>
-<span id="cb82-2"><a href="#cb82-2"></a></span>
-<span id="cb82-3"><a href="#cb82-3"></a><span class="co"># Create a LDA model</span></span>
-<span id="cb82-4"><a href="#cb82-4"></a>mod10_1 <span class="ot">&lt;-</span> <span class="fu">LDA</span>(<span class="at">x=</span>dtm10, <span class="at">method=</span><span class="st">"Gibbs"</span>, <span class="at">k=</span><span class="dv">3</span>, </span>
-<span id="cb82-5"><a href="#cb82-5"></a>          <span class="at">control=</span><span class="fu">list</span>(<span class="at">alpha=</span><span class="fl">0.5</span>, <span class="at">seed=</span><span class="dv">1234</span>, <span class="at">iter=</span><span class="dv">500</span>, <span class="at">thin=</span><span class="dv">1</span>))</span>
-<span id="cb82-6"><a href="#cb82-6"></a>          </span>
-<span id="cb82-7"><a href="#cb82-7"></a><span class="co"># Retrieve log-likelihood</span></span>
-<span id="cb82-8"><a href="#cb82-8"></a><span class="fu">logLik</span>(mod10_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1"></a>dtm10 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/dtm10.rds"</span>)</span>
+<span id="cb83-2"><a href="#cb83-2"></a></span>
+<span id="cb83-3"><a href="#cb83-3"></a><span class="co"># Create a LDA model</span></span>
+<span id="cb83-4"><a href="#cb83-4"></a>mod10_1 <span class="ot">&lt;-</span> <span class="fu">LDA</span>(<span class="at">x=</span>dtm10, <span class="at">method=</span><span class="st">"Gibbs"</span>, <span class="at">k=</span><span class="dv">3</span>, </span>
+<span id="cb83-5"><a href="#cb83-5"></a>          <span class="at">control=</span><span class="fu">list</span>(<span class="at">alpha=</span><span class="fl">0.5</span>, <span class="at">seed=</span><span class="dv">1234</span>, <span class="at">iter=</span><span class="dv">500</span>, <span class="at">thin=</span><span class="dv">1</span>))</span>
+<span id="cb83-6"><a href="#cb83-6"></a>          </span>
+<span id="cb83-7"><a href="#cb83-7"></a><span class="co"># Retrieve log-likelihood</span></span>
+<span id="cb83-8"><a href="#cb83-8"></a><span class="fu">logLik</span>(mod10_1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; 'log Lik.' -64691.15 (df=1434)</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1"></a><span class="co"># Find perplexity</span></span>
-<span id="cb84-2"><a href="#cb84-2"></a><span class="fu">perplexity</span>(<span class="at">object=</span>mod10_1, <span class="at">newdata=</span>dtm10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1"></a><span class="co"># Find perplexity</span></span>
+<span id="cb85-2"><a href="#cb85-2"></a><span class="fu">perplexity</span>(<span class="at">object=</span>mod10_1, <span class="at">newdata=</span>dtm10)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] 291.3196</code></pre>
 </div>
@@ -2044,18 +2071,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Generate a plot of perplexity vs.&nbsp;k similar to the one you’ve seen in the lesson.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1"></a><span class="co"># load data</span></span>
-<span id="cb86-2"><a href="#cb86-2"></a>models <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/models.rds"</span>)</span>
-<span id="cb86-3"><a href="#cb86-3"></a></span>
-<span id="cb86-4"><a href="#cb86-4"></a><span class="co"># Display names of elements in the list</span></span>
-<span id="cb86-5"><a href="#cb86-5"></a><span class="fu">names</span>(models[[<span class="dv">1</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1"></a><span class="co"># load data</span></span>
+<span id="cb87-2"><a href="#cb87-2"></a>models <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/models.rds"</span>)</span>
+<span id="cb87-3"><a href="#cb87-3"></a></span>
+<span id="cb87-4"><a href="#cb87-4"></a><span class="co"># Display names of elements in the list</span></span>
+<span id="cb87-5"><a href="#cb87-5"></a><span class="fu">names</span>(models[[<span class="dv">1</span>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; [1] "k"              "model"          "log_likelihood" "perplexity"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1"></a><span class="co"># Retrieve the values of k and perplexity, and plot perplexity vs k</span></span>
-<span id="cb88-2"><a href="#cb88-2"></a>x <span class="ot">&lt;-</span> <span class="fu">sapply</span>(models, <span class="st">'[['</span>, <span class="st">'k'</span>)</span>
-<span id="cb88-3"><a href="#cb88-3"></a>y <span class="ot">&lt;-</span> <span class="fu">sapply</span>(models, <span class="st">'[['</span>, <span class="st">'perplexity'</span>)</span>
-<span id="cb88-4"><a href="#cb88-4"></a><span class="fu">plot</span>(x, y, <span class="at">xlab=</span><span class="st">"number of clusters, k"</span>, <span class="at">ylab=</span><span class="st">"perplexity score"</span>, <span class="at">type=</span><span class="st">"o"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1"></a><span class="co"># Retrieve the values of k and perplexity, and plot perplexity vs k</span></span>
+<span id="cb89-2"><a href="#cb89-2"></a>x <span class="ot">&lt;-</span> <span class="fu">sapply</span>(models, <span class="st">'[['</span>, <span class="st">'k'</span>)</span>
+<span id="cb89-3"><a href="#cb89-3"></a>y <span class="ot">&lt;-</span> <span class="fu">sapply</span>(models, <span class="st">'[['</span>, <span class="st">'perplexity'</span>)</span>
+<span id="cb89-4"><a href="#cb89-4"></a><span class="fu">plot</span>(x, y, <span class="at">xlab=</span><span class="st">"number of clusters, k"</span>, <span class="at">ylab=</span><span class="st">"perplexity score"</span>, <span class="at">type=</span><span class="st">"o"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2068,24 +2095,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Run each model from the <code>models</code> list for an additional 100 iterations. Record the new perplexity scores. An LDA model can be retrieved using <code>models[[i]]$model</code> reference.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1"></a><span class="co"># Record the new perplexity scores</span></span>
-<span id="cb89-2"><a href="#cb89-2"></a>new_perplexity_score <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(models))</span>
-<span id="cb89-3"><a href="#cb89-3"></a></span>
-<span id="cb89-4"><a href="#cb89-4"></a><span class="co"># Run each model for 100 iterations</span></span>
-<span id="cb89-5"><a href="#cb89-5"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(models)) {</span>
-<span id="cb89-6"><a href="#cb89-6"></a>  mod10_2 <span class="ot">&lt;-</span> <span class="fu">LDA</span>(<span class="at">x=</span>dtm10, <span class="at">model=</span>models[[i]]<span class="sc">$</span>model,</span>
-<span id="cb89-7"><a href="#cb89-7"></a>             <span class="at">control=</span><span class="fu">list</span>(<span class="at">iter=</span><span class="dv">100</span>, <span class="at">seed=</span><span class="dv">12345</span>, <span class="at">thin=</span><span class="dv">1</span>))</span>
-<span id="cb89-8"><a href="#cb89-8"></a>  new_perplexity_score[i] <span class="ot">&lt;-</span> <span class="fu">perplexity</span>(<span class="at">object=</span>mod10_2, <span class="at">newdata=</span>dtm10)</span>
-<span id="cb89-9"><a href="#cb89-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="co"># Record the new perplexity scores</span></span>
+<span id="cb90-2"><a href="#cb90-2"></a>new_perplexity_score <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(models))</span>
+<span id="cb90-3"><a href="#cb90-3"></a></span>
+<span id="cb90-4"><a href="#cb90-4"></a><span class="co"># Run each model for 100 iterations</span></span>
+<span id="cb90-5"><a href="#cb90-5"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(models)) {</span>
+<span id="cb90-6"><a href="#cb90-6"></a>  mod10_2 <span class="ot">&lt;-</span> <span class="fu">LDA</span>(<span class="at">x=</span>dtm10, <span class="at">model=</span>models[[i]]<span class="sc">$</span>model,</span>
+<span id="cb90-7"><a href="#cb90-7"></a>             <span class="at">control=</span><span class="fu">list</span>(<span class="at">iter=</span><span class="dv">100</span>, <span class="at">seed=</span><span class="dv">12345</span>, <span class="at">thin=</span><span class="dv">1</span>))</span>
+<span id="cb90-8"><a href="#cb90-8"></a>  new_perplexity_score[i] <span class="ot">&lt;-</span> <span class="fu">perplexity</span>(<span class="at">object=</span>mod10_2, <span class="at">newdata=</span>dtm10)</span>
+<span id="cb90-9"><a href="#cb90-9"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ol start="3" type="1">
 <li>Generate a plot of new perplexity scores.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1"></a><span class="co"># Specify the possible values of k and build the plot</span></span>
-<span id="cb90-2"><a href="#cb90-2"></a>k <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">10</span></span>
-<span id="cb90-3"><a href="#cb90-3"></a><span class="fu">plot</span>(<span class="at">x=</span>k, <span class="at">y=</span>new_perplexity_score, <span class="at">xlab=</span><span class="st">"number of clusters, k"</span>, </span>
-<span id="cb90-4"><a href="#cb90-4"></a>     <span class="at">ylab=</span><span class="st">"perplexity score"</span>, <span class="at">type=</span><span class="st">"o"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a><span class="co"># Specify the possible values of k and build the plot</span></span>
+<span id="cb91-2"><a href="#cb91-2"></a>k <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb91-3"><a href="#cb91-3"></a><span class="fu">plot</span>(<span class="at">x=</span>k, <span class="at">y=</span>new_perplexity_score, <span class="at">xlab=</span><span class="st">"number of clusters, k"</span>, </span>
+<span id="cb91-4"><a href="#cb91-4"></a>     <span class="at">ylab=</span><span class="st">"perplexity score"</span>, <span class="at">type=</span><span class="st">"o"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2126,13 +2153,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Do integer division by 1000 and assign the result to a new column <code>document_number</code>.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1"></a>t <span class="ot">&lt;-</span> history <span class="sc">%&gt;%</span> </span>
-<span id="cb91-2"><a href="#cb91-2"></a>        <span class="co"># Unnest the tokens</span></span>
-<span id="cb91-3"><a href="#cb91-3"></a>        <span class="fu">unnest_tokens</span>(<span class="at">input=</span>text, <span class="at">output=</span>word) <span class="sc">%&gt;%</span> </span>
-<span id="cb91-4"><a href="#cb91-4"></a>        <span class="co"># Create a word index column</span></span>
-<span id="cb91-5"><a href="#cb91-5"></a>        <span class="fu">mutate</span>(<span class="at">word_index =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
-<span id="cb91-6"><a href="#cb91-6"></a>        <span class="co"># Create a document number column</span></span>
-<span id="cb91-7"><a href="#cb91-7"></a>        <span class="fu">mutate</span>(<span class="at">document_number =</span> word_index <span class="sc">%/%</span> <span class="dv">1000</span> <span class="sc">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a>t <span class="ot">&lt;-</span> history <span class="sc">%&gt;%</span> </span>
+<span id="cb92-2"><a href="#cb92-2"></a>        <span class="co"># Unnest the tokens</span></span>
+<span id="cb92-3"><a href="#cb92-3"></a>        <span class="fu">unnest_tokens</span>(<span class="at">input=</span>text, <span class="at">output=</span>word) <span class="sc">%&gt;%</span> </span>
+<span id="cb92-4"><a href="#cb92-4"></a>        <span class="co"># Create a word index column</span></span>
+<span id="cb92-5"><a href="#cb92-5"></a>        <span class="fu">mutate</span>(<span class="at">word_index =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb92-6"><a href="#cb92-6"></a>        <span class="co"># Create a document number column</span></span>
+<span id="cb92-7"><a href="#cb92-7"></a>        <span class="fu">mutate</span>(<span class="at">document_number =</span> word_index <span class="sc">%/%</span> <span class="dv">1000</span> <span class="sc">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great. Everything is correct.</p>
 </section>
@@ -2147,13 +2174,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Cast the table into a document-term matrix.</li>
 </ol>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1"></a>dtm11 <span class="ot">&lt;-</span> t <span class="sc">%&gt;%</span> </span>
-<span id="cb92-2"><a href="#cb92-2"></a>    <span class="co"># Join verbs on "word" and "past"</span></span>
-<span id="cb92-3"><a href="#cb92-3"></a>    <span class="fu">inner_join</span>(verbs, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"word"</span><span class="ot">=</span><span class="st">"past"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb92-4"><a href="#cb92-4"></a>    <span class="co"># Count word</span></span>
-<span id="cb92-5"><a href="#cb92-5"></a>    <span class="fu">count</span>(document_number, word) <span class="sc">%&gt;%</span> </span>
-<span id="cb92-6"><a href="#cb92-6"></a>    <span class="co"># Create a document-term matrix</span></span>
-<span id="cb92-7"><a href="#cb92-7"></a>    <span class="fu">cast_dtm</span>(<span class="at">document=</span>document_number, <span class="at">term=</span>word, <span class="at">value=</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a>dtm11 <span class="ot">&lt;-</span> t <span class="sc">%&gt;%</span> </span>
+<span id="cb93-2"><a href="#cb93-2"></a>    <span class="co"># Join verbs on "word" and "past"</span></span>
+<span id="cb93-3"><a href="#cb93-3"></a>    <span class="fu">inner_join</span>(verbs, <span class="at">by=</span><span class="fu">c</span>(<span class="st">"word"</span><span class="ot">=</span><span class="st">"past"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb93-4"><a href="#cb93-4"></a>    <span class="co"># Count word</span></span>
+<span id="cb93-5"><a href="#cb93-5"></a>    <span class="fu">count</span>(document_number, word) <span class="sc">%&gt;%</span> </span>
+<span id="cb93-6"><a href="#cb93-6"></a>    <span class="co"># Create a document-term matrix</span></span>
+<span id="cb93-7"><a href="#cb93-7"></a>    <span class="fu">cast_dtm</span>(<span class="at">document=</span>document_number, <span class="at">term=</span>word, <span class="at">value=</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>#&gt; Warning in inner_join(., verbs, by = c(word = "past")): Detected an unexpected many-to-many relationship between `x` and `y`.
+#&gt; ℹ Row 17948 of `x` matches multiple rows in `y`.
+#&gt; ℹ Row 506 of `y` matches multiple rows in `x`.
+#&gt; ℹ If a many-to-many relationship is expected, set `relationship =
+#&gt;   "many-to-many"` to silence this warning.</code></pre>
+</div>
 </div>
 <p>Very good!</p>
 </section>
@@ -2195,15 +2229,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p><strong>create mod</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1"></a><span class="co"># Store the names of documents in a vector</span></span>
-<span id="cb93-2"><a href="#cb93-2"></a>required_documents <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">" Africa"</span>, <span class="st">" Emperor Heraclius"</span>, </span>
-<span id="cb93-3"><a href="#cb93-3"></a>                       <span class="st">" Adrianople"</span>, <span class="st">" Daniel"</span>, <span class="st">" African"</span>)</span>
-<span id="cb93-4"><a href="#cb93-4"></a></span>
-<span id="cb93-5"><a href="#cb93-5"></a><span class="co"># Convert table into wide format</span></span>
-<span id="cb93-6"><a href="#cb93-6"></a><span class="fu">tidy</span>(mod, <span class="at">matrix=</span><span class="st">"gamma"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb93-7"><a href="#cb93-7"></a>   <span class="fu">spread</span>(<span class="at">key=</span>topic, <span class="at">value=</span>gamma) <span class="sc">%&gt;%</span> </span>
-<span id="cb93-8"><a href="#cb93-8"></a>   <span class="co"># Keep only the rows with document names matching the required documents</span></span>
-<span id="cb93-9"><a href="#cb93-9"></a>   <span class="fu">filter</span>(document <span class="sc">%in%</span> required_documents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1"></a><span class="co"># Store the names of documents in a vector</span></span>
+<span id="cb95-2"><a href="#cb95-2"></a>required_documents <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">" Africa"</span>, <span class="st">" Emperor Heraclius"</span>, </span>
+<span id="cb95-3"><a href="#cb95-3"></a>                       <span class="st">" Adrianople"</span>, <span class="st">" Daniel"</span>, <span class="st">" African"</span>)</span>
+<span id="cb95-4"><a href="#cb95-4"></a></span>
+<span id="cb95-5"><a href="#cb95-5"></a><span class="co"># Convert table into wide format</span></span>
+<span id="cb95-6"><a href="#cb95-6"></a><span class="fu">tidy</span>(mod, <span class="at">matrix=</span><span class="st">"gamma"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb95-7"><a href="#cb95-7"></a>   <span class="fu">spread</span>(<span class="at">key=</span>topic, <span class="at">value=</span>gamma) <span class="sc">%&gt;%</span> </span>
+<span id="cb95-8"><a href="#cb95-8"></a>   <span class="co"># Keep only the rows with document names matching the required documents</span></span>
+<span id="cb95-9"><a href="#cb95-9"></a>   <span class="fu">filter</span>(document <span class="sc">%in%</span> required_documents)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Good. Notice that Daniel and Emperor Heraclius have higher values in column 1.</p>
 </section>
@@ -2220,21 +2254,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p><strong>create dtm</strong></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1"></a><span class="co"># Set up the column names</span></span>
-<span id="cb94-2"><a href="#cb94-2"></a><span class="fu">colnames</span>(seedwords) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(dtm)</span>
-<span id="cb94-3"><a href="#cb94-3"></a></span>
-<span id="cb94-4"><a href="#cb94-4"></a><span class="co"># Set the weights</span></span>
-<span id="cb94-5"><a href="#cb94-5"></a>seedwords[<span class="dv">1</span>, <span class="st">"defeated_l2"</span>] <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb94-6"><a href="#cb94-6"></a>seedwords[<span class="dv">2</span>, <span class="st">"across_l2"</span>] <span class="ot">=</span> <span class="dv">1</span></span>
-<span id="cb94-7"><a href="#cb94-7"></a></span>
-<span id="cb94-8"><a href="#cb94-8"></a><span class="co"># Fit the topic model</span></span>
-<span id="cb94-9"><a href="#cb94-9"></a>mod <span class="ot">&lt;-</span> <span class="fu">LDA</span>(dtm, <span class="at">k=</span><span class="dv">3</span>, <span class="at">method=</span><span class="st">"Gibbs"</span>,</span>
-<span id="cb94-10"><a href="#cb94-10"></a>         <span class="at">seedwords=</span>seedwords,</span>
-<span id="cb94-11"><a href="#cb94-11"></a>         <span class="at">control=</span><span class="fu">list</span>(<span class="at">alpha=</span><span class="dv">1</span>, <span class="at">iter=</span><span class="dv">500</span>, <span class="at">seed=</span><span class="dv">1234</span>))</span>
-<span id="cb94-12"><a href="#cb94-12"></a></span>
-<span id="cb94-13"><a href="#cb94-13"></a><span class="co"># Examine topic assignment in the fitted model</span></span>
-<span id="cb94-14"><a href="#cb94-14"></a><span class="fu">tidy</span>(mod, <span class="st">"gamma"</span>) <span class="sc">%&gt;%</span> <span class="fu">spread</span>(topic, gamma) <span class="sc">%&gt;%</span> </span>
-<span id="cb94-15"><a href="#cb94-15"></a>\<span class="fu">tfilter</span>(document <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">" Daniel"</span>, <span class="st">" Adrianople"</span>, <span class="st">" African"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1"></a><span class="co"># Set up the column names</span></span>
+<span id="cb96-2"><a href="#cb96-2"></a><span class="fu">colnames</span>(seedwords) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(dtm)</span>
+<span id="cb96-3"><a href="#cb96-3"></a></span>
+<span id="cb96-4"><a href="#cb96-4"></a><span class="co"># Set the weights</span></span>
+<span id="cb96-5"><a href="#cb96-5"></a>seedwords[<span class="dv">1</span>, <span class="st">"defeated_l2"</span>] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb96-6"><a href="#cb96-6"></a>seedwords[<span class="dv">2</span>, <span class="st">"across_l2"</span>] <span class="ot">=</span> <span class="dv">1</span></span>
+<span id="cb96-7"><a href="#cb96-7"></a></span>
+<span id="cb96-8"><a href="#cb96-8"></a><span class="co"># Fit the topic model</span></span>
+<span id="cb96-9"><a href="#cb96-9"></a>mod <span class="ot">&lt;-</span> <span class="fu">LDA</span>(dtm, <span class="at">k=</span><span class="dv">3</span>, <span class="at">method=</span><span class="st">"Gibbs"</span>,</span>
+<span id="cb96-10"><a href="#cb96-10"></a>         <span class="at">seedwords=</span>seedwords,</span>
+<span id="cb96-11"><a href="#cb96-11"></a>         <span class="at">control=</span><span class="fu">list</span>(<span class="at">alpha=</span><span class="dv">1</span>, <span class="at">iter=</span><span class="dv">500</span>, <span class="at">seed=</span><span class="dv">1234</span>))</span>
+<span id="cb96-12"><a href="#cb96-12"></a></span>
+<span id="cb96-13"><a href="#cb96-13"></a><span class="co"># Examine topic assignment in the fitted model</span></span>
+<span id="cb96-14"><a href="#cb96-14"></a><span class="fu">tidy</span>(mod, <span class="st">"gamma"</span>) <span class="sc">%&gt;%</span> <span class="fu">spread</span>(topic, gamma) <span class="sc">%&gt;%</span> </span>
+<span id="cb96-15"><a href="#cb96-15"></a>\<span class="fu">tfilter</span>(document <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">" Daniel"</span>, <span class="st">" Adrianople"</span>, <span class="st">" African"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Great! By setting up seed words, we forced the model to switch topics. Topic 1 is no longer the most probable for document ’ Daniel’</p>
 </section>
@@ -2399,9 +2433,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -2466,6 +2514,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -2521,10 +2655,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Content 2022 by <a href="https://www.startupengineer.io/authors/schwarz/">Joschka Schwarz</a> <br> All content licensed under a <a href="https://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International license (CC BY-NC 4.0)</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
     <div class="nav-footer-right">Made with and <a href="https://quarto.org/">Quarto</a><br> <a href="https://www.github.com/jwarz/jwarz.github.io">View the source at GitHub</a></div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom","loop":true,"openEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","descPosition":"bottom","loop":true,"closeEffect":"zoom"});</script>
 
 
 
