@@ -434,8 +434,17 @@ Joschka Schwarz
 </div>
 </section>
 <section id="github" class="slide level2">
-<h2>GitHub</h2>
-<p>Get all GitHub User profiles via API (iterated &gt; 42 mil user ids)</p>
+<h2><svg width="100%" height="100%" viewbox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" fill="currentColor"></path></svg> GitHub</h2>
+<style>
+svg {
+  display: inline-flex;
+  align-self: center;
+  height: 0.7em;
+  width: 0.7em;
+  color: var(--r-heading-color);
+}
+</style>
+<p>Use GitHub Api to gather information about user</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># resp &lt;- httr::GET("https://api.github.com/users/jwarz")</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>httr<span class="sc">::</span><span class="fu">GET</span>(<span class="st">"https://api.github.com/user/40362019"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -474,7 +483,42 @@ Joschka Schwarz
 #&gt; $ updated_at          &lt;chr&gt; "2023-04-05T09:00:16Z"</code></pre>
 </div>
 </div>
-</section></section>
+</section>
+<section id="github-1" class="slide level2">
+<h2><svg width="100%" height="100%" viewbox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" fill="currentColor"></path></svg> GitHub</h2>
+<p>Get all GitHub User profiles via API (iterated &gt; 42 mil user ids)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">open_dataset</span>(<span class="st">"gh_api_users_wrangled.parquet"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; FileSystemDataset with 1 Parquet file
+#&gt; 42,557,276 rows x 16 columns
+#&gt; $ id                         &lt;int32&gt; 1, 2, 3, 4, 5, 6, 7, 17, 18, 19, 20, 21, 22…
+#&gt; $ login                     &lt;string&gt; "mojombo", "defunkt", "pjhyett", "wycats", …
+#&gt; $ type             &lt;dictionary&lt;...&gt;&gt; User, User, User, User, User, User, User, U…
+#&gt; $ site_admin       &lt;dictionary&lt;...&gt;&gt; FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, FA…
+#&gt; $ name                      &lt;string&gt; "Tom Preston-Werner", "Chris Wanstrath", "P…
+#&gt; $ company                   &lt;string&gt; NA, "@github ", "GitHub, Inc.", "Tilde, Inc…
+#&gt; $ blog                      &lt;string&gt; "http://tom.preston-werner.com", "http://ch…
+#&gt; $ location                  &lt;string&gt; "San Francisco", "San Francisco", "San Fran…
+#&gt; $ email                     &lt;string&gt; "tom@mojombo.com", "chris@github.com", "pj@…
+#&gt; $ email_hash                &lt;string&gt; "25c7c18223fb42a4c6ae1c8db6f50f9b", "74858b…
+#&gt; $ bio                       &lt;string&gt; NA, "🍔 ", NA, NA, NA, NA, NA, NA, NA, "Co-…
+#&gt; $ public_repos               &lt;int32&gt; 60, 107, 8, 207, 22, 86, 137, 45, 97, 163, …
+#&gt; $ public_gists               &lt;int32&gt; 62, 273, 21, 749, 106, 79, 440, 47, 95, 66,…
+#&gt; $ followers                  &lt;int32&gt; 21141, 20355, 8204, 8963, 475, 81, 1145, 70…
+#&gt; $ following                  &lt;int32&gt; 11, 210, 30, 4, 13, 2, 6, 14, 16, 27, 4, 17…
+#&gt; $ created_at &lt;timestamp[us, tz=UTC]&gt; 2007-10-20 05:24:19, 2007-10-20 05:24:19, 2…
+#&gt; Call `print()` for full schema details</code></pre>
+</div>
+</div>
+</section>
+<section id="stackoverflow" class="slide level2">
+<h2><svg width="100%" height="100%" viewbox="0 0 82 82" xmlns="http://www.w3.org/2000/svg"><path d="M71.4,81V52.4h-7.2v21.4H14.3V52.4H7.2V81H71.4z" fill="currentColor"></path><path d="M23.7,43.5l35,7.3l-1.5,7l-35-7.3L23.7,43.5z M26.8,33.8l3-6.5l32.3,15.2l-3,6.4L26.8,33.8L26.8,33.8z M35.7,17.9l4.6-5.5l27.5,22.8l-4.6,5.5L35.7,17.9L35.7,17.9z M74.8,29.6L69,33.9L47.7,5.3L53.5,1L74.8,29.6z M21.4,59.6h35.7v7.1 H21.4V59.6z" fill="currentColor"></path></svg> Stackoverflow</h2>
+
+<img data-src="img/stackoverflow_user.png" class="r-stretch quarto-figure-center"></section></section>
 <section id="slide-1" class="title-slide slide level1 center" data-name="Regular slide">
 <h1>Slide 1</h1>
 <p>A paragraph with some text and a <a href="http://hakim.se">link</a>.</p>
@@ -512,11 +556,11 @@ Joschka Schwarz
 <section id="option-1-menubarclass" class="slide level2">
 <h2>Option 1: menubarclass</h2>
 <p>The menubarclass option sets the classname of menubars.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="at">    ...</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="at">      </span><span class="fu">menubarclass</span><span class="kw">:</span><span class="at"> </span><span class="st">"menubar"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="at">    ...</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="at">      </span><span class="fu">menubarclass</span><span class="kw">:</span><span class="at"> </span><span class="st">"menubar"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p class="small">
 Simplemenu will show the menubar(s) on all pages. If you do not want to show the menubar on certain pages, use data-state=“hide-menubar” on that section. This behaviour also works when exporting to PDF using the Reveal.js ?print-pdf option.
 </p>
@@ -524,72 +568,72 @@ Simplemenu will show the menubar(s) on all pages. If you do not want to show the
 <section id="option-2-menuclass" class="slide level2">
 <h2>Option 2: menuclass</h2>
 <p>The menuclass option sets the classname of the menu.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="at">    ...</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="at">      </span><span class="fu">menuclass</span><span class="kw">:</span><span class="at"> </span><span class="st">"menu"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="at">    ...</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="at">      </span><span class="fu">menuclass</span><span class="kw">:</span><span class="at"> </span><span class="st">"menu"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Simplemenu looks inside this menu for list items (LI’s).</p>
 </section>
 <section id="option-3-activeclass" class="slide level2">
 <h2>Option 3: activeclass</h2>
 <p>The activeclass option is the class an active menuitem gets.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="at">    ...</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="at">      </span><span class="fu">activeclass</span><span class="kw">:</span><span class="at"> </span><span class="st">"active"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="at">    ...</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="at">      </span><span class="fu">activeclass</span><span class="kw">:</span><span class="at"> </span><span class="st">"active"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="option-4-activeelement" class="slide level2">
 <h2>Option 4: activeelement</h2>
 <p>The activeelement option sets the item that gets the active class.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="at">    ...</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="at">      </span><span class="fu">activeelement</span><span class="kw">:</span><span class="at"> </span><span class="st">"li"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="at">    ...</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="at">      </span><span class="fu">activeelement</span><span class="kw">:</span><span class="at"> </span><span class="st">"li"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You may want to change it to the anchor inside the li, like this: <code>activeelement: "a"</code>.</p>
 </section>
 <section id="option-5-barhtml" class="slide level2">
 <h2>Option 5: barhtml</h2>
 <p>You can add the HTML for the header (and/or footer) through this option. This way you no longer need to edit the template.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="at">    ...</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="at">      </span><span class="fu">barhtml</span><span class="kw">:</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a><span class="at">        </span><span class="fu">header</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;div class='menubar'&gt;&lt;ul class='menu'&gt;&lt;/ul&gt;&lt;/div&gt;"</span></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="at">        </span><span class="fu">footer</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="option-5-barhtml-continued" class="slide level2">
-<h2>Option 5: barhtml (Continued)</h2>
-<p>You can also move the slide number or the controls to your header or footer. If they are nested there manually, or through the <code>barhtml</code> option, they will then display inside that header or footer.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="at">    ...</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="at">      </span><span class="fu">barhtml</span><span class="kw">:</span></span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="at">        </span><span class="fu">header</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="at">        </span><span class="fu">footer</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;div class='menubar'&gt;&lt;ul class='menu'&gt;&lt;/ul&gt;&lt;div class='slide-number'&gt;&lt;/div&gt;&lt;/div&gt;"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="option-6-flat" class="slide level2">
-<h2>Option 6: flat</h2>
-<p>Sometimes you’ll want to limit your presentation to horizontal slides only. To still use ‘chapters’, you can use the <code>flat</code> option. By default, it is set to <code>false</code>, but you can set it to <code>true</code>. Then, when a data-name is set for a slide, any following slides will keep that menu name.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">format</span><span class="kw">:</span></span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
 <span id="cb9-3"><a href="#cb9-3"></a><span class="at">    ...</span></span>
 <span id="cb9-4"><a href="#cb9-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="at">      </span><span class="fu">flat</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="at">      </span><span class="fu">barhtml</span><span class="kw">:</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="at">        </span><span class="fu">header</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;div class='menubar'&gt;&lt;ul class='menu'&gt;&lt;/ul&gt;&lt;/div&gt;"</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="at">        </span><span class="fu">footer</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="option-5-barhtml-continued" class="slide level2">
+<h2>Option 5: barhtml (Continued)</h2>
+<p>You can also move the slide number or the controls to your header or footer. If they are nested there manually, or through the <code>barhtml</code> option, they will then display inside that header or footer.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="at">    ...</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="at">      </span><span class="fu">barhtml</span><span class="kw">:</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="at">        </span><span class="fu">header</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a><span class="at">        </span><span class="fu">footer</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;div class='menubar'&gt;&lt;ul class='menu'&gt;&lt;/ul&gt;&lt;div class='slide-number'&gt;&lt;/div&gt;&lt;/div&gt;"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="option-6-flat" class="slide level2">
+<h2>Option 6: flat</h2>
+<p>Sometimes you’ll want to limit your presentation to horizontal slides only. To still use ‘chapters’, you can use the <code>flat</code> option. By default, it is set to <code>false</code>, but you can set it to <code>true</code>. Then, when a data-name is set for a slide, any following slides will keep that menu name.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="at">    ...</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="at">      </span><span class="fu">flat</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To stop inheriting the previous slide menu name, start a new named section, or add <code>data-sm="false"</code> to your slide.</p>
 </section>
 <section id="option-7-scale" class="slide level2">
 <h2>Option 7: scale</h2>
 <p>When you have a lot of subjects/chapters in your menubar, they might not all fit in a row. You can then tweak the scale in the options. Simplemenu copies the Reveal.js (slide) scaling and adds a <code>scale</code> option on top of that.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="at">    ...</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="at">      </span><span class="fu">scale</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.67</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="at">    ...</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="at">      </span><span class="fu">scale</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.67</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>It is set to be two-thirds of the main scaling.</p>
 </section></section>
 <section id="more-demos" class="title-slide slide level1 center" data-name="More demos">
