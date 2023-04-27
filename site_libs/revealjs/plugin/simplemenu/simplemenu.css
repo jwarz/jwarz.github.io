@@ -4,71 +4,82 @@
 }
 
 .menubar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -o-transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
-  transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985), -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition: transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985), 
+  -webkit-transform 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -webkit-transform: translateY(-100%);
       -ms-transform: translateY(-100%);
           transform: translateY(-100%);
-  color: inherit;
+  margin-top: -1px;
   z-index: 2;
-  /* ADD PADDING FOR ACTIVE ELEMNT UNDERSCORE */
   padding: 0.3em;
-  /* ADD PADDING FOR ACTIVE ELEMNT UNDERSCORE */
   position: absolute;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
-  font-size: clamp(16px, var(--r-main-font-size) * var(--simplemenu-scale, 0.75), 80px);
+  font-size: 2.7vmin;
   line-height: 1;
   border-bottom: 1px solid var(--r-link-color);
-}
-.menubar * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-html:not(.print-pdf) body:not(.hide-menubar) .reveal.ready:not(.hide-menubar) .menubar {
-  -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-          transform: translateY(0);
-}
-body.hide-menubar .reveal.ready .menubar a {
-  -webkit-transition: opacity 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
-  -o-transition: opacity 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
-  transition: opacity 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
 }
 .menubar.bottom {
   -webkit-transform: translateY(100%);
       -ms-transform: translateY(100%);
           transform: translateY(100%);
 }
-
-.print-pdf .pdf-page:not(.hide-menubar) .menubar {
+body:not(.hide-menubar) .reveal.ready:not(.hide-menubar) .menubar {
   -webkit-transform: translateY(0);
       -ms-transform: translateY(0);
           transform: translateY(0);
 }
+.print-pdf .menubar {
+  -webkit-transform: translateY(0);
+      -ms-transform: translateY(0);
+          transform: translateY(0);
+}
+[data-state=hide-menubar] ~ .menubar {
+  -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+          transform: translateY(-100%);
+}
+[data-state=hide-menubar] ~ .menubar.bottom {
+  -webkit-transform: translateY(100%);
+      -ms-transform: translateY(100%);
+          transform: translateY(100%);
+}
+.menubar > * {
+  padding: 0.4em 0.6em;
+}
+.menubar > *:first-child, .menubar > *:last-child {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.menubar > *:first-child {
+  margin-right: auto;
+}
+.menubar > *:last-child {
+  margin-left: auto;
+}
+.menubar > *:first-child:last-child {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+}
+.menubar > *:first-child:last-child.left {
+  margin-left: 0;
+}
+.menubar > *:first-child:last-child.right {
+  margin-right: 0;
+}
 .menubar a {
-  -webkit-transition: opacity 0.2s ease-in-out;
-  -o-transition: opacity 0.2s ease-in-out;
-  transition: opacity 0.2s ease-in-out;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-font-smoothing: subpixel-antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /*padding: 0.4em 0;*/
-
-  /* MY SETTINGS */
   color: var(--r-heading-color); /*#inherit;*/
   opacity: 0.5;
   font-size: 0.5em;  /*13px;*/
@@ -76,12 +87,11 @@ body.hide-menubar .reveal.ready .menubar a {
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  /* MY SETTINGS */
+}
+.menubar a:hover {
+  opacity: 0.75;
 }
 .menubar > ul {
-  -webkit-transition: opacity 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
-  -o-transition: opacity 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
-  transition: opacity 0.8s cubic-bezier(0.26, 0.86, 0.44, 0.985);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -101,90 +111,20 @@ body.hide-menubar .reveal.ready .menubar a {
   padding: 0;
   /*margin: 0 auto;*/
   margin-right: 100px;
-  gap: 1.5em; /* Maybe too much */
   /*align-items: stretch;*/
 }
 .menubar > ul li {
-  /*
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  */
-  /* MY SETTINGS */
   padding: 0.4em 1em;
   text-align: center;
-}
-.menubar > ul li:before {
-  display: none;
+  
 }
 .menubar > ul li + li {
   margin: 0;
 }
-.menubar > ul a {
-  -webkit-box-flex: 0;
-      -ms-flex: 0;
-          flex: 0;
-  white-space: nowrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  opacity: 0.33;
-  /*padding: 0.5em;*/
-  color: var(--r-heading-color);
-}
-.menubar > ul a:hover {
-  /*color: currentColor;*/
-  opacity: 0.75;
-}
-.menubar > ul li a.active, .menubar > ul li.active a {
+.menubar > ul li.active a {
   opacity: 1;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.hide-menu .menu, .hide-menu .menu, [data-state=hide-menu] .menu {
-  opacity: 0;
-}
-
-.reveal .slide-number, .menubar .slide-number {
-  background: none;
-  font-family: inherit;
-  color: inherit;
-}
-.reveal .slide-number a, .menubar .slide-number a {
-  padding: 0;
-  opacity: 0.33;
-  color: currentColor;
-}
-.reveal .slide-number a:hover, .menubar .slide-number a:hover {
-  color: currentColor;
-  opacity: 0.75;
-}
-
-.menubar .slide-number {
-  display: -webkit-box !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  justify-items: center;
-  font-size: 0.75em;
-  height: 100%;
-  right: 0;
-  bottom: auto;
-  z-index: 0;
-  padding: 0;
-  padding-right: 1em;
 }
 
 /* Add bottom bar to active element */
@@ -205,14 +145,12 @@ body.hide-menubar .reveal.ready .menubar a {
 .slides ~ .menubar, .menubar.bottom {
   top: auto;
   bottom: 0;
-  /*
   border-top: 1px solid rgba(255, 255, 255, 0.5);
   border-bottom: none;
   margin-top: 0;
   margin-bottom: -1px;
-  */
 }
 
 .slides ~ .menubar ~ .controls {
-  margin-bottom: clamp(16px, 2.5 * var(--r-main-font-size) * var(--simplemenu-scale, 0.75), 100px);
+  margin-bottom: 6vmin;
 }
