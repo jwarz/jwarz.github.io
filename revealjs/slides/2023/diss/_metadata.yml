@@ -1,13 +1,25 @@
 format:
   revealjs: 
     theme: [../../../css/tie.scss, ../../../css/tie-logo.scss]
+    ## SimpleMenu
+    title-slide-attributes:
+        data-state: "hide-menubar"
+    # center: true
+    transition: slide
+    background-transition: fade
+    controls-layout: bottom-right
+    simplemenu:
+      barhtml:
+          header: "<div class='menubar'><ul class='menu'></ul><div>"
+      scale: 0.67
     ## SLIDES
     slide-number: c/t
     ## SLIDE TOOLS
     chalkboard: true
     ## PLUGINS
     revealjs-plugins:
-      - revealjs/plugins/jwarz/SimpleMenu
+      # - revealjs/plugins/jwarz/SimpleMenu
+      - revealjs/plugins/martinomagnifico/quarto-simplemenu
       - revealjs/plugins/jwarz/ToggleDarkMode
       - revealjs/plugins/jwarz/FullscreenButton
     ## NAVIGATION
@@ -16,6 +28,10 @@ format:
     ## MEDIA
     preview-links: auto
     ## CODE
+    execute:
+      echo: true
+    code-block-bg: true
+    code-block-border-left: "#31BAE9"  
     highlight-style: atom-one-dark
     ## FAVICON
     # include-in-header: [../../../img/favicon/TIE/favicon.html]

@@ -121,8 +121,8 @@ comics <- read_csv("data/comics.csv", col_types = cols(.default = "f")) |>
             mutate(across(where(is.factor), fct_recode, NULL = "NA")) |> 
   
             # Relevel columns
-            mutate(align  = align  |> fct_relevel(levels = "Bad", "Good", "Neutral")) |> 
-            mutate(gender = gender |> fct_relevel(levels = "Female", "Male", "Other"))
+            mutate(align  = align  |> fct_relevel("Bad", "Good", "Neutral")) |> 
+            mutate(gender = gender |> fct_relevel("Female", "Male", "Other"))
 
 # Print the first rows of the data
 comics
@@ -429,7 +429,7 @@ ggplot(comics_filtered, aes(x = align)) +
 ```{r}
 # 1. Change the order of the levels in align
 comics_releveled <- comics_filtered |> 
-  dplyr::mutate(align = align |> fct_relevel(levels = "Bad", "Neutral", "Good"))
+  dplyr::mutate(align = align |> fct_relevel("Bad", "Neutral", "Good"))
 
 # 2. Create plot of align
 comics_releveled |> 
@@ -1726,7 +1726,7 @@ Let's practice constructing a faceted barchart.
 # forcats
 email |> 
   mutate(spam = spam |> fct_recode(`not-spam` = "0", spam = "1")) |> 
-  mutate(number_reordered = number |> fct_relevel(levels = "none", "small", "big")) |> 
+  mutate(number_reordered = number |> fct_relevel("none", "small", "big")) |> 
 
   # Construct plot of number_reordered
   ggplot(aes(x = number_reordered, fill = spam)) +

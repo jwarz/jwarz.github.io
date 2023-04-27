@@ -1379,7 +1379,10 @@ Pre-loaded is a `model`, which is a decision tree that was trained on the credit
 3. Calculate the ROC curve of the result.
 4. Plot the ROC curve using `autoplot()`.
 
+ERROR HERE: Can't rename variables in this context roc_curve()
+
 ```{r}
+#| eval: false
 ## Assign model
 model <- tree_spec |> fit(still_customer ~ ., customers_train)
 
@@ -1422,7 +1425,10 @@ You are going to calculate your model's AUC using the `predictions` tibble from 
 
 1. Calculate the area under the ROC curve using the `roc_auc()` function and the `predictions` tibble.
 
+ERROR: variable not exist
+
 ```{r}
+#| eval: false
 # Calculate area under the curve
 auc_result <- roc_auc(predictions,
                       estimate = .pred_yes, 
@@ -1537,7 +1543,11 @@ predictions <- predict(model_bagged,
 
 2. Generate the ROC curve of the `predictions` tibble and plot the result.
 
+
+ERROR with roc_curver()
+
 ```{r}
+#| eval: false
 # Create and plot the ROC curve
 roc_curve(predictions, 
           estimate = .pred_yes, 
@@ -1547,6 +1557,7 @@ roc_curve(predictions,
 3. Calculate the AUC of the `predictions` tibble.
 
 ```{r}
+#| eval: false
 # Calculate the AUC
 roc_auc(predictions,
         estimate = .pred_yes, 
@@ -1895,7 +1906,12 @@ predictions <- boost_tree() %>%
   fit(still_customer ~ ., data = customers_train) %>%
   predict(new_data = customers_train, type = "prob") %>% 
   bind_cols(customers_train)
+```
 
+ERROR
+
+```{r}
+#| eval: false
 # Calculate AUC
 roc_auc(predictions, 
         truth = still_customer, 
@@ -1914,7 +1930,12 @@ predictions <- decision_tree() %>%
   fit(still_customer ~ ., data = customers_train) %>%
   predict(new_data = customers_train, type = "prob") %>% 
   bind_cols(customers_train)
+```
 
+ERROR
+
+```{r}
+#| eval: false
 # Calculate AUC
 roc_auc(predictions, 
         truth = still_customer,
@@ -2195,7 +2216,10 @@ tibble [1,011 × 5]
 
 1. Calculate the AUC for each prediction column in `preds_combined`, always using `still_customer` as the truth column.
 
+ERROR
+
 ```{r}
+#| eval: false
 # load data
 preds_combined <- readRDS("data/preds_combined.rds")
 
@@ -2215,6 +2239,7 @@ auc_boost
 2. Combine the results into one single tibble.
 
 ```{r}
+#| eval: false
 # Combine AUCs into one tibble
 combined <- bind_rows(auc_tree,
                       auc_bagged,
@@ -2227,6 +2252,7 @@ combined
 3. Change the code so that the arguments to `bind_rows()` are named `decision_tree`, `bagged_tree`, `random_forest`, and `boosted_tree`.
 
 ```{r}
+#| eval: false
 # Combine AUCs into one tibble
 combined <- bind_rows(decision_tree = auc_tree,
                       bagged_tree   = auc_bagged,
@@ -2255,6 +2281,7 @@ The predictions tibble, `preds_combined`, is still loaded.
 4. Produce a graphical plot of the curves.
 
 ```{r}
+#| eval: false
 # Reshape the predictions into long format
 predictions_long <- tidyr::pivot_longer(preds_combined,
                                         cols = starts_with("preds_"),

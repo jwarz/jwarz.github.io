@@ -2389,8 +2389,7 @@ Ok! The code for calculating the likelihood was a bit messy, but Bayes theorem s
 In the last exercise, you computed the probability for each mean (`mu`) and SD (`sigma`) combination. Using the `levelplot` function from the `lattice` package we can now visualize this 2D probability distribution:
 
 
-<pre><code class="R language-R">levelplot(probability ~ mu * sigma, data = pars)
-```
+`levelplot(probability ~ mu * sigma, data = pars)`
 
 <img src="https://assets.datacamp.com/production/repositories/1300/datasets/ba53c55411008363e6656d2b30a62dd7e702e611/normal_zombie_2d_posterior.png" alt>
 
@@ -2609,7 +2608,11 @@ mean(iq_brains) - mean(iq_regular)
     * Load in the `BEST` package using the `library()` function. 
     * Fit the BEST model using the `BESTmcmc` function, like this: `BESTmcmc(iq_brains, iq_regular)`. Assign the output of `BESTmcmc` to the variable `best_posterior`.
 
+
+SOME ERRORS WITH THE `BEST` library
+
 ```{r}
+#| eval: false
 # The IQ of zombies on a regular diet and a brain based diet.
 iq_brains <- c(44, 52, 42, 66, 53, 42, 55, 57, 56, 51)
 iq_regular <- c(55, 44, 34, 18, 51, 40, 40, 49, 48, 46)
@@ -2627,6 +2630,7 @@ best_posterior <- BESTmcmc(iq_brains, iq_regular)
     * Take a look at the posterior estimate of the difference in IQ between the normal and brain-diet zombies by running `plot(best_posterior)`.
 
 ```{r}
+#| eval: false
 # The IQ of zombies on a regular diet and a brain based diet.
 iq_brains <- c(44, 52, 42, 66, 53, 42, 55, 57, 56, 51)
 iq_regular <- c(55, 44, 34, 18, 51, 40, 40, 49, 48, 46)
@@ -2674,6 +2678,7 @@ The Bayesian model behind BEST assumes that the generative model for the data is
     * Again, calculate the difference in means between the two groups using the `mean()` function, that is, the mean of `iq_brains` minus the mean of `iq_regular`.
 
 ```{r}
+#| eval: false
 # The IQ of zombies given a regular diet and a brain based diet.
 iq_brains <- c(44, 52, 42, 66, 53, 42, 55, 57, 56, 51)
 iq_regular <- c(55, 44, 34, 18, 51, 40, 40, 49, 48, 150)
@@ -2690,6 +2695,7 @@ mean(iq_brains) - mean(iq_regular)
     * Plot `best_posterior` using the `plot()` function.
 
 ```{r}
+#| eval: false
 # The IQ of zombies given a regular diet and a brain based diet.
 iq_brains <- c(44, 52, 42, 66, 53, 42, 55, 57, 56, 51)
 iq_regular <- c(55, 44, 34, 18, 51, 40, 40, 49, 48, 150) # <- Mutant zombie

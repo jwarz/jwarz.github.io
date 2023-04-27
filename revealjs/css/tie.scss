@@ -2,6 +2,7 @@
 // Font
 @import url(https://fonts.googleapis.com/css?family=Poppins:400,700,400italic,700italic);
 $font-family-sans-serif: Poppins, sans-serif !default;
+$mainFontSize: clamp(0.2rem, 10vw, 2rem);
 
 // Base document colors
 $body-color: #484848 !default;
@@ -10,10 +11,10 @@ $link-color: #005e73 !default;
 // headings
 $presentation-heading-font: Poppins, sans-serif !default;
 $presentation-heading-color: #005e73 !important;
-$h1-font-size: 1.8em !default;
-$h2-font-size: 1.6em !default;
-$h3-font-size: 1.3em !default;
-$h4-font-size: 1.0em !default;
+$heading1Size: 1.4em !default;
+$heading2Size: 1.2em !default;
+$heading3Size: 0.9em !default;
+$heading4Size: 0.6em !default;
 
 /* -- scss:mixins --*/
 
@@ -97,14 +98,14 @@ h1 h1:not(#title-slide), h2
 ********** Logo **********
 *************************/
 @media (min-width:1025px){ // dont show on mobile
-  .menubar {
-   text-align: left;
-   background-position: right; /*Positioning*/
-   background-size: auto 80%;
-   background-origin: content-box; /*Padding of image*/
-   background-repeat: no-repeat; /*Prevent showing multiple background images*/
-   background-image: url($tie-logo);
-  }
+ .menubar {
+  text-align: left;
+  background-position: right; /*Positioning*/
+  background-size: auto 80%;
+  background-origin: content-box; /*Padding of image*/
+  background-repeat: no-repeat; /*Prevent showing multiple background images*/
+  background-image: url($tie-logo);
+ }
 }
 
 /**************************************************************
@@ -158,6 +159,19 @@ body:not(.hide-menubar) .reveal.ready:not(.hide-menubar) .footer {
 
 .tippy-box[data-placement^='top'] > .tippy-arrow::before {
   border-top-color: $body-bg;
+}
+
+/******************
+*** CODE BLOCKS ***
+******************/
+.cell {
+  
+}
+
+.cell-output {
+    margin-top: 1rem;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
 }
 
 /*******
