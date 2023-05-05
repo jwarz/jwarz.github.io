@@ -9,6 +9,14 @@ date-format: "dddd, D[<sup style='font-size:65%;font-style:italic;'>th</sup>] [o
 section-divs: true
 ---
 
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(
+  comment = '#>', fig.width = 6, fig.height = 6
+)
+```
+
 ## Table of Contents {data-state="hide-menubar"}
 <ul class="menu"><ul>
 
@@ -74,7 +82,8 @@ Use GitHub Api to gather information about user
 
 ```{r}
 #| eval: false
-# resp <- httr::GET("https://api.github.com/users/jwarz")
+#| code-line-numbers: "|1|2"
+httr::GET("https://api.github.com/users/jwarz")
 httr::GET("https://api.github.com/user/40362019")
 ```
 
@@ -98,15 +107,165 @@ open_dataset("gh_api_users_wrangled.parquet") |>
 
 ```{r}
 #| echo: false
+#| message: false
 library(arrow)
 open_dataset("/Users/jschwarz/02_diss/01_data_sources/02_github/01_api/01_data/02_wrangled/gh_api_users_wrangled.parquet") |> 
   glimpse() 
 ```
 
+## <svg width="100%" height="100%" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg"><path d="M71.4,81V52.4h-7.2v21.4H14.3V52.4H7.2V81H71.4z" fill="currentColor"/><path d="M23.7,43.5l35,7.3l-1.5,7l-35-7.3L23.7,43.5z M26.8,33.8l3-6.5l32.3,15.2l-3,6.4L26.8,33.8L26.8,33.8z	M35.7,17.9l4.6-5.5l27.5,22.8l-4.6,5.5L35.7,17.9L35.7,17.9z M74.8,29.6L69,33.9L47.7,5.3L53.5,1L74.8,29.6z M21.4,59.6h35.7v7.1 H21.4V59.6z" fill="currentColor"/></svg> Stackoverflow
+
+::: {.panel-tabset}
+
+### Dump 2021
+
+```{r}
+#| eval: false
+open_dataset("so_dump_2021_09_users.parquet") |> 
+  glimpse() 
+```
+
+```{r}
+#| echo: false
+#| message: false
+open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/02_extracted/so_dump_2021_09_users.parquet") |> 
+  glimpse()
+```
+
+### Example 2021
+
+:::: {.r-stack}
+::: {.fragment .fade-out fragment-index=1}
+
+```{r}
+#| eval: false
+open_dataset("so_dump_2021_09_users.parquet") |> 
+  filter(DisplayName == "Christoph Ihl")
+  glimpse() 
+```
+
+```{r}
+#| echo: false
+#| message: false
+open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/02_extracted/so_dump_2021_09_users.parquet") |> 
+  filter(Id == 9882371) |> 
+  glimpse()
+```
+:::
+
+::::: {.fragment .fade-in fragment-index=1}
+:::: {.columns}
+::: {.column width="50%"}
+
+```{r}
+#| eval: false
+# Stackoverflow
+knitr::include_graphics(
+  "https://graph.facebook.com/920949401423102/picture?type=large"
+)
+```
+
+```{r}
+#| echo: false
+#| out-width: 50%
+knitr::include_graphics(
+  "img/christoph.jpeg"
+)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| out-width: 50%
+# GitHub
+knitr::include_graphics(
+  "https://avatars.githubusercontent.com/u/8004978?v=4"
+)
+```
+:::
+::::
+:::::
+::::
+
+### Dump 2013
+
+```{r}
+#| eval: false
+open_dataset("so_dump_2013_09_users.parquet") |> 
+  glimpse() 
+```
+
+```{r}
+#| echo: false
+#| message: false
+open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/02_extracted/so_dump_2013_09_users.parquet") |> 
+  glimpse()
+```
+
+:::
 
 ## <svg width="100%" height="100%" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg"><path d="M71.4,81V52.4h-7.2v21.4H14.3V52.4H7.2V81H71.4z" fill="currentColor"/><path d="M23.7,43.5l35,7.3l-1.5,7l-35-7.3L23.7,43.5z M26.8,33.8l3-6.5l32.3,15.2l-3,6.4L26.8,33.8L26.8,33.8z	M35.7,17.9l4.6-5.5l27.5,22.8l-4.6,5.5L35.7,17.9L35.7,17.9z M74.8,29.6L69,33.9L47.7,5.3L53.5,1L74.8,29.6z M21.4,59.6h35.7v7.1 H21.4V59.6z" fill="currentColor"/></svg> Stackoverflow
 
+::: {.absolute top="10%" left="0" width="100%" height="100%"}
+::: {style="text-align: center"}
 ![](img/stackoverflow_user.png)
+:::
+:::
+
+::: {.fragment .fade-up}
+::: {.absolute top="2em" left="42%"}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![](img/arrow-2.svg)
+:::
+:::
+
+::: {.fragment .fade-up}
+::: {.absolute top="6em" left="28%"}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![](img/arrow-1.svg)
+:::
+:::
+
+. . .
+
+
+::: {.absolute top="50%" left="10%"}
+::: {style="color: #cc0000"}
+code *can* go here
+:::
+:::
+
+# Test {data-name="test"}
+
+## Heading
+
+```{=html}
+<span class="fragment fade-in">
+  <span class="fragment highlight-red">
+    <span class="fragment fade-out">
+      Fade in > Turn red > Fade out
+    </span>
+  </span>
+</span>
+```
+
+
+```{r}
+knitr::include_graphics("https://graph.facebook.com/920949401423102/picture?type=large")
+```
+
+
+. . .
+
+-   `revealjs` for Quarto is a framework for turning Pandoc-friendly markdown + code into beautiful slides
+
+-   User guide: <https://quarto.org/docs/presentations/revealjs/>
+
+. . .
+
+![](https://c.tenor.com/3EYd9ID79vcAAAAd/mic-drop-the-voice.gif){fig-align="center"}
+
 
 # Slide 1 {data-name="Regular slide"}
 A paragraph with some text and a [link](http://hakim.se).
