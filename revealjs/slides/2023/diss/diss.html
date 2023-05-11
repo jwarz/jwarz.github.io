@@ -5,12 +5,13 @@
 <script src="../../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
 <link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.2.269">
+  <meta name="generator" content="quarto-1.3.340">
 
   <meta name="author" content="Joschka Schwarz">
   <title>Joschka Schwarz - Diss</title>
@@ -28,9 +29,10 @@
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
       width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
     pre > code.sourceCode { white-space: pre; position: relative; }
     pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
     pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -144,44 +146,44 @@
     font-weight: 400;
   }
 
-  .callout.callout-captioned.callout-style-simple .callout-body {
+  .callout.callout-titled.callout-style-simple .callout-body {
     margin-top: 0.2em;
   }
 
-  .callout:not(.callout-captioned) .callout-body {
+  .callout:not(.callout-titled) .callout-body {
       display: flex;
   }
 
-  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
     padding-left: 1.6em;
   }
 
-  .callout.callout-captioned .callout-header {
+  .callout.callout-titled .callout-header {
     padding-top: 0.2em;
     margin-bottom: -0.2em;
   }
 
-  .callout.callout-captioned .callout-caption  p {
+  .callout.callout-titled .callout-title  p {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
   }
     
-  .callout.callout-captioned.callout-style-simple .callout-content  p {
+  .callout.callout-titled.callout-style-simple .callout-content  p {
     margin-top: 0;
   }
 
-  .callout.callout-captioned.callout-style-default .callout-content  p {
+  .callout.callout-titled.callout-style-default .callout-content  p {
     margin-top: 0.7em;
   }
 
-  .callout.callout-style-simple div.callout-caption {
+  .callout.callout-style-simple div.callout-title {
     border-bottom: none;
     font-size: .9rem;
     font-weight: 600;
     opacity: 75%;
   }
 
-  .callout.callout-style-default  div.callout-caption {
+  .callout.callout-style-default  div.callout-title {
     border-bottom: none;
     font-weight: 600;
     opacity: 85%;
@@ -213,7 +215,7 @@
     background-size: 0.9rem 0.9rem;
   }
 
-  .callout-caption {
+  .callout-title {
     display: flex
   }
     
@@ -226,16 +228,16 @@
     display: none !important;
   }
 
-  .callout.callout-captioned .callout-body > .callout-content > :last-child {
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
     margin-bottom: 0.5rem;
   }
 
-  .callout.callout-captioned .callout-icon::before {
+  .callout.callout-titled .callout-icon::before {
     margin-top: .5rem;
     padding-right: .5rem;
   }
 
-  .callout:not(.callout-captioned) .callout-icon::before {
+  .callout:not(.callout-titled) .callout-icon::before {
     margin-top: 1rem;
     padding-right: .5rem;
   }
@@ -250,7 +252,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
   }
 
-  div.callout-note.callout-style-default .callout-caption {
+  div.callout-note.callout-style-default .callout-title {
     background-color: #dae6fb
   }
 
@@ -262,7 +264,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
   }
 
-  div.callout-important.callout-style-default .callout-caption {
+  div.callout-important.callout-style-default .callout-title {
     background-color: #f7dddc
   }
 
@@ -274,7 +276,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
   }
 
-  div.callout-warning.callout-style-default .callout-caption {
+  div.callout-warning.callout-style-default .callout-title {
     background-color: #fcefdc
   }
 
@@ -286,7 +288,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
   }
 
-  div.callout-tip.callout-style-default .callout-caption {
+  div.callout-tip.callout-style-default .callout-title {
     background-color: #ccf1e3
   }
 
@@ -298,7 +300,7 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
   }
 
-  div.callout-caution.callout-style-default .callout-caption {
+  div.callout-caution.callout-style-default .callout-title {
     background-color: #ffe5d0
   }
 
@@ -390,9 +392,6 @@
       margin-right: 0; 
     }
   </style>
-  
-  <link href="../../../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
-  <script src="../../../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -413,7 +412,7 @@ Joschka Schwarz
     </div>
 </div>
 
-  <p class="date">Friday, 5<sup style="font-size:65%;font-style:italic;">th</sup> of May 2023</p>
+  <p class="date">Thursday, 11<sup style="font-size:65%;font-style:italic;">th</sup> of May 2023</p>
 </section>
 <section id="table-of-contents" class="slide level2" data-state="hide-menubar">
 <h2>Table of Contents</h2>
@@ -477,8 +476,8 @@ Joschka Schwarz
 </div>
 </div>
 </section>
-<section id="github" class="slide level2">
-<h2><svg width="100%" height="100%" viewbox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" fill="currentColor"></path></svg> GitHub</h2>
+<section id="github-1.-ghtorrent-and-2.-github-api" class="slide level2">
+<h2><svg width="100%" height="100%" viewbox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" fill="currentColor"></path></svg> GitHub: 1. GHTorrent and 2. Github API</h2>
 <style>
 svg {
   display: inline-flex;
@@ -488,114 +487,628 @@ svg {
   color: var(--r-heading-color);
 }
 </style>
-<p>Use GitHub Api to gather information about user</p>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">1. Schema</a></li><li><a href="#tabset-1-2">2. Conn</a></li><li><a href="#tabset-1-3">3. User (GHT)</a></li><li><a href="#tabset-1-4">4. User (Website)</a></li><li><a href="#tabset-1-5">5. User (API)</a></li><li><a href="#tabset-1-6">6. Orgs</a></li><li><a href="#tabset-1-7">7. Merged</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="absolute" style="top: 20%; left: 10%; width: 80%; ">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/ghtorrent_schema.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="img/ghtorrent_schema.png"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="tabset-1-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|1|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>httr<span class="sc">::</span><span class="fu">GET</span>(<span class="st">"https://api.github.com/users/jwarz"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>httr<span class="sc">::</span><span class="fu">GET</span>(<span class="st">"https://api.github.com/user/40362019"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-1"><pre class="sourceCode numberSource r code-annotation-code number-lines code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-1-1"><a href="#annotated-cell-1-1"></a><span class="fu">p_load</span>(RMariaDB, dplyr)</span>
+<span id="annotated-cell-1-2"><a href="#annotated-cell-1-2"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(</span>
+<span id="annotated-cell-1-3"><a href="#annotated-cell-1-3"></a>  <span class="at">drv      =</span> <span class="fu">MariaDB</span>(),</span>
+<span id="annotated-cell-1-4"><a href="#annotated-cell-1-4"></a>  <span class="at">dbname   =</span> <span class="st">"ghtorrent_restore"</span>,</span>
+<span id="annotated-cell-1-5"><a href="#annotated-cell-1-5"></a>  <span class="at">username =</span> <span class="st">"ghtorrentuser"</span>,</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="1">1</button><span id="annotated-cell-1-6" class="code-annotation-target"><a href="#annotated-cell-1-6"></a>  <span class="at">password =</span> <span class="fu">Sys.getenv</span>(<span class="st">"GHTORRENTPASSWORD"</span>),</span>
+<button class="code-annotation-anchor" data-target-cell="annotated-cell-1" data-target-annotation="2">2</button><span id="annotated-cell-1-7" class="code-annotation-target"><a href="#annotated-cell-1-7"></a>  <span class="at">host     =</span> <span class="st">"127.0.0.1"</span>,</span>
+<span id="annotated-cell-1-8"><a href="#annotated-cell-1-8"></a>  <span class="at">port     =</span> <span class="dv">3307</span></span>
+<span id="annotated-cell-1-9"><a href="#annotated-cell-1-9"></a>)</span>
+<span id="annotated-cell-1-10"><a href="#annotated-cell-1-10"></a></span>
+<span id="annotated-cell-1-11"><a href="#annotated-cell-1-11"></a>con <span class="sc">|&gt;</span> <span class="fu">dbListTables</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-hidden code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-1" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="6" data-code-annotation="1">Password is located in a <code>.Renviron</code> file that is not stored in version control (GitHub)</span>
+</dd>
+<dt data-target-cell="annotated-cell-1" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-1" data-code-lines="7,8" data-code-annotation="2">SSH port forwarding/tunneling for MySQL connection is used</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt;  [1] "issue_comments"        "project_commits"       "organization_members" 
+#&gt;  [4] "watchers"              "issue_labels"          "pull_request_history" 
+#&gt;  [7] "issues"                "repo_milestones"       "commits_anom_temp"    
+#&gt; [10] "project_topics"        "commit_comments"       "commit_parents"       
+#&gt; [13] "project_languages"     "repo_labels"           "issue_events"         
+#&gt; [16] "followers"             "pull_request_commits"  "schema_info"          
+#&gt; [19] "project_members"       "pull_requests"         "users"                
+#&gt; [22] "projects"              "pull_request_comments" "commits"</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="columns">
+<div class="column" style="width:33%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">tbl</span>(con, <span class="st">"users"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; # A tibble: 1 × 1
+#&gt;          n
+#&gt;    &lt;int64&gt;
+#&gt; 1 45838860</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">tbl</span>(con,<span class="st">"projects"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; # A tibble: 1 × 1
+#&gt;           n
+#&gt;     &lt;int64&gt;
+#&gt; 1 189467747</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">tbl</span>(con,<span class="st">"project_commits"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">count</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; # A tibble: 1 × 1
+#&gt;            n
+#&gt;      &lt;int64&gt;
+#&gt; 1 7182589475</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3">
+<p>GHTorrent user data does not contain much valuable information:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>users <span class="ot">&lt;-</span> <span class="fu">tbl</span>(con, <span class="st">"users"</span>) </span>
+<span id="cb8-2"><a href="#cb8-2"></a>users <span class="sc">|&gt;</span>   </span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; Rows: ??
+#&gt; Columns: 13
+#&gt; Database: mysql  [ghtorrentuser@127.0.0.1:NA/ghtorrent_restore]
+#&gt; $ id           &lt;int&gt; -1, 1, 2, 3, 4, 5, 6, 7, 8, 9…
+#&gt; $ login        &lt;chr&gt; "0xnoone", "tosch", "jmettrau…
+#&gt; $ company      &lt;chr&gt; NA, "Zaikio", "@floraison ", …
+#&gt; $ created_at   &lt;dttm&gt; 2016-04-18 10:42:46, 2008-12…
+#&gt; $ type         &lt;chr&gt; "USR", "USR", "USR", "USR", "…
+#&gt; $ fake         &lt;int&gt; 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,…
+#&gt; $ deleted      &lt;int&gt; 1, 0, 0, 1, 0, 0, 0, 0, 0, 0,…
+#&gt; $ long         &lt;dbl&gt; NA, 8.19858, 132.44097, NA, -…
+#&gt; $ lat          &lt;dbl&gt; NA, 53.24511, 34.38978, NA, 5…
+#&gt; $ country_code &lt;chr&gt; NA, "DE", "JP", NA, "GB", "IT…
+#&gt; $ state        &lt;chr&gt; NA, "Niedersachsen", "Chugoku…
+#&gt; $ city         &lt;chr&gt; NA, "Rastede", "Hiroshima", N…
+#&gt; $ location     &lt;chr&gt; NA, "Rastede, Germany", "Hiro…</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>users <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">filter</span>(login <span class="sc">==</span> <span class="st">"christophihl"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; Rows: ??
+#&gt; Columns: 13
+#&gt; Database: mysql  [ghtorrentuser@127.0.0.1:NA/ghtorrent_restore]
+#&gt; $ id           &lt;int&gt; 6715766
+#&gt; $ login        &lt;chr&gt; "christophihl"
+#&gt; $ company      &lt;chr&gt; "Hamburg University of Techno…
+#&gt; $ created_at   &lt;dttm&gt; 2014-06-27 08:22:22
+#&gt; $ type         &lt;chr&gt; "USR"
+#&gt; $ fake         &lt;int&gt; 0
+#&gt; $ deleted      &lt;int&gt; 0
+#&gt; $ long         &lt;dbl&gt; 9.99165
+#&gt; $ lat          &lt;dbl&gt; 53.55384
+#&gt; $ country_code &lt;chr&gt; "DE"
+#&gt; $ state        &lt;chr&gt; "Hamburg"
+#&gt; $ city         &lt;chr&gt; "Hamburg"
+#&gt; $ location     &lt;chr&gt; "Hamburg"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-4">
+<div class="absolute" style="top: 20%; ">
+<div style="text-align: center">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/github_user.png" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="img/github_user.png" style="width:80.0%;height:80.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="1">
+<div class="absolute" style="top: 10.5em; left: 20%; ">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="img/checkmark1.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-9"><img data-src="img/checkmark1.svg"></a></p>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="1">
+<div class="absolute" style="top: 13.5em; left: 20%; ">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="img/checkmark2.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-10"><img data-src="img/checkmark2.svg"></a></p>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="1">
+<div class="absolute" style="top: 14.5em; left: 20%; ">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="img/checkmark1.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-11"><img data-src="img/checkmark1.svg"></a></p>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="1">
+<div class="absolute" style="top: 17em; left: 20%; ">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="img/checkmark2.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-12"><img data-src="img/checkmark2.svg"></a></p>
+</div>
+</div>
+<div class="fragment fade-down" data-fragment-index="2">
+<div class="absolute" style="top: 16.5em; left: 35%; ">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="img/cross1.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-13"><img data-src="img/cross1.svg"></a></p>
+</div>
+</div>
+<div class="fragment fade-down" data-fragment-index="2">
+<div class="absolute" style="top: 16em; left: 35%; ">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="img/cross2.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-14"><img data-src="img/cross2.svg"></a></p>
+</div>
+</div>
+<div class="fragment fade-down" data-fragment-index="2">
+<div class="absolute" style="top: 10.5em; left: 35%; ">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="img/cross1.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-15"><img data-src="img/cross1.svg"></a></p>
+</div>
+</div>
+<div class="fragment fade-down" data-fragment-index="3">
+<div class="absolute" style="top: 10em; left: 35%; ">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="img/cross2.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-16"><img data-src="img/cross2.svg"></a></p>
+</div>
+</div>
+<div class="fragment fade-down" data-fragment-index="2">
+<div class="absolute" style="top: 6em; left: 35%; ">
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="img/cross1.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-17"><img data-src="img/cross1.svg"></a></p>
+</div>
+</div>
+<div class="fragment fade-right" data-fragment-index="3">
+<div class="absolute" style="font-size: 0.5rem;top: 0px; left: 0px; ">
+<p><a href="https://github.com/jspolsky" target="_blank">https://github.com/jspolsky</a></p>
+</div>
+</div>
+</div>
+<div id="tabset-1-5">
+<p>More sensible data via API: Name, Email, Avatar, Blog/URL, Bio</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><em>Single API Request</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="|1|2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>httr<span class="sc">::</span><span class="fu">GET</span>(<span class="st">"https://api.github.com/users/christophihl"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2"></a>httr<span class="sc">::</span><span class="fu">GET</span>(<span class="st">"https://api.github.com/user/8004978"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<style type="text/css">
+.cell-out-height {
+  height: 22rem;
+}
+</style>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource cell-out-height number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href="#cb13-1"></a>#&gt; Rows: 1</span>
+<span id="cb13-2"><a href="#cb13-2"></a>#&gt; Columns: 28</span>
+<span id="cb13-3"><a href="#cb13-3"></a>#&gt; $ login               &lt;chr&gt; "christophihl"</span>
+<span id="cb13-4"><a href="#cb13-4"></a>#&gt; $ id                  &lt;int&gt; 8004978</span>
+<span id="cb13-5"><a href="#cb13-5"></a>#&gt; $ node_id             &lt;chr&gt; "MDQ6VXNlcjgwMDQ5Nzg="</span>
+<span id="cb13-6"><a href="#cb13-6"></a>#&gt; $ avatar_url          &lt;chr&gt; "https://avatars.githu…</span>
+<span id="cb13-7"><a href="#cb13-7"></a>#&gt; $ gravatar_id         &lt;chr&gt; ""</span>
+<span id="cb13-8"><a href="#cb13-8"></a>#&gt; $ url                 &lt;chr&gt; "https://api.github.co…</span>
+<span id="cb13-9"><a href="#cb13-9"></a>#&gt; $ html_url            &lt;chr&gt; "https://github.com/ch…</span>
+<span id="cb13-10"><a href="#cb13-10"></a>#&gt; $ followers_url       &lt;chr&gt; "https://api.github.co…</span>
+<span id="cb13-11"><a href="#cb13-11"></a>#&gt; $ following_url       &lt;chr&gt; "https://api.github.co…</span>
+<span id="cb13-12"><a href="#cb13-12"></a>#&gt; $ gists_url           &lt;chr&gt; "https://api.github.co…</span>
+<span id="cb13-13"><a href="#cb13-13"></a>#&gt; $ starred_url         &lt;chr&gt; "https://api.github.co…</span>
+<span id="cb13-14"><a href="#cb13-14"></a>#&gt; $ subscriptions_url   &lt;chr&gt; "https://api.github.co…</span>
+<span id="cb13-15"><a href="#cb13-15"></a>#&gt; $ organizations_url   &lt;chr&gt; "https://api.github.co…</span>
+<span id="cb13-16"><a href="#cb13-16"></a>#&gt; $ repos_url           &lt;chr&gt; "https://api.github.co…</span>
+<span id="cb13-17"><a href="#cb13-17"></a>#&gt; $ events_url          &lt;chr&gt; "https://api.github.co…</span>
+<span id="cb13-18"><a href="#cb13-18"></a>#&gt; $ received_events_url &lt;chr&gt; "https://api.github.co…</span>
+<span id="cb13-19"><a href="#cb13-19"></a>#&gt; $ type                &lt;chr&gt; "User"</span>
+<span id="cb13-20"><a href="#cb13-20"></a>#&gt; $ site_admin          &lt;lgl&gt; FALSE</span>
+<span id="cb13-21"><a href="#cb13-21"></a>#&gt; $ name                &lt;chr&gt; "Christoph Ihl"</span>
+<span id="cb13-22"><a href="#cb13-22"></a>#&gt; $ company             &lt;chr&gt; "Hamburg University of…</span>
+<span id="cb13-23"><a href="#cb13-23"></a>#&gt; $ blog                &lt;chr&gt; "www.startupengineer.i…</span>
+<span id="cb13-24"><a href="#cb13-24"></a>#&gt; $ location            &lt;chr&gt; "Hamburg"</span>
+<span id="cb13-25"><a href="#cb13-25"></a>#&gt; $ public_repos        &lt;int&gt; 19</span>
+<span id="cb13-26"><a href="#cb13-26"></a>#&gt; $ public_gists        &lt;int&gt; 1</span>
+<span id="cb13-27"><a href="#cb13-27"></a>#&gt; $ followers           &lt;int&gt; 11</span>
+<span id="cb13-28"><a href="#cb13-28"></a>#&gt; $ following           &lt;int&gt; 1</span>
+<span id="cb13-29"><a href="#cb13-29"></a>#&gt; $ created_at          &lt;chr&gt; "2014-06-27T11:22:22Z"</span>
+<span id="cb13-30"><a href="#cb13-30"></a>#&gt; $ updated_at          &lt;chr&gt; "2023-02-23T12:51:45Z"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<p><em>Final API dataset</em></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">open_dataset</span>(<span class="st">"gh_api_users_wrangled.parquet"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource cell-out-height number-lines code-with-copy"><code class="sourceCode"><span id="cb15-1"><a href="#cb15-1"></a>#&gt; FileSystemDataset with 1 Parquet file</span>
+<span id="cb15-2"><a href="#cb15-2"></a>#&gt; 42,557,276 rows x 16 columns</span>
+<span id="cb15-3"><a href="#cb15-3"></a>#&gt; $ id                         &lt;int32&gt; 1, 2, 3, 4, 5, …</span>
+<span id="cb15-4"><a href="#cb15-4"></a>#&gt; $ login                     &lt;string&gt; "mojombo", "def…</span>
+<span id="cb15-5"><a href="#cb15-5"></a>#&gt; $ type             &lt;dictionary&lt;...&gt;&gt; User, User, Use…</span>
+<span id="cb15-6"><a href="#cb15-6"></a>#&gt; $ site_admin       &lt;dictionary&lt;...&gt;&gt; FALSE, TRUE, FA…</span>
+<span id="cb15-7"><a href="#cb15-7"></a>#&gt; $ name                      &lt;string&gt; "Tom Preston-We…</span>
+<span id="cb15-8"><a href="#cb15-8"></a>#&gt; $ company                   &lt;string&gt; NA, "@github ",…</span>
+<span id="cb15-9"><a href="#cb15-9"></a>#&gt; $ blog                      &lt;string&gt; "http://tom.pre…</span>
+<span id="cb15-10"><a href="#cb15-10"></a>#&gt; $ location                  &lt;string&gt; "San Francisco"…</span>
+<span id="cb15-11"><a href="#cb15-11"></a>#&gt; $ email                     &lt;string&gt; "tom@mojombo.co…</span>
+<span id="cb15-12"><a href="#cb15-12"></a>#&gt; $ email_hash                &lt;string&gt; "25c7c18223fb42…</span>
+<span id="cb15-13"><a href="#cb15-13"></a>#&gt; $ bio                       &lt;string&gt; NA, "🍔 ", NA, …</span>
+<span id="cb15-14"><a href="#cb15-14"></a>#&gt; $ public_repos               &lt;int32&gt; 60, 107, 8, 207…</span>
+<span id="cb15-15"><a href="#cb15-15"></a>#&gt; $ public_gists               &lt;int32&gt; 62, 273, 21, 74…</span>
+<span id="cb15-16"><a href="#cb15-16"></a>#&gt; $ followers                  &lt;int32&gt; 21141, 20355, 8…</span>
+<span id="cb15-17"><a href="#cb15-17"></a>#&gt; $ following                  &lt;int32&gt; 11, 210, 30, 4,…</span>
+<span id="cb15-18"><a href="#cb15-18"></a>#&gt; $ created_at &lt;timestamp[us, tz=UTC]&gt; 2007-10-20 05:2…</span>
+<span id="cb15-19"><a href="#cb15-19"></a>#&gt; Call `print()` for full schema details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-6">
+<p>Two different types: Organizations and User accounts</p>
+<div class="columns">
+<div class="column" style="width:55%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>httr<span class="sc">::</span><span class="fu">GET</span>(<span class="st">"https://api.github.com/users/TUHHStartupEngineers"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2"></a>httr<span class="sc">::</span><span class="fu">GET</span>(<span class="st">"https://api.github.com/user/30825260"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>#&gt; Rows: 1
-#&gt; Columns: 28
-#&gt; $ login               &lt;chr&gt; "jwarz"
-#&gt; $ id                  &lt;int&gt; 40362019
-#&gt; $ node_id             &lt;chr&gt; "MDQ6VXNlcjQwMzYyMDE5"
-#&gt; $ avatar_url          &lt;chr&gt; "https://avatars.githubusercontent.com/u/40362019?…
+#&gt; Columns: 29
+#&gt; $ login               &lt;chr&gt; "TUHHStartupEngineers"
+#&gt; $ id                  &lt;int&gt; 30825260
+#&gt; $ node_id             &lt;chr&gt; "MDEyOk9yZ2FuaXphdGlvbjMwODI1M…
+#&gt; $ avatar_url          &lt;chr&gt; "https://avatars.githubusercon…
 #&gt; $ gravatar_id         &lt;chr&gt; ""
-#&gt; $ url                 &lt;chr&gt; "https://api.github.com/users/jwarz"
-#&gt; $ html_url            &lt;chr&gt; "https://github.com/jwarz"
-#&gt; $ followers_url       &lt;chr&gt; "https://api.github.com/users/jwarz/followers"
-#&gt; $ following_url       &lt;chr&gt; "https://api.github.com/users/jwarz/following{/oth…
-#&gt; $ gists_url           &lt;chr&gt; "https://api.github.com/users/jwarz/gists{/gist_id…
-#&gt; $ starred_url         &lt;chr&gt; "https://api.github.com/users/jwarz/starred{/owner…
-#&gt; $ subscriptions_url   &lt;chr&gt; "https://api.github.com/users/jwarz/subscriptions"
-#&gt; $ organizations_url   &lt;chr&gt; "https://api.github.com/users/jwarz/orgs"
-#&gt; $ repos_url           &lt;chr&gt; "https://api.github.com/users/jwarz/repos"
-#&gt; $ events_url          &lt;chr&gt; "https://api.github.com/users/jwarz/events{/privac…
-#&gt; $ received_events_url &lt;chr&gt; "https://api.github.com/users/jwarz/received_event…
-#&gt; $ type                &lt;chr&gt; "User"
+#&gt; $ url                 &lt;chr&gt; "https://api.github.com/users/…
+#&gt; $ html_url            &lt;chr&gt; "https://github.com/TUHHStartu…
+#&gt; $ followers_url       &lt;chr&gt; "https://api.github.com/users/…
+#&gt; $ following_url       &lt;chr&gt; "https://api.github.com/users/…
+#&gt; $ gists_url           &lt;chr&gt; "https://api.github.com/users/…
+#&gt; $ starred_url         &lt;chr&gt; "https://api.github.com/users/…
+#&gt; $ subscriptions_url   &lt;chr&gt; "https://api.github.com/users/…
+#&gt; $ organizations_url   &lt;chr&gt; "https://api.github.com/users/…
+#&gt; $ repos_url           &lt;chr&gt; "https://api.github.com/users/…
+#&gt; $ events_url          &lt;chr&gt; "https://api.github.com/users/…
+#&gt; $ received_events_url &lt;chr&gt; "https://api.github.com/users/…
+#&gt; $ type                &lt;chr&gt; "Organization"
 #&gt; $ site_admin          &lt;lgl&gt; FALSE
-#&gt; $ name                &lt;chr&gt; "Joschka Schwarz"
-#&gt; $ company             &lt;chr&gt; "Hamburg University of Technology - TUHH Institute…
-#&gt; $ blog                &lt;chr&gt; ""
-#&gt; $ location            &lt;chr&gt; "Hamburg"
-#&gt; $ public_repos        &lt;int&gt; 16
-#&gt; $ public_gists        &lt;int&gt; 5
-#&gt; $ followers           &lt;int&gt; 2
-#&gt; $ following           &lt;int&gt; 1
-#&gt; $ created_at          &lt;chr&gt; "2018-06-18T14:30:11Z"
-#&gt; $ updated_at          &lt;chr&gt; "2023-04-05T09:00:16Z"</code></pre>
+#&gt; $ name                &lt;chr&gt; "TUHH Institute of Entrepreneu…
+#&gt; $ blog                &lt;chr&gt; "www.startupengineer.io"
+#&gt; $ location            &lt;chr&gt; "Hamburg University of Technol…
+#&gt; $ email               &lt;chr&gt; "startup.engineer@tuhh.de"
+#&gt; $ bio                 &lt;chr&gt; "Data Science, Research &amp; Prac…
+#&gt; $ public_repos        &lt;int&gt; 72
+#&gt; $ public_gists        &lt;int&gt; 0
+#&gt; $ followers           &lt;int&gt; 6
+#&gt; $ following           &lt;int&gt; 0
+#&gt; $ created_at          &lt;chr&gt; "2017-08-08T07:40:56Z"
+#&gt; $ updated_at          &lt;chr&gt; "2022-12-03T09:45:36Z"</code></pre>
 </div>
 </div>
-</section>
-<section id="github-1" class="slide level2">
-<h2><svg width="100%" height="100%" viewbox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" fill="currentColor"></path></svg> GitHub</h2>
-<p>Get all GitHub User profiles via API (iterated &gt; 42 mil user ids)</p>
+</div><div class="column" style="width:45%;">
+<div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">open_dataset</span>(<span class="st">"gh_api_users_wrangled.parquet"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>org_members <span class="ot">&lt;-</span> <span class="fu">tbl</span>(con, <span class="st">"organization_members"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>org_members</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; # A tibble: 929,893 × 3
+#&gt;   org_id user_id created_at         
+#&gt;    &lt;int&gt;   &lt;int&gt; &lt;dttm&gt;             
+#&gt; 1      1     217 2012-08-06 12:27:06
+#&gt; 2      1    3336 2012-08-06 12:16:44
+#&gt; 3      1    9224 2012-08-06 12:26:43
+#&gt; 4      1   13511 2012-08-06 12:21:12
+#&gt; 5      1   42668 2012-08-06 12:21:19
+#&gt; 6     15   71408 2012-08-08 08:31:25
+#&gt; 7     15  268840 2012-08-08 23:23:32
+#&gt; # ℹ 929,886 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>org_members <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">left_join</span>(users, <span class="at">by =</span> <span class="fu">c</span>(<span class="at">org_id  =</span> <span class="st">"id"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">left_join</span>(users, <span class="at">by =</span> <span class="fu">c</span>(<span class="at">user_id =</span> <span class="st">"id"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb20-4"><a href="#cb20-4"></a>  <span class="fu">filter</span>(login.x <span class="sc">==</span> <span class="st">"TUHHStartupEngineers"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb20-5"><a href="#cb20-5"></a>  <span class="fu">select</span>(login.y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell fragment">
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; # A tibble: 2 × 1
+#&gt;   login.y     
+#&gt;   &lt;chr&gt;       
+#&gt; 1 christophihl
+#&gt; 2 jwarz</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-7">
+<div class="columns">
+<div class="column" style="width:50%;">
+<ol type="1">
+<li>Organization affiliation:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>gh_org_affil <span class="ot">&lt;-</span> org_members <span class="sc">|&gt;</span> </span>
+<span id="cb22-2"><a href="#cb22-2"></a>  <span class="co"># Logins for users &amp; orgs (via GHT)</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">left_join</span>(gh_ght_users, <span class="at">by =</span> <span class="fu">c</span>(<span class="at">org_id  =</span> <span class="st">"id"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb22-4"><a href="#cb22-4"></a>  <span class="fu">left_join</span>(gh_ght_users, <span class="at">by =</span> <span class="fu">c</span>(<span class="at">user_id =</span> <span class="st">"id"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb22-5"><a href="#cb22-5"></a>  </span>
+<span id="cb22-6"><a href="#cb22-6"></a>  <span class="co"># Domains for orgs (via API)</span></span>
+<span id="cb22-7"><a href="#cb22-7"></a>  <span class="fu">left_join</span>(gh_api_users, <span class="at">by =</span> <span class="fu">c</span>(<span class="at">org_login =</span> <span class="st">"login"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<style type="text/css">
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+</style>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; FileSystemDataset with 1 Parquet file
-#&gt; 42,557,276 rows x 16 columns
-#&gt; $ id                         &lt;int32&gt; 1, 2, 3, 4, 5, 6, 7, 17, 18, 19, 20, 21, 22…
-#&gt; $ login                     &lt;string&gt; "mojombo", "defunkt", "pjhyett", "wycats", …
-#&gt; $ type             &lt;dictionary&lt;...&gt;&gt; User, User, User, User, User, User, User, U…
-#&gt; $ site_admin       &lt;dictionary&lt;...&gt;&gt; FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, FA…
-#&gt; $ name                      &lt;string&gt; "Tom Preston-Werner", "Chris Wanstrath", "P…
-#&gt; $ company                   &lt;string&gt; NA, "@github ", "GitHub, Inc.", "Tilde, Inc…
-#&gt; $ blog                      &lt;string&gt; "http://tom.preston-werner.com", "http://ch…
-#&gt; $ location                  &lt;string&gt; "San Francisco", "San Francisco", "San Fran…
-#&gt; $ email                     &lt;string&gt; "tom@mojombo.com", "chris@github.com", "pj@…
-#&gt; $ email_hash                &lt;string&gt; "25c7c18223fb42a4c6ae1c8db6f50f9b", "74858b…
-#&gt; $ bio                       &lt;string&gt; NA, "🍔 ", NA, NA, NA, NA, NA, NA, NA, "Co-…
-#&gt; $ public_repos               &lt;int32&gt; 60, 107, 8, 207, 22, 86, 137, 45, 97, 163, …
-#&gt; $ public_gists               &lt;int32&gt; 62, 273, 21, 749, 106, 79, 440, 47, 95, 66,…
-#&gt; $ followers                  &lt;int32&gt; 21141, 20355, 8204, 8963, 475, 81, 1145, 70…
-#&gt; $ following                  &lt;int32&gt; 11, 210, 30, 4, 13, 2, 6, 14, 16, 27, 4, 17…
-#&gt; $ created_at &lt;timestamp[us, tz=UTC]&gt; 2007-10-20 05:24:19, 2007-10-20 05:24:19, 2…
-#&gt; Call `print()` for full schema details</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb23-1"><a href="#cb23-1"></a>#&gt; # A tibble: 929,893 × 5</span>
+<span id="cb23-2"><a href="#cb23-2"></a>#&gt;    ght_usr_id usr_login     ght_org_id org_login         org_domain            </span>
+<span id="cb23-3"><a href="#cb23-3"></a>#&gt;         &lt;int&gt; &lt;chr&gt;              &lt;int&gt; &lt;chr&gt;             &lt;chr&gt;                 </span>
+<span id="cb23-4"><a href="#cb23-4"></a>#&gt;  1          1 tosch              76303 Sage              sage.com              </span>
+<span id="cb23-5"><a href="#cb23-5"></a>#&gt;  2          1 tosch             242944 ruote             ruote.rubyforge.org   </span>
+<span id="cb23-6"><a href="#cb23-6"></a>#&gt;  3          2 jmettraux          28935 rightscale        blog.rightscale.com   </span>
+<span id="cb23-7"><a href="#cb23-7"></a>#&gt;  4          2 jmettraux         242944 ruote             ruote.rubyforge.org   </span>
+<span id="cb23-8"><a href="#cb23-8"></a>#&gt;  5          2 jmettraux         242945 tlug              tlug.jp               </span>
+<span id="cb23-9"><a href="#cb23-9"></a>#&gt;  6          2 jmettraux         242951 hiroshimarb       hiroshimarb.github.com</span>
+<span id="cb23-10"><a href="#cb23-10"></a>#&gt;  7          2 jmettraux        3070986 flon-io           flon.io               </span>
+<span id="cb23-11"><a href="#cb23-11"></a>#&gt;  8          2 jmettraux       30939037 floraison         &lt;NA&gt;                  </span>
+<span id="cb23-12"><a href="#cb23-12"></a>#&gt;  9          4 kennethkalmer       2192 collectiveidea    collectiveidea.com    </span>
+<span id="cb23-13"><a href="#cb23-13"></a>#&gt; 10          4 kennethkalmer      33223 platform45        platform45.com        </span>
+<span id="cb23-14"><a href="#cb23-14"></a>#&gt; 11          4 kennethkalmer     242944 ruote             ruote.rubyforge.org   </span>
+<span id="cb23-15"><a href="#cb23-15"></a>#&gt; 12          4 kennethkalmer     258042 InternetSolutions &lt;NA&gt;                  </span>
+<span id="cb23-16"><a href="#cb23-16"></a>#&gt; 13          4 kennethkalmer    7313333 ValuationUp       valuationup.com       </span>
+<span id="cb23-17"><a href="#cb23-17"></a>#&gt; 14          4 kennethkalmer    7313335 zero-one-software zero-one.io           </span>
+<span id="cb23-18"><a href="#cb23-18"></a>#&gt; 15          4 kennethkalmer   11080227 zadevchat         zadevchat.io          </span>
+<span id="cb23-19"><a href="#cb23-19"></a>#&gt; 16          4 kennethkalmer   11415454 MyLightstone      &lt;NA&gt;                  </span>
+<span id="cb23-20"><a href="#cb23-20"></a>#&gt; 17          4 kennethkalmer   62779848 imilingo          &lt;NA&gt;                  </span>
+<span id="cb23-21"><a href="#cb23-21"></a>#&gt; 18          5 weppos             10634 fog               fog.io                </span>
+<span id="cb23-22"><a href="#cb23-22"></a>#&gt; # ℹ 929,875 more rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<ol start="2" type="1">
+<li>Final dataset:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>gh_api_users <span class="sc">|&gt;</span> </span>
+<span id="cb24-2"><a href="#cb24-2"></a>  </span>
+<span id="cb24-3"><a href="#cb24-3"></a>  <span class="co"># Add org memberships (+ domains)</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a>  <span class="fu">left_join</span>(gh_org_affil) <span class="sc">|&gt;</span> </span>
+<span id="cb24-5"><a href="#cb24-5"></a></span>
+<span id="cb24-6"><a href="#cb24-6"></a>  <span class="co"># Add location data</span></span>
+<span id="cb24-7"><a href="#cb24-7"></a>  <span class="fu">left_join</span>(gh_ght_users)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb25-1"><a href="#cb25-1"></a>#&gt; FileSystemDataset with 1 Parquet file</span>
+<span id="cb25-2"><a href="#cb25-2"></a>#&gt; 42,882,992 rows x 19 columns</span>
+<span id="cb25-3"><a href="#cb25-3"></a>#&gt; $ api_usr_id                        &lt;int32&gt; 1, 1, 2, 2, 3, 4, 4, 4, 4, 4, 4, 4, …</span>
+<span id="cb25-4"><a href="#cb25-4"></a>#&gt; $ ght_usr_id                        &lt;int32&gt; 9236, 9236, 1570, 1570, 13256, 3892,…</span>
+<span id="cb25-5"><a href="#cb25-5"></a>#&gt; $ login                            &lt;string&gt; "mojombo", "mojombo", "defunkt", "de…</span>
+<span id="cb25-6"><a href="#cb25-6"></a>#&gt; $ type                    &lt;dictionary&lt;...&gt;&gt; User, User, User, User, User, User, …</span>
+<span id="cb25-7"><a href="#cb25-7"></a>#&gt; $ name                             &lt;string&gt; "Tom Preston-Werner", "Tom Preston-W…</span>
+<span id="cb25-8"><a href="#cb25-8"></a>#&gt; $ company                          &lt;string&gt; NA, NA, "@github ", "@github ", "Git…</span>
+<span id="cb25-9"><a href="#cb25-9"></a>#&gt; $ blog                             &lt;string&gt; "http://tom.preston-werner.com", "ht…</span>
+<span id="cb25-10"><a href="#cb25-10"></a>#&gt; $ email                            &lt;string&gt; "tom@mojombo.com", "tom@mojombo.com"…</span>
+<span id="cb25-11"><a href="#cb25-11"></a>#&gt; $ email_hash                       &lt;string&gt; "25c7c18223fb42a4c6ae1c8db6f50f9b", …</span>
+<span id="cb25-12"><a href="#cb25-12"></a>#&gt; $ bio                              &lt;string&gt; NA, NA, "🍔 ", "🍔 ", NA, NA, NA, NA…</span>
+<span id="cb25-13"><a href="#cb25-13"></a>#&gt; $ ght_org_id                        &lt;int32&gt; 142, 4417198, 142, 105208, 142, 3797…</span>
+<span id="cb25-14"><a href="#cb25-14"></a>#&gt; $ org_login                        &lt;string&gt; "github", "toml-lang", "github", "mu…</span>
+<span id="cb25-15"><a href="#cb25-15"></a>#&gt; $ org_domain                       &lt;string&gt; "github.com/about", NA, "github.com/…</span>
+<span id="cb25-16"><a href="#cb25-16"></a>#&gt; $ member_created_at &lt;timestamp[us, tz=UTC]&gt; 2012-08-06 16:41:31, 2018-09-27 23:4…</span>
+<span id="cb25-17"><a href="#cb25-17"></a>#&gt; $ location                         &lt;string&gt; "San Francisco", "San Francisco", "S…</span>
+<span id="cb25-18"><a href="#cb25-18"></a>#&gt; $ country_code            &lt;dictionary&lt;...&gt;&gt; US, US, NA, NA, us, US, US, US, US, …</span>
+<span id="cb25-19"><a href="#cb25-19"></a>#&gt; $ state                            &lt;string&gt; "CA", "CA", NA, NA, "San Francisco C…</span>
+<span id="cb25-20"><a href="#cb25-20"></a>#&gt; $ city                             &lt;string&gt; "San Francisco", "San Francisco", NA…</span>
+<span id="cb25-21"><a href="#cb25-21"></a>#&gt; $ usr_created_at    &lt;timestamp[us, tz=UTC]&gt; 2007-10-20 05:24:19, 2007-10-20 05:2…</span>
+<span id="cb25-22"><a href="#cb25-22"></a>#&gt; Call `print()` for full schema details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
 <section id="stackoverflow" class="slide level2">
 <h2><svg width="100%" height="100%" viewbox="0 0 82 82" xmlns="http://www.w3.org/2000/svg"><path d="M71.4,81V52.4h-7.2v21.4H14.3V52.4H7.2V81H71.4z" fill="currentColor"></path><path d="M23.7,43.5l35,7.3l-1.5,7l-35-7.3L23.7,43.5z M26.8,33.8l3-6.5l32.3,15.2l-3,6.4L26.8,33.8L26.8,33.8z M35.7,17.9l4.6-5.5l27.5,22.8l-4.6,5.5L35.7,17.9L35.7,17.9z M74.8,29.6L69,33.9L47.7,5.3L53.5,1L74.8,29.6z M21.4,59.6h35.7v7.1 H21.4V59.6z" fill="currentColor"></path></svg> Stackoverflow</h2>
 <div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Dump 2021</a></li><li><a href="#tabset-1-2">Example 2021</a></li><li><a href="#tabset-1-3">Dump 2013</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Overview</a></li><li><a href="#tabset-2-2">Dumps</a></li><li><a href="#tabset-2-3">Example 2021</a></li><li><a href="#tabset-2-4">Dump 2013</a></li></ul>
 <div class="tab-content">
-<div id="tabset-1-1">
+<div id="tabset-2-1">
+<ul>
+<li>Two among the most widely adopted and studied platforms are <strong>GitHub</strong> and <strong>StackOverflow</strong></li>
+<li>These two platforms serve <em>different purposes</em>: code sharing and collaborative development vs.&nbsp;information and knowledge exchange.</li>
+<li>At the same time, they both serve potentially the <em>same community</em> of developers for the same overall goal, i.e., software development.</li>
+</ul>
+</div>
+<div id="tabset-2-2">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">open_dataset</span>(<span class="st">"so_dump_2021_09_users.parquet"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<style type="text/css">
+.reveal .r-stack > * {
+     margin: 0;
+}
+.reveal .columns > .column:last-child > :not(ul, ol) {
+ margin-left: 0;
+}
+</style>
+</div>
+<div class="r-stack">
+<div class="fragment fade-out" data-fragment-index="2">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">open_dataset</span>(<span class="st">"so_dump_2021_09_users.parquet"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb26-2"><a href="#cb26-2"></a>  </span>
+<span id="cb26-3"><a href="#cb26-3"></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>#&gt; FileSystemDataset with 1 Parquet file
-#&gt; 15,538,940 rows x 13 columns
-#&gt; $ Id                             &lt;int32&gt; 1, 2, 3, 4, 5, 8, 9, 10, 11, 13, 16, 17…
-#&gt; $ Reputation                     &lt;int32&gt; 61327, 5870, 15446, 32650, 50496, 1787,…
-#&gt; $ CreationDate   &lt;timestamp[us, tz=UTC]&gt; 2008-07-31 14:22:31, 2008-07-31 14:22:3…
-#&gt; $ DisplayName                   &lt;string&gt; "Jeff Atwood", "Geoff Dalgas", "Jarrod …
-#&gt; $ LastAccessDate &lt;timestamp[us, tz=UTC]&gt; 2021-09-04 20:43:20, 2021-09-02 00:42:1…
-#&gt; $ AboutMe                       &lt;string&gt; "&lt;p&gt;&lt;a href=\"https://blog.codinghorror…
-#&gt; $ Views                          &lt;int32&gt; 587263, 29947, 28149, 81786, 14011, 825…
-#&gt; $ UpVotes                        &lt;int32&gt; 3390, 670, 7912, 855, 789, 12, 47, 0, 0…
-#&gt; $ DownVotes                      &lt;int32&gt; 1311, 88, 100, 100, 34, 9, 4, 0, 0, 210…
-#&gt; $ WebsiteUrl                    &lt;string&gt; "https://blog.codinghorror.com/", "http…
-#&gt; $ Location                      &lt;string&gt; "El Cerrito, CA", "Corvallis, OR", "Joh…
-#&gt; $ AccountId                      &lt;int32&gt; 1, 2, 3, 4, 5, 6, 7, 8, 561854, 9, 11, …
-#&gt; $ ProfileImageUrl               &lt;string&gt; NA, "https://i.stack.imgur.com/nDllk.pn…</code></pre>
+<pre><code>#&gt; FileSystemDataset with 1 Parquet file (query)
+#&gt; 15,538,940 rows x 11 columns
+#&gt; $ Id               &lt;int32&gt; 1, 2, 3, 4, 5, 8, 9, 10, …
+#&gt; $ Reputation       &lt;int32&gt; 61327, 5870, 15446, 32650…
+#&gt; $ DisplayName     &lt;string&gt; "Jeff Atwood", "Geoff Dal…
+#&gt; $ AboutMe         &lt;string&gt; "&lt;p&gt;&lt;a href=\"https://blo…
+#&gt; $ Views            &lt;int32&gt; 587263, 29947, 28149, 817…
+#&gt; $ UpVotes          &lt;int32&gt; 3390, 670, 7912, 855, 789…
+#&gt; $ DownVotes        &lt;int32&gt; 1311, 88, 100, 100, 34, 9…
+#&gt; $ WebsiteUrl      &lt;string&gt; "https://blog.codinghorro…
+#&gt; $ Location        &lt;string&gt; "El Cerrito, CA", "Corval…
+#&gt; $ AccountId        &lt;int32&gt; 1, 2, 3, 4, 5, 6, 7, 8, 5…
+#&gt; $ ProfileImageUrl &lt;string&gt; NA, "https://i.stack.imgu…
+#&gt; Call `print()` for query details</code></pre>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment" data-fragment-index="1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">open_dataset</span>(<span class="st">"so_dump_2021_09_users.parquet"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">filter</span>(DisplayName <span class="sc">==</span> <span class="st">"Christoph Ihl"</span>)</span>
+<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; FileSystemDataset with 1 Parquet file (query)
+#&gt; 1 rows x 11 columns
+#&gt; $ Id               &lt;int32&gt; 9882371
+#&gt; $ Reputation       &lt;int32&gt; 1
+#&gt; $ DisplayName     &lt;string&gt; "Christoph Ihl"
+#&gt; $ AboutMe         &lt;string&gt; NA
+#&gt; $ Views            &lt;int32&gt; 28
+#&gt; $ UpVotes          &lt;int32&gt; 0
+#&gt; $ DownVotes        &lt;int32&gt; 0
+#&gt; $ WebsiteUrl      &lt;string&gt; "https://startupengineer.…
+#&gt; $ Location        &lt;string&gt; "Hamburg, Germany"
+#&gt; $ AccountId        &lt;int32&gt; 13695600
+#&gt; $ ProfileImageUrl &lt;string&gt; "https://graph.facebook.c…
+#&gt; Call `print()` for query details</code></pre>
 </div>
 </div>
 </div>
-<div id="tabset-1-2">
+</div>
+</div>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="2">
+<div class="columns">
+<div class="column" style="width:100%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">open_dataset</span>(<span class="st">"so_dump_2013_09_users.parquet"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb30-2"><a href="#cb30-2"></a>  </span>
+<span id="cb30-3"><a href="#cb30-3"></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>#&gt; FileSystemDataset with 1 Parquet file (query)
+#&gt; 2,332,402 rows x 11 columns
+#&gt; $ Id           &lt;int32&gt; 1, 2, 3, 4, 5, 8, 9, 10, 11, 13, 16, 17, 19, 20, 22, 23, 24, 25, 26, 27, 29, 30, 32, 33, …
+#&gt; $ Reputation   &lt;int32&gt; 27314, 1772, 7645, 20560, 25459, 943, 6693, 101, 782, 84938, 378, 27996, 539, 5475, 4772,…
+#&gt; $ DisplayName &lt;string&gt; "Jeff Atwood", "Geoff Dalgas", "Jarrod Dixon", "Joel Spolsky", "Jon Galloway", "Eggs McLa…
+#&gt; $ AboutMe     &lt;string&gt; "&lt;p&gt;&lt;a href=\"http://www.codinghorror.com/blog/archives/001169.html\" rel=\"nofollow\"&gt;St…
+#&gt; $ Views        &lt;int32&gt; 119303, 13331, 15913, 50749, 5997, 2902, 2325, 1748, 824, 10318, 470, 3143, 449, 994, 546…
+#&gt; $ UpVotes      &lt;int32&gt; 3177, 531, 4595, 730, 757, 12, 35, 0, 0, 3907, 35, 837, 33, 367, 151, 307, 219, 523, 557,…
+#&gt; $ DownVotes    &lt;int32&gt; 1297, 86, 82, 92, 34, 9, 4, 0, 0, 144, 1, 196, 10, 38, 5, 3, 2, 73, 64, 3, 168, 8, 1, 21,…
+#&gt; $ WebsiteUrl  &lt;string&gt; "http://www.codinghorror.com/blog/", "http://stackoverflow.com", "http://stackoverflow.co…
+#&gt; $ Location    &lt;string&gt; "El Cerrito, CA", "Corvallis, OR", "New York, NY", "New York, NY", "San Diego, CA", NA, "…
+#&gt; $ Age          &lt;int32&gt; 43, 36, 34, NA, 43, NA, 42, 34, NA, 33, 33, 33, 40, NA, 27, 27, 30, 33, 29, 30, 31, 29, 3…
+#&gt; $ EmailHash   &lt;string&gt; "51d623f33f8b83095db84ff35e15dbe8", "b437f461b3fd27387c5d8ab47a293d35", "2dfa19bf5dc5826c…
+#&gt; Call `print()` for query details</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># Stackoverflow</span></span>
+<span id="cb32-2"><a href="#cb32-2"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
+<span id="cb32-3"><a href="#cb32-3"></a>  <span class="st">"https://graph.facebook.com/920949401423102/picture?type=large"</span></span>
+<span id="cb32-4"><a href="#cb32-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="img/christoph.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-18"><img data-src="img/christoph.jpeg" style="width:50.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># GitHub</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
+<span id="cb33-3"><a href="#cb33-3"></a>  <span class="st">"https://avatars.githubusercontent.com/u/8004978?v=4"</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><a href="https://avatars.githubusercontent.com/u/8004978?v=4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-19"><img data-src="https://avatars.githubusercontent.com/u/8004978?v=4.png" style="width:50.0%"></a></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-3">
 <div class="r-stack">
 <div class="fragment fade-out" data-fragment-index="1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">open_dataset</span>(<span class="st">"so_dump_2021_09_users.parquet"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">filter</span>(DisplayName <span class="sc">==</span> <span class="st">"Christoph Ihl"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">open_dataset</span>(<span class="st">"so_dump_2021_09_users.parquet"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">filter</span>(DisplayName <span class="sc">==</span> <span class="st">"Christoph Ihl"</span>)</span>
+<span id="cb34-3"><a href="#cb34-3"></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -622,30 +1135,30 @@ svg {
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Stackoverflow</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
-<span id="cb9-3"><a href="#cb9-3"></a>  <span class="st">"https://graph.facebook.com/920949401423102/picture?type=large"</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Stackoverflow</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
+<span id="cb36-3"><a href="#cb36-3"></a>  <span class="st">"https://graph.facebook.com/920949401423102/picture?type=large"</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="img/christoph.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="img/christoph.jpeg" style="width:50.0%"></a></p>
+<p><a href="img/christoph.jpeg" class="lightbox" data-gallery="quarto-lightbox-gallery-20"><img data-src="img/christoph.jpeg" style="width:50.0%"></a></p>
 </figure>
 </div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># GitHub</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
-<span id="cb10-3"><a href="#cb10-3"></a>  <span class="st">"https://avatars.githubusercontent.com/u/8004978?v=4"</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># GitHub</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(</span>
+<span id="cb37-3"><a href="#cb37-3"></a>  <span class="st">"https://avatars.githubusercontent.com/u/8004978?v=4"</span></span>
+<span id="cb37-4"><a href="#cb37-4"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="https://avatars.githubusercontent.com/u/8004978?v=4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="https://avatars.githubusercontent.com/u/8004978?v=4.png" style="width:50.0%"></a></p>
+<p><a href="https://avatars.githubusercontent.com/u/8004978?v=4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-21"><img data-src="https://avatars.githubusercontent.com/u/8004978?v=4.png" style="width:50.0%"></a></p>
 </figure>
 </div>
 </div>
@@ -655,10 +1168,10 @@ svg {
 </div>
 </div>
 </div>
-<div id="tabset-1-3">
+<div id="tabset-2-4">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">open_dataset</span>(<span class="st">"so_dump_2013_09_users.parquet"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">open_dataset</span>(<span class="st">"so_dump_2013_09_users.parquet"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">glimpse</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -690,19 +1203,20 @@ svg {
 <div style="text-align: center">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="img/stackoverflow_user.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="img/stackoverflow_user.png"></a></p>
+<p><a href="img/stackoverflow_user.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img data-src="img/stackoverflow_user.png"></a></p>
 </figure>
 </div>
 </div>
 </div>
+<p>http://stackoverflow.com/users/1/jeff-atwood</p>
 <div class="fragment fade-up">
 <div class="absolute" style="top: 2em; left: 42%; ">
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="img/arrow-2.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="img/arrow-2.svg"></a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="img/arrow-2.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img data-src="img/arrow-2.svg"></a></p>
 </div>
 </div>
 <div class="fragment fade-up">
 <div class="absolute" style="top: 6em; left: 28%; ">
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="img/arrow-1.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="img/arrow-1.svg"></a></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="img/arrow-1.svg" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img data-src="img/arrow-1.svg"></a></p>
 </div>
 </div>
 <div class="fragment">
@@ -728,11 +1242,11 @@ svg {
   </span>
 </span>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"https://graph.facebook.com/920949401423102/picture?type=large"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">"https://graph.facebook.com/920949401423102/picture?type=large"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="https://graph.facebook.com/920949401423102/picture?type=large.png" class="lightbox" data-gallery="quarto-lightbox-gallery-7"><img data-src="https://graph.facebook.com/920949401423102/picture?type=large.png"></a></p>
+<p><a href="https://graph.facebook.com/920949401423102/picture?type=large.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img data-src="https://graph.facebook.com/920949401423102/picture?type=large.png"></a></p>
 </figure>
 </div>
 </div>
@@ -746,7 +1260,7 @@ svg {
 <div class="fragment">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="https://c.tenor.com/3EYd9ID79vcAAAAd/mic-drop-the-voice.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-8"><img data-src="https://c.tenor.com/3EYd9ID79vcAAAAd/mic-drop-the-voice.gif"></a></p>
+<p><a href="https://c.tenor.com/3EYd9ID79vcAAAAd/mic-drop-the-voice.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img data-src="https://c.tenor.com/3EYd9ID79vcAAAAd/mic-drop-the-voice.gif"></a></p>
 </figure>
 </div>
 </div>
@@ -788,11 +1302,11 @@ svg {
 <section id="option-1-menubarclass" class="slide level2">
 <h2>Option 1: menubarclass</h2>
 <p>The menubarclass option sets the classname of menubars.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a><span class="at">    ...</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="at">      </span><span class="fu">menubarclass</span><span class="kw">:</span><span class="at"> </span><span class="st">"menubar"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb41-2"><a href="#cb41-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb41-3"><a href="#cb41-3"></a><span class="at">    ...</span></span>
+<span id="cb41-4"><a href="#cb41-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
+<span id="cb41-5"><a href="#cb41-5"></a><span class="at">      </span><span class="fu">menubarclass</span><span class="kw">:</span><span class="at"> </span><span class="st">"menubar"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p class="small">
 Simplemenu will show the menubar(s) on all pages. If you do not want to show the menubar on certain pages, use data-state=“hide-menubar” on that section. This behaviour also works when exporting to PDF using the Reveal.js ?print-pdf option.
 </p>
@@ -800,72 +1314,72 @@ Simplemenu will show the menubar(s) on all pages. If you do not want to show the
 <section id="option-2-menuclass" class="slide level2">
 <h2>Option 2: menuclass</h2>
 <p>The menuclass option sets the classname of the menu.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a><span class="at">    ...</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="at">      </span><span class="fu">menuclass</span><span class="kw">:</span><span class="at"> </span><span class="st">"menu"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb42-3"><a href="#cb42-3"></a><span class="at">    ...</span></span>
+<span id="cb42-4"><a href="#cb42-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
+<span id="cb42-5"><a href="#cb42-5"></a><span class="at">      </span><span class="fu">menuclass</span><span class="kw">:</span><span class="at"> </span><span class="st">"menu"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Simplemenu looks inside this menu for list items (LI’s).</p>
 </section>
 <section id="option-3-activeclass" class="slide level2">
 <h2>Option 3: activeclass</h2>
 <p>The activeclass option is the class an active menuitem gets.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a><span class="at">    ...</span></span>
-<span id="cb16-4"><a href="#cb16-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a><span class="at">      </span><span class="fu">activeclass</span><span class="kw">:</span><span class="at"> </span><span class="st">"active"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb43-3"><a href="#cb43-3"></a><span class="at">    ...</span></span>
+<span id="cb43-4"><a href="#cb43-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
+<span id="cb43-5"><a href="#cb43-5"></a><span class="at">      </span><span class="fu">activeclass</span><span class="kw">:</span><span class="at"> </span><span class="st">"active"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="option-4-activeelement" class="slide level2">
 <h2>Option 4: activeelement</h2>
 <p>The activeelement option sets the item that gets the active class.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb17-2"><a href="#cb17-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="at">    ...</span></span>
-<span id="cb17-4"><a href="#cb17-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a><span class="at">      </span><span class="fu">activeelement</span><span class="kw">:</span><span class="at"> </span><span class="st">"li"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb44-3"><a href="#cb44-3"></a><span class="at">    ...</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
+<span id="cb44-5"><a href="#cb44-5"></a><span class="at">      </span><span class="fu">activeelement</span><span class="kw">:</span><span class="at"> </span><span class="st">"li"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You may want to change it to the anchor inside the li, like this: <code>activeelement: "a"</code>.</p>
 </section>
 <section id="option-5-barhtml" class="slide level2">
 <h2>Option 5: barhtml</h2>
 <p>You can add the HTML for the header (and/or footer) through this option. This way you no longer need to edit the template.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="at">    ...</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="at">      </span><span class="fu">barhtml</span><span class="kw">:</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a><span class="at">        </span><span class="fu">header</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;div class='menubar'&gt;&lt;ul class='menu'&gt;&lt;/ul&gt;&lt;/div&gt;"</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a><span class="at">        </span><span class="fu">footer</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb45-3"><a href="#cb45-3"></a><span class="at">    ...</span></span>
+<span id="cb45-4"><a href="#cb45-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
+<span id="cb45-5"><a href="#cb45-5"></a><span class="at">      </span><span class="fu">barhtml</span><span class="kw">:</span></span>
+<span id="cb45-6"><a href="#cb45-6"></a><span class="at">        </span><span class="fu">header</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;div class='menubar'&gt;&lt;ul class='menu'&gt;&lt;/ul&gt;&lt;/div&gt;"</span></span>
+<span id="cb45-7"><a href="#cb45-7"></a><span class="at">        </span><span class="fu">footer</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="option-5-barhtml-continued" class="slide level2">
 <h2>Option 5: barhtml (Continued)</h2>
 <p>You can also move the slide number or the controls to your header or footer. If they are nested there manually, or through the <code>barhtml</code> option, they will then display inside that header or footer.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a><span class="at">    ...</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a><span class="at">      </span><span class="fu">barhtml</span><span class="kw">:</span></span>
-<span id="cb19-6"><a href="#cb19-6"></a><span class="at">        </span><span class="fu">header</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span></span>
-<span id="cb19-7"><a href="#cb19-7"></a><span class="at">        </span><span class="fu">footer</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;div class='menubar'&gt;&lt;ul class='menu'&gt;&lt;/ul&gt;&lt;div class='slide-number'&gt;&lt;/div&gt;&lt;/div&gt;"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a><span class="at">    ...</span></span>
+<span id="cb46-4"><a href="#cb46-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
+<span id="cb46-5"><a href="#cb46-5"></a><span class="at">      </span><span class="fu">barhtml</span><span class="kw">:</span></span>
+<span id="cb46-6"><a href="#cb46-6"></a><span class="at">        </span><span class="fu">header</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span></span>
+<span id="cb46-7"><a href="#cb46-7"></a><span class="at">        </span><span class="fu">footer</span><span class="kw">:</span><span class="at"> </span><span class="st">"&lt;div class='menubar'&gt;&lt;ul class='menu'&gt;&lt;/ul&gt;&lt;div class='slide-number'&gt;&lt;/div&gt;&lt;/div&gt;"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="option-6-flat" class="slide level2">
 <h2>Option 6: flat</h2>
 <p>Sometimes you’ll want to limit your presentation to horizontal slides only. To still use ‘chapters’, you can use the <code>flat</code> option. By default, it is set to <code>false</code>, but you can set it to <code>true</code>. Then, when a data-name is set for a slide, any following slides will keep that menu name.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb20-2"><a href="#cb20-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a><span class="at">    ...</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb20-5"><a href="#cb20-5"></a><span class="at">      </span><span class="fu">flat</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb47-3"><a href="#cb47-3"></a><span class="at">    ...</span></span>
+<span id="cb47-4"><a href="#cb47-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
+<span id="cb47-5"><a href="#cb47-5"></a><span class="at">      </span><span class="fu">flat</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To stop inheriting the previous slide menu name, start a new named section, or add <code>data-sm="false"</code> to your slide.</p>
 </section>
 <section id="option-7-scale" class="slide level2">
 <h2>Option 7: scale</h2>
 <p>When you have a lot of subjects/chapters in your menubar, they might not all fit in a row. You can then tweak the scale in the options. Simplemenu copies the Reveal.js (slide) scaling and adds a <code>scale</code> option on top of that.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a><span class="at">    ...</span></span>
-<span id="cb21-4"><a href="#cb21-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
-<span id="cb21-5"><a href="#cb21-5"></a><span class="at">      </span><span class="fu">scale</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.67</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">format</span><span class="kw">:</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a><span class="at">  </span><span class="fu">revealjs</span><span class="kw">:</span></span>
+<span id="cb48-3"><a href="#cb48-3"></a><span class="at">    ...</span></span>
+<span id="cb48-4"><a href="#cb48-4"></a><span class="at">    </span><span class="fu">simplemenu</span><span class="kw">:</span></span>
+<span id="cb48-5"><a href="#cb48-5"></a><span class="at">      </span><span class="fu">scale</span><span class="kw">:</span><span class="at"> </span><span class="fl">0.67</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>It is set to be two-thirds of the main scaling.</p>
 </section></section>
 <section id="more-demos" class="title-slide slide level1 center" data-name="More demos">
@@ -912,7 +1426,7 @@ Simplemenu will show the menubar(s) on all pages. If you do not want to show the
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'chalkboard': {"buttons":true},
 'simplemenu': {"menubarclass":"menubar","menuclass":"menu","activeclass":"active","activeelement":"li","flat":false,"barhtml":{"header":"<div class='menubar'><ul class='menu'></ul><div>","footer":""},"scale":0.67},
 'smaller': false,
@@ -1156,9 +1670,23 @@ Simplemenu will show the menubar(s) on all pages. If you do not want to show the
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);
       });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
       const clipboard = new window.ClipboardJS('.code-copy-button', {
-        target: function(trigger) {
-          return trigger.previousElementSibling;
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
         }
       });
       clipboard.on('success', function(e) {
@@ -1206,7 +1734,7 @@ Simplemenu will show the menubar(s) on all pages. If you do not want to show the
           },
           interactive: true,
           interactiveBorder: 10,
-          theme: 'quarto-reveal',
+          theme: 'light-border',
           placement: 'bottom-start'
         };
           config['offset'] = [0,0];
@@ -1225,6 +1753,157 @@ Simplemenu will show the menubar(s) on all pages. If you do not want to show the
           return note.innerHTML;
         });
       }
+          let selectedAnnoteEl;
+          const selectorForAnnotation = ( cell, annotation) => {
+            let cellAttr = 'data-code-cell="' + cell + '"';
+            let lineAttr = 'data-code-annotation="' +  annotation + '"';
+            const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+            return selector;
+          }
+          const selectCodeLines = (annoteEl) => {
+            const doc = window.document;
+            const targetCell = annoteEl.getAttribute("data-target-cell");
+            const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+            const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+            const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+            const lineIds = lines.map((line) => {
+              return targetCell + "-" + line;
+            })
+            let top = null;
+            let height = null;
+            let parent = null;
+            if (lineIds.length > 0) {
+                //compute the position of the single el (top and bottom and make a div)
+                const el = window.document.getElementById(lineIds[0]);
+                top = el.offsetTop;
+                height = el.offsetHeight;
+                parent = el.parentElement.parentElement;
+              if (lineIds.length > 1) {
+                const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+                const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+                height = bottom - top;
+              }
+              if (top !== null && height !== null && parent !== null) {
+                // cook up a div (if necessary) and position it 
+                let div = window.document.getElementById("code-annotation-line-highlight");
+                if (div === null) {
+                  div = window.document.createElement("div");
+                  div.setAttribute("id", "code-annotation-line-highlight");
+                  div.style.position = 'absolute';
+                  parent.appendChild(div);
+                }
+                div.style.top = top - 2 + "px";
+                div.style.height = height + 4 + "px";
+                let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+                if (gutterDiv === null) {
+                  gutterDiv = window.document.createElement("div");
+                  gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                  gutterDiv.style.position = 'absolute';
+                  const codeCell = window.document.getElementById(targetCell);
+                  const gutter = codeCell.querySelector('.code-annotation-gutter');
+                  gutter.appendChild(gutterDiv);
+                }
+                gutterDiv.style.top = top - 2 + "px";
+                gutterDiv.style.height = height + 4 + "px";
+              }
+              selectedAnnoteEl = annoteEl;
+            }
+          };
+          const unselectCodeLines = () => {
+            const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+            elementsIds.forEach((elId) => {
+              const div = window.document.getElementById(elId);
+              if (div) {
+                div.remove();
+              }
+            });
+            selectedAnnoteEl = undefined;
+          };
+          // Handle positioning of the toggle
+          window.addEventListener(
+          "resize",
+          throttle(() => {
+            elRect = undefined;
+            if (selectedAnnoteEl) {
+              selectCodeLines(selectedAnnoteEl);
+            }
+          }, 10)
+          );
+          function throttle(fn, ms) {
+          let throttle = false;
+          let timer;
+            return (...args) => {
+              if(!throttle) { // first call gets through
+                  fn.apply(this, args);
+                  throttle = true;
+              } else { // all the others get throttled
+                  if(timer) clearTimeout(timer); // cancel #2
+                  timer = setTimeout(() => {
+                    fn.apply(this, args);
+                    timer = throttle = false;
+                  }, ms);
+              }
+            };
+          }
+          const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+          for (let i=0; i<annoteTargets.length; i++) {
+            const annoteTarget = annoteTargets[i];
+            const targetCell = annoteTarget.getAttribute("data-target-cell");
+            const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+            const contentFn = () => {
+              const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+              if (content) {
+                const tipContent = content.cloneNode(true);
+                tipContent.classList.add("code-annotation-tip-content");
+                return tipContent.outerHTML;
+              }
+            }
+            const config = {
+              allowHTML: true,
+              content: contentFn,
+              onShow: (instance) => {
+                selectCodeLines(instance.reference);
+                instance.reference.classList.add('code-annotation-active');
+                window.tippy.hideAll();
+              },
+              onHide: (instance) => {
+                unselectCodeLines();
+                instance.reference.classList.remove('code-annotation-active');
+              },
+              maxWidth: 300,
+              delay: [50, 0],
+              duration: [200, 0],
+              offset: [5, 10],
+              arrow: true,
+              appendTo: function(el) {
+                return el.parentElement.parentElement.parentElement;
+              },
+              interactive: true,
+              interactiveBorder: 10,
+              theme: 'light-border',
+              placement: 'right',
+              popperOptions: {
+                modifiers: [
+                {
+                  name: 'flip',
+                  options: {
+                    flipVariations: false, // true by default
+                    allowedAutoPlacements: ['right'],
+                    fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
+                  },
+                },
+                {
+                  name: 'preventOverflow',
+                  options: {
+                    mainAxis: false,
+                    altAxis: false
+                  }
+                }
+                ]        
+              }      
+            };
+            window.tippy(annoteTarget, config); 
+          }
       const findCites = (el) => {
         const parentEl = el.parentElement;
         if (parentEl) {
