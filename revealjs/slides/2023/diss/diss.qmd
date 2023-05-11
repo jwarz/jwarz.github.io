@@ -7,6 +7,9 @@ institute: "Hamburg University of Technology"
 date: today
 date-format: "dddd, D[<sup style='font-size:65%;font-style:italic;'>th</sup>] [of] MMMM YYYY"
 section-divs: true
+filters:
+   - lightbox
+lightbox: auto
 ---
 
 ```{r}
@@ -15,6 +18,7 @@ section-divs: true
 knitr::opts_chunk$set(
   comment = '#>', fig.width = 6, fig.height = 6
 )
+library(pacman)
 ```
 
 ## Table of Contents {data-state="hide-menubar"}
@@ -66,7 +70,7 @@ Linking Developer with startup data
 ![](img/data_sources_v2.svg)
 :::
 
-## <svg width="100%" height="100%" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" fill="currentColor"/></svg> GitHub
+## <svg width="100%" height="100%" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" fill="currentColor"/></svg> GitHub: 1. GHTorrent and 2. Github API
 
 <style>
 svg {
@@ -78,26 +82,220 @@ svg {
 }
 </style>
 
-Use GitHub Api to gather information about user
+::: {.panel-tabset}
+
+### 1. Schema
+
+::: {.absolute top=20% left=10% width=80%}
+![](img/ghtorrent_schema.png)
+:::
+
+### 2. Conn
+
+```{r}
+#| echo: false
+#| eval: false
+system(paste0("ssh -fNg -L 3307:127.0.0.1:3306 tie@", Sys.getenv("TIEADDRESS"), " mysql5 -h 127.0.0.1:3306 -P 3307 -u ghtorrentuser -p ", Sys.getenv("GHTORRENTPASSWORD")))
+```
+
+```{r}
+#| label: ght-connection
+p_load(RMariaDB, dplyr)
+con <- dbConnect(
+  drv      = MariaDB(),
+  dbname   = "ghtorrent_restore",
+  username = "ghtorrentuser",
+  password = Sys.getenv("GHTORRENTPASSWORD"), # <1>
+  host     = "127.0.0.1",                     # <2>
+  port     = 3307                             # <2>
+)
+
+con |> dbListTables()
+```
+
+1. Password is located in a `.Renviron` file that is not stored in version control (GitHub)
+2. SSH port forwarding/tunneling for MySQL connection is used
+
+::::: {.fragment}
+:::: {.columns}
+::: {.column width="33%"}
+```{r}
+#| label: u-count
+#| output-location: fragment
+tbl(con, "users") |> 
+  count()
+```
+:::
+::: {.column width="33%"}
+```{r, connection = con}
+#| label: p-count
+#| output-location: fragment
+tbl(con,"projects") |> 
+  count()
+```
+:::
+::: {.column width="33%"}
+```{r, connection = con}
+#| eval: true
+#| label: pc-count
+#| output-location: fragment
+tbl(con,"project_commits") |> 
+  count()
+```
+:::
+::::
+:::::
+
+### 3. User (GHT)
+
+GHTorrent user data does not contain much valuable information:
+
+:::: {.columns}
+::: {.column width="50%"}
+
+```{r}
+#| label: pillar-options1
+#| echo: false
+p_width <- getOption("width")
+options(
+  # pillar.print_max = 10, 
+  # pillar.print_min = 10,
+  pillar.width     = p_width * 0.65
+)
+```
+
+```{r}
+#| label: gh-ght-users-table
+users <- tbl(con, "users") 
+users |>   
+  glimpse()
+```
+:::
+::: {.column width="50%"}
+::: {.fragment}
+```{r}
+users |> 
+  filter(login == "christophihl") |> 
+  glimpse()
+```
+
+:::
+:::
+::::
+
+### 4. User (Website)
+
+:::: {.absolute top="20%"}
+::: {style="text-align: center"}
+![](img/github_user.png){width=80% height=80%}
+:::
+::::
+
+::: {.fragment .fade-up fragment-index=1}
+::: {.absolute top="10.5em" left="20%"}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![](img/checkmark1.svg)
+:::
+:::
+
+::: {.fragment .fade-up fragment-index=1}
+::: {.absolute top="13.5em" left="20%"}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![](img/checkmark2.svg)
+:::
+:::
+
+::: {.fragment .fade-up fragment-index=1}
+::: {.absolute top="14.5em" left="20%"}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![](img/checkmark1.svg)
+:::
+:::
+
+::: {.fragment .fade-up fragment-index=1}
+::: {.absolute top="17em" left="20%"}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![](img/checkmark2.svg)
+:::
+:::
+
+::: {.fragment .fade-down fragment-index=2}
+::: {.absolute top="16.5em" left="35%"}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![](img/cross1.svg)
+:::
+:::
+
+::: {.fragment .fade-down fragment-index=2}
+::: {.absolute top="16em" left="35%"}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![](img/cross2.svg)
+:::
+:::
+
+::: {.fragment .fade-down fragment-index=2}
+::: {.absolute top="10.5em" left="35%"}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![](img/cross1.svg)
+:::
+:::
+
+::: {.fragment .fade-down fragment-index=3}
+::: {.absolute top="10em" left="35%"}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![](img/cross2.svg)
+:::
+:::
+
+
+::: {.fragment .fade-down fragment-index=2}
+::: {.absolute top="6em" left="35%"}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![](img/cross1.svg)
+:::
+:::
+
+::: {.fragment .fade-right fragment-index=3}
+::: {.absolute top="0" left="0" style="font-size: 0.5rem;"}
+[https://github.com/jspolsky](https://github.com/jspolsky){target="_blank"}
+:::
+:::
+
+### 5. User (API)
+
+More sensible data via API: Name, Email, Avatar, Blog/URL, Bio
+
+:::: {.columns}
+::: {.column width="50%"}
+
+*Single API Request*
 
 ```{r}
 #| eval: false
 #| code-line-numbers: "|1|2"
-httr::GET("https://api.github.com/users/jwarz")
-httr::GET("https://api.github.com/user/40362019")
+httr::GET("https://api.github.com/users/christophihl")
+httr::GET("https://api.github.com/user/8004978")
+```
+
+```{css, echo=FALSE}
+.cell-out-height {
+  height: 22rem;
+}
 ```
 
 ```{r}
 #| echo: false
+#| class-output: cell-out-height
 library(dplyr)
 library(httr)
-resp <- GET("https://api.github.com/user/40362019")
+resp <- GET("https://api.github.com/user/8004978")
 content(resp) |> bind_rows() |> glimpse()
 ```
+:::
+::: {.column width="50%"}
+::: {.fragment}
 
-## <svg width="100%" height="100%" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" fill="currentColor"/></svg> GitHub
-
-Get all GitHub User profiles via API (iterated > 42 mil user ids)
+*Final API dataset*
 
 ```{r}
 #| eval: false
@@ -108,20 +306,210 @@ open_dataset("gh_api_users_wrangled.parquet") |>
 ```{r}
 #| echo: false
 #| message: false
+#| class-output: cell-out-height
 library(arrow)
 open_dataset("/Users/jschwarz/02_diss/01_data_sources/02_github/01_api/01_data/02_wrangled/gh_api_users_wrangled.parquet") |> 
   glimpse() 
 ```
+:::
+:::
+
+::::
+
+### 6. Orgs
+
+Two different types: Organizations and User accounts
+
+:::: {.columns}
+::: {.column width="55%"}
+
+```{r}
+#| label: pillar-options2
+#| echo: false
+options(
+  pillar.width = p_width * 0.75
+)
+```
+
+```{r}
+#| eval: false
+httr::GET("https://api.github.com/users/TUHHStartupEngineers")
+httr::GET("https://api.github.com/user/30825260")
+```
+
+```{r}
+#| echo: false
+library(dplyr)
+library(httr)
+resp <- GET("https://api.github.com/user/30825260")
+content(resp) |> bind_rows() |> glimpse()
+```
+:::
+
+::: {.column width="45%"}
+::: {.fragment}
+
+```{r}
+#| echo: false
+options(
+  pillar.print_max = 7,
+  pillar.print_min = 7
+)
+```
+
+```{r}
+org_members <- tbl(con, "organization_members")
+org_members
+```
+
+```{r}
+#| output-location: fragment
+#| code-line-numbers: "4"
+org_members |> 
+  left_join(users, by = c(org_id  = "id")) |> 
+  left_join(users, by = c(user_id = "id")) |> 
+  filter(login.x == "TUHHStartupEngineers") |> 
+  select(login.y)
+```
+
+```{r}
+#| echo: false
+dbDisconnect(con)
+options(
+  pillar.print_max = 10,
+  pillar.print_min = 10,
+  pillar.width     = NULL
+)
+```
+:::
+:::
+::::
+
+### 7. Merged
+
+```{r}
+#| echo: false
+options(
+  pillar.width = NULL
+)
+```
+
+:::: {.columns}
+::: {.column width="50%"}
+
+1. Organization affiliation:
+
+```{r}
+#| eval: false
+#| label: gh_ght_org_members_with_logins_and_domains_tbl
+gh_org_affil <- org_members |> 
+  # Logins for users & orgs (via GHT)
+  left_join(gh_ght_users, by = c(org_id  = "id")) |> 
+  left_join(gh_ght_users, by = c(user_id = "id")) |> 
+  
+  # Domains for orgs (via API)
+  left_join(gh_api_users, by = c(org_login = "login"))
+```
+
+```{css, echo=FALSE}
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+```
+
+```{r}
+#| echo: false
+options(
+  pillar.print_max = 18,
+  pillar.print_min = 18
+)
+```
+
+```{r}
+#| echo: false
+#| class-output: hscroll
+gh_ght_org_members_with_logins_and_domains_tbl <- readRDS("/Users/jschwarz/02_diss/01_data_sources/02_github/02_ghtorrent/01_data/02_wrangled/gh_ght_org_members_with_logins_and_domains_tbl.rds")
+gh_ght_org_members_with_logins_and_domains_tbl |> select(-member_created_at)
+```
+
+```{r}
+#| echo: false
+options(
+  pillar.print_max = 10,
+  pillar.print_min = 10
+)
+```
+:::
+
+::: {.column width="50%"}
+
+2. Final dataset:
+
+```{r}
+#| eval: false
+gh_api_users |> 
+  
+  # Add org memberships (+ domains)
+  left_join(gh_org_affil) |> 
+
+  # Add location data
+  left_join(gh_ght_users)
+```
+
+```{r}
+#| echo: false
+#| class-output: hscroll
+#| label: gh_api_ght_org_loc_mapping.R
+open_dataset("/Users/jschwarz/Library/Mobile Documents/com~apple~CloudDocs/01_tuhh/02_diss/02_data_mapping/05_gh_ght/02_data/gh_api_users_orgs_locs_tbl.parquet") |> 
+  glimpse() 
+```
+
+:::
+
+::::
+
+:::
 
 ## <svg width="100%" height="100%" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg"><path d="M71.4,81V52.4h-7.2v21.4H14.3V52.4H7.2V81H71.4z" fill="currentColor"/><path d="M23.7,43.5l35,7.3l-1.5,7l-35-7.3L23.7,43.5z M26.8,33.8l3-6.5l32.3,15.2l-3,6.4L26.8,33.8L26.8,33.8z	M35.7,17.9l4.6-5.5l27.5,22.8l-4.6,5.5L35.7,17.9L35.7,17.9z M74.8,29.6L69,33.9L47.7,5.3L53.5,1L74.8,29.6z M21.4,59.6h35.7v7.1 H21.4V59.6z" fill="currentColor"/></svg> Stackoverflow
 
 ::: {.panel-tabset}
 
-### Dump 2021
+### Overview
+
+* Two among the most widely adopted and studied platforms are **GitHub** and **StackOverflow**
+* These two platforms serve *different purposes*: code sharing and collaborative development vs. information and knowledge exchange.
+* At the same time, they both serve potentially the *same community* of developers for the same overall goal, i.e., software development.
+
+### Dumps
+
+```{css, echo=FALSE}
+.reveal .r-stack > * {
+     margin: 0;
+}
+.reveal .columns > .column:last-child > :not(ul, ol) {
+ margin-left: 0;
+}
+```
+
+:::::: {.r-stack}
+::::: {.fragment .fade-out fragment-index=2}
+
+```{r}
+#| label: pillar-options-so2
+#| echo: false
+options(
+  pillar.width     = p_width * 0.65
+)
+```
+
+:::: {.columns}
+::: {.column width="50%"}
 
 ```{r}
 #| eval: false
 open_dataset("so_dump_2021_09_users.parquet") |> 
+  
   glimpse() 
 ```
 
@@ -129,7 +517,105 @@ open_dataset("so_dump_2021_09_users.parquet") |>
 #| echo: false
 #| message: false
 open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/02_extracted/so_dump_2021_09_users.parquet") |> 
+  select(-ends_with("Date")) |> 
   glimpse()
+```
+:::
+
+::: {.column width="50%"}
+::: {.fragment fragment-index=1}
+```{r}
+#| eval: false
+open_dataset("so_dump_2021_09_users.parquet") |> 
+  filter(DisplayName == "Christoph Ihl")
+  glimpse() 
+```
+
+```{r}
+#| echo: false
+#| message: false
+open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/02_extracted/so_dump_2021_09_users.parquet") |> 
+  select(-ends_with("Date")) |> 
+  filter(Id == 9882371) |> 
+  glimpse()
+```
+:::
+:::
+::::
+:::::
+
+::::: {.fragment .fade-in-then-out fragment-index=2}
+
+```{r}
+#| label: pillar-options-so3
+#| echo: false
+options(
+  pillar.width     = p_width * 1.4
+)
+```
+
+:::: {.columns}
+::: {.column width="100%"}
+```{r}
+#| eval: false
+open_dataset("so_dump_2013_09_users.parquet") |> 
+  
+  glimpse() 
+```
+
+```{r}
+#| echo: false
+#| message: false
+open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/02_extracted/so_dump_2013_09_users.parquet") |> 
+  select(-ends_with("Date")) |> 
+  glimpse()
+```
+:::
+::::
+:::::
+
+::::: {.fragment .fade-in fragment-index=3}
+:::: {.columns}
+::: {.column width="50%"}
+
+```{r}
+#| eval: false
+# Stackoverflow
+knitr::include_graphics(
+  "https://graph.facebook.com/920949401423102/picture?type=large"
+)
+```
+
+```{r}
+#| echo: false
+#| out-width: 50%
+knitr::include_graphics(
+  "img/christoph.jpeg"
+)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| out-width: 50%
+# GitHub
+knitr::include_graphics(
+  "https://avatars.githubusercontent.com/u/8004978?v=4"
+)
+```
+:::
+::::
+:::::
+
+::::::
+
+```{r}
+#| label: pillar-options-so4
+#| echo: false
+options(
+  pillar.width     = NULL
+)
 ```
 
 ### Example 2021
@@ -212,6 +698,8 @@ open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/0
 ![](img/stackoverflow_user.png)
 :::
 :::
+
+http://stackoverflow.com/users/1/jeff-atwood
 
 ::: {.fragment .fade-up}
 ::: {.absolute top="2em" left="42%"}

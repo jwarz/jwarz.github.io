@@ -2,7 +2,7 @@
 // Font
 @import url(https://fonts.googleapis.com/css?family=Poppins:400,700,400italic,700italic);
 $font-family-sans-serif: Poppins, sans-serif !default;
-$mainFontSize: clamp(0.2rem, 10vw, 2rem);
+$mainFontSize: clamp(0.2rem, 10vw, 1.3rem);
 
 // Base document colors
 $body-color: #484848 !default;
@@ -165,13 +165,21 @@ body:not(.hide-menubar) .reveal.ready:not(.hide-menubar) .footer {
 *** CODE BLOCKS ***
 ******************/
 .cell {
-  
+  font-size: 120%;
 }
 
 .cell-output {
-    margin-top: 1rem;
+    margin: 1rem 0 1rem 0;
     border: 1px solid #e1e1e1;
     border-radius: 4px;
+}
+
+/********************
+*** PANEL TABSETS ***
+********************/
+
+.panel-tabset a[role="tab"] {
+  font-size: 1.3rem;
 }
 
 /*******
