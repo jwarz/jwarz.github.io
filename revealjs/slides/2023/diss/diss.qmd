@@ -482,7 +482,7 @@ open_dataset("/Users/jschwarz/Library/Mobile Documents/com~apple~CloudDocs/01_tu
 
 ## <svg width="100%" height="100%" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg"><path d="M71.4,81V52.4h-7.2v21.4H14.3V52.4H7.2V81H71.4z" fill="currentColor"/><path d="M23.7,43.5l35,7.3l-1.5,7l-35-7.3L23.7,43.5z M26.8,33.8l3-6.5l32.3,15.2l-3,6.4L26.8,33.8L26.8,33.8z	M35.7,17.9l4.6-5.5l27.5,22.8l-4.6,5.5L35.7,17.9L35.7,17.9z M74.8,29.6L69,33.9L47.7,5.3L53.5,1L74.8,29.6z M21.4,59.6h35.7v7.1 H21.4V59.6z" fill="currentColor"/></svg> Stackoverflow
 
-::: {.panel-tabset}
+::::::: {.panel-tabset}
 
 ### Overview
 
@@ -493,6 +493,7 @@ open_dataset("/Users/jschwarz/Library/Mobile Documents/com~apple~CloudDocs/01_tu
 ### Dumps
 
 :::::: {.r-stack}
+
 ::::: {.fragment .fade-out fragment-index=2}
 
 ```{r}
@@ -520,10 +521,12 @@ open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/0
   select(-ends_with("Date")) |> 
   glimpse()
 ```
+
 :::
 
 ::: {.column width="50%"}
 ::: {.fragment fragment-index=1}
+
 ```{r}
 #| eval: false
 open_dataset("so_dump_2021_09_users.parquet") |> 
@@ -539,23 +542,23 @@ open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/0
   filter(Id == 9882371) |> 
   glimpse()
 ```
+
 :::
 :::
 ::::
 :::::
 
-::::: {.fragment .fade-in-then-out fragment-index=2}
+::::: {.fragment .fade-in fragment-index=2}
 
 ```{r}
 #| label: pillar-options-so3
 #| echo: false
-options(
-  pillar.width     = p_width * 1.4
-)
+options(pillar.width = p_width * 1.4)
 ```
 
 :::: {.columns}
 ::: {.column width="100%"}
+
 ```{r}
 #| eval: false
 open_dataset("so_dump_2013_09_users.parquet") |> 
@@ -570,90 +573,55 @@ open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/0
   select(-ends_with("Date")) |> 
   glimpse()
 ```
+
 :::
 ::::
 :::::
-
-::::: {.fragment .fade-in fragment-index=3}
-:::: {.columns}
-::: {.column width="50%"}
-
-```{r}
-#| eval: false
-# Stackoverflow
-knitr::include_graphics(
-  "https://graph.facebook.com/920949401423102/picture?type=large"
-)
-```
-
-```{r}
-#| echo: false
-#| out-width: 50%
-knitr::include_graphics(
-  "img/christoph.jpeg"
-)
-```
-
-:::
-
-::: {.column width="50%"}
-```{r}
-#| out-width: 50%
-# GitHub
-knitr::include_graphics(
-  "https://avatars.githubusercontent.com/u/8004978?v=4"
-)
-```
-:::
-::::
-:::::
-
-::::::
 
 ```{r}
 #| label: pillar-options-so4
 #| echo: false
-options(
-  pillar.width     = NULL
-)
+options(pillar.width = NULL)
 ```
+
+::::::
 
 ### Identity Matching
 
 :::::: {.r-stack}
 
-:::: {style="margin: 1em 0 0 0;"}
+::::: {style="margin: 1em 0 0 0;"}
 
-::: {.fragment .highlight-red fragment-index=1}
-::: {.fragment .semi-fade-out fragment-index=2}
-::: {.fragment .strike fragment-index=2}
+:::: {.fragment .highlight-red fragment-index=3}
+:::: {.fragment .semi-fade-out fragment-index=4}
+:::: {.fragment .strike fragment-index=4}
 * Name
-:::
-:::
-:::
-
-::: {.fragment .highlight-red fragment-index=2}
-::: {.fragment .semi-fade-out fragment-index=3}
-::: {.fragment .strike fragment-index=3}
-* Name and Location
-:::
-:::
-:::
-
-::: {.fragment .fade-out fragment-index=2}
-* Profile images
-:::
-
-::: {.fragment .fade-up fragment-index=3}
-::: {.fragment .highlight-red fragment-index=3}
-* Profile images
-:::
-:::
-
+::::
+::::
 ::::
 
+:::: {.fragment .highlight-red fragment-index=4}
+:::: {.fragment .semi-fade-out fragment-index=5}
+:::: {.fragment .strike fragment-index=5}
+* Name and Location
+::::
+::::
+::::
 
-::::: {.fragment .fade-in-then-out fragment-index=2 style="margin-top: 6em;"}
+:::: {.fragment .fade-out fragment-index=4}
+* Profile images
+::::
+
+:::: {.fragment .fade-up fragment-index=5}
+:::: {.fragment .highlight-red fragment-index=5}
+* Profile images
+::::
+::::
+
+:::::
+
+
+::::: {.fragment .fade-in-then-out fragment-index=4 style="margin-top: 6em;"}
 :::: {.columns}
 ::: {.column width="50%"}
 ```{r}
@@ -704,9 +672,8 @@ readRDS("data/gh_so_inner_join.rds")
 ::::
 Optimization: OpenStreetMap API and only full names
 :::::
-::::::
 
-::::: {.fragment .fade-in fragment-index=3 style="margin-top: -11.5em;"}
+::::: {.fragment .fade-in fragment-index=5 style="margin-top: 10.5em;"}
 :::: {.columns}
 ::: {.column width="50%"}
 
@@ -740,55 +707,43 @@ knitr::include_graphics(
 ::::
 :::::
 
-### Dump 2013
+::::::
 
-```{r}
-#| eval: false
-open_dataset("so_dump_2013_09_users.parquet") |> 
-  glimpse() 
-```
+### Website
 
-```{r}
-#| echo: false
-#| message: false
-open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/02_extracted/so_dump_2013_09_users.parquet") |> 
-  glimpse()
-```
+::::: {.absolute top="20%"}
+:::: {style="text-align: center"}
+![](img/stackoverflow_user.png){width=80% height=80%}
+::::
+:::::
 
-:::
-
-## <svg width="100%" height="100%" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg"><path d="M71.4,81V52.4h-7.2v21.4H14.3V52.4H7.2V81H71.4z" fill="currentColor"/><path d="M23.7,43.5l35,7.3l-1.5,7l-35-7.3L23.7,43.5z M26.8,33.8l3-6.5l32.3,15.2l-3,6.4L26.8,33.8L26.8,33.8z	M35.7,17.9l4.6-5.5l27.5,22.8l-4.6,5.5L35.7,17.9L35.7,17.9z M74.8,29.6L69,33.9L47.7,5.3L53.5,1L74.8,29.6z M21.4,59.6h35.7v7.1 H21.4V59.6z" fill="currentColor"/></svg> Stackoverflow
-
-::: {.absolute top="10%" left="0" width="100%" height="100%"}
-::: {style="text-align: center"}
-![](img/stackoverflow_user.png)
-:::
-:::
-
-http://stackoverflow.com/users/1/jeff-atwood
-
-::: {.fragment .fade-up}
-::: {.absolute top="2em" left="42%"}
+::::: {.fragment fragment-index=6 .fade-up}
+:::: {.absolute top="0.5rem" left="44%"}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![](img/arrow-2.svg)
-:::
-:::
+::::
+:::::
 
-::: {.fragment .fade-up}
-::: {.absolute top="6em" left="28%"}
+::::: {.fragment fragment-index=6 .fade-left}
+:::: {.absolute top="4.7rem" left="47.7%"}
+[Able to run through a specific ID]{style="padding: 0 0.5rem; border:1px solid #005e73; border-radius: 4px; background-color: white; color: #005e73"}
+::::
+:::::
+
+::::: {.fragment fragment-index=7 .fade-up}
+:::: {.absolute top="7rem" left="33%"}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![](img/arrow-1.svg)
-:::
-:::
+::::
+:::::
 
-. . .
+::::: {.fragment fragment-index=7 .fade-right}
+:::: {.absolute top="11.5rem" left="15%"}
+[Unique Identifier]{style="padding: 0 0.5rem; border:1px solid #005e73; border-radius: 4px; background-color: white; color: #005e73"}
+::::
+:::::
 
-
-::: {.absolute top="50%" left="10%"}
-::: {style="color: #cc0000"}
-code *can* go here
-:::
-:::
+:::::::
 
 # Test {data-name="test"}
 
