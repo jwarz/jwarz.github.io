@@ -70,6 +70,8 @@ Linking Developer with startup data
 ![](img/data_sources_v2.svg)
 :::
 
+# Data GH {data-stack-name="Data I"}
+
 ## <svg width="100%" height="100%" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8C0 11.54 2.29 14.53 5.47 15.59C5.87 15.66 6.02 15.42 6.02 15.21C6.02 15.02 6.01 14.39 6.01 13.72C4 14.09 3.48 13.23 3.32 12.78C3.23 12.55 2.84 11.84 2.5 11.65C2.22 11.5 1.82 11.13 2.49 11.12C3.12 11.11 3.57 11.7 3.72 11.94C4.44 13.15 5.59 12.81 6.05 12.6C6.12 12.08 6.33 11.73 6.56 11.53C4.78 11.33 2.92 10.64 2.92 7.58C2.92 6.71 3.23 5.99 3.74 5.43C3.66 5.23 3.38 4.41 3.82 3.31C3.82 3.31 4.49 3.1 6.02 4.13C6.66 3.95 7.34 3.86 8.02 3.86C8.7 3.86 9.38 3.95 10.02 4.13C11.55 3.09 12.22 3.31 12.22 3.31C12.66 4.41 12.38 5.23 12.3 5.43C12.81 5.99 13.12 6.7 13.12 7.58C13.12 10.65 11.25 11.33 9.47 11.53C9.76 11.78 10.01 12.26 10.01 13.01C10.01 14.08 10 14.94 10 15.21C10 15.42 10.15 15.67 10.55 15.59C13.71 14.53 16 11.53 16 8C16 3.58 12.42 0 8 0Z" transform="scale(64)" fill="currentColor"/></svg> GitHub: 1. GHTorrent and 2. Github API
 
 <style>
@@ -99,6 +101,7 @@ system(paste0("ssh -fNg -L 3307:127.0.0.1:3306 tie@", Sys.getenv("TIEADDRESS"), 
 ```
 
 ```{r}
+#| eval: false
 #| label: ght-connection
 p_load(RMariaDB, dplyr)
 con <- dbConnect(
@@ -120,6 +123,7 @@ con |> dbListTables()
 :::: {.columns}
 ::: {.column width="33%"}
 ```{r}
+#| eval: false
 #| label: u-count
 #| output-location: fragment
 tbl(con, "users") |> 
@@ -127,7 +131,8 @@ tbl(con, "users") |>
 ```
 :::
 ::: {.column width="33%"}
-```{r, connection = con}
+```{r}
+#| eval: false
 #| label: p-count
 #| output-location: fragment
 tbl(con,"projects") |> 
@@ -135,8 +140,8 @@ tbl(con,"projects") |>
 ```
 :::
 ::: {.column width="33%"}
-```{r, connection = con}
-#| eval: true
+```{r}
+#| eval: false
 #| label: pc-count
 #| output-location: fragment
 tbl(con,"project_commits") |> 
@@ -165,6 +170,7 @@ options(
 ```
 
 ```{r}
+#| eval: false
 #| label: gh-ght-users-table
 users <- tbl(con, "users") 
 users |>   
@@ -174,6 +180,7 @@ users |>
 ::: {.column width="50%"}
 ::: {.fragment}
 ```{r}
+#| eval: false
 users |> 
   filter(login == "christophihl") |> 
   glimpse()
@@ -358,11 +365,13 @@ options(
 ```
 
 ```{r}
+#| eval: false
 org_members <- tbl(con, "organization_members")
 org_members
 ```
 
 ```{r}
+#| eval: false
 #| output-location: fragment
 #| code-line-numbers: "4"
 org_members |> 
@@ -373,8 +382,13 @@ org_members |>
 ```
 
 ```{r}
+#| eval: false
 #| echo: false
 dbDisconnect(con)
+```
+
+```{r}
+#| echo: false
 options(
   pillar.print_max = 10,
   pillar.print_min = 10,
@@ -386,13 +400,6 @@ options(
 ::::
 
 ### 7. Merged
-
-```{r}
-#| echo: false
-options(
-  pillar.width = NULL
-)
-```
 
 :::: {.columns}
 ::: {.column width="50%"}
@@ -471,6 +478,8 @@ open_dataset("/Users/jschwarz/Library/Mobile Documents/com~apple~CloudDocs/01_tu
 
 :::
 
+# Data SO {data-stack-name="Data II"}
+
 ## <svg width="100%" height="100%" viewBox="0 0 82 82" xmlns="http://www.w3.org/2000/svg"><path d="M71.4,81V52.4h-7.2v21.4H14.3V52.4H7.2V81H71.4z" fill="currentColor"/><path d="M23.7,43.5l35,7.3l-1.5,7l-35-7.3L23.7,43.5z M26.8,33.8l3-6.5l32.3,15.2l-3,6.4L26.8,33.8L26.8,33.8z	M35.7,17.9l4.6-5.5l27.5,22.8l-4.6,5.5L35.7,17.9L35.7,17.9z M74.8,29.6L69,33.9L47.7,5.3L53.5,1L74.8,29.6z M21.4,59.6h35.7v7.1 H21.4V59.6z" fill="currentColor"/></svg> Stackoverflow
 
 ::: {.panel-tabset}
@@ -482,15 +491,6 @@ open_dataset("/Users/jschwarz/Library/Mobile Documents/com~apple~CloudDocs/01_tu
 * At the same time, they both serve potentially the *same community* of developers for the same overall goal, i.e., software development.
 
 ### Dumps
-
-```{css, echo=FALSE}
-.reveal .r-stack > * {
-     margin: 0;
-}
-.reveal .columns > .column:last-child > :not(ul, ol) {
- margin-left: 0;
-}
-```
 
 :::::: {.r-stack}
 ::::: {.fragment .fade-out fragment-index=2}
@@ -618,28 +618,95 @@ options(
 )
 ```
 
-### Example 2021
+### Identity Matching
 
-:::: {.r-stack}
-::: {.fragment .fade-out fragment-index=1}
+:::::: {.r-stack}
 
+:::: {style="margin: 1em 0 0 0;"}
+
+::: {.fragment .highlight-red fragment-index=1}
+::: {.fragment .semi-fade-out fragment-index=2}
+::: {.fragment .strike fragment-index=2}
+* Name
+:::
+:::
+:::
+
+::: {.fragment .highlight-red fragment-index=2}
+::: {.fragment .semi-fade-out fragment-index=3}
+::: {.fragment .strike fragment-index=3}
+* Name and Location
+:::
+:::
+:::
+
+::: {.fragment .fade-out fragment-index=2}
+* Profile images
+:::
+
+::: {.fragment .fade-up fragment-index=3}
+::: {.fragment .highlight-red fragment-index=3}
+* Profile images
+:::
+:::
+
+::::
+
+
+::::: {.fragment .fade-in-then-out fragment-index=2 style="margin-top: 6em;"}
+:::: {.columns}
+::: {.column width="50%"}
 ```{r}
 #| eval: false
-open_dataset("so_dump_2021_09_users.parquet") |> 
-  filter(DisplayName == "Christoph Ihl")
-  glimpse() 
+join <- open_dataset("gh_api_users.parquet") |> 
+  
+  inner_join( 
+    open_dataset("so_users_joined.parquet") , 
+      by = c(name  ="DisplayName", location = "Location"), 
+      na_matches = "never"
+    ) |> 
+  
+  compute()
+
+join|> 
+  nrow()
 ```
 
 ```{r}
 #| echo: false
-#| message: false
-open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/02_extracted/so_dump_2021_09_users.parquet") |> 
-  filter(Id == 9882371) |> 
-  glimpse()
+724961
 ```
 :::
 
-::::: {.fragment .fade-in fragment-index=1}
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+options(
+  pillar.print_max = 7,
+  pillar.print_min = 7
+)
+```
+
+```{r}
+#| eval: false
+join |> 
+  filter(location == "Hamburg") |> 
+  count(name, sort = T)
+```
+
+```{r}
+#| echo: false
+readRDS("data/gh_so_inner_join.rds")
+```
+
+:::
+::::
+Optimization: OpenStreetMap API and only full names
+:::::
+::::::
+
+::::: {.fragment .fade-in fragment-index=3 style="margin-top: -11.5em;"}
 :::: {.columns}
 ::: {.column width="50%"}
 
@@ -672,7 +739,6 @@ knitr::include_graphics(
 :::
 ::::
 :::::
-::::
 
 ### Dump 2013
 
