@@ -1,0 +1,36 @@
+---
+# TITLE & AUTHOR
+title: "ggplot_test"
+subtitle: "Not wokring"
+author: "Joschka Schwarz"
+institute: "Hamburg University of Technology"
+date: today
+date-format: "dddd, D[<sup style='font-size:65%;font-style:italic;'>th</sup>] [of] MMMM YYYY"
+section-divs: true
+filters:
+   - lightbox
+lightbox: auto
+engine: knitr
+knitr:
+  opts_chunk: 
+    class-output: hscroll
+---
+
+```{r}
+#| include: false
+source("../../../../R/setup-ggplot2-tie.R")
+```
+
+```{r}
+#| output-location: column
+library(ggplot2)
+
+df <- tibble(
+  sex=factor(rep(c("F", "M"), each=200)),
+  weight=round(c(rnorm(200, mean=55, sd=5), rnorm(200, mean=65, sd=5)))
+  )
+df |> 
+ggplot(aes(x=weight, color=sex)) +
+  geom_histogram(alpha=0.5, position="identity") +
+  scale_color_manual(values=c("#999999", "#E69F00", "#56B4E9"))
+```

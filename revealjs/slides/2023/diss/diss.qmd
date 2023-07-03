@@ -101,7 +101,7 @@ system(paste0("ssh -fNg -L 3307:127.0.0.1:3306 tie@", Sys.getenv("TIEADDRESS"), 
 ```
 
 ```{r}
-#| eval: false
+#| eval: true
 #| label: ght-connection
 p_load(RMariaDB, dplyr)
 con <- dbConnect(
@@ -123,7 +123,7 @@ con |> dbListTables()
 :::: {.columns}
 ::: {.column width="33%"}
 ```{r}
-#| eval: false
+#| eval: true
 #| label: u-count
 #| output-location: fragment
 tbl(con, "users") |> 
@@ -132,7 +132,7 @@ tbl(con, "users") |>
 :::
 ::: {.column width="33%"}
 ```{r}
-#| eval: false
+#| eval: true
 #| label: p-count
 #| output-location: fragment
 tbl(con,"projects") |> 
@@ -141,7 +141,7 @@ tbl(con,"projects") |>
 :::
 ::: {.column width="33%"}
 ```{r}
-#| eval: false
+#| eval: true
 #| label: pc-count
 #| output-location: fragment
 tbl(con,"project_commits") |> 
@@ -170,7 +170,7 @@ options(
 ```
 
 ```{r}
-#| eval: false
+#| eval: true
 #| label: gh-ght-users-table
 users <- tbl(con, "users") 
 users |>   
@@ -180,7 +180,7 @@ users |>
 ::: {.column width="50%"}
 ::: {.fragment}
 ```{r}
-#| eval: false
+#| eval: true
 users |> 
   filter(login == "christophihl") |> 
   glimpse()
@@ -198,75 +198,53 @@ users |>
 :::
 ::::
 
-::: {.fragment .fade-up fragment-index=1}
+:::: {.fragment .fade-up}
 ::: {.absolute top="10.5em" left="20%"}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![](img/checkmark1.svg)
 :::
-:::
-
-::: {.fragment .fade-up fragment-index=1}
 ::: {.absolute top="13.5em" left="20%"}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![](img/checkmark2.svg)
 :::
-:::
-
-::: {.fragment .fade-up fragment-index=1}
 ::: {.absolute top="14.5em" left="20%"}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![](img/checkmark1.svg)
 :::
-:::
-
-::: {.fragment .fade-up fragment-index=1}
 ::: {.absolute top="17em" left="20%"}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![](img/checkmark2.svg)
 :::
-:::
+::::
 
-::: {.fragment .fade-down fragment-index=2}
+:::: {.fragment .fade-down}
 ::: {.absolute top="16.5em" left="35%"}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![](img/cross1.svg)
 :::
-:::
-
-::: {.fragment .fade-down fragment-index=2}
 ::: {.absolute top="16em" left="35%"}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![](img/cross2.svg)
 :::
-:::
-
-::: {.fragment .fade-down fragment-index=2}
 ::: {.absolute top="10.5em" left="35%"}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![](img/cross1.svg)
 :::
-:::
-
-::: {.fragment .fade-down fragment-index=3}
 ::: {.absolute top="10em" left="35%"}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![](img/cross2.svg)
 :::
-:::
-
-
-::: {.fragment .fade-down fragment-index=2}
 ::: {.absolute top="6em" left="35%"}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![](img/cross1.svg)
 :::
-:::
+::::
 
-::: {.fragment .fade-right fragment-index=3}
+:::: {.fragment .fade-right}
 ::: {.absolute top="0" left="0" style="font-size: 0.5rem;"}
 [https://github.com/jspolsky](https://github.com/jspolsky){target="_blank"}
 :::
-:::
+::::
 
 ### 5. User (API)
 
@@ -365,13 +343,13 @@ options(
 ```
 
 ```{r}
-#| eval: false
+#| eval: true
 org_members <- tbl(con, "organization_members")
 org_members
 ```
 
 ```{r}
-#| eval: false
+#| eval: true
 #| output-location: fragment
 #| code-line-numbers: "4"
 org_members |> 
@@ -504,6 +482,8 @@ options(
 )
 ```
 
+Current Dump from 2021
+
 :::: {.columns}
 ::: {.column width="50%"}
 
@@ -555,6 +535,8 @@ open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/0
 #| echo: false
 options(pillar.width = p_width * 1.4)
 ```
+
+Old Dump from 2013
 
 :::: {.columns}
 ::: {.column width="100%"}
@@ -630,7 +612,7 @@ join <- open_dataset("gh_api_users.parquet") |>
   
   inner_join( 
     open_dataset("so_users_joined.parquet") , 
-      by = c(name  ="DisplayName", location = "Location"), 
+      by = c(name  = "DisplayName", location = "Location"), 
       na_matches = "never"
     ) |> 
   
@@ -717,16 +699,16 @@ knitr::include_graphics(
 ::::
 :::::
 
-::::: {.fragment fragment-index=6 .fade-up}
-:::: {.absolute top="0.5rem" left="44%"}
+::::: {.fragment fragment-index=6 .fade-left}
+:::: {.absolute top="5rem" left="56%" style="transform: rotate(-90deg);"}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-![](img/arrow-2.svg)
+![](img/arrow-1.svg)
 ::::
 :::::
 
 ::::: {.fragment fragment-index=6 .fade-left}
-:::: {.absolute top="4.7rem" left="47.7%"}
-[Able to run through a specific ID]{style="padding: 0 0.5rem; border:1px solid #005e73; border-radius: 4px; background-color: white; color: #005e73"}
+:::: {.absolute top="10rem" left="55%"}
+[Job title and company]{style="padding: 0 0.5rem; border:1px solid #005e73; border-radius: 4px; background-color: white; color: #005e73"}
 ::::
 :::::
 
@@ -743,45 +725,277 @@ knitr::include_graphics(
 ::::
 :::::
 
-:::::::
+::::: {.fragment fragment-index=8 .fade-up}
+:::: {.absolute top="0.5rem" left="44%"}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![](img/arrow-2.svg)
+::::
+:::::
 
-# Test {data-name="test"}
+::::: {.fragment fragment-index=8 .fade-left}
+:::: {.absolute top="4.7rem" left="47.7%"}
+[Able to run through a specific ID]{style="padding: 0 0.5rem; border:1px solid #005e73; border-radius: 4px; background-color: white; color: #005e73"}
+::::
+:::::
 
-## Heading
+### Scraped Data
 
-```{=html}
-<span class="fragment fade-in">
-  <span class="fragment highlight-red">
-    <span class="fragment fade-out">
-      Fade in > Turn red > Fade out
-    </span>
-  </span>
-</span>
-```
-
+:::: {.columns}
 
 ```{r}
-knitr::include_graphics("https://graph.facebook.com/920949401423102/picture?type=large")
+#| label: pillar-options-so5
+#| echo: false
+options(pillar.width = p_width * 0.65)
 ```
 
+::: {.column width="50%"}
+```{r}
+#| eval: false
+open_dataset("so_users_joined.parquet") |> 
+  
+  glimpse()
+```
 
-. . .
+```{r}
+#| echo: false
+#| eval: true
+open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/03_wrangled/so_users_joined.parquet") |> 
+  # filter(Id > 0) |> 
+  # arrange(Id) |> 
+  glimpse()
+```
+:::
 
--   `revealjs` for Quarto is a framework for turning Pandoc-friendly markdown + code into beautiful slides
+::: {.column width="50%"}
+```{r}
+#| eval: false
+open_dataset("so_users_joined.parquet") |> 
+  filter(DisplayName == "Christoph Ihl") |> 
+  glimpse()
+```
 
--   User guide: <https://quarto.org/docs/presentations/revealjs/>
+```{r}
+#| echo: false
+#| eval: true
+open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/03_wrangled/so_users_joined.parquet") |> 
+  filter(Id == 9882371) |> 
+  glimpse()
+```
+:::
+```{r}
+#| label: pillar-options-so6
+#| echo: false
+options(pillar.width = p_width * 1.4)
+```
+::::
 
-. . .
+### Merged
 
-![](https://c.tenor.com/3EYd9ID79vcAAAAd/mic-drop-the-voice.gif){fig-align="center"}
+```{r}
+#| eval: false
+gh_api_users_orgs_locs_nested_tbl <- gh_api_users_orgs_locs_tbl |> 
+                                        nest(organization = c(ght_org_id, org_login, org_domain, member_created_at))
 
+gh_so_joined_tbl <- gh_api_users_orgs_locs_nested_tbl |> 
+  left_join(so_joined_tbl, by = c(login      = "github_handle"), na_matches = "never") |> 
+  left_join(so_joined_tbl, by = c(email_hash = "EmailHash"),     na_matches = "never")
 
-# Slide 1 {data-name="Regular slide"}
-A paragraph with some text and a [link](http://hakim.se).
+gh_so_joined_tbl |> 
+  glimpse()
+```
 
-# Vertical slide 1 {data-stack-name="Vertical"}
+```{r}
+#| echo: false
+arrow::open_dataset("/Users/jschwarz/Library/Mobile Documents/com~apple~CloudDocs/01_tuhh/02_diss/02_data_mapping/06_gh_so/02_data/gh_so_joined.parquet") |> 
+  glimpse()
+```
 
-## Vertical slide 2
+:::::::
+
+# Data AL {data-stack-name="DATA III"}
+Angellist (now wellfound) data [Angellist](http://angel.co).
+
+## <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.7 44.7"><path d="M32.3 19.1c1.3-3.7 2.3-6.7 2.9-8.9.7-2.3 1-3.8 1-4.7 0-1.1-.3-2-.9-2.7s-1.5-1-2.4-1c-2 0-4.4 4.1-7.2 12.1-.4 1.1-.7 2-.9 2.6-.3-.8-.6-1.8-1.1-3.2C20.9 5.1 18.6 1 16.8 1c-1 0-1.9.3-2.5 1.1-.6.7-.9 1.7-.9 2.9 0 .9.3 2.5 1 4.8s1.8 5.6 3.3 9.8c-.4-.3-.9-.5-1.3-.6s-.7-.2-1.1-.2c-.8 0-1.7.5-2.6 1.4s-1.4 1.8-1.4 2.7c0 .4.1.7.2 1.1.2.6.4 1.2.6 1.7-1.6.3-2.7 1-3.4 1.9-.7.9-1.1 2.2-1.1 3.9 0 1.5.4 3 1 4.4.8 1.5 1.9 2.9 3.2 4.1 1.3 1.2 2.8 2.1 4.4 2.7 1.7.6 3.5 1 5.3 1 4.6 0 8.4-1.6 11.3-4.7s4.4-7.1 4.4-12c0-2.5-.4-4.3-1.1-5.4-.8-1.4-2.1-2.1-3.8-2.5zm-2.9-9.6c.7-2 1.3-3.5 1.9-4.4s1.1-1.4 1.7-1.4c.4 0 .8.2 1 .5.3.4.4.8.4 1.3s-.4 1.9-1.1 4.2-1.7 5.2-3 8.8l-3.7-.6 2.8-8.4zm-13.3-.2c-.7-2.2-1-3.8-1-4.7 0-.5.1-.9.4-1.3.2-.3.6-.5 1-.5.5 0 1 .4 1.5 1.1.5.7 1.1 2.2 1.9 4.5l3.2 9.1c-.8-.1-1.4-.1-1.7-.1h-.7c-.3 0-.6 0-.9.1-.2.1-.4.2-.5.5-1.5-3.5-2.5-6.4-3.2-8.7zm-2.2 12.3c.5-.5.9-.8 1.4-.8s1 .2 1.6.7c.7.6 1.3 1.4 1.7 2.2.8 1.3 1.5 2.6 2 4s.8 2.2.8 2.6-.2.7-.4 1c-.2.3-.6.4-.9.5-.4 0-1-.3-1.8-1-.9-.8-1.7-1.7-2.4-2.7-.7-.9-1.4-1.9-2-3-.5-.9-.7-1.6-.7-2.1 0-.4.2-.9.7-1.4zm17.3 15.7c-2.4 2.8-5.9 4.3-9.5 4.2-2 0-3.9-.4-5.7-1.2-1.7-.8-3.2-2-4.3-3.5-.7-.9-1.3-1.9-1.7-3-.4-.8-.6-1.8-.6-2.7 0-.9.3-1.8.9-2.6.6-.7 1.2-1.1 1.9-1.1.3 0 .7.2 1.2.7.7.7 1.4 1.4 1.9 2.2.6.7 1.1 1.5 1.6 2.3.4.7.6 1.2.6 1.5s-.2.6-.4.7c-.3.2-.6.4-1 .3-1.1 0-2.3-.9-3.6-2.6-.5-.6-.9-1.1-1.1-1.5-.1.1-.2.2-.2.4-.1.2-.1.4-.1.6 0 1.1.6 2.3 1.9 3.5s2.5 1.8 3.7 1.8c.7 0 1.5-.3 2-.8s.8-1.1.8-1.9v-.5c0-.2-.1-.4-.1-.6.2.1.3.1.5.1h.5c.2 0 .3 0 .5-.1s.3-.2.5-.3v.3c0 1.6.2 2.8.7 3.8.5.9 1.2 1.4 2 1.5l.1-.3v-.2c-.1-.6-.2-1.1-.5-1.7-.3-.7-.4-1.5-.5-2.3 0-1.2.4-2.4 1.1-3.3.7-1.2 1.7-2.3 2.8-3.1.7-.5 1.5-.9 2.4-1.2 1-.4 1.7-.8 2-1.1 0-.3-.1-.6-.3-.9-.2-.2-.4-.3-.7-.3h-1.2c-3.3 0-5.7-.3-7.2-.9-1.5-.6-2.2-1.6-2.2-2.9 0-.6.1-1 .4-1.2s.8-.3 1.5-.3c2.4 0 4.9.3 7.2.8s3.9 1.1 4.7 1.8c.5.4.8 1 1 1.7.2 1 .3 2.1.3 3.1 0 4.4-1.3 8-3.8 10.8zm-9.4-11.7c.7.3 1.4.5 2.1.6l2.4.3c-.6.4-1.1.8-1.6 1.3s-1 1-1.5 1.6l-.6-1.8c-.3-.7-.5-1.3-.8-2z" fill="currentColor"/></svg> Angellist
+
+::::::: {.panel-tabset}
+
+### 1. User
+
+::::: {.absolute top="20%"}
+:::: {style="text-align: center"}
+![](img/angellist_user.png){width=80% height=80%}
+::::
+:::::
+
+### 2. Orgs
+
+<iframe style="width: 100%; height: 45vw; max-height: 50vh;" frameborder="0" allowfullscreen src="./data/angellist_page_source_companies_ID_0032167.html"></iframe>
+
+### Data I
+
+```{r}
+#| label: pillar-options-so7
+#| echo: false
+options(pillar.width = p_width * 0.65)
+```
+
+```{css, echo=FALSE}
+#tabset-3-3 > .r-stack > * {
+    margin: 0;
+}
+```
+
+:::::: {.r-stack}
+
+::::: {.fragment .fade-out fragment-index=2}
+
+:::: {.columns}
+::: {.column width="50%"}
+* Iterated over 10,3 million **user** ids
+
+```{r}
+#| eval: false
+open_dataset("al_profiles.parquet") |> 
+  glimpse() 
+```
+
+```{r}
+#| echo: false
+open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_angellist/02_data/03_wrangled/02_profiles/al_profiles.parquet") |> 
+  glimpse() 
+```
+:::
+
+::: {.column width="50%"}
+* Iterated over 7,3 million **company** ids
+```{r}
+#| eval: false
+open_dataset("al_orgs.parquet") |> 
+  glimpse() 
+```
+
+```{r}
+#| echo: false
+open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_angellist/02_data/03_wrangled/01_organizations/al_orgs.parquet") |> 
+  glimpse() 
+```
+:::
+::::
+:::::
+
+::::: {.fragment .fade-in fragment-index=2}
+
+:::: {.columns}
+::: {.column width="50%"}
+* Iterated over 10,3 million **user** ids
+```{r}
+#| eval: false
+open_dataset("al_profiles_main_wrangled.parquet") |> 
+  glimpse() 
+```
+
+```{r}
+#| echo: false
+open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_angellist/02_data/03_wrangled/02_profiles/al_profiles_main_wrangled.parquet") |> 
+  glimpse() 
+```
+:::
+::: {.column width="50%"}
+* Iterated over 7,3 million **company** ids
+```{r}
+#| eval: false
+open_dataset("al_employees.parquet") |> 
+  glimpse() 
+```
+
+```{r}
+#| echo: false
+open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_angellist/02_data/03_wrangled/01_organizations/al_employees.parquet") |> 
+  glimpse() 
+```
+:::
+::::
+:::::
+
+::::::
+
+### Schema
+
+::: {.absolute top="7%"}
+![](img/al_schema.svg){width=50%}
+:::
+
+### Merged
+
+```{r}
+#| label: pillar-options-so8
+#| echo: false
+options(pillar.width = p_width * 1.4)
+```
+
+```{r}
+#| eval: false
+gh_so_al_final <- gh_so_joined_tbl |> 
+  
+  # 1. Via github_handle
+  left_join(al_profiles_main_wrangled, by = c("login"    = "github_handle"),  na_matches = "never") |> 
+  # 2. Via SO_handle(s) 
+  left_join(al_profiles_main_wrangled, by = c("so_login" = "so_handle"),      na_matches = "never") |> 
+  # 3. Via twitter_handle
+  left_join(al_profiles_main_wrangled, by = c("so_twitter_handle" = "twitter_handle"), na_matches = "never")
+```
+
+```{r}
+#| echo: false
+open_dataset("/Users/jschwarz/Library/Mobile Documents/com~apple~CloudDocs/01_tuhh/02_diss/02_data_mapping/03_al_ghso/02_data/gh_so_al_final.parquet") |> 
+  glimpse()
+```
+
+### Merged CB
+
+```{r}
+#| eval: false
+gh_so_al_unnested_tbl <- gh_so_al_unnested_tbl |> 
+  
+  left_join(cb_people_handles, by = c(facebook_usr_al = "facebook_handle"), na_matches = "never") |> 
+  left_join(cb_people_handles, by = c(twitter_usr     = "twitter_handle"),  na_matches = "never") |> 
+  left_join(cb_people_handles, by = c(linkedin_usr_al = "linkedin_handle"), na_matches = "never") |>  
+
+  left_join(cb_orgs_handles,   by = c(facebook_org_al = "facebook_handle"), na_matches = "never") |> 
+  left_join(cb_orgs_handles,   by = c(twitter_org_al  = "twitter_handle"),  na_matches = "never") |> 
+  left_join(cb_orgs_handles,   by = c(linkedin_org_al = "linkedin_handle"), na_matches = "never") |> 
+  
+  left_join(cb_jobs,           by = c(uuid_usr_cb     = "person_uuid"))
+```
+
+```{r}
+#| echo: false
+open_dataset("/Users/jschwarz/Library/Mobile Documents/com~apple~CloudDocs/01_tuhh/02_diss/02_data_mapping/04_cb_alghso/02_data/gh_so_al_cb2.parquet") |> 
+  glimpse()
+```
+
+:::::::
+
+# Data AL {data-stack-name="DATA IV"}
+
+## <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 181.4 181.4"><circle class="st0" cx="69.9" cy="111.5" r="21.6"/><path class="st0" d="M75.3 42.2c-35.2 0-63.8 28.6-63.8 63.8s28.6 63.8 63.8 63.8 63.8-28.6 63.8-63.8c0-35.2-28.6-63.7-63.8-63.8zm0 105.6c-23 0-41.7-18.7-41.7-41.7s18.7-41.7 41.7-41.7c23 0 41.7 18.7 41.7 41.7 0 23-18.7 41.6-41.7 41.7z"/><path class="st0" d="M181.3 106c.1 28.1-11.1 55.1-31 75l-.4.4-15.6-15.6.4-.4c32.8-32.8 32.8-85.9.1-118.7C119 31 97.6 22.1 75.3 22.1c-22.2 0-43.6 8.8-59.3 24.6l-.4.3L0 31.4l.3-.4c41.4-41.3 108.5-41.4 150 0 19.9 19.9 31.1 46.9 31 75z" fill="currentColor"/></svg> Coresignal
+
+::::::: {.panel-tabset}
+
+### Overview
+
+asd
+
+### 1
+
+asd
+
+### 2
+
+asd
+
+:::::::
+
 
 # Global options {data-stack-name="Options"}
 
@@ -914,3 +1128,7 @@ It is set to be two-thirds of the main scaling.
 
 For more demos go to the [Simplemenu plugin](https://github.com/Martinomagnifico/reveal.js-simplemenu) for Reveal.js. 
 Not all of the options in the regular plugin are available in the Quarto plugin.
+
+. . .
+
+![](https://c.tenor.com/3EYd9ID79vcAAAAd/mic-drop-the-voice.gif){fig-align="center"}

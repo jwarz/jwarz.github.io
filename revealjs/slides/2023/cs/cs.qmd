@@ -1,0 +1,689 @@
+---
+# TITLE & AUTHOR
+title: "CoreSignal Analysis"
+subtitle: "Current Status"
+author: "Joschka Schwarz"
+institute: "Hamburg University of Technology"
+date: today
+date-format: "dddd, D[<sup style='font-size:65%;font-style:italic;'>th</sup>] [of] MMMM YYYY"
+section-divs: true
+filters:
+   - lightbox
+lightbox: auto
+engine: knitr
+knitr:
+  opts_chunk: 
+    class-output: hscroll
+---
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(
+  comment = '#>', fig.width = 6, fig.height = 6
+)
+library(pacman)
+source("../../../../R/setup-ggplot2-tie.R")
+```
+
+## Table of Contents {data-state="hide-menubar"}
+<ul class="menu"><ul>
+
+```{css, echo=FALSE}
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+```
+
+# Data sources {data-stack-name="Data"}
+
+## Step1: Load & Init Company Data (CB & CS)
+
+::::::: {.panel-tabset}
+
+### CB: SELECT
+
+Crunchbase data contains **150,838** startups with a valid funding trajectory.
+
+```{r}
+#| label: pillar-options1
+#| echo: false
+p_width <- getOption("width")
+options(
+    pillar.print_max = 3,
+    pillar.print_min = 3
+)
+```
+
+```{r}
+#| eval: false
+p_load(arrow, dplyr, tidyr)
+funded_companies_prqt <- open_dataset("funded_companies_identifiers.parquet") 
+funded_companies_prqt
+```
+
+```{r}
+#| echo: false
+#| message: false
+p_load(arrow, dplyr, tidyr)
+funded_companies_prqt <- open_dataset("~/Library/Mobile Documents/com~apple~CloudDocs/01_tuhh/02_diss/02_data_mapping/10_cb_cs/02_data/02_parquet/funded_companies_identifiers.parquet")
+funded_companies_prqt |> collect()
+```
+
+::: {.fragment}
+
+Unnesting via `Arrow` unfortunately not possible. `Spark` and `sparklyr.nested` might be options.
+
+```{r}
+#| eval: true
+fc_unnested_tbl <- funded_companies_prqt |> collect() |> 
+                      # 1. Allow multiple domains per company. No multiple linkedin handles.
+                      unnest(domain) 
+fc_unnested_tbl
+```
+
+:::
+
+
+### CB: WRANGLE
+
+1. Must have identifier (domain, linkedin)
+2. Clean identifiers
+3. Remove duplicates
+
+```{r}
+#| eval: false
+library(stringr)
+fc_unnested_tbl |> 
+  
+  # 1. At least 1 identifier: 4.518 observations are filtered out
+  filter(if_any(c(domain, linkedin_url), ~!is.na(.))) |>
+  
+  # 2. Extract linkedin handle & clean domains
+  mutate(linkedin_handle = linkedin_url |> str_extract("(?<=linkedin\\.com/company/).*?(?=(?:\\?|$|/))")) |>
+  mutate(domain          = domain |> clean_domain()) |>
+
+  # 3. Remove 532 duplicates
+  distinct()
+```
+
+```{r}
+#| echo: false
+remove_path <- function(x) {
+  urltools::parameters(x) <- NULL
+  urltools::path(x)       <- NULL
+  x
+  suffixes <- x |> urltools::suffix_extract()
+  res <- str_c(suffixes$domain, ".", suffixes$suffix)
+  res
+}
+library(stringr)
+fc_wrangled_tbl <- fc_unnested_tbl |>
+
+  # Only with domain or linkedin_url --> 4.518 observations are filtered out
+  filter(if_any(c(domain, linkedin_url), ~!is.na(.))) |>
+
+  # Extract linkedin handle & clean domains
+  mutate(linkedin_handle = linkedin_url |> str_extract("(?<=linkedin\\.com/company/).*?(?=(?:\\?|$|/))")) |>
+  mutate(domain = domain |> remove_path() |> str_remove("^www\\.")) |>
+  select(-linkedin_url) |>
+
+  # Distinct (Remove 532 duplicates)
+  distinct()
+fc_wrangled_tbl
+```
+
+### CB: CLEAN
+
+Some domains occur more frequently. Domains with a count exceeding two were analyzed and set to NA if they do not correspond to the actual one.
+
+
+```{r}
+# ANALYZE
+# fc_wrangled_tbl |> 
+#   distinct(company_id, domain) |> 
+#   count(domain, sort = T) |> 
+#   filter(n>2)`
+
+unwanted_domains_cb <- c("webflow.io", "angel.co", "weebly.com", "wordpress.com", "wixsite.com", "squarespace.com", " webflow.io", "crypt2esports.com", "myshopify.com", "business.site", "mystrikingly.com", "launchrock.com",
+                         "square.site", "google.com", "sites.google.com", "t.co", "linktr.ee", "netlify.app", "itunes.apple.com", "apple.com", "crunchb.com", "tumblr.com",
+                         "linkedin.com", "godaddysites.com", "mit.edu", "paloaltonetworks.com", " wpengine.com", "facebook.com", "intuit.com", "medium.com", "salesforce.com", 
+                         "strikingly.com", "wix.com", "cisco.com","digi.me", "apps.apple.com", "bit.ly", "fleek.co", "harvard.edu", "ibm.com", "jimdo.com", "myftpupload.com", "odoo.com",
+                         "storenvy.com", "twitter.com", "umd.edu", "umich.edu", "vmware.com", "webs.com")
+
+# Not all observations with unwanted domains are bad per se:
+wanted_ids_cb <- c(weebly = 91365, tumblr = 84838, `catapult-centres-uk` = 115854, wpengine = 91720, medium = 113415, strikingly = 95831, substack = 34304, 
+                   angel = 128006, digime1 = 140904, digimi2 = 95430,fleek = 50738, jimdo = 108655, storenvy = 85742, twitter = 53139)
+
+# Set misleading domains to NA
+funded_companies_clnd <- fc_wrangled_tbl |> 
+                              
+  mutate(domain = if_else(domain %in% unwanted_domains_cb & !(company_id %in% wanted_ids_cb), NA_character_, domain))
+```
+
+### CS: SELECT
+
+```{r}
+#| echo: false
+options(
+    pillar.print_max = 3,
+    pillar.print_min = 3
+)
+```
+
+It appears that the CoreSignal team has been able to locate **45.026** companies within our gathered crunchbase data.
+
+```{r}
+#| eval: false
+cs_companies_base_slct <- readRDS("cs_companies_base_slct.rds") 
+cs_companies_base_slct
+```
+
+```{r}
+#| echo: false
+cs_companies_base_slct <- readRDS("~/Library/Mobile Documents/com~apple~CloudDocs/01_tuhh/02_diss/01_data_sources/06_core_signal/01_data/04_wrangled/cs_companies_base_slct.rds") 
+cs_companies_base_slct
+```
+
+::: {.fragment}
+
+```{r}
+cs_companies_base_slct$id |> n_distinct()
+```
+
+:::
+::: {.fragment}
+
+```{r}
+cs_companies_base_slct |> janitor::get_dupes(id)
+```
+
+:::
+
+### CS: WRANGLE
+
+Nothing to wrangle ...
+
+```{r}
+cs_companies_base_wrangled <- cs_companies_base_slct |> select(-name) |> 
+  
+                                        # Add suffixes to col names
+                                        rename_with(~ paste(., "cs", sep = "_"))
+```
+
+### CS: CLEAN
+
+::: {.callout-important}
+More cleaning necessary! The task was undertaken with a limited degree of enthusiasm.
+:::
+
+```{r}
+unwanted_domains_cs    <- c("bit.ly", "linktr.ee", "facebook.com", "linkedin.com", "twitter.com", "crunchbase.com")
+wanted_ids_cs          <- c(linkedin = 8568581, twitter = 24745469, crunchbase = 1634413)
+
+cs_companies_base_clnd <- cs_companies_base_wrangled |> 
+  
+  mutate(domain_cs = if_else(domain_cs %in% unwanted_domains_cs & !(id_cs %in% wanted_ids_cs), NA_character_, domain_cs))
+```
+
+
+:::::::
+
+## Step2: Join *companies*, *member experiences* and *funding* information
+
+::::::: {.panel-tabset}
+
+### Companies
+
+```{r}
+#| echo: false
+options(
+    pillar.print_max = 5,
+    pillar.print_min = 5
+)
+```
+
+We were able to match [37.287]{.fragment fragment-index=1} CS & CB companies.
+
+```{r}
+#| eval: false
+cb_cs_joined <- funded_companies_clnd |> 
+
+    # Leftjoins
+    left_join(cs_companies_base_clnd |> select(id_cs, domain_cs),          by = c(domain          = "domain_cs"),          na_matches = "never") |> 
+    left_join(cs_companies_base_clnd |> select(id_cs, linkedin_handle_cs), by = c(linkedin_handle = "linkedin_handle_cs"), na_matches = "never") |> 
+
+    # Remove obs with no cs_id
+    filter(!is.na(id_cs)) |>
+    distinct()
+    
+cb_cs_joined
+```
+
+```{r}
+#| echo: false
+library(purrr)
+cb_cs_joined <- funded_companies_clnd |> 
+
+    # LeftJoins
+    left_join(cs_companies_base_clnd |> select(id_cs, domain_cs),          by = c(domain          = "domain_cs"),          na_matches = "never") |> 
+    left_join(cs_companies_base_clnd |> select(id_cs, linkedin_handle_cs), by = c(linkedin_handle = "linkedin_handle_cs"), na_matches = "never") |> 
+
+    # Allow multiple matches: Merge ids (id_cs.x, id_cs.y) into one column (due to multiple left_joins) and unnest()
+    rowwise() |> 
+    mutate(id_cs = list(c(id_cs.x, id_cs.y) |> na.omit() |> unique()))
+
+    cb_cs_joined$id_cs <- modify_if(cb_cs_joined$id_cs, ~length(.) == 0, ~NA_integer_)
+    cb_cs_joined <- cb_cs_joined |> 
+          
+          select(-c(id_cs.x,id_cs.y)) |> 
+          unnest(id_cs) |>
+          
+          # Remove obs with no cs_id
+          filter(!is.na(id_cs)) |>
+          distinct()
+cb_cs_joined
+```
+
+::: {.fragment fragment-index=1}
+
+```{r}
+cb_cs_joined |> distinct(company_id) |> nrow()
+```
+
+:::
+
+### Jobs (all)
+
+We got over 430 million employment observations from CoreSignal.
+
+```{r}
+#| eval: false
+# Load distinct member experiences
+me_dist_prqt <- arrow::open_dataset("member_experience_dist.parquet") 
+me_dist_prqt |> 
+  glimpse()
+```
+
+```{r}
+#| echo: false
+# Load distinct member experiences
+me_dist_prqt <- arrow::open_dataset("/Users/jschwarz/Downloads/member_experience_dist.parquet") 
+me_dist_prqt |> 
+  glimpse()
+```
+
+::: {.callout-warning}
+`deleted` not considered yet!
+:::
+
+### Jobs (focal)
+
+Over 45 million *(valid)* employments at our crunchbase data set companies.
+
+```{r}
+# Distinct company ids
+cb_cs_joined_cs_ids    <- cb_cs_joined |> distinct(id_cs) |> pull(id_cs)
+
+me_wrangled_prqt <- me_dist_prqt |> 
+  
+                                # Select features
+                                select(member_id, company_id, exp_id = "id", date_from_parsed) |> 
+                                
+                                # Select observations
+                                filter(company_id %in% cb_cs_joined_cs_ids) |> 
+                                # - 967.080 observations (date_to not considered yet)
+                                filter(!is.na(date_from_parsed)) |> 
+  
+                                # Add suffix to col names
+                                rename_with(~ paste(., "cs", sep = "_")) |> 
+                                compute()
+me_wrangled_prqt |> 
+  glimpse()
+```
+
+### Funding
+
+```{r}
+#| eval: false
+# Load as tibble (Bottleneck. Arrow due to structure not possible)
+funded_companies_tbl <- readRDS("funded_companies.rds")
+fc_wrangled_tbl <- funded_companies_tbl |> 
+  
+  # Relevant columns (This time founding date and rounds)
+  select(company_id, founded_on, funding_rounds) |> 
+  
+  # Consider multiple founding dates: Take oldest founding date
+  unnest(founded_on) |> 
+  arrange(company_id, founded_on) |> 
+  group_by(company_id) |> 
+  slice(1) |> 
+  ungroup()
+
+fc_wrangled_tbl$funding_rounds[[1]] |> 
+  glimpse()
+```
+
+```{r}
+#| echo: false
+funded_companies_wrangled_sliced_tbl <- readRDS("~/Library/Mobile Documents/com~apple~CloudDocs/01_tuhh/02_diss/02_data_mapping/10_cb_cs/02_data/funded_companies_wrangled_sliced_tbl.rds")
+funded_companies_wrangled_sliced_tbl$funding_rounds[[1]] |> 
+  glimpse()
+```
+
+### Conversion
+
+Joining via `dplyr` due to memory constraint not possible.<br>
+Joining via `Arrow` due to structure constraints not possible.<br>
+--> Joining via `data.table` most efficient.<br>
+
+Conversion to data.tables necessary:
+
+```{r}
+#| eval: false
+# 1. Funding Data Level 1
+fc_wrangled_dt |> setDT()
+
+# 2. Funding Data Level 2 (funding_rounds)
+purrr::walk(fc_wrangled_dt$funding_rounds, setDT)
+
+# 3.Remove unnecessary columns + initialize dummy for before_join
+purrr::walk(fc_wrangled_dt$funding_rounds, ~ .x[, 
+          `:=`(round_uuid_pb = NULL, round_uuid_cb        = NULL, round_new          = NULL, round          = NULL,
+               exit_cycle    = NULL, last                 = NULL, round_type         = NULL, round_type_new = NULL, 
+               round_types   = NULL, post_money_valuation = NULL, investors_in_round = NULL, before_join    = NA)
+          ]
+        )
+
+# 4. Matching Table
+cb_cs_joined_slct_dt |> setDT()
+
+# 5. Member experiences
+me_wrangled_dt <- me_wrangled_prqt |> collect()
+```
+
+### Join
+
+Working `data.table` solution. Efficiency increase through join `by reference` possible.
+
+```{r}
+#| eval: false
+# 1. Add company_id from funded_companies to member experiences
+me_joined_dt <- cb_cs_joined_slct_dt[me_wrangled_dt, on = .(id_cs = company_id_cs), allow.cartesian = TRUE]
+#> 52.889.683 (before: 45.322.254)
+
+# 2. Add funding data from funded_companies
+me_joined_dt <- fc_wrangled_dt[me_joined_dt, on = .(company_id)]
+#> 52.889.683 
+
+# 3. Remove duplicates (why are there any?)
+me_joined_dt <- unique(me_joined_dt, by = setdiff(names(me_joined_dt), "funding_rounds"))
+#> 51.647.887
+```
+
+Not working `dplyr` solution
+
+```{r}
+#| eval: false
+me_joined_dt_dplyr <- me_wrangled_dt |>
+
+  # Add company_id from funded_companies
+  left_join(cb_cs_joined_slct_dt,
+            by = c(company_id_cs = "id_cs")) |>
+
+  # Add data from funded_companies
+  left_join(funded_companies_wrangled_dt,
+            by = "company_id")  |>
+  distinct()
+```
+
+`Arrow` because of nested funding data not possible.
+
+:::::::
+
+# Analysis {data-stack-name="Analysis"}
+
+## Add Features
+
+::::::: {.panel-tabset}
+
+### F1: T~join~ - T~found~
+
+Wie viel Zeit ist seit Gründung der Firma vergangen, bis die Person bei der Firma angeheuert hat (in Monaten)
+
+```{r}
+#| eval: false
+library(lubridate)
+me_joined_dt[, tjoin_tfound := (interval(founded_on, date_from_parsed_cs) %/% months(1))]
+```
+
+~30 min calculation... (to be measured)
+
+### Prep1
+
+Unnesting necessary due to memory constraints (takes multiple hours ... to be measured).
+
+```{r}
+#| eval: false
+# Working: data.table
+me_joined_unnested_dt <- me_joined_dt[,rbindlist(funding_rounds), by = setdiff(names(me_joined_dt), "funding_rounds")]
+# Not working: dplyr
+me_joined_unnested_tbl <- me_joined_dt |> unnest(funding_rounds)
+```
+
+Add feature whether or not member joined before Announcement of a funding round:
+
+```{r}
+#| eval: false
+# Add feature whether or not member joined before Announcement of a funding round
+me_joined_unnested_dt[,before_join := date_from_parsed_cs >= announced_on]
+
+# Inspect
+open_dataset("me_joined_unnested1.parquet") |> 
+  glimpse()
+```
+
+```{r}
+#| echo: false
+me_joined_unnested_prqt <- open_dataset("/Users/jschwarz/Desktop/me_joined_unnested1.parquet")
+me_joined_unnested_prqt |> 
+  glimpse()
+```
+
+### F2, F3
+
+F2. Wie viel Kapital ist bis zum Einstieg der Person akquiriert worden<br>
+F3. In wie vielen Runden?
+
+```{r}
+#| eval: false
+# Initialize empty columns (not sure yet if that increases performance)
+me_joined_unnested_dt[, `:=` (raised_amount_before_join = NA_real_, 
+                              num_rounds_before_join    = NA_real_)]
+
+# Add features
+me_joined_unnested_dt[, `:=` (raised_amount_before_join = sum(raised_amount[before_join == T], na.rm = T),
+                              num_rounds_before_join    = sum(  before_join[before_join == T])), 
+                      by = .(company_id, exp_id_cs)]
+
+open_dataset("me_joined_unnested2.parquet") |> 
+  glimpse()
+```
+
+```{r}
+#| echo: false
+me_joined_unnested_prqt <- open_dataset("/Users/jschwarz/Desktop/me_joined_unnested2.parquet")
+me_joined_unnested_prqt |> 
+  glimpse()
+```
+
+### Prep2
+
+Nest again
+
+```{r}
+#| eval: false
+# data.table
+excluded_cols       <- setdiff(names(me_joined_unnested_dt), c("round_id", "announced_on", "raised_amount", "before_join"))
+me_joined_nested_dt <- me_joined_unnested_dt[, list(funding_rounds=list(.SD)), by=excluded_cols]
+
+# Dplyr (not working)
+# me_joined_nested_dt <- me_joined_unnested_dt |> 
+#         nest(funding_rounds = c("round_id", "announced_on", "raised_amount", "before_join"))
+
+open_dataset("me_joined_nested.parquet") |> 
+  glimpse()
+```
+
+```{r}
+#| echo: false
+me_joined_nested_prqt <- open_dataset("/Users/jschwarz/Desktop/me_joined_nested.parquet")
+me_joined_nested_prqt |> 
+  glimpse()
+```
+
+### Titles
+
+To differentiate between founder and non-founder CS titles are needed
+
+```{r}
+#| eval: false
+# Prep data (shrink / remove unnecessary data)
+me_joined_nested_foc_dt[, funding_rounds := NULL]
+
+# Prep titles
+me_wrangled_wt_dt <-  me_dist_prqt |> 
+                          filter(company_id %in% cb_cs_joined_cs_ids, !is.na(date_from_parsed)) |>  
+                          select(exp_id_cs, title_cs) |> 
+                          collect() |> 
+                          setDT()
+
+# Join
+me_joined_nested_foc_dt[me_wrangled_wt_dt, on = .(exp_id_cs), title_cs := i.title_cs]
+
+# Inspect
+open_dataset("me_joined_nested_foc.parquet") |> 
+  glimpse()
+```
+
+```{r}
+#| echo: false
+me_joined_nested_foc_prqt <- open_dataset("/Users/jschwarz/Desktop/me_joined_nested_foc.parquet")
+me_joined_nested_foc_prqt |> 
+  glimpse()
+```
+
+:::::::
+
+## Plots
+
+::::::: {.panel-tabset}
+
+### Data
+
+```{r}
+library(ggplot2)
+
+lookup_term <- "founder"
+data <- me_joined_nested_foc_prqt |> 
+          filter(!is.na(title_cs)) |> 
+          mutate(Role = title_cs |> tolower() |> str_detect(lookup_term)) |> 
+          collect() |> 
+          mutate(
+            Role = Role |> factor(levels = c(TRUE, FALSE), 
+                                        labels = c('Founder', 'Non-Founder'))
+            ) 
+
+df_vline_long <- data |> 
+                    group_by(Role) |> 
+                    summarise(Mean = mean(tjoin_tfound), Median = median(tjoin_tfound)) |> 
+                    pivot_longer(c(Mean, Median), names_to = "Statistic", values_to = "Value") |> 
+                    mutate(Value    = Value |> round(digits = 1),
+                           gg_pos_y = rep(c(0.07,0.06),2),
+                           gg_color = rep(c("#7200FE", "#FF7E15"), 2))
+```
+
+```{css, echo=FALSE}
+.reveal .column-output-location .column:first-of-type div.sourceCode {
+    height: auto;
+}
+```
+
+### F1
+
+How many month have passed since the company was founded and before the person joined the company.
+
+```{r}
+#| label: plot1
+#| output-location: column
+data |> 
+  
+  # Plot
+  ggplot(aes(x = tjoin_tfound, fill = Role, color = Role)) +
+  geom_histogram(aes(y =..density..), size = .2, binwidth = 3, alpha = 0.5) +
+  facet_wrap(~Role, nrow=2) +
+  
+  # Statistics & Design
+  ggnewscale::new_scale_color() +
+  geom_vline(data = df_vline_long, aes(xintercept = Value, linetype = Statistic, color = Statistic), key_glyph = "path") +
+  scale_linetype_manual(values = c(2,3)) +
+  scale_color_manual(values = c("#7200FE", "#FF7E15")) +
+  geom_label(data = df_vline_long, aes(x = 125, y = gg_pos_y, label = paste0(Statistic, ' = ', Value)), 
+             color = df_vline_long$gg_color, fill = "transparent", alpha = 0.5, size = 3) +
+  xlim(-250, 250) +
+  labs(x = "Δ T_join, T_foundation (in month)", y = "Density") + 
+  theme(legend.key=element_blank())
+```
+
+### F2
+
+How much capital has been acquired by the time the person joins?
+
+```{r}
+#| label: plot2
+#| output-location: column
+data |> 
+  
+  # Plot
+  ggplot(aes(x = raised_amount_before_join, color = Role, fill = Role)) + 
+  geom_histogram(aes(y =..density..), alpha=0.5) +
+  facet_wrap(~Role, nrow=2) +
+  
+  # Design
+  scale_x_continuous(labels = scales::label_number(prefix = "$", accuracy = 0.1, scale_cut = scales::cut_short_scale()), limits = c(NA,1e+09)) +
+  labs(x = "Raised amount before join", y = "Density", fill="", color = "")
+```
+
+### F3
+
+How many funding rounds have been acquired by the time the person joins?
+
+```{r}
+#| label: plot3
+#| output-location: column
+data |> 
+  
+  ggplot(aes(x = num_rounds_before_join, color = Role, fill = Role)) + 
+  geom_histogram(aes(y =..density..), binwidth = 1, alpha=0.5) +
+  facet_wrap(~Role, nrow=2) +
+  
+  # Design
+  xlim(NA, 20) +
+  labs(x = "# Rounds before join", y = "Density", fill="", color = "")
+```
+
+
+:::::::
+
+# Next Steps {data-stack-name="Next Steps"}
+
+## Further analysis is necessary
+
+* Match employment history with Fortune500 (revenue based selection)
+* Cluster job titles
+* Cluster skills
+
+. . .
+
+![](https://c.tenor.com/3EYd9ID79vcAAAAd/mic-drop-the-voice.gif){fig-align="center" width=50%}
