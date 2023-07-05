@@ -30,7 +30,10 @@ df <- tibble(
   weight=round(c(rnorm(200, mean=55, sd=5), rnorm(200, mean=65, sd=5)))
   )
 df |> 
-ggplot(aes(x=weight, color=sex)) +
+group_by(sex) |> mutate(grp.mean=mean(weight)) |> ungroup() |> 
+ggplot(aes(x=weight, color=sex, fill=sex)) +
   geom_histogram(alpha=0.5, position="identity") +
-  scale_color_manual(values=c("#999999", "#E69F00", "#56B4E9"))
+  facet_wrap(~sex, nrow = 2) +
+  geom_vline(aes(xintercept=grp.mean, color=sex),
+             linetype="dashed")
 ```

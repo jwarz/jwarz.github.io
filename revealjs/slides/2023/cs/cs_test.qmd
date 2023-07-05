@@ -1,0 +1,119 @@
+---
+# TITLE & AUTHOR
+title: "CoreSignal Analysis"
+subtitle: "Current Status"
+author: "Joschka Schwarz"
+institute: "Hamburg University of Technology"
+date: today
+date-format: "dddd, D[<sup style='font-size:65%;font-style:italic;'>th</sup>] [of] MMMM YYYY"
+section-divs: true
+filters:
+   - lightbox
+lightbox: auto
+engine: knitr
+knitr:
+  opts_chunk: 
+    class-output: hscroll
+---
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(
+  comment = '#>', fig.width = 6, fig.height = 6
+)
+library(dplyr)
+library(arrow)
+source("../../../../R/setup-ggplot2-tie-bright.R")
+```
+
+## Table of Contents {data-state="hide-menubar"}
+<ul class="menu"><ul>
+
+```{css, echo=FALSE}
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+```
+
+# Employment History {data-stack-name="Employment History"}
+Match current and past employments to corresponding Fortune500 companies
+
+## Code I (Data + Function)
+
+Function
+
+```{r}
+# 1. Function
+check_f500 <- function(name, year_from, year_to) {
+  
+  # Handle NA inputs
+  if (is.na(year_to))   {year_to <- 2023}
+  if (is.na(year_from)) {return(NA)}
+  
+  # Filter time frame
+  data <- fortune500 |> 
+    
+    filter(year |> between(year_from, year_to)) |> 
+    pull(company)
+  
+  # Check match and return bool
+  name |> tolower() %in% data
+}
+```
+
+:::: {.columns}
+
+```{r}
+#| echo: false
+options(
+    pillar.print_max = 3,
+    pillar.print_min = 3
+)
+```
+
+::: {.column width="50%"}
+
+CoreSignal data (n = 229.065.592)
+
+```{r}
+#| eval: false
+# 1. Data
+me_matched_members_prqt <- open_dataset("me_matched_members.parquet") 
+me_matched_members_prqt |> 
+  
+  head() |> collect()
+```
+
+```{r}
+#| echo: false
+me_matched_members_prqt <- open_dataset("/Users/jschwarz/Downloads/me_matched_members.parquet") 
+me_matched_members_prqt |> 
+  
+  head() |> collect()
+```
+:::
+
+::: {.column width="50%"}
+
+US Fortune 500 data
+
+```{r}
+#| eval: false
+fortune500 <- readRDS("fortune_500_1955-2022.rds") |> 
+                
+                select(year, company) |> 
+                mutate(company = company |> tolower())
+fortune500
+```
+
+```{r}
+#| echo: false
+fortune500 <- readRDS("/Users/jschwarz/02_diss/01_data_sources/01_fortune500/02_data/fortune_500_1955-2022.rds") |> 
+                select(year, company) |> 
+                mutate(company = company |> tolower())
+fortune500
+```
+:::
+::::
