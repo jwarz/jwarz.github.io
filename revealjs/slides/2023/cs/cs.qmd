@@ -903,19 +903,19 @@ me_f500_id[, f500_before_founding := f500_min_founding <= founding_min]
 
 Constraints: 
 
-1. 
-2. 
+1. Analysis takes place on an annual level.
+2. First funding event is being considered
+3. Exact matches only
 
 ```{r}
 #| output-location: column
 me_f500_id <- arrow::open_dataset("~/Downloads/prqt/me_f500_id/")
-
-me_f500_id |> 
+data <- me_f500_id |> 
   
-  # Filter "Founder"
-  filter(role == T) |> 
-  collect() |> 
+          # Filter "Founder"
+          filter(role == T) |> collect() 
   
+data |> 
   ggplot(aes(x = f500_before_founding)) + 
     geom_bar() +
     scale_x_discrete(labels=c("Employment at Fortune500\nAFTER\nfounding", "Employment at Fortune500\nBEFORE\nfounding", "Neither case")) +

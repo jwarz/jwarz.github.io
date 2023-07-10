@@ -1308,24 +1308,24 @@ Joschka Schwarz
 <h2>Plot</h2>
 <p>Constraints:</p>
 <ol type="1">
-<li></li>
-<li></li>
+<li>Analysis takes place on an annual level.</li>
+<li>First funding event is being considered</li>
+<li>Exact matches only</li>
 </ol>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>me_f500_id <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(<span class="st">"~/Downloads/prqt/me_f500_id/"</span>)</span>
-<span id="cb53-2"><a href="#cb53-2"></a></span>
-<span id="cb53-3"><a href="#cb53-3"></a>me_f500_id <span class="sc">|&gt;</span> </span>
-<span id="cb53-4"><a href="#cb53-4"></a>  </span>
-<span id="cb53-5"><a href="#cb53-5"></a>  <span class="co"># Filter "Founder"</span></span>
-<span id="cb53-6"><a href="#cb53-6"></a>  <span class="fu">filter</span>(role <span class="sc">==</span> T) <span class="sc">|&gt;</span> </span>
-<span id="cb53-7"><a href="#cb53-7"></a>  <span class="fu">collect</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb53-8"><a href="#cb53-8"></a>  </span>
-<span id="cb53-9"><a href="#cb53-9"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> f500_before_founding)) <span class="sc">+</span> </span>
-<span id="cb53-10"><a href="#cb53-10"></a>    <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb53-11"><a href="#cb53-11"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Employment at Fortune500</span><span class="sc">\n</span><span class="st">AFTER</span><span class="sc">\n</span><span class="st">founding"</span>, <span class="st">"Employment at Fortune500</span><span class="sc">\n</span><span class="st">BEFORE</span><span class="sc">\n</span><span class="st">founding"</span>, <span class="st">"Neither case"</span>)) <span class="sc">+</span></span>
-<span id="cb53-12"><a href="#cb53-12"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">unit_format</span>(<span class="at">unit =</span> <span class="st">"M"</span>, <span class="at">scale =</span> <span class="fl">1e-6</span>, <span class="at">accuracy =</span> <span class="fl">0.1</span>)) <span class="sc">+</span> </span>
-<span id="cb53-13"><a href="#cb53-13"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb53-2"><a href="#cb53-2"></a>data <span class="ot">&lt;-</span> me_f500_id <span class="sc">|&gt;</span> </span>
+<span id="cb53-3"><a href="#cb53-3"></a>  </span>
+<span id="cb53-4"><a href="#cb53-4"></a>          <span class="co"># Filter "Founder"</span></span>
+<span id="cb53-5"><a href="#cb53-5"></a>          <span class="fu">filter</span>(role <span class="sc">==</span> T) <span class="sc">|&gt;</span> <span class="fu">collect</span>() </span>
+<span id="cb53-6"><a href="#cb53-6"></a>  </span>
+<span id="cb53-7"><a href="#cb53-7"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb53-8"><a href="#cb53-8"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> f500_before_founding)) <span class="sc">+</span> </span>
+<span id="cb53-9"><a href="#cb53-9"></a>    <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb53-10"><a href="#cb53-10"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Employment at Fortune500</span><span class="sc">\n</span><span class="st">AFTER</span><span class="sc">\n</span><span class="st">founding"</span>, <span class="st">"Employment at Fortune500</span><span class="sc">\n</span><span class="st">BEFORE</span><span class="sc">\n</span><span class="st">founding"</span>, <span class="st">"Neither case"</span>)) <span class="sc">+</span></span>
+<span id="cb53-11"><a href="#cb53-11"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">unit_format</span>(<span class="at">unit =</span> <span class="st">"M"</span>, <span class="at">scale =</span> <span class="fl">1e-6</span>, <span class="at">accuracy =</span> <span class="fl">0.1</span>)) <span class="sc">+</span> </span>
+<span id="cb53-12"><a href="#cb53-12"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
