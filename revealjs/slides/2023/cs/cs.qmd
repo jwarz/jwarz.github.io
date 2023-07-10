@@ -777,7 +777,7 @@ Function
 
 ```{r}
 # 1. Function
-check_f500 <- function(name, year_from, year_to) {
+check_f500 <- function(title, year_from, year_to) {
   
   # Handle NA inputs
   if (is.na(year_to))   {year_to <- 2023}
@@ -790,7 +790,7 @@ check_f500 <- function(name, year_from, year_to) {
     pull(company)
   
   # Check match and return bool
-  name |> tolower() %in% data
+  title |> tolower() %in% data
 }
 ```
 
@@ -873,12 +873,57 @@ for (i in 1:46) {
                                       role = title |> tolower() |> stringr::str_detect("founder"))]
   
   # Save
-  me_matched_members_slice_dt |> write_parquet(paste0("/media/tie/ssd2/joschka/me_f500/me_f500_", cur_id, ".parquet"))
+  me_matched_members_slice_dt |> write_parquet(paste0("me_f500/me_f500_", cur_id, ".parquet"))
 }
 ```
 
+## Code III (Build feature)
 
-Current execution time on work station (32 cpus): 12h per batch (total 23d).
+```{r}
+#| eval: false
+# 1. Load data 
+me_f500 <- open_dataset("me_f500/") |> 
+  collect()
+
+# 2. Add Ids
+me_dist_ids_prqt <- arrow::open_dataset("member_experience_dist2.parquet") |> select(id, member_id) |> collect()
+me_f500_id       <-  me_dist_ids_prqt[me_f500, on = .(id)] 
+
+# 3. Add features
+# 3.1 Earliest founding date & earliest f500 date (if founded)
+me_f500_id[,`:=` (founding_min      = (ifelse(any(role == T),                  min(date_from_parsed[role==T]),   NA_real_)),
+                  f500_min_founding = (ifelse(any(role == T) & any(f500 == T), min(date_from_parsed[f500 == T]), NA_real_))),
+           by = .(member_id)]
+
+# 3.2 Compare
+me_f500_id[, f500_before_founding := f500_min_founding <= founding_min]
+```
+
+## Plot
+
+Constraints: 
+
+1. 
+2. 
+
+```{r}
+#| output-location: column
+me_f500_id <- arrow::open_dataset("~/Downloads/prqt/me_f500_id/")
+
+me_f500_id |> 
+  
+  # Filter "Founder"
+  filter(role == T) |> 
+  collect() |> 
+  
+  ggplot(aes(x = f500_before_founding)) + 
+    geom_bar() +
+    scale_x_discrete(labels=c("Employment at Fortune500\nAFTER\nfounding", "Employment at Fortune500\nBEFORE\nfounding", "Neither case")) +
+    scale_y_continuous(labels = scales::unit_format(unit = "M", scale = 1e-6, accuracy = 0.1)) + 
+    labs(x = "", y = "Count")
+```
+
+
 
 # Employment Skills {data-stack-name="Skills"}
 Inferences from semantic similarity of LinkedIn users' skills
