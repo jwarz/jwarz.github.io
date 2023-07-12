@@ -274,6 +274,9 @@ cb_cs_joined <- funded_companies_clnd |>
 
     # Remove obs with no cs_id
     filter(!is.na(id_cs)) |>
+    
+    # Remove matches, that matched different domains, but same company (e.g. company_id: 83060, id_cs: 4507928) block.xyz & squareup.com
+    select(company_id, id_cs) |> 
     distinct()
     
 cb_cs_joined
@@ -300,7 +303,11 @@ cb_cs_joined <- funded_companies_clnd |>
           
           # Remove obs with no cs_id
           filter(!is.na(id_cs)) |>
+          
+          # Remove matches, that matched different domains, but same company (e.g. company_id: 83060, id_cs: 4507928) block.xyz & squareup.com
+          select(company_id, id_cs) |> 
           distinct()
+    
 cb_cs_joined
 ```
 
@@ -314,30 +321,93 @@ cb_cs_joined |> distinct(company_id) |> nrow()
 
 ### Jobs (all)
 
-We got over 430 million (distinct) employment observations from CoreSignal.
+We got over 460 million employment observations from CoreSignal.
 
 ```{r}
 #| eval: false
 # Other data versions
-# 1. Complete:  member_experience_dt {462.711.794}
-# 2. Distinct1: member_experience_dist_dt <- unique(member_experience_dt) {432.368.479}
-# 3. Distinct2: unique(member_experience_dist_dt[order(id)], by = setdiff(names(member_experience_dist_dt), "id")) {431.899.547}
+# 1. Complete: 
+member_experience_dt 
+#> {462.711.794}  
 
+# 2. Distinct1: 
+member_experience_dist_dt <- unique(member_experience_dt) 
+#> {432.368.479}
+
+# 3. Distinct2: 
+unique(member_experience_dist_dt[order(id)], by = setdiff(names(member_experience_dist_dt), "id")) 
+#> {431.899.547}
+```
+
+### Jobs (dist1)
+
+But only ~60 Mil distinct employments
+
+```{r}
+#| eval: false
+# 4. Distinct4
+    # Remove entries with different ecompany url, created, last_updated, deleted
+    distinct(member_id, title, location, company_id, date_from_parsed, date_to_parsed, .keep_all = T) |>
+    
+    # Different start dates
+    group_by(member_id, title, company_id) |> 
+    filter(date_from_parsed == min(date_from_parsed)) |> 
+    ungroup() |> 
+    
+    # Keep with end_date
+    mutate(has_end_date = case_when(!is.na(date_to_parsed) ~ T,
+                                    TRUE ~ F)) |> 
+    group_by(member_id, title, company_id, date_from_parsed) |> 
+    filter(if(!any(has_end_date)) TRUE else has_end_date) |> 
+    ungroup() |> 
+    select(-has_end_date) |>
+    
+    # Keep with location
+    mutate(has_location = case_when(!is.na(location) ~ T,
+                                    TRUE ~ F)) |> 
+    group_by(member_id, title, company_id, date_from_parsed) |> 
+    filter(if(!any(has_location)) TRUE else has_location) |> 
+    ungroup() |> 
+    select(-has_location) |>
+    
+    # One position at a (starting) time at a company (remove altered titles)
+    group_by(member_id, company_id, date_from_parsed) |> 
+    filter(last_updated == max(last_updated)) |> 
+    ungroup()
+```
+
+
+### Jobs (dist2)
+
+```{r}
+#| eval: false
 # Load distinct member experiences
-me_dist2_prqt <- arrow::open_dataset("member_experience_dist2.parquet") 
-me_dist2_prqt |> glimpse()
+me_dist4_prqt <- arrow::open_dataset("/me_dist4/") 
+me_dist4_prqt |> glimpse()
 ```
 
 ```{r}
 #| echo: false
 # Load distinct member experiences
-me_dist2_prqt <- arrow::open_dataset("/Users/jschwarz/Downloads/member_experience_dist2.parquet") 
-me_dist2_prqt |> 
+me_dist4_prqt <- arrow::open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_dist/") 
+me_dist4_prqt |> 
   glimpse()
 ```
 
+Example
+
+```{r}
+#| eval: false
+me_orig <- open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_orig/")
+me_dist <- open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_dist/")
+
+me_orig |> filter(member_id == 4257, company_id == 9007053) |> collect() |> as_tibble() |> arrange(date_from_parsed) |> print(n=19)
+me_dist |> filter(member_id == 4257, company_id == 9007053) |> collect() |> as_tibble() |> arrange(date_from_parsed)
+```
+
+
 ::: {.callout-warning}
-`deleted` not considered yet!
+`deleted` not considered yet! And different Urls, locations and end dates... WIP
 :::
 
 ### Jobs (focal)
@@ -347,7 +417,7 @@ Over 45 million [(valid: must have starting date)]{style="color:#cc0000; font-st
 ```{r}
 # Distinct company ids
 cb_cs_joined_cs_ids <- cb_cs_joined |> distinct(id_cs) |> pull(id_cs)
-me_wrangled_prqt    <- me_dist2_prqt |> 
+me_wrangled_prqt    <- me_dist4_prqt |> 
   
                           # Select features
                           select(member_id, company_id, exp_id = "id", date_from_parsed) |> 
@@ -440,15 +510,15 @@ Working `data.table` solution (efficiency increase through join `by reference` p
 #| eval: false
 # 1. Add company_id from funded_companies to member experiences
 me_joined_dt <- cb_cs_joined_slct_dt[me_wrangled_dt, on = .(id_cs = company_id_cs), allow.cartesian = TRUE]
-#> 52.889.683 (before: 45.322.254)
+#> 12.270.572 (before: 10.818.614)
 
 # 2. Add funding data from funded_companies
 me_joined_dt <- fc_wrangled_dt[me_joined_dt, on = .(company_id)]
-#> 52.889.683 
+#> 12.270.572
 
 # 3. Remove duplicates (why are there any?)
 me_joined_dt <- unique(me_joined_dt, by = setdiff(names(me_joined_dt), "funding_rounds"))
-#> 51.647.887
+#> 12.270.572 .... No duplicates anymore. Removed from cb_cs_joined_slct_dt
 ```
 
 Not working `dplyr` solution
@@ -488,8 +558,6 @@ library(lubridate)
 me_joined_dt[, tjoin_tfound := (interval(founded_on, date_from_parsed_cs) %/% months(1))]
 ```
 
-~30 min calculation... (to be measured)
-
 ### Prep1
 
 Unnesting necessary due to memory constraints (takes multiple hours ... to be measured).
@@ -517,7 +585,7 @@ open_dataset("me_joined_unnested1.parquet") |>
 ```{r}
 #| echo: false
 # Unnested1 without features 2 dnd 3
-me_joined_unnested_prqt <- open_dataset("/Users/jschwarz/Desktop/me_joined_unnested1.parquet")
+me_joined_unnested_prqt <- open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/me_joined_unnested1.parquet")
 me_joined_unnested_prqt |> 
   glimpse()
 ```
@@ -544,7 +612,7 @@ open_dataset("me_joined_unnested2.parquet") |>
 
 ```{r}
 #| echo: false
-me_joined_unnested_prqt <- open_dataset("/Users/jschwarz/Desktop/me_joined_unnested2.parquet")
+me_joined_unnested_prqt <- open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/me_joined_unnested2.parquet")
 me_joined_unnested_prqt |> 
   glimpse()
 ```
@@ -569,7 +637,7 @@ open_dataset("me_joined_nested.parquet") |>
 
 ```{r}
 #| echo: false
-me_joined_nested_prqt <- open_dataset("/Users/jschwarz/Desktop/me_joined_nested.parquet")
+me_joined_nested_prqt <- open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/me_joined_nested.parquet")
 me_joined_nested_prqt |> 
   glimpse()
 ```
@@ -600,7 +668,7 @@ open_dataset("me_joined_nested_foc.parquet") |>
 
 ```{r}
 #| echo: false
-me_joined_nested_foc_prqt <- open_dataset("/Users/jschwarz/Desktop/me_joined_nested_foc.parquet")
+me_joined_nested_foc_prqt <- open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/me_joined_nested_foc.parquet")
 me_joined_nested_foc_prqt |> 
   glimpse()
 ```
@@ -718,8 +786,6 @@ data |>
 
 ## Fortune500
 
-
-
 ```{r}
 #| eval: false
 me_matched_members_dt <- me_matched_members_prqt |> collect()
@@ -819,7 +885,7 @@ me_matched_members_prqt |>
 
 ```{r}
 #| echo: false
-me_matched_members_prqt <- open_dataset("/Users/jschwarz/Downloads/me_matched_members.parquet") 
+me_matched_members_prqt <- open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/me_matched_members.parquet") 
 me_matched_members_prqt |> 
   
   head() |> collect()
@@ -841,7 +907,7 @@ fortune500
 
 ```{r}
 #| echo: false
-fortune500 <- readRDS("/Users/jschwarz/02_diss/01_data_sources/01_fortune500/02_data/fortune_500_1955-2022.rds") |> 
+fortune500 <- readRDS("/Users/jschwarz/02_diss/01_data_sources/02_fortune500/02_data/fortune_500_1955-2022.rds") |> 
                 select(year, company) |> 
                 mutate(company = company |> tolower())
 fortune500
@@ -886,7 +952,7 @@ me_f500 <- open_dataset("me_f500/") |>
   collect()
 
 # 2. Add Ids
-me_dist_ids_prqt <- arrow::open_dataset("member_experience_dist2.parquet") |> select(id, member_id) |> collect()
+me_dist_ids_prqt <- arrow::open_dataset("me_dist4.parquet") |> select(id, member_id) |> collect()
 me_f500_id       <-  me_dist_ids_prqt[me_f500, on = .(id)] 
 
 # 3. Add features
@@ -909,7 +975,7 @@ Constraints:
 
 ```{r}
 #| output-location: column
-me_f500_id <- arrow::open_dataset("~/Downloads/prqt/me_f500_id/")
+me_f500_id <- arrow::open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/me_f500_id.parquet")
 data <- me_f500_id |> 
   
           # Filter "Founder"
