@@ -69,7 +69,7 @@ funded_companies_prqt
 #| echo: false
 #| message: false
 p_load(arrow, dplyr, tidyr)
-funded_companies_prqt <- open_dataset("~/Library/Mobile Documents/com~apple~CloudDocs/01_tuhh/02_diss/02_data_mapping/10_cb_cs/02_data/02_parquet/funded_companies_identifiers.parquet")
+funded_companies_prqt <- open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/funded_companies_identifiers.parquet")
 funded_companies_prqt |> collect()
 ```
 
@@ -339,58 +339,22 @@ unique(member_experience_dist_dt[order(id)], by = setdiff(names(member_experienc
 #> {431.899.547}
 ```
 
-### Jobs (dist1)
+### Jobs (dist)
 
-But only ~60 Mil distinct employments
-
-```{r}
-#| eval: false
-# 4. Distinct4
-    # Remove entries with different ecompany url, created, last_updated, deleted
-    distinct(member_id, title, location, company_id, date_from_parsed, date_to_parsed, .keep_all = T) |>
-    
-    # Different start dates
-    group_by(member_id, title, company_id) |> 
-    filter(date_from_parsed == min(date_from_parsed)) |> 
-    ungroup() |> 
-    
-    # Keep with end_date
-    mutate(has_end_date = case_when(!is.na(date_to_parsed) ~ T,
-                                    TRUE ~ F)) |> 
-    group_by(member_id, title, company_id, date_from_parsed) |> 
-    filter(if(!any(has_end_date)) TRUE else has_end_date) |> 
-    ungroup() |> 
-    select(-has_end_date) |>
-    
-    # Keep with location
-    mutate(has_location = case_when(!is.na(location) ~ T,
-                                    TRUE ~ F)) |> 
-    group_by(member_id, title, company_id, date_from_parsed) |> 
-    filter(if(!any(has_location)) TRUE else has_location) |> 
-    ungroup() |> 
-    select(-has_location) |>
-    
-    # One position at a (starting) time at a company (remove altered titles)
-    group_by(member_id, company_id, date_from_parsed) |> 
-    filter(last_updated == max(last_updated)) |> 
-    ungroup()
-```
-
-
-### Jobs (dist2)
+But only ~50 Mil distinct employments
 
 ```{r}
 #| eval: false
 # Load distinct member experiences
-me_dist4_prqt <- arrow::open_dataset("/me_dist4/") 
-me_dist4_prqt |> glimpse()
+me_dist8_prqt <- arrow::open_dataset("cs_me_dist8_unest_empl_hist.parquet") 
+me_dist8_prqt |> glimpse()
 ```
 
 ```{r}
 #| echo: false
 # Load distinct member experiences
-me_dist4_prqt <- arrow::open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_dist/") 
-me_dist4_prqt |> 
+me_dist8_prqt <- arrow::open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/03_wrangled/cs_me_dist8_unest_empl_hist.parquet") 
+me_dist8_prqt |> 
   glimpse()
 ```
 
@@ -405,19 +369,14 @@ me_orig |> filter(member_id == 4257, company_id == 9007053) |> collect() |> as_t
 me_dist |> filter(member_id == 4257, company_id == 9007053) |> collect() |> as_tibble() |> arrange(date_from_parsed)
 ```
 
-
-::: {.callout-warning}
-`deleted` not considered yet! And different Urls, locations and end dates... WIP
-:::
-
 ### Jobs (focal)
 
-Over 45 million [(valid: must have starting date)]{style="color:#cc0000; font-style: italic;"} employments at our crunchbase / pitchbook data set companies. 385.100 with a title containing the string [founder]{style="color:rgb(0, 94, 115); font-style: italic;"}.
+Over 10 million [(valid: must have starting date)]{style="color:#cc0000; font-style: italic;"} employments at our crunchbase / pitchbook data set companies. 385.100 with a title containing the string [founder]{style="color:rgb(0, 94, 115); font-style: italic;"}.
 
 ```{r}
 # Distinct company ids
 cb_cs_joined_cs_ids <- cb_cs_joined |> distinct(id_cs) |> pull(id_cs)
-me_wrangled_prqt    <- me_dist4_prqt |> 
+me_wrangled_prqt    <- me_dist8_prqt |> 
   
                           # Select features
                           select(member_id, company_id, exp_id = "id", date_from_parsed) |> 
@@ -465,7 +424,7 @@ fc_wrangled_tbl$funding_rounds[[1]] |>
 
 ```{r}
 #| echo: false
-funded_companies_wrangled_sliced_tbl <- readRDS("~/Library/Mobile Documents/com~apple~CloudDocs/01_tuhh/02_diss/02_data_mapping/10_cb_cs/02_data/funded_companies_wrangled_sliced_tbl.rds")
+funded_companies_wrangled_sliced_tbl <- readRDS("~/Library/Mobile Documents/com~apple~CloudDocs/01_tuhh/02_diss/02_data_mapping/10_cbpb_cs/02_data/funded_companies_wrangled_sliced_tbl.rds")
 funded_companies_wrangled_sliced_tbl$funding_rounds[[1]] |> 
   glimpse()
 ```
@@ -510,7 +469,7 @@ Working `data.table` solution (efficiency increase through join `by reference` p
 #| eval: false
 # 1. Add company_id from funded_companies to member experiences
 me_joined_dt <- cb_cs_joined_slct_dt[me_wrangled_dt, on = .(id_cs = company_id_cs), allow.cartesian = TRUE]
-#> 12.270.572 (before: 10.818.614)
+#> 12.978.226
 
 # 2. Add funding data from funded_companies
 me_joined_dt <- fc_wrangled_dt[me_joined_dt, on = .(company_id)]
@@ -585,9 +544,9 @@ open_dataset("me_joined_unnested1.parquet") |>
 ```{r}
 #| echo: false
 # Unnested1 without features 2 dnd 3
-me_joined_unnested_prqt <- open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/me_joined_unnested1.parquet")
+me_joined_unnested_prqt <- arrow::open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/me_joined_unnested1.parquet")
 me_joined_unnested_prqt |> 
-  glimpse()
+  dplyr::glimpse()
 ```
 
 ### F2, F3
@@ -612,9 +571,9 @@ open_dataset("me_joined_unnested2.parquet") |>
 
 ```{r}
 #| echo: false
-me_joined_unnested_prqt <- open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/me_joined_unnested2.parquet")
+me_joined_unnested_prqt <- arrow::open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/me_joined_unnested2.parquet")
 me_joined_unnested_prqt |> 
-  glimpse()
+  dplyr::glimpse()
 ```
 
 ### Prep2
@@ -702,15 +661,12 @@ data        <- me_joined_nested_foc_prqt |>
 
 # Summary Statistics (Mean & Median)
 df_vline_long <- data |> 
-                    group_by(Role) |> 
-                    # Statistics
-                    summarise(Mean   = mean(tjoin_tfound), 
-                              Median = median(tjoin_tfound)) |> 
-                    # Manipulate for ggplot 
-                    pivot_longer(c(Mean, Median), names_to = "Statistic", values_to = "Value") |> 
-                    mutate(Value    = Value |> round(digits = 1),
-                           gg_pos_y = rep(c(0.07,0.06),2),
-                           gg_color = rep(c("#7200FE", "#FF7E15"), 2))
+  group_by(Role) |> 
+  summarise(Mean = mean(tjoin_tfound), Median = median(tjoin_tfound), n = n()) |> 
+  pivot_longer(c(Mean, Median,n ), names_to = "Statistic", values_to = "Value") |> 
+  mutate(Value_chr    = format(round(Value, 1), big.mark=".", decimal.mark = ",", drop0trailing = T),
+         gg_pos_y = rep(c(0.07,0.06, 0.05),2),
+         gg_color = rep(c("#8F8470", "#BF9240", "#FEA400"), 2))
 ```
 
 ```{css, echo=FALSE}
@@ -735,11 +691,11 @@ data |>
   
   # Statistics & Design
   ggnewscale::new_scale_color() +
-  geom_vline(data = df_vline_long, aes(xintercept = Value, linetype = Statistic, color = Statistic), key_glyph = "path") +
+  geom_vline(data = df_vline_long |> filter(Statistic != "n"), aes(xintercept = Value, linetype = Statistic, color = Statistic), key_glyph = "path") +
   scale_linetype_manual(values = c(2,3)) +
-  scale_color_manual(values = c("#7200FE", "#FF7E15")) +
-  geom_label(data = df_vline_long, aes(x = 125, y = gg_pos_y, label = paste0(Statistic, ' = ', Value)), 
-             color = df_vline_long$gg_color, fill = "transparent", alpha = 0.8, size = 3) +
+  scale_color_manual(values = c("#8F8470", "#BF9240", "#FEA400")) +
+  geom_label(data = df_vline_long, aes(x = 100, y = gg_pos_y, label = paste0(Statistic, ' = ', Value_chr)), 
+             color = df_vline_long$gg_color, fill = "transparent", alpha = 0.5, size = 3, hjust = "left") +
   xlim(-250, 250) +
   labs(x = "Δ T_join, T_foundation (in month)", y = "Density") + 
   theme(legend.key=element_blank())
@@ -1023,6 +979,88 @@ skill_names_tbl
 skill_names_tbl <- readRDS("~/Library/Mobile Documents/com~apple~CloudDocs/01_tuhh/02_diss/01_data_sources/06_core_signal/01_data/03_extracted/02_member/03_skills/skill_names_tbl.rds")
 skill_names_tbl
 ```
+
+# Current variables {data-stack-name="Current"}
+Variables built from Experience, Education and funding data
+
+## Built variables
+
+::::::: {.panel-tabset}
+
+### All
+
+```{r}
+#| echo: false
+cs_me_dist8_unest_wedu_dt <-  open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/03_wrangled/cs_me_dist8_unest_fin4.parquet") |> collect()
+```
+
+```{r}
+cs_me_dist8_unest_wedu_dt |> 
+  glimpse()
+```
+
+### General
+
+```{r}
+cs_me_dist8_unest_wedu_dt |> 
+  select(id_tie, member_id, exp_id_cs, company_id_cbpb, company_name_cbpb, company_id_cs, company_name_cs, 
+         founded_on_cbpb, closed_on_cbpb,
+         title_cs) |> 
+  glimpse()
+```
+
+### EDA
+
+```{r}
+cs_me_dist8_unest_wedu_dt |> 
+  select(date_from_parsed_cs, date_to_parsed_cs, 
+         tjoin_tfound, raised_amount_before_join_company, num_rounds_before_join) |> 
+  glimpse()
+```
+
+### Exp (dummy)
+
+```{r}
+cs_me_dist8_unest_wedu_dt |> 
+  select(starts_with("is_"),
+         starts_with("was_")) |> 
+  glimpse()
+```
+
+### Exp (quant)
+
+```{r}
+cs_me_dist8_unest_wedu_dt |> 
+  select(
+    starts_with("date_1st_"),
+    starts_with("time_since_1st_"),
+    starts_with("exp_"), -exp_id_cs) |> 
+  glimpse()
+```
+
+### Edu
+
+```{r}
+cs_me_dist8_unest_wedu_dt |> 
+  select(score_global_2023_best,
+         starts_with("rank"),
+         starts_with("degree")) |> 
+  glimpse()
+```
+
+### Fund
+
+```{r}
+cs_me_dist8_unest_wedu_dt |> 
+  select(date_from_stage, company_start_mid, company_start_late,
+         raised_amount_before_founder_member, raised_amount_before_all_member,
+         funding_after_mid, funding_after_early) |> 
+  glimpse()
+```
+
+::::::: 
+
+
 
 # Next Steps {data-stack-name="Next Steps"}
 
