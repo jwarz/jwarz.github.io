@@ -412,7 +412,7 @@ Joschka Schwarz
     </div>
 </div>
 
-  <p class="date">Wednesday, 12<sup style="font-size:65%;font-style:italic;">th</sup> of July 2023</p>
+  <p class="date">Thursday, 24<sup style="font-size:65%;font-style:italic;">th</sup> of August 2023</p>
 </section>
 <section id="table-of-contents" class="slide level2" data-state="hide-menubar">
 <h2>Table of Contents</h2>
@@ -627,7 +627,7 @@ Joschka Schwarz
 <section id="join-companies-member-experiences-and-funding-information" class="slide level2">
 <h2>Join <em>companies</em>, <em>member experiences</em> and <em>funding</em> information</h2>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Companies</a></li><li><a href="#tabset-2-2">Jobs (all)</a></li><li><a href="#tabset-2-3">Jobs (dist1)</a></li><li><a href="#tabset-2-4">Jobs (dist2)</a></li><li><a href="#tabset-2-5">Jobs (focal)</a></li><li><a href="#tabset-2-6">Funding</a></li><li><a href="#tabset-2-7">Conversion</a></li><li><a href="#tabset-2-8">Join</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Companies</a></li><li><a href="#tabset-2-2">Jobs (all)</a></li><li><a href="#tabset-2-3">Jobs (dist)</a></li><li><a href="#tabset-2-4">Jobs (focal)</a></li><li><a href="#tabset-2-5">Funding</a></li><li><a href="#tabset-2-6">Conversion</a></li><li><a href="#tabset-2-7">Join</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1">
 <p>We were able to match <span class="fragment" data-fragment-index="1" style="color:#cc0000; font-style: italic;">37.287</span> CS &amp; CB/PB companies.</p>
@@ -687,125 +687,79 @@ Joschka Schwarz
 </div>
 </div>
 <div id="tabset-2-3">
-<p>But only ~60 Mil distinct employments</p>
+<p>But only ~50 Mil distinct employments</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># 4. Distinct4</span></span>
-<span id="cb21-2"><a href="#cb21-2"></a>    <span class="co"># Remove entries with different ecompany url, created, last_updated, deleted</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a>    <span class="fu">distinct</span>(member_id, title, location, company_id, date_from_parsed, date_to_parsed, <span class="at">.keep_all =</span> T) <span class="sc">|&gt;</span></span>
-<span id="cb21-4"><a href="#cb21-4"></a>    </span>
-<span id="cb21-5"><a href="#cb21-5"></a>    <span class="co"># Different start dates</span></span>
-<span id="cb21-6"><a href="#cb21-6"></a>    <span class="fu">group_by</span>(member_id, title, company_id) <span class="sc">|&gt;</span> </span>
-<span id="cb21-7"><a href="#cb21-7"></a>    <span class="fu">filter</span>(date_from_parsed <span class="sc">==</span> <span class="fu">min</span>(date_from_parsed)) <span class="sc">|&gt;</span> </span>
-<span id="cb21-8"><a href="#cb21-8"></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb21-9"><a href="#cb21-9"></a>    </span>
-<span id="cb21-10"><a href="#cb21-10"></a>    <span class="co"># Keep with end_date</span></span>
-<span id="cb21-11"><a href="#cb21-11"></a>    <span class="fu">mutate</span>(<span class="at">has_end_date =</span> <span class="fu">case_when</span>(<span class="sc">!</span><span class="fu">is.na</span>(date_to_parsed) <span class="sc">~</span> T,</span>
-<span id="cb21-12"><a href="#cb21-12"></a>                                    <span class="cn">TRUE</span> <span class="sc">~</span> F)) <span class="sc">|&gt;</span> </span>
-<span id="cb21-13"><a href="#cb21-13"></a>    <span class="fu">group_by</span>(member_id, title, company_id, date_from_parsed) <span class="sc">|&gt;</span> </span>
-<span id="cb21-14"><a href="#cb21-14"></a>    <span class="fu">filter</span>(<span class="cf">if</span>(<span class="sc">!</span><span class="fu">any</span>(has_end_date)) <span class="cn">TRUE</span> <span class="cf">else</span> has_end_date) <span class="sc">|&gt;</span> </span>
-<span id="cb21-15"><a href="#cb21-15"></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb21-16"><a href="#cb21-16"></a>    <span class="fu">select</span>(<span class="sc">-</span>has_end_date) <span class="sc">|&gt;</span></span>
-<span id="cb21-17"><a href="#cb21-17"></a>    </span>
-<span id="cb21-18"><a href="#cb21-18"></a>    <span class="co"># Keep with location</span></span>
-<span id="cb21-19"><a href="#cb21-19"></a>    <span class="fu">mutate</span>(<span class="at">has_location =</span> <span class="fu">case_when</span>(<span class="sc">!</span><span class="fu">is.na</span>(location) <span class="sc">~</span> T,</span>
-<span id="cb21-20"><a href="#cb21-20"></a>                                    <span class="cn">TRUE</span> <span class="sc">~</span> F)) <span class="sc">|&gt;</span> </span>
-<span id="cb21-21"><a href="#cb21-21"></a>    <span class="fu">group_by</span>(member_id, title, company_id, date_from_parsed) <span class="sc">|&gt;</span> </span>
-<span id="cb21-22"><a href="#cb21-22"></a>    <span class="fu">filter</span>(<span class="cf">if</span>(<span class="sc">!</span><span class="fu">any</span>(has_location)) <span class="cn">TRUE</span> <span class="cf">else</span> has_location) <span class="sc">|&gt;</span> </span>
-<span id="cb21-23"><a href="#cb21-23"></a>    <span class="fu">ungroup</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb21-24"><a href="#cb21-24"></a>    <span class="fu">select</span>(<span class="sc">-</span>has_location) <span class="sc">|&gt;</span></span>
-<span id="cb21-25"><a href="#cb21-25"></a>    </span>
-<span id="cb21-26"><a href="#cb21-26"></a>    <span class="co"># One position at a (starting) time at a company (remove altered titles)</span></span>
-<span id="cb21-27"><a href="#cb21-27"></a>    <span class="fu">group_by</span>(member_id, company_id, date_from_parsed) <span class="sc">|&gt;</span> </span>
-<span id="cb21-28"><a href="#cb21-28"></a>    <span class="fu">filter</span>(last_updated <span class="sc">==</span> <span class="fu">max</span>(last_updated)) <span class="sc">|&gt;</span> </span>
-<span id="cb21-29"><a href="#cb21-29"></a>    <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-2-4">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co"># Load distinct member experiences</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a>me_dist4_prqt <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(<span class="st">"/me_dist4/"</span>) </span>
-<span id="cb22-3"><a href="#cb22-3"></a>me_dist4_prqt <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Load distinct member experiences</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>me_dist8_prqt <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(<span class="st">"cs_me_dist8_unest_empl_hist.parquet"</span>) </span>
+<span id="cb21-3"><a href="#cb21-3"></a>me_dist8_prqt <span class="sc">|&gt;</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb23-1"><a href="#cb23-1"></a>#&gt; FileSystemDataset with 94 Parquet files</span>
-<span id="cb23-2"><a href="#cb23-2"></a>#&gt; 254,160,826 rows x 12 columns</span>
-<span id="cb23-3"><a href="#cb23-3"></a>#&gt; $ member_id                    &lt;int32&gt; 26, 26, 26, 26, 97, 162, 162, 162, 266, 2…</span>
-<span id="cb23-4"><a href="#cb23-4"></a>#&gt; $ id                          &lt;double&gt; 12, 13, 923395743, 923395745, 66, 6064619…</span>
-<span id="cb23-5"><a href="#cb23-5"></a>#&gt; $ title                       &lt;string&gt; "Technical solution expert", "Technical s…</span>
-<span id="cb23-6"><a href="#cb23-6"></a>#&gt; $ location                    &lt;string&gt; NA, NA, NA, NA, NA, "Hyderabad Area, Indi…</span>
-<span id="cb23-7"><a href="#cb23-7"></a>#&gt; $ company_name                &lt;string&gt; "Hewlett-Packard", "Dell", "Hewlett-Packa…</span>
-<span id="cb23-8"><a href="#cb23-8"></a>#&gt; $ company_url                 &lt;string&gt; "https://www.linkedin.com/company/hewlett…</span>
-<span id="cb23-9"><a href="#cb23-9"></a>#&gt; $ created      &lt;timestamp[us, tz=UTC]&gt; 2016-07-22 14:25:59, 2016-07-22 14:25:59,…</span>
-<span id="cb23-10"><a href="#cb23-10"></a>#&gt; $ last_updated &lt;timestamp[us, tz=UTC]&gt; 2018-05-09 16:49:53, 2018-05-09 16:49:53,…</span>
-<span id="cb23-11"><a href="#cb23-11"></a>#&gt; $ deleted                      &lt;int32&gt; 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1,…</span>
-<span id="cb23-12"><a href="#cb23-12"></a>#&gt; $ company_id                   &lt;int32&gt; 20108188, 7035141, 20108188, 7035141, 365…</span>
-<span id="cb23-13"><a href="#cb23-13"></a>#&gt; $ date_from_parsed       &lt;date32[day]&gt; NA, 2009-02-01, NA, 2009-02-01, NA, 2015-…</span>
-<span id="cb23-14"><a href="#cb23-14"></a>#&gt; $ date_to_parsed         &lt;date32[day]&gt; NA, 2010-07-01, NA, 2010-07-01, NA, NA, N…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb22-1"><a href="#cb22-1"></a>#&gt; FileSystemDataset with 1 Parquet file</span>
+<span id="cb22-2"><a href="#cb22-2"></a>#&gt; 51,621,196 rows x 10 columns</span>
+<span id="cb22-3"><a href="#cb22-3"></a>#&gt; $ id_tie                 &lt;int32&gt; 16615559, 16615560, 16615561, 16615562, 1661556…</span>
+<span id="cb22-4"><a href="#cb22-4"></a>#&gt; $ id                    &lt;double&gt; 2244288231, 254049663, 948937291, 254049667, 25…</span>
+<span id="cb22-5"><a href="#cb22-5"></a>#&gt; $ member_id              &lt;int32&gt; 179313066, 179313066, 179313066, 179313066, 179…</span>
+<span id="cb22-6"><a href="#cb22-6"></a>#&gt; $ company_id             &lt;int32&gt; 865089, 9098713, 9098713, NA, 865089, 9020540, …</span>
+<span id="cb22-7"><a href="#cb22-7"></a>#&gt; $ company_name          &lt;string&gt; "heritage community bank", "aurora bank fsb", "…</span>
+<span id="cb22-8"><a href="#cb22-8"></a>#&gt; $ title                 &lt;string&gt; "AVP Chief Compliance/BSA Officer", "AVP Compli…</span>
+<span id="cb22-9"><a href="#cb22-9"></a>#&gt; $ date_from_parsed &lt;date32[day]&gt; 2010-02-01, 2012-07-01, 2011-11-01, 1997-07-01,…</span>
+<span id="cb22-10"><a href="#cb22-10"></a>#&gt; $ date_to_parsed   &lt;date32[day]&gt; 2011-11-01, 2013-06-01, 2012-07-01, 2006-05-01,…</span>
+<span id="cb22-11"><a href="#cb22-11"></a>#&gt; $ date_from_parsed_year  &lt;int32&gt; 2010, 2012, 2011, 1997, 2006, 2019, 2017, 2021,…</span>
+<span id="cb22-12"><a href="#cb22-12"></a>#&gt; $ date_to_parsed_year    &lt;int32&gt; 2011, 2013, 2012, 2006, 2010, 2021, 2018, NA, 1…</span>
+<span id="cb22-13"><a href="#cb22-13"></a>#&gt; Call `print()` for full schema details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <p>Example</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>me_orig <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_orig/"</span>)</span>
-<span id="cb24-2"><a href="#cb24-2"></a>me_dist <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_dist/"</span>)</span>
-<span id="cb24-3"><a href="#cb24-3"></a></span>
-<span id="cb24-4"><a href="#cb24-4"></a>me_orig <span class="sc">|&gt;</span> <span class="fu">filter</span>(member_id <span class="sc">==</span> <span class="dv">4257</span>, company_id <span class="sc">==</span> <span class="dv">9007053</span>) <span class="sc">|&gt;</span> <span class="fu">collect</span>() <span class="sc">|&gt;</span> <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span> <span class="fu">arrange</span>(date_from_parsed) <span class="sc">|&gt;</span> <span class="fu">print</span>(<span class="at">n=</span><span class="dv">19</span>)</span>
-<span id="cb24-5"><a href="#cb24-5"></a>me_dist <span class="sc">|&gt;</span> <span class="fu">filter</span>(member_id <span class="sc">==</span> <span class="dv">4257</span>, company_id <span class="sc">==</span> <span class="dv">9007053</span>) <span class="sc">|&gt;</span> <span class="fu">collect</span>() <span class="sc">|&gt;</span> <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span> <span class="fu">arrange</span>(date_from_parsed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>me_orig <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_orig/"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2"></a>me_dist <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_dist/"</span>)</span>
+<span id="cb23-3"><a href="#cb23-3"></a></span>
+<span id="cb23-4"><a href="#cb23-4"></a>me_orig <span class="sc">|&gt;</span> <span class="fu">filter</span>(member_id <span class="sc">==</span> <span class="dv">4257</span>, company_id <span class="sc">==</span> <span class="dv">9007053</span>) <span class="sc">|&gt;</span> <span class="fu">collect</span>() <span class="sc">|&gt;</span> <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span> <span class="fu">arrange</span>(date_from_parsed) <span class="sc">|&gt;</span> <span class="fu">print</span>(<span class="at">n=</span><span class="dv">19</span>)</span>
+<span id="cb23-5"><a href="#cb23-5"></a>me_dist <span class="sc">|&gt;</span> <span class="fu">filter</span>(member_id <span class="sc">==</span> <span class="dv">4257</span>, company_id <span class="sc">==</span> <span class="dv">9007053</span>) <span class="sc">|&gt;</span> <span class="fu">collect</span>() <span class="sc">|&gt;</span> <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span> <span class="fu">arrange</span>(date_from_parsed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-warning callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
 </div>
-<p><strong>Warning</strong></p>
-</div>
-<div class="callout-content">
-<p><code>deleted</code> not considered yet! And different Urls, locations and end dates… WIP</p>
-</div>
+<div id="tabset-2-4">
+<p>Over 10 million <span style="color:#cc0000; font-style: italic;">(valid: must have starting date)</span> employments at our crunchbase / pitchbook data set companies. 385.100 with a title containing the string <span style="color:rgb(0, 94, 115); font-style: italic;">founder</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Distinct company ids</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>cb_cs_joined_cs_ids <span class="ot">&lt;-</span> cb_cs_joined <span class="sc">|&gt;</span> <span class="fu">distinct</span>(id_cs) <span class="sc">|&gt;</span> <span class="fu">pull</span>(id_cs)</span>
+<span id="cb24-3"><a href="#cb24-3"></a>me_wrangled_prqt    <span class="ot">&lt;-</span> me_dist8_prqt <span class="sc">|&gt;</span> </span>
+<span id="cb24-4"><a href="#cb24-4"></a>  </span>
+<span id="cb24-5"><a href="#cb24-5"></a>                          <span class="co"># Select features</span></span>
+<span id="cb24-6"><a href="#cb24-6"></a>                          <span class="fu">select</span>(member_id, company_id, <span class="at">exp_id =</span> <span class="st">"id"</span>, date_from_parsed) <span class="sc">|&gt;</span> </span>
+<span id="cb24-7"><a href="#cb24-7"></a>                          </span>
+<span id="cb24-8"><a href="#cb24-8"></a>                          <span class="co"># Select observations</span></span>
+<span id="cb24-9"><a href="#cb24-9"></a>                          <span class="fu">filter</span>(company_id <span class="sc">%in%</span> cb_cs_joined_cs_ids) <span class="sc">|&gt;</span> </span>
+<span id="cb24-10"><a href="#cb24-10"></a>                          <span class="co"># - 967.080 observations (date_to not considered yet)</span></span>
+<span id="cb24-11"><a href="#cb24-11"></a>                          <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(date_from_parsed)) <span class="sc">|&gt;</span> </span>
+<span id="cb24-12"><a href="#cb24-12"></a></span>
+<span id="cb24-13"><a href="#cb24-13"></a>                          <span class="co"># Add suffix to col names</span></span>
+<span id="cb24-14"><a href="#cb24-14"></a>                          <span class="fu">rename_with</span>(<span class="sc">~</span> <span class="fu">paste</span>(., <span class="st">"cs"</span>, <span class="at">sep =</span> <span class="st">"_"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb24-15"><a href="#cb24-15"></a>                          <span class="fu">compute</span>()</span>
+<span id="cb24-16"><a href="#cb24-16"></a></span>
+<span id="cb24-17"><a href="#cb24-17"></a>me_wrangled_prqt <span class="sc">|&gt;</span> </span>
+<span id="cb24-18"><a href="#cb24-18"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb25-1"><a href="#cb25-1"></a>#&gt; Table</span>
+<span id="cb25-2"><a href="#cb25-2"></a>#&gt; 11,050,164 rows x 4 columns</span>
+<span id="cb25-3"><a href="#cb25-3"></a>#&gt; $ member_id_cs              &lt;int32&gt; 9897605, 9897605, 9897605, 9897605, 9897928,…</span>
+<span id="cb25-4"><a href="#cb25-4"></a>#&gt; $ company_id_cs             &lt;int32&gt; 1105483, 5181133, 5181133, 5181133, 5025265,…</span>
+<span id="cb25-5"><a href="#cb25-5"></a>#&gt; $ exp_id_cs                &lt;double&gt; 1665233144, 12744849, 995032176, 1665233146,…</span>
+<span id="cb25-6"><a href="#cb25-6"></a>#&gt; $ date_from_parsed_cs &lt;date32[day]&gt; 2018-03-01, 2010-06-01, 2014-09-01, 2011-01-…</span>
+<span id="cb25-7"><a href="#cb25-7"></a>#&gt; Call `print()` for full schema details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 <div id="tabset-2-5">
-<p>Over 45 million <span style="color:#cc0000; font-style: italic;">(valid: must have starting date)</span> employments at our crunchbase / pitchbook data set companies. 385.100 with a title containing the string <span style="color:rgb(0, 94, 115); font-style: italic;">founder</span>.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Distinct company ids</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>cb_cs_joined_cs_ids <span class="ot">&lt;-</span> cb_cs_joined <span class="sc">|&gt;</span> <span class="fu">distinct</span>(id_cs) <span class="sc">|&gt;</span> <span class="fu">pull</span>(id_cs)</span>
-<span id="cb25-3"><a href="#cb25-3"></a>me_wrangled_prqt    <span class="ot">&lt;-</span> me_dist4_prqt <span class="sc">|&gt;</span> </span>
-<span id="cb25-4"><a href="#cb25-4"></a>  </span>
-<span id="cb25-5"><a href="#cb25-5"></a>                          <span class="co"># Select features</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a>                          <span class="fu">select</span>(member_id, company_id, <span class="at">exp_id =</span> <span class="st">"id"</span>, date_from_parsed) <span class="sc">|&gt;</span> </span>
-<span id="cb25-7"><a href="#cb25-7"></a>                          </span>
-<span id="cb25-8"><a href="#cb25-8"></a>                          <span class="co"># Select observations</span></span>
-<span id="cb25-9"><a href="#cb25-9"></a>                          <span class="fu">filter</span>(company_id <span class="sc">%in%</span> cb_cs_joined_cs_ids) <span class="sc">|&gt;</span> </span>
-<span id="cb25-10"><a href="#cb25-10"></a>                          <span class="co"># - 967.080 observations (date_to not considered yet)</span></span>
-<span id="cb25-11"><a href="#cb25-11"></a>                          <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(date_from_parsed)) <span class="sc">|&gt;</span> </span>
-<span id="cb25-12"><a href="#cb25-12"></a></span>
-<span id="cb25-13"><a href="#cb25-13"></a>                          <span class="co"># Add suffix to col names</span></span>
-<span id="cb25-14"><a href="#cb25-14"></a>                          <span class="fu">rename_with</span>(<span class="sc">~</span> <span class="fu">paste</span>(., <span class="st">"cs"</span>, <span class="at">sep =</span> <span class="st">"_"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb25-15"><a href="#cb25-15"></a>                          <span class="fu">compute</span>()</span>
-<span id="cb25-16"><a href="#cb25-16"></a></span>
-<span id="cb25-17"><a href="#cb25-17"></a>me_wrangled_prqt <span class="sc">|&gt;</span> </span>
-<span id="cb25-18"><a href="#cb25-18"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb26-1"><a href="#cb26-1"></a>#&gt; Table</span>
-<span id="cb26-2"><a href="#cb26-2"></a>#&gt; 26,070,057 rows x 4 columns</span>
-<span id="cb26-3"><a href="#cb26-3"></a>#&gt; $ member_id_cs              &lt;int32&gt; 102712289, 102712312, 102712355, 102712379, …</span>
-<span id="cb26-4"><a href="#cb26-4"></a>#&gt; $ company_id_cs             &lt;int32&gt; 7859296, 12514355, 8839502, 7398810, 1182530…</span>
-<span id="cb26-5"><a href="#cb26-5"></a>#&gt; $ exp_id_cs                &lt;double&gt; 139678208, 1686736884, 139678338, 2645784692…</span>
-<span id="cb26-6"><a href="#cb26-6"></a>#&gt; $ date_from_parsed_cs &lt;date32[day]&gt; 2014-06-01, 2019-01-01, 1995-03-01, 2021-08-…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<div id="tabset-2-6">
 <p>Multiple Funding Dates –&gt; <span style="color:#cc0000;">Take oldest</span></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>fc_wrangled_tbl <span class="ot">&lt;-</span> funded_companies_tbl <span class="sc">|&gt;</span> </span>
-<span id="cb27-2"><a href="#cb27-2"></a>  </span>
-<span id="cb27-3"><a href="#cb27-3"></a>  <span class="co"># Consider multiple founding dates: Take oldest founding date</span></span>
-<span id="cb27-4"><a href="#cb27-4"></a>  <span class="fu">unnest</span>(founded_on) <span class="sc">|&gt;</span> </span>
-<span id="cb27-5"><a href="#cb27-5"></a>  <span class="fu">arrange</span>(company_id, founded_on) <span class="sc">|&gt;</span> </span>
-<span id="cb27-6"><a href="#cb27-6"></a>  <span class="fu">group_by</span>(company_id) <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>fc_wrangled_tbl <span class="ot">&lt;-</span> funded_companies_tbl <span class="sc">|&gt;</span> </span>
+<span id="cb26-2"><a href="#cb26-2"></a>  </span>
+<span id="cb26-3"><a href="#cb26-3"></a>  <span class="co"># Consider multiple founding dates: Take oldest founding date</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a>  <span class="fu">unnest</span>(founded_on) <span class="sc">|&gt;</span> </span>
+<span id="cb26-5"><a href="#cb26-5"></a>  <span class="fu">arrange</span>(company_id, founded_on) <span class="sc">|&gt;</span> </span>
+<span id="cb26-6"><a href="#cb26-6"></a>  <span class="fu">group_by</span>(company_id) <span class="sc">|&gt;</span> <span class="fu">slice</span>(<span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <style type="text/css">
@@ -816,31 +770,31 @@ Joschka Schwarz
 </div>
 <p>Example of funding round data:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>fc_wrangled_tbl<span class="sc">$</span>funding_rounds[[<span class="dv">1</span>]] <span class="sc">|&gt;</span>  </span>
-<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>fc_wrangled_tbl<span class="sc">$</span>funding_rounds[[<span class="dv">1</span>]] <span class="sc">|&gt;</span>  </span>
+<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb29-1"><a href="#cb29-1"></a>#&gt; Rows: 15</span>
-<span id="cb29-2"><a href="#cb29-2"></a>#&gt; Columns: 14</span>
-<span id="cb29-3"><a href="#cb29-3"></a>#&gt; $ round_id             &lt;int&gt; 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …</span>
-<span id="cb29-4"><a href="#cb29-4"></a>#&gt; $ round_uuid_pb        &lt;chr&gt; NA, "47208-70T", NA, "58843-18T", NA, NA, NA, "78…</span>
-<span id="cb29-5"><a href="#cb29-5"></a>#&gt; $ round_uuid_cb        &lt;chr&gt; "a6d3bfd9-5afa-47ce-86de-30a3abad6c9b", NA, "ea3b…</span>
-<span id="cb29-6"><a href="#cb29-6"></a>#&gt; $ announced_on         &lt;date&gt; 2013-01-01, 2014-04-01, 2015-06-01, 2015-10-07, …</span>
-<span id="cb29-7"><a href="#cb29-7"></a>#&gt; $ round_new            &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 12, 13</span>
-<span id="cb29-8"><a href="#cb29-8"></a>#&gt; $ round                &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15</span>
-<span id="cb29-9"><a href="#cb29-9"></a>#&gt; $ exit_cycle           &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1</span>
-<span id="cb29-10"><a href="#cb29-10"></a>#&gt; $ last                 &lt;int&gt; 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 1…</span>
-<span id="cb29-11"><a href="#cb29-11"></a>#&gt; $ round_type_new       &lt;fct&gt; Seed, Series A, Series B, Series C, Series D, Ser…</span>
-<span id="cb29-12"><a href="#cb29-12"></a>#&gt; $ round_type           &lt;list&gt; "angel", "angel", "early_vc", "early_vc", "conver…</span>
-<span id="cb29-13"><a href="#cb29-13"></a>#&gt; $ round_types          &lt;list&gt; &lt;"angel", "angel_group", "investor", "company", "…</span>
-<span id="cb29-14"><a href="#cb29-14"></a>#&gt; $ raised_amount        &lt;dbl&gt; NA, 520000, NA, 1399999, NA, NA, NA, 3250000, NA,…</span>
-<span id="cb29-15"><a href="#cb29-15"></a>#&gt; $ post_money_valuation &lt;dbl&gt; NA, NA, NA, 3399998, NA, NA, NA, 10249998, NA, N…</span>
-<span id="cb29-16"><a href="#cb29-16"></a>#&gt; $ investors_in_round   &lt;list&gt; [&lt;tbl_df[1 x 11]&gt;], [&lt;tbl_df[1 x 11]&gt;], [&lt;tbl_df…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb28-1"><a href="#cb28-1"></a>#&gt; Rows: 15</span>
+<span id="cb28-2"><a href="#cb28-2"></a>#&gt; Columns: 14</span>
+<span id="cb28-3"><a href="#cb28-3"></a>#&gt; $ round_id             &lt;int&gt; 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …</span>
+<span id="cb28-4"><a href="#cb28-4"></a>#&gt; $ round_uuid_pb        &lt;chr&gt; NA, "47208-70T", NA, "58843-18T", NA, NA, NA, "78…</span>
+<span id="cb28-5"><a href="#cb28-5"></a>#&gt; $ round_uuid_cb        &lt;chr&gt; "a6d3bfd9-5afa-47ce-86de-30a3abad6c9b", NA, "ea3b…</span>
+<span id="cb28-6"><a href="#cb28-6"></a>#&gt; $ announced_on         &lt;date&gt; 2013-01-01, 2014-04-01, 2015-06-01, 2015-10-07, …</span>
+<span id="cb28-7"><a href="#cb28-7"></a>#&gt; $ round_new            &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 10, 11, 12, 12, 13</span>
+<span id="cb28-8"><a href="#cb28-8"></a>#&gt; $ round                &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15</span>
+<span id="cb28-9"><a href="#cb28-9"></a>#&gt; $ exit_cycle           &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1</span>
+<span id="cb28-10"><a href="#cb28-10"></a>#&gt; $ last                 &lt;int&gt; 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 1…</span>
+<span id="cb28-11"><a href="#cb28-11"></a>#&gt; $ round_type_new       &lt;fct&gt; Seed, Series A, Series B, Series C, Series D, Ser…</span>
+<span id="cb28-12"><a href="#cb28-12"></a>#&gt; $ round_type           &lt;list&gt; "angel", "angel", "early_vc", "early_vc", "conver…</span>
+<span id="cb28-13"><a href="#cb28-13"></a>#&gt; $ round_types          &lt;list&gt; &lt;"angel", "angel_group", "investor", "company", "…</span>
+<span id="cb28-14"><a href="#cb28-14"></a>#&gt; $ raised_amount        &lt;dbl&gt; NA, 520000, NA, 1399999, NA, NA, NA, 3250000, NA,…</span>
+<span id="cb28-15"><a href="#cb28-15"></a>#&gt; $ post_money_valuation &lt;dbl&gt; NA, NA, NA, 3399998, NA, NA, NA, 10249998, NA, N…</span>
+<span id="cb28-16"><a href="#cb28-16"></a>#&gt; $ investors_in_round   &lt;list&gt; [&lt;tbl_df[1 x 11]&gt;], [&lt;tbl_df[1 x 11]&gt;], [&lt;tbl_df…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
-<div id="tabset-2-7">
+<div id="tabset-2-6">
 <ul>
 <li>Joining via <code>dplyr</code> due to memory constraint not possible.<br></li>
 <li>Joining via <code>Arrow</code> due to structure constraints not possible.<br></li>
@@ -848,55 +802,55 @@ Joschka Schwarz
 </ul>
 <p>Conversion to <code>data.tables</code> necessary:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># 1.  Funding Data</span></span>
-<span id="cb30-2"><a href="#cb30-2"></a><span class="co"># 1.1 Level 1</span></span>
-<span id="cb30-3"><a href="#cb30-3"></a>fc_wrangled_dt <span class="sc">|&gt;</span> <span class="fu">setDT</span>()</span>
-<span id="cb30-4"><a href="#cb30-4"></a></span>
-<span id="cb30-5"><a href="#cb30-5"></a><span class="co"># 1.2 Funding Data Level 2 (funding_rounds)</span></span>
-<span id="cb30-6"><a href="#cb30-6"></a>purrr<span class="sc">::</span><span class="fu">walk</span>(fc_wrangled_dt<span class="sc">$</span>funding_rounds, setDT)</span>
-<span id="cb30-7"><a href="#cb30-7"></a></span>
-<span id="cb30-8"><a href="#cb30-8"></a><span class="co"># 1.3 Remove unnecessary columns + initialize dummy for before_join</span></span>
-<span id="cb30-9"><a href="#cb30-9"></a>purrr<span class="sc">::</span><span class="fu">walk</span>(fc_wrangled_dt<span class="sc">$</span>funding_rounds, <span class="sc">~</span> .x[, </span>
-<span id="cb30-10"><a href="#cb30-10"></a>          <span class="st">`</span><span class="at">:=</span><span class="st">`</span>(<span class="at">round_uuid_pb =</span> <span class="cn">NULL</span>, <span class="at">round_uuid_cb        =</span> <span class="cn">NULL</span>, <span class="at">round_new          =</span> <span class="cn">NULL</span>, <span class="at">round          =</span> <span class="cn">NULL</span>,</span>
-<span id="cb30-11"><a href="#cb30-11"></a>               <span class="at">exit_cycle    =</span> <span class="cn">NULL</span>, <span class="at">last                 =</span> <span class="cn">NULL</span>, <span class="at">round_type         =</span> <span class="cn">NULL</span>, <span class="at">round_type_new =</span> <span class="cn">NULL</span>, </span>
-<span id="cb30-12"><a href="#cb30-12"></a>               <span class="at">round_types   =</span> <span class="cn">NULL</span>, <span class="at">post_money_valuation =</span> <span class="cn">NULL</span>, <span class="at">investors_in_round =</span> <span class="cn">NULL</span>, <span class="at">before_join    =</span> <span class="cn">NA</span>)</span>
-<span id="cb30-13"><a href="#cb30-13"></a>          ]</span>
-<span id="cb30-14"><a href="#cb30-14"></a>        )</span>
-<span id="cb30-15"><a href="#cb30-15"></a></span>
-<span id="cb30-16"><a href="#cb30-16"></a><span class="co"># 2. Matching Table</span></span>
-<span id="cb30-17"><a href="#cb30-17"></a>cb_cs_joined_slct_dt <span class="sc">|&gt;</span> <span class="fu">setDT</span>()</span>
-<span id="cb30-18"><a href="#cb30-18"></a></span>
-<span id="cb30-19"><a href="#cb30-19"></a><span class="co"># 3. Member experiences</span></span>
-<span id="cb30-20"><a href="#cb30-20"></a>me_wrangled_dt <span class="ot">&lt;-</span> me_wrangled_prqt <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="co"># 1.  Funding Data</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="co"># 1.1 Level 1</span></span>
+<span id="cb29-3"><a href="#cb29-3"></a>fc_wrangled_dt <span class="sc">|&gt;</span> <span class="fu">setDT</span>()</span>
+<span id="cb29-4"><a href="#cb29-4"></a></span>
+<span id="cb29-5"><a href="#cb29-5"></a><span class="co"># 1.2 Funding Data Level 2 (funding_rounds)</span></span>
+<span id="cb29-6"><a href="#cb29-6"></a>purrr<span class="sc">::</span><span class="fu">walk</span>(fc_wrangled_dt<span class="sc">$</span>funding_rounds, setDT)</span>
+<span id="cb29-7"><a href="#cb29-7"></a></span>
+<span id="cb29-8"><a href="#cb29-8"></a><span class="co"># 1.3 Remove unnecessary columns + initialize dummy for before_join</span></span>
+<span id="cb29-9"><a href="#cb29-9"></a>purrr<span class="sc">::</span><span class="fu">walk</span>(fc_wrangled_dt<span class="sc">$</span>funding_rounds, <span class="sc">~</span> .x[, </span>
+<span id="cb29-10"><a href="#cb29-10"></a>          <span class="st">`</span><span class="at">:=</span><span class="st">`</span>(<span class="at">round_uuid_pb =</span> <span class="cn">NULL</span>, <span class="at">round_uuid_cb        =</span> <span class="cn">NULL</span>, <span class="at">round_new          =</span> <span class="cn">NULL</span>, <span class="at">round          =</span> <span class="cn">NULL</span>,</span>
+<span id="cb29-11"><a href="#cb29-11"></a>               <span class="at">exit_cycle    =</span> <span class="cn">NULL</span>, <span class="at">last                 =</span> <span class="cn">NULL</span>, <span class="at">round_type         =</span> <span class="cn">NULL</span>, <span class="at">round_type_new =</span> <span class="cn">NULL</span>, </span>
+<span id="cb29-12"><a href="#cb29-12"></a>               <span class="at">round_types   =</span> <span class="cn">NULL</span>, <span class="at">post_money_valuation =</span> <span class="cn">NULL</span>, <span class="at">investors_in_round =</span> <span class="cn">NULL</span>, <span class="at">before_join    =</span> <span class="cn">NA</span>)</span>
+<span id="cb29-13"><a href="#cb29-13"></a>          ]</span>
+<span id="cb29-14"><a href="#cb29-14"></a>        )</span>
+<span id="cb29-15"><a href="#cb29-15"></a></span>
+<span id="cb29-16"><a href="#cb29-16"></a><span class="co"># 2. Matching Table</span></span>
+<span id="cb29-17"><a href="#cb29-17"></a>cb_cs_joined_slct_dt <span class="sc">|&gt;</span> <span class="fu">setDT</span>()</span>
+<span id="cb29-18"><a href="#cb29-18"></a></span>
+<span id="cb29-19"><a href="#cb29-19"></a><span class="co"># 3. Member experiences</span></span>
+<span id="cb29-20"><a href="#cb29-20"></a>me_wrangled_dt <span class="ot">&lt;-</span> me_wrangled_prqt <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<div id="tabset-2-8">
+<div id="tabset-2-7">
 <p>Working <code>data.table</code> solution (efficiency increase through join <code>by reference</code> possible).</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="co"># 1. Add company_id from funded_companies to member experiences</span></span>
-<span id="cb31-2"><a href="#cb31-2"></a>me_joined_dt <span class="ot">&lt;-</span> cb_cs_joined_slct_dt[me_wrangled_dt, on <span class="ot">=</span> .(<span class="at">id_cs =</span> company_id_cs), allow.cartesian <span class="ot">=</span> <span class="cn">TRUE</span>]</span>
-<span id="cb31-3"><a href="#cb31-3"></a><span class="co">#&gt; 12.270.572 (before: 10.818.614)</span></span>
-<span id="cb31-4"><a href="#cb31-4"></a></span>
-<span id="cb31-5"><a href="#cb31-5"></a><span class="co"># 2. Add funding data from funded_companies</span></span>
-<span id="cb31-6"><a href="#cb31-6"></a>me_joined_dt <span class="ot">&lt;-</span> fc_wrangled_dt[me_joined_dt, on <span class="ot">=</span> .(company_id)]</span>
-<span id="cb31-7"><a href="#cb31-7"></a><span class="co">#&gt; 12.270.572</span></span>
-<span id="cb31-8"><a href="#cb31-8"></a></span>
-<span id="cb31-9"><a href="#cb31-9"></a><span class="co"># 3. Remove duplicates (why are there any?)</span></span>
-<span id="cb31-10"><a href="#cb31-10"></a>me_joined_dt <span class="ot">&lt;-</span> <span class="fu">unique</span>(me_joined_dt, <span class="at">by =</span> <span class="fu">setdiff</span>(<span class="fu">names</span>(me_joined_dt), <span class="st">"funding_rounds"</span>))</span>
-<span id="cb31-11"><a href="#cb31-11"></a><span class="co">#&gt; 12.270.572 .... No duplicates anymore. Removed from cb_cs_joined_slct_dt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="co"># 1. Add company_id from funded_companies to member experiences</span></span>
+<span id="cb30-2"><a href="#cb30-2"></a>me_joined_dt <span class="ot">&lt;-</span> cb_cs_joined_slct_dt[me_wrangled_dt, on <span class="ot">=</span> .(<span class="at">id_cs =</span> company_id_cs), allow.cartesian <span class="ot">=</span> <span class="cn">TRUE</span>]</span>
+<span id="cb30-3"><a href="#cb30-3"></a><span class="co">#&gt; 12.978.226</span></span>
+<span id="cb30-4"><a href="#cb30-4"></a></span>
+<span id="cb30-5"><a href="#cb30-5"></a><span class="co"># 2. Add funding data from funded_companies</span></span>
+<span id="cb30-6"><a href="#cb30-6"></a>me_joined_dt <span class="ot">&lt;-</span> fc_wrangled_dt[me_joined_dt, on <span class="ot">=</span> .(company_id)]</span>
+<span id="cb30-7"><a href="#cb30-7"></a><span class="co">#&gt; 12.270.572</span></span>
+<span id="cb30-8"><a href="#cb30-8"></a></span>
+<span id="cb30-9"><a href="#cb30-9"></a><span class="co"># 3. Remove duplicates (why are there any?)</span></span>
+<span id="cb30-10"><a href="#cb30-10"></a>me_joined_dt <span class="ot">&lt;-</span> <span class="fu">unique</span>(me_joined_dt, <span class="at">by =</span> <span class="fu">setdiff</span>(<span class="fu">names</span>(me_joined_dt), <span class="st">"funding_rounds"</span>))</span>
+<span id="cb30-11"><a href="#cb30-11"></a><span class="co">#&gt; 12.270.572 .... No duplicates anymore. Removed from cb_cs_joined_slct_dt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Not working <code>dplyr</code> solution</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>me_joined_dt_dplyr <span class="ot">&lt;-</span> me_wrangled_dt <span class="sc">|&gt;</span></span>
-<span id="cb32-2"><a href="#cb32-2"></a></span>
-<span id="cb32-3"><a href="#cb32-3"></a>  <span class="co"># Add company_id from funded_companies</span></span>
-<span id="cb32-4"><a href="#cb32-4"></a>  <span class="fu">left_join</span>(cb_cs_joined_slct_dt,</span>
-<span id="cb32-5"><a href="#cb32-5"></a>            <span class="at">by =</span> <span class="fu">c</span>(<span class="at">company_id_cs =</span> <span class="st">"id_cs"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb32-6"><a href="#cb32-6"></a></span>
-<span id="cb32-7"><a href="#cb32-7"></a>  <span class="co"># Add data from funded_companies</span></span>
-<span id="cb32-8"><a href="#cb32-8"></a>  <span class="fu">left_join</span>(funded_companies_wrangled_dt,</span>
-<span id="cb32-9"><a href="#cb32-9"></a>            <span class="at">by =</span> <span class="st">"company_id"</span>)  <span class="sc">|&gt;</span></span>
-<span id="cb32-10"><a href="#cb32-10"></a>  <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>me_joined_dt_dplyr <span class="ot">&lt;-</span> me_wrangled_dt <span class="sc">|&gt;</span></span>
+<span id="cb31-2"><a href="#cb31-2"></a></span>
+<span id="cb31-3"><a href="#cb31-3"></a>  <span class="co"># Add company_id from funded_companies</span></span>
+<span id="cb31-4"><a href="#cb31-4"></a>  <span class="fu">left_join</span>(cb_cs_joined_slct_dt,</span>
+<span id="cb31-5"><a href="#cb31-5"></a>            <span class="at">by =</span> <span class="fu">c</span>(<span class="at">company_id_cs =</span> <span class="st">"id_cs"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb31-6"><a href="#cb31-6"></a></span>
+<span id="cb31-7"><a href="#cb31-7"></a>  <span class="co"># Add data from funded_companies</span></span>
+<span id="cb31-8"><a href="#cb31-8"></a>  <span class="fu">left_join</span>(funded_companies_wrangled_dt,</span>
+<span id="cb31-9"><a href="#cb31-9"></a>            <span class="at">by =</span> <span class="st">"company_id"</span>)  <span class="sc">|&gt;</span></span>
+<span id="cb31-10"><a href="#cb31-10"></a>  <span class="fu">distinct</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>Arrow</code> because of nested funding data not possible.</p>
 </div>
@@ -916,149 +870,162 @@ Joschka Schwarz
 <div id="tabset-3-1">
 <p>How many month have passed since the company was founded and before the person joined the company (in months)?</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb33-2"><a href="#cb33-2"></a>me_joined_dt[, tjoin_tfound <span class="sc">:</span><span class="er">=</span> (<span class="fu">interval</span>(founded_on, date_from_parsed_cs) <span class="sc">%/%</span> <span class="fu">months</span>(<span class="dv">1</span>))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb32-2"><a href="#cb32-2"></a>me_joined_dt[, tjoin_tfound <span class="sc">:</span><span class="er">=</span> (<span class="fu">interval</span>(founded_on, date_from_parsed_cs) <span class="sc">%/%</span> <span class="fu">months</span>(<span class="dv">1</span>))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-3-2">
 <p>Unnesting necessary due to memory constraints (takes multiple hours … to be measured).</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Working: data.table</span></span>
-<span id="cb34-2"><a href="#cb34-2"></a>me_joined_unnested_dt <span class="ot">&lt;-</span> me_joined_dt[,<span class="fu">rbindlist</span>(funding_rounds), by <span class="ot">=</span> <span class="fu">setdiff</span>(<span class="fu">names</span>(me_joined_dt), <span class="st">"funding_rounds"</span>)]</span>
-<span id="cb34-3"><a href="#cb34-3"></a><span class="co"># Not working: dplyr</span></span>
-<span id="cb34-4"><a href="#cb34-4"></a>me_joined_unnested_tbl <span class="ot">&lt;-</span> me_joined_dt <span class="sc">|&gt;</span> <span class="fu">unnest</span>(funding_rounds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># Working: data.table</span></span>
+<span id="cb33-2"><a href="#cb33-2"></a>me_joined_unnested_dt <span class="ot">&lt;-</span> me_joined_dt[,<span class="fu">rbindlist</span>(funding_rounds), by <span class="ot">=</span> <span class="fu">setdiff</span>(<span class="fu">names</span>(me_joined_dt), <span class="st">"funding_rounds"</span>)]</span>
+<span id="cb33-3"><a href="#cb33-3"></a><span class="co"># Not working: dplyr</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a>me_joined_unnested_tbl <span class="ot">&lt;-</span> me_joined_dt <span class="sc">|&gt;</span> <span class="fu">unnest</span>(funding_rounds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Add feature whether or not member joined before Announcement of a funding round:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co"># Add feature whether or not member joined before Announcement of a funding round</span></span>
-<span id="cb35-2"><a href="#cb35-2"></a>me_joined_unnested_dt[,before_join <span class="sc">:</span><span class="er">=</span> date_from_parsed_cs <span class="sc">&gt;=</span> announced_on]</span>
-<span id="cb35-3"><a href="#cb35-3"></a></span>
-<span id="cb35-4"><a href="#cb35-4"></a><span class="co"># Inspect</span></span>
-<span id="cb35-5"><a href="#cb35-5"></a><span class="fu">open_dataset</span>(<span class="st">"me_joined_unnested1.parquet"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb35-6"><a href="#cb35-6"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># Add feature whether or not member joined before Announcement of a funding round</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>me_joined_unnested_dt[,before_join <span class="sc">:</span><span class="er">=</span> date_from_parsed_cs <span class="sc">&gt;=</span> announced_on]</span>
+<span id="cb34-3"><a href="#cb34-3"></a></span>
+<span id="cb34-4"><a href="#cb34-4"></a><span class="co"># Inspect</span></span>
+<span id="cb34-5"><a href="#cb34-5"></a><span class="fu">open_dataset</span>(<span class="st">"me_joined_unnested1.parquet"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb34-6"><a href="#cb34-6"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb36"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb36-1"><a href="#cb36-1"></a>#&gt; FileSystemDataset with 1 Parquet file</span>
-<span id="cb36-2"><a href="#cb36-2"></a>#&gt; 92,129,652 rows x 11 columns</span>
-<span id="cb36-3"><a href="#cb36-3"></a>#&gt; $ company_id                &lt;int32&gt; 7860, 7860, 7860, 99389, 99389, 99389, 99389…</span>
-<span id="cb36-4"><a href="#cb36-4"></a>#&gt; $ founded_on          &lt;date32[day]&gt; 2015-06-01, 2015-06-01, 2015-06-01, 2008-07-…</span>
-<span id="cb36-5"><a href="#cb36-5"></a>#&gt; $ id_cs                     &lt;int32&gt; 9020540, 9020540, 9020540, 5181133, 5181133,…</span>
-<span id="cb36-6"><a href="#cb36-6"></a>#&gt; $ member_id_cs              &lt;int32&gt; 186680717, 186680717, 186680717, 186680734, …</span>
-<span id="cb36-7"><a href="#cb36-7"></a>#&gt; $ exp_id_cs                &lt;double&gt; 265296603, 265296603, 265296603, 934801645, …</span>
-<span id="cb36-8"><a href="#cb36-8"></a>#&gt; $ date_from_parsed_cs &lt;date32[day]&gt; 2008-05-01, 2008-05-01, 2008-05-01, 2004-01-…</span>
-<span id="cb36-9"><a href="#cb36-9"></a>#&gt; $ tjoin_tfound             &lt;double&gt; -85, -85, -85, -54, -54, -54, -54, -54, -54,…</span>
-<span id="cb36-10"><a href="#cb36-10"></a>#&gt; $ round_id                  &lt;int32&gt; 29367, 29368, 29369, 315025, 315026, 315027,…</span>
-<span id="cb36-11"><a href="#cb36-11"></a>#&gt; $ announced_on        &lt;date32[day]&gt; 2015-12-11, 2016-07-26, 2018-01-30, 2010-09-…</span>
-<span id="cb36-12"><a href="#cb36-12"></a>#&gt; $ raised_amount            &lt;double&gt; 2800000, 9000000, NA, 1239016, 437224, 23557…</span>
-<span id="cb36-13"><a href="#cb36-13"></a>#&gt; $ before_join                &lt;bool&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FA…</span>
-<span id="cb36-14"><a href="#cb36-14"></a>#&gt; Call `print()` for full schema details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb35-1"><a href="#cb35-1"></a>#&gt; FileSystemDataset with 1 Parquet file</span>
+<span id="cb35-2"><a href="#cb35-2"></a>#&gt; 88,429,236 rows x 15 columns</span>
+<span id="cb35-3"><a href="#cb35-3"></a>#&gt; $ company_id_cbpb           &lt;int32&gt; 85514, 85514, 85514, 85514, 85514, 85514, 85…</span>
+<span id="cb35-4"><a href="#cb35-4"></a>#&gt; $ founded_on_cbpb     &lt;date32[day]&gt; 2007-01-01, 2007-01-01, 2007-01-01, 2007-01-…</span>
+<span id="cb35-5"><a href="#cb35-5"></a>#&gt; $ company_id_cs             &lt;int32&gt; 10830353, 10830353, 10830353, 10830353, 1083…</span>
+<span id="cb35-6"><a href="#cb35-6"></a>#&gt; $ id_tie                    &lt;int32&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 29…</span>
+<span id="cb35-7"><a href="#cb35-7"></a>#&gt; $ exp_id_cs                &lt;double&gt; 606461989, 606461989, 606461989, 606461989, …</span>
+<span id="cb35-8"><a href="#cb35-8"></a>#&gt; $ member_id_cs              &lt;int32&gt; 162, 162, 162, 162, 162, 162, 162, 162, 162,…</span>
+<span id="cb35-9"><a href="#cb35-9"></a>#&gt; $ company_name_cs          &lt;string&gt; "Kony, Inc.", "Kony, Inc.", "Kony, Inc.", "K…</span>
+<span id="cb35-10"><a href="#cb35-10"></a>#&gt; $ title_cs           &lt;large_string&gt; "Associate Engineer", "Associate Engineer", …</span>
+<span id="cb35-11"><a href="#cb35-11"></a>#&gt; $ date_from_parsed_cs &lt;date32[day]&gt; 2015-06-01, 2015-06-01, 2015-06-01, 2015-06-…</span>
+<span id="cb35-12"><a href="#cb35-12"></a>#&gt; $ date_to_parsed_cs   &lt;date32[day]&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span id="cb35-13"><a href="#cb35-13"></a>#&gt; $ tjoin_tfound             &lt;double&gt; 101, 101, 101, 101, 101, 101, 101, 101, 101,…</span>
+<span id="cb35-14"><a href="#cb35-14"></a>#&gt; $ round_id                  &lt;int32&gt; 259195, 259196, 259197, 259198, 259199, 2592…</span>
+<span id="cb35-15"><a href="#cb35-15"></a>#&gt; $ announced_on        &lt;date32[day]&gt; 2011-02-24, 2011-03-01, 2011-06-07, 2012-01-…</span>
+<span id="cb35-16"><a href="#cb35-16"></a>#&gt; $ raised_amount            &lt;double&gt; 13370002, 8280000, 2352002, 2000000, 1500000…</span>
+<span id="cb35-17"><a href="#cb35-17"></a>#&gt; $ before_join                &lt;bool&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TR…</span>
+<span id="cb35-18"><a href="#cb35-18"></a>#&gt; Call `print()` for full schema details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 <div id="tabset-3-3">
 <p>F2. How much capital has been acquired by the time the person joins?<br> F3. How many funding rounds have been acquired by the time the person joins?</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co"># Initialize empty columns (not sure yet if that increases performance)</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a>me_joined_unnested_dt[, <span class="st">`</span><span class="at">:=</span><span class="st">`</span> (<span class="at">raised_amount_before_join =</span> <span class="cn">NA_real_</span>, </span>
-<span id="cb37-3"><a href="#cb37-3"></a>                              <span class="at">num_rounds_before_join    =</span> <span class="cn">NA_real_</span>)]</span>
-<span id="cb37-4"><a href="#cb37-4"></a></span>
-<span id="cb37-5"><a href="#cb37-5"></a><span class="co"># Add features</span></span>
-<span id="cb37-6"><a href="#cb37-6"></a>me_joined_unnested_dt[, <span class="st">`</span><span class="at">:=</span><span class="st">`</span> (<span class="at">raised_amount_before_join =</span> <span class="fu">sum</span>(raised_amount[before_join <span class="sc">==</span> T], <span class="at">na.rm =</span> T),</span>
-<span id="cb37-7"><a href="#cb37-7"></a>                              <span class="at">num_rounds_before_join    =</span> <span class="fu">sum</span>(  before_join[before_join <span class="sc">==</span> T])), </span>
-<span id="cb37-8"><a href="#cb37-8"></a>                      by <span class="ot">=</span> .(company_id, exp_id_cs)]</span>
-<span id="cb37-9"><a href="#cb37-9"></a></span>
-<span id="cb37-10"><a href="#cb37-10"></a><span class="fu">open_dataset</span>(<span class="st">"me_joined_unnested2.parquet"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb37-11"><a href="#cb37-11"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="co"># Initialize empty columns (not sure yet if that increases performance)</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>me_joined_unnested_dt[, <span class="st">`</span><span class="at">:=</span><span class="st">`</span> (<span class="at">raised_amount_before_join =</span> <span class="cn">NA_real_</span>, </span>
+<span id="cb36-3"><a href="#cb36-3"></a>                              <span class="at">num_rounds_before_join    =</span> <span class="cn">NA_real_</span>)]</span>
+<span id="cb36-4"><a href="#cb36-4"></a></span>
+<span id="cb36-5"><a href="#cb36-5"></a><span class="co"># Add features</span></span>
+<span id="cb36-6"><a href="#cb36-6"></a>me_joined_unnested_dt[, <span class="st">`</span><span class="at">:=</span><span class="st">`</span> (<span class="at">raised_amount_before_join =</span> <span class="fu">sum</span>(raised_amount[before_join <span class="sc">==</span> T], <span class="at">na.rm =</span> T),</span>
+<span id="cb36-7"><a href="#cb36-7"></a>                              <span class="at">num_rounds_before_join    =</span> <span class="fu">sum</span>(  before_join[before_join <span class="sc">==</span> T])), </span>
+<span id="cb36-8"><a href="#cb36-8"></a>                      by <span class="ot">=</span> .(company_id, exp_id_cs)]</span>
+<span id="cb36-9"><a href="#cb36-9"></a></span>
+<span id="cb36-10"><a href="#cb36-10"></a><span class="fu">open_dataset</span>(<span class="st">"me_joined_unnested2.parquet"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb36-11"><a href="#cb36-11"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb38"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb38-1"><a href="#cb38-1"></a>#&gt; FileSystemDataset with 1 Parquet file</span>
-<span id="cb38-2"><a href="#cb38-2"></a>#&gt; 92,129,652 rows x 13 columns</span>
-<span id="cb38-3"><a href="#cb38-3"></a>#&gt; $ company_id                 &lt;int32&gt; 7860, 7860, 7860, 99389, 99389, 99389, 9938…</span>
-<span id="cb38-4"><a href="#cb38-4"></a>#&gt; $ founded_on           &lt;date32[day]&gt; 2015-06-01, 2015-06-01, 2015-06-01, 2008-07…</span>
-<span id="cb38-5"><a href="#cb38-5"></a>#&gt; $ id_cs                      &lt;int32&gt; 9020540, 9020540, 9020540, 5181133, 5181133…</span>
-<span id="cb38-6"><a href="#cb38-6"></a>#&gt; $ member_id_cs               &lt;int32&gt; 186680717, 186680717, 186680717, 186680734,…</span>
-<span id="cb38-7"><a href="#cb38-7"></a>#&gt; $ exp_id_cs                 &lt;double&gt; 265296603, 265296603, 265296603, 934801645,…</span>
-<span id="cb38-8"><a href="#cb38-8"></a>#&gt; $ date_from_parsed_cs  &lt;date32[day]&gt; 2008-05-01, 2008-05-01, 2008-05-01, 2004-01…</span>
-<span id="cb38-9"><a href="#cb38-9"></a>#&gt; $ tjoin_tfound              &lt;double&gt; -85, -85, -85, -54, -54, -54, -54, -54, -54…</span>
-<span id="cb38-10"><a href="#cb38-10"></a>#&gt; $ round_id                   &lt;int32&gt; 29367, 29368, 29369, 315025, 315026, 315027…</span>
-<span id="cb38-11"><a href="#cb38-11"></a>#&gt; $ announced_on         &lt;date32[day]&gt; 2015-12-11, 2016-07-26, 2018-01-30, 2010-09…</span>
-<span id="cb38-12"><a href="#cb38-12"></a>#&gt; $ raised_amount             &lt;double&gt; 2800000, 9000000, NA, 1239016, 437224, 2355…</span>
-<span id="cb38-13"><a href="#cb38-13"></a>#&gt; $ before_join                 &lt;bool&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, F…</span>
-<span id="cb38-14"><a href="#cb38-14"></a>#&gt; $ raised_amount_before_join &lt;double&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
-<span id="cb38-15"><a href="#cb38-15"></a>#&gt; $ num_rounds_before_join    &lt;double&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…</span>
-<span id="cb38-16"><a href="#cb38-16"></a>#&gt; Call `print()` for full schema details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb37-1"><a href="#cb37-1"></a>#&gt; FileSystemDataset with 1 Parquet file</span>
+<span id="cb37-2"><a href="#cb37-2"></a>#&gt; 88,429,236 rows x 17 columns</span>
+<span id="cb37-3"><a href="#cb37-3"></a>#&gt; $ company_id_cbpb            &lt;int32&gt; 85514, 85514, 85514, 85514, 85514, 85514, 8…</span>
+<span id="cb37-4"><a href="#cb37-4"></a>#&gt; $ founded_on_cbpb      &lt;date32[day]&gt; 2007-01-01, 2007-01-01, 2007-01-01, 2007-01…</span>
+<span id="cb37-5"><a href="#cb37-5"></a>#&gt; $ company_id_cs              &lt;int32&gt; 10830353, 10830353, 10830353, 10830353, 108…</span>
+<span id="cb37-6"><a href="#cb37-6"></a>#&gt; $ id_tie                     &lt;int32&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…</span>
+<span id="cb37-7"><a href="#cb37-7"></a>#&gt; $ exp_id_cs                 &lt;double&gt; 606461989, 606461989, 606461989, 606461989,…</span>
+<span id="cb37-8"><a href="#cb37-8"></a>#&gt; $ member_id_cs               &lt;int32&gt; 162, 162, 162, 162, 162, 162, 162, 162, 162…</span>
+<span id="cb37-9"><a href="#cb37-9"></a>#&gt; $ company_name_cs           &lt;string&gt; "Kony, Inc.", "Kony, Inc.", "Kony, Inc.", "…</span>
+<span id="cb37-10"><a href="#cb37-10"></a>#&gt; $ title_cs            &lt;large_string&gt; "Associate Engineer", "Associate Engineer",…</span>
+<span id="cb37-11"><a href="#cb37-11"></a>#&gt; $ date_from_parsed_cs  &lt;date32[day]&gt; 2015-06-01, 2015-06-01, 2015-06-01, 2015-06…</span>
+<span id="cb37-12"><a href="#cb37-12"></a>#&gt; $ date_to_parsed_cs    &lt;date32[day]&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
+<span id="cb37-13"><a href="#cb37-13"></a>#&gt; $ tjoin_tfound              &lt;double&gt; 101, 101, 101, 101, 101, 101, 101, 101, 101…</span>
+<span id="cb37-14"><a href="#cb37-14"></a>#&gt; $ round_id                   &lt;int32&gt; 259195, 259196, 259197, 259198, 259199, 259…</span>
+<span id="cb37-15"><a href="#cb37-15"></a>#&gt; $ announced_on         &lt;date32[day]&gt; 2011-02-24, 2011-03-01, 2011-06-07, 2012-01…</span>
+<span id="cb37-16"><a href="#cb37-16"></a>#&gt; $ raised_amount             &lt;double&gt; 13370002, 8280000, 2352002, 2000000, 150000…</span>
+<span id="cb37-17"><a href="#cb37-17"></a>#&gt; $ before_join                 &lt;bool&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, T…</span>
+<span id="cb37-18"><a href="#cb37-18"></a>#&gt; $ raised_amount_before_join &lt;double&gt; 120528113, 120528113, 120528113, 120528113,…</span>
+<span id="cb37-19"><a href="#cb37-19"></a>#&gt; $ num_rounds_before_join    &lt;double&gt; 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 5…</span>
+<span id="cb37-20"><a href="#cb37-20"></a>#&gt; Call `print()` for full schema details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 <div id="tabset-3-4">
 <p>Nest again</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="co"># data.table</span></span>
-<span id="cb39-2"><a href="#cb39-2"></a>excluded_cols       <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(<span class="fu">names</span>(me_joined_unnested_dt), <span class="fu">c</span>(<span class="st">"round_id"</span>, <span class="st">"announced_on"</span>, <span class="st">"raised_amount"</span>, <span class="st">"before_join"</span>))</span>
-<span id="cb39-3"><a href="#cb39-3"></a>me_joined_nested_dt <span class="ot">&lt;-</span> me_joined_unnested_dt[, <span class="fu">list</span>(<span class="at">funding_rounds=</span><span class="fu">list</span>(.SD)), by<span class="ot">=</span>excluded_cols]</span>
-<span id="cb39-4"><a href="#cb39-4"></a></span>
-<span id="cb39-5"><a href="#cb39-5"></a><span class="co"># Dplyr (not working)</span></span>
-<span id="cb39-6"><a href="#cb39-6"></a><span class="co"># me_joined_nested_dt &lt;- me_joined_unnested_dt |&gt; </span></span>
-<span id="cb39-7"><a href="#cb39-7"></a><span class="co">#         nest(funding_rounds = c("round_id", "announced_on", "raised_amount", "before_join"))</span></span>
-<span id="cb39-8"><a href="#cb39-8"></a></span>
-<span id="cb39-9"><a href="#cb39-9"></a><span class="fu">open_dataset</span>(<span class="st">"me_joined_nested.parquet"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb39-10"><a href="#cb39-10"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="co"># data.table</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a>excluded_cols       <span class="ot">&lt;-</span> <span class="fu">setdiff</span>(<span class="fu">names</span>(me_joined_unnested_dt), <span class="fu">c</span>(<span class="st">"round_id"</span>, <span class="st">"announced_on"</span>, <span class="st">"raised_amount"</span>, <span class="st">"before_join"</span>))</span>
+<span id="cb38-3"><a href="#cb38-3"></a>me_joined_nested_dt <span class="ot">&lt;-</span> me_joined_unnested_dt[, <span class="fu">list</span>(<span class="at">funding_rounds=</span><span class="fu">list</span>(.SD)), by<span class="ot">=</span>excluded_cols]</span>
+<span id="cb38-4"><a href="#cb38-4"></a></span>
+<span id="cb38-5"><a href="#cb38-5"></a><span class="co"># Dplyr (not working)</span></span>
+<span id="cb38-6"><a href="#cb38-6"></a><span class="co"># me_joined_nested_dt &lt;- me_joined_unnested_dt |&gt; </span></span>
+<span id="cb38-7"><a href="#cb38-7"></a><span class="co">#         nest(funding_rounds = c("round_id", "announced_on", "raised_amount", "before_join"))</span></span>
+<span id="cb38-8"><a href="#cb38-8"></a></span>
+<span id="cb38-9"><a href="#cb38-9"></a><span class="fu">open_dataset</span>(<span class="st">"me_joined_nested.parquet"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb38-10"><a href="#cb38-10"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb40"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb40-1"><a href="#cb40-1"></a>#&gt; FileSystemDataset with 1 Parquet file</span>
-<span id="cb40-2"><a href="#cb40-2"></a>#&gt; 12,270,572 rows x 10 columns</span>
-<span id="cb40-3"><a href="#cb40-3"></a>#&gt; $ company_id                 &lt;int32&gt; 7860, 99389, 99389, 91162, 88743, 152838, 9…</span>
-<span id="cb40-4"><a href="#cb40-4"></a>#&gt; $ founded_on           &lt;date32[day]&gt; 2015-06-01, 2008-07-01, 2008-07-01, 2010-07…</span>
-<span id="cb40-5"><a href="#cb40-5"></a>#&gt; $ id_cs                      &lt;int32&gt; 9020540, 5181133, 5181133, 5887158, 35408, …</span>
-<span id="cb40-6"><a href="#cb40-6"></a>#&gt; $ member_id_cs               &lt;int32&gt; 186680717, 186680734, 186680734, 186680834,…</span>
-<span id="cb40-7"><a href="#cb40-7"></a>#&gt; $ exp_id_cs                 &lt;double&gt; 265296603, 934801645, 934801646, 265296780,…</span>
-<span id="cb40-8"><a href="#cb40-8"></a>#&gt; $ date_from_parsed_cs  &lt;date32[day]&gt; 2008-05-01, 2004-01-01, 2002-07-01, 2011-06…</span>
-<span id="cb40-9"><a href="#cb40-9"></a>#&gt; $ tjoin_tfound              &lt;double&gt; -85, -54, -72, 11, 16, -160, 101, 143, 48, …</span>
-<span id="cb40-10"><a href="#cb40-10"></a>#&gt; $ raised_amount_before_join &lt;double&gt; 0, 0, 0, 647000, 6149998, 0, 17733312, 2235…</span>
-<span id="cb40-11"><a href="#cb40-11"></a>#&gt; $ num_rounds_before_join    &lt;double&gt; 0, 0, 0, 2, 1, 0, 7, 5, 3, 0, 3, 0, 0, 6, 1…</span>
-<span id="cb40-12"><a href="#cb40-12"></a>#&gt; $ funding_rounds         &lt;list&lt;...&gt;&gt; [&lt;tbl_df[3 x 4]&gt;], [&lt;tbl_df[6 x 4]&gt;], [&lt;tbl…</span>
-<span id="cb40-13"><a href="#cb40-13"></a>#&gt; Call `print()` for full schema details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb39-1"><a href="#cb39-1"></a>#&gt; FileSystemDataset with 1 Parquet file</span>
+<span id="cb39-2"><a href="#cb39-2"></a>#&gt; 12,654,304 rows x 13 columns</span>
+<span id="cb39-3"><a href="#cb39-3"></a>#&gt; $ company_id                 &lt;int32&gt; 71668, 5070, 117119, 5070, 117119, 7920, 52…</span>
+<span id="cb39-4"><a href="#cb39-4"></a>#&gt; $ founded_on           &lt;date32[day]&gt; 2019-01-01, 2014-07-01, 2015-01-01, 2014-07…</span>
+<span id="cb39-5"><a href="#cb39-5"></a>#&gt; $ id_cs                      &lt;int32&gt; 23865165, 10861408, 10861408, 10861408, 108…</span>
+<span id="cb39-6"><a href="#cb39-6"></a>#&gt; $ exp_id_cs                 &lt;double&gt; 1927546132, 1267852578, 1267852578, 2670635…</span>
+<span id="cb39-7"><a href="#cb39-7"></a>#&gt; $ member_id_cs               &lt;int32&gt; 1874511, 1874513, 1874513, 1874513, 1874513…</span>
+<span id="cb39-8"><a href="#cb39-8"></a>#&gt; $ company_name_cs           &lt;string&gt; "Three Good", "Point", "Point", "Point", "P…</span>
+<span id="cb39-9"><a href="#cb39-9"></a>#&gt; $ title_cs                  &lt;string&gt; "Founder &amp; CEO", "Customer Operations at Po…</span>
+<span id="cb39-10"><a href="#cb39-10"></a>#&gt; $ date_from_parsed_cs  &lt;date32[day]&gt; 2015-04-01, 2018-01-01, 2018-01-01, 2018-11…</span>
+<span id="cb39-11"><a href="#cb39-11"></a>#&gt; $ date_to_parsed_cs    &lt;date32[day]&gt; NA, NA, NA, NA, NA, NA, 2019-04-01, 2019-04…</span>
+<span id="cb39-12"><a href="#cb39-12"></a>#&gt; $ tjoin_tfound              &lt;double&gt; -45, 42, 36, 52, 46, 50, 105, -33, 49, 131,…</span>
+<span id="cb39-13"><a href="#cb39-13"></a>#&gt; $ raised_amount_before_join &lt;double&gt; 0, 11399999, 12100000, 11399999, 12100000, …</span>
+<span id="cb39-14"><a href="#cb39-14"></a>#&gt; $ num_rounds_before_join    &lt;double&gt; 0, 2, 3, 2, 3, 6, 9, 0, 6, 9, 12, 7, 4, 9, …</span>
+<span id="cb39-15"><a href="#cb39-15"></a>#&gt; $ funding_rounds         &lt;list&lt;...&gt;&gt; [&lt;tbl_df[5 x 4]&gt;], [&lt;tbl_df[5 x 4]&gt;], [&lt;tbl…</span>
+<span id="cb39-16"><a href="#cb39-16"></a>#&gt; Call `print()` for full schema details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 <div id="tabset-3-5">
 <p>To differentiate between founder and non-founder CS titles are needed</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="co"># Prep data (shrink / remove unnecessary data)</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a>me_joined_nested_foc_dt[, funding_rounds <span class="sc">:</span><span class="er">=</span> <span class="cn">NULL</span>]</span>
-<span id="cb41-3"><a href="#cb41-3"></a></span>
-<span id="cb41-4"><a href="#cb41-4"></a><span class="co"># Prep titles</span></span>
-<span id="cb41-5"><a href="#cb41-5"></a>me_wrangled_wt_dt <span class="ot">&lt;-</span>  me_dist_prqt <span class="sc">|&gt;</span> </span>
-<span id="cb41-6"><a href="#cb41-6"></a>                          <span class="fu">filter</span>(company_id <span class="sc">%in%</span> cb_cs_joined_cs_ids, <span class="sc">!</span><span class="fu">is.na</span>(date_from_parsed)) <span class="sc">|&gt;</span>  </span>
-<span id="cb41-7"><a href="#cb41-7"></a>                          <span class="fu">select</span>(exp_id_cs, title_cs) <span class="sc">|&gt;</span> </span>
-<span id="cb41-8"><a href="#cb41-8"></a>                          <span class="fu">collect</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb41-9"><a href="#cb41-9"></a>                          <span class="fu">setDT</span>()</span>
-<span id="cb41-10"><a href="#cb41-10"></a></span>
-<span id="cb41-11"><a href="#cb41-11"></a><span class="co"># Join</span></span>
-<span id="cb41-12"><a href="#cb41-12"></a>me_joined_nested_foc_dt[me_wrangled_wt_dt, on <span class="ot">=</span> .(exp_id_cs), title_cs <span class="sc">:</span><span class="er">=</span> i.title_cs]</span>
-<span id="cb41-13"><a href="#cb41-13"></a></span>
-<span id="cb41-14"><a href="#cb41-14"></a><span class="co"># Inspect</span></span>
-<span id="cb41-15"><a href="#cb41-15"></a><span class="fu">open_dataset</span>(<span class="st">"me_joined_nested_foc.parquet"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb41-16"><a href="#cb41-16"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="co"># Prep data (shrink / remove unnecessary data)</span></span>
+<span id="cb40-2"><a href="#cb40-2"></a>me_joined_nested_foc_dt[, funding_rounds <span class="sc">:</span><span class="er">=</span> <span class="cn">NULL</span>]</span>
+<span id="cb40-3"><a href="#cb40-3"></a></span>
+<span id="cb40-4"><a href="#cb40-4"></a><span class="co"># Prep titles</span></span>
+<span id="cb40-5"><a href="#cb40-5"></a>me_wrangled_wt_dt <span class="ot">&lt;-</span>  me_dist_prqt <span class="sc">|&gt;</span> </span>
+<span id="cb40-6"><a href="#cb40-6"></a>                          <span class="fu">filter</span>(company_id <span class="sc">%in%</span> cb_cs_joined_cs_ids, <span class="sc">!</span><span class="fu">is.na</span>(date_from_parsed)) <span class="sc">|&gt;</span>  </span>
+<span id="cb40-7"><a href="#cb40-7"></a>                          <span class="fu">select</span>(exp_id_cs, title_cs) <span class="sc">|&gt;</span> </span>
+<span id="cb40-8"><a href="#cb40-8"></a>                          <span class="fu">collect</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb40-9"><a href="#cb40-9"></a>                          <span class="fu">setDT</span>()</span>
+<span id="cb40-10"><a href="#cb40-10"></a></span>
+<span id="cb40-11"><a href="#cb40-11"></a><span class="co"># Join</span></span>
+<span id="cb40-12"><a href="#cb40-12"></a>me_joined_nested_foc_dt[me_wrangled_wt_dt, on <span class="ot">=</span> .(exp_id_cs), title_cs <span class="sc">:</span><span class="er">=</span> i.title_cs]</span>
+<span id="cb40-13"><a href="#cb40-13"></a></span>
+<span id="cb40-14"><a href="#cb40-14"></a><span class="co"># Inspect</span></span>
+<span id="cb40-15"><a href="#cb40-15"></a><span class="fu">open_dataset</span>(<span class="st">"me_joined_nested_foc.parquet"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb40-16"><a href="#cb40-16"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb42"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb42-1"><a href="#cb42-1"></a>#&gt; FileSystemDataset with 1 Parquet file</span>
-<span id="cb42-2"><a href="#cb42-2"></a>#&gt; 12,270,572 rows x 10 columns</span>
-<span id="cb42-3"><a href="#cb42-3"></a>#&gt; $ company_id                 &lt;int32&gt; 7860, 99389, 99389, 91162, 88743, 152838, 9…</span>
-<span id="cb42-4"><a href="#cb42-4"></a>#&gt; $ founded_on           &lt;date32[day]&gt; 2015-06-01, 2008-07-01, 2008-07-01, 2010-07…</span>
-<span id="cb42-5"><a href="#cb42-5"></a>#&gt; $ id_cs                      &lt;int32&gt; 9020540, 5181133, 5181133, 5887158, 35408, …</span>
-<span id="cb42-6"><a href="#cb42-6"></a>#&gt; $ member_id_cs               &lt;int32&gt; 186680717, 186680734, 186680734, 186680834,…</span>
-<span id="cb42-7"><a href="#cb42-7"></a>#&gt; $ exp_id_cs                 &lt;double&gt; 265296603, 934801645, 934801646, 265296780,…</span>
-<span id="cb42-8"><a href="#cb42-8"></a>#&gt; $ date_from_parsed_cs  &lt;date32[day]&gt; 2008-05-01, 2004-01-01, 2002-07-01, 2011-06…</span>
-<span id="cb42-9"><a href="#cb42-9"></a>#&gt; $ tjoin_tfound              &lt;double&gt; -85, -54, -72, 11, 16, -160, 101, 143, 48, …</span>
-<span id="cb42-10"><a href="#cb42-10"></a>#&gt; $ raised_amount_before_join &lt;double&gt; 0, 0, 0, 647000, 6149998, 0, 17733312, 2235…</span>
-<span id="cb42-11"><a href="#cb42-11"></a>#&gt; $ num_rounds_before_join    &lt;double&gt; 0, 0, 0, 2, 1, 0, 7, 5, 3, 0, 3, 0, 0, 6, 1…</span>
-<span id="cb42-12"><a href="#cb42-12"></a>#&gt; $ title_cs                  &lt;string&gt; "Project Manager", "Website co-manager of F…</span>
-<span id="cb42-13"><a href="#cb42-13"></a>#&gt; Call `print()` for full schema details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb41-1"><a href="#cb41-1"></a>#&gt; FileSystemDataset with 1 Parquet file</span>
+<span id="cb41-2"><a href="#cb41-2"></a>#&gt; 12,654,304 rows x 12 columns</span>
+<span id="cb41-3"><a href="#cb41-3"></a>#&gt; $ company_id                 &lt;int32&gt; 71668, 5070, 117119, 5070, 117119, 7920, 52…</span>
+<span id="cb41-4"><a href="#cb41-4"></a>#&gt; $ founded_on           &lt;date32[day]&gt; 2019-01-01, 2014-07-01, 2015-01-01, 2014-07…</span>
+<span id="cb41-5"><a href="#cb41-5"></a>#&gt; $ id_cs                      &lt;int32&gt; 23865165, 10861408, 10861408, 10861408, 108…</span>
+<span id="cb41-6"><a href="#cb41-6"></a>#&gt; $ exp_id_cs                 &lt;double&gt; 1927546132, 1267852578, 1267852578, 2670635…</span>
+<span id="cb41-7"><a href="#cb41-7"></a>#&gt; $ member_id_cs               &lt;int32&gt; 1874511, 1874513, 1874513, 1874513, 1874513…</span>
+<span id="cb41-8"><a href="#cb41-8"></a>#&gt; $ company_name_cs           &lt;string&gt; "Three Good", "Point", "Point", "Point", "P…</span>
+<span id="cb41-9"><a href="#cb41-9"></a>#&gt; $ title_cs                  &lt;string&gt; "Founder &amp; CEO", "Customer Operations at Po…</span>
+<span id="cb41-10"><a href="#cb41-10"></a>#&gt; $ date_from_parsed_cs  &lt;date32[day]&gt; 2015-04-01, 2018-01-01, 2018-01-01, 2018-11…</span>
+<span id="cb41-11"><a href="#cb41-11"></a>#&gt; $ date_to_parsed_cs    &lt;date32[day]&gt; NA, NA, NA, NA, NA, NA, 2019-04-01, 2019-04…</span>
+<span id="cb41-12"><a href="#cb41-12"></a>#&gt; $ tjoin_tfound              &lt;double&gt; -45, 42, 36, 52, 46, 50, 105, -33, 49, 131,…</span>
+<span id="cb41-13"><a href="#cb41-13"></a>#&gt; $ raised_amount_before_join &lt;double&gt; 0, 11399999, 12100000, 11399999, 12100000, …</span>
+<span id="cb41-14"><a href="#cb41-14"></a>#&gt; $ num_rounds_before_join    &lt;double&gt; 0, 2, 3, 2, 3, 6, 9, 0, 6, 9, 12, 7, 4, 9, …</span>
+<span id="cb41-15"><a href="#cb41-15"></a>#&gt; Call `print()` for full schema details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1078,29 +1045,26 @@ Joschka Schwarz
 <div id="tabset-4-1">
 <p>Separate between “Founder” &amp; “Non-Founder” and calculate summary statistics necessary for plotting.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb43-2"><a href="#cb43-2"></a></span>
-<span id="cb43-3"><a href="#cb43-3"></a>lookup_term <span class="ot">&lt;-</span> <span class="st">"founder"</span></span>
-<span id="cb43-4"><a href="#cb43-4"></a>data        <span class="ot">&lt;-</span> me_joined_nested_foc_prqt <span class="sc">|&gt;</span> </span>
-<span id="cb43-5"><a href="#cb43-5"></a>                  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(title_cs)) <span class="sc">|&gt;</span> </span>
-<span id="cb43-6"><a href="#cb43-6"></a>                  <span class="fu">mutate</span>(<span class="at">Role =</span> title_cs <span class="sc">|&gt;</span> <span class="fu">tolower</span>() <span class="sc">|&gt;</span> <span class="fu">str_detect</span>(lookup_term)) <span class="sc">|&gt;</span> </span>
-<span id="cb43-7"><a href="#cb43-7"></a>                  <span class="fu">collect</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb43-8"><a href="#cb43-8"></a>                  <span class="fu">mutate</span>(</span>
-<span id="cb43-9"><a href="#cb43-9"></a>                    <span class="at">Role =</span> Role <span class="sc">|&gt;</span> <span class="fu">factor</span>(<span class="at">levels =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), </span>
-<span id="cb43-10"><a href="#cb43-10"></a>                                                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'Founder'</span>, <span class="st">'Non-Founder'</span>))</span>
-<span id="cb43-11"><a href="#cb43-11"></a>                    ) </span>
-<span id="cb43-12"><a href="#cb43-12"></a></span>
-<span id="cb43-13"><a href="#cb43-13"></a><span class="co"># Summary Statistics (Mean &amp; Median)</span></span>
-<span id="cb43-14"><a href="#cb43-14"></a>df_vline_long <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> </span>
-<span id="cb43-15"><a href="#cb43-15"></a>                    <span class="fu">group_by</span>(Role) <span class="sc">|&gt;</span> </span>
-<span id="cb43-16"><a href="#cb43-16"></a>                    <span class="co"># Statistics</span></span>
-<span id="cb43-17"><a href="#cb43-17"></a>                    <span class="fu">summarise</span>(<span class="at">Mean   =</span> <span class="fu">mean</span>(tjoin_tfound), </span>
-<span id="cb43-18"><a href="#cb43-18"></a>                              <span class="at">Median =</span> <span class="fu">median</span>(tjoin_tfound)) <span class="sc">|&gt;</span> </span>
-<span id="cb43-19"><a href="#cb43-19"></a>                    <span class="co"># Manipulate for ggplot </span></span>
-<span id="cb43-20"><a href="#cb43-20"></a>                    <span class="fu">pivot_longer</span>(<span class="fu">c</span>(Mean, Median), <span class="at">names_to =</span> <span class="st">"Statistic"</span>, <span class="at">values_to =</span> <span class="st">"Value"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb43-21"><a href="#cb43-21"></a>                    <span class="fu">mutate</span>(<span class="at">Value    =</span> Value <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="at">digits =</span> <span class="dv">1</span>),</span>
-<span id="cb43-22"><a href="#cb43-22"></a>                           <span class="at">gg_pos_y =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="fl">0.07</span>,<span class="fl">0.06</span>),<span class="dv">2</span>),</span>
-<span id="cb43-23"><a href="#cb43-23"></a>                           <span class="at">gg_color =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"#7200FE"</span>, <span class="st">"#FF7E15"</span>), <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb42-2"><a href="#cb42-2"></a></span>
+<span id="cb42-3"><a href="#cb42-3"></a>lookup_term <span class="ot">&lt;-</span> <span class="st">"founder"</span></span>
+<span id="cb42-4"><a href="#cb42-4"></a>data        <span class="ot">&lt;-</span> me_joined_nested_foc_prqt <span class="sc">|&gt;</span> </span>
+<span id="cb42-5"><a href="#cb42-5"></a>                  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(title_cs)) <span class="sc">|&gt;</span> </span>
+<span id="cb42-6"><a href="#cb42-6"></a>                  <span class="fu">mutate</span>(<span class="at">Role =</span> title_cs <span class="sc">|&gt;</span> <span class="fu">tolower</span>() <span class="sc">|&gt;</span> <span class="fu">str_detect</span>(lookup_term)) <span class="sc">|&gt;</span> </span>
+<span id="cb42-7"><a href="#cb42-7"></a>                  <span class="fu">collect</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb42-8"><a href="#cb42-8"></a>                  <span class="fu">mutate</span>(</span>
+<span id="cb42-9"><a href="#cb42-9"></a>                    <span class="at">Role =</span> Role <span class="sc">|&gt;</span> <span class="fu">factor</span>(<span class="at">levels =</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), </span>
+<span id="cb42-10"><a href="#cb42-10"></a>                                                <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'Founder'</span>, <span class="st">'Non-Founder'</span>))</span>
+<span id="cb42-11"><a href="#cb42-11"></a>                    ) </span>
+<span id="cb42-12"><a href="#cb42-12"></a></span>
+<span id="cb42-13"><a href="#cb42-13"></a><span class="co"># Summary Statistics (Mean &amp; Median)</span></span>
+<span id="cb42-14"><a href="#cb42-14"></a>df_vline_long <span class="ot">&lt;-</span> data <span class="sc">|&gt;</span> </span>
+<span id="cb42-15"><a href="#cb42-15"></a>  <span class="fu">group_by</span>(Role) <span class="sc">|&gt;</span> </span>
+<span id="cb42-16"><a href="#cb42-16"></a>  <span class="fu">summarise</span>(<span class="at">Mean =</span> <span class="fu">mean</span>(tjoin_tfound), <span class="at">Median =</span> <span class="fu">median</span>(tjoin_tfound), <span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span> </span>
+<span id="cb42-17"><a href="#cb42-17"></a>  <span class="fu">pivot_longer</span>(<span class="fu">c</span>(Mean, Median,n ), <span class="at">names_to =</span> <span class="st">"Statistic"</span>, <span class="at">values_to =</span> <span class="st">"Value"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb42-18"><a href="#cb42-18"></a>  <span class="fu">mutate</span>(<span class="at">Value_chr    =</span> <span class="fu">format</span>(<span class="fu">round</span>(Value, <span class="dv">1</span>), <span class="at">big.mark=</span><span class="st">"."</span>, <span class="at">decimal.mark =</span> <span class="st">","</span>, <span class="at">drop0trailing =</span> T),</span>
+<span id="cb42-19"><a href="#cb42-19"></a>         <span class="at">gg_pos_y =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="fl">0.07</span>,<span class="fl">0.06</span>, <span class="fl">0.05</span>),<span class="dv">2</span>),</span>
+<span id="cb42-20"><a href="#cb42-20"></a>         <span class="at">gg_color =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"#8F8470"</span>, <span class="st">"#BF9240"</span>, <span class="st">"#FEA400"</span>), <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <style type="text/css">
@@ -1114,23 +1078,23 @@ Joschka Schwarz
 <p>How many month have passed since the company was founded and before the person joined the company (binwidth: 3 months)?</p>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>data <span class="sc">|&gt;</span> </span>
-<span id="cb44-2"><a href="#cb44-2"></a>  </span>
-<span id="cb44-3"><a href="#cb44-3"></a>  <span class="co"># Plot</span></span>
-<span id="cb44-4"><a href="#cb44-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> tjoin_tfound, <span class="at">fill =</span> Role, <span class="at">color =</span> Role)) <span class="sc">+</span></span>
-<span id="cb44-5"><a href="#cb44-5"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span>..density..), <span class="at">size =</span> .<span class="dv">2</span>, <span class="at">binwidth =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb44-6"><a href="#cb44-6"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Role, <span class="at">nrow=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb44-7"><a href="#cb44-7"></a>  </span>
-<span id="cb44-8"><a href="#cb44-8"></a>  <span class="co"># Statistics &amp; Design</span></span>
-<span id="cb44-9"><a href="#cb44-9"></a>  ggnewscale<span class="sc">::</span><span class="fu">new_scale_color</span>() <span class="sc">+</span></span>
-<span id="cb44-10"><a href="#cb44-10"></a>  <span class="fu">geom_vline</span>(<span class="at">data =</span> df_vline_long, <span class="fu">aes</span>(<span class="at">xintercept =</span> Value, <span class="at">linetype =</span> Statistic, <span class="at">color =</span> Statistic), <span class="at">key_glyph =</span> <span class="st">"path"</span>) <span class="sc">+</span></span>
-<span id="cb44-11"><a href="#cb44-11"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)) <span class="sc">+</span></span>
-<span id="cb44-12"><a href="#cb44-12"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#7200FE"</span>, <span class="st">"#FF7E15"</span>)) <span class="sc">+</span></span>
-<span id="cb44-13"><a href="#cb44-13"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> df_vline_long, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">125</span>, <span class="at">y =</span> gg_pos_y, <span class="at">label =</span> <span class="fu">paste0</span>(Statistic, <span class="st">' = '</span>, Value)), </span>
-<span id="cb44-14"><a href="#cb44-14"></a>             <span class="at">color =</span> df_vline_long<span class="sc">$</span>gg_color, <span class="at">fill =</span> <span class="st">"transparent"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb44-15"><a href="#cb44-15"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">250</span>, <span class="dv">250</span>) <span class="sc">+</span></span>
-<span id="cb44-16"><a href="#cb44-16"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Δ T_join, T_foundation (in month)"</span>, <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span> </span>
-<span id="cb44-17"><a href="#cb44-17"></a>  <span class="fu">theme</span>(<span class="at">legend.key=</span><span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb43-2"><a href="#cb43-2"></a>  </span>
+<span id="cb43-3"><a href="#cb43-3"></a>  <span class="co"># Plot</span></span>
+<span id="cb43-4"><a href="#cb43-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> tjoin_tfound, <span class="at">fill =</span> Role, <span class="at">color =</span> Role)) <span class="sc">+</span></span>
+<span id="cb43-5"><a href="#cb43-5"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span>..density..), <span class="at">size =</span> .<span class="dv">2</span>, <span class="at">binwidth =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb43-6"><a href="#cb43-6"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Role, <span class="at">nrow=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb43-7"><a href="#cb43-7"></a>  </span>
+<span id="cb43-8"><a href="#cb43-8"></a>  <span class="co"># Statistics &amp; Design</span></span>
+<span id="cb43-9"><a href="#cb43-9"></a>  ggnewscale<span class="sc">::</span><span class="fu">new_scale_color</span>() <span class="sc">+</span></span>
+<span id="cb43-10"><a href="#cb43-10"></a>  <span class="fu">geom_vline</span>(<span class="at">data =</span> df_vline_long <span class="sc">|&gt;</span> <span class="fu">filter</span>(Statistic <span class="sc">!=</span> <span class="st">"n"</span>), <span class="fu">aes</span>(<span class="at">xintercept =</span> Value, <span class="at">linetype =</span> Statistic, <span class="at">color =</span> Statistic), <span class="at">key_glyph =</span> <span class="st">"path"</span>) <span class="sc">+</span></span>
+<span id="cb43-11"><a href="#cb43-11"></a>  <span class="fu">scale_linetype_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb43-12"><a href="#cb43-12"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#8F8470"</span>, <span class="st">"#BF9240"</span>, <span class="st">"#FEA400"</span>)) <span class="sc">+</span></span>
+<span id="cb43-13"><a href="#cb43-13"></a>  <span class="fu">geom_label</span>(<span class="at">data =</span> df_vline_long, <span class="fu">aes</span>(<span class="at">x =</span> <span class="dv">100</span>, <span class="at">y =</span> gg_pos_y, <span class="at">label =</span> <span class="fu">paste0</span>(Statistic, <span class="st">' = '</span>, Value_chr)), </span>
+<span id="cb43-14"><a href="#cb43-14"></a>             <span class="at">color =</span> df_vline_long<span class="sc">$</span>gg_color, <span class="at">fill =</span> <span class="st">"transparent"</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">3</span>, <span class="at">hjust =</span> <span class="st">"left"</span>) <span class="sc">+</span></span>
+<span id="cb43-15"><a href="#cb43-15"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">250</span>, <span class="dv">250</span>) <span class="sc">+</span></span>
+<span id="cb43-16"><a href="#cb43-16"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Δ T_join, T_foundation (in month)"</span>, <span class="at">y =</span> <span class="st">"Density"</span>) <span class="sc">+</span> </span>
+<span id="cb43-17"><a href="#cb43-17"></a>  <span class="fu">theme</span>(<span class="at">legend.key=</span><span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1146,16 +1110,16 @@ Joschka Schwarz
 <p>How much capital has been acquired by the time the person joins?</p>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>data <span class="sc">|&gt;</span> </span>
-<span id="cb45-2"><a href="#cb45-2"></a>  </span>
-<span id="cb45-3"><a href="#cb45-3"></a>  <span class="co"># Plot</span></span>
-<span id="cb45-4"><a href="#cb45-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> raised_amount_before_join, <span class="at">color =</span> Role, <span class="at">fill =</span> Role)) <span class="sc">+</span> </span>
-<span id="cb45-5"><a href="#cb45-5"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span>..density..), <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb45-6"><a href="#cb45-6"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Role, <span class="at">nrow=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb45-7"><a href="#cb45-7"></a>  </span>
-<span id="cb45-8"><a href="#cb45-8"></a>  <span class="co"># Design</span></span>
-<span id="cb45-9"><a href="#cb45-9"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">prefix =</span> <span class="st">"$"</span>, <span class="at">accuracy =</span> <span class="fl">0.1</span>, <span class="at">scale_cut =</span> scales<span class="sc">::</span><span class="fu">cut_short_scale</span>()), <span class="at">limits =</span> <span class="fu">c</span>(<span class="cn">NA</span>,<span class="fl">1e+09</span>)) <span class="sc">+</span></span>
-<span id="cb45-10"><a href="#cb45-10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Raised amount before join"</span>, <span class="at">y =</span> <span class="st">"Density"</span>, <span class="at">fill=</span><span class="st">""</span>, <span class="at">color =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb44-2"><a href="#cb44-2"></a>  </span>
+<span id="cb44-3"><a href="#cb44-3"></a>  <span class="co"># Plot</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> raised_amount_before_join, <span class="at">color =</span> Role, <span class="at">fill =</span> Role)) <span class="sc">+</span> </span>
+<span id="cb44-5"><a href="#cb44-5"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span>..density..), <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb44-6"><a href="#cb44-6"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Role, <span class="at">nrow=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb44-7"><a href="#cb44-7"></a>  </span>
+<span id="cb44-8"><a href="#cb44-8"></a>  <span class="co"># Design</span></span>
+<span id="cb44-9"><a href="#cb44-9"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">label_number</span>(<span class="at">prefix =</span> <span class="st">"$"</span>, <span class="at">accuracy =</span> <span class="fl">0.1</span>, <span class="at">scale_cut =</span> scales<span class="sc">::</span><span class="fu">cut_short_scale</span>()), <span class="at">limits =</span> <span class="fu">c</span>(<span class="cn">NA</span>,<span class="fl">1e+09</span>)) <span class="sc">+</span></span>
+<span id="cb44-10"><a href="#cb44-10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Raised amount before join"</span>, <span class="at">y =</span> <span class="st">"Density"</span>, <span class="at">fill=</span><span class="st">""</span>, <span class="at">color =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1171,15 +1135,15 @@ Joschka Schwarz
 <p>How many funding rounds have been acquired by the time the person joins?</p>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>data <span class="sc">|&gt;</span> </span>
-<span id="cb46-2"><a href="#cb46-2"></a>  </span>
-<span id="cb46-3"><a href="#cb46-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> num_rounds_before_join, <span class="at">color =</span> Role, <span class="at">fill =</span> Role)) <span class="sc">+</span> </span>
-<span id="cb46-4"><a href="#cb46-4"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span>..density..), <span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb46-5"><a href="#cb46-5"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Role, <span class="at">nrow=</span><span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb46-6"><a href="#cb46-6"></a>  </span>
-<span id="cb46-7"><a href="#cb46-7"></a>  <span class="co"># Design</span></span>
-<span id="cb46-8"><a href="#cb46-8"></a>  <span class="fu">xlim</span>(<span class="cn">NA</span>, <span class="dv">20</span>) <span class="sc">+</span></span>
-<span id="cb46-9"><a href="#cb46-9"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"# Rounds before join"</span>, <span class="at">y =</span> <span class="st">"Density"</span>, <span class="at">fill=</span><span class="st">""</span>, <span class="at">color =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb45-2"><a href="#cb45-2"></a>  </span>
+<span id="cb45-3"><a href="#cb45-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> num_rounds_before_join, <span class="at">color =</span> Role, <span class="at">fill =</span> Role)) <span class="sc">+</span> </span>
+<span id="cb45-4"><a href="#cb45-4"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">y =</span>..density..), <span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb45-5"><a href="#cb45-5"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Role, <span class="at">nrow=</span><span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb45-6"><a href="#cb45-6"></a>  </span>
+<span id="cb45-7"><a href="#cb45-7"></a>  <span class="co"># Design</span></span>
+<span id="cb45-8"><a href="#cb45-8"></a>  <span class="fu">xlim</span>(<span class="cn">NA</span>, <span class="dv">20</span>) <span class="sc">+</span></span>
+<span id="cb45-9"><a href="#cb45-9"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"# Rounds before join"</span>, <span class="at">y =</span> <span class="st">"Density"</span>, <span class="at">fill=</span><span class="st">""</span>, <span class="at">color =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -1197,33 +1161,33 @@ Joschka Schwarz
 <section id="fortune500" class="slide level2">
 <h2>Fortune500</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>me_matched_members_dt <span class="ot">&lt;-</span> me_matched_members_prqt <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span>
-<span id="cb47-2"><a href="#cb47-2"></a></span>
-<span id="cb47-3"><a href="#cb47-3"></a><span class="co"># 46 Batches (Chunks with 5 Million rows)</span></span>
-<span id="cb47-4"><a href="#cb47-4"></a>slice_ids <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">from =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">230000000</span>, <span class="dv">5000000</span>),<span class="at">to =</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">5000000</span>, <span class="dv">225000000</span>, <span class="dv">5000000</span>), <span class="dv">229065592</span>))</span>
-<span id="cb47-5"><a href="#cb47-5"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">46</span>) {</span>
-<span id="cb47-6"><a href="#cb47-6"></a>  <span class="co"># Build Batch</span></span>
-<span id="cb47-7"><a href="#cb47-7"></a>  x <span class="ot">&lt;-</span> slice_ids<span class="sc">$</span>from[i]; y <span class="ot">&lt;-</span> slice_ids<span class="sc">$</span>to[i]</span>
-<span id="cb47-8"><a href="#cb47-8"></a>  me_matched_members_slice_dt <span class="ot">&lt;-</span> me_matched_members_dt[x<span class="sc">:</span>y,]</span>
-<span id="cb47-9"><a href="#cb47-9"></a>  <span class="co"># Create Features</span></span>
-<span id="cb47-10"><a href="#cb47-10"></a>  me_matched_members_slice_dt[, <span class="st">`</span><span class="at">:=</span><span class="st">`</span> (<span class="at">f500 =</span> (purrr<span class="sc">::</span><span class="fu">pmap_lgl</span>(<span class="fu">list</span>(company_name, date_from_parsed, date_to_parsed), check_f500, <span class="at">.progress =</span> <span class="cn">TRUE</span>)),</span>
-<span id="cb47-11"><a href="#cb47-11"></a>                                      <span class="at">role =</span> title <span class="sc">|&gt;</span> <span class="fu">tolower</span>() <span class="sc">|&gt;</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(<span class="st">"founder"</span>))]</span>
-<span id="cb47-12"><a href="#cb47-12"></a>  <span class="co"># Save</span></span>
-<span id="cb47-13"><a href="#cb47-13"></a>  me_matched_members_slice_dt <span class="sc">|&gt;</span> <span class="fu">write_parquet</span>(<span class="fu">paste0</span>(<span class="st">"/media/tie/ssd2/joschka/me_f500/me_f500_"</span>, cur_id, <span class="st">".parquet"</span>))</span>
-<span id="cb47-14"><a href="#cb47-14"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a>me_matched_members_dt <span class="ot">&lt;-</span> me_matched_members_prqt <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span>
+<span id="cb46-2"><a href="#cb46-2"></a></span>
+<span id="cb46-3"><a href="#cb46-3"></a><span class="co"># 46 Batches (Chunks with 5 Million rows)</span></span>
+<span id="cb46-4"><a href="#cb46-4"></a>slice_ids <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">from =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">230000000</span>, <span class="dv">5000000</span>),<span class="at">to =</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">5000000</span>, <span class="dv">225000000</span>, <span class="dv">5000000</span>), <span class="dv">229065592</span>))</span>
+<span id="cb46-5"><a href="#cb46-5"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">46</span>) {</span>
+<span id="cb46-6"><a href="#cb46-6"></a>  <span class="co"># Build Batch</span></span>
+<span id="cb46-7"><a href="#cb46-7"></a>  x <span class="ot">&lt;-</span> slice_ids<span class="sc">$</span>from[i]; y <span class="ot">&lt;-</span> slice_ids<span class="sc">$</span>to[i]</span>
+<span id="cb46-8"><a href="#cb46-8"></a>  me_matched_members_slice_dt <span class="ot">&lt;-</span> me_matched_members_dt[x<span class="sc">:</span>y,]</span>
+<span id="cb46-9"><a href="#cb46-9"></a>  <span class="co"># Create Features</span></span>
+<span id="cb46-10"><a href="#cb46-10"></a>  me_matched_members_slice_dt[, <span class="st">`</span><span class="at">:=</span><span class="st">`</span> (<span class="at">f500 =</span> (purrr<span class="sc">::</span><span class="fu">pmap_lgl</span>(<span class="fu">list</span>(company_name, date_from_parsed, date_to_parsed), check_f500, <span class="at">.progress =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb46-11"><a href="#cb46-11"></a>                                      <span class="at">role =</span> title <span class="sc">|&gt;</span> <span class="fu">tolower</span>() <span class="sc">|&gt;</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(<span class="st">"founder"</span>))]</span>
+<span id="cb46-12"><a href="#cb46-12"></a>  <span class="co"># Save</span></span>
+<span id="cb46-13"><a href="#cb46-13"></a>  me_matched_members_slice_dt <span class="sc">|&gt;</span> <span class="fu">write_parquet</span>(<span class="fu">paste0</span>(<span class="st">"/media/tie/ssd2/joschka/me_f500/me_f500_"</span>, cur_id, <span class="st">".parquet"</span>))</span>
+<span id="cb46-14"><a href="#cb46-14"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a>check_f500 <span class="ot">&lt;-</span> <span class="cf">function</span>(name,year_from,year_to) {</span>
-<span id="cb48-2"><a href="#cb48-2"></a>  </span>
-<span id="cb48-3"><a href="#cb48-3"></a>  <span class="cf">if</span> (<span class="fu">is.na</span>(year_to))   {year_to <span class="ot">&lt;-</span> <span class="dv">2023</span>}</span>
-<span id="cb48-4"><a href="#cb48-4"></a>  <span class="cf">if</span> (<span class="fu">is.na</span>(year_from)) {<span class="fu">return</span>(<span class="cn">NA</span>)}</span>
-<span id="cb48-5"><a href="#cb48-5"></a>  </span>
-<span id="cb48-6"><a href="#cb48-6"></a>  data <span class="ot">&lt;-</span> fortune500 <span class="sc">|&gt;</span> </span>
-<span id="cb48-7"><a href="#cb48-7"></a>    <span class="fu">filter</span>(year <span class="sc">|&gt;</span> <span class="fu">between</span>(year_from, year_to)) <span class="sc">|&gt;</span> </span>
-<span id="cb48-8"><a href="#cb48-8"></a>    <span class="fu">pull</span>(company)</span>
-<span id="cb48-9"><a href="#cb48-9"></a>  </span>
-<span id="cb48-10"><a href="#cb48-10"></a>  name <span class="sc">|&gt;</span> <span class="fu">tolower</span>() <span class="sc">%in%</span> data</span>
-<span id="cb48-11"><a href="#cb48-11"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a>check_f500 <span class="ot">&lt;-</span> <span class="cf">function</span>(name,year_from,year_to) {</span>
+<span id="cb47-2"><a href="#cb47-2"></a>  </span>
+<span id="cb47-3"><a href="#cb47-3"></a>  <span class="cf">if</span> (<span class="fu">is.na</span>(year_to))   {year_to <span class="ot">&lt;-</span> <span class="dv">2023</span>}</span>
+<span id="cb47-4"><a href="#cb47-4"></a>  <span class="cf">if</span> (<span class="fu">is.na</span>(year_from)) {<span class="fu">return</span>(<span class="cn">NA</span>)}</span>
+<span id="cb47-5"><a href="#cb47-5"></a>  </span>
+<span id="cb47-6"><a href="#cb47-6"></a>  data <span class="ot">&lt;-</span> fortune500 <span class="sc">|&gt;</span> </span>
+<span id="cb47-7"><a href="#cb47-7"></a>    <span class="fu">filter</span>(year <span class="sc">|&gt;</span> <span class="fu">between</span>(year_from, year_to)) <span class="sc">|&gt;</span> </span>
+<span id="cb47-8"><a href="#cb47-8"></a>    <span class="fu">pull</span>(company)</span>
+<span id="cb47-9"><a href="#cb47-9"></a>  </span>
+<span id="cb47-10"><a href="#cb47-10"></a>  name <span class="sc">|&gt;</span> <span class="fu">tolower</span>() <span class="sc">%in%</span> data</span>
+<span id="cb47-11"><a href="#cb47-11"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section>
 <section>
@@ -1252,62 +1216,62 @@ Joschka Schwarz
 <h2>Code I (Data + Function)</h2>
 <p>Function</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># 1. Function</span></span>
-<span id="cb49-2"><a href="#cb49-2"></a>check_f500 <span class="ot">&lt;-</span> <span class="cf">function</span>(title, year_from, year_to) {</span>
-<span id="cb49-3"><a href="#cb49-3"></a>  </span>
-<span id="cb49-4"><a href="#cb49-4"></a>  <span class="co"># Handle NA inputs</span></span>
-<span id="cb49-5"><a href="#cb49-5"></a>  <span class="cf">if</span> (<span class="fu">is.na</span>(year_to))   {year_to <span class="ot">&lt;-</span> <span class="dv">2023</span>}</span>
-<span id="cb49-6"><a href="#cb49-6"></a>  <span class="cf">if</span> (<span class="fu">is.na</span>(year_from)) {<span class="fu">return</span>(<span class="cn">NA</span>)}</span>
-<span id="cb49-7"><a href="#cb49-7"></a>  </span>
-<span id="cb49-8"><a href="#cb49-8"></a>  <span class="co"># Filter time frame</span></span>
-<span id="cb49-9"><a href="#cb49-9"></a>  data <span class="ot">&lt;-</span> fortune500 <span class="sc">|&gt;</span> </span>
-<span id="cb49-10"><a href="#cb49-10"></a>    </span>
-<span id="cb49-11"><a href="#cb49-11"></a>    <span class="fu">filter</span>(year <span class="sc">|&gt;</span> <span class="fu">between</span>(year_from, year_to)) <span class="sc">|&gt;</span> </span>
-<span id="cb49-12"><a href="#cb49-12"></a>    <span class="fu">pull</span>(company)</span>
-<span id="cb49-13"><a href="#cb49-13"></a>  </span>
-<span id="cb49-14"><a href="#cb49-14"></a>  <span class="co"># Check match and return bool</span></span>
-<span id="cb49-15"><a href="#cb49-15"></a>  title <span class="sc">|&gt;</span> <span class="fu">tolower</span>() <span class="sc">%in%</span> data</span>
-<span id="cb49-16"><a href="#cb49-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="co"># 1. Function</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>check_f500 <span class="ot">&lt;-</span> <span class="cf">function</span>(title, year_from, year_to) {</span>
+<span id="cb48-3"><a href="#cb48-3"></a>  </span>
+<span id="cb48-4"><a href="#cb48-4"></a>  <span class="co"># Handle NA inputs</span></span>
+<span id="cb48-5"><a href="#cb48-5"></a>  <span class="cf">if</span> (<span class="fu">is.na</span>(year_to))   {year_to <span class="ot">&lt;-</span> <span class="dv">2023</span>}</span>
+<span id="cb48-6"><a href="#cb48-6"></a>  <span class="cf">if</span> (<span class="fu">is.na</span>(year_from)) {<span class="fu">return</span>(<span class="cn">NA</span>)}</span>
+<span id="cb48-7"><a href="#cb48-7"></a>  </span>
+<span id="cb48-8"><a href="#cb48-8"></a>  <span class="co"># Filter time frame</span></span>
+<span id="cb48-9"><a href="#cb48-9"></a>  data <span class="ot">&lt;-</span> fortune500 <span class="sc">|&gt;</span> </span>
+<span id="cb48-10"><a href="#cb48-10"></a>    </span>
+<span id="cb48-11"><a href="#cb48-11"></a>    <span class="fu">filter</span>(year <span class="sc">|&gt;</span> <span class="fu">between</span>(year_from, year_to)) <span class="sc">|&gt;</span> </span>
+<span id="cb48-12"><a href="#cb48-12"></a>    <span class="fu">pull</span>(company)</span>
+<span id="cb48-13"><a href="#cb48-13"></a>  </span>
+<span id="cb48-14"><a href="#cb48-14"></a>  <span class="co"># Check match and return bool</span></span>
+<span id="cb48-15"><a href="#cb48-15"></a>  title <span class="sc">|&gt;</span> <span class="fu">tolower</span>() <span class="sc">%in%</span> data</span>
+<span id="cb48-16"><a href="#cb48-16"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p>CoreSignal data (n = 229.065.592)</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="co"># 1. Data</span></span>
-<span id="cb50-2"><a href="#cb50-2"></a>me_matched_members_prqt <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"me_matched_members.parquet"</span>) </span>
-<span id="cb50-3"><a href="#cb50-3"></a>me_matched_members_prqt <span class="sc">|&gt;</span> </span>
-<span id="cb50-4"><a href="#cb50-4"></a>  </span>
-<span id="cb50-5"><a href="#cb50-5"></a>  <span class="fu">head</span>() <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="co"># 1. Data</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>me_matched_members_prqt <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"me_matched_members.parquet"</span>) </span>
+<span id="cb49-3"><a href="#cb49-3"></a>me_matched_members_prqt <span class="sc">|&gt;</span> </span>
+<span id="cb49-4"><a href="#cb49-4"></a>  </span>
+<span id="cb49-5"><a href="#cb49-5"></a>  <span class="fu">head</span>() <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb51"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb51-1"><a href="#cb51-1"></a>#&gt; # A tibble: 6 × 5</span>
-<span id="cb51-2"><a href="#cb51-2"></a>#&gt;           id company_name           title        date_from_parsed date_to_parsed</span>
-<span id="cb51-3"><a href="#cb51-3"></a>#&gt;        &lt;dbl&gt; &lt;chr&gt;                  &lt;chr&gt;                   &lt;int&gt;          &lt;int&gt;</span>
-<span id="cb51-4"><a href="#cb51-4"></a>#&gt; 1 1908390340 kony, inc.             Senior Soft…             2015             NA</span>
-<span id="cb51-5"><a href="#cb51-5"></a>#&gt; 2 2280918355 senai cetiqt           Consultor p…             2019             NA</span>
-<span id="cb51-6"><a href="#cb51-6"></a>#&gt; 3 2949864669 harmony baby nutrition Bioprocess …             2021             NA</span>
-<span id="cb51-7"><a href="#cb51-7"></a>#&gt; # ℹ 3 more rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb50-1"><a href="#cb50-1"></a>#&gt; # A tibble: 6 × 7</span>
+<span id="cb50-2"><a href="#cb50-2"></a>#&gt;       id member_id company_id company_name title date_from_parsed date_to_parsed</span>
+<span id="cb50-3"><a href="#cb50-3"></a>#&gt;    &lt;dbl&gt;     &lt;int&gt;      &lt;int&gt; &lt;chr&gt;        &lt;chr&gt; &lt;date&gt;           &lt;date&gt;        </span>
+<span id="cb50-4"><a href="#cb50-4"></a>#&gt; 1 6.07e8   2605953         NA arkansas se… Corp… 2015-02-01       NA            </span>
+<span id="cb50-5"><a href="#cb50-5"></a>#&gt; 2 6.07e8   2605953         NA freelance m… Free… 2016-05-01       NA            </span>
+<span id="cb50-6"><a href="#cb50-6"></a>#&gt; 3 6.30e8   2605953   10415396 101 magazine Cont… 2012-08-01       2014-05-01    </span>
+<span id="cb50-7"><a href="#cb50-7"></a>#&gt; # ℹ 3 more rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <p>US Fortune 500 data</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1"></a>fortune500 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"fortune_500_1955-2022.rds"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb52-2"><a href="#cb52-2"></a>                </span>
-<span id="cb52-3"><a href="#cb52-3"></a>                <span class="fu">select</span>(year, company) <span class="sc">|&gt;</span> </span>
-<span id="cb52-4"><a href="#cb52-4"></a>                <span class="fu">mutate</span>(<span class="at">company =</span> company <span class="sc">|&gt;</span> <span class="fu">tolower</span>())</span>
-<span id="cb52-5"><a href="#cb52-5"></a>fortune500</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a>fortune500 <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"fortune_500_1955-2022.rds"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb51-2"><a href="#cb51-2"></a>                </span>
+<span id="cb51-3"><a href="#cb51-3"></a>                <span class="fu">select</span>(year, company) <span class="sc">|&gt;</span> </span>
+<span id="cb51-4"><a href="#cb51-4"></a>                <span class="fu">mutate</span>(<span class="at">company =</span> company <span class="sc">|&gt;</span> <span class="fu">tolower</span>())</span>
+<span id="cb51-5"><a href="#cb51-5"></a>fortune500</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb53"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb53-1"><a href="#cb53-1"></a>#&gt; # A tibble: 34,000 × 2</span>
-<span id="cb53-2"><a href="#cb53-2"></a>#&gt;    year company       </span>
-<span id="cb53-3"><a href="#cb53-3"></a>#&gt;   &lt;dbl&gt; &lt;chr&gt;         </span>
-<span id="cb53-4"><a href="#cb53-4"></a>#&gt; 1  1955 general motors</span>
-<span id="cb53-5"><a href="#cb53-5"></a>#&gt; 2  1955 exxon mobil   </span>
-<span id="cb53-6"><a href="#cb53-6"></a>#&gt; 3  1955 u.s. steel    </span>
-<span id="cb53-7"><a href="#cb53-7"></a>#&gt; # ℹ 33,997 more rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb52-1"><a href="#cb52-1"></a>#&gt; # A tibble: 34,000 × 2</span>
+<span id="cb52-2"><a href="#cb52-2"></a>#&gt;    year company       </span>
+<span id="cb52-3"><a href="#cb52-3"></a>#&gt;   &lt;dbl&gt; &lt;chr&gt;         </span>
+<span id="cb52-4"><a href="#cb52-4"></a>#&gt; 1  1955 general motors</span>
+<span id="cb52-5"><a href="#cb52-5"></a>#&gt; 2  1955 exxon mobil   </span>
+<span id="cb52-6"><a href="#cb52-6"></a>#&gt; 3  1955 u.s. steel    </span>
+<span id="cb52-7"><a href="#cb52-7"></a>#&gt; # ℹ 33,997 more rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1316,49 +1280,49 @@ Joschka Schwarz
 <section id="code-ii-chunkwise-execution" class="slide level2">
 <h2>Code II (Chunkwise Execution)</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># 1. Collect data</span></span>
-<span id="cb54-2"><a href="#cb54-2"></a>me_matched_members_dt <span class="ot">&lt;-</span> me_matched_members_prqt <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span>
-<span id="cb54-3"><a href="#cb54-3"></a><span class="co"># 2.Build batches</span></span>
-<span id="cb54-4"><a href="#cb54-4"></a>slice_ids <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb54-5"><a href="#cb54-5"></a>  <span class="at">from  =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">230000000</span>, <span class="dv">5000000</span>),</span>
-<span id="cb54-6"><a href="#cb54-6"></a>  <span class="at">to    =</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">5000000</span>, <span class="dv">225000000</span>, <span class="dv">5000000</span>), <span class="dv">229065592</span>),</span>
-<span id="cb54-7"><a href="#cb54-7"></a>)</span>
-<span id="cb54-8"><a href="#cb54-8"></a></span>
-<span id="cb54-9"><a href="#cb54-9"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">46</span>) {</span>
-<span id="cb54-10"><a href="#cb54-10"></a></span>
-<span id="cb54-11"><a href="#cb54-11"></a>  <span class="co"># Create current batch  </span></span>
-<span id="cb54-12"><a href="#cb54-12"></a>  x <span class="ot">&lt;-</span> slice_ids<span class="sc">$</span>from[i]</span>
-<span id="cb54-13"><a href="#cb54-13"></a>  y <span class="ot">&lt;-</span> slice_ids<span class="sc">$</span>to[i]</span>
-<span id="cb54-14"><a href="#cb54-14"></a>  me_matched_members_slice_dt <span class="ot">&lt;-</span> me_matched_members_dt[x<span class="sc">:</span>y,]</span>
-<span id="cb54-15"><a href="#cb54-15"></a></span>
-<span id="cb54-16"><a href="#cb54-16"></a>  <span class="co"># Add features</span></span>
-<span id="cb54-17"><a href="#cb54-17"></a>  me_matched_members_slice_dt[, <span class="st">`</span><span class="at">:=</span><span class="st">`</span> (<span class="at">f500 =</span> (purrr<span class="sc">::</span><span class="fu">pmap_lgl</span>(<span class="fu">list</span>(company_name, date_from_parsed, date_to_parsed), check_f500, <span class="at">.progress =</span> <span class="cn">TRUE</span>)),</span>
-<span id="cb54-18"><a href="#cb54-18"></a>                                      <span class="at">role =</span> title <span class="sc">|&gt;</span> <span class="fu">tolower</span>() <span class="sc">|&gt;</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(<span class="st">"founder"</span>))]</span>
-<span id="cb54-19"><a href="#cb54-19"></a>  </span>
-<span id="cb54-20"><a href="#cb54-20"></a>  <span class="co"># Save</span></span>
-<span id="cb54-21"><a href="#cb54-21"></a>  me_matched_members_slice_dt <span class="sc">|&gt;</span> <span class="fu">write_parquet</span>(<span class="fu">paste0</span>(<span class="st">"me_f500/me_f500_"</span>, cur_id, <span class="st">".parquet"</span>))</span>
-<span id="cb54-22"><a href="#cb54-22"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="co"># 1. Collect data</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a>me_matched_members_dt <span class="ot">&lt;-</span> me_matched_members_prqt <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span>
+<span id="cb53-3"><a href="#cb53-3"></a><span class="co"># 2.Build batches</span></span>
+<span id="cb53-4"><a href="#cb53-4"></a>slice_ids <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb53-5"><a href="#cb53-5"></a>  <span class="at">from  =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">230000000</span>, <span class="dv">5000000</span>),</span>
+<span id="cb53-6"><a href="#cb53-6"></a>  <span class="at">to    =</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="dv">5000000</span>, <span class="dv">225000000</span>, <span class="dv">5000000</span>), <span class="dv">229065592</span>),</span>
+<span id="cb53-7"><a href="#cb53-7"></a>)</span>
+<span id="cb53-8"><a href="#cb53-8"></a></span>
+<span id="cb53-9"><a href="#cb53-9"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">46</span>) {</span>
+<span id="cb53-10"><a href="#cb53-10"></a></span>
+<span id="cb53-11"><a href="#cb53-11"></a>  <span class="co"># Create current batch  </span></span>
+<span id="cb53-12"><a href="#cb53-12"></a>  x <span class="ot">&lt;-</span> slice_ids<span class="sc">$</span>from[i]</span>
+<span id="cb53-13"><a href="#cb53-13"></a>  y <span class="ot">&lt;-</span> slice_ids<span class="sc">$</span>to[i]</span>
+<span id="cb53-14"><a href="#cb53-14"></a>  me_matched_members_slice_dt <span class="ot">&lt;-</span> me_matched_members_dt[x<span class="sc">:</span>y,]</span>
+<span id="cb53-15"><a href="#cb53-15"></a></span>
+<span id="cb53-16"><a href="#cb53-16"></a>  <span class="co"># Add features</span></span>
+<span id="cb53-17"><a href="#cb53-17"></a>  me_matched_members_slice_dt[, <span class="st">`</span><span class="at">:=</span><span class="st">`</span> (<span class="at">f500 =</span> (purrr<span class="sc">::</span><span class="fu">pmap_lgl</span>(<span class="fu">list</span>(company_name, date_from_parsed, date_to_parsed), check_f500, <span class="at">.progress =</span> <span class="cn">TRUE</span>)),</span>
+<span id="cb53-18"><a href="#cb53-18"></a>                                      <span class="at">role =</span> title <span class="sc">|&gt;</span> <span class="fu">tolower</span>() <span class="sc">|&gt;</span> stringr<span class="sc">::</span><span class="fu">str_detect</span>(<span class="st">"founder"</span>))]</span>
+<span id="cb53-19"><a href="#cb53-19"></a>  </span>
+<span id="cb53-20"><a href="#cb53-20"></a>  <span class="co"># Save</span></span>
+<span id="cb53-21"><a href="#cb53-21"></a>  me_matched_members_slice_dt <span class="sc">|&gt;</span> <span class="fu">write_parquet</span>(<span class="fu">paste0</span>(<span class="st">"me_f500/me_f500_"</span>, cur_id, <span class="st">".parquet"</span>))</span>
+<span id="cb53-22"><a href="#cb53-22"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="code-iii-build-feature" class="slide level2">
 <h2>Code III (Build feature)</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="co"># 1. Load data </span></span>
-<span id="cb55-2"><a href="#cb55-2"></a>me_f500 <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"me_f500/"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb55-3"><a href="#cb55-3"></a>  <span class="fu">collect</span>()</span>
-<span id="cb55-4"><a href="#cb55-4"></a></span>
-<span id="cb55-5"><a href="#cb55-5"></a><span class="co"># 2. Add Ids</span></span>
-<span id="cb55-6"><a href="#cb55-6"></a>me_dist_ids_prqt <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(<span class="st">"me_dist4.parquet"</span>) <span class="sc">|&gt;</span> <span class="fu">select</span>(id, member_id) <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span>
-<span id="cb55-7"><a href="#cb55-7"></a>me_f500_id       <span class="ot">&lt;-</span>  me_dist_ids_prqt[me_f500, on <span class="ot">=</span> .(id)] </span>
-<span id="cb55-8"><a href="#cb55-8"></a></span>
-<span id="cb55-9"><a href="#cb55-9"></a><span class="co"># 3. Add features</span></span>
-<span id="cb55-10"><a href="#cb55-10"></a><span class="co"># 3.1 Earliest founding date &amp; earliest f500 date (if founded)</span></span>
-<span id="cb55-11"><a href="#cb55-11"></a>me_f500_id[,<span class="st">`</span><span class="at">:=</span><span class="st">`</span> (<span class="at">founding_min      =</span> (<span class="fu">ifelse</span>(<span class="fu">any</span>(role <span class="sc">==</span> T),                  <span class="fu">min</span>(date_from_parsed[role<span class="sc">==</span>T]),   <span class="cn">NA_real_</span>)),</span>
-<span id="cb55-12"><a href="#cb55-12"></a>                  <span class="at">f500_min_founding =</span> (<span class="fu">ifelse</span>(<span class="fu">any</span>(role <span class="sc">==</span> T) <span class="sc">&amp;</span> <span class="fu">any</span>(f500 <span class="sc">==</span> T), <span class="fu">min</span>(date_from_parsed[f500 <span class="sc">==</span> T]), <span class="cn">NA_real_</span>))),</span>
-<span id="cb55-13"><a href="#cb55-13"></a>           by <span class="ot">=</span> .(member_id)]</span>
-<span id="cb55-14"><a href="#cb55-14"></a></span>
-<span id="cb55-15"><a href="#cb55-15"></a><span class="co"># 3.2 Compare</span></span>
-<span id="cb55-16"><a href="#cb55-16"></a>me_f500_id[, f500_before_founding <span class="sc">:</span><span class="er">=</span> f500_min_founding <span class="sc">&lt;=</span> founding_min]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="co"># 1. Load data </span></span>
+<span id="cb54-2"><a href="#cb54-2"></a>me_f500 <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"me_f500/"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb54-3"><a href="#cb54-3"></a>  <span class="fu">collect</span>()</span>
+<span id="cb54-4"><a href="#cb54-4"></a></span>
+<span id="cb54-5"><a href="#cb54-5"></a><span class="co"># 2. Add Ids</span></span>
+<span id="cb54-6"><a href="#cb54-6"></a>me_dist_ids_prqt <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(<span class="st">"me_dist4.parquet"</span>) <span class="sc">|&gt;</span> <span class="fu">select</span>(id, member_id) <span class="sc">|&gt;</span> <span class="fu">collect</span>()</span>
+<span id="cb54-7"><a href="#cb54-7"></a>me_f500_id       <span class="ot">&lt;-</span>  me_dist_ids_prqt[me_f500, on <span class="ot">=</span> .(id)] </span>
+<span id="cb54-8"><a href="#cb54-8"></a></span>
+<span id="cb54-9"><a href="#cb54-9"></a><span class="co"># 3. Add features</span></span>
+<span id="cb54-10"><a href="#cb54-10"></a><span class="co"># 3.1 Earliest founding date &amp; earliest f500 date (if founded)</span></span>
+<span id="cb54-11"><a href="#cb54-11"></a>me_f500_id[,<span class="st">`</span><span class="at">:=</span><span class="st">`</span> (<span class="at">founding_min      =</span> (<span class="fu">ifelse</span>(<span class="fu">any</span>(role <span class="sc">==</span> T),                  <span class="fu">min</span>(date_from_parsed[role<span class="sc">==</span>T]),   <span class="cn">NA_real_</span>)),</span>
+<span id="cb54-12"><a href="#cb54-12"></a>                  <span class="at">f500_min_founding =</span> (<span class="fu">ifelse</span>(<span class="fu">any</span>(role <span class="sc">==</span> T) <span class="sc">&amp;</span> <span class="fu">any</span>(f500 <span class="sc">==</span> T), <span class="fu">min</span>(date_from_parsed[f500 <span class="sc">==</span> T]), <span class="cn">NA_real_</span>))),</span>
+<span id="cb54-13"><a href="#cb54-13"></a>           by <span class="ot">=</span> .(member_id)]</span>
+<span id="cb54-14"><a href="#cb54-14"></a></span>
+<span id="cb54-15"><a href="#cb54-15"></a><span class="co"># 3.2 Compare</span></span>
+<span id="cb54-16"><a href="#cb54-16"></a>me_f500_id[, f500_before_founding <span class="sc">:</span><span class="er">=</span> f500_min_founding <span class="sc">&lt;=</span> founding_min]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="plot" class="slide level2">
@@ -1371,23 +1335,23 @@ Joschka Schwarz
 </ol>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>me_f500_id <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(<span class="st">"~/02_diss/01_data_sources/01_coresignal/02_data/me_f500_id.parquet"</span>)</span>
-<span id="cb56-2"><a href="#cb56-2"></a>data <span class="ot">&lt;-</span> me_f500_id <span class="sc">|&gt;</span> </span>
-<span id="cb56-3"><a href="#cb56-3"></a>  </span>
-<span id="cb56-4"><a href="#cb56-4"></a>          <span class="co"># Filter "Founder"</span></span>
-<span id="cb56-5"><a href="#cb56-5"></a>          <span class="fu">filter</span>(role <span class="sc">==</span> T) <span class="sc">|&gt;</span> <span class="fu">collect</span>() </span>
-<span id="cb56-6"><a href="#cb56-6"></a>  </span>
-<span id="cb56-7"><a href="#cb56-7"></a>data <span class="sc">|&gt;</span> </span>
-<span id="cb56-8"><a href="#cb56-8"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> f500_before_founding)) <span class="sc">+</span> </span>
-<span id="cb56-9"><a href="#cb56-9"></a>    <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb56-10"><a href="#cb56-10"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Employment at Fortune500</span><span class="sc">\n</span><span class="st">AFTER</span><span class="sc">\n</span><span class="st">founding"</span>, <span class="st">"Employment at Fortune500</span><span class="sc">\n</span><span class="st">BEFORE</span><span class="sc">\n</span><span class="st">founding"</span>, <span class="st">"Neither case"</span>)) <span class="sc">+</span></span>
-<span id="cb56-11"><a href="#cb56-11"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">unit_format</span>(<span class="at">unit =</span> <span class="st">"M"</span>, <span class="at">scale =</span> <span class="fl">1e-6</span>, <span class="at">accuracy =</span> <span class="fl">0.1</span>)) <span class="sc">+</span> </span>
-<span id="cb56-12"><a href="#cb56-12"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a>me_f500_id <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(<span class="st">"~/02_diss/01_data_sources/01_coresignal/02_data/me_f500_id.parquet"</span>)</span>
+<span id="cb55-2"><a href="#cb55-2"></a>data <span class="ot">&lt;-</span> me_f500_id <span class="sc">|&gt;</span> </span>
+<span id="cb55-3"><a href="#cb55-3"></a>  </span>
+<span id="cb55-4"><a href="#cb55-4"></a>          <span class="co"># Filter "Founder"</span></span>
+<span id="cb55-5"><a href="#cb55-5"></a>          <span class="fu">filter</span>(role <span class="sc">==</span> T) <span class="sc">|&gt;</span> <span class="fu">collect</span>() </span>
+<span id="cb55-6"><a href="#cb55-6"></a>  </span>
+<span id="cb55-7"><a href="#cb55-7"></a>data <span class="sc">|&gt;</span> </span>
+<span id="cb55-8"><a href="#cb55-8"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> f500_before_founding)) <span class="sc">+</span> </span>
+<span id="cb55-9"><a href="#cb55-9"></a>    <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb55-10"><a href="#cb55-10"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Employment at Fortune500</span><span class="sc">\n</span><span class="st">AFTER</span><span class="sc">\n</span><span class="st">founding"</span>, <span class="st">"Employment at Fortune500</span><span class="sc">\n</span><span class="st">BEFORE</span><span class="sc">\n</span><span class="st">founding"</span>, <span class="st">"Neither case"</span>)) <span class="sc">+</span></span>
+<span id="cb55-11"><a href="#cb55-11"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">unit_format</span>(<span class="at">unit =</span> <span class="st">"M"</span>, <span class="at">scale =</span> <span class="fl">1e-6</span>, <span class="at">accuracy =</span> <span class="fl">0.1</span>)) <span class="sc">+</span> </span>
+<span id="cb55-12"><a href="#cb55-12"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">"Count"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><a href="cs_files/figure-revealjs/unnamed-chunk-59-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="cs_files/figure-revealjs/unnamed-chunk-59-1.png" width="576"></a></p>
+<p><a href="cs_files/figure-revealjs/unnamed-chunk-58-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img data-src="cs_files/figure-revealjs/unnamed-chunk-58-1.png" width="576"></a></p>
 </figure>
 </div>
 </div>
@@ -1403,37 +1367,257 @@ Joschka Schwarz
 <h2>Cluster skills</h2>
 <p>tbd</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1"></a>member_skills_prqt <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(<span class="st">"member_skills.parquet"</span>)</span>
-<span id="cb57-2"><a href="#cb57-2"></a>member_skills_prqt <span class="sc">|&gt;</span> </span>
-<span id="cb57-3"><a href="#cb57-3"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a>member_skills_prqt <span class="ot">&lt;-</span> arrow<span class="sc">::</span><span class="fu">open_dataset</span>(<span class="st">"member_skills.parquet"</span>)</span>
+<span id="cb56-2"><a href="#cb56-2"></a>member_skills_prqt <span class="sc">|&gt;</span> </span>
+<span id="cb56-3"><a href="#cb56-3"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb58"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb58-1"><a href="#cb58-1"></a>#&gt; FileSystemDataset with 1 Parquet file</span>
-<span id="cb58-2"><a href="#cb58-2"></a>#&gt; 335,291,384 rows x 8 columns</span>
-<span id="cb58-3"><a href="#cb58-3"></a>#&gt; $ member_id                                 &lt;int32&gt; 162, 162, 162, 162, 162, 162…</span>
-<span id="cb58-4"><a href="#cb58-4"></a>#&gt; $ id                                       &lt;double&gt; 1670386535, 1670386536, 1670…</span>
-<span id="cb58-5"><a href="#cb58-5"></a>#&gt; $ skill_id                                  &lt;int32&gt; 148, 149, 172, 168, 472, 358…</span>
-<span id="cb58-6"><a href="#cb58-6"></a>#&gt; $ created                   &lt;timestamp[us, tz=UTC]&gt; 2017-03-15 09:52:27, 2017-03…</span>
-<span id="cb58-7"><a href="#cb58-7"></a>#&gt; $ last_updated              &lt;timestamp[us, tz=UTC]&gt; 2018-07-09 10:33:09, 2018-07…</span>
-<span id="cb58-8"><a href="#cb58-8"></a>#&gt; $ deleted                                   &lt;int32&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…</span>
-<span id="cb58-9"><a href="#cb58-9"></a>#&gt; $ member_skill_list_created &lt;timestamp[us, tz=UTC]&gt; 2016-07-22 14:26:16, 2016-07…</span>
-<span id="cb58-10"><a href="#cb58-10"></a>#&gt; $ member_skill_list_updated &lt;timestamp[us, tz=UTC]&gt; 2016-07-22 14:26:16, 2016-07…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb57-1"><a href="#cb57-1"></a>#&gt; FileSystemDataset with 1 Parquet file</span>
+<span id="cb57-2"><a href="#cb57-2"></a>#&gt; 335,291,384 rows x 8 columns</span>
+<span id="cb57-3"><a href="#cb57-3"></a>#&gt; $ member_id                                 &lt;int32&gt; 162, 162, 162, 162, 162, 162…</span>
+<span id="cb57-4"><a href="#cb57-4"></a>#&gt; $ id                                       &lt;double&gt; 1670386535, 1670386536, 1670…</span>
+<span id="cb57-5"><a href="#cb57-5"></a>#&gt; $ skill_id                                  &lt;int32&gt; 148, 149, 172, 168, 472, 358…</span>
+<span id="cb57-6"><a href="#cb57-6"></a>#&gt; $ created                   &lt;timestamp[us, tz=UTC]&gt; 2017-03-15 09:52:27, 2017-03…</span>
+<span id="cb57-7"><a href="#cb57-7"></a>#&gt; $ last_updated              &lt;timestamp[us, tz=UTC]&gt; 2018-07-09 10:33:09, 2018-07…</span>
+<span id="cb57-8"><a href="#cb57-8"></a>#&gt; $ deleted                                   &lt;int32&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…</span>
+<span id="cb57-9"><a href="#cb57-9"></a>#&gt; $ member_skill_list_created &lt;timestamp[us, tz=UTC]&gt; 2016-07-22 14:26:16, 2016-07…</span>
+<span id="cb57-10"><a href="#cb57-10"></a>#&gt; $ member_skill_list_updated &lt;timestamp[us, tz=UTC]&gt; 2016-07-22 14:26:16, 2016-07…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a>skill_names_tbl <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"skill_names_tbl.rds"</span>)</span>
-<span id="cb59-2"><a href="#cb59-2"></a>skill_names_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a>skill_names_tbl <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"skill_names_tbl.rds"</span>)</span>
+<span id="cb58-2"><a href="#cb58-2"></a>skill_names_tbl</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb60"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb60-1"><a href="#cb60-1"></a>#&gt; # A tibble: 2,423,690 × 2</span>
-<span id="cb60-2"><a href="#cb60-2"></a>#&gt;   skill_id skill_name </span>
-<span id="cb60-3"><a href="#cb60-3"></a>#&gt;      &lt;int&gt; &lt;fct&gt;      </span>
-<span id="cb60-4"><a href="#cb60-4"></a>#&gt; 1        1 mathematics</span>
-<span id="cb60-5"><a href="#cb60-5"></a>#&gt; 2        2 swimming   </span>
-<span id="cb60-6"><a href="#cb60-6"></a>#&gt; 3        3 analytics  </span>
-<span id="cb60-7"><a href="#cb60-7"></a>#&gt; # ℹ 2,423,687 more rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb59-1"><a href="#cb59-1"></a>#&gt; # A tibble: 2,423,690 × 2</span>
+<span id="cb59-2"><a href="#cb59-2"></a>#&gt;   skill_id skill_name </span>
+<span id="cb59-3"><a href="#cb59-3"></a>#&gt;      &lt;int&gt; &lt;fct&gt;      </span>
+<span id="cb59-4"><a href="#cb59-4"></a>#&gt; 1        1 mathematics</span>
+<span id="cb59-5"><a href="#cb59-5"></a>#&gt; 2        2 swimming   </span>
+<span id="cb59-6"><a href="#cb59-6"></a>#&gt; 3        3 analytics  </span>
+<span id="cb59-7"><a href="#cb59-7"></a>#&gt; # ℹ 2,423,687 more rows</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="current-variables" class="title-slide slide level1 center" data-stack-name="Current">
+<h1>Current variables</h1>
+<p>Variables built from Experience, Education and funding data</p>
+</section>
+<section id="built-variables" class="slide level2">
+<h2>Built variables</h2>
+<div class="panel-tabset">
+<ul id="tabset-5" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-5-1">All</a></li><li><a href="#tabset-5-2">General</a></li><li><a href="#tabset-5-3">EDA</a></li><li><a href="#tabset-5-4">Exp (dummy)</a></li><li><a href="#tabset-5-5">Exp (quant)</a></li><li><a href="#tabset-5-6">Edu</a></li><li><a href="#tabset-5-7">Fund</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a>cs_me_dist8_unest_wedu_dt <span class="sc">|&gt;</span> </span>
+<span id="cb60-2"><a href="#cb60-2"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb61"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb61-1"><a href="#cb61-1"></a>#&gt; Rows: 8,984,508</span>
+<span id="cb61-2"><a href="#cb61-2"></a>#&gt; Columns: 61</span>
+<span id="cb61-3"><a href="#cb61-3"></a>#&gt; $ member_id                            &lt;int&gt; 162, 316, 878, 1027, 2104, 2778, …</span>
+<span id="cb61-4"><a href="#cb61-4"></a>#&gt; $ rank_global_2023_best                &lt;int&gt; NA, 413, 917, 1049, 1549, NA, NA,…</span>
+<span id="cb61-5"><a href="#cb61-5"></a>#&gt; $ score_global_2023_best               &lt;dbl&gt; NA, 54.1, 40.6, 37.6, 26.8, NA, N…</span>
+<span id="cb61-6"><a href="#cb61-6"></a>#&gt; $ rank_national_2023_best              &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb61-7"><a href="#cb61-7"></a>#&gt; $ rank_national_during_enrollment_best &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb61-8"><a href="#cb61-8"></a>#&gt; $ degree_ba2                           &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE, TRUE, F…</span>
+<span id="cb61-9"><a href="#cb61-9"></a>#&gt; $ degree_ma2                           &lt;lgl&gt; FALSE, TRUE, FALSE, TRUE, FALSE, …</span>
+<span id="cb61-10"><a href="#cb61-10"></a>#&gt; $ degree_phd2                          &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, FALSE,…</span>
+<span id="cb61-11"><a href="#cb61-11"></a>#&gt; $ degree_mba2                          &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, FALSE,…</span>
+<span id="cb61-12"><a href="#cb61-12"></a>#&gt; $ id_tie                               &lt;int&gt; 2, 29, 38, 42, 67, 71, 82, 89, 89…</span>
+<span id="cb61-13"><a href="#cb61-13"></a>#&gt; $ exp_id_cs                            &lt;dbl&gt; 606461989, 2949864669, 2481733250…</span>
+<span id="cb61-14"><a href="#cb61-14"></a>#&gt; $ exp_corporate                        &lt;dbl&gt; 0.0000, 35.0000, 0.0000, 0.0000, …</span>
+<span id="cb61-15"><a href="#cb61-15"></a>#&gt; $ exp_funded_startup                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 40…</span>
+<span id="cb61-16"><a href="#cb61-16"></a>#&gt; $ exp_founder                          &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
+<span id="cb61-17"><a href="#cb61-17"></a>#&gt; $ exp_f500                             &lt;dbl&gt; 0.000, 0.000, 0.000, 0.000, 0.000…</span>
+<span id="cb61-18"><a href="#cb61-18"></a>#&gt; $ exp_research                         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
+<span id="cb61-19"><a href="#cb61-19"></a>#&gt; $ exp_research_ivy                     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
+<span id="cb61-20"><a href="#cb61-20"></a>#&gt; $ company_id_cbpb                      &lt;int&gt; 85514, 58344, 90591, 116099, 1528…</span>
+<span id="cb61-21"><a href="#cb61-21"></a>#&gt; $ funding_after_mid                    &lt;chr&gt; "yes", NA, "yes", "yes", NA, "yes…</span>
+<span id="cb61-22"><a href="#cb61-22"></a>#&gt; $ funding_after_early                  &lt;chr&gt; "yes", "unknown", "yes", "yes", "…</span>
+<span id="cb61-23"><a href="#cb61-23"></a>#&gt; $ company_id_cs                        &lt;int&gt; 10830353, 29252904, 140537, 11825…</span>
+<span id="cb61-24"><a href="#cb61-24"></a>#&gt; $ company_name_cs                      &lt;chr&gt; "Kony, Inc.", "Harmony Baby Nutri…</span>
+<span id="cb61-25"><a href="#cb61-25"></a>#&gt; $ company_name_cbpb                    &lt;chr&gt; "kony", "harmony baby nutrition",…</span>
+<span id="cb61-26"><a href="#cb61-26"></a>#&gt; $ founded_on_cbpb                      &lt;date&gt; 2007-01-01, 2018-01-01, 2007-01-…</span>
+<span id="cb61-27"><a href="#cb61-27"></a>#&gt; $ company_start_mid                    &lt;date&gt; 2009-01-01, 2020-01-01, 2009-01-…</span>
+<span id="cb61-28"><a href="#cb61-28"></a>#&gt; $ company_start_late                   &lt;date&gt; 2011-03-01, 2023-01-01, 2009-11-…</span>
+<span id="cb61-29"><a href="#cb61-29"></a>#&gt; $ closed_on_cbpb                       &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span id="cb61-30"><a href="#cb61-30"></a>#&gt; $ title_cs                             &lt;chr&gt; "Associate Engineer", "Bioprocess…</span>
+<span id="cb61-31"><a href="#cb61-31"></a>#&gt; $ date_from_parsed_cs                  &lt;date&gt; 2015-06-01, 2021-12-01, 2006-01-…</span>
+<span id="cb61-32"><a href="#cb61-32"></a>#&gt; $ date_to_parsed_cs                    &lt;date&gt; NA, NA, 2008-08-01, 2017-06-01, …</span>
+<span id="cb61-33"><a href="#cb61-33"></a>#&gt; $ tjoin_tfound                         &lt;dbl&gt; 101, 47, -12, 32, 37, 138, 101, 6…</span>
+<span id="cb61-34"><a href="#cb61-34"></a>#&gt; $ raised_amount_before_join_company    &lt;dbl&gt; 120528113, 1854000, 0, 432400000,…</span>
+<span id="cb61-35"><a href="#cb61-35"></a>#&gt; $ num_rounds_before_join               &lt;dbl&gt; 9, 5, 0, 4, 1, 6, 13, 0, 2, 3, 4,…</span>
+<span id="cb61-36"><a href="#cb61-36"></a>#&gt; $ is_f500                              &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, FALSE,…</span>
+<span id="cb61-37"><a href="#cb61-37"></a>#&gt; $ is_founder                           &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb61-38"><a href="#cb61-38"></a>#&gt; $ is_research                          &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb61-39"><a href="#cb61-39"></a>#&gt; $ is_research_ivy                      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb61-40"><a href="#cb61-40"></a>#&gt; $ date_1st_founder_exp                 &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span id="cb61-41"><a href="#cb61-41"></a>#&gt; $ date_1st_f500_exp                    &lt;date&gt; NA, NA, 2006-01-01, NA, NA, NA, …</span>
+<span id="cb61-42"><a href="#cb61-42"></a>#&gt; $ date_1st_funded_startup_exp          &lt;date&gt; 2015-06-01, 2021-12-01, 2006-01-…</span>
+<span id="cb61-43"><a href="#cb61-43"></a>#&gt; $ date_1st_research_exp                &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span id="cb61-44"><a href="#cb61-44"></a>#&gt; $ date_1st_research_ivy_exp            &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span id="cb61-45"><a href="#cb61-45"></a>#&gt; $ date_1st_corporate_exp               &lt;date&gt; NA, 2019-01-01, 2009-02-01, 2019…</span>
+<span id="cb61-46"><a href="#cb61-46"></a>#&gt; $ time_since_1st_corporate_exp         &lt;dbl&gt; NA, 35, NA, NA, 12, 319, 85, NA, …</span>
+<span id="cb61-47"><a href="#cb61-47"></a>#&gt; $ time_since_1st_founder_exp           &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb61-48"><a href="#cb61-48"></a>#&gt; $ time_since_1st_f500_exp              &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb61-49"><a href="#cb61-49"></a>#&gt; $ time_since_1st_funded_startup_exp    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb61-50"><a href="#cb61-50"></a>#&gt; $ time_since_1st_research_exp          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb61-51"><a href="#cb61-51"></a>#&gt; $ time_since_1st_research_ivy_exp      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb61-52"><a href="#cb61-52"></a>#&gt; $ time_since_1st_experience            &lt;dbl&gt; 0, 35, 0, 0, 12, 319, 85, 0, 0, 2…</span>
+<span id="cb61-53"><a href="#cb61-53"></a>#&gt; $ raised_amount_before_founder_member  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb61-54"><a href="#cb61-54"></a>#&gt; $ raised_amount_before_all_member      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb61-55"><a href="#cb61-55"></a>#&gt; $ was_corporate_before                 &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, TRUE, …</span>
+<span id="cb61-56"><a href="#cb61-56"></a>#&gt; $ was_founder_before                   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb61-57"><a href="#cb61-57"></a>#&gt; $ was_f500_before                      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb61-58"><a href="#cb61-58"></a>#&gt; $ was_fc_before                        &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb61-59"><a href="#cb61-59"></a>#&gt; $ was_uni_before                       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb61-60"><a href="#cb61-60"></a>#&gt; $ was_ivy_before                       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb61-61"><a href="#cb61-61"></a>#&gt; $ stage_mid                            &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb61-62"><a href="#cb61-62"></a>#&gt; $ stage_late                           &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb61-63"><a href="#cb61-63"></a>#&gt; $ date_from_stage                      &lt;chr&gt; "late", "mid", "early1", "late", …</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-5-2">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>cs_me_dist8_unest_wedu_dt <span class="sc">|&gt;</span> </span>
+<span id="cb62-2"><a href="#cb62-2"></a>  <span class="fu">select</span>(id_tie, member_id, exp_id_cs, company_id_cbpb, company_name_cbpb, company_id_cs, company_name_cs, </span>
+<span id="cb62-3"><a href="#cb62-3"></a>         founded_on_cbpb, closed_on_cbpb,</span>
+<span id="cb62-4"><a href="#cb62-4"></a>         title_cs) <span class="sc">|&gt;</span> </span>
+<span id="cb62-5"><a href="#cb62-5"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb63"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb63-1"><a href="#cb63-1"></a>#&gt; Rows: 8,984,508</span>
+<span id="cb63-2"><a href="#cb63-2"></a>#&gt; Columns: 10</span>
+<span id="cb63-3"><a href="#cb63-3"></a>#&gt; $ id_tie            &lt;int&gt; 2, 29, 38, 42, 67, 71, 82, 89, 89, 98, 93, 96, 104, …</span>
+<span id="cb63-4"><a href="#cb63-4"></a>#&gt; $ member_id         &lt;int&gt; 162, 316, 878, 1027, 2104, 2778, 2819, 3548, 3548, 3…</span>
+<span id="cb63-5"><a href="#cb63-5"></a>#&gt; $ exp_id_cs         &lt;dbl&gt; 606461989, 2949864669, 2481733250, 2800188242, 14239…</span>
+<span id="cb63-6"><a href="#cb63-6"></a>#&gt; $ company_id_cbpb   &lt;int&gt; 85514, 58344, 90591, 116099, 152845, 104886, 93342, …</span>
+<span id="cb63-7"><a href="#cb63-7"></a>#&gt; $ company_name_cbpb &lt;chr&gt; "kony", "harmony baby nutrition", "receptos", "Nerva…</span>
+<span id="cb63-8"><a href="#cb63-8"></a>#&gt; $ company_id_cs     &lt;int&gt; 10830353, 29252904, 140537, 11825305, 10644128, 1086…</span>
+<span id="cb63-9"><a href="#cb63-9"></a>#&gt; $ company_name_cs   &lt;chr&gt; "Kony, Inc.", "Harmony Baby Nutrition", "Bristol-Mye…</span>
+<span id="cb63-10"><a href="#cb63-10"></a>#&gt; $ founded_on_cbpb   &lt;date&gt; 2007-01-01, 2018-01-01, 2007-01-01, 2014-01-01, 201…</span>
+<span id="cb63-11"><a href="#cb63-11"></a>#&gt; $ closed_on_cbpb    &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
+<span id="cb63-12"><a href="#cb63-12"></a>#&gt; $ title_cs          &lt;chr&gt; "Associate Engineer", "Bioprocess expert", "Key Acco…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-5-3">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a>cs_me_dist8_unest_wedu_dt <span class="sc">|&gt;</span> </span>
+<span id="cb64-2"><a href="#cb64-2"></a>  <span class="fu">select</span>(date_from_parsed_cs, date_to_parsed_cs, </span>
+<span id="cb64-3"><a href="#cb64-3"></a>         tjoin_tfound, raised_amount_before_join_company, num_rounds_before_join) <span class="sc">|&gt;</span> </span>
+<span id="cb64-4"><a href="#cb64-4"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb65"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb65-1"><a href="#cb65-1"></a>#&gt; Rows: 8,984,508</span>
+<span id="cb65-2"><a href="#cb65-2"></a>#&gt; Columns: 5</span>
+<span id="cb65-3"><a href="#cb65-3"></a>#&gt; $ date_from_parsed_cs               &lt;date&gt; 2015-06-01, 2021-12-01, 2006-01-01,…</span>
+<span id="cb65-4"><a href="#cb65-4"></a>#&gt; $ date_to_parsed_cs                 &lt;date&gt; NA, NA, 2008-08-01, 2017-06-01, NA,…</span>
+<span id="cb65-5"><a href="#cb65-5"></a>#&gt; $ tjoin_tfound                      &lt;dbl&gt; 101, 47, -12, 32, 37, 138, 101, 6, 4…</span>
+<span id="cb65-6"><a href="#cb65-6"></a>#&gt; $ raised_amount_before_join_company &lt;dbl&gt; 120528113, 1854000, 0, 432400000, 0,…</span>
+<span id="cb65-7"><a href="#cb65-7"></a>#&gt; $ num_rounds_before_join            &lt;dbl&gt; 9, 5, 0, 4, 1, 6, 13, 0, 2, 3, 4, 0,…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-5-4">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a>cs_me_dist8_unest_wedu_dt <span class="sc">|&gt;</span> </span>
+<span id="cb66-2"><a href="#cb66-2"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"is_"</span>),</span>
+<span id="cb66-3"><a href="#cb66-3"></a>         <span class="fu">starts_with</span>(<span class="st">"was_"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb66-4"><a href="#cb66-4"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb67"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb67-1"><a href="#cb67-1"></a>#&gt; Rows: 8,984,508</span>
+<span id="cb67-2"><a href="#cb67-2"></a>#&gt; Columns: 10</span>
+<span id="cb67-3"><a href="#cb67-3"></a>#&gt; $ is_f500              &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, T…</span>
+<span id="cb67-4"><a href="#cb67-4"></a>#&gt; $ is_founder           &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span>
+<span id="cb67-5"><a href="#cb67-5"></a>#&gt; $ is_research          &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span>
+<span id="cb67-6"><a href="#cb67-6"></a>#&gt; $ is_research_ivy      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span>
+<span id="cb67-7"><a href="#cb67-7"></a>#&gt; $ was_corporate_before &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, TRUE, TRUE, TRUE, FALS…</span>
+<span id="cb67-8"><a href="#cb67-8"></a>#&gt; $ was_founder_before   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span>
+<span id="cb67-9"><a href="#cb67-9"></a>#&gt; $ was_f500_before      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span>
+<span id="cb67-10"><a href="#cb67-10"></a>#&gt; $ was_fc_before        &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span>
+<span id="cb67-11"><a href="#cb67-11"></a>#&gt; $ was_uni_before       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span>
+<span id="cb67-12"><a href="#cb67-12"></a>#&gt; $ was_ivy_before       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-5-5">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>cs_me_dist8_unest_wedu_dt <span class="sc">|&gt;</span> </span>
+<span id="cb68-2"><a href="#cb68-2"></a>  <span class="fu">select</span>(</span>
+<span id="cb68-3"><a href="#cb68-3"></a>    <span class="fu">starts_with</span>(<span class="st">"date_1st_"</span>),</span>
+<span id="cb68-4"><a href="#cb68-4"></a>    <span class="fu">starts_with</span>(<span class="st">"time_since_1st_"</span>),</span>
+<span id="cb68-5"><a href="#cb68-5"></a>    <span class="fu">starts_with</span>(<span class="st">"exp_"</span>), <span class="sc">-</span>exp_id_cs) <span class="sc">|&gt;</span> </span>
+<span id="cb68-6"><a href="#cb68-6"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb69"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb69-1"><a href="#cb69-1"></a>#&gt; Rows: 8,984,508</span>
+<span id="cb69-2"><a href="#cb69-2"></a>#&gt; Columns: 19</span>
+<span id="cb69-3"><a href="#cb69-3"></a>#&gt; $ date_1st_founder_exp              &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
+<span id="cb69-4"><a href="#cb69-4"></a>#&gt; $ date_1st_f500_exp                 &lt;date&gt; NA, NA, 2006-01-01, NA, NA, NA, NA,…</span>
+<span id="cb69-5"><a href="#cb69-5"></a>#&gt; $ date_1st_funded_startup_exp       &lt;date&gt; 2015-06-01, 2021-12-01, 2006-01-01,…</span>
+<span id="cb69-6"><a href="#cb69-6"></a>#&gt; $ date_1st_research_exp             &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
+<span id="cb69-7"><a href="#cb69-7"></a>#&gt; $ date_1st_research_ivy_exp         &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
+<span id="cb69-8"><a href="#cb69-8"></a>#&gt; $ date_1st_corporate_exp            &lt;date&gt; NA, 2019-01-01, 2009-02-01, 2019-12…</span>
+<span id="cb69-9"><a href="#cb69-9"></a>#&gt; $ time_since_1st_corporate_exp      &lt;dbl&gt; NA, 35, NA, NA, 12, 319, 85, NA, NA,…</span>
+<span id="cb69-10"><a href="#cb69-10"></a>#&gt; $ time_since_1st_founder_exp        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span id="cb69-11"><a href="#cb69-11"></a>#&gt; $ time_since_1st_f500_exp           &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span id="cb69-12"><a href="#cb69-12"></a>#&gt; $ time_since_1st_funded_startup_exp &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span id="cb69-13"><a href="#cb69-13"></a>#&gt; $ time_since_1st_research_exp       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span id="cb69-14"><a href="#cb69-14"></a>#&gt; $ time_since_1st_research_ivy_exp   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span id="cb69-15"><a href="#cb69-15"></a>#&gt; $ time_since_1st_experience         &lt;dbl&gt; 0, 35, 0, 0, 12, 319, 85, 0, 0, 212,…</span>
+<span id="cb69-16"><a href="#cb69-16"></a>#&gt; $ exp_corporate                     &lt;dbl&gt; 0.0000, 35.0000, 0.0000, 0.0000, 12.…</span>
+<span id="cb69-17"><a href="#cb69-17"></a>#&gt; $ exp_funded_startup                &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 40, 0…</span>
+<span id="cb69-18"><a href="#cb69-18"></a>#&gt; $ exp_founder                       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
+<span id="cb69-19"><a href="#cb69-19"></a>#&gt; $ exp_f500                          &lt;dbl&gt; 0.000, 0.000, 0.000, 0.000, 0.000, 0…</span>
+<span id="cb69-20"><a href="#cb69-20"></a>#&gt; $ exp_research                      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
+<span id="cb69-21"><a href="#cb69-21"></a>#&gt; $ exp_research_ivy                  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-5-6">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1"></a>cs_me_dist8_unest_wedu_dt <span class="sc">|&gt;</span> </span>
+<span id="cb70-2"><a href="#cb70-2"></a>  <span class="fu">select</span>(score_global_2023_best,</span>
+<span id="cb70-3"><a href="#cb70-3"></a>         <span class="fu">starts_with</span>(<span class="st">"rank"</span>),</span>
+<span id="cb70-4"><a href="#cb70-4"></a>         <span class="fu">starts_with</span>(<span class="st">"degree"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb70-5"><a href="#cb70-5"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb71"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb71-1"><a href="#cb71-1"></a>#&gt; Rows: 8,984,508</span>
+<span id="cb71-2"><a href="#cb71-2"></a>#&gt; Columns: 8</span>
+<span id="cb71-3"><a href="#cb71-3"></a>#&gt; $ score_global_2023_best               &lt;dbl&gt; NA, 54.1, 40.6, 37.6, 26.8, NA, N…</span>
+<span id="cb71-4"><a href="#cb71-4"></a>#&gt; $ rank_global_2023_best                &lt;int&gt; NA, 413, 917, 1049, 1549, NA, NA,…</span>
+<span id="cb71-5"><a href="#cb71-5"></a>#&gt; $ rank_national_2023_best              &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb71-6"><a href="#cb71-6"></a>#&gt; $ rank_national_during_enrollment_best &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb71-7"><a href="#cb71-7"></a>#&gt; $ degree_ba2                           &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE, TRUE, F…</span>
+<span id="cb71-8"><a href="#cb71-8"></a>#&gt; $ degree_ma2                           &lt;lgl&gt; FALSE, TRUE, FALSE, TRUE, FALSE, …</span>
+<span id="cb71-9"><a href="#cb71-9"></a>#&gt; $ degree_phd2                          &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, FALSE,…</span>
+<span id="cb71-10"><a href="#cb71-10"></a>#&gt; $ degree_mba2                          &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, FALSE,…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div id="tabset-5-7">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1"></a>cs_me_dist8_unest_wedu_dt <span class="sc">|&gt;</span> </span>
+<span id="cb72-2"><a href="#cb72-2"></a>  <span class="fu">select</span>(date_from_stage, company_start_mid, company_start_late,</span>
+<span id="cb72-3"><a href="#cb72-3"></a>         raised_amount_before_founder_member, raised_amount_before_all_member,</span>
+<span id="cb72-4"><a href="#cb72-4"></a>         funding_after_mid, funding_after_early) <span class="sc">|&gt;</span> </span>
+<span id="cb72-5"><a href="#cb72-5"></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<div class="sourceCode" id="cb73"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb73-1"><a href="#cb73-1"></a>#&gt; Rows: 8,984,508</span>
+<span id="cb73-2"><a href="#cb73-2"></a>#&gt; Columns: 7</span>
+<span id="cb73-3"><a href="#cb73-3"></a>#&gt; $ date_from_stage                     &lt;chr&gt; "late", "mid", "early1", "late", "…</span>
+<span id="cb73-4"><a href="#cb73-4"></a>#&gt; $ company_start_mid                   &lt;date&gt; 2009-01-01, 2020-01-01, 2009-01-0…</span>
+<span id="cb73-5"><a href="#cb73-5"></a>#&gt; $ company_start_late                  &lt;date&gt; 2011-03-01, 2023-01-01, 2009-11-2…</span>
+<span id="cb73-6"><a href="#cb73-6"></a>#&gt; $ raised_amount_before_founder_member &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span id="cb73-7"><a href="#cb73-7"></a>#&gt; $ raised_amount_before_all_member     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
+<span id="cb73-8"><a href="#cb73-8"></a>#&gt; $ funding_after_mid                   &lt;chr&gt; "yes", NA, "yes", "yes", NA, "yes"…</span>
+<span id="cb73-9"><a href="#cb73-9"></a>#&gt; $ funding_after_early                 &lt;chr&gt; "yes", "unknown", "yes", "yes", "n…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section></section>
