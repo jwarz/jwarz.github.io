@@ -240,7 +240,7 @@ data_joined_cleaned_tbl |>
 :::: {.fragment}
 
 ::: {.callout-warning}
-There is a 95% chance that the confidence interval of [-0,6 pp; 2,1 pp] contains the true difference in the proportion of error rates between the two software versions. In other words, we cannot say with 95% certainty that there is a difference in mean error rates between these versions.
+There is a **95% chance** that the confidence interval of **[-0,6 pp; 2,1 pp]** contains the true difference in the proportion of error rates between the two software versions. In other words, we cannot say with 95% certainty that there is a difference in mean error rates between these versions.
 
 * `90% Confidence Interval:` [-0,4 pp; 1,8 pp]
 * `95% Confidence Interval:` [-0,6 pp, 2,1 pp]
@@ -268,13 +268,11 @@ propCI(n1 = 1504, n2 = 752, p1 = 0.02859043, p2 = 0.02127660, alpha = 0.01, digi
 
 ::::::
 
-## Crossing the Threshold at 1,7M operations - Unveiling the Cost Efficiency of the Update
+## Crossing the Threshold at 1,7M - Unveiling the Cost Efficiency of the Update
 
 :::::: {.panel-tabset}
 
 ### General
-
-**The law of large numbers:** The average of the results obtained from a [large number of independent identical trials should be close to the expected value]{style="color: #f9ba00;"} and tends to become closer to the expected value as more trials are performed.
 
 ```{r}
 #| echo: false
@@ -301,9 +299,10 @@ break_even_units_chr <- scales::label_number(accuracy  = 0.1,
                                              big.mark  = ".", decimal.mark = ",")(break_even_units)
 ```
 
+<p style="font-size: smaller">**The law of large numbers:** The average of the results obtained from a [large number of independent identical trials should be close to the expected value]{style="color: #f9ba00;"} and tends to become closer to the expected value as more trials are performed.</p>
+
 ```{r}
 #| echo: false
-#| out-width: 50%
 
 # Build Break Even Point Graph
 ggplot(data = df, aes(x = units)) +
