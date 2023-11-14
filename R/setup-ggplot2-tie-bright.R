@@ -46,7 +46,8 @@ theme_tie <- function(
                             angle = 0,
                             margin = ggplot2::margin(),
                             debug = FALSE
-                          ),
+                          )
+                          ,
                           title = NULL,
                           aspect.ratio = NULL,
                           
@@ -162,28 +163,33 @@ theme_tie <- function(
                           strip.placement = "inside", #outside
                           strip.placement.x = NULL,
                           strip.placement.y = NULL,
-                          strip.text = ggtext::element_textbox(
+                          strip.text =
+                          ### strip.text variante 1:
+                          ggtext::element_textbox(
                             size = ggplot2::rel(0.8),
-                            colour = color_value, 
-                            fill = "transparent", 
+                            colour = color_value,
+                            fill = "transparent",
                             face = "bold",
                             box.color = color_value,
                             halign = 0.5, linetype = 1, linewidth = 0.2,
-                            r = ggplot2::unit(0, "pt"), 
+                            r = ggplot2::unit(0, "pt"),
                             width = ggplot2::rel(1), #unit(1, "npc"),
-                            padding = ggplot2::margin(2, 0, 1, 0), 
+                            padding = ggplot2::margin(2, 0, 1, 0),
                             margin = ggplot2::margin(3, 0, 7.5, 0)
                           ),
-                          #   ggplot2::element_text(
+                          ### strip.text variante 2:
+                          # ggplot2::element_text(
                           #   colour = color_value,
                           #   face = "bold",
                           #   size = ggplot2::rel(0.8),
                           #   margin = ggplot2::margin(0.8 * half_line, 0.8 * half_line, 0.8 * half_line, 0.8 * half_line)
+                          # ),
+                            
                           strip.text.x = NULL,
                           strip.text.y = ggplot2::element_text(angle = -90),
                           strip.switch.pad.grid = ggplot2::unit(2, "in"),
                           strip.switch.pad.wrap = ggplot2::unit(half_line / 2, "pt"),
-                          
+
                           complete = TRUE
                         )
   )

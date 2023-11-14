@@ -9,6 +9,7 @@ date-format: "dddd, D[<sup style='font-size:65%;font-style:italic;'>th</sup>] [o
 section-divs: true
 filters:
    - lightbox
+   - newpagelink.lua
 lightbox: auto
 engine: knitr
 knitr:
@@ -22,8 +23,7 @@ knitr:
 knitr::opts_chunk$set(
   comment = '#>', fig.width = 6, fig.height = 6
 )
-library(dplyr)
-library(arrow)
+library(pacman)
 source("../../../../R/setup-ggplot2-tie-bright.R")
 ```
 
@@ -37,33 +37,295 @@ source("../../../../R/setup-ggplot2-tie-bright.R")
 }
 ```
 
-# Employment History {data-stack-name="Employment History"}
-Match current and past employments to corresponding Fortune500 companies
+# CoreSignal Data {data-stack-name="DATA CS"}
+Input + Output CoreSignal
 
-## Code I (Data + Function)
+## 1. Input for CS: Domain & LinkedIn handle list (from CB)
 
-Function
+**Objective:** Create list with domains and/or LinkedIn handles
+
+* Seperated by organizations & employees
+* Based mostly on our crunchbase dataset (I have added some angellist data as well)
+
+
+::: {.callout-note icon=false appearance="simple"}
+## Script and File locations
+
+**Data**<br>
+[01_data_sources/06_coresignal/01_data/01_input_for_cs/final_selection/version_3_cijs/](http://134.28.58.29/owncloud/index.php/apps/files/?dir=/01_diss/joschka_schwarz/02_diss/01_data_sources/06_coresignal/01_data/01_input_for_cs/final_selection/version_3_cijs&fileid=1756473)
+
+* `orgs_cs.csv`
+* `usr_cs.csv`
+
+
+**Scripts**<br>
+[01_data_sources/06_coresignal/02_scripts/01_input_for_cs/](http://134.28.58.29/owncloud/index.php/apps/files/?dir=/01_diss/joschka_schwarz/02_diss/01_data_sources/06_coresignal/02_scripts/01_input_for_cs&fileid=1758007)
+
+* `cs_org_select_v2.R`
+:::
+
+## 2. Output from CS: Company & Personal LinkedIn Profile Date
+
+**Instructions:** 
+
+1. Map provided domains with company profiles
+2. Provide entire employed user data (including company profiles)
+
+Data was proided as `json` data:
+
+* 5 files for companies (~160MB)
+* 1662 files for employees (~175GB)
+
+::: {.callout-note icon=false appearance="simple"}
+## Script and File locations
+
+**Data**<br>
+[01_data_sources/06_coresignal/01_data/02_raw/](http://134.28.58.29/owncloud/index.php/apps/files/?dir=/01_diss/joschka_schwarz/02_diss/01_data_sources/06_coresignal/01_data/02_raw&fileid=684074)
+
+* `company/202203_custom/...`
+* `member/202203_custom/...`
+:::
+
+
+## 3. Extract & convert relevant data
+
+**Objectives:** Extract data that is relevant (variables) for our analyses and convert it to `.rds` / `.parquet` files
+
+::: {.callout-note icon=false appearance="simple"}
+## Script and File locations
+
+**Scripts**<br>
+[01_data_sources/06_coresignal/02_scripts/02_build_tables/](http://134.28.58.29/owncloud/index.php/apps/files/?dir=/01_diss/joschka_schwarz/02_diss/01_data_sources/06_coresignal/02_scripts/02_build_tables&fileid=1758008)
+
+* `01_cs_build_table_company.R`
+* `02_cs_build_tables_member_V1_bd_exp_skills.R`
+* `03_cs_build_tables_member_V2_edu_exp.R`
+
+**Data**<br>
+[01_data_sources/06_coresignal/01_data/03_extracted/](http://134.28.58.29/owncloud/index.php/apps/files/?dir=/01_diss/joschka_schwarz/02_diss/01_data_sources/06_coresignal/01_data/03_extracted&fileid=684076)
+
+* `company/cs_companies_base.rds`
+* `member/01_basic_data/...`
+* `member/02_experience/...` (non-deduplicated)
+* `member/03_skills/...`
+* `member/04_education/...`  (non-deduplicated)
+
+:::
+
+## 4. Deduplicate data
+
+Everytime a user changes something on their profile a new record is being created (date, typos, names, ...). The column `deleted` is not useful. 
+
+**Objectives:** Deduplicate the member data: Experiences & Education Tables
+
+::: {.callout-note icon=false appearance="simple"}
+## Script and File locations
+
+**Scripts**<br>
+[01_data_sources/06_coresignal/02_scripts/02_build_tables/](http://134.28.58.29/owncloud/index.php/apps/files/?dir=/01_diss/joschka_schwarz/02_diss/01_data_sources/06_coresignal/02_scripts/02_build_tables&fileid=1758008)
+
+* `04_cs_build_tables_member_exp_dist.R`
+* `05_cs_build_tables_member_edu_dist.R`
+
+**Data**<br>
+[01_data_sources/06_coresignal/01_data/04_wrangled/](http://134.28.58.29/owncloud/index.php/apps/files/?dir=/01_diss/joschka_schwarz/02_diss/01_data_sources/06_coresignal/01_data/04_wrangled&fileid=1758003)
+
+* `companies/cs_companies_base_slct.rds` (just relevant columns selected)
+* `member/02_experience/me_dist8/...` (deduplicated)
+* `member/04_education/02_wrangled_dist_chunked/...`  (deduplicated)
+
+:::
+
+# Data Join {data-stack-name="Data JOIN"}
+Wrangle and Join `CrunchBase` / `PitchBook` and `CoreSignal` data
+
+## 1. Overview - Orgs
+
+CoreSignal did not provide a matching table but provided only the resulting data. Hence, backmapping to our CrunchBase / Pitchbook Data via domains is necessary:
+
+1. Map Companies
+
+::: {.callout-note icon=false appearance="simple"}
+## Script and File locations
+
+**Scripts**<br>
+[02_data_mapping/10_cbpb_cs/01_scripts/](http://134.28.58.29/owncloud/index.php/apps/files/?dir=/01_diss/joschka_schwarz/02_diss/02_data_mapping/10_cbpb_cs/01_scripts&fileid=2194064)
+
+* `06_cbpb_cs_matching_companies.R`
+
+**Data (Input)**<br>
+[02_data_mapping/10_cbpb_cs/02_data/](http://134.28.58.29/owncloud/index.php/apps/files/?dir=/01_diss/joschka_schwarz/02_diss/02_data_mapping/10_cbpb_cs/02_data&fileid=2194072)
+
+* `funded_companies.rds` (created by Christoph)
+
+**Data (Output)**<br>
+
+* `cbpb_cs_joined.rds` (companies joined)
+:::
+
+## 2. Overview - Employees
+
+Map Crunchbase / Pitchbook data to CoreSignal profiles (via mapped companies (1)) 
+
+2. Map employees
+
+::: {.callout-note icon=false appearance="simple"}
+## Script and File locations
+
+**Scripts**<br>
+[02_data_mapping/10_cbpb_cs/01_scripts/](http://134.28.58.29/owncloud/index.php/apps/files/?dir=/01_diss/joschka_schwarz/02_diss/02_data_mapping/10_cbpb_cs/01_scripts&fileid=2194064)
+
+* `07_cs_cb_matching_employees.R`
+
+**Data (Input)**<br>
+[01_data_sources/06_coresignal/01_data/04_wrangled/member/02_experience/me_dist8/02_unnested/](http://134.28.58.29/owncloud/index.php/apps/files/?dir=/01_diss/joschka_schwarz/02_diss/01_data_sources/06_coresignal/01_data/04_wrangled/member/02_experience/me_dist8&fileid=2192200)
+[02_data_mapping/10_cbpb_cs/02_data/](http://134.28.58.29/owncloud/index.php/apps/files/?dir=/01_diss/joschka_schwarz/02_diss/02_data_mapping/10_cbpb_cs/02_data&fileid=2194072)
+
+* `cs_me_dist8_unest_prqt` (CoreSignal distinct Member Experiences)
+* `cbpb_cs_joined.rds` (Joined CoreSignal / CrunchbasePitchbook Org Data)
+
+**Data (Output)**<br>
+
+* `cs_me_dist8_unest_fc_joined.parquet` (intermediate data)
+:::
+
+There are some further explanations about the `org join` and `empployee join` in the next two section (click on each tabset. There are also some fragments --> You have to hit enter/arrow to slide them in). You can skip to the next chapter (VAR I) though.
+
+
+## 3. Details: Load & Init Companies (CrunchBase, PitchBook & CoreSignal)
+
+::::::: {.panel-tabset}
+
+### CBPB: SELECT
+
+Crunchbase data contains **150,838** startups with a valid funding trajectory.
 
 ```{r}
-# 1. Function
-check_f500 <- function(name, year_from, year_to) {
-  
-  # Handle NA inputs
-  if (is.na(year_to))   {year_to <- 2023}
-  if (is.na(year_from)) {return(NA)}
-  
-  # Filter time frame
-  data <- fortune500 |> 
-    
-    filter(year |> between(year_from, year_to)) |> 
-    pull(company)
-  
-  # Check match and return bool
-  name |> tolower() %in% data
-}
+#| label: pillar-options1
+#| echo: false
+p_width <- getOption("width")
+options(
+    pillar.print_max = 3,
+    pillar.print_min = 3
+)
 ```
 
-:::: {.columns}
+```{r}
+#| eval: false
+p_load(arrow, dplyr, tidyr)
+
+funded_companies_prqt <- open_dataset("funded_companies_identifiers.parquet") 
+funded_companies_prqt
+```
+
+```{r}
+#| echo: false
+#| message: false
+p_load(arrow, dplyr, tidyr)
+funded_companies_prqt <- open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/funded_companies_identifiers.parquet")
+funded_companies_prqt |> collect()
+```
+
+::: {.fragment}
+
+Multiple domains (Unnesting via `Arrow` not possible. Options: `Spark` & `sparklyr.nested`):
+
+```{r}
+#| eval: true
+fc_unnested_tbl <- funded_companies_prqt |> collect() |> 
+                      # 1. Allow multiple domains per company. No multiple linkedin handles.
+                      unnest(domain) 
+fc_unnested_tbl
+```
+
+:::
+
+
+### CBPB: WRANGLE
+
+1. Must have identifier (domain, linkedin)
+2. Clean identifiers
+3. Remove duplicates
+
+```{r}
+#| eval: false
+library(stringr)
+fc_unnested_tbl |> 
+  
+  # 1. At least 1 identifier: 4.518 observations are filtered out
+  filter(if_any(c(domain, linkedin_url), ~!is.na(.))) |>
+  
+  # 2. Extract linkedin handle & clean domains
+  mutate(linkedin_handle = linkedin_url |> str_extract("(?<=linkedin\\.com/company/).*?(?=(?:\\?|$|/))")) |>
+  mutate(domain          = domain |> clean_domain()) |>
+
+  # 3. Remove 532 duplicates
+  distinct()
+```
+
+```{r}
+#| echo: false
+remove_path <- function(x) {
+  urltools::parameters(x) <- NULL
+  urltools::path(x)       <- NULL
+  x
+  suffixes <- x |> urltools::suffix_extract()
+  res <- str_c(suffixes$domain, ".", suffixes$suffix)
+  res
+}
+library(stringr)
+fc_wrangled_tbl <- fc_unnested_tbl |>
+
+  # Only with domain or linkedin_url --> 4.518 observations are filtered out
+  filter(if_any(c(domain, linkedin_url), ~!is.na(.))) |>
+
+  # Extract linkedin handle & clean domains
+  mutate(linkedin_handle = linkedin_url |> str_extract("(?<=linkedin\\.com/company/).*?(?=(?:\\?|$|/))")) |>
+  mutate(domain = domain |> remove_path() |> str_remove("^www\\.")) |>
+  select(-linkedin_url) |>
+
+  # Distinct (Remove 532 duplicates)
+  distinct()
+fc_wrangled_tbl
+```
+
+--> [145.991]{style="color:#cc0000; font-weight: bold;"} distinct examineable companies.
+
+### CBPB: CLEAN
+
+`Issue:` Some extracted domains are not unique and associated with multiple companies.<br> `Manual Cleaning:` Domains with a count exceeding two were analyzed and set to NA if they do not correspond to the actual one.
+
+
+```{r}
+# ANALYZE
+# fc_wrangled_tbl |> 
+#   distinct(company_id, domain) |> 
+#   count(domain, sort = T) |> 
+#   filter(n>2)`
+
+unwanted_domains_cb <- c("webflow.io", "angel.co", "weebly.com", "wordpress.com", "wixsite.com", "squarespace.com", 
+                         "webflow.io", "crypt2esports.com", "myshopify.com", "business.site", "mystrikingly.com", 
+                         "launchrock.com", "square.site", "google.com", "sites.google.com", "t.co", "linktr.ee",
+                         "netlify.app", "itunes.apple.com", "apple.com", "crunchb.com", "tumblr.com", "linkedin.com",
+                         "godaddysites.com", "mit.edu", "paloaltonetworks.com", " wpengine.com", "facebook.com",
+                         "intuit.com", "medium.com", "salesforce.com", "strikingly.com", "wix.com", "cisco.com",
+                         "digi.me", "apps.apple.com", "bit.ly", "fleek.co", "harvard.edu", "ibm.com", "jimdo.com",
+                         "myftpupload.com", "odoo.com", "storenvy.com", "twitter.com", "umd.edu", "umich.edu", "vmware.com", "webs.com")
+
+# Not all observations with unwanted domains are bad per se:
+wanted_ids_cb <- c(angel = 128006, `catapult-centres-uk` = 115854, digime1 = 140904, digimi2 = 95430, fleek = 50738, 
+                   jimdo = 108655, medium = 113415, storenvy = 85742, strikingly = 95831, substack = 34304, 
+                   tumblr = 84838, twitter = 53139, weebly = 91365, wpengine = 91720)
+
+# Set misleading domains to NA
+funded_companies_clnd <- fc_wrangled_tbl |> 
+                              
+  mutate(domain = if_else(
+    domain %in% unwanted_domains_cb & !(company_id %in% wanted_ids_cb), 
+    NA_character_, domain))
+```
+
+### CS: SELECT
 
 ```{r}
 #| echo: false
@@ -73,47 +335,419 @@ options(
 )
 ```
 
-::: {.column width="50%"}
-
-CoreSignal data (n = 229.065.592)
+It appears that CoreSignal has been able to locate **45.026** companies within our gathered data.
 
 ```{r}
 #| eval: false
-# 1. Data
-me_matched_members_prqt <- open_dataset("me_matched_members.parquet") 
-me_matched_members_prqt |> 
-  
-  head() |> collect()
+# Selection & Wrangle has been done already
+cs_companies_base_slct <- readRDS("cs_companies_base_slct.rds") 
+cs_companies_base_slct
 ```
 
 ```{r}
 #| echo: false
-me_matched_members_prqt <- open_dataset("/Users/jschwarz/Downloads/me_matched_members.parquet") 
-me_matched_members_prqt |> 
-  
-  head() |> collect()
+cs_companies_base_slct <- readRDS("~/Library/Mobile Documents/com~apple~CloudDocs/01_tuhh/02_diss/01_data_sources/06_core_signal/01_data/04_wrangled/cs_companies_base_slct.rds") 
+cs_companies_base_slct
 ```
+
+::: {.fragment}
+
+```{r}
+cs_companies_base_slct$id |> n_distinct()
+```
+
+:::
+::: {.fragment}
+
+```{r}
+cs_companies_base_slct |> janitor::get_dupes(id)
+```
+
 :::
 
-::: {.column width="50%"}
+### CS: WRANGLE
 
-US Fortune 500 data
+Nothing to wrangle ...
+
+```{r}
+cs_companies_base_wrangled <- cs_companies_base_slct |> select(-name) |> 
+  
+                                        # Add suffixes to col names
+                                        rename_with(~ paste(., "cs", sep = "_"))
+```
+
+### CS: CLEAN
+
+::: {.callout-important}
+More cleaning necessary (same as CBPB)! The task was undertaken with a limited degree of enthusiasm.
+:::
+
+```{r}
+unwanted_domains_cs    <- c("bit.ly", "linktr.ee", "facebook.com", "linkedin.com", "twitter.com", "crunchbase.com")
+wanted_ids_cs          <- c(crunchbase = 1634413, linkedin = 8568581, twitter = 24745469)
+
+cs_companies_base_clnd <- cs_companies_base_wrangled |> 
+  
+  mutate(domain_cs = if_else(
+    domain_cs %in% unwanted_domains_cs & !(id_cs %in% wanted_ids_cs), 
+    NA_character_, 
+    domain_cs)
+    )
+```
+
+
+:::::::
+
+## 4. Details: Join *companies*, *member experiences* and *funding* information
+
+::::::: {.panel-tabset}
+
+### Companies
+
+```{r}
+#| echo: false
+options(
+    pillar.print_max = 5,
+    pillar.print_min = 5
+)
+```
+
+We were able to match [37.287]{.fragment fragment-index=1 style="color:#cc0000; font-style: italic;"} CS & CB/PB companies.
 
 ```{r}
 #| eval: false
-fortune500 <- readRDS("fortune_500_1955-2022.rds") |> 
-                
-                select(year, company) |> 
-                mutate(company = company |> tolower())
-fortune500
+cb_cs_joined <- funded_companies_clnd |> 
+
+    # Leftjoins
+    left_join(cs_companies_base_clnd |> select(id_cs, domain_cs),          by = c(domain          = "domain_cs"),          na_matches = "never") |> 
+    left_join(cs_companies_base_clnd |> select(id_cs, linkedin_handle_cs), by = c(linkedin_handle = "linkedin_handle_cs"), na_matches = "never") |> 
+
+    # Remove obs with no cs_id
+    filter(!is.na(id_cs)) |>
+    
+    # Remove matches, that matched different domains, but same company (e.g. company_id: 83060, id_cs: 4507928) block.xyz & squareup.com
+    select(company_id, id_cs) |> 
+    distinct()
+    
+cb_cs_joined
 ```
 
 ```{r}
 #| echo: false
-fortune500 <- readRDS("/Users/jschwarz/02_diss/01_data_sources/01_fortune500/02_data/fortune_500_1955-2022.rds") |> 
-                select(year, company) |> 
-                mutate(company = company |> tolower())
-fortune500
+library(purrr)
+cb_cs_joined <- funded_companies_clnd |> 
+
+    # LeftJoins
+    left_join(cs_companies_base_clnd |> select(id_cs, domain_cs),          by = c(domain          = "domain_cs"),          na_matches = "never") |> 
+    left_join(cs_companies_base_clnd |> select(id_cs, linkedin_handle_cs), by = c(linkedin_handle = "linkedin_handle_cs"), na_matches = "never") |> 
+
+    # Allow multiple matches: Merge ids (id_cs.x, id_cs.y) into one column (due to multiple left_joins) and unnest()
+    rowwise() |> 
+    mutate(id_cs = list(c(id_cs.x, id_cs.y) |> na.omit() |> unique()))
+
+    cb_cs_joined$id_cs <- modify_if(cb_cs_joined$id_cs, ~length(.) == 0, ~NA_integer_)
+    cb_cs_joined <- cb_cs_joined |> 
+          
+          select(-c(id_cs.x,id_cs.y)) |> 
+          unnest(id_cs) |>
+          
+          # Remove obs with no cs_id
+          filter(!is.na(id_cs)) |>
+          
+          # Remove matches, that matched different domains, but same company (e.g. company_id: 83060, id_cs: 4507928) block.xyz & squareup.com
+          select(company_id, id_cs) |> 
+          distinct()
+    
+cb_cs_joined
 ```
+
+::: {.fragment fragment-index=1}
+
+```{r}
+cb_cs_joined |> distinct(company_id) |> nrow()
+```
+
 :::
-::::
+
+### Jobs (all)
+
+We got over 460 million employment observations from CoreSignal.
+
+```{r}
+#| eval: false
+# Other data versions
+# 1. Complete: 
+member_experience_dt 
+#> {462.711.794}  
+
+# 2. Distinct1: 
+member_experience_dist_dt <- unique(member_experience_dt) 
+#> {432.368.479}
+
+# 3. Distinct2: 
+unique(member_experience_dist_dt[order(id)], by = setdiff(names(member_experience_dist_dt), "id")) 
+#> {431.899.547}
+```
+
+### Jobs (dist)
+
+But only ~50 Mil distinct employments
+
+```{r}
+#| eval: false
+# Load distinct member experiences
+me_dist8_prqt <- arrow::open_dataset("cs_me_dist8_unest_empl_hist.parquet") 
+me_dist8_prqt |> glimpse()
+```
+
+```{r}
+#| echo: false
+# Load distinct member experiences
+me_dist8_prqt <- arrow::open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/03_wrangled/cs_me_dist8_unest_empl_hist.parquet") 
+me_dist8_prqt |> 
+  glimpse()
+```
+
+Example
+
+```{r}
+#| eval: false
+me_orig <- open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_orig/")
+me_dist <- open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_dist/")
+
+me_orig |> filter(member_id == 4257, company_id == 9007053) |> collect() |> as_tibble() |> arrange(date_from_parsed) |> print(n=19)
+me_dist |> filter(member_id == 4257, company_id == 9007053) |> collect() |> as_tibble() |> arrange(date_from_parsed)
+```
+
+### Jobs (focal)
+
+Over 10 million [(valid: must have starting date)]{style="color:#cc0000; font-style: italic;"} employments at our crunchbase / pitchbook data set companies. 385.100 with a title containing the string [founder]{style="color:rgb(0, 94, 115); font-style: italic;"}.
+
+```{r}
+# Distinct company ids
+cb_cs_joined_cs_ids <- cb_cs_joined |> distinct(id_cs) |> pull(id_cs)
+me_wrangled_prqt    <- me_dist8_prqt |> 
+  
+                          # Select features
+                          select(member_id, company_id, exp_id = "id", date_from_parsed) |> 
+                          
+                          # Select observations
+                          filter(company_id %in% cb_cs_joined_cs_ids) |> 
+                          # - 967.080 observations (date_to not considered yet)
+                          filter(!is.na(date_from_parsed)) |> 
+
+                          # Add suffix to col names
+                          rename_with(~ paste(., "cs", sep = "_")) |> 
+                          compute()
+
+me_wrangled_prqt |> 
+  glimpse()
+```
+
+### Funding
+
+Multiple Funding Dates --> [Take oldest]{style="color:#cc0000;"}
+
+```{r}
+#| eval: false
+fc_wrangled_tbl <- funded_companies_tbl |> 
+  
+  # Consider multiple founding dates: Take oldest founding date
+  unnest(founded_on) |> 
+  arrange(company_id, founded_on) |> 
+  group_by(company_id) |> slice(1) |> ungroup()
+```
+
+```{css, echo=FALSE}
+.cell-top-margin {
+    margin-top: 0.5rem;
+}
+```
+
+Example of funding round data:
+
+```{r}
+#| eval: false
+fc_wrangled_tbl$funding_rounds[[1]] |>  
+  glimpse()
+```
+
+```{r}
+#| echo: false
+funded_companies_wrangled_sliced_tbl <- readRDS("~/Library/Mobile Documents/com~apple~CloudDocs/01_tuhh/02_diss/02_data_mapping/10_cbpb_cs/02_data/funded_companies_wrangled_sliced_tbl.rds")
+funded_companies_wrangled_sliced_tbl$funding_rounds[[1]] |> 
+  glimpse()
+```
+
+### Conversion
+
+* Joining via `dplyr` due to memory constraint not possible.<br>
+* Joining via `Arrow` due to structure constraints not possible.<br>
+* --> Joining via `data.table` most efficient.<br>
+
+Conversion to `data.tables` necessary:
+
+```{r}
+#| eval: false
+# 1.  Funding Data
+# 1.1 Level 1
+fc_wrangled_dt |> setDT()
+
+# 1.2 Funding Data Level 2 (funding_rounds)
+purrr::walk(fc_wrangled_dt$funding_rounds, setDT)
+
+# 1.3 Remove unnecessary columns + initialize dummy for before_join
+purrr::walk(fc_wrangled_dt$funding_rounds, ~ .x[, 
+          `:=`(round_uuid_pb = NULL, round_uuid_cb        = NULL, round_new          = NULL, round          = NULL,
+               exit_cycle    = NULL, last                 = NULL, round_type         = NULL, round_type_new = NULL, 
+               round_types   = NULL, post_money_valuation = NULL, investors_in_round = NULL, before_join    = NA)
+          ]
+        )
+
+# 2. Matching Table
+cb_cs_joined_slct_dt |> setDT()
+
+# 3. Member experiences
+me_wrangled_dt <- me_wrangled_prqt |> collect()
+```
+
+### Join
+
+Working `data.table` solution (efficiency increase through join `by reference` possible).
+
+```{r}
+#| eval: false
+# 1. Add company_id from funded_companies to member experiences
+me_joined_dt <- cb_cs_joined_slct_dt[me_wrangled_dt, on = .(id_cs = company_id_cs), allow.cartesian = TRUE]
+#> 12.978.226
+
+# 2. Add funding data from funded_companies
+me_joined_dt <- fc_wrangled_dt[me_joined_dt, on = .(company_id)]
+#> 12.270.572
+
+# 3. Remove duplicates (why are there any?)
+me_joined_dt <- unique(me_joined_dt, by = setdiff(names(me_joined_dt), "funding_rounds"))
+#> 12.270.572 .... No duplicates anymore. Removed from cb_cs_joined_slct_dt
+```
+
+Not working `dplyr` solution
+
+```{r}
+#| eval: false
+me_joined_dt_dplyr <- me_wrangled_dt |>
+
+  # Add company_id from funded_companies
+  left_join(cb_cs_joined_slct_dt,
+            by = c(company_id_cs = "id_cs")) |>
+
+  # Add data from funded_companies
+  left_join(funded_companies_wrangled_dt,
+            by = "company_id")  |>
+  distinct()
+```
+
+`Arrow` because of nested funding data not possible.
+
+:::::::
+
+
+# Variable creation {data-stack-name="VARIABLES"}
+Using domain knowledge to extract features
+
+## 1. Overview
+
+From here on almost everything is in 
+
+
+::: {.callout-note icon=false appearance="simple"}
+## Script and File locations
+
+**Scripts**<br>
+[05_analyses/03_cbpbcs/01_scripts](http://134.28.58.29/owncloud/index.php/apps/files/?dir=/01_diss/joschka_schwarz/02_diss/05_analyses/03_cbpbcs/01_scripts&fileid=2194197)
+
+* `01_founding_vs_employment` (Company Funding vs. Time of Employment (I. Time, II. Capital, III. Rounds))
+* `02_stage_affiliation` (stages based on Age and funding. was discarded later on --> see 04_funding_history)
+* `03_employment_history` (Fortune500, Startup, Founding, Research Experiences)
+* `04_funding_history` (1. prior raised amount (person), 2. further funding (company), 3. funding per round, 4. Dataset based on series B)
+* `05_education_history` (merge with rankings, extract degrees)
+* `06_skills`
+* `07_analyses/02_per_company/` (last plots)
+
+:::
+
+## 2. List of all variables (not up to date)
+
+::::::: {.panel-tabset}
+
+### All
+
+```{r}
+#| echo: false
+cs_me_dist8_unest_wedu_dt <-  open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/03_wrangled/cs_me_dist8_unest_fin4.parquet") |> collect()
+```
+
+```{r}
+cs_me_dist8_unest_wedu_dt |> 
+  glimpse()
+```
+
+### General
+
+```{r}
+cs_me_dist8_unest_wedu_dt |> 
+  select(id_tie, member_id, exp_id_cs, company_id_cbpb, company_name_cbpb, company_id_cs, company_name_cs, 
+         founded_on_cbpb, closed_on_cbpb,
+         title_cs) |> 
+  glimpse()
+```
+
+### EDA
+
+```{r}
+cs_me_dist8_unest_wedu_dt |> 
+  select(date_from_parsed_cs, date_to_parsed_cs, 
+         tjoin_tfound, raised_amount_before_join_company, num_rounds_before_join) |> 
+  glimpse()
+```
+
+### Exp (dummy)
+
+```{r}
+cs_me_dist8_unest_wedu_dt |> 
+  select(starts_with("is_"),
+         starts_with("was_")) |> 
+  glimpse()
+```
+
+### Exp (quant)
+
+```{r}
+cs_me_dist8_unest_wedu_dt |> 
+  select(
+    starts_with("date_1st_"),
+    starts_with("time_since_1st_"),
+    starts_with("exp_"), -exp_id_cs) |> 
+  glimpse()
+```
+
+### Edu
+
+```{r}
+cs_me_dist8_unest_wedu_dt |> 
+  select(score_global_2023_best,
+         starts_with("rank"),
+         starts_with("degree")) |> 
+  glimpse()
+```
+
+### Fund
+
+```{r}
+cs_me_dist8_unest_wedu_dt |> 
+  select(date_from_stage, company_start_mid, company_start_late,
+         raised_amount_before_founder_member, raised_amount_before_all_member,
+         funding_after_mid, funding_after_early) |> 
+  glimpse()
+```
+
+::::::: 

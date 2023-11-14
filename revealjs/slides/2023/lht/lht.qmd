@@ -1,0 +1,413 @@
+---
+# TITLE & AUTHOR
+title: "LHT Data Scientist"
+subtitle: "Case Study"
+author: "Joschka Schwarz"
+institute: "Hamburg University of Technology"
+date: today
+date-format: "dddd, D[<sup style='font-size:65%;font-style:italic;'>th</sup>] [of] MMMM YYYY"
+section-divs: true
+filters:
+   - lightbox
+lightbox: auto
+engine: knitr
+knitr:
+  opts_chunk: 
+    class-output: hscroll
+---
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(
+  comment = '#>', fig.width = 6, fig.height = 6
+)
+library(pacman)
+source("../../../../R/setup-ggplot2-tie-bright.R")
+```
+
+## Table of Contents {data-state="hide-menubar"}
+<ul class="menu"><ul>
+
+```{css, echo=FALSE}
+.hscroll {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+```
+
+# Problem Statement {data-stack-name="Scenario"}
+What are we solving for?
+
+## Optimizing Precision: Strategies for Minimizing Error Rates in VIP Waiter Robots {background-image="img/lh_waiter_robot.png" background-size="50% auto" background-position="right bottom" background-repeat="no-repeat"}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+<h3>Scenario</h3>
+
+* Voice-controlled waiter robots were developed to equip VIP aircraft, but they [occasionally produce errors]{style="color: #f9ba00;"} during operation. 
+* A software update was developed to [reduce the frequency of errors]{style="color: #f9ba00;"}.
+* [Test series]{style="color: #f9ba00;"} were performed to verify the effectiveness of the update.
+
+<h3>Objectives</h3>
+
+1. Does the new software version [reduce the error rate?]{style="color: #f9ba00;"}
+2. If yes, by [how much?]{style="color: #f9ba00;"}
+3. Each error that occurs generates costs of 3,14 €, rolling out the software update 42k €. [Which software version should be used?]{style="color: #f9ba00;"}
+
+:::
+::::
+
+# Steps {data-stack-name="Steps"}
+Understanding what needs to be done
+
+## Navigating Excellence: Step-by-Step Solutions for Enhancing Accuracy 
+
+:::: {.panel-tabset}
+
+### General
+
+<ol>
+<b><li>Step: Error Rate Reduction</li></b>
+<ul>
+<li>Calculate Error Rates</li>
+<li>Perform Statistical Test</li>
+<li>Quantify Result</li>
+</ul>
+<b><li>Step: Cost Analysis (Break-Even)</li></b>
+<ul>
+<li>Cost of Errors</li>
+<li>Cost of Software Update</li>
+<li>Compare Total Costs</li>
+</ul>
+<b><li>Step: Conclusion</li></b>
+</ol>
+
+### Specific (Step 1)
+
+::: {.panel-tabset-heading}
+Step 1: Error Rate Reduction
+:::
+
+<u>Hypothesis:</u>
+
+* Null Hypothesis ($H_0$): The new software version does not reduce the error rate.
+* Alternative Hypothesis ($H_1$): The new software version reduces the error rate.
+
+<ol>
+<b><li>Calculate Error Rates</li></b>
+<ul>
+<li>Determine the error rate for the old software version and the error rate for the new software version. Error rate can be calculated as the number of errors divided by the total number of operations.</li>
+</ul>
+<b><li>Perform Statistical Test</li></b>
+<ul>
+<li>Use an appropriate statistical test (**C.I. for the Difference in Proportions**) to compare the error rates of the old and new software versions.</li>
+</ul>
+<b><li>Quantify Confidence</li></b>
+<ul>
+<li>Quantify confidence by providing confidence intervals for the reduction in error rate if the null hypothesis is rejected.</li>
+</ul>
+</ol>
+
+### Specific (Step 2)
+ 
+::: {.panel-tabset-heading}
+Step 2: Cost Analysis (Break-Even)
+:::
+
+**1. Cost of Errors:** Determine the total cost of errors for the old software version and the new software version.
+
+$$Cost \: of \: Errors = Error \: Rate × Cost \: per \: Error × Number \: of \: Operations$$
+
+**2. Cost of Software Update:** Add the cost of rolling out the software update to the total cost for the new software version.
+
+$$Total \: Cost \: for \: New \: Software \: Version = Cost \: of \: Errors \: (New \: Software) + Cost \: of \: Software \: Update$$
+
+**3. Compare Total Costs:** Compare the total cost of errors and the cost of software update for the old and new software versions.
+
+::::
+
+# Data sources {data-stack-name="Data"}
+What is Data Integrity and why does it matter?
+
+## Test series were performed to verify the effectiveness of the update
+
+:::: {.panel-tabset}
+
+### General
+
+```{r}
+#| echo: false  
+
+library(readr)
+library(dplyr)
+```
+
+```{r}
+data_joined_cleaned_tbl <- read_rds("01_data/02_wrangled/data_joined_cleaned.rds")
+data_joined_cleaned_tbl
+```
+
+```{r}
+data_joined_cleaned_tbl |> 
+   count(failure, software_version)
+```
+
+### Specific
+
+![](img/lh_erd.svg)
+
+### Code (1)
+
+```{r}
+#| echo: false
+library(readr)
+library(janitor)
+library(dplyr)
+```
+
+```{r}
+# 1. Read data
+device_sv_tbl   <- read_delim("01_data/01_raw/device_sv.csv",   delim = "|", col_types = "dc")
+test_result_tbl <- read_delim("01_data/01_raw/test_result.csv", delim = "|", col_types = "dc")
+
+# 2. Analyze data (I)
+device_sv_tbl   |> get_dupes(id)
+test_result_tbl |> get_dupes(pid)
+```
+
+```{r}
+# 3. Clean data (I)
+device_sv_cleaned_tbl   <- device_sv_tbl   |> filter(id  != "bc62efbd55c35066c7dd02b34009fd3c6075834f98eb20aef8f43e6e")
+test_result_cleaned_tbl <- test_result_tbl |> filter(pid != "bc62efbd55c35066c7dd02b34009fd3c6075834f98eb20aef8f43e6e")
+```
+
+### Code (2)
+
+```{r}
+# 4. Merge data
+data_joined_tbl <- device_sv_cleaned_tbl |> 
+                      left_join(test_result_cleaned_tbl, by = join_by(id == pid))
+
+# 5. Analyze data (II)
+data_joined_tbl |> count(software_version, failure)
+
+# 3. Clean data (II)
+data_joined_cleaned_tbl <- data_joined_tbl |> filter(failure %in% c(0,1))
+```
+
+::::
+
+# Analysis {data-stack-name="Analysis"}
+Turning raw data into actionable insights
+
+## Achieving Precision: 25% Reduction in Mean Error Rates for Waiter Robots
+
+:::::: {.panel-tabset}
+
+### General
+
+::::: {.r-stack}
+
+::: {.fragment .absolute top=20% left=25% right=25%}
+```{r}
+#| eval: false
+data_joined_cleaned_tbl |>
+  summarise(
+    error_rate = mean(failure),
+    n          = n(),
+    .by = software_version
+  )
+```
+
+```{r}
+#| echo: false
+data_joined_cleaned_tbl |>
+  summarise(
+    error_rate = mean(failure),
+    n          = n(),
+    .by        = software_version
+  ) |> 
+  mutate(error_rate = scales::percent(error_rate))
+```
+:::
+
+::: {.fragment}
+![](img/lh_error_rate_wf.png){width=80%}
+:::
+
+:::: {.fragment}
+
+::: {.callout-warning}
+There is a 95% chance that the confidence interval of [-0,6 pp; 2,1 pp] contains the true difference in the proportion of error rates between the two software versions. In other words, we cannot say with 95% certainty that there is a difference in mean error rates between these versions.
+
+* `90% Confidence Interval:` [-0,4 pp; 1,8 pp]
+* `95% Confidence Interval:` [-0,6 pp, 2,1 pp]
+* `99% Confidence Interval:` [-1,0 pp, 2,5 pp]
+:::
+::::
+
+:::::
+
+### Specific
+
+```{r}
+#| echo: false
+library(interpretCI)
+library(purrr)
+```
+
+$Confidence \: interval = (p_1–p_2) ± z*\sqrt{\frac{p_1(1-p_1)}{n_1} + \frac{p_2(1-p_2)}{n_2}}$
+
+```{r}
+propCI(n1 = 1504, n2 = 752, p1 = 0.02859043, p2 = 0.02127660, alpha = 0.10, digits = 3) |> pluck("result") |> select(CI)
+propCI(n1 = 1504, n2 = 752, p1 = 0.02859043, p2 = 0.02127660, alpha = 0.05, digits = 3) |> pluck("result") |> select(CI)
+propCI(n1 = 1504, n2 = 752, p1 = 0.02859043, p2 = 0.02127660, alpha = 0.01, digits = 3) |> pluck("result") |> select(CI)
+```
+
+::::::
+
+## Crossing the Threshold at 1,7M operations - Unveiling the Cost Efficiency of the Update
+
+:::::: {.panel-tabset}
+
+### General
+
+**The law of large numbers:** The average of the results obtained from a [large number of independent identical trials should be close to the expected value]{style="color: #f9ba00;"} and tends to become closer to the expected value as more trials are performed.
+
+```{r}
+#| echo: false
+# Set unitary cost
+cost_err_1.1  <- 0.02859043 * 3.14
+cost_err_1.2  <- 0.0212766  * 3.14
+cost_rout_1.2 <- 40000
+
+# Create units column
+units <- seq(from = 0, to = 3000000, by = 100000)
+
+# Create total cost columns
+total_cost_1.1 <- cost_err_1.1 * units
+total_cost_1.2 <- cost_err_1.2 * units + cost_rout_1.2
+
+# Build data frame
+df <- data.frame(units, total_cost_1.1, total_cost_1.2)
+
+# Calculate contribution margin & break even units
+contribution_margin  <- cost_err_1.1 - cost_err_1.2
+break_even_units     <- cost_rout_1.2 / contribution_margin 
+break_even_units_chr <- scales::label_number(accuracy  = 0.1, 
+                                             scale_cut = scales::cut_short_scale(),
+                                             big.mark  = ".", decimal.mark = ",")(break_even_units)
+```
+
+```{r}
+#| echo: false
+#| out-width: 50%
+
+# Build Break Even Point Graph
+ggplot(data = df, aes(x = units)) +
+  geom_line(aes(y = cost_rout_1.2,
+                col = "Rollout Cost")) +
+  geom_line(aes(y = total_cost_1.1,
+                col = "Total Cost v1.1")) +
+  geom_line(aes(y = total_cost_1.2,
+                col = "Total Cost v1.2")) +
+  geom_segment(aes(x = break_even_units, xend = break_even_units, 
+                   y = 0, yend = break_even_units*cost_err_1.1),
+               linetype = "dashed", color = "#9B9B9B") +
+  geom_segment(aes(x = 0, xend = break_even_units, 
+                   y = break_even_units*cost_err_1.1, yend = break_even_units*cost_err_1.1),
+                   linetype = "dashed", color = "#9B9B9B") +
+  geom_point(aes(x = break_even_units, 
+                 y= break_even_units*cost_err_1.1), 
+             colour = "#9B9B9B", size = 4) +
+  annotate("label", x = break_even_units, y = 0, label = paste("Break Even Point:", break_even_units_chr)) +
+  scale_color_manual(labels = c("Rollout Cost", "Total Cost v1.1", "Total Cost v1.2"),
+                     values = c("Rollout Cost" = "black", "Total Cost v1.1" = "#FFAD00", "Total Cost v1.2" = "#0A1D3D")) +
+  scale_y_continuous(breaks = c(0, 40000, 100000, 200000),
+                     labels = scales::dollar_format(suffix = " €", prefix = "", big.mark = ".", decimal.mark = ",")) +
+  scale_x_continuous(labels = scales::unit_format(unit = "M", scale = 1e-6)) +
+  geom_ribbon(data = df[df$total_cost_1.2 >= df$total_cost_1.1, ], aes(x = units, ymin = total_cost_1.2, ymax = total_cost_1.1), fill = "#0A1D3D", alpha = 0.15) +
+  geom_ribbon(data = df[df$total_cost_1.2 <= df$total_cost_1.1, ], aes(x = units, ymin = total_cost_1.1, ymax = total_cost_1.2), fill = "#FFAD00", alpha = 0.15) +
+  labs(title = "Break Even Point Graph",
+       x = "Number of operations (in millions)",
+       y = "Expected cost",
+       color = NULL) +
+  tidyquant::theme_tq()
+```
+
+### Code (Calc)
+
+```{r}
+#| eval: false
+# Set unitary cost
+cost_err_1.1  <- 0.02859043 * 3.14
+cost_err_1.2  <- 0.0212766  * 3.14
+cost_rout_1.2 <- 40000
+
+# Create units column
+units <- seq(from = 0, to = 3000000, by = 100000)
+
+# Create total cost columns
+total_cost_1.1 <- cost_err_1.1 * units
+total_cost_1.2 <- cost_err_1.2 * units + cost_rout_1.2
+
+# Build data frame
+df <- data.frame(units, total_cost_1.1, total_cost_1.2)
+
+# Calculate contribution margin & break even units
+contribution_margin  <- cost_err_1.1 - cost_err_1.2
+break_even_units     <- cost_rout_1.2 / contribution_margin 
+break_even_units_chr <- scales::label_number(accuracy  = 0.1, 
+                                             scale_cut = scales::cut_short_scale(),
+                                             big.mark  = ".", decimal.mark = ",")(break_even_units)
+```
+
+### Code (Plot)
+
+```{r}
+#| eval: false
+#| # Build Break Even Point Graph
+ggplot(data = df, aes(x = units)) +
+  geom_line(aes(y = cost_rout_1.2,
+                col = "Rollout Cost")) +
+  geom_line(aes(y = total_cost_1.1,
+                col = "Total Cost v1.1")) +
+  geom_line(aes(y = total_cost_1.2,
+                col = "Total Cost v1.2")) +
+  geom_segment(aes(x = break_even_units, xend = break_even_units, 
+                   y = 0, yend = break_even_units*cost_err_1.1),
+               linetype = "dashed", color = "#9B9B9B") +
+  geom_segment(aes(x = 0, xend = break_even_units, 
+                   y = break_even_units*cost_err_1.1, yend = break_even_units*cost_err_1.1),
+                   linetype = "dashed", color = "#9B9B9B") +
+  geom_point(aes(x = break_even_units, 
+                 y = break_even_units*cost_err_1.1), 
+             colour = "#9B9B9B", size = 4) +
+  annotate("label", x = break_even_units, y = 0, label = paste("Break Even Point:", break_even_units_chr)) +
+  scale_color_manual(labels = c("Rollout Cost", "Total Cost v1.1", "Total Cost v1.2"),
+                     values = c("Rollout Cost" = "black", "Total Cost v1.1" = "#FFAD00", "Total Cost v1.2" = "#0A1D3D")) +
+  scale_y_continuous(breaks = c(0, 40000, 100000, 200000),
+                     labels = scales::dollar_format(suffix = " €", prefix = "", big.mark = ".", decimal.mark = ",")) +
+  scale_x_continuous(labels = scales::unit_format(unit = "M", scale = 1e-6)) +
+  geom_ribbon(data = df[df$total_cost_1.2 >= df$total_cost_1.1, ], aes(x = units, ymin = total_cost_1.2, ymax = total_cost_1.1), fill = "#0A1D3D", alpha = 0.15) +
+  geom_ribbon(data = df[df$total_cost_1.2 <= df$total_cost_1.1, ], aes(x = units, ymin = total_cost_1.1, ymax = total_cost_1.2), fill = "#FFAD00", alpha = 0.15) +
+  labs(title = "Break Even Point Graph",
+       x = "Number of operations (in millions)",
+       y = "Expected cost",
+       color = NULL) +
+  tidyquant::theme_tq()
+```
+
+::::::
+
+# Conclusion {data-stack-name="Conclusion"}
+`Primary objective:` What are we solving for?
+
+## Here is something
+
+* Larger confidence intervals increase the likelihood of catching the genuine percentage from the sample proportion, giving you more confidence that you know what it is.
+* 2nd
+* 3rd
+*
