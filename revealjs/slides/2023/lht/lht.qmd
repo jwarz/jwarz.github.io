@@ -274,6 +274,9 @@ propCI(n1 = 1504, n2 = 752, p1 = 0.02859043, p2 = 0.02127660, alpha = 0.01, digi
 
 ### General
 
+:::: {.columns}
+::: {.column .fragment width="70%"}
+
 ```{r}
 #| echo: false
 # Set unitary cost
@@ -298,8 +301,6 @@ break_even_units_chr <- scales::label_number(accuracy  = 0.1,
                                              scale_cut = scales::cut_short_scale(),
                                              big.mark  = ".", decimal.mark = ",")(break_even_units)
 ```
-
-<p style="font-size: smaller">**The law of large numbers:** The average of the results obtained from a [large number of independent identical trials should be close to the expected value]{style="color: #f9ba00;"} and tends to become closer to the expected value as more trials are performed.</p>
 
 ```{r}
 #| echo: false
@@ -335,6 +336,14 @@ ggplot(data = df, aes(x = units)) +
        color = NULL) +
   tidyquant::theme_tq()
 ```
+:::
+
+::: {.column width="30%"}
+<p><u>Assumption</u></p>
+<p style="font-size: smaller">**The law of large numbers:** The average of the results obtained from a [large number of independent identical trials should be close to the expected value]{style="color: #f9ba00;"} and tends to become closer to the expected value as more trials are performed.</p>
+:::
+
+::::
 
 ### Code (Calc)
 
