@@ -101,7 +101,7 @@ system(paste0("ssh -fNg -L 3307:127.0.0.1:3306 tie@", Sys.getenv("TIEADDRESS"), 
 ```
 
 ```{r}
-#| eval: true
+#| eval: false
 #| label: ght-connection
 p_load(RMariaDB, dplyr)
 con <- dbConnect(
@@ -123,7 +123,7 @@ con |> dbListTables()
 :::: {.columns}
 ::: {.column width="33%"}
 ```{r}
-#| eval: true
+#| eval: false
 #| label: u-count
 #| output-location: fragment
 tbl(con, "users") |> 
@@ -132,7 +132,7 @@ tbl(con, "users") |>
 :::
 ::: {.column width="33%"}
 ```{r}
-#| eval: true
+#| eval: false
 #| label: p-count
 #| output-location: fragment
 tbl(con,"projects") |> 
@@ -141,7 +141,7 @@ tbl(con,"projects") |>
 :::
 ::: {.column width="33%"}
 ```{r}
-#| eval: true
+#| eval: false
 #| label: pc-count
 #| output-location: fragment
 tbl(con,"project_commits") |> 
@@ -170,7 +170,7 @@ options(
 ```
 
 ```{r}
-#| eval: true
+#| eval: false
 #| label: gh-ght-users-table
 users <- tbl(con, "users") 
 users |>   
@@ -180,7 +180,7 @@ users |>
 ::: {.column width="50%"}
 ::: {.fragment}
 ```{r}
-#| eval: true
+#| eval: false
 users |> 
   filter(login == "christophihl") |> 
   glimpse()
@@ -289,11 +289,12 @@ open_dataset("gh_api_users_wrangled.parquet") |>
 ```
 
 ```{r}
+#| eval: false
 #| echo: false
 #| message: false
 #| class-output: cell-out-height
 library(arrow)
-open_dataset("/Users/jschwarz/02_diss/01_data_sources/02_github/01_api/01_data/02_wrangled/gh_api_users_wrangled.parquet") |> 
+open_dataset("/Users/jschwarz/02_diss/01_data_sources/02_github/01_api/01_data/  02_wrangled/gh_api_users_wrangled.parquet") |> 
   glimpse() 
 ```
 :::
@@ -343,13 +344,13 @@ options(
 ```
 
 ```{r}
-#| eval: true
+#| eval: false
 org_members <- tbl(con, "organization_members")
 org_members
 ```
 
 ```{r}
-#| eval: true
+#| eval: false
 #| output-location: fragment
 #| code-line-numbers: "4"
 org_members |> 
@@ -412,6 +413,7 @@ options(
 ```
 
 ```{r}
+#| eval: false
 #| echo: false
 #| class-output: hscroll
 gh_ght_org_members_with_logins_and_domains_tbl <- readRDS("/Users/jschwarz/02_diss/01_data_sources/02_github/02_ghtorrent/01_data/02_wrangled/gh_ght_org_members_with_logins_and_domains_tbl.rds")
@@ -443,6 +445,7 @@ gh_api_users |>
 ```
 
 ```{r}
+#| eval: false
 #| echo: false
 #| class-output: hscroll
 #| label: gh_api_ght_org_loc_mapping.R
@@ -495,6 +498,7 @@ open_dataset("so_dump_2021_09_users.parquet") |>
 ```
 
 ```{r}
+#| eval: false
 #| echo: false
 #| message: false
 open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/02_extracted/so_dump_2021_09_users.parquet") |> 
@@ -515,6 +519,7 @@ open_dataset("so_dump_2021_09_users.parquet") |>
 ```
 
 ```{r}
+#| eval: false
 #| echo: false
 #| message: false
 open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/02_extracted/so_dump_2021_09_users.parquet") |> 
@@ -549,6 +554,7 @@ open_dataset("so_dump_2013_09_users.parquet") |>
 ```
 
 ```{r}
+#| eval: false
 #| echo: false
 #| message: false
 open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/02_extracted/so_dump_2013_09_users.parquet") |> 
@@ -758,7 +764,7 @@ open_dataset("so_users_joined.parquet") |>
 
 ```{r}
 #| echo: false
-#| eval: true
+#| eval: false
 open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/03_wrangled/so_users_joined.parquet") |> 
   # filter(Id > 0) |> 
   # arrange(Id) |> 
@@ -776,7 +782,7 @@ open_dataset("so_users_joined.parquet") |>
 
 ```{r}
 #| echo: false
-#| eval: true
+#| eval: false
 open_dataset("/Users/jschwarz/02_diss/01_data_sources/04_stackoverflow/01_data/03_wrangled/so_users_joined.parquet") |> 
   filter(Id == 9882371) |> 
   glimpse()
@@ -860,6 +866,7 @@ open_dataset("al_profiles.parquet") |>
 ```
 
 ```{r}
+#| eval: false
 #| echo: false
 open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_angellist/02_data/03_wrangled/02_profiles/al_profiles.parquet") |> 
   glimpse() 
@@ -875,6 +882,7 @@ open_dataset("al_orgs.parquet") |>
 ```
 
 ```{r}
+#| eval: false
 #| echo: false
 open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_angellist/02_data/03_wrangled/01_organizations/al_orgs.parquet") |> 
   glimpse() 
@@ -895,6 +903,7 @@ open_dataset("al_profiles_main_wrangled.parquet") |>
 ```
 
 ```{r}
+#| eval: false
 #| echo: false
 open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_angellist/02_data/03_wrangled/02_profiles/al_profiles_main_wrangled.parquet") |> 
   glimpse() 
@@ -909,6 +918,7 @@ open_dataset("al_employees.parquet") |>
 ```
 
 ```{r}
+#| eval: false
 #| echo: false
 open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_angellist/02_data/03_wrangled/01_organizations/al_employees.parquet") |> 
   glimpse() 
@@ -946,6 +956,7 @@ gh_so_al_final <- gh_so_joined_tbl |>
 ```
 
 ```{r}
+#| eval: false
 #| echo: false
 open_dataset("/Users/jschwarz/Library/Mobile Documents/com~apple~CloudDocs/01_tuhh/02_diss/02_data_mapping/03_al_ghso/02_data/gh_so_al_final.parquet") |> 
   glimpse()
@@ -969,6 +980,7 @@ gh_so_al_unnested_tbl <- gh_so_al_unnested_tbl |>
 ```
 
 ```{r}
+#| eval: false
 #| echo: false
 open_dataset("/Users/jschwarz/Library/Mobile Documents/com~apple~CloudDocs/01_tuhh/02_diss/02_data_mapping/04_cb_alghso/02_data/gh_so_al_cb2.parquet") |> 
   glimpse()
