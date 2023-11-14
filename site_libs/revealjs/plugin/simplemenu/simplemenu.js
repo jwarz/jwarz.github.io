@@ -587,7 +587,7 @@
 	      } = _ref;
 	      return setScale(scale);
 	    }, false);
-	    const SimplemenuStylePath = options.csspath ? options.csspath : `${pluginPath(es5Filename)}simplemenu.css` || 'plugin/simplemenu/simplemenu.css';
+	    const SimplemenuStylePath = options.csspath ? options.csspath : `${pluginPath(es5Filename)}SimpleMenu.css` || '_site/site_libs/plugin/simplemenu/SimpleMenu.css';
 	    return new Promise(resolve => {
 	      if (options.csspath === false) {
 	        return prepare(resolve);
