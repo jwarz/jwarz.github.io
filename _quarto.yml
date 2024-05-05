@@ -4,17 +4,19 @@ project:
   render:
     - "*.qmd"
     - "!content/R/r-manuals/"
-    - "!content/R/topics//01_basics"
-    - "!content/R/topics//02_importing_data"
-    - "!content/R/topics//03_data_wrangling"
-    - "!content/R/topics//04_data_visualization"
-    - "!content/R/topics//05_statistics"
-    - "!content/R/topics//06_regression"
-    - "!content/R/topics/07_machine_learning"
+    - "content/python/index.qmd"
     - "!content/python"
-    - "!content/sql"
-    - "!slides"
-    - "!tutorials"
+    # - "!content/R/topics//01_basics"
+    # - "!content/R/topics//02_importing_data"
+    # - "!content/R/topics//03_data_wrangling"
+    # - "!content/R/topics//04_data_visualization"
+    # - "!content/R/topics//05_statistics"
+    # - "!content/R/topics//06_regression"
+    # - "!content/R/topics/07_machine_learning"
+    # - "!content/python"
+    # - "!content/sql"
+    # - "!slides"
+    # - "!slides"
 execute: 
   freeze: auto  # Re-render only when source changes
 
@@ -69,94 +71,94 @@ website:
             - text: "<b><i>1 Programming Basics</i></b>"
             - text: "---"
             - text: "1.1: Introduction to R"
-              href: content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.html
+              file: content/R/topics/01_basics/01_programming_beginner/01_programming_beginner.qmd
             - text: "1.2: Intermediate R"
-              href: content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.html
+              file: content/R/topics/01_basics/02_programming_intermediate/02_programming_intermediate.qmd
             - text: "1.3: Introduction to the tidyverse"
-              href: content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.html
+              file: content/R/topics/01_basics/03_programming_tidyverse/03_programming_tidyverse.qmd
             - text: "---"
             - text: "<b><i>2 Importing Data</i></b>"
             - text: "---"
             - text: "2.1: Introduction to Importing Data"
-              href: content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.html
+              file: content/R/topics/02_importing_data/01_importing_data_beginner/01_importing_data_beginner.qmd
             - text: "2.2: Intermediate Importing Data"
-              href: content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.html
+              file: content/R/topics/02_importing_data/02_importing_data_intermediate/02_importing_data_intermediate.qmd
             - text: "2.3: Working with web data"
-              href: content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.html
+              file: content/R/topics/02_importing_data/03_working_with_web_data/03_working_with_web_data.qmd
             - text: "---"
             - text: "<b><i>3 Data Wrangling</i></b>"
             - text: "---"
             - text: "3.1: Data Manipulation with dplyr"
-              href: content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.html
+              file: content/R/topics/03_data_wrangling/01_data_manipulation_with_dplyr/01_data_manipulation_with_dplyr.qmd
             - text: "3.2: Joining data with dplyr"
-              href: content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.html
+              file: content/R/topics/03_data_wrangling/02_joining_data_with_dplyr/02_joining_data_with_dplyr.qmd
             - text: "3.3: Exploratory Data Analysis"
-              href: content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.html
+              file: content/R/topics/03_data_wrangling/exploratory_data_analysis_in_r/exploratory_data_analysis_in_r.qmd
             - text: "3.4: Case Study: EDA"
-              href: content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.html
+              file: content/R/topics/03_data_wrangling/case_study_exploratory_data_analysis_in_r/case_study_exploratory_data_analysis_in_r.qmd
             - text: "3.5: Cleaning Data"
-              href: content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.html
+              file: content/R/topics/03_data_wrangling/cleaning_data_in_r/cleaning_data_in_r.qmd
             - text: "3.6: Data Manipulation with data.table"
-              href: content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.html
+              file: content/R/topics/03_data_wrangling/data_manipulation_with_datatable/data_manipulation_with_datatable.qmd
             - text: "3.7: Joining Data with data.table"
-              href: content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.html
+              file: content/R/topics/03_data_wrangling/joining_data_with_datatable/joining_data_with_datatable.qmd
             - text: "---"
             - text: "<b><i>4 Data Visualization</i></b>"
             - text: "---"
             - text: "4.1: Introduction to Data Visualization with ggplot2"
-              href: content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.html
+              file: content/R/topics/04_data_visualization/introduction_to_data_visualization_with_ggplot2/ggplot2_intro.qmd
             - text: "4.2: Intermediate Data Visualization with ggplot2"
-              href: content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.html
+              file: content/R/topics/04_data_visualization/data_visualization_with_ggplot2_intermediate/ggplot2_intermediate.qmd
             - text: "---"
             - text: "<b><i>5 Statistics</i></b>"
             - text: "---"
             - text: "5.1: Introduction to Statistics"
-              href: content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.html
+              file: content/R/topics/05_statistics/01_statistics_beginner/01_statistics_beginner.qmd
             - text: "5.2: Foundations of Probability"
-              href: content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.html
+              file: content/R/topics/05_statistics/02_foundations_of_probability_in_r/02_foundations_of_probability_in_r.qmd
             - text: "5.3: Introduction to Regression"
-              href: content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.html
+              file: content/R/topics/05_statistics/03_regression_beginner/03_regression_beginner.qmd
             - text: "5.4: Intermediate Regression"
-              href: content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.html
+              file: content/R/topics/05_statistics/04_regression_intermediate/04_regression_intermediate.qmd
             - text: "5.5: Modeling with Data in the Tidyverse"
-              href: content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.html
+              file: content/R/topics/05_statistics/06_modeling_with_data_in_the_tidyverse/06_modeling_with_data_in_the_tidyverse.qmd
             - text: "5.6: Experimental Design"
-              href: content/R/topics/05_statistics/09_experimental_design/09_experimental_design.html
+              file: content/R/topics/05_statistics/09_experimental_design/09_experimental_design.qmd
             - text: "5.7: A/B Testing"
-              href: content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.html
+              file: content/R/topics/05_statistics/10_ab_testing_in_r/10_ab_testing_in_r.qmd
             - text: "5.8: Fundamentals of Bayesian Data Analysis"
-              href: content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.html
+              file: content/R/topics/05_statistics/19_fundamentals_of_bayesian_data_analysis/19_fundamentals_of_bayesian_data_analysis.qmd
             - text: "5.9: Factor Analysis"
-              href: content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.html
+              file: content/R/topics/05_statistics/21_factor_analysis_in_r/21_factor_analysis_in_r.qmd
             - text: "---"
             - text: "<b><i>7 Machine Learning</i></b>"
             - text: "---"
             - text: "7.1: Supervised Learning: Classification"
-              href: content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.html
+              file: content/R/topics/07_machine_learning/01_supervised_learning_classification/01_supervised_learning_classification.qmd
             - text: "7.2: Supervised Learning: Regression"
-              href: content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.html
+              file: content/R/topics/07_machine_learning/02_supervised_learning_regression/02_supervised_learning_regression.qmd
             - text: "7.3: Unsupervised Learning"
-              href: content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.html
+              file: content/R/topics/07_machine_learning/03_unsupervised_learning/03_unsupervised_learning.qmd
             - text: "7.4: Machine Learning in the tidyverse"
-              href: content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.html
+              file: content/R/topics/07_machine_learning/04_machine_learning_in_the_tidyverse/04_machine_learning_in_the_tidyverse.qmd
             - text: "7.5: Cluster Analysis"
-              href: content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.html
+              file: content/R/topics/07_machine_learning/05_cluster_analysis/05_cluster_analysis.qmd
             - text: "7.6: Machine Learning with caret"
-              href: content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.html
+              file: content/R/topics/07_machine_learning/06_machine_learning_with_caret/06_machine_learning_with_caret.qmd
             - text: "7.7: Modeling with tidymodels"
-              href: content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.html
+              file: content/R/topics/07_machine_learning/07_modeling_with_tidymodels/07_modeling_with_tidymodels.qmd
             - text: "7.8: Machine Learning with tree-based Models"
-              href: content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.html
+              file: content/R/topics/07_machine_learning/08_machine_learning_with_tree-based_models/08_machine_learning_with_tree-based_models.qmd
             - text: "7.9: Support Vector Machines"
-              href: content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.html
+              file: content/R/topics/07_machine_learning/09_support_vector_machines/09_support_vector_machines.qmd
             - text: "7.10: Topic Modeling"
-              href: content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.html
+              file: content/R/topics/07_machine_learning/10_topic_modeling/10_topic_modeling.qmd
             - text: "7.11: Hyperparameter Tuning"
-              href: content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.html
+              file: content/R/topics/07_machine_learning/11_hyperparameter_tuning/11_hyperparameter_tuning.qmd
             - text: "7.12: Bayesian Regression Modeling"
-              href: content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.html
+              file: content/R/topics/07_machine_learning/12_bayesian_regression_modeling_with_rstanarm/12_bayesian_regression_modeling_with_rstanarm.qmd
             - text: "7.13: Introduction to Spark"
-              href: content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.html
+              file: content/R/topics/07_machine_learning/13_spark_with_sparklyr_in_R/13_spark_with_sparklyr_in_R.qmd
         - text: "---"    
         - section: "R Manuals"
           contents:
