@@ -566,7 +566,7 @@
 	    }
 	  };
 
-	  const simpleMenu = (deck, options, es5Filename) => {
+	  const Simplemenu = (deck, options, es5Filename) => {
 	    deck.configure({
 	      hash: true
 	    });
@@ -587,7 +587,7 @@
 	      } = _ref;
 	      return setScale(scale);
 	    }, false);
-	    const SimplemenuStylePath = options.csspath ? options.csspath : `${pluginPath(es5Filename)}simplemenu.css` || 'plugin/simplemenu/simplemenu.css';
+	    const SimplemenuStylePath = options.csspath ? options.csspath : `${pluginPath(es5Filename)}SimpleMenu.css` || '_site/site_libs/plugin/Simplemenu/Simplemenu.css';
 	    return new Promise(resolve => {
 	      if (options.csspath === false) {
 	        return prepare(resolve);
