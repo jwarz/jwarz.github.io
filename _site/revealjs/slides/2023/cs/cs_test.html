@@ -101,7 +101,7 @@
   <link href="../../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
   <link href="../../../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
   <link href="../../../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
-  <link href="../../../../site_libs/revealjs/plugin/simplemenu/simplemenu.css" rel="stylesheet">
+  <link href="../../../../site_libs/revealjs/plugin/simplemenu/SimpleMenu.css" rel="stylesheet">
   <link href="../../../../site_libs/revealjs/plugin/reveal-toggle-dark-mode/toggledarkmode.css" rel="stylesheet">
   <link href="../../../../site_libs/revealjs/plugin/reveal-fullscreen-button/FullscreenButton.css" rel="stylesheet">
   <link href="../../../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
@@ -410,7 +410,7 @@ Joschka Schwarz
     </div>
 </div>
 
-  <p class="date">Sunday, 5<sup style="font-size:65%;font-style:italic;">th</sup> of May 2024</p>
+  <p class="date">Tuesday, 7<sup style="font-size:65%;font-style:italic;">th</sup> of May 2024</p>
 </section>
 <section id="table-of-contents" class="slide level2" data-state="hide-menubar">
 <h2>Table of Contents</h2>
@@ -873,8 +873,8 @@ Joschka Schwarz
 </div>
 <p>Example</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>me_orig <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_orig/"</span>)</span>
-<span id="cb23-2"><a></a>me_dist <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_dist/"</span>)</span>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>me_orig <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"~/02_diss/01_coresignal/02_data/member_experience/me_orig/"</span>)</span>
+<span id="cb23-2"><a></a>me_dist <span class="ot">&lt;-</span> <span class="fu">open_dataset</span>(<span class="st">"~/02_diss/01_coresignal/02_data/member_experience/me_dist/"</span>)</span>
 <span id="cb23-3"><a></a></span>
 <span id="cb23-4"><a></a>me_orig <span class="sc">|&gt;</span> <span class="fu">filter</span>(member_id <span class="sc">==</span> <span class="dv">4257</span>, company_id <span class="sc">==</span> <span class="dv">9007053</span>) <span class="sc">|&gt;</span> <span class="fu">collect</span>() <span class="sc">|&gt;</span> <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span> <span class="fu">arrange</span>(date_from_parsed) <span class="sc">|&gt;</span> <span class="fu">print</span>(<span class="at">n=</span><span class="dv">19</span>)</span>
 <span id="cb23-5"><a></a>me_dist <span class="sc">|&gt;</span> <span class="fu">filter</span>(member_id <span class="sc">==</span> <span class="dv">4257</span>, company_id <span class="sc">==</span> <span class="dv">9007053</span>) <span class="sc">|&gt;</span> <span class="fu">collect</span>() <span class="sc">|&gt;</span> <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span> <span class="fu">arrange</span>(date_from_parsed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -904,10 +904,10 @@ Joschka Schwarz
 <div class="cell-output cell-output-stdout">
 <div class="sourceCode" id="cb25"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb25-1"><a></a>#&gt; Table</span>
 <span id="cb25-2"><a></a>#&gt; 11,050,164 rows x 4 columns</span>
-<span id="cb25-3"><a></a>#&gt; $ member_id_cs              &lt;int32&gt; 179608639, 179608639, 179608639, 179608664, …</span>
-<span id="cb25-4"><a></a>#&gt; $ company_id_cs             &lt;int32&gt; 9011640, 812676, 3713625, 3726656, 2913255, …</span>
-<span id="cb25-5"><a></a>#&gt; $ exp_id_cs                &lt;double&gt; 2929916829, 2929916830, 2929916828, 25449845…</span>
-<span id="cb25-6"><a></a>#&gt; $ date_from_parsed_cs &lt;date32[day]&gt; 2019-04-01, 2017-12-01, 2020-09-01, 2013-04-…</span>
+<span id="cb25-3"><a></a>#&gt; $ member_id_cs              &lt;int32&gt; 9897605, 9897605, 9897605, 9897605, 9897928,…</span>
+<span id="cb25-4"><a></a>#&gt; $ company_id_cs             &lt;int32&gt; 1105483, 5181133, 5181133, 5181133, 5025265,…</span>
+<span id="cb25-5"><a></a>#&gt; $ exp_id_cs                &lt;double&gt; 1665233144, 12744849, 995032176, 1665233146,…</span>
+<span id="cb25-6"><a></a>#&gt; $ date_from_parsed_cs &lt;date32[day]&gt; 2018-03-01, 2010-06-01, 2014-09-01, 2011-01-…</span>
 <span id="cb25-7"><a></a>#&gt; Call `print()` for full schema details</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -1056,69 +1056,75 @@ Joschka Schwarz
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>cs_me_dist8_unest_wedu_dt <span class="sc">|&gt;</span> </span>
 <span id="cb32-2"><a></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb33-1"><a></a>#&gt; Rows: 8,984,508</span>
-<span id="cb33-2"><a></a>#&gt; Columns: 61</span>
-<span id="cb33-3"><a></a>#&gt; $ member_id                            &lt;int&gt; 162, 316, 878, 1027, 2104, 2778, …</span>
-<span id="cb33-4"><a></a>#&gt; $ rank_global_2023_best                &lt;int&gt; NA, 413, 917, 1049, 1549, NA, NA,…</span>
-<span id="cb33-5"><a></a>#&gt; $ score_global_2023_best               &lt;dbl&gt; NA, 54.1, 40.6, 37.6, 26.8, NA, N…</span>
-<span id="cb33-6"><a></a>#&gt; $ rank_national_2023_best              &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
-<span id="cb33-7"><a></a>#&gt; $ rank_national_during_enrollment_best &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
-<span id="cb33-8"><a></a>#&gt; $ degree_ba2                           &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE, TRUE, F…</span>
-<span id="cb33-9"><a></a>#&gt; $ degree_ma2                           &lt;lgl&gt; FALSE, TRUE, FALSE, TRUE, FALSE, …</span>
-<span id="cb33-10"><a></a>#&gt; $ degree_phd2                          &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, FALSE,…</span>
-<span id="cb33-11"><a></a>#&gt; $ degree_mba2                          &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, FALSE,…</span>
-<span id="cb33-12"><a></a>#&gt; $ id_tie                               &lt;int&gt; 2, 29, 38, 42, 67, 71, 82, 89, 89…</span>
-<span id="cb33-13"><a></a>#&gt; $ exp_id_cs                            &lt;dbl&gt; 606461989, 2949864669, 2481733250…</span>
-<span id="cb33-14"><a></a>#&gt; $ exp_corporate                        &lt;dbl&gt; 0.0000, 35.0000, 0.0000, 0.0000, …</span>
-<span id="cb33-15"><a></a>#&gt; $ exp_funded_startup                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 40…</span>
-<span id="cb33-16"><a></a>#&gt; $ exp_founder                          &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
-<span id="cb33-17"><a></a>#&gt; $ exp_f500                             &lt;dbl&gt; 0.000, 0.000, 0.000, 0.000, 0.000…</span>
-<span id="cb33-18"><a></a>#&gt; $ exp_research                         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
-<span id="cb33-19"><a></a>#&gt; $ exp_research_ivy                     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
-<span id="cb33-20"><a></a>#&gt; $ company_id_cbpb                      &lt;int&gt; 85514, 58344, 90591, 116099, 1528…</span>
-<span id="cb33-21"><a></a>#&gt; $ funding_after_mid                    &lt;chr&gt; "yes", NA, "yes", "yes", NA, "yes…</span>
-<span id="cb33-22"><a></a>#&gt; $ funding_after_early                  &lt;chr&gt; "yes", "unknown", "yes", "yes", "…</span>
-<span id="cb33-23"><a></a>#&gt; $ company_id_cs                        &lt;int&gt; 10830353, 29252904, 140537, 11825…</span>
-<span id="cb33-24"><a></a>#&gt; $ company_name_cs                      &lt;chr&gt; "Kony, Inc.", "Harmony Baby Nutri…</span>
-<span id="cb33-25"><a></a>#&gt; $ company_name_cbpb                    &lt;chr&gt; "kony", "harmony baby nutrition",…</span>
-<span id="cb33-26"><a></a>#&gt; $ founded_on_cbpb                      &lt;date&gt; 2007-01-01, 2018-01-01, 2007-01-…</span>
-<span id="cb33-27"><a></a>#&gt; $ company_start_mid                    &lt;date&gt; 2009-01-01, 2020-01-01, 2009-01-…</span>
-<span id="cb33-28"><a></a>#&gt; $ company_start_late                   &lt;date&gt; 2011-03-01, 2023-01-01, 2009-11-…</span>
-<span id="cb33-29"><a></a>#&gt; $ closed_on_cbpb                       &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span id="cb33-30"><a></a>#&gt; $ title_cs                             &lt;chr&gt; "Associate Engineer", "Bioprocess…</span>
-<span id="cb33-31"><a></a>#&gt; $ date_from_parsed_cs                  &lt;date&gt; 2015-06-01, 2021-12-01, 2006-01-…</span>
-<span id="cb33-32"><a></a>#&gt; $ date_to_parsed_cs                    &lt;date&gt; NA, NA, 2008-08-01, 2017-06-01, …</span>
-<span id="cb33-33"><a></a>#&gt; $ tjoin_tfound                         &lt;dbl&gt; 101, 47, -12, 32, 37, 138, 101, 6…</span>
-<span id="cb33-34"><a></a>#&gt; $ raised_amount_before_join_company    &lt;dbl&gt; 120528113, 1854000, 0, 432400000,…</span>
-<span id="cb33-35"><a></a>#&gt; $ num_rounds_before_join               &lt;dbl&gt; 9, 5, 0, 4, 1, 6, 13, 0, 2, 3, 4,…</span>
-<span id="cb33-36"><a></a>#&gt; $ is_f500                              &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, FALSE,…</span>
-<span id="cb33-37"><a></a>#&gt; $ is_founder                           &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
-<span id="cb33-38"><a></a>#&gt; $ is_research                          &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
-<span id="cb33-39"><a></a>#&gt; $ is_research_ivy                      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
-<span id="cb33-40"><a></a>#&gt; $ date_1st_founder_exp                 &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span id="cb33-41"><a></a>#&gt; $ date_1st_f500_exp                    &lt;date&gt; NA, NA, 2006-01-01, NA, NA, NA, …</span>
-<span id="cb33-42"><a></a>#&gt; $ date_1st_funded_startup_exp          &lt;date&gt; 2015-06-01, 2021-12-01, 2006-01-…</span>
-<span id="cb33-43"><a></a>#&gt; $ date_1st_research_exp                &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span id="cb33-44"><a></a>#&gt; $ date_1st_research_ivy_exp            &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span id="cb33-45"><a></a>#&gt; $ date_1st_corporate_exp               &lt;date&gt; NA, 2019-01-01, 2009-02-01, 2019…</span>
-<span id="cb33-46"><a></a>#&gt; $ time_since_1st_corporate_exp         &lt;dbl&gt; NA, 35, NA, NA, 12, 319, 85, NA, …</span>
-<span id="cb33-47"><a></a>#&gt; $ time_since_1st_founder_exp           &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
-<span id="cb33-48"><a></a>#&gt; $ time_since_1st_f500_exp              &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
-<span id="cb33-49"><a></a>#&gt; $ time_since_1st_funded_startup_exp    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
-<span id="cb33-50"><a></a>#&gt; $ time_since_1st_research_exp          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
-<span id="cb33-51"><a></a>#&gt; $ time_since_1st_research_ivy_exp      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
-<span id="cb33-52"><a></a>#&gt; $ time_since_1st_experience            &lt;dbl&gt; 0, 35, 0, 0, 12, 319, 85, 0, 0, 2…</span>
-<span id="cb33-53"><a></a>#&gt; $ raised_amount_before_founder_member  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
-<span id="cb33-54"><a></a>#&gt; $ raised_amount_before_all_member      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
-<span id="cb33-55"><a></a>#&gt; $ was_corporate_before                 &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, TRUE, …</span>
-<span id="cb33-56"><a></a>#&gt; $ was_founder_before                   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
-<span id="cb33-57"><a></a>#&gt; $ was_f500_before                      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
-<span id="cb33-58"><a></a>#&gt; $ was_fc_before                        &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
-<span id="cb33-59"><a></a>#&gt; $ was_uni_before                       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
-<span id="cb33-60"><a></a>#&gt; $ was_ivy_before                       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
-<span id="cb33-61"><a></a>#&gt; $ stage_mid                            &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
-<span id="cb33-62"><a></a>#&gt; $ stage_late                           &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
-<span id="cb33-63"><a></a>#&gt; $ date_from_stage                      &lt;chr&gt; "late", "mid", "early1", "late", …</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb33-1"><a></a>#&gt; Rows: 2,659,657</span>
+<span id="cb33-2"><a></a>#&gt; Columns: 67</span>
+<span id="cb33-3"><a></a>#&gt; $ company_id_cbpb                      &lt;int&gt; 90591, 152845, 90440, 138208, 116…</span>
+<span id="cb33-4"><a></a>#&gt; $ funding_after_mid                    &lt;chr&gt; "yes", NA, "yes", "yes", "yes", "…</span>
+<span id="cb33-5"><a></a>#&gt; $ funding_after_early                  &lt;chr&gt; "yes", "no", "yes", "yes", "yes",…</span>
+<span id="cb33-6"><a></a>#&gt; $ member_id                            &lt;int&gt; 878, 2104, 3548, 3548, 3970, 4005…</span>
+<span id="cb33-7"><a></a>#&gt; $ id_tie                               &lt;int&gt; 38, 67, 89, 89, 96, 104, 183, 175…</span>
+<span id="cb33-8"><a></a>#&gt; $ exp_id_cs                            &lt;dbl&gt; 2481733250, 1423977093, 2638, 263…</span>
+<span id="cb33-9"><a></a>#&gt; $ exp_corporate                        &lt;dbl&gt; 0.00000, 12.00000, 0.00000, 0.000…</span>
+<span id="cb33-10"><a></a>#&gt; $ exp_funded_startup                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0,…</span>
+<span id="cb33-11"><a></a>#&gt; $ exp_founder                          &lt;dbl&gt; 0.0000, 0.0000, 0.0000, 0.0000, 0…</span>
+<span id="cb33-12"><a></a>#&gt; $ exp_f500                             &lt;dbl&gt; 0.00000, 0.00000, 0.00000, 0.0000…</span>
+<span id="cb33-13"><a></a>#&gt; $ exp_research                         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
+<span id="cb33-14"><a></a>#&gt; $ exp_research_ivy                     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
+<span id="cb33-15"><a></a>#&gt; $ company_id_cs                        &lt;int&gt; 140537, 10644128, 6068905, 606890…</span>
+<span id="cb33-16"><a></a>#&gt; $ company_name_cs                      &lt;chr&gt; "Bristol-Myers Squibb", "HERE", "…</span>
+<span id="cb33-17"><a></a>#&gt; $ company_name_cbpb                    &lt;chr&gt; "receptos", "HERE Technologies Ch…</span>
+<span id="cb33-18"><a></a>#&gt; $ founded_on_cbpb                      &lt;date&gt; 2007-01-01, 2012-11-13, 2009-07-…</span>
+<span id="cb33-19"><a></a>#&gt; $ closed_on_cbpb                       &lt;date&gt; NA, NA, NA, NA, NA, NA, 2021-04-…</span>
+<span id="cb33-20"><a></a>#&gt; $ title_cs                             &lt;chr&gt; "Key Account Manager", "GIS Analy…</span>
+<span id="cb33-21"><a></a>#&gt; $ date_from_parsed_cs                  &lt;date&gt; 2006-01-01, 2016-01-01, 2010-01-…</span>
+<span id="cb33-22"><a></a>#&gt; $ date_to_parsed_cs                    &lt;date&gt; 2008-08-01, NA, NA, NA, 2011-10-…</span>
+<span id="cb33-23"><a></a>#&gt; $ tjoin_tfound                         &lt;dbl&gt; -12, 37, 6, 48, -47, 48, 17, 11, …</span>
+<span id="cb33-24"><a></a>#&gt; $ raised_amount_before_join_company    &lt;dbl&gt; 0, 0, 0, 7722796, 0, 9961692, 333…</span>
+<span id="cb33-25"><a></a>#&gt; $ num_rounds_before_join               &lt;dbl&gt; 0, 1, 0, 2, 0, 2, 1, 1, 2, 0, 1, …</span>
+<span id="cb33-26"><a></a>#&gt; $ is_f500                              &lt;lgl&gt; TRUE, FALSE, TRUE, TRUE, FALSE, F…</span>
+<span id="cb33-27"><a></a>#&gt; $ is_founder                           &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb33-28"><a></a>#&gt; $ is_research                          &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb33-29"><a></a>#&gt; $ is_research_ivy                      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb33-30"><a></a>#&gt; $ date_1st_founder_exp                 &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span id="cb33-31"><a></a>#&gt; $ date_1st_f500_exp                    &lt;date&gt; 2006-01-01, NA, 2010-01-01, 2010…</span>
+<span id="cb33-32"><a></a>#&gt; $ date_1st_funded_startup_exp          &lt;date&gt; 2006-01-01, 2016-01-01, 2010-01-…</span>
+<span id="cb33-33"><a></a>#&gt; $ date_1st_research_exp                &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span id="cb33-34"><a></a>#&gt; $ date_1st_research_ivy_exp            &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span id="cb33-35"><a></a>#&gt; $ date_1st_corporate_exp               &lt;date&gt; 2009-02-01, 2015-01-01, NA, NA, …</span>
+<span id="cb33-36"><a></a>#&gt; $ time_since_1st_corporate_exp         &lt;dbl&gt; NA, 12, NA, NA, 116, NA, 136, 40,…</span>
+<span id="cb33-37"><a></a>#&gt; $ time_since_1st_founder_exp           &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb33-38"><a></a>#&gt; $ time_since_1st_f500_exp              &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb33-39"><a></a>#&gt; $ time_since_1st_funded_startup_exp    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 96, NA, N…</span>
+<span id="cb33-40"><a></a>#&gt; $ time_since_1st_research_exp          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb33-41"><a></a>#&gt; $ time_since_1st_research_ivy_exp      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb33-42"><a></a>#&gt; $ time_since_1st_experience            &lt;dbl&gt; 0, 12, 0, 0, 116, 0, 136, 40, 176…</span>
+<span id="cb33-43"><a></a>#&gt; $ raised_amount_before_founder_member  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb33-44"><a></a>#&gt; $ raised_amount_before_all_member      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 0, 0, NA,…</span>
+<span id="cb33-45"><a></a>#&gt; $ was_corporate_before                 &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, TRUE, …</span>
+<span id="cb33-46"><a></a>#&gt; $ was_founder_before                   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb33-47"><a></a>#&gt; $ was_f500_before                      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb33-48"><a></a>#&gt; $ was_fc_before                        &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb33-49"><a></a>#&gt; $ was_uni_before                       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb33-50"><a></a>#&gt; $ was_ivy_before                       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…</span>
+<span id="cb33-51"><a></a>#&gt; $ stage_mid                            &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb33-52"><a></a>#&gt; $ stage_late                           &lt;lgl&gt; NA, NA, NA, NA, NA, NA, FALSE, NA…</span>
+<span id="cb33-53"><a></a>#&gt; $ date_from_stage                      &lt;chr&gt; "early1", "mid", "early2", "mid",…</span>
+<span id="cb33-54"><a></a>#&gt; $ company_start_mid                    &lt;date&gt; 2009-01-01, 2014-11-13, 2011-07-…</span>
+<span id="cb33-55"><a></a>#&gt; $ company_start_late                   &lt;date&gt; 2009-11-23, 2017-11-13, 2014-07-…</span>
+<span id="cb33-56"><a></a>#&gt; $ rank_global_2023_best                &lt;int&gt; 917, 1549, NA, NA, NA, NA, NA, NA…</span>
+<span id="cb33-57"><a></a>#&gt; $ score_global_2023_best               &lt;dbl&gt; 40.6, 26.8, NA, NA, NA, NA, NA, N…</span>
+<span id="cb33-58"><a></a>#&gt; $ rank_national_2023_best              &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb33-59"><a></a>#&gt; $ rank_national_during_enrollment_best &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb33-60"><a></a>#&gt; $ degree_ba2                           &lt;lgl&gt; FALSE, TRUE, NA, NA, TRUE, NA, NA…</span>
+<span id="cb33-61"><a></a>#&gt; $ degree_ma2                           &lt;lgl&gt; FALSE, FALSE, NA, NA, FALSE, NA, …</span>
+<span id="cb33-62"><a></a>#&gt; $ degree_phd2                          &lt;lgl&gt; FALSE, FALSE, NA, NA, FALSE, NA, …</span>
+<span id="cb33-63"><a></a>#&gt; $ degree_mba2                          &lt;lgl&gt; TRUE, FALSE, NA, NA, FALSE, NA, N…</span>
+<span id="cb33-64"><a></a>#&gt; $ num_rounds_cumulated_founder         &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
+<span id="cb33-65"><a></a>#&gt; $ num_rounds_cumulated_all             &lt;int&gt; NA, NA, NA, NA, NA, NA, 1, 1, NA,…</span>
+<span id="cb33-66"><a></a>#&gt; $ announced_on_sB                      &lt;date&gt; 2012-02-03, 2018-01-04, 2011-03-…</span>
+<span id="cb33-67"><a></a>#&gt; $ round_type_new_next                  &lt;fct&gt; Series C, Series C, Series C, Ser…</span>
+<span id="cb33-68"><a></a>#&gt; $ raised_amount_cumsum_sB              &lt;dbl&gt; 46043054, 0, 1905000, 11022796, 2…</span>
+<span id="cb33-69"><a></a>#&gt; $ raised_amount_cumsum_sB_next         &lt;dbl&gt; 76043054, 0, 8712306, 13854868, 4…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1130,18 +1136,18 @@ Joschka Schwarz
 <span id="cb34-4"><a></a>         title_cs) <span class="sc">|&gt;</span> </span>
 <span id="cb34-5"><a></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb35-1"><a></a>#&gt; Rows: 8,984,508</span>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb35-1"><a></a>#&gt; Rows: 2,659,657</span>
 <span id="cb35-2"><a></a>#&gt; Columns: 10</span>
-<span id="cb35-3"><a></a>#&gt; $ id_tie            &lt;int&gt; 2, 29, 38, 42, 67, 71, 82, 89, 89, 98, 93, 96, 104, …</span>
-<span id="cb35-4"><a></a>#&gt; $ member_id         &lt;int&gt; 162, 316, 878, 1027, 2104, 2778, 2819, 3548, 3548, 3…</span>
-<span id="cb35-5"><a></a>#&gt; $ exp_id_cs         &lt;dbl&gt; 606461989, 2949864669, 2481733250, 2800188242, 14239…</span>
-<span id="cb35-6"><a></a>#&gt; $ company_id_cbpb   &lt;int&gt; 85514, 58344, 90591, 116099, 152845, 104886, 93342, …</span>
-<span id="cb35-7"><a></a>#&gt; $ company_name_cbpb &lt;chr&gt; "kony", "harmony baby nutrition", "receptos", "Nerva…</span>
-<span id="cb35-8"><a></a>#&gt; $ company_id_cs     &lt;int&gt; 10830353, 29252904, 140537, 11825305, 10644128, 1086…</span>
-<span id="cb35-9"><a></a>#&gt; $ company_name_cs   &lt;chr&gt; "Kony, Inc.", "Harmony Baby Nutrition", "Bristol-Mye…</span>
-<span id="cb35-10"><a></a>#&gt; $ founded_on_cbpb   &lt;date&gt; 2007-01-01, 2018-01-01, 2007-01-01, 2014-01-01, 201…</span>
-<span id="cb35-11"><a></a>#&gt; $ closed_on_cbpb    &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
-<span id="cb35-12"><a></a>#&gt; $ title_cs          &lt;chr&gt; "Associate Engineer", "Bioprocess expert", "Key Acco…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-3"><a></a>#&gt; $ id_tie            &lt;int&gt; 38, 67, 89, 89, 96, 104, 183, 175, 209, 243, 321, 37…</span>
+<span id="cb35-4"><a></a>#&gt; $ member_id         &lt;int&gt; 878, 2104, 3548, 3548, 3970, 4005, 4224, 4224, 4317,…</span>
+<span id="cb35-5"><a></a>#&gt; $ exp_id_cs         &lt;dbl&gt; 2481733250, 1423977093, 2638, 2638, 1736317868, 3084…</span>
+<span id="cb35-6"><a></a>#&gt; $ company_id_cbpb   &lt;int&gt; 90591, 152845, 90440, 138208, 116099, 97810, 40123, …</span>
+<span id="cb35-7"><a></a>#&gt; $ company_name_cbpb &lt;chr&gt; "receptos", "HERE Technologies Chicago", "crowdtwist…</span>
+<span id="cb35-8"><a></a>#&gt; $ company_id_cs     &lt;int&gt; 140537, 10644128, 6068905, 6068905, 11825305, 194148…</span>
+<span id="cb35-9"><a></a>#&gt; $ company_name_cs   &lt;chr&gt; "Bristol-Myers Squibb", "HERE", "Oracle", "Oracle", …</span>
+<span id="cb35-10"><a></a>#&gt; $ founded_on_cbpb   &lt;date&gt; 2007-01-01, 2012-11-13, 2009-07-01, 2006-01-01, 201…</span>
+<span id="cb35-11"><a></a>#&gt; $ closed_on_cbpb    &lt;date&gt; NA, NA, NA, NA, NA, NA, 2021-04-09, NA, NA, NA, NA,…</span>
+<span id="cb35-12"><a></a>#&gt; $ title_cs          &lt;chr&gt; "Key Account Manager", "GIS Analyst I", "QA", "QA", …</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1152,13 +1158,13 @@ Joschka Schwarz
 <span id="cb36-3"><a></a>         tjoin_tfound, raised_amount_before_join_company, num_rounds_before_join) <span class="sc">|&gt;</span> </span>
 <span id="cb36-4"><a></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb37-1"><a></a>#&gt; Rows: 8,984,508</span>
+<div class="sourceCode" id="cb37"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb37-1"><a></a>#&gt; Rows: 2,659,657</span>
 <span id="cb37-2"><a></a>#&gt; Columns: 5</span>
-<span id="cb37-3"><a></a>#&gt; $ date_from_parsed_cs               &lt;date&gt; 2015-06-01, 2021-12-01, 2006-01-01,…</span>
-<span id="cb37-4"><a></a>#&gt; $ date_to_parsed_cs                 &lt;date&gt; NA, NA, 2008-08-01, 2017-06-01, NA,…</span>
-<span id="cb37-5"><a></a>#&gt; $ tjoin_tfound                      &lt;dbl&gt; 101, 47, -12, 32, 37, 138, 101, 6, 4…</span>
-<span id="cb37-6"><a></a>#&gt; $ raised_amount_before_join_company &lt;dbl&gt; 120528113, 1854000, 0, 432400000, 0,…</span>
-<span id="cb37-7"><a></a>#&gt; $ num_rounds_before_join            &lt;dbl&gt; 9, 5, 0, 4, 1, 6, 13, 0, 2, 3, 4, 0,…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-3"><a></a>#&gt; $ date_from_parsed_cs               &lt;date&gt; 2006-01-01, 2016-01-01, 2010-01-01,…</span>
+<span id="cb37-4"><a></a>#&gt; $ date_to_parsed_cs                 &lt;date&gt; 2008-08-01, NA, NA, NA, 2011-10-01,…</span>
+<span id="cb37-5"><a></a>#&gt; $ tjoin_tfound                      &lt;dbl&gt; -12, 37, 6, 48, -47, 48, 17, 11, 44,…</span>
+<span id="cb37-6"><a></a>#&gt; $ raised_amount_before_join_company &lt;dbl&gt; 0, 0, 0, 7722796, 0, 9961692, 333333…</span>
+<span id="cb37-7"><a></a>#&gt; $ num_rounds_before_join            &lt;dbl&gt; 0, 1, 0, 2, 0, 2, 1, 1, 2, 0, 1, 2, …</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1169,16 +1175,16 @@ Joschka Schwarz
 <span id="cb38-3"><a></a>         <span class="fu">starts_with</span>(<span class="st">"was_"</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb38-4"><a></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb39-1"><a></a>#&gt; Rows: 8,984,508</span>
+<div class="sourceCode" id="cb39"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb39-1"><a></a>#&gt; Rows: 2,659,657</span>
 <span id="cb39-2"><a></a>#&gt; Columns: 10</span>
-<span id="cb39-3"><a></a>#&gt; $ is_f500              &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, T…</span>
+<span id="cb39-3"><a></a>#&gt; $ is_f500              &lt;lgl&gt; TRUE, FALSE, TRUE, TRUE, FALSE, FALSE, FALSE, FAL…</span>
 <span id="cb39-4"><a></a>#&gt; $ is_founder           &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span>
 <span id="cb39-5"><a></a>#&gt; $ is_research          &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span>
 <span id="cb39-6"><a></a>#&gt; $ is_research_ivy      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span>
-<span id="cb39-7"><a></a>#&gt; $ was_corporate_before &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, TRUE, TRUE, TRUE, FALS…</span>
+<span id="cb39-7"><a></a>#&gt; $ was_corporate_before &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, TRUE, FALSE, TRUE, TRU…</span>
 <span id="cb39-8"><a></a>#&gt; $ was_founder_before   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span>
 <span id="cb39-9"><a></a>#&gt; $ was_f500_before      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span>
-<span id="cb39-10"><a></a>#&gt; $ was_fc_before        &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span>
+<span id="cb39-10"><a></a>#&gt; $ was_fc_before        &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, F…</span>
 <span id="cb39-11"><a></a>#&gt; $ was_uni_before       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span>
 <span id="cb39-12"><a></a>#&gt; $ was_ivy_before       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1193,25 +1199,25 @@ Joschka Schwarz
 <span id="cb40-5"><a></a>    <span class="fu">starts_with</span>(<span class="st">"exp_"</span>), <span class="sc">-</span>exp_id_cs) <span class="sc">|&gt;</span> </span>
 <span id="cb40-6"><a></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb41-1"><a></a>#&gt; Rows: 8,984,508</span>
+<div class="sourceCode" id="cb41"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb41-1"><a></a>#&gt; Rows: 2,659,657</span>
 <span id="cb41-2"><a></a>#&gt; Columns: 19</span>
 <span id="cb41-3"><a></a>#&gt; $ date_1st_founder_exp              &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
-<span id="cb41-4"><a></a>#&gt; $ date_1st_f500_exp                 &lt;date&gt; NA, NA, 2006-01-01, NA, NA, NA, NA,…</span>
-<span id="cb41-5"><a></a>#&gt; $ date_1st_funded_startup_exp       &lt;date&gt; 2015-06-01, 2021-12-01, 2006-01-01,…</span>
+<span id="cb41-4"><a></a>#&gt; $ date_1st_f500_exp                 &lt;date&gt; 2006-01-01, NA, 2010-01-01, 2010-01…</span>
+<span id="cb41-5"><a></a>#&gt; $ date_1st_funded_startup_exp       &lt;date&gt; 2006-01-01, 2016-01-01, 2010-01-01,…</span>
 <span id="cb41-6"><a></a>#&gt; $ date_1st_research_exp             &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
 <span id="cb41-7"><a></a>#&gt; $ date_1st_research_ivy_exp         &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,…</span>
-<span id="cb41-8"><a></a>#&gt; $ date_1st_corporate_exp            &lt;date&gt; NA, 2019-01-01, 2009-02-01, 2019-12…</span>
-<span id="cb41-9"><a></a>#&gt; $ time_since_1st_corporate_exp      &lt;dbl&gt; NA, 35, NA, NA, 12, 319, 85, NA, NA,…</span>
+<span id="cb41-8"><a></a>#&gt; $ date_1st_corporate_exp            &lt;date&gt; 2009-02-01, 2015-01-01, NA, NA, 200…</span>
+<span id="cb41-9"><a></a>#&gt; $ time_since_1st_corporate_exp      &lt;dbl&gt; NA, 12, NA, NA, 116, NA, 136, 40, 17…</span>
 <span id="cb41-10"><a></a>#&gt; $ time_since_1st_founder_exp        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
 <span id="cb41-11"><a></a>#&gt; $ time_since_1st_f500_exp           &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span id="cb41-12"><a></a>#&gt; $ time_since_1st_funded_startup_exp &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
+<span id="cb41-12"><a></a>#&gt; $ time_since_1st_funded_startup_exp &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 96, NA, NA, …</span>
 <span id="cb41-13"><a></a>#&gt; $ time_since_1st_research_exp       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
 <span id="cb41-14"><a></a>#&gt; $ time_since_1st_research_ivy_exp   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …</span>
-<span id="cb41-15"><a></a>#&gt; $ time_since_1st_experience         &lt;dbl&gt; 0, 35, 0, 0, 12, 319, 85, 0, 0, 212,…</span>
-<span id="cb41-16"><a></a>#&gt; $ exp_corporate                     &lt;dbl&gt; 0.0000, 35.0000, 0.0000, 0.0000, 12.…</span>
-<span id="cb41-17"><a></a>#&gt; $ exp_funded_startup                &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 32, 40, 0…</span>
-<span id="cb41-18"><a></a>#&gt; $ exp_founder                       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
-<span id="cb41-19"><a></a>#&gt; $ exp_f500                          &lt;dbl&gt; 0.000, 0.000, 0.000, 0.000, 0.000, 0…</span>
+<span id="cb41-15"><a></a>#&gt; $ time_since_1st_experience         &lt;dbl&gt; 0, 12, 0, 0, 116, 0, 136, 40, 176, 4…</span>
+<span id="cb41-16"><a></a>#&gt; $ exp_corporate                     &lt;dbl&gt; 0.00000, 12.00000, 0.00000, 0.00000,…</span>
+<span id="cb41-17"><a></a>#&gt; $ exp_funded_startup                &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0,…</span>
+<span id="cb41-18"><a></a>#&gt; $ exp_founder                       &lt;dbl&gt; 0.0000, 0.0000, 0.0000, 0.0000, 0.00…</span>
+<span id="cb41-19"><a></a>#&gt; $ exp_f500                          &lt;dbl&gt; 0.00000, 0.00000, 0.00000, 0.00000, …</span>
 <span id="cb41-20"><a></a>#&gt; $ exp_research                      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span>
 <span id="cb41-21"><a></a>#&gt; $ exp_research_ivy                  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1225,16 +1231,16 @@ Joschka Schwarz
 <span id="cb42-4"><a></a>         <span class="fu">starts_with</span>(<span class="st">"degree"</span>)) <span class="sc">|&gt;</span> </span>
 <span id="cb42-5"><a></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb43-1"><a></a>#&gt; Rows: 8,984,508</span>
+<div class="sourceCode" id="cb43"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb43-1"><a></a>#&gt; Rows: 2,659,657</span>
 <span id="cb43-2"><a></a>#&gt; Columns: 8</span>
-<span id="cb43-3"><a></a>#&gt; $ score_global_2023_best               &lt;dbl&gt; NA, 54.1, 40.6, 37.6, 26.8, NA, N…</span>
-<span id="cb43-4"><a></a>#&gt; $ rank_global_2023_best                &lt;int&gt; NA, 413, 917, 1049, 1549, NA, NA,…</span>
+<span id="cb43-3"><a></a>#&gt; $ score_global_2023_best               &lt;dbl&gt; 40.6, 26.8, NA, NA, NA, NA, NA, N…</span>
+<span id="cb43-4"><a></a>#&gt; $ rank_global_2023_best                &lt;int&gt; 917, 1549, NA, NA, NA, NA, NA, NA…</span>
 <span id="cb43-5"><a></a>#&gt; $ rank_national_2023_best              &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
 <span id="cb43-6"><a></a>#&gt; $ rank_national_during_enrollment_best &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…</span>
-<span id="cb43-7"><a></a>#&gt; $ degree_ba2                           &lt;lgl&gt; TRUE, FALSE, FALSE, TRUE, TRUE, F…</span>
-<span id="cb43-8"><a></a>#&gt; $ degree_ma2                           &lt;lgl&gt; FALSE, TRUE, FALSE, TRUE, FALSE, …</span>
-<span id="cb43-9"><a></a>#&gt; $ degree_phd2                          &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, FALSE,…</span>
-<span id="cb43-10"><a></a>#&gt; $ degree_mba2                          &lt;lgl&gt; FALSE, FALSE, TRUE, FALSE, FALSE,…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb43-7"><a></a>#&gt; $ degree_ba2                           &lt;lgl&gt; FALSE, TRUE, NA, NA, TRUE, NA, NA…</span>
+<span id="cb43-8"><a></a>#&gt; $ degree_ma2                           &lt;lgl&gt; FALSE, FALSE, NA, NA, FALSE, NA, …</span>
+<span id="cb43-9"><a></a>#&gt; $ degree_phd2                          &lt;lgl&gt; FALSE, FALSE, NA, NA, FALSE, NA, …</span>
+<span id="cb43-10"><a></a>#&gt; $ degree_mba2                          &lt;lgl&gt; TRUE, FALSE, NA, NA, FALSE, NA, N…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1246,15 +1252,15 @@ Joschka Schwarz
 <span id="cb44-4"><a></a>         funding_after_mid, funding_after_early) <span class="sc">|&gt;</span> </span>
 <span id="cb44-5"><a></a>  <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb45-1"><a></a>#&gt; Rows: 8,984,508</span>
+<div class="sourceCode" id="cb45"><pre class="sourceCode numberSource hscroll number-lines code-with-copy"><code class="sourceCode"><span id="cb45-1"><a></a>#&gt; Rows: 2,659,657</span>
 <span id="cb45-2"><a></a>#&gt; Columns: 7</span>
-<span id="cb45-3"><a></a>#&gt; $ date_from_stage                     &lt;chr&gt; "late", "mid", "early1", "late", "…</span>
-<span id="cb45-4"><a></a>#&gt; $ company_start_mid                   &lt;date&gt; 2009-01-01, 2020-01-01, 2009-01-0…</span>
-<span id="cb45-5"><a></a>#&gt; $ company_start_late                  &lt;date&gt; 2011-03-01, 2023-01-01, 2009-11-2…</span>
+<span id="cb45-3"><a></a>#&gt; $ date_from_stage                     &lt;chr&gt; "early1", "mid", "early2", "mid", …</span>
+<span id="cb45-4"><a></a>#&gt; $ company_start_mid                   &lt;date&gt; 2009-01-01, 2014-11-13, 2011-07-0…</span>
+<span id="cb45-5"><a></a>#&gt; $ company_start_late                  &lt;date&gt; 2009-11-23, 2017-11-13, 2014-07-0…</span>
 <span id="cb45-6"><a></a>#&gt; $ raised_amount_before_founder_member &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span id="cb45-7"><a></a>#&gt; $ raised_amount_before_all_member     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…</span>
-<span id="cb45-8"><a></a>#&gt; $ funding_after_mid                   &lt;chr&gt; "yes", NA, "yes", "yes", NA, "yes"…</span>
-<span id="cb45-9"><a></a>#&gt; $ funding_after_early                 &lt;chr&gt; "yes", "unknown", "yes", "yes", "n…</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb45-7"><a></a>#&gt; $ raised_amount_before_all_member     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 0, 0, NA, …</span>
+<span id="cb45-8"><a></a>#&gt; $ funding_after_mid                   &lt;chr&gt; "yes", NA, "yes", "yes", "yes", "y…</span>
+<span id="cb45-9"><a></a>#&gt; $ funding_after_early                 &lt;chr&gt; "yes", "no", "yes", "yes", "yes", …</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1278,7 +1284,7 @@ Joschka Schwarz
   <script src="../../../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="../../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
   <script src="../../../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
-  <script src="../../../../site_libs/revealjs/plugin/simplemenu/simplemenu.js"></script>
+  <script src="../../../../site_libs/revealjs/plugin/simplemenu/SimpleMenu.js"></script>
   <script src="../../../../site_libs/revealjs/plugin/reveal-toggle-dark-mode/toggledarkmode.js"></script>
   <script src="../../../../site_libs/revealjs/plugin/reveal-fullscreen-button/screenfull.min.js"></script>
   <script src="../../../../site_libs/revealjs/plugin/reveal-fullscreen-button/FullscreenButton.js"></script>
@@ -1304,7 +1310,7 @@ Joschka Schwarz
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'chalkboard': {"buttons":true},
-'simplemenu': {"menubarclass":"menubar","menuclass":"menu","activeclass":"active","activeelement":"li","flat":false,"barhtml":{"header":"<div class='menubar'><ul class='menu'></ul><div>","footer":""},"scale":0.67},
+'simplemenu': {"auto":true,"menubarclass":"menubar","barhtml":{"header":"<div class='menubar'><ul class='menu'></ul><div>"},"scale":0.67},
 'smaller': false,
  
         // Display controls in the bottom right corner

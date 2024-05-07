@@ -222,7 +222,7 @@ funded_companies_prqt
 #| echo: false
 #| message: false
 p_load(arrow, dplyr, tidyr)
-funded_companies_prqt <- open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/funded_companies_identifiers.parquet")
+funded_companies_prqt <- open_dataset("/Users/jschwarz/02_diss/01_coresignal/02_data/funded_companies_identifiers.parquet")
 funded_companies_prqt |> collect()
 ```
 
@@ -503,7 +503,7 @@ me_dist8_prqt |> glimpse()
 ```{r}
 #| echo: false
 # Load distinct member experiences
-me_dist8_prqt <- arrow::open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/03_wrangled/cs_me_dist8_unest_empl_hist.parquet") 
+me_dist8_prqt <- arrow::open_dataset("~/02_diss/01_coresignal/02_data/03_wrangled/cs_me_dist8_unest_empl_hist.parquet") 
 me_dist8_prqt |> 
   glimpse()
 ```
@@ -512,8 +512,8 @@ Example
 
 ```{r}
 #| eval: false
-me_orig <- open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_orig/")
-me_dist <- open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_dist/")
+me_orig <- open_dataset("~/02_diss/01_coresignal/02_data/member_experience/me_orig/")
+me_dist <- open_dataset("~/02_diss/01_coresignal/02_data/member_experience/me_dist/")
 
 me_orig |> filter(member_id == 4257, company_id == 9007053) |> collect() |> as_tibble() |> arrange(date_from_parsed) |> print(n=19)
 me_dist |> filter(member_id == 4257, company_id == 9007053) |> collect() |> as_tibble() |> arrange(date_from_parsed)
@@ -683,7 +683,7 @@ From here on almost everything is in
 
 ```{r}
 #| echo: false
-cs_me_dist8_unest_wedu_dt <-  open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/03_wrangled/cs_me_dist8_unest_fin4.parquet") |> collect()
+cs_me_dist8_unest_wedu_dt <-  open_dataset("/Users/jschwarz/02_diss/01_coresignal/02_data/03_wrangled/cs_me_dist8_unest_fin7.parquet") |> collect()
 ```
 
 ```{r}

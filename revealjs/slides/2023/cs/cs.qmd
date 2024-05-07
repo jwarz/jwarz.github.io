@@ -72,7 +72,7 @@ funded_companies_prqt
 #| echo: false
 #| message: false
 p_load(arrow, dplyr, tidyr)
-funded_companies_prqt <- open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/funded_companies_identifiers.parquet")
+funded_companies_prqt <- open_dataset("/Users/jschwarz/02_diss/01_coresignal/02_data/funded_companies_identifiers.parquet")
 funded_companies_prqt |> collect()
 ```
 
@@ -356,7 +356,7 @@ me_dist8_prqt |> glimpse()
 ```{r}
 #| echo: false
 # Load distinct member experiences
-me_dist8_prqt <- arrow::open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/03_wrangled/cs_me_dist8_unest_empl_hist.parquet") 
+me_dist8_prqt <- arrow::open_dataset("~/02_diss/01_coresignal/02_data/03_wrangled/cs_me_dist8_unest_empl_hist.parquet") 
 me_dist8_prqt |> 
   glimpse()
 ```
@@ -365,8 +365,8 @@ Example
 
 ```{r}
 #| eval: false
-me_orig <- open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_orig/")
-me_dist <- open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/member_experience/me_dist/")
+me_orig <- open_dataset("~/02_diss/01_coresignal/02_data/member_experience/me_orig/")
+me_dist <- open_dataset("~/02_diss/01_coresignal/02_data/member_experience/me_dist/")
 
 me_orig |> filter(member_id == 4257, company_id == 9007053) |> collect() |> as_tibble() |> arrange(date_from_parsed) |> print(n=19)
 me_dist |> filter(member_id == 4257, company_id == 9007053) |> collect() |> as_tibble() |> arrange(date_from_parsed)
@@ -547,7 +547,7 @@ open_dataset("me_joined_unnested1.parquet") |>
 ```{r}
 #| echo: false
 # Unnested1 without features 2 dnd 3
-me_joined_unnested_prqt <- arrow::open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/me_joined_unnested1.parquet")
+me_joined_unnested_prqt <- arrow::open_dataset("/Users/jschwarz/02_diss/01_coresignal/02_data/me_joined_unnested1.parquet")
 me_joined_unnested_prqt |> 
   dplyr::glimpse()
 ```
@@ -574,7 +574,7 @@ open_dataset("me_joined_unnested2.parquet") |>
 
 ```{r}
 #| echo: false
-me_joined_unnested_prqt <- arrow::open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/me_joined_unnested2.parquet")
+me_joined_unnested_prqt <- arrow::open_dataset("/Users/jschwarz/02_diss/01_coresignal/02_data/me_joined_unnested2.parquet")
 me_joined_unnested_prqt |> 
   dplyr::glimpse()
 ```
@@ -599,7 +599,7 @@ open_dataset("me_joined_nested.parquet") |>
 
 ```{r}
 #| echo: false
-me_joined_nested_prqt <- open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/me_joined_nested.parquet")
+me_joined_nested_prqt <- open_dataset("/Users/jschwarz/02_diss/01_coresignal/02_data/me_joined_nested.parquet")
 me_joined_nested_prqt |> 
   glimpse()
 ```
@@ -630,7 +630,7 @@ open_dataset("me_joined_nested_foc.parquet") |>
 
 ```{r}
 #| echo: false
-me_joined_nested_foc_prqt <- open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/me_joined_nested_foc.parquet")
+me_joined_nested_foc_prqt <- open_dataset("/Users/jschwarz/02_diss/01_coresignal/02_data/me_joined_nested_foc.parquet")
 me_joined_nested_foc_prqt |> 
   glimpse()
 ```
@@ -844,7 +844,7 @@ me_matched_members_prqt |>
 
 ```{r}
 #| echo: false
-me_matched_members_prqt <- open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/me_matched_members.parquet") 
+me_matched_members_prqt <- open_dataset("/Users/jschwarz/02_diss/01_coresignal/02_data/me_matched_members.parquet") 
 me_matched_members_prqt |> 
   
   head() |> collect()
@@ -866,7 +866,7 @@ fortune500
 
 ```{r}
 #| echo: false
-fortune500 <- readRDS("/Users/jschwarz/02_diss/01_data_sources/02_fortune500/02_data/fortune_500_1955-2022.rds") |> 
+fortune500 <- readRDS("/Users/jschwarz/02_diss/02_fortune500/02_data/fortune_500_1955-2022.rds") |> 
                 select(year, company) |> 
                 mutate(company = company |> tolower())
 fortune500
@@ -934,7 +934,7 @@ Constraints:
 
 ```{r}
 #| output-location: column
-me_f500_id <- arrow::open_dataset("~/02_diss/01_data_sources/01_coresignal/02_data/me_f500_id.parquet")
+me_f500_id <- arrow::open_dataset("~/02_diss/01_coresignal/02_data/me_f500_id.parquet")
 data <- me_f500_id |> 
   
           # Filter "Founder"
@@ -965,6 +965,7 @@ member_skills_prqt |>
 ```
 
 ```{r}
+#| eval: false
 #| echo: false
 member_skills_prqt <- arrow::open_dataset("/Users/jschwarz/Downloads/member_skills.parquet")
 member_skills_prqt |> 
@@ -994,7 +995,7 @@ Variables built from Experience, Education and funding data
 
 ```{r}
 #| echo: false
-cs_me_dist8_unest_wedu_dt <-  open_dataset("/Users/jschwarz/02_diss/01_data_sources/01_coresignal/02_data/03_wrangled/cs_me_dist8_unest_fin4.parquet") |> collect()
+cs_me_dist8_unest_wedu_dt <-  open_dataset("/Users/jschwarz/02_diss/01_coresignal/02_data/03_wrangled/cs_me_dist8_unest_fin7.parquet") |> collect()
 ```
 
 ```{r}
