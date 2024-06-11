@@ -348,17 +348,13 @@ Joschka Schwarz
     </div>
 </div>
 
-  <p class="date">Tuesday, 11. June 2024</p>
+  <p class="date">Wednesday, 12. June 2024</p>
 </section>
 <section>
 <section id="introduction" class="title-slide slide level1 center" data-stack-name="Intro">
 <h1>Introduction</h1>
 
 </section>
-<section id="how-failing-to-adapt-led-to-bankruptcy" class="slide level2">
-<h2>How Failing to Adapt Led to Bankruptcy</h2>
-
-<img data-src="assets/img/02_png/Netflix-Blockbuster.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="creative-destruction-out-with-the-old-in-with-the-new" class="slide level2">
 <h2>Creative Destruction: Out With the Old, in With the New</h2>
 <div class="absolute" style="bottom: 0%; right: 0%; width: 30%; ">
@@ -396,6 +392,10 @@ Schumpeter characterized <b>creative destruction</b> as innovations in the manuf
 <p><img data-src="assets/img/bmp_02.svg"></p>
 </div>
 </section>
+<section id="how-failing-to-adapt-led-to-bankruptcy" class="slide level2">
+<h2>How Failing to Adapt Led to Bankruptcy</h2>
+
+<img data-src="assets/img/02_png/Netflix-Blockbuster.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="constructive-destruction-what-has-to-be-changed" class="slide level2">
 <h2>Constructive destruction: What has to be changed?</h2>
 <div class="absolute fragment fade-out" data-fragment-index="3" style="top: 30%; right: 0%; width: 30%; ">
@@ -502,8 +502,21 @@ Such maps typically capture static snapshots in time. Yet, competitive positions
 </div>
 </div>
 </section>
-<section id="handling-noisy-data-13-embeddings" class="slide level2">
-<h2>Handling Noisy Data 1/3: Embeddings</h2>
+<section id="handling-noisy-data-14-nounphrases---extracting-the-essence-text" class="slide level2">
+<h2>Handling Noisy Data 1/4: Nounphrases - Extracting the essence text</h2>
+<div><p>&nbsp;</p></div>
+<div class="columns v-center-container">
+<div class="column" style="width:50%;">
+<p>Unlike simplistic keywords, nounphrases transcend single words, comprising compound expressions that encapsulate the essence of the text more comprehensively</p>
+<p><img data-src="assets/img/14_words.svg" style="width:70.0%"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="assets/img/15_noun-phrases.svg" style="width:70.0%"></p>
+<p>Tools: SpaCy (nounchunk library) &amp; Custom Algorithmus</p>
+</div>
+</div>
+</section>
+<section id="handling-noisy-data-24-embeddings" class="slide level2">
+<h2>Handling Noisy Data 2/4: Embeddings</h2>
 <div class="absolute" style="top: 15%; left: 10%; width: 90%; ">
 <p><img data-src="assets/img/embedding_01.svg"></p>
 </div>
@@ -514,8 +527,8 @@ Such maps typically capture static snapshots in time. Yet, competitive positions
 <p><img data-src="assets/img/embedding_03.svg"></p>
 </div>
 </section>
-<section id="handling-noisy-data-23-clustering" class="slide level2">
-<h2>Handling Noisy Data 2/3: Clustering</h2>
+<section id="handling-noisy-data-34-clustering" class="slide level2">
+<h2>Handling Noisy Data 3/4: Clustering</h2>
 <div><p>&nbsp;</p></div>
 <div class="columns v-center-container" style="display: flex !important;">
 <div class="column" style="display: flex; justify-content: center; align-items: center;">
@@ -533,25 +546,25 @@ Such maps typically capture static snapshots in time. Yet, competitive positions
 </div>
 </div><div class="column" style="width:50%;">
 <div>
-<ul>
-<li>Cluster Crunchbase Description Embeddings (k=300)</li>
-</ul>
+<ol type="1">
+<li>Cluster Crunchbase &amp; Pitchbook Description Embeddings, which are describing value propositions</li>
+</ol>
 </div>
 <div class="fragment" data-fragment-index="1">
-<ul>
-<li>Use corresponding medoids/centroids as ultimate truth anchors</li>
-</ul>
+<ol start="2" type="1">
+<li>Use corresponding medoids/centroids (k=300) as ultimate truth anchors</li>
+</ol>
 </div>
 <div class="fragment" data-fragment-index="2">
-<ul>
+<ol start="3" type="1">
 <li>Find appropriate similarity threshold as cutoff for website embeddings</li>
-</ul>
+</ol>
 </div>
 </div>
 </div>
 </section>
-<section id="handling-noisy-data-33-pooling" class="slide level2">
-<h2>Handling Noisy Data 3/3: Pooling</h2>
+<section id="handling-noisy-data-44-pooling" class="slide level2">
+<h2>Handling Noisy Data 4/4: Pooling</h2>
 <div class="absolute" style="top: 20%; left: 10%; width: 80%; ">
 <p><img data-src="assets/img/pooling.svg"></p>
 </div>
@@ -684,21 +697,6 @@ Thank you for your attention!
 <li>This contrasts with existing industry classification schemes, which often rely on external assessments</li>
 <li>By this, we capture a more dynamic and internally generated perspective of their industry affiliations, potentially offering a richer understanding of their positioning and evolution over time</li>
 </ul>
-</div>
-</div>
-</section>
-<section id="nounphrases-extracting-the-essence-text" class="slide level2">
-<h2>Nounphrases: Extracting the essence text</h2>
-<div><p>&nbsp;</p></div>
-<div class="columns v-center-container">
-<div class="column" style="width:50%;">
-<ul>
-<li>Unlike simplistic keywords, nounph rases transcend single words, comprising compound expressions that encapsulate the essence of the text more comprehensively</li>
-<li>Tools: SpaCy (nounchunk library) &amp; Own Algo</li>
-<li>Embeddings are generated by using openai text-embedding-3-large</li>
-</ul>
-</div><div class="column" style="width:50%;">
-<p><img data-src="assets/img/15_noun-phrases.svg"></p>
 </div>
 </div>
 </section>
@@ -1265,7 +1263,7 @@ Thank you for your attention!
       }
     });
     </script>
-    <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox"});
+    <script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom"});
     window.onload = () => {
       lightboxQuarto.on('slide_before_load', (data) => {
         const { slideIndex, slideNode, slideConfig, player, trigger } = data;
