@@ -172,6 +172,146 @@
     "text": "2. List of all variables (not up to date)\n\nAllGeneralEDAExp (dummy)Exp (quant)EduFund\n\n\n\ncs_me_dist8_unest_wedu_dt |&gt; \n  glimpse()\n\n#&gt; Rows: 2,659,657\n#&gt; Columns: 67\n#&gt; $ company_id_cbpb                      &lt;int&gt; 90591, 152845, 90440, 138208, 116…\n#&gt; $ funding_after_mid                    &lt;chr&gt; \"yes\", NA, \"yes\", \"yes\", \"yes\", \"…\n#&gt; $ funding_after_early                  &lt;chr&gt; \"yes\", \"no\", \"yes\", \"yes\", \"yes\",…\n#&gt; $ member_id                            &lt;int&gt; 878, 2104, 3548, 3548, 3970, 4005…\n#&gt; $ id_tie                               &lt;int&gt; 38, 67, 89, 89, 96, 104, 183, 175…\n#&gt; $ exp_id_cs                            &lt;dbl&gt; 2481733250, 1423977093, 2638, 263…\n#&gt; $ exp_corporate                        &lt;dbl&gt; 0.00000, 12.00000, 0.00000, 0.000…\n#&gt; $ exp_funded_startup                   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0,…\n#&gt; $ exp_founder                          &lt;dbl&gt; 0.0000, 0.0000, 0.0000, 0.0000, 0…\n#&gt; $ exp_f500                             &lt;dbl&gt; 0.00000, 0.00000, 0.00000, 0.0000…\n#&gt; $ exp_research                         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n#&gt; $ exp_research_ivy                     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n#&gt; $ company_id_cs                        &lt;int&gt; 140537, 10644128, 6068905, 606890…\n#&gt; $ company_name_cs                      &lt;chr&gt; \"Bristol-Myers Squibb\", \"HERE\", \"…\n#&gt; $ company_name_cbpb                    &lt;chr&gt; \"receptos\", \"HERE Technologies Ch…\n#&gt; $ founded_on_cbpb                      &lt;date&gt; 2007-01-01, 2012-11-13, 2009-07-…\n#&gt; $ closed_on_cbpb                       &lt;date&gt; NA, NA, NA, NA, NA, NA, 2021-04-…\n#&gt; $ title_cs                             &lt;chr&gt; \"Key Account Manager\", \"GIS Analy…\n#&gt; $ date_from_parsed_cs                  &lt;date&gt; 2006-01-01, 2016-01-01, 2010-01-…\n#&gt; $ date_to_parsed_cs                    &lt;date&gt; 2008-08-01, NA, NA, NA, 2011-10-…\n#&gt; $ tjoin_tfound                         &lt;dbl&gt; -12, 37, 6, 48, -47, 48, 17, 11, …\n#&gt; $ raised_amount_before_join_company    &lt;dbl&gt; 0, 0, 0, 7722796, 0, 9961692, 333…\n#&gt; $ num_rounds_before_join               &lt;dbl&gt; 0, 1, 0, 2, 0, 2, 1, 1, 2, 0, 1, …\n#&gt; $ is_f500                              &lt;lgl&gt; TRUE, FALSE, TRUE, TRUE, FALSE, F…\n#&gt; $ is_founder                           &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…\n#&gt; $ is_research                          &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…\n#&gt; $ is_research_ivy                      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…\n#&gt; $ date_1st_founder_exp                 &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, …\n#&gt; $ date_1st_f500_exp                    &lt;date&gt; 2006-01-01, NA, 2010-01-01, 2010…\n#&gt; $ date_1st_funded_startup_exp          &lt;date&gt; 2006-01-01, 2016-01-01, 2010-01-…\n#&gt; $ date_1st_research_exp                &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, …\n#&gt; $ date_1st_research_ivy_exp            &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, …\n#&gt; $ date_1st_corporate_exp               &lt;date&gt; 2009-02-01, 2015-01-01, NA, NA, …\n#&gt; $ time_since_1st_corporate_exp         &lt;dbl&gt; NA, 12, NA, NA, 116, NA, 136, 40,…\n#&gt; $ time_since_1st_founder_exp           &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…\n#&gt; $ time_since_1st_f500_exp              &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…\n#&gt; $ time_since_1st_funded_startup_exp    &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 96, NA, N…\n#&gt; $ time_since_1st_research_exp          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…\n#&gt; $ time_since_1st_research_ivy_exp      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…\n#&gt; $ time_since_1st_experience            &lt;dbl&gt; 0, 12, 0, 0, 116, 0, 136, 40, 176…\n#&gt; $ raised_amount_before_founder_member  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…\n#&gt; $ raised_amount_before_all_member      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 0, 0, NA,…\n#&gt; $ was_corporate_before                 &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, TRUE, …\n#&gt; $ was_founder_before                   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…\n#&gt; $ was_f500_before                      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…\n#&gt; $ was_fc_before                        &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…\n#&gt; $ was_uni_before                       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…\n#&gt; $ was_ivy_before                       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE…\n#&gt; $ stage_mid                            &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…\n#&gt; $ stage_late                           &lt;lgl&gt; NA, NA, NA, NA, NA, NA, FALSE, NA…\n#&gt; $ date_from_stage                      &lt;chr&gt; \"early1\", \"mid\", \"early2\", \"mid\",…\n#&gt; $ company_start_mid                    &lt;date&gt; 2009-01-01, 2014-11-13, 2011-07-…\n#&gt; $ company_start_late                   &lt;date&gt; 2009-11-23, 2017-11-13, 2014-07-…\n#&gt; $ rank_global_2023_best                &lt;int&gt; 917, 1549, NA, NA, NA, NA, NA, NA…\n#&gt; $ score_global_2023_best               &lt;dbl&gt; 40.6, 26.8, NA, NA, NA, NA, NA, N…\n#&gt; $ rank_national_2023_best              &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…\n#&gt; $ rank_national_during_enrollment_best &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…\n#&gt; $ degree_ba2                           &lt;lgl&gt; FALSE, TRUE, NA, NA, TRUE, NA, NA…\n#&gt; $ degree_ma2                           &lt;lgl&gt; FALSE, FALSE, NA, NA, FALSE, NA, …\n#&gt; $ degree_phd2                          &lt;lgl&gt; FALSE, FALSE, NA, NA, FALSE, NA, …\n#&gt; $ degree_mba2                          &lt;lgl&gt; TRUE, FALSE, NA, NA, FALSE, NA, N…\n#&gt; $ num_rounds_cumulated_founder         &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…\n#&gt; $ num_rounds_cumulated_all             &lt;int&gt; NA, NA, NA, NA, NA, NA, 1, 1, NA,…\n#&gt; $ announced_on_sB                      &lt;date&gt; 2012-02-03, 2018-01-04, 2011-03-…\n#&gt; $ round_type_new_next                  &lt;fct&gt; Series C, Series C, Series C, Ser…\n#&gt; $ raised_amount_cumsum_sB              &lt;dbl&gt; 46043054, 0, 1905000, 11022796, 2…\n#&gt; $ raised_amount_cumsum_sB_next         &lt;dbl&gt; 76043054, 0, 8712306, 13854868, 4…\n\n\n\n\n\ncs_me_dist8_unest_wedu_dt |&gt; \n  select(id_tie, member_id, exp_id_cs, company_id_cbpb, company_name_cbpb, company_id_cs, company_name_cs, \n         founded_on_cbpb, closed_on_cbpb,\n         title_cs) |&gt; \n  glimpse()\n\n#&gt; Rows: 2,659,657\n#&gt; Columns: 10\n#&gt; $ id_tie            &lt;int&gt; 38, 67, 89, 89, 96, 104, 183, 175, 209, 243, 321, 37…\n#&gt; $ member_id         &lt;int&gt; 878, 2104, 3548, 3548, 3970, 4005, 4224, 4224, 4317,…\n#&gt; $ exp_id_cs         &lt;dbl&gt; 2481733250, 1423977093, 2638, 2638, 1736317868, 3084…\n#&gt; $ company_id_cbpb   &lt;int&gt; 90591, 152845, 90440, 138208, 116099, 97810, 40123, …\n#&gt; $ company_name_cbpb &lt;chr&gt; \"receptos\", \"HERE Technologies Chicago\", \"crowdtwist…\n#&gt; $ company_id_cs     &lt;int&gt; 140537, 10644128, 6068905, 6068905, 11825305, 194148…\n#&gt; $ company_name_cs   &lt;chr&gt; \"Bristol-Myers Squibb\", \"HERE\", \"Oracle\", \"Oracle\", …\n#&gt; $ founded_on_cbpb   &lt;date&gt; 2007-01-01, 2012-11-13, 2009-07-01, 2006-01-01, 201…\n#&gt; $ closed_on_cbpb    &lt;date&gt; NA, NA, NA, NA, NA, NA, 2021-04-09, NA, NA, NA, NA,…\n#&gt; $ title_cs          &lt;chr&gt; \"Key Account Manager\", \"GIS Analyst I\", \"QA\", \"QA\", …\n\n\n\n\n\ncs_me_dist8_unest_wedu_dt |&gt; \n  select(date_from_parsed_cs, date_to_parsed_cs, \n         tjoin_tfound, raised_amount_before_join_company, num_rounds_before_join) |&gt; \n  glimpse()\n\n#&gt; Rows: 2,659,657\n#&gt; Columns: 5\n#&gt; $ date_from_parsed_cs               &lt;date&gt; 2006-01-01, 2016-01-01, 2010-01-01,…\n#&gt; $ date_to_parsed_cs                 &lt;date&gt; 2008-08-01, NA, NA, NA, 2011-10-01,…\n#&gt; $ tjoin_tfound                      &lt;dbl&gt; -12, 37, 6, 48, -47, 48, 17, 11, 44,…\n#&gt; $ raised_amount_before_join_company &lt;dbl&gt; 0, 0, 0, 7722796, 0, 9961692, 333333…\n#&gt; $ num_rounds_before_join            &lt;dbl&gt; 0, 1, 0, 2, 0, 2, 1, 1, 2, 0, 1, 2, …\n\n\n\n\n\ncs_me_dist8_unest_wedu_dt |&gt; \n  select(starts_with(\"is_\"),\n         starts_with(\"was_\")) |&gt; \n  glimpse()\n\n#&gt; Rows: 2,659,657\n#&gt; Columns: 10\n#&gt; $ is_f500              &lt;lgl&gt; TRUE, FALSE, TRUE, TRUE, FALSE, FALSE, FALSE, FAL…\n#&gt; $ is_founder           &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …\n#&gt; $ is_research          &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …\n#&gt; $ is_research_ivy      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …\n#&gt; $ was_corporate_before &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, TRUE, FALSE, TRUE, TRU…\n#&gt; $ was_founder_before   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …\n#&gt; $ was_f500_before      &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …\n#&gt; $ was_fc_before        &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, TRUE, F…\n#&gt; $ was_uni_before       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …\n#&gt; $ was_ivy_before       &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, …\n\n\n\n\n\ncs_me_dist8_unest_wedu_dt |&gt; \n  select(\n    starts_with(\"date_1st_\"),\n    starts_with(\"time_since_1st_\"),\n    starts_with(\"exp_\"), -exp_id_cs) |&gt; \n  glimpse()\n\n#&gt; Rows: 2,659,657\n#&gt; Columns: 19\n#&gt; $ date_1st_founder_exp              &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,…\n#&gt; $ date_1st_f500_exp                 &lt;date&gt; 2006-01-01, NA, 2010-01-01, 2010-01…\n#&gt; $ date_1st_funded_startup_exp       &lt;date&gt; 2006-01-01, 2016-01-01, 2010-01-01,…\n#&gt; $ date_1st_research_exp             &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,…\n#&gt; $ date_1st_research_ivy_exp         &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,…\n#&gt; $ date_1st_corporate_exp            &lt;date&gt; 2009-02-01, 2015-01-01, NA, NA, 200…\n#&gt; $ time_since_1st_corporate_exp      &lt;dbl&gt; NA, 12, NA, NA, 116, NA, 136, 40, 17…\n#&gt; $ time_since_1st_founder_exp        &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n#&gt; $ time_since_1st_f500_exp           &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n#&gt; $ time_since_1st_funded_startup_exp &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 96, NA, NA, …\n#&gt; $ time_since_1st_research_exp       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n#&gt; $ time_since_1st_research_ivy_exp   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …\n#&gt; $ time_since_1st_experience         &lt;dbl&gt; 0, 12, 0, 0, 116, 0, 136, 40, 176, 4…\n#&gt; $ exp_corporate                     &lt;dbl&gt; 0.00000, 12.00000, 0.00000, 0.00000,…\n#&gt; $ exp_funded_startup                &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 18, 0, 0, 0, 0, 0,…\n#&gt; $ exp_founder                       &lt;dbl&gt; 0.0000, 0.0000, 0.0000, 0.0000, 0.00…\n#&gt; $ exp_f500                          &lt;dbl&gt; 0.00000, 0.00000, 0.00000, 0.00000, …\n#&gt; $ exp_research                      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n#&gt; $ exp_research_ivy                  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n\n\n\n\n\ncs_me_dist8_unest_wedu_dt |&gt; \n  select(score_global_2023_best,\n         starts_with(\"rank\"),\n         starts_with(\"degree\")) |&gt; \n  glimpse()\n\n#&gt; Rows: 2,659,657\n#&gt; Columns: 8\n#&gt; $ score_global_2023_best               &lt;dbl&gt; 40.6, 26.8, NA, NA, NA, NA, NA, N…\n#&gt; $ rank_global_2023_best                &lt;int&gt; 917, 1549, NA, NA, NA, NA, NA, NA…\n#&gt; $ rank_national_2023_best              &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…\n#&gt; $ rank_national_during_enrollment_best &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, N…\n#&gt; $ degree_ba2                           &lt;lgl&gt; FALSE, TRUE, NA, NA, TRUE, NA, NA…\n#&gt; $ degree_ma2                           &lt;lgl&gt; FALSE, FALSE, NA, NA, FALSE, NA, …\n#&gt; $ degree_phd2                          &lt;lgl&gt; FALSE, FALSE, NA, NA, FALSE, NA, …\n#&gt; $ degree_mba2                          &lt;lgl&gt; TRUE, FALSE, NA, NA, FALSE, NA, N…\n\n\n\n\n\ncs_me_dist8_unest_wedu_dt |&gt; \n  select(date_from_stage, company_start_mid, company_start_late,\n         raised_amount_before_founder_member, raised_amount_before_all_member,\n         funding_after_mid, funding_after_early) |&gt; \n  glimpse()\n\n#&gt; Rows: 2,659,657\n#&gt; Columns: 7\n#&gt; $ date_from_stage                     &lt;chr&gt; \"early1\", \"mid\", \"early2\", \"mid\", …\n#&gt; $ company_start_mid                   &lt;date&gt; 2009-01-01, 2014-11-13, 2011-07-0…\n#&gt; $ company_start_late                  &lt;date&gt; 2009-11-23, 2017-11-13, 2014-07-0…\n#&gt; $ raised_amount_before_founder_member &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA…\n#&gt; $ raised_amount_before_all_member     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, 0, 0, NA, …\n#&gt; $ funding_after_mid                   &lt;chr&gt; \"yes\", NA, \"yes\", \"yes\", \"yes\", \"y…\n#&gt; $ funding_after_early                 &lt;chr&gt; \"yes\", \"no\", \"yes\", \"yes\", \"yes\", …"
   },
   {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#creative-destruction-out-with-the-old-in-with-the-new",
+    "href": "revealjs/slides/2023/beyond/evomap.html#creative-destruction-out-with-the-old-in-with-the-new",
+    "title": "Beyond the beginning",
+    "section": "Creative Destruction: Out with the Old, in with the New",
+    "text": "Creative Destruction: Out with the Old, in with the New\n\n\n\n\n\n\nSchumpeter characterized creative destruction as innovations in the manufacturing process that increase productivity, describing it as the …\n\n\n… «process of industrial mutation that incessantly revolutionizes the economic structure from within, incessantly destroying the old one, incessantly creating a new one.»\n\n\n\n\n— Joseph Schumpeter (1942)"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#digital-disrupt-how-netflix-proves-business-model-innovation-works",
+    "href": "revealjs/slides/2023/beyond/evomap.html#digital-disrupt-how-netflix-proves-business-model-innovation-works",
+    "title": "Beyond the beginning",
+    "section": "Digital Disrupt: How Netflix proves Business Model Innovation works",
+    "text": "Digital Disrupt: How Netflix proves Business Model Innovation works"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#securing-the-future-navigating-the-evolutionary-path-of-business-models",
+    "href": "revealjs/slides/2023/beyond/evomap.html#securing-the-future-navigating-the-evolutionary-path-of-business-models",
+    "title": "Beyond the beginning",
+    "section": "Securing the Future: Navigating the Evolutionary Path of Business Models",
+    "text": "Securing the Future: Navigating the Evolutionary Path of Business Models"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#blockbusters-digital-demise-how-failing-to-adapt-led-to-bankruptcy",
+    "href": "revealjs/slides/2023/beyond/evomap.html#blockbusters-digital-demise-how-failing-to-adapt-led-to-bankruptcy",
+    "title": "Beyond the beginning",
+    "section": "Blockbuster’s Digital Demise: How Failing to Adapt Led to Bankruptcy",
+    "text": "Blockbuster’s Digital Demise: How Failing to Adapt Led to Bankruptcy"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#constructive-destruction-what-has-to-be-changed",
+    "href": "revealjs/slides/2023/beyond/evomap.html#constructive-destruction-what-has-to-be-changed",
+    "title": "Beyond the beginning",
+    "section": "Constructive destruction: What has to be changed?",
+    "text": "Constructive destruction: What has to be changed?\n\n\n\n\n\n\n\n[…] it is not that kind of competition [price, ed] which counts but the competition from the new commodity, the new technology, the new source of supply, the new type of organization – competition which commands a decisive cost or quality advantage and which strikes not at the margins of the profits and the outputs of the existing firms but at their foundations and their very lives.»\n\n\n\n\n— Joseph Schumpeter (1942)\n\n\n\n\n\n\n\nBusiness Model Canvas\n\n\n\n\n\n\n\n\n\n\n\nValue Proposition Canvas"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#research-objective-an-evolutionary-approach-to-business-model-innovation---value-proposition-development",
+    "href": "revealjs/slides/2023/beyond/evomap.html#research-objective-an-evolutionary-approach-to-business-model-innovation---value-proposition-development",
+    "title": "Beyond the beginning",
+    "section": "Research Objective: An evolutionary approach to Business Model Innovation - Value Proposition Development",
+    "text": "Research Objective: An evolutionary approach to Business Model Innovation - Value Proposition Development\n\n\n\nMarket structure map: Spatial representation of firms’ competitive positions relative to one another based on some measure of their competitive relationships (DeSarbo et al. 1993).\n\n\n\nSuch maps typically capture static snapshots in time. Yet, competitive positions tend to change.\n\n\n\nFirms’ trajectories: Evolutionary paths of firms’ positions over time relative to all other firms in a market based on their value proposition"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#defining-a-startups-unique-value-proposition-how-to-identify-core-value",
+    "href": "revealjs/slides/2023/beyond/evomap.html#defining-a-startups-unique-value-proposition-how-to-identify-core-value",
+    "title": "Beyond the beginning",
+    "section": "Defining a Startup’s unique Value Proposition: How to identify Core Value?",
+    "text": "Defining a Startup’s unique Value Proposition: How to identify Core Value?\n \n \n\n\n\n\n\nApproach\n\n\n\nStatic: Venture Capital Databases (Crunchbase, Pitchbook, … )\n\n\n\n\n\n\n\nDynamic: Natural language processing and historical websites (WayBack Machine)"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#how-they-faced-a-digital-transformation-changes-in-netflixs-business-model-over-time",
+    "href": "revealjs/slides/2023/beyond/evomap.html#how-they-faced-a-digital-transformation-changes-in-netflixs-business-model-over-time",
+    "title": "Beyond the beginning",
+    "section": "How they faced a Digital Transformation: Changes in Netflix’s business model over time",
+    "text": "How they faced a Digital Transformation: Changes in Netflix’s business model over time"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-1-extracting-key-noun-phrases-for-essential-insight",
+    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-1-extracting-key-noun-phrases-for-essential-insight",
+    "title": "Beyond the beginning",
+    "section": "Handling Noisy Data Part 1:Extracting Key Noun Phrases for Essential Insight",
+    "text": "Handling Noisy Data Part 1:Extracting Key Noun Phrases for Essential Insight\n \n\n\nUnlike simplistic keywords, nounphrases transcend single words, comprising compound expressions that encapsulate the essence of the text more comprehensively\n\n\n\nTools: SpaCy (nounchunk library) & Custom Algorithmus"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-2-leveraging-embeddings-for-similarity-calculations",
+    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-2-leveraging-embeddings-for-similarity-calculations",
+    "title": "Beyond the beginning",
+    "section": "Handling Noisy Data Part 2:Leveraging Embeddings for Similarity Calculations",
+    "text": "Handling Noisy Data Part 2:Leveraging Embeddings for Similarity Calculations"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-3-clustering-with-candidate-keyphrases",
+    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-3-clustering-with-candidate-keyphrases",
+    "title": "Beyond the beginning",
+    "section": "Handling Noisy Data Part 3:Clustering with Candidate Keyphrases",
+    "text": "Handling Noisy Data Part 3:Clustering with Candidate Keyphrases\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCluster Crunchbase & Pitchbook Description Embeddings, which are describing value propositions\n\n\n\n\nUse corresponding medoids/centroids (k=300) as ultimate truth anchors\n\n\n\n\nFind appropriate similarity threshold as cutoff for website embeddings"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-4-consolidating-unique-embeddings-for-value-propositions",
+    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-4-consolidating-unique-embeddings-for-value-propositions",
+    "title": "Beyond the beginning",
+    "section": "Handling Noisy Data Part 4:Consolidating Unique Embeddings for Value Propositions",
+    "text": "Handling Noisy Data Part 4:Consolidating Unique Embeddings for Value Propositions"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#mapping-moments-unveiling-competitive-positions-through-time-indexed-pairwise-similarity-measures",
+    "href": "revealjs/slides/2023/beyond/evomap.html#mapping-moments-unveiling-competitive-positions-through-time-indexed-pairwise-similarity-measures",
+    "title": "Beyond the beginning",
+    "section": "Mapping Moments: Unveiling competitive positions through Time-Indexed Pairwise Similarity Measures",
+    "text": "Mapping Moments: Unveiling competitive positions through Time-Indexed Pairwise Similarity Measures"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#proof-of-concept-exploring-competitive-landscapes-with-the-evomap-algorithm",
+    "href": "revealjs/slides/2023/beyond/evomap.html#proof-of-concept-exploring-competitive-landscapes-with-the-evomap-algorithm",
+    "title": "Beyond the beginning",
+    "section": "Proof of Concept: Exploring Competitive Landscapes with the EvoMap Algorithm",
+    "text": "Proof of Concept: Exploring Competitive Landscapes with the EvoMap Algorithm\n \n\n\n\n\n\n\nSequence of Maps\n\n\n\n\n\n\n\nDynamic Map"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#outlook-1",
+    "href": "revealjs/slides/2023/beyond/evomap.html#outlook-1",
+    "title": "Beyond the beginning",
+    "section": "Outlook 1",
+    "text": "Outlook 1"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#outlook-2",
+    "href": "revealjs/slides/2023/beyond/evomap.html#outlook-2",
+    "title": "Beyond the beginning",
+    "section": "Outlook 2",
+    "text": "Outlook 2"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#b1-the-evolutionary-path",
+    "href": "revealjs/slides/2023/beyond/evomap.html#b1-the-evolutionary-path",
+    "title": "Beyond the beginning",
+    "section": "B1: The Evolutionary Path",
+    "text": "B1: The Evolutionary Path"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#b2-websites-perceived-value-proposition",
+    "href": "revealjs/slides/2023/beyond/evomap.html#b2-websites-perceived-value-proposition",
+    "title": "Beyond the beginning",
+    "section": "B2: Websites: Perceived value proposition",
+    "text": "B2: Websites: Perceived value proposition\n \n\n\n\n\n\nValue propositions are derived from the descriptions that firms provide to the market through their websites\nThis contrasts with existing industry classification schemes, which often rely on external assessments\nBy this, we capture a more dynamic and internally generated perspective of their industry affiliations, potentially offering a richer understanding of their positioning and evolution over time"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#start-up-roadmap-the-myth-of-the-linear-path",
+    "href": "revealjs/slides/2023/beyond/evomap.html#start-up-roadmap-the-myth-of-the-linear-path",
+    "title": "Beyond the beginning",
+    "section": "Start-up Roadmap: The Myth of the Linear Path",
+    "text": "Start-up Roadmap: The Myth of the Linear Path"
+  },
+  {
+    "objectID": "revealjs/slides/2023/beyond/evomap.html#st-goal-keyphrase-extraction",
+    "href": "revealjs/slides/2023/beyond/evomap.html#st-goal-keyphrase-extraction",
+    "title": "Beyond the beginning",
+    "section": "1st Goal: Keyphrase Extraction",
+    "text": "1st Goal: Keyphrase Extraction\n\n\n\n\n\n\nJoschka Schwarz - Beyond the Beginning"
+  },
+  {
     "objectID": "revealjs/slides/2022/first/first.html#quarto",
     "href": "revealjs/slides/2022/first/first.html#quarto",
     "title": "First",
@@ -543,360 +683,15 @@
     ]
   },
   {
-    "objectID": "slides/slides_2023_LHT.html",
-    "href": "slides/slides_2023_LHT.html",
-    "title": "2023",
+    "objectID": "slides/slides_2024.html",
+    "href": "slides/slides_2024.html",
+    "title": "2024",
     "section": "",
-    "text": "LHT - Data Scientist"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#how-failing-to-adapt-led-to-bankruptcy",
-    "href": "revealjs/slides/2023/beyond/evomap.html#how-failing-to-adapt-led-to-bankruptcy",
-    "title": "Beyond the beginning",
-    "section": "How Failing to Adapt Led to Bankruptcy",
-    "text": "How Failing to Adapt Led to Bankruptcy"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#creative-destruction-out-with-the-old-in-with-the-new",
-    "href": "revealjs/slides/2023/beyond/evomap.html#creative-destruction-out-with-the-old-in-with-the-new",
-    "title": "Beyond the beginning",
-    "section": "Creative Destruction: Out with the Old, in with the New",
-    "text": "Creative Destruction: Out with the Old, in with the New\n\n\n\n\n\n\nSchumpeter characterized creative destruction as innovations in the manufacturing process that increase productivity, describing it as the …\n\n\n… «process of industrial mutation that incessantly revolutionizes the economic structure from within, incessantly destroying the old one, incessantly creating a new one.»\n\n\n\n\n— Joseph Schumpeter (1942)"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#nflx-example",
-    "href": "revealjs/slides/2023/beyond/evomap.html#nflx-example",
-    "title": "Beyond the beginning",
-    "section": "NFLX Example",
-    "text": "NFLX Example"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#filter-13-embeddings",
-    "href": "revealjs/slides/2023/beyond/evomap.html#filter-13-embeddings",
-    "title": "Beyond the beginning",
-    "section": "Filter 1/3: Embeddings",
-    "text": "Filter 1/3: Embeddings"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#filter-23-clustering",
-    "href": "revealjs/slides/2023/beyond/evomap.html#filter-23-clustering",
-    "title": "Beyond the beginning",
-    "section": "Filter 2/3: Clustering",
-    "text": "Filter 2/3: Clustering\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCluster Crunchbase Description Embeddings (k=300)\nUse corresponding medoids/centroids as ultimate truth anchors\nFind appropriate similarity threshold as cutoff for website embeddings"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#filter-33-pooling",
-    "href": "revealjs/slides/2023/beyond/evomap.html#filter-33-pooling",
-    "title": "Beyond the beginning",
-    "section": "Filter 3/3: Pooling",
-    "text": "Filter 3/3: Pooling"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#nd-goal-time-indexed-sequence-of-pairwise-similarity-measures",
-    "href": "revealjs/slides/2023/beyond/evomap.html#nd-goal-time-indexed-sequence-of-pairwise-similarity-measures",
-    "title": "Beyond the beginning",
-    "section": "2nd Goal: Time-indexed sequence of pairwise similarity measures",
-    "text": "2nd Goal: Time-indexed sequence of pairwise similarity measures"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#result-1",
-    "href": "revealjs/slides/2023/beyond/evomap.html#result-1",
-    "title": "Beyond the beginning",
-    "section": "Result",
-    "text": "Result\n \n\n\n\n\n\n\nSequence of Maps\n\n\n\n\n\n\n\nDynamic Map"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#outlook-1",
-    "href": "revealjs/slides/2023/beyond/evomap.html#outlook-1",
-    "title": "Beyond the beginning",
-    "section": "Outlook 1",
-    "text": "Outlook 1"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#outlook-2",
-    "href": "revealjs/slides/2023/beyond/evomap.html#outlook-2",
-    "title": "Beyond the beginning",
-    "section": "Outlook 2",
-    "text": "Outlook 2"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#b1-the-evolutionary-path",
-    "href": "revealjs/slides/2023/beyond/evomap.html#b1-the-evolutionary-path",
-    "title": "Beyond the beginning",
-    "section": "B1: The Evolutionary Path",
-    "text": "B1: The Evolutionary Path"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#b2-websites-perceived-value-proposition",
-    "href": "revealjs/slides/2023/beyond/evomap.html#b2-websites-perceived-value-proposition",
-    "title": "Beyond the beginning",
-    "section": "B2: Websites: Perceived value proposition",
-    "text": "B2: Websites: Perceived value proposition\n \n\n\n\n\n\nValue propositions are derived from the descriptions that firms provide to the market through their websites\nThis contrasts with existing industry classification schemes, which often rely on external assessments\nBy this, we capture a more dynamic and internally generated perspective of their industry affiliations, potentially offering a richer understanding of their positioning and evolution over time"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#nounphrases-extracting-the-essence-text",
-    "href": "revealjs/slides/2023/beyond/evomap.html#nounphrases-extracting-the-essence-text",
-    "title": "Beyond the beginning",
-    "section": "Nounphrases: Extracting the essence text",
-    "text": "Nounphrases: Extracting the essence text\n \n\n\n\nUnlike simplistic keywords, nounph rases transcend single words, comprising compound expressions that encapsulate the essence of the text more comprehensively\nTools: SpaCy (nounchunk library) & Own Algo\nEmbeddings are generated by using openai text-embedding-3-large"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#start-up-roadmap-the-myth-of-the-linear-path",
-    "href": "revealjs/slides/2023/beyond/evomap.html#start-up-roadmap-the-myth-of-the-linear-path",
-    "title": "Beyond the beginning",
-    "section": "Start-up Roadmap: The Myth of the Linear Path",
-    "text": "Start-up Roadmap: The Myth of the Linear Path"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#st-goal-keyphrase-extraction",
-    "href": "revealjs/slides/2023/beyond/evomap.html#st-goal-keyphrase-extraction",
-    "title": "Beyond the beginning",
-    "section": "1st Goal: Keyphrase Extraction",
-    "text": "1st Goal: Keyphrase Extraction\n\n\n\n\n\n\nJoschka Schwarz - Beyond the Beginning"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#nflx-shifts",
-    "href": "revealjs/slides/2023/beyond/evomap.html#nflx-shifts",
-    "title": "Beyond the beginning",
-    "section": "NFLX shifts",
-    "text": "NFLX shifts"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#business-model-lifecycle",
-    "href": "revealjs/slides/2023/beyond/evomap.html#business-model-lifecycle",
-    "title": "Beyond the beginning",
-    "section": "Business Model Lifecycle",
-    "text": "Business Model Lifecycle"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#constructive-destruction-what-has-to-be-changed",
-    "href": "revealjs/slides/2023/beyond/evomap.html#constructive-destruction-what-has-to-be-changed",
-    "title": "Beyond the beginning",
-    "section": "Constructive destruction: What has to be changed?",
-    "text": "Constructive destruction: What has to be changed?\n\n\n\n\n\n\n\n[…] it is not that kind of competition [price, ed] which counts but the competition from the new commodity, the new technology, the new source of supply, the new type of organization – competition which commands a decisive cost or quality advantage and which strikes not at the margins of the profits and the outputs of the existing firms but at their foundations and their very lives.»\n\n\n\n\n— Joseph Schumpeter (1942)\n\n\n\n\n\n\n\nBusiness Model Canvas\n\n\n\n\n\n\n\n\n\n\n\nValue Proposition Canvas"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#objective-evolution-scenario-maps",
-    "href": "revealjs/slides/2023/beyond/evomap.html#objective-evolution-scenario-maps",
-    "title": "Beyond the beginning",
-    "section": "Objective: Evolution Scenario Maps",
-    "text": "Objective: Evolution Scenario Maps\n\n\n\nMarket structure map: Spatial representation of firms’ competitive positions relative to one another based on some measure of their competitive relationships (DeSarbo et al. 1993).\n\n\n\nSuch maps typically capture static snapshots in time. Yet, competitive positions tend to change.\n\n\n\nFirms’ trajectories: Evolutionary paths of firms’ positions over time relative to all other firms in a market based on their value proposition"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#value-propositions-where-to-find-them",
-    "href": "revealjs/slides/2023/beyond/evomap.html#value-propositions-where-to-find-them",
-    "title": "Beyond the beginning",
-    "section": "Value Propositions: Where to find them?",
-    "text": "Value Propositions: Where to find them?\n \n \n\n\n\n\n\nApproach\n\n\n\nStatic: Venture Capital Databases (Crunchbase, Pitchbook, … )\n\n\n\n\n\n\n\nDynamic: Natural language processing and historical websites (WayBack Machine)"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#evolution-of-netflixs-business-models",
-    "href": "revealjs/slides/2023/beyond/evomap.html#evolution-of-netflixs-business-models",
-    "title": "Beyond the beginning",
-    "section": "Evolution of Netflix’s Business Models",
-    "text": "Evolution of Netflix’s Business Models"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#incessant-value-creation-through-the-evolution-of-business-models",
-    "href": "revealjs/slides/2023/beyond/evomap.html#incessant-value-creation-through-the-evolution-of-business-models",
-    "title": "Beyond the beginning",
-    "section": "Incessant Value Creation through the Evolution of Business Models",
-    "text": "Incessant Value Creation through the Evolution of Business Models"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#how-they-faced-a-digital-transformation-changes-in-netflixs-business-model-over-time",
-    "href": "revealjs/slides/2023/beyond/evomap.html#how-they-faced-a-digital-transformation-changes-in-netflixs-business-model-over-time",
-    "title": "Beyond the beginning",
-    "section": "How they faced a Digital Transformation: Changes in Netflix’s business model over time",
-    "text": "How they faced a Digital Transformation: Changes in Netflix’s business model over time"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-13-embeddings",
-    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-13-embeddings",
-    "title": "Beyond the beginning",
-    "section": "Handling Noisy Data 1/3: Embeddings",
-    "text": "Handling Noisy Data 1/3: Embeddings"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-23-clustering",
-    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-23-clustering",
-    "title": "Beyond the beginning",
-    "section": "Handling Noisy Data 2/3: Clustering",
-    "text": "Handling Noisy Data 2/3: Clustering\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCluster Crunchbase Description Embeddings (k=300)\n\n\n\n\nUse corresponding medoids/centroids as ultimate truth anchors\n\n\n\n\nFind appropriate similarity threshold as cutoff for website embeddings"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-33-pooling",
-    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-33-pooling",
-    "title": "Beyond the beginning",
-    "section": "Handling Noisy Data 3/3: Pooling",
-    "text": "Handling Noisy Data 3/3: Pooling"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#time-indexed-sequence-of-pairwise-similarity-measures",
-    "href": "revealjs/slides/2023/beyond/evomap.html#time-indexed-sequence-of-pairwise-similarity-measures",
-    "title": "Beyond the beginning",
-    "section": "Time-indexed sequence of pairwise similarity measures",
-    "text": "Time-indexed sequence of pairwise similarity measures"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#proof-of-concept",
-    "href": "revealjs/slides/2023/beyond/evomap.html#proof-of-concept",
-    "title": "Beyond the beginning",
-    "section": "Proof of Concept",
-    "text": "Proof of Concept\n \n\n\n\n\n\n\nSequence of Maps\n\n\n\n\n\n\n\nDynamic Map"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#value-creation-through-the-evolution-of-business-models",
-    "href": "revealjs/slides/2023/beyond/evomap.html#value-creation-through-the-evolution-of-business-models",
-    "title": "Beyond the beginning",
-    "section": "Value Creation through the Evolution of Business Models",
-    "text": "Value Creation through the Evolution of Business Models"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-14-nounphrases---extracting-the-essence-text",
-    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-14-nounphrases---extracting-the-essence-text",
-    "title": "Beyond the beginning",
-    "section": "Handling Noisy Data 1/4: Nounphrases - Extracting the essence text",
-    "text": "Handling Noisy Data 1/4: Nounphrases - Extracting the essence text\n \n\n\nUnlike simplistic keywords, nounphrases transcend single words, comprising compound expressions that encapsulate the essence of the text more comprehensively\n\n\n\nTools: SpaCy (nounchunk library) & Custom Algorithmus"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-24-embeddings",
-    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-24-embeddings",
-    "title": "Beyond the beginning",
-    "section": "Handling Noisy Data 2/4: Embeddings",
-    "text": "Handling Noisy Data 2/4: Embeddings"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-34-clustering",
-    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-34-clustering",
-    "title": "Beyond the beginning",
-    "section": "Handling Noisy Data 3/4: Clustering",
-    "text": "Handling Noisy Data 3/4: Clustering\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCluster Crunchbase & Pitchbook Description Embeddings, which are describing value propositions\n\n\n\n\nUse corresponding medoids/centroids (k=300) as ultimate truth anchors\n\n\n\n\nFind appropriate similarity threshold as cutoff for website embeddings"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-44-pooling",
-    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-44-pooling",
-    "title": "Beyond the beginning",
-    "section": "Handling Noisy Data 4/4: Pooling",
-    "text": "Handling Noisy Data 4/4: Pooling"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#digital-disrupt-how-netflix-proves-business-model-innovation-works",
-    "href": "revealjs/slides/2023/beyond/evomap.html#digital-disrupt-how-netflix-proves-business-model-innovation-works",
-    "title": "Beyond the beginning",
-    "section": "Digital Disrupt: How Netflix proves Business Model Innovation works",
-    "text": "Digital Disrupt: How Netflix proves Business Model Innovation works"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#securing-the-future-navigating-the-evolutionary-path-of-business-models",
-    "href": "revealjs/slides/2023/beyond/evomap.html#securing-the-future-navigating-the-evolutionary-path-of-business-models",
-    "title": "Beyond the beginning",
-    "section": "Securing the Future: Navigating the Evolutionary Path of Business Models",
-    "text": "Securing the Future: Navigating the Evolutionary Path of Business Models"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#blockbusters-digital-demise-how-failing-to-adapt-led-to-bankruptcy",
-    "href": "revealjs/slides/2023/beyond/evomap.html#blockbusters-digital-demise-how-failing-to-adapt-led-to-bankruptcy",
-    "title": "Beyond the beginning",
-    "section": "Blockbuster’s Digital Demise: How Failing to Adapt Led to Bankruptcy",
-    "text": "Blockbuster’s Digital Demise: How Failing to Adapt Led to Bankruptcy"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#research-objective-an-evolutionary-approach-to-business-model-innovation",
-    "href": "revealjs/slides/2023/beyond/evomap.html#research-objective-an-evolutionary-approach-to-business-model-innovation",
-    "title": "Beyond the beginning",
-    "section": "Research Objective: An evolutionary approach to business model innovation",
-    "text": "Research Objective: An evolutionary approach to business model innovation\n\n\n\nMarket structure map: Spatial representation of firms’ competitive positions relative to one another based on some measure of their competitive relationships (DeSarbo et al. 1993).\n\n\n\nSuch maps typically capture static snapshots in time. Yet, competitive positions tend to change.\n\n\n\nFirms’ trajectories: Evolutionary paths of firms’ positions over time relative to all other firms in a market based on their value proposition"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#research-objective-an-evolutionary-approach-to-business-model-innovation---the-case-for-value-proposition",
-    "href": "revealjs/slides/2023/beyond/evomap.html#research-objective-an-evolutionary-approach-to-business-model-innovation---the-case-for-value-proposition",
-    "title": "Beyond the beginning",
-    "section": "Research Objective: An evolutionary approach to business model innovation - The case for value proposition",
-    "text": "Research Objective: An evolutionary approach to business model innovation - The case for value proposition\n\n\n\nMarket structure map: Spatial representation of firms’ competitive positions relative to one another based on some measure of their competitive relationships (DeSarbo et al. 1993).\n\n\n\nSuch maps typically capture static snapshots in time. Yet, competitive positions tend to change.\n\n\n\nFirms’ trajectories: Evolutionary paths of firms’ positions over time relative to all other firms in a market based on their value proposition"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#research-objective-an-evolutionary-approach-to-business-model-innovation---the-case-for-value-proposition-development",
-    "href": "revealjs/slides/2023/beyond/evomap.html#research-objective-an-evolutionary-approach-to-business-model-innovation---the-case-for-value-proposition-development",
-    "title": "Beyond the beginning",
-    "section": "Research Objective: An evolutionary approach to business model innovation - The case for value proposition development",
-    "text": "Research Objective: An evolutionary approach to business model innovation - The case for value proposition development\n\n\n\nMarket structure map: Spatial representation of firms’ competitive positions relative to one another based on some measure of their competitive relationships (DeSarbo et al. 1993).\n\n\n\nSuch maps typically capture static snapshots in time. Yet, competitive positions tend to change.\n\n\n\nFirms’ trajectories: Evolutionary paths of firms’ positions over time relative to all other firms in a market based on their value proposition"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#research-objective-an-evolutionary-approach-to-business-model-innovation---value-proposition-development",
-    "href": "revealjs/slides/2023/beyond/evomap.html#research-objective-an-evolutionary-approach-to-business-model-innovation---value-proposition-development",
-    "title": "Beyond the beginning",
-    "section": "Research Objective: An evolutionary approach to Business Model Innovation - Value Proposition Development",
-    "text": "Research Objective: An evolutionary approach to Business Model Innovation - Value Proposition Development\n\n\n\nMarket structure map: Spatial representation of firms’ competitive positions relative to one another based on some measure of their competitive relationships (DeSarbo et al. 1993).\n\n\n\nSuch maps typically capture static snapshots in time. Yet, competitive positions tend to change.\n\n\n\nFirms’ trajectories: Evolutionary paths of firms’ positions over time relative to all other firms in a market based on their value proposition"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#defining-a-companys-unique-value-proposition-how-to-identify-core-value",
-    "href": "revealjs/slides/2023/beyond/evomap.html#defining-a-companys-unique-value-proposition-how-to-identify-core-value",
-    "title": "Beyond the beginning",
-    "section": "Defining a Company’s Unique Value Proposition: How to Identify Core Value?",
-    "text": "Defining a Company’s Unique Value Proposition: How to Identify Core Value?\n \n \n\n\n\n\n\nApproach\n\n\n\nStatic: Venture Capital Databases (Crunchbase, Pitchbook, … )\n\n\n\n\n\n\n\nDynamic: Natural language processing and historical websites (WayBack Machine)"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#defining-a-startupss-unique-value-proposition-how-to-identify-core-value",
-    "href": "revealjs/slides/2023/beyond/evomap.html#defining-a-startupss-unique-value-proposition-how-to-identify-core-value",
-    "title": "Beyond the beginning",
-    "section": "Defining a Startups’s Unique Value Proposition: How to Identify Core Value?",
-    "text": "Defining a Startups’s Unique Value Proposition: How to Identify Core Value?\n \n \n\n\n\n\n\nApproach\n\n\n\nStatic: Venture Capital Databases (Crunchbase, Pitchbook, … )\n\n\n\n\n\n\n\nDynamic: Natural language processing and historical websites (WayBack Machine)"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#defining-a-startups-unique-value-proposition-how-to-identify-core-value",
-    "href": "revealjs/slides/2023/beyond/evomap.html#defining-a-startups-unique-value-proposition-how-to-identify-core-value",
-    "title": "Beyond the beginning",
-    "section": "Defining a Startup’s unique Value Proposition: How to identify Core Value?",
-    "text": "Defining a Startup’s unique Value Proposition: How to identify Core Value?\n \n \n\n\n\n\n\nApproach\n\n\n\nStatic: Venture Capital Databases (Crunchbase, Pitchbook, … )\n\n\n\n\n\n\n\nDynamic: Natural language processing and historical websites (WayBack Machine)"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-1-extracting-key-noun-phrases-for-essential-insight",
-    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-1-extracting-key-noun-phrases-for-essential-insight",
-    "title": "Beyond the beginning",
-    "section": "Handling Noisy Data Part 1:Extracting Key Noun Phrases for Essential Insight",
-    "text": "Handling Noisy Data Part 1:Extracting Key Noun Phrases for Essential Insight\n \n\n\nUnlike simplistic keywords, nounphrases transcend single words, comprising compound expressions that encapsulate the essence of the text more comprehensively\n\n\n\nTools: SpaCy (nounchunk library) & Custom Algorithmus"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-2-leveraging-embeddings-for-similarity-calculations",
-    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-2-leveraging-embeddings-for-similarity-calculations",
-    "title": "Beyond the beginning",
-    "section": "Handling Noisy Data Part 2:Leveraging Embeddings for Similarity Calculations",
-    "text": "Handling Noisy Data Part 2:Leveraging Embeddings for Similarity Calculations"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-3-clustering-with-candidate-keyphrases",
-    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-3-clustering-with-candidate-keyphrases",
-    "title": "Beyond the beginning",
-    "section": "Handling Noisy Data Part 3:Clustering with Candidate Keyphrases",
-    "text": "Handling Noisy Data Part 3:Clustering with Candidate Keyphrases\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCluster Crunchbase & Pitchbook Description Embeddings, which are describing value propositions\n\n\n\n\nUse corresponding medoids/centroids (k=300) as ultimate truth anchors\n\n\n\n\nFind appropriate similarity threshold as cutoff for website embeddings"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-4-pooling---consolidating-unique-embeddings-for-value-propositions",
-    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-4-pooling---consolidating-unique-embeddings-for-value-propositions",
-    "title": "Beyond the beginning",
-    "section": "Handling Noisy Data Part 4:Pooling - Consolidating Unique Embeddings for Value Propositions",
-    "text": "Handling Noisy Data Part 4:Pooling - Consolidating Unique Embeddings for Value Propositions"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-4-consolidating-unique-embeddings-for-value-propositions",
-    "href": "revealjs/slides/2023/beyond/evomap.html#handling-noisy-data-part-4-consolidating-unique-embeddings-for-value-propositions",
-    "title": "Beyond the beginning",
-    "section": "Handling Noisy Data Part 4:Consolidating Unique Embeddings for Value Propositions",
-    "text": "Handling Noisy Data Part 4:Consolidating Unique Embeddings for Value Propositions"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#mapping-moments-unveiling-competitive-positions-through-time-indexed-pairwise-similarity-measures",
-    "href": "revealjs/slides/2023/beyond/evomap.html#mapping-moments-unveiling-competitive-positions-through-time-indexed-pairwise-similarity-measures",
-    "title": "Beyond the beginning",
-    "section": "Mapping Moments: Unveiling competitive positions through Time-Indexed Pairwise Similarity Measures",
-    "text": "Mapping Moments: Unveiling competitive positions through Time-Indexed Pairwise Similarity Measures"
-  },
-  {
-    "objectID": "revealjs/slides/2023/beyond/evomap.html#proof-of-concept-exploring-competitive-landscapes-with-the-evomap-algorithm",
-    "href": "revealjs/slides/2023/beyond/evomap.html#proof-of-concept-exploring-competitive-landscapes-with-the-evomap-algorithm",
-    "title": "Beyond the beginning",
-    "section": "Proof of Concept: Exploring Competitive Landscapes with the EvoMap Algorithm",
-    "text": "Proof of Concept: Exploring Competitive Landscapes with the EvoMap Algorithm\n \n\n\n\n\n\n\nSequence of Maps\n\n\n\n\n\n\n\nDynamic Map"
+    "text": "Druid2024",
+    "crumbs": [
+      "Presentations",
+      "2024",
+      "Conferences"
+    ]
   }
 ]
