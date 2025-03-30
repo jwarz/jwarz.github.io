@@ -2285,5 +2285,257 @@
       "2024",
       "Conferences"
     ]
+  },
+  {
+    "objectID": "revealjs/slides/2025/adobe/adbe.html#table-of-contents",
+    "href": "revealjs/slides/2025/adobe/adbe.html#table-of-contents",
+    "title": "ADBE",
+    "section": "Table of Contents",
+    "text": "Table of Contents"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adobe/adbe.html#optimizing-precision-strategies-for-minimizing-error-rates-in-vip-waiter-robots",
+    "href": "revealjs/slides/2025/adobe/adbe.html#optimizing-precision-strategies-for-minimizing-error-rates-in-vip-waiter-robots",
+    "title": "ADBE",
+    "section": "Optimizing Precision: Strategies for Minimizing Error Rates in VIP Waiter Robots",
+    "text": "Optimizing Precision: Strategies for Minimizing Error Rates in VIP Waiter Robots\n\n\n\nScenario\n\n\nVoice-controlled waiter robots were developed to equip VIP aircraft, but they occasionally produce errors during operation.\nA software update was developed to reduce the frequency of errors.\nTest series were performed to verify the effectiveness of the update.\n\n\nObjectives\n\n\nDoes the new software version reduce the error rate?\nIf yes, by how much?\nEach error that occurs generates costs of 3,14 €, rolling out the software update 42k €. Which software version should be used?"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adobe/adbe.html#navigating-excellence-step-by-step-solutions-for-enhancing-accuracy",
+    "href": "revealjs/slides/2025/adobe/adbe.html#navigating-excellence-step-by-step-solutions-for-enhancing-accuracy",
+    "title": "ADBE",
+    "section": "Navigating Excellence: Step-by-Step Solutions for Enhancing Accuracy",
+    "text": "Navigating Excellence: Step-by-Step Solutions for Enhancing Accuracy\n\nGeneralSpecific (Step 1)Specific (Step 2)\n\n\n\n\n\nStep: Error Rate Reduction\n\n\n\n\nCalculate Error Rates\n\n\nPerform Statistical Test\n\n\nQuantify Result\n\n\n\n\nStep: Cost Analysis (Break-Even)\n\n\n\n\nCost of Errors\n\n\nCost of Software Update\n\n\nCompare Total Costs\n\n\n\n\nStep: Conclusion\n\n\n\n\n\n\nStep 1: Error Rate Reduction\n\nHypothesis:\n\nNull Hypothesis (\\(H_0\\)): The new software version does not reduce the error rate.\nAlternative Hypothesis (\\(H_1\\)): The new software version reduces the error rate.\n\n\n\n\nCalculate Error Rates\n\n\n\n\nDetermine the error rate for the old software version and the error rate for the new software version. Error rate can be calculated as the number of errors divided by the total number of operations.\n\n\n\n\nPerform Statistical Test\n\n\n\n\nUse an appropriate statistical test (C.I. for the Difference in Proportions) to compare the error rates of the old and new software versions.\n\n\n\n\nQuantify Confidence\n\n\n\n\nQuantify confidence by providing confidence intervals for the reduction in error rate if the null hypothesis is rejected.\n\n\n\n\n\n\nStep 2: Cost Analysis (Break-Even)\n\n1. Cost of Errors: Determine the total cost of errors for the old software version and the new software version.\n\\[Cost \\: of \\: Errors = Error \\: Rate × Cost \\: per \\: Error × Number \\: of \\: Operations\\]\n2. Cost of Software Update: Add the cost of rolling out the software update to the total cost for the new software version.\n\\[Total \\: Cost \\: for \\: New \\: Software \\: Version = Cost \\: of \\: Errors \\: (New \\: Software) + Cost \\: of \\: Software \\: Update\\]\n3. Compare Total Costs: Compare the total cost of errors and the cost of software update for the old and new software versions."
+  },
+  {
+    "objectID": "revealjs/slides/2025/adobe/adbe.html#test-series-were-performed-to-verify-the-effectiveness-of-the-update",
+    "href": "revealjs/slides/2025/adobe/adbe.html#test-series-were-performed-to-verify-the-effectiveness-of-the-update",
+    "title": "ADBE",
+    "section": "Test series were performed to verify the effectiveness of the update",
+    "text": "Test series were performed to verify the effectiveness of the update\n\nGeneralSpecificCode (1)Code (2)\n\n\n\ndata_joined_cleaned_tbl &lt;- read_rds(\"01_data/02_wrangled/data_joined_cleaned.rds\")\ndata_joined_cleaned_tbl\n\n#&gt; # A tibble: 2,256 × 3\n#&gt;    software_version id                                                   failure\n#&gt;               &lt;dbl&gt; &lt;chr&gt;                                                  &lt;dbl&gt;\n#&gt;  1              1.1 76e899853d32693594596d20837f7fbd681864daff696baacd2…       0\n#&gt;  2              1.1 3714cb3b078089ac23bd92ab34c184ae6b69e7389c772e9b639…       0\n#&gt;  3              1.1 8601f3d8df88259dd4d0f84a7d0a8b287caf5e08f52b9ca98e4…       0\n#&gt;  4              1.2 4b457e08955d94130bf2f90ff905bc76fb1db3942688ff3e228…       0\n#&gt;  5              1.1 8dbd0947776dbab34f635daaebabc38309d09f45118da420b30…       0\n#&gt;  6              1.2 d7241ff8b59eefc600c21a9f16c12d5045a193f546c22181380…       0\n#&gt;  7              1.2 1a42a494855da0ad19f0535740ee4a8d08c6073bdb9aec157af…       0\n#&gt;  8              1.1 419c2d6bdc8497b2adc6f1f645689d6094d1f077543448d3af9…       0\n#&gt;  9              1.2 8739b5739e334cf30fb624fb970ad575a7475ffbd479ec2aca1…       0\n#&gt; 10              1.1 4c76f9572167ccb21c2e0bc93f6be7cf2cd367a116b84baec79…       0\n#&gt; # ℹ 2,246 more rows\n\n\n\ndata_joined_cleaned_tbl |&gt; \n   count(failure, software_version)\n\n#&gt; # A tibble: 4 × 3\n#&gt;   failure software_version     n\n#&gt;     &lt;dbl&gt;            &lt;dbl&gt; &lt;int&gt;\n#&gt; 1       0              1.1  1461\n#&gt; 2       0              1.2   736\n#&gt; 3       1              1.1    43\n#&gt; 4       1              1.2    16\n\n\n\n\n\n\n\n\n# 1. Read data\ndevice_sv_tbl   &lt;- read_delim(\"01_data/01_raw/device_sv.csv\",   delim = \"|\", col_types = \"dc\")\ntest_result_tbl &lt;- read_delim(\"01_data/01_raw/test_result.csv\", delim = \"|\", col_types = \"dc\")\n\n# 2. Analyze data (I)\ndevice_sv_tbl   |&gt; get_dupes(id)\n\n#&gt; # A tibble: 2 × 3\n#&gt;   id                                                 dupe_count software_version\n#&gt;   &lt;chr&gt;                                                   &lt;int&gt;            &lt;dbl&gt;\n#&gt; 1 bc62efbd55c35066c7dd02b34009fd3c6075834f98eb20aef…          2              1.2\n#&gt; 2 bc62efbd55c35066c7dd02b34009fd3c6075834f98eb20aef…          2              1.1\n\ntest_result_tbl |&gt; get_dupes(pid)\n\n#&gt; # A tibble: 2 × 3\n#&gt;   pid                                                      dupe_count failure\n#&gt;   &lt;chr&gt;                                                         &lt;int&gt;   &lt;dbl&gt;\n#&gt; 1 bc62efbd55c35066c7dd02b34009fd3c6075834f98eb20aef8f43e6e          2       0\n#&gt; 2 bc62efbd55c35066c7dd02b34009fd3c6075834f98eb20aef8f43e6e          2       0\n\n\n\n# 3. Clean data (I)\ndevice_sv_cleaned_tbl   &lt;- device_sv_tbl   |&gt; filter(id  != \"bc62efbd55c35066c7dd02b34009fd3c6075834f98eb20aef8f43e6e\")\ntest_result_cleaned_tbl &lt;- test_result_tbl |&gt; filter(pid != \"bc62efbd55c35066c7dd02b34009fd3c6075834f98eb20aef8f43e6e\")\n\n\n\n\n# 4. Merge data\ndata_joined_tbl &lt;- device_sv_cleaned_tbl |&gt; \n                      left_join(test_result_cleaned_tbl, by = join_by(id == pid))\n\n# 5. Analyze data (II)\ndata_joined_tbl |&gt; count(software_version, failure)\n\n#&gt; # A tibble: 8 × 3\n#&gt;   software_version failure     n\n#&gt;              &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;\n#&gt; 1              1.1       0  1461\n#&gt; 2              1.1       1    43\n#&gt; 3              1.1     100     1\n#&gt; 4              1.1      NA     1\n#&gt; 5              1.2      -1     1\n#&gt; 6              1.2       0   736\n#&gt; 7              1.2       1    16\n#&gt; 8              1.2      NA     2\n\n# 3. Clean data (II)\ndata_joined_cleaned_tbl &lt;- data_joined_tbl |&gt; filter(failure %in% c(0,1))"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adobe/adbe.html#achieving-precision-25-reduction-in-mean-error-rates-for-waiter-robots",
+    "href": "revealjs/slides/2025/adobe/adbe.html#achieving-precision-25-reduction-in-mean-error-rates-for-waiter-robots",
+    "title": "ADBE",
+    "section": "Achieving Precision: 25% Reduction in Mean Error Rates for Waiter Robots",
+    "text": "Achieving Precision: 25% Reduction in Mean Error Rates for Waiter Robots\n\nGeneralSpecific\n\n\n\n\n\ndata_joined_cleaned_tbl |&gt;\n  summarise(\n    error_rate = mean(failure),\n    n          = n(),\n    .by = software_version\n  )\n\n\n\n#&gt; # A tibble: 2 × 3\n#&gt;   software_version error_rate     n\n#&gt;              &lt;dbl&gt; &lt;chr&gt;      &lt;int&gt;\n#&gt; 1              1.1 2.86%       1504\n#&gt; 2              1.2 2.13%        752\n\n\n\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nThere is a 95% chance that the confidence interval of [-0,6 pp; 2,1 pp] contains the true difference in the proportion of error rates between the two software versions. In other words, we cannot say with 95% certainty that there is a difference in mean error rates between these versions.\n\n90% Confidence Interval: [-0,4 pp; 1,8 pp]\n95% Confidence Interval: [-0,6 pp, 2,1 pp]\n99% Confidence Interval: [-1,0 pp, 2,5 pp]\n\n\n\n\n\n\n\n\n\\(Confidence \\: interval = (p_1–p_2) ± z*\\sqrt{\\frac{p_1(1-p_1)}{n_1} + \\frac{p_2(1-p_2)}{n_2}}\\)\n\npropCI(n1 = 1504, n2 = 752, p1 = 0.02859043, p2 = 0.02127660, alpha = 0.10, digits = 3) |&gt; pluck(\"result\") |&gt; select(CI)\n\n#&gt; # A tibble: 1 × 1\n#&gt;   CI                        \n#&gt;   &lt;chr&gt;                     \n#&gt; 1 0.007 [90CI -0.004; 0.018]\n\npropCI(n1 = 1504, n2 = 752, p1 = 0.02859043, p2 = 0.02127660, alpha = 0.05, digits = 3) |&gt; pluck(\"result\") |&gt; select(CI)\n\n#&gt; # A tibble: 1 × 1\n#&gt;   CI                        \n#&gt;   &lt;chr&gt;                     \n#&gt; 1 0.007 [95CI -0.006; 0.021]\n\npropCI(n1 = 1504, n2 = 752, p1 = 0.02859043, p2 = 0.02127660, alpha = 0.01, digits = 3) |&gt; pluck(\"result\") |&gt; select(CI)\n\n#&gt; # A tibble: 1 × 1\n#&gt;   CI                        \n#&gt;   &lt;chr&gt;                     \n#&gt; 1 0.007 [99CI -0.010; 0.025]"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adobe/adbe.html#crossing-the-threshold-at-17m---unveiling-the-cost-efficiency-of-the-update",
+    "href": "revealjs/slides/2025/adobe/adbe.html#crossing-the-threshold-at-17m---unveiling-the-cost-efficiency-of-the-update",
+    "title": "ADBE",
+    "section": "Crossing the Threshold at 1,7M - Unveiling the Cost Efficiency of the Update",
+    "text": "Crossing the Threshold at 1,7M - Unveiling the Cost Efficiency of the Update\n\nGeneralCode (Calc)Code (Plot)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAssumption\n\n\nThe law of large numbers: The average of the results obtained from a large number of independent identical trials should be close to the expected value and tends to become closer to the expected value as more trials are performed.\n\n\n\n\n\n\n# Set unitary cost\ncost_err_1.1  &lt;- 0.02859043 * 3.14\ncost_err_1.2  &lt;- 0.0212766  * 3.14\ncost_rout_1.2 &lt;- 40000\n\n# Create units column\nunits &lt;- seq(from = 0, to = 3000000, by = 100000)\n\n# Create total cost columns\ntotal_cost_1.1 &lt;- cost_err_1.1 * units\ntotal_cost_1.2 &lt;- cost_err_1.2 * units + cost_rout_1.2\n\n# Build data frame\ndf &lt;- data.frame(units, total_cost_1.1, total_cost_1.2)\n\n# Calculate contribution margin & break even units\ncontribution_margin  &lt;- cost_err_1.1 - cost_err_1.2\nbreak_even_units     &lt;- cost_rout_1.2 / contribution_margin \nbreak_even_units_chr &lt;- scales::label_number(accuracy  = 0.1, \n                                             scale_cut = scales::cut_short_scale(),\n                                             big.mark  = \".\", decimal.mark = \",\")(break_even_units)\n\n\n\n\nggplot(data = df, aes(x = units)) +\n  geom_line(aes(y = cost_rout_1.2,\n                col = \"Rollout Cost\")) +\n  geom_line(aes(y = total_cost_1.1,\n                col = \"Total Cost v1.1\")) +\n  geom_line(aes(y = total_cost_1.2,\n                col = \"Total Cost v1.2\")) +\n  geom_segment(aes(x = break_even_units, xend = break_even_units, \n                   y = 0, yend = break_even_units*cost_err_1.1),\n               linetype = \"dashed\", color = \"#9B9B9B\") +\n  geom_segment(aes(x = 0, xend = break_even_units, \n                   y = break_even_units*cost_err_1.1, yend = break_even_units*cost_err_1.1),\n                   linetype = \"dashed\", color = \"#9B9B9B\") +\n  geom_point(aes(x = break_even_units, \n                 y = break_even_units*cost_err_1.1), \n             colour = \"#9B9B9B\", size = 4) +\n  annotate(\"label\", x = break_even_units, y = 0, label = paste(\"Break Even Point:\", break_even_units_chr)) +\n  scale_color_manual(labels = c(\"Rollout Cost\", \"Total Cost v1.1\", \"Total Cost v1.2\"),\n                     values = c(\"Rollout Cost\" = \"black\", \"Total Cost v1.1\" = \"#FFAD00\", \"Total Cost v1.2\" = \"#0A1D3D\")) +\n  scale_y_continuous(breaks = c(0, 40000, 100000, 200000),\n                     labels = scales::dollar_format(suffix = \" €\", prefix = \"\", big.mark = \".\", decimal.mark = \",\")) +\n  scale_x_continuous(labels = scales::unit_format(unit = \"M\", scale = 1e-6)) +\n  geom_ribbon(data = df[df$total_cost_1.2 &gt;= df$total_cost_1.1, ], aes(x = units, ymin = total_cost_1.2, ymax = total_cost_1.1), fill = \"#0A1D3D\", alpha = 0.15) +\n  geom_ribbon(data = df[df$total_cost_1.2 &lt;= df$total_cost_1.1, ], aes(x = units, ymin = total_cost_1.1, ymax = total_cost_1.2), fill = \"#FFAD00\", alpha = 0.15) +\n  labs(title = \"Break Even Point Graph\",\n       x = \"Number of operations (in millions)\",\n       y = \"Expected cost\",\n       color = NULL) +\n  tidyquant::theme_tq()"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adobe/adbe.html#striving-for-perfection-key-takeaways-in-advancing-voice-controlled-waiter-robots",
+    "href": "revealjs/slides/2025/adobe/adbe.html#striving-for-perfection-key-takeaways-in-advancing-voice-controlled-waiter-robots",
+    "title": "ADBE",
+    "section": "Striving for Perfection: Key Takeaways in Advancing Voice-Controlled Waiter Robots",
+    "text": "Striving for Perfection: Key Takeaways in Advancing Voice-Controlled Waiter Robots\n\nSummary\n\n\n\n\nDoes the new software version reduce the error rate?\n\n\n\n\nIn all likelihood (More tests needed, experimentation with other test statistics, …)\n\n\n\n\nBy how much?\n\n\n\n\n25,6% / 0,73pp (taking our assumptions into account)\n\n\n\n\nWhich software version should be used?\n\n\n\n\nThe updated version 1.2 (depending on type of operations and cost of errors)\n\n\n\n\n\nNext Steps\n\n\n\n\nBetter understanding of errors & cost of errors -&gt; Maximizing „utility“ vs. minimizing expected cost\n\n\nGood practices for Data Integrity\n\n\nLooking ahead to version 1.3: Improving quality by analysis of process variables (combating the causes)"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adobe/evomap.html#creative-1",
+    "href": "revealjs/slides/2025/adobe/evomap.html#creative-1",
+    "title": "Beyond the Beginning",
+    "section": "Creative 1",
+    "text": "Creative 1\nasdasd"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adobe/evomap.html#creative-2",
+    "href": "revealjs/slides/2025/adobe/evomap.html#creative-2",
+    "title": "Beyond the Beginning",
+    "section": "Creative 2",
+    "text": "Creative 2\nasdasd"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adobe/evomap.html#creative-3",
+    "href": "revealjs/slides/2025/adobe/evomap.html#creative-3",
+    "title": "Beyond the Beginning",
+    "section": "Creative 3",
+    "text": "Creative 3\nasdasd\n\n\n\nJoschka Schwarz - Beyond the Beginning"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#creative-destruction-out-with-the-old-in-with-the-new",
+    "href": "revealjs/slides/2025/adbe/adbe.html#creative-destruction-out-with-the-old-in-with-the-new",
+    "title": "Beyond the Beginning",
+    "section": "Creative Destruction: Out with the Old, in with the New",
+    "text": "Creative Destruction: Out with the Old, in with the New\n\n\n\n\n\n\nSchumpeter characterized creative destruction as innovations in the manufacturing process that increase productivity, describing it as the …\n\n\n… «process of industrial mutation that incessantly revolutionizes the economic structure from within, incessantly destroying the old one, incessantly creating a new one.»\n\n\n\n\n— Joseph Schumpeter (1942)"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#digital-disrupt-how-netflixs-success-demonstrates-the-effectiveness-of-business-model-innovation",
+    "href": "revealjs/slides/2025/adbe/adbe.html#digital-disrupt-how-netflixs-success-demonstrates-the-effectiveness-of-business-model-innovation",
+    "title": "Beyond the Beginning",
+    "section": "Digital Disrupt: How Netflix’s Success demonstrates the Effectiveness of Business Model Innovation",
+    "text": "Digital Disrupt: How Netflix’s Success demonstrates the Effectiveness of Business Model Innovation"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#securing-the-future-navigating-the-evolutionary-path-of-business-models-for-sustainable-growth",
+    "href": "revealjs/slides/2025/adbe/adbe.html#securing-the-future-navigating-the-evolutionary-path-of-business-models-for-sustainable-growth",
+    "title": "Beyond the Beginning",
+    "section": "Securing the Future: Navigating the Evolutionary Path of Business Models for sustainable Growth",
+    "text": "Securing the Future: Navigating the Evolutionary Path of Business Models for sustainable Growth"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#blockbusters-digital-demise-how-failing-to-adapt-led-to-bankruptcy-dynamics-of-competitive-structures",
+    "href": "revealjs/slides/2025/adbe/adbe.html#blockbusters-digital-demise-how-failing-to-adapt-led-to-bankruptcy-dynamics-of-competitive-structures",
+    "title": "Beyond the Beginning",
+    "section": "Blockbuster’s Digital Demise: How Failing to Adapt Led to Bankruptcy (Dynamics of competitive structures)",
+    "text": "Blockbuster’s Digital Demise: How Failing to Adapt Led to Bankruptcy (Dynamics of competitive structures)"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#constructive-destruction-what-has-to-be-changed",
+    "href": "revealjs/slides/2025/adbe/adbe.html#constructive-destruction-what-has-to-be-changed",
+    "title": "Beyond the Beginning",
+    "section": "Constructive destruction: What has to be changed?",
+    "text": "Constructive destruction: What has to be changed?\n\n\n\n\n\n\n\n[…] it is not that kind of competition [price, ed] which counts but the competition from the new commodity, the new technology, the new source of supply, the new type of organization – competition which commands a decisive cost or quality advantage and which strikes not at the margins of the profits and the outputs of the existing firms but at their foundations and their very lives.»\n\n\n\n\n— Joseph Schumpeter (1942)\n\n\n\n\n\n\n\nBusiness Model Canvas\n\n\n\n\n\n\n\n\n\n\n\nValue Proposition Canvas"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#research-objective-an-evolutionary-approach-to-business-model-innovation-value-proposition-development",
+    "href": "revealjs/slides/2025/adbe/adbe.html#research-objective-an-evolutionary-approach-to-business-model-innovation-value-proposition-development",
+    "title": "Beyond the Beginning",
+    "section": "Research Objective: An evolutionary approach to Business Model Innovation & Value Proposition Development",
+    "text": "Research Objective: An evolutionary approach to Business Model Innovation & Value Proposition Development\n\n\n\nMarket structure map: Spatial representation of firms’ competitive positions relative to one another based on some measure of their competitive relationships (DeSarbo et al. 1993).\n\n\n\nSuch maps typically capture static snapshots in time. Yet, competitive positions tend to change.\n\n\n\nFirms’ trajectories: Evolutionary paths of firms’ positions over time relative to all other firms in a market based on their value proposition"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#defining-a-startups-unique-value-proposition-how-to-identify-core-value",
+    "href": "revealjs/slides/2025/adbe/adbe.html#defining-a-startups-unique-value-proposition-how-to-identify-core-value",
+    "title": "Beyond the Beginning",
+    "section": "Defining a Startup’s unique Value Proposition: How to identify Core Value?",
+    "text": "Defining a Startup’s unique Value Proposition: How to identify Core Value?\n \n \n\n\n\n\n\nApproach\n\n\n\nStatic: Venture Capital Databases (Crunchbase, Pitchbook, … )\n\n\n\n\n\n\n\nDynamic: Natural language processing and historical websites (WayBack Machine)"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#how-they-faced-a-digital-transformation-changes-in-netflixs-business-model-over-time",
+    "href": "revealjs/slides/2025/adbe/adbe.html#how-they-faced-a-digital-transformation-changes-in-netflixs-business-model-over-time",
+    "title": "Beyond the Beginning",
+    "section": "How they faced a Digital Transformation: Changes in Netflix’s business model over time",
+    "text": "How they faced a Digital Transformation: Changes in Netflix’s business model over time"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#handling-noisy-data-part-1-extracting-key-noun-phrases-for-essential-insight",
+    "href": "revealjs/slides/2025/adbe/adbe.html#handling-noisy-data-part-1-extracting-key-noun-phrases-for-essential-insight",
+    "title": "Beyond the Beginning",
+    "section": "Handling Noisy Data Part 1:Extracting Key Noun Phrases for Essential Insight",
+    "text": "Handling Noisy Data Part 1:Extracting Key Noun Phrases for Essential Insight\n \n\n\nUnlike simplistic keywords, nounphrases transcend single words, comprising compound expressions that encapsulate the essence of the text more comprehensively\n\n\n\nTools: SpaCy (nounchunk library) & Custom Algorithmus"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#handling-noisy-data-part-2-leveraging-embeddings-for-similarity-calculations",
+    "href": "revealjs/slides/2025/adbe/adbe.html#handling-noisy-data-part-2-leveraging-embeddings-for-similarity-calculations",
+    "title": "Beyond the Beginning",
+    "section": "Handling Noisy Data Part 2:Leveraging Embeddings for Similarity Calculations",
+    "text": "Handling Noisy Data Part 2:Leveraging Embeddings for Similarity Calculations"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#handling-noisy-data-part-3-clustering-with-candidate-keyphrases",
+    "href": "revealjs/slides/2025/adbe/adbe.html#handling-noisy-data-part-3-clustering-with-candidate-keyphrases",
+    "title": "Beyond the Beginning",
+    "section": "Handling Noisy Data Part 3:Clustering with Candidate Keyphrases",
+    "text": "Handling Noisy Data Part 3:Clustering with Candidate Keyphrases\n \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCluster Crunchbase & Pitchbook Description Embeddings, which are describing value propositions\n\n\n\n\nUse corresponding medoids/centroids (k=300) as ultimate truth anchors\n\n\n\n\nFind appropriate similarity threshold as cutoff for website embeddings"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#handling-noisy-data-part-4-consolidating-unique-embeddings-for-value-propositions",
+    "href": "revealjs/slides/2025/adbe/adbe.html#handling-noisy-data-part-4-consolidating-unique-embeddings-for-value-propositions",
+    "title": "Beyond the Beginning",
+    "section": "Handling Noisy Data Part 4:Consolidating Unique Embeddings for Value Propositions",
+    "text": "Handling Noisy Data Part 4:Consolidating Unique Embeddings for Value Propositions"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#mapping-moments-unveiling-competitive-positions-through-time-indexed-pairwise-similarity-measures",
+    "href": "revealjs/slides/2025/adbe/adbe.html#mapping-moments-unveiling-competitive-positions-through-time-indexed-pairwise-similarity-measures",
+    "title": "Beyond the Beginning",
+    "section": "Mapping Moments: Unveiling competitive positions through Time-Indexed Pairwise Similarity Measures",
+    "text": "Mapping Moments: Unveiling competitive positions through Time-Indexed Pairwise Similarity Measures"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#proof-of-concept-exploring-competitive-landscapes-with-the-evomap-algorithm",
+    "href": "revealjs/slides/2025/adbe/adbe.html#proof-of-concept-exploring-competitive-landscapes-with-the-evomap-algorithm",
+    "title": "Beyond the Beginning",
+    "section": "Proof of Concept: Exploring Competitive Landscapes with the EvoMap Algorithm",
+    "text": "Proof of Concept: Exploring Competitive Landscapes with the EvoMap Algorithm\n \n\n\n\n\n\n\nSequence of Maps\n\n\n\n\n\n\n\nDynamic Map"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#exploring-the-role-of-pivotal-shifts-driving-force-or-outcome-variable",
+    "href": "revealjs/slides/2025/adbe/adbe.html#exploring-the-role-of-pivotal-shifts-driving-force-or-outcome-variable",
+    "title": "Beyond the Beginning",
+    "section": "Exploring the Role of Pivotal Shifts: Driving Force or Outcome Variable?",
+    "text": "Exploring the Role of Pivotal Shifts: Driving Force or Outcome Variable?"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#fueling-startup-success-pivotal-shifts-as-driving-force-behind-securing-funding",
+    "href": "revealjs/slides/2025/adbe/adbe.html#fueling-startup-success-pivotal-shifts-as-driving-force-behind-securing-funding",
+    "title": "Beyond the Beginning",
+    "section": "Fueling Startup Success: Pivotal Shifts as Driving Force Behind Securing Funding",
+    "text": "Fueling Startup Success: Pivotal Shifts as Driving Force Behind Securing Funding"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#b1-the-evolutionary-path",
+    "href": "revealjs/slides/2025/adbe/adbe.html#b1-the-evolutionary-path",
+    "title": "Beyond the Beginning",
+    "section": "B1: The Evolutionary Path",
+    "text": "B1: The Evolutionary Path"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#b2-websites-perceived-value-proposition",
+    "href": "revealjs/slides/2025/adbe/adbe.html#b2-websites-perceived-value-proposition",
+    "title": "Beyond the Beginning",
+    "section": "B2: Websites: Perceived value proposition",
+    "text": "B2: Websites: Perceived value proposition\n \n\n\n\n\n\nValue propositions are derived from the descriptions that firms provide to the market through their websites\nThis contrasts with existing industry classification schemes, which often rely on external assessments\nBy this, we capture a more dynamic and internally generated perspective of their industry affiliations, potentially offering a richer understanding of their positioning and evolution over time"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#start-up-roadmap-the-myth-of-the-linear-path",
+    "href": "revealjs/slides/2025/adbe/adbe.html#start-up-roadmap-the-myth-of-the-linear-path",
+    "title": "Beyond the Beginning",
+    "section": "Start-up Roadmap: The Myth of the Linear Path",
+    "text": "Start-up Roadmap: The Myth of the Linear Path"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#st-goal-keyphrase-extraction",
+    "href": "revealjs/slides/2025/adbe/adbe.html#st-goal-keyphrase-extraction",
+    "title": "Beyond the Beginning",
+    "section": "1st Goal: Keyphrase Extraction",
+    "text": "1st Goal: Keyphrase Extraction\n\n\n\n\n\n\nJoschka Schwarz - Beyond the Beginning"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#heading-1",
+    "href": "revealjs/slides/2025/adbe/adbe.html#heading-1",
+    "title": "Beyond the Beginning",
+    "section": "Heading 1",
+    "text": "Heading 1\nText1"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#heading-2",
+    "href": "revealjs/slides/2025/adbe/adbe.html#heading-2",
+    "title": "Beyond the Beginning",
+    "section": "Heading 2",
+    "text": "Heading 2\nText2"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#heading-1-1",
+    "href": "revealjs/slides/2025/adbe/adbe.html#heading-1-1",
+    "title": "Beyond the Beginning",
+    "section": "Heading 1",
+    "text": "Heading 1\nText1"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#heading-2-1",
+    "href": "revealjs/slides/2025/adbe/adbe.html#heading-2-1",
+    "title": "Beyond the Beginning",
+    "section": "Heading 2",
+    "text": "Heading 2\nText2"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#heading-1-2",
+    "href": "revealjs/slides/2025/adbe/adbe.html#heading-1-2",
+    "title": "Beyond the Beginning",
+    "section": "Heading 1",
+    "text": "Heading 1\nText1"
+  },
+  {
+    "objectID": "revealjs/slides/2025/adbe/adbe.html#heading-2-2",
+    "href": "revealjs/slides/2025/adbe/adbe.html#heading-2-2",
+    "title": "Beyond the Beginning",
+    "section": "Heading 2",
+    "text": "Heading 2\nText2\n\n\n\nJoschka Schwarz - Beyond the Beginning"
   }
 ]
